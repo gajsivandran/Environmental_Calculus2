@@ -1,8 +1,8 @@
 # _publish_calculus.R
 # Bookdown -> GitHub Pages (docs/) with auto-fixes for the Calculus book
 
-EXPECTED_REMOTE <- "https://github.com/gajsivandran/Environmental_Calculus_2.git"
-PAGES_URL       <- "https://gajsivandran.github.io/Environmental_Calculus_2/"
+EXPECTED_REMOTE <- "https://github.com/gajsivandran/Environmental_Calculus2.git"
+PAGES_URL       <- "https://gajsivandran.github.io/Environmental_Calculus2/"
 BRANCH_OVERRIDE <- Sys.getenv("BRANCH_OVERRIDE", unset = NA_character_)  # e.g., "main2"
 
 suppressPackageStartupMessages({
