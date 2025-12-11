@@ -1,5 +1,5 @@
 --- 
-title: "Environmental Calculus - Active Learning with Case Studies"
+title: "Environmental Calculus 2 - Active Learning with Case Studies"
 author: "Gaj Sivandran"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -9,11 +9,10 @@ bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: rstudio/bookdown-demo
-description: "A textbook companion to the Univeristy of Washington QSci 291 class"
+description: "A textbook companion to the Univeristy of Washington QSci 292 class"
 ---
 
 # Why Calculus?
-THIS IS 292
 Welcome to *Calculus for Environmental Science*. 🌱  
 
 This book is your companion for exploring the natural world through the lens of calculus—especially the powerful ideas of **change** and **accumulation**. You’ll find that calculus is not just about symbols on a page—it’s about asking meaningful questions, interpreting patterns, and making sense of complex environmental systems. And along the way, you’ll see that you are absolutely capable of mastering these ideas.  
@@ -50,17 +49,6 @@ But throughout this book, our main goal is to connect calculus directly to the e
 
 We’ll build your understanding of these concepts step by step, supported by graphs, data, and hands-on examples. And if it’s been a while since your last math class, that’s completely okay—you’ll find plenty of support here. We’ll meet you where you are and grow your skills together.  
 
-
-::: promptbox
-
-**Change is Everywhere**
-
-In a small group, discuss where  *change* could be happening in this image?
-
-![Image of a river, shrubs on the banks, large trees in the background, a deer drinking at the stream](images/Nature.png)
-<br><br><br><br><br><br>
-:::
-
 ---
 
 ## How This Book Works
@@ -86,8 +74,6 @@ Just like in science, learning calculus is about **iteration**—trying, testing
 Assessments in this class are snapshots of your thinking at a particular moment in time. They are not final judgments about your intelligence, your worth, or your potential. You will have chances to revisit concepts, refine your understanding, and demonstrate what you’ve learned. Growth comes from re-engaging with the material, not from perfection on the first try.  
 
 So give yourself permission to be imperfect. Keep engaging, reflecting, and asking questions. We’ll be here to support you every step of the way. 
-
-
 
 ---
 

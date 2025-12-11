@@ -4,9 +4,12 @@ output:
   html_document: default
   pdf_document: default
 ---
-# Calculus I Equation Sheet {-}
+
+# Calculus II Equation Sheet {-}
+##UNDER CONSTRUCTION
 
 ---
+
 
 **Basic Derivative Rules**
 

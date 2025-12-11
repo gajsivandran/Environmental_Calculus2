@@ -1,8 +1,6 @@
 book_filename: "bookdown-demo"
-rmd_files: ["index.Rmd", "03-intro.Rmd", "05-Derivatives.Rmd", "07-Derivative_Rules.Rmd","08-application.Rmd","09-optimization.Rmd",
-            "20-Equation_sheet.Rmd","21-test_review.Rmd","22-test_review.Rmd","23-test_review.Rmd","24-test_review.Rmd","101-index_wB.Rmd",
-            "102-intro-workbook.Rmd","103-Derivatives_WB.Rmd","104-DerivativesRules_WB.Rmd",
-            "105-Applications_WB.Rmd","106-optimization_WB.Rmd"]
+rmd_files: ["index.Rmd", "02-intro.Rmd", "20-Equation_sheet.Rmd","21-test_review.Rmd","101-index_wB.Rmd",
+            "102-intro-workbook.Rmd"]
 
 output_dir: "docs"
 clean: [packages.bib, bookdown.bbl]

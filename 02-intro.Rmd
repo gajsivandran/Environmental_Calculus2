@@ -1,0 +1,1423 @@
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE, message = FALSE, warning = FALSE,
+  fig.align = 'center', fig.width = 7, out.width = '80%'
+)
+options(digits = 4)
+```
+
+# Pre-Calculus Foundations
+
+## Learning Objectives
+
+By the end of this chapter, you will be able to:
+
+- Interpret and compare functions from **graphs**, **tables**, and **formulas**.  
+- Track **units** through computations and check results for reasonableness.  
+- Build and evaluate a simple model for an environmental variable as a function of **time** and **elevation**.  
+
+It may have been a while since you last used some of your pre-calculus knowledge. Don’t worry if certain topics feel unfamiliar—we’ll walk through each concept with context and practice.  
+
+This chapter is designed to help you **review and refresh** the foundational math skills that will support your success in this course. Think of it as a **toolbox**: later chapters will point to specific tools you’ll need to solve real problems, and those are the ideal moments to revisit them. Concepts stick best when learned in context—so come back to this chapter anytime you need a quick refresher.  
+
+---
+
+## What You’re Expected to Know
+
+To get the most out of this course, you should feel reasonably comfortable with:
+
+- Working with functions and interpreting graphs  
+- Manipulating algebraic equations  
+- Rules for exponents and logarithms  
+- Understanding and converting units  
+- Reading and setting up word problems  
+
+If these topics feel rusty, that’s perfectly normal. This chapter is here to get you back up to speed—and to remind you that you already have more tools than you might think.  
+
+---
+
+## How to Approach Calculus Problems
+
+Understanding calculus isn’t about memorizing steps—it’s about learning to *think mathematically* so you can interpret real-world change. It’s normal for parts of this to feel unfamiliar at first; progress comes from trying, checking, and revising. In this course, we’ll model environmental systems—temperature, rainfall, population dynamics—and the goal is clarity, not perfection on the first attempt. 
+
+When you get stuck, start small: sketch the situation, label axes and units, compute one example value, and say out loud what a slope or an area means **in context**. Treat mistakes as information, not judgment—they show you what to try next. Keep going; you’re building tools you’ll use well beyond this class.
+
+Here’s a strategy to help you become a more confident problem solver:
+
+---
+
+### Clarify the Ask
+
+- What is being asked?  
+- Is the question about a **rate of change**, a **maximum/minimum**, or an **accumulated quantity**?  
+- What type of function or scenario is involved (linear, quadratic, exponential, etc.)?
+
+> *Always start by identifying what quantities are changing and how they’re related.*
+
+---
+
+### List the Givens
+
+- Write down the **given information** clearly.  
+- Label all **variables**, **units**, and **known values**.  
+- If a graph or context is given, sketch or summarize what you see.
+
+> *Clarity in setup is half the solution.*
+
+---
+
+### Translate the Math
+
+Equations are not just symbols—they are **instructions**:
+
+- Each **term** contributes to the behavior of the function.  
+- **Operators** (+, −, ×, ÷, …) tell you what actions to take.  
+- **Derivatives** tell you how the function is changing.
+
+> *Don’t rush through the algebra. Pause and ask: “What is this term telling me?”*
+
+---
+
+### Work Step by Step
+
+Instead of aiming straight for the final answer, focus on the **process**:
+
+- Write out **what** you’re doing and **why**.  
+- If you take a derivative, explain what it represents (e.g., “This is the rate of change of population over time.”)  
+- Label your steps so they can be traced logically.
+
+> *When taking notes, don’t just copy answers. Write procedures and reasoning—this builds transferable understanding.*
+
+---
+
+### Reflect and Interpret
+
+- Does your answer make sense in context?  
+- Are the **units** correct?  
+- Is the **magnitude** reasonable?  
+- What does your result say about the **system** you’re studying?
+
+> *In environmental science, the interpretation is as important as the calculation.*
+
+---
+
+### Growth Mindset
+
+You may not see math in every class you take—that’s okay. Our goal here is to build **confidence** and **numerical literacy**.
+
+Solving math problems is a **step-by-step** process. Thinking too far ahead can cause confusion. Take it **one step at a time**—that’s how you make progress.
+
+Also, try not to **overthink** mid-solution. If you tried to narrate every muscle movement while climbing stairs, you might trip. Trust yourself. Don’t **second-guess** every step—work through to the end. When you reflect, you’ll catch errors and sharpen your thinking.
+
+> *Confidence grows by doing. Keep moving forward—even imperfect progress builds understanding.*
+
+Athletes know this: when you overanalyze your swing *while* swinging, performance often gets worse. Much of skilled work is partly **automatic**. Bringing every detail into the **conscious** mind can interrupt your flow.
+
+Trust your instincts. Don’t be afraid to commit to your approach. **Swing through**—you’ll learn more by finishing a solution than by freezing in doubt.
+
+---
+
+## How We Communicate Relationships
+
+By thinking of functions as **input-output machines** and visualizing them on a graph, you'll be better equipped to interpret and model relationships in environmental systems and beyond.
+
+A function represents a relationship between two quantities: an **input** and an **output**. The way we represent and communicate this is through:
+
+-   Verbal descriptions
+-   Graphical representations like charts
+-   Tables of data
+-   Formulas that capture the relationship
+
+::: activity
+**Your Turn**
+
+In a small group describe how the air temperature has changed in the last 24 hours.
+
+-   Write a statement describing the air temperature
+-   Graphically represent your description
+-   Create a table that represents your discussion
+-   Attempt to write an equation
+
+Now discuss the pros and cons of each of the methods. Discuss what you can and can't do with each description of the temperature and time relationship.
+:::
+
+
+::: activity
+**Discussion Prompt**
+
+How does air temperature change with elevation as you hike up a mountain? Can we describe that change with a function?
+
+As you move upward through the atmosphere, the temperature typically drops at a fairly predictable rate. This is called the adiabatic lapse rate, which averages around 6.5°C per 1000 meters (or about 1°C per 154 meters).
+
+You’ll use this rule to model how the temperature changes from Seattle (sea level) to the summit of Mount Rainier (4392 m).
+
+Assume the temperature at sea level in Seattle is 18°C.
+
+Let's use our approach to problem solving:
+
+a)  **What is the ask?**
+
+b)  **What are we given?**
+
+c)  **Translate the Math & Work step-by-step**
+
+We can translate this word problem into a *table*.
+
+Use the lapse rate to compute the temperature at the following elevations:
+
+| Elevation (m) | Temperature (°C) |
+|:-------------:|------------------|
+|  0 (Seattle)  |                  |
+|     1000      |                  |
+|     2000      |                  |
+|     3000      |                  |
+|     4000      |                  |
+
+We could visualize this data by plotting these points on a *graph*
+
+Use R or graph paper to create a quick sketch of the temperature vs. elevation relationship.
+
+```{r lapse-rate-plot, echo=FALSE, fig.cap="Air temperature (degC) as a function of time (hours)", cache=FALSE}
+plot(0, 0, type = "n", 
+     xlim = c(0, 5000), ylim = c(-15, 20),
+     xlab = "Elevation (m)", ylab = "Temperature (degC)",
+     main = "Temperature vs Elevation")
+
+abline(v = 4392, col = "gray", lty = 2)
+text(4300, 18, "Mount Rainier\n(4392 m)", pos = 4, cex = 0.8)
+```
+
+Finally we could attempt to write a *function* Use the pattern in the data to define a linear function that models temperature as a function of elevation.
+
+Let:
+
+-   $T(h)$ = temperature at elevation $h$ (in meters)
+-   Assume $T(0) = 18$ and use the lapse rate to define the slope
+
+> $T(h) =$
+
+d)  **Reflect and Interpret**
+
+-   Does you answer make sense? Does it pass the sniff test?
+-   Is that what you observe when you go hiking?
+-   What does the slope of your function represent?
+-   What temperature do you predict at 4392 meters (Mount Rainier's summit)?
+:::
+
+## Functions and Their Representations
+In the last activity we wrote a simple function. Now let’s take a step back and make sure we understand what functions mean and how they work.
+
+### Understanding What \(f(x)\) Means
+
+You’ve probably seen the equation of a line written like this:
+
+\[
+y = mx + b
+\]
+
+This is the same as writing:
+
+\[
+f(x) = mx + b
+\]
+
+Both notations describe the same relationship. Here’s what they mean:
+
+- \(x\) is the **input** (what you plug into the function).  
+- \(f(x)\) or \(y\) is the **output** (what comes out after applying the function rule).  
+
+Graphically:
+
+- The **input** is usually plotted along the **x-axis**.  
+- The **output** (\(y\) or \(f(x)\)) is plotted along the **y-axis**.  
+
+So when you see a point like \((4, 11)\), it means:
+
+- Input \(x = 4\) produces output \(f(x) = 11\).  
+
+A function is like a **black box**: you put something in, a rule is applied, and you get something out.  
+
+For example:
+
+\[
+f(x) = 2x + 3
+\]
+
+If we input \(x = 4\):
+
+\[
+f(4) = 2 \cdot 4 + 3 = 11
+\]
+
+So the point \((4, 11)\) would appear on the graph.
+
+- Input: \(x = 4\)  
+- Rule: multiply by 2, then add 3  
+- Output: \(f(4) = 11\)  
+
+---
+
+### Functions Don’t Have to Be Named \(f\)
+
+Functions can be named in ways that make their meaning clearer. For example:
+
+- \(T(t)\) for **temperature** as a function of **time**  
+- \(P(n)\) for **population** as a function of **years**  
+
+The variable also doesn’t always have to be \(x\). Choosing names that match the context makes your math easier to read, easier to explain, and easier to connect to the real world.  
+
+---
+
+#### Why Meaningful Function Names Matter
+
+Suppose we want to model how land temperature **T** (in °C) changes with distance **d** (in km) from the shore. We could write the function in a very generic way:
+
+\[
+f(x) = 0.2x + 3
+\]
+
+Here, **f** is the temperature and **x** is the distance. This works mathematically, but it doesn’t tell us much about what the variables *mean*.  
+
+A clearer way is to use variables that match the context:
+
+\[
+T(d) = 0.2d + 3
+\]
+
+Now the function communicates something immediately:  
+
+- \(T(d)\) = land temperature (°C)  
+- \(d\) = distance from the coast (km)  
+
+This version is not only valid but **more meaningful**:  
+
+> *“Temperature increases by 0.2°C for every kilometer inland, starting from 3°C at the coast.”*
+
+By naming functions and variables in ways that reflect the system being studied, we make the math easier to interpret, easier to explain, and easier to apply.  
+
+---
+
+### Functions Can Have More Than One Input \(\, f(x,y) \)
+
+Many environmental processes depend on more than one variable. For example, the distribution of a terrestrial species might be best described as a function of \(x\) and \(y\), where \(x\) is longitude and \(y\) is latitude.  
+
+**Thinking further:** what would the function look like for the location of a species in **three dimensions**, such as mapping their position in a water column? How would you write this mathematically?  
+
+In reality, many environmental systems depend on far more than three variables. When building models, the art is in **simplifying**: choosing the key variables that matter most for the question at hand. Including every possible factor would be too complex to work with, so we focus on what’s essential.  
+
+---
+
+::: activity
+**Discussion Prompt**
+
+In a group discuss the factors that control the growth of a tree. Write a pseudo-equation that takes the form of $$
+\text{Growth} = f(\text{Variable 1}, \text{Variable 2}, \ldots)
+$$ How many variables drive the growth of a tree?
+:::
+
+::: activity
+**Activity: Modeling Temperature as a Function of Time and Elevation**
+
+**Learning Goals**
+
+-   Understand how to construct and interpret a function of two variables.
+-   Apply environmental context to multivariable functions.
+-   Visualize how elevation impacts the daily temperature cycle using lapse rate.
+
+At sea level, the temperature throughout the day is modeled by:
+
+-   $T(t) = 10 - 5 \cdot \cos\left(\frac{\pi t}{12}\right)  [°C]$
+
+Temperature decreases with elevation, at a lapse rate of 6.5°C per 1000 meters:
+
+-   $L= \frac{6.5}{1000} = 0.0065 [\frac{°C}{m}]$
+
+The temperature as a function of elevation alone (assuming sea level temperature is 10°C):
+
+-   $T(h) = 10 - 0.0065 \cdot h$
+
+So the temperature as a function of both time t and elevation h is:
+
+-   $T(t, h) = 10 - 5 \cdot \cos\left(\frac{\pi t}{12}\right) - 0.0065 \cdot h$
+
+```{r, echo=FALSE}
+## Define a new function of two variables: time t (in hours) and elevation h (in meters)
+T <- function(t, h) {
+  10 - 5 * cos(pi * t / 12) - 0.0065 * h
+}
+
+## Create a data frame with sample times and elevations
+temp_df <- data.frame(
+  time = c(6, 6, 6, 12, 12, 18, 18),
+  elevation = c(0, 500, 1500, 0, 1000, 2000, 5000)
+)
+
+## Apply the function to compute temperature
+temp_df$temperature <- T(temp_df$time, temp_df$elevation)
+temp_df$temperature <- T(temp_df$time, temp_df$elevation)
+temp_df
+```
+
+**Reflection:**
+
+-   At what time of day is the temperature difference between sea level and 2000 m greatest?
+-   What happens to the daily temperature range as elevation increases?
+-   Does the timing of the warmest part of the day change with elevation?
+-   Stare at this equation T(t, h) = 10 - 5 \* cos(pi \* t / 12) - 0.0065 \* h, can you visualize the impact of t? what about h?
+-   The equation could have been written as f(x, y) = 10 - 5 \* cos(pi \* x / 12) - 0.0065 \* y, would this be harder to interpret?
+
+```{r apply-the-function-to-compute-temperature-405, fig.cap="Apply the function to compute temperature", cache=FALSE, echo=FALSE}
+library(ggplot2)
+library(dplyr)
+
+## Create grid of values
+t_vals <- seq(0, 24, by = 0.5)
+h_vals <- seq(0, 5000, by = 100)
+grid <- expand.grid(t = t_vals, h = h_vals)
+
+grid$temp <- with(grid, T(t, h))
+
+## Contour plot
+ggplot(grid, aes(x = t, y = h, z = temp)) +
+  geom_contour_filled() +
+  labs(
+    title = "Temperature as a Function of Time and Elevation",
+    x = "Time of Day (hours)",
+    y = "Elevation (m)",
+    fill = "Temperature (°C)"
+  ) +
+  theme_minimal()
+```
+
+```{r, echo=FALSE}
+library(plotly)
+library(dplyr)
+
+## Define temperature function
+T_func <- function(t, h) {
+  10 - 5 * cos(pi * t / 12) - 0.0065 * h
+}
+
+## Time sequence
+t_vals <- seq(0, 24, by = 0.1)
+
+## Elevations to plot
+elevations <- c(0, 1000, 2000, 3000, 4000, 4392)
+
+## Create a data frame for each elevation
+temp_data <- lapply(elevations, function(h) {
+  data.frame(
+    time = t_vals,
+    temp = T_func(t_vals, h),
+    elevation = paste0(h, " m")
+  )
+}) %>%
+  bind_rows()
+
+## Interactive plot
+plot_ly(temp_data, x = ~time, y = ~temp, color = ~elevation, type = 'scatter', mode = 'lines') %>%
+  layout(
+    title = "Temperature vs Time at Different Elevations",
+    xaxis = list(title = "Time of Day (hours)"),
+    yaxis = list(title = "Temperature (°C)"),
+    legend = list(title = list(text = "Elevation"))
+  )
+```
+:::
+
+## Graphing and Interpreting Change
+
+Understanding the shape of a graph is crucial for interpreting real-world phenomena. Here are key features to notice:
+
+-   **Increasing/Decreasing:** Is the function going up or down as $x$ increases?
+-   **Peaks and Valleys:** Where are the local maxima and minima?
+-   **Concavity:** Does the curve bend upward (concave up) or downward (concave down)?
+
+Let's look at an example of a quadratic function, which is commonly used to model situations with a single peak or valley. This function is an increasing function for $x<2$ and decreasing for $x>2$. It has a maximum at $x=2$. We can also notice that the concavity of the function is concave down.
+
+We can also look at the how the function is **changing** as we move along the x axis. At $x=2$ the slope of the function is positive and steep. As we approach the maximum, the slope of the function is still positive, but its not increasing as fast. We could say its increasing at a decreasing rate. At the peak, the function is not longer changing. Now as we pass $x=2$ the function is decreasing slowly at first, but faster and faster as $x$ gets further away from the peak.
+
+You can think of this as a ball in your hand. You throw it up, initially its moving fast, but as gravity acts on the ball it slows. Then for an instance, the ball hangs in the air - this is where it reaches its peak. Then the ball starts to fall, slowly at first, but it then begins to fall faster and faster.
+
+```{r graph-change-example, echo=FALSE}
+f <- function(x) { -x^2 + 4*x + 5 }
+curve(f, from = 0, to = 6, main = "Quadratic Function", ylab = "f(x)", xlab = "x")
+abline(h = 0, col = "gray", lty = 2)
+```
+
+The calculus you will learn in this course will give you the tools needed to quatify these observations. Identify the rates of change at different point and find the maximas and minimas.
+
+## Key Function Types
+
+Here are five common functions you'll encounter:
+
+| Function Type |        Form         |          Environmental Example          |
+|:----------------:|:------------------:|:--------------------------------:|
+|    Linear     |    $y = mx + b$     |     Streamflow increasing over time     |
+|   Quadratic   | $y = ax^2 + bx + c$ | Pollution dispersal from a point source |
+|  Exponential  |  $y = a \cdot b^x$  |         Invasive species growth         |
+|  Logarithmic  |    $y = \log(x)$    |          pH or sound intensity          |
+
+::: activity
+**Mini Exercise** Match the following environmental situations with function types:\
+1. Forest biomass grows rapidly, then levels off.\
+2. A spill’s impact decreases as you move downstream.\
+3. A steady rise in sea level over time.
+
+**Discussion Prompt** What environmental processes could you model with these functions. See if you can identify some additional real-world examples for each graph.
+
+Sketch the rough shapes of these functions and identify some of their key features?
+:::
+
+------------------------------------------------------------------------
+
+## Units, Rates, and Word Problems
+
+Units are a scientist’s best friend. They don’t just tell us *what* we’re measuring—they also help us check if our answers make sense. In calculus, units play a central role because they give meaning to **rates of change** (derivatives) and **accumulations** (integrals).
+
+Here are some common examples in environmental science:
+
+- Atmospheric CO₂ concentration is measured in **ppm** (parts per million).  
+- Rainfall might be reported in **mm/hour**.  
+- Streamflow can be given in **m³/s** (cubic meters per second).  
+- Tree growth might be in **cm/year**.  
+
+---
+
+### Why Units Matter
+
+Think of units as *guardrails* for problem solving:
+
+- They help you avoid mistakes (e.g., mixing meters with kilometers).  
+- They give physical meaning to abstract symbols.  
+- They allow you to compare across systems and scales.  
+
+If your answer has the wrong units, it’s almost certainly the wrong answer.
+
+---
+
+#### A Famous Example: The Mars Orbiter Mishap 🚀
+
+In 1999, NASA lost the **Mars Climate Orbiter**, a spacecraft that cost **$390 million** to design, build, and launch—all because of a simple unit conversion error.  
+
+- One engineering team used **English units** (pound-seconds of force).  
+- Another team assumed **metric units** (Newton-seconds).  
+- The mismatch went unnoticed, and the spacecraft’s trajectory was off course.  
+
+The result: the orbiter entered Mars’ atmosphere at the wrong altitude and was destroyed.  
+
+
+This dramatic example shows why scientists and engineers obsess over units. While our classroom mistakes won’t crash a $390 million spacecraft, they can still derail your reasoning. Keeping track of units is one of the simplest—and most powerful—ways to check your work.  
+
+---
+
+::: activity
+**Activity: Average Rate of Change**
+
+Suppose atmospheric CO₂ increases from **400 ppm** to **420 ppm** over **5 years**.  
+
+Calculate the **average rate of change**
+
+Now repeat the procee but this time no numbers, run the same calculation with just the units. What do you end up with?
+
+Now tell me the sotry of what your calculation means?
+
+**Reflection Questions**
+
+- What if we reported the time in **months** instead of years? How would the rate change?  
+- What if the increase had been **400 → 420 ppm in 10 years** — what happens to the rate?  
+- Does “average rate” mean CO₂ increased by exactly 4 ppm every year? Why or why not?  
+
+:::
+
+### Key Idea
+
+A **rate of change** always involves comparing how much one quantity changes relative to another.  
+
+\[
+\text{Rate} = \frac{\text{Change in Output}}{\text{Change in Input}}
+\]
+
+- If the input is **time**, the rate tells us “how fast” something changes.  
+- If the input is **distance**, the rate might describe a gradient (e.g., temperature lapse rate with elevation).  
+- If the input is **volume**, the rate might describe a concentration per unit volume.  
+
+> *Units don’t just check your work—they tell the story of what the math means.*  
+
+
+------------------------------------------------------------------------
+
+## Getting Comfortable with Word Problems
+
+Environmental word problems are at the heart of applying calculus. They take a real-world situation and ask you to identify the quantities involved, describe how they are changing, and build a model that captures those changes.  
+
+When you read a word problem, pause and ask yourself:
+
+- **What is changing?** (What’s the variable of interest?)  
+- **How fast is it changing?** (Are we talking about a *rate* or an *accumulated total*?)  
+- **What influences that change?** (Is it driven by time, distance, elevation, or something else?)  
+
+---
+
+### Why Word Problems Matter
+
+Anyone can compute a derivative or an integral once the equation is written down. The real challenge—and the real skill—is **translating words into math**. That’s what lets you use calculus to model glaciers, forests, rivers, or populations.  
+
+Remember: there is no single “right” way to start. Sketching, making a table, or writing down what you know in words are all valid first steps.  
+
+---
+
+### Example Problem
+
+> A glacier is melting at a rate that increases each year. What mathematical tools would help you model this?  
+
+**Step 1. What’s changing?**  
+
+- The glacier’s **thickness or volume** is decreasing.  
+
+**Step 2. How is it changing?** 
+
+- The rate of melt is itself *increasing over time*. That means the rate is not constant.  
+
+**Step 3. What tools do we need?**  
+
+- A **derivative** describes the melt rate at a given moment.  
+- An **integral** (this is a preview of 292) could estimate the total ice lost over a span of years.  
+- Because the rate is changing, an **exponential** or **quadratic** function might be a better fit than a linear one.  
+
+---
+
+::: activity
+**Activity: Rate of change around us**
+
+- What other environmental situations involve a rate that changes over time (not just a constant rate)? Discuss and share back with the class  
+- How would you represent this glacier problem with a **graph**? With a **table**?  
+- If you only had measurements of ice thickness each year, how would you estimate the rate of change?  
+
+:::
+
+---
+
+### Key Idea
+
+Word problems are really about *translation*. You’re moving between:  
+
+- **Verbal description** → “the glacier is melting faster each year”  
+- **Mathematical model** → equations that capture this trend  
+- **Interpretation** → what the math tells us about the glacier and its future  
+
+> *The math is the language, but the story is always about the system you’re studying.*  
+
+------------------------------------------------------------------------
+
+## Practice: Interpreting Functions
+
+### What Are You Practicing?
+
+In this section, you’ll get more comfortable reading, interpreting, and evaluating functions — especially those that model environmental systems.
+
+You’ll see functions written in different forms (formulas, graphs, tables), and you’ll practice thinking about what the **input** and **output** represent.
+
+This is an important foundation for calculus. When we interpret derivatives later on, we’ll always come back to **what is this function telling us about the real world?**
+
+------------------------------------------------------------------------
+
+### How to Approach These Problems
+
+For any function, try answering these three questions:
+
+1.  **What are the input(s) and output?**\
+    What does the function take in, and what does it give back?
+
+2.  **What do the variables represent?**\
+    For example, is $t$ time? Is $T(t)$ a temperature? What are the units?
+
+3.  **What does the formula tell you about the relationship?**\
+    If the function is increasing or decreasing, by how much?\
+    Are there any constants or slopes that describe rates?
+
+------------------------------------------------------------------------
+
+### Practice Problems
+
+Try these on your own or with a partner. Don’t just plug in numbers — ask what the function is saying!
+
+**🟢 Level 1: Getting Comfortable**
+
+**1.** Let $f(x) = 3x + 2$.\
+**a.** What is the input and what is the output?\
+**b.** What does the function do to each input?
+
+------------------------------------------------------------------------
+
+**2.** Let $T(t) = 20 + 0.5t$, where $T(t)$ is temperature in °C and $t$ is time in hours since sunrise.\
+**a.** What is the temperature at sunrise?\
+**b.** What is the temperature 4 hours after sunrise?\
+**c.** What does the 0.5 mean in this context?
+
+------------------------------------------------------------------------
+
+**3.** The function $P(n) = 100 \cdot (1.05)^n$ models the population of a fish species over time, where $n$ is years.\
+**a.** What does the 100 represent?\
+**b.** Is this population growing or shrinking?\
+**c.** Calculate the population in 3 years.
+
+------------------------------------------------------------------------
+
+**🟡 Level 2: Adding Complexity**
+
+**4.** You’re given $C(d) = 50 + 10d$, where $C$ is the cost in dollars of transporting material and $d$ is the distance in kilometers.\
+**a.** What is the cost of transport if the distance is 0 km?\
+**b.** What is the marginal cost per kilometer?\
+**c.** What kind of functional relationship is this?
+
+------------------------------------------------------------------------
+
+**5.** Let $H(t) = 0.3t^2 - 1.2t + 2$, where $H(t)$ models the height (in meters) of a plant $t$ weeks after planting.\
+**a.** What kind of function is this?\
+**b.** What might the graph of this function look like?\
+**c.** What does it suggest about the plant’s growth? **d.** If you were to plug in a (very) large value for t what happens? Does the result make sense? How could you restrict this function?
+
+------------------------------------------------------------------------
+
+**6.** A temperature function is defined as:\
+$T(h) = 15 - 0.0065h$, where $h$ is elevation in meters above sea level.\
+**a.** What is the temperature at sea level?\
+**b.** How much does the temperature drop every 1000 meters?\
+**c.** At what elevation will the temperature be 0°C?
+
+------------------------------------------------------------------------
+
+**🔴 Level 3: Challenging Interpretation**
+
+**7.** A water tank is being filled and drained at the same time. The volume of water is modeled by:\
+$V(t) = 100 + 30t - 2t^2$, where $V$ is volume in liters and $t$ is time in minutes.\
+**a.** What kind of function is this?\
+**b.** Looking at the expressions, can you explain what each term might be doing?\
+**c.** Explain What happens to the volume over time? [Hint: You can always plug values into the function to give you points, eg t=0, t=100] **d.** Can you find where the function has as peak/valley? ---
+
+---
+
+**8.** Let $G(x) = \frac{200}{x+5}$, where $G(x)$ is the growth rate of algae based on a the addition of a chemical $x$ (in mg/L).\
+**a.** What happens to the growth rate as chemical increases?\
+**b.** What happens when $x = 0$?\
+**c.** What happens as $x \to \infty$? What does that mean in context?
+
+------------------------------------------------------------------------
+
+**9.** The function $T(t, h) = 10 - 5 \cos\left(\frac{\pi t}{12}\right) - 0.0065h$ models temperature based on time of day $t$ (in hours) and elevation $h$ (in meters).\
+**a.** What is the warmest time of day?\
+**b.** How does elevation affect temperature?\
+**c.** Which variable has a stronger effect on temperature: time or elevation? [Hint: try putting this into DESMOS to visualize]
+
+------------------------------------------------------------------------
+
+## Practice: Reading Graphs & Tables
+
+### What Are You Practicing?
+
+In this section, you’ll strengthen your ability to read and interpret visual and tabular representations of functions. In environmental science, data is often collected and communicated through graphs and tables, so being fluent in interpreting these is essential.
+
+------------------------------------------------------------------------
+
+### How to Approach These Problems
+
+When working with graphs or tables, try answering:
+
+1.  **What trend do you see?**\
+    Is the function increasing, decreasing, leveling off, or fluctuating?
+
+2.  **What do the axes and labels tell you?**\
+    What units are being used? What do the variables represent?
+
+3.  **Can you predict values not directly shown?**\
+    Can you estimate an in-between value? Can you guess the shape of the full function?
+
+------------------------------------------------------------------------
+
+### Practice Problems
+
+Use reasoning and estimation to explore these problems. Think in terms of *shape* and *behavior* before trying to be exact.
+
+**🟢 Level 1: Getting Comfortable**
+
+**1.** Here is a table showing the number of insects counted in a trap each day:
+
+| Day | Insects |
+|:---:|:-------:|
+|  0  |   10    |
+|  1  |   14    |
+|  2  |   19    |
+|  3  |   25    |
+|  4  |   32    |
+
+**a.** Describe in words what you notice in the rate of increase.\
+**b.** Interpolate the number of insects at 0.5 days.\
+**c.** Extrapolate the number of insects on day 5.\
+**d.** What is the difference between interpolation and extrapolation?
+
+------------------------------------------------------------------------
+
+**2.** The following graph shows temperature over a 24-hour period. Use the graph to answer the questions below.
+
+```{r temp-day-curve, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Practice Problems", cache=FALSE}
+## Generate a smooth daily temperature curve
+time <- seq(0, 24, by = 0.1)
+temp <- 10 - 5 * cos(pi * time / 12)
+
+plot(time, temp, type = "l",
+     main = "Air Temperature Over 24 Hours",
+     xlab = "Time of Day (hours)",
+     ylab = "Temperature (°C)",
+     col = "steelblue", lwd = 2)
+abline(v = 12, lty = 2, col = "gray")  # peak at noon
+```
+
+**a.** When is the temperature highest?\
+**b.** When is it increasing most rapidly? When is decreasing most rapidly?\
+**c.** Describe the concavity of this graph.\
+**d.** What shape is this curve — linear, quadratic, exponential, or something else?
+
+------------------------------------------------------------------------
+
+**3.** You’re told that rainfall increases by 3 mm every hour during a storm. The storm lasts 4 hours.
+
+**a.** Make a table for hours 0 through 5.\
+**b.** What kind of graph would this make?\
+**c.** What is the slope? **d.** Write an equation for this rainfall event.
+
+------------------------------------------------------------------------
+
+**🟡 Level 2: Adding Complexity**
+
+**4.** A glacier’s thickness is recorded at several times:
+
+| Year | Thickness (m) |
+|:----:|:-------------:|
+| 2000 |      135      |
+| 2005 |      130      |
+| 2010 |      120      |
+| 2015 |      105      |
+
+**a.** Describe the trend.\
+**b.** What’s the average rate of change per 5 years?\
+**c.** Is the rate increasing or decreasing over time?
+
+------------------------------------------------------------------------
+
+**5.** The function $P(t) = 100 \cdot (1.05)^t$ models a growing population. Sketch a table for $t = 0$ to $t = 4$.
+
+**a.** Does this function show linear or exponential growth?\
+**b.** What would the graph look like?\
+**c.** How does the rate of growth change over time?
+
+------------------------------------------------------------------------
+
+**6.** Match each table to the correct function
+
+**Table A:**
+
+| $x$ | $y$ |
+|:---:|:---:|
+|  1  |  2  |
+|  2  |  4  |
+|  3  |  8  |
+|  4  | 16  |
+
+**Table B:**
+
+| $x$ | $y$ |
+|:---:|:---:|
+|  1  |  5  |
+|  2  |  7  |
+|  3  |  9  |
+|  4  | 11  |
+
+**Functions:**
+
+1.  $y = 2^x$\
+2.  $y = 2x + 3$
+
+**a.** How did you work it out??
+
+------------------------------------------------------------------------
+
+**🔴 Level 3: Challenging Interpretation**
+
+**7.** Below are two graph showing CO₂ concentration over time.The black line represents the moving average (smooths out the variable) and the red line is the monthly averages.
+
+![Line graph showing atmospheric CO₂ mole fraction (ppm) at Mauna Loa Observatory from 1958 to 2025. The red curve rises steadily from about 315 ppm in 1960 to over 420 ppm in 2025, with visible annual oscillations due to seasonal cycles. The overall trend is an accelerating increase in CO₂ concentration. Logos of Scripps Institution of Oceanography and NOAA are included.](images/co2_data_mlo.png)
+![Line graph showing recent monthly mean CO₂ at Mauna Loa Observatory from 2020 to 2025. Black line shows the smoothed mean trend rising from ~414 ppm in 2020 to nearly 428 ppm in 2025. Red curve shows monthly values oscillating up and down around the mean, with peaks each spring and troughs each fall. The seasonal cycle is superimposed on a clear upward long-term trend. NOAA logo appears at the bottom.](images/co2_trend_mlo.png)
+**a.** How would you describe (in words) the red line. Try to use functional shapes that you are familiar with.
+**b.** What underlying environmental process causes the ups and downs?\
+**c.** How could you approximate the average yearly increase?
+
+------------------------------------------------------------------------
+
+**8.** This function models the speed of a river over time during a flood:
+
+| Time (hrs) | Speed (m/s) |
+|:----------:|:-----------:|
+|     0      |     1.0     |
+|     2      |     2.5     |
+|     4      |     4.0     |
+|     6      |     4.5     |
+|     8      |     3.8     |
+|     10     |     2.0     |
+
+**a.** When is the river speed increasing fastest?\
+**b.** When does the speed peak?\
+**c.** Sketch or describe what the graph would look like.
+
+------------------------------------------------------------------------
+
+**9.** A table shows the dissolved oxygen (DO) level in a lake throughout the day:
+
+| Hour | DO (mg/L) |
+|:----:|:---------:|
+|  6   |    6.0    |
+|  9   |    6.5    |
+|  12  |    7.2    |
+|  15  |    6.4    |
+|  18  |    5.5    |
+
+**a.** What time is the DO highest?\
+**b.** When is the DO increasing? Decreasing?\
+**c.** What might explain the rise and fall in DO over the day?
+
+------------------------------------------------------------------------
+
+## Practice: Building Functions from Context
+
+### What Are You Practicing?
+
+In this section, you'll practice translating real-world environmental scenarios into mathematical functions. This skill is key to modeling — the process of using math to represent relationships between variables like time, temperature, and elevation.
+
+You’ll learn how to:
+
+- Identify input and output variables 
+- Write clear, meaningful function names 
+- Move between **verbal descriptions**, **tables**, **graphs**, and **equations**
+
+------------------------------------------------------------------------
+
+### How to Approach These Problems
+
+When you’re given a word problem, follow these steps:
+
+1.  **Identify what's changing**\
+    Is the input time? Distance? Elevation?
+
+2.  **Define your variables**\
+    Choose names that make sense — like $G(t)$ for glacier thickness or $T(h)$ for temperature at elevation.
+
+3.  **Look for rates or starting values**\
+    Most real-world functions are built from a starting point and a rate of change.
+
+4.  **Build the equation**\
+    Most problems can be written as:\
+    $$
+    \text{Output} = \text{Starting Value} \pm \text{Rate} \cdot \text{Input}
+    $$
+
+------------------------------------------------------------------------
+
+**Example**
+
+A glacier melts by 1.2 meters per year. It is currently 120 meters thick.
+
+**a.** Write a function $G(t)$ to model the glacier thickness $t$ years from now.\
+**b.** How thick will the glacier be in 10 years?
+
+------------------------------------------------------------------------
+
+**Solution:**
+
+-   Let $G(t)$ represent the glacier thickness in meters at time $t$ (in years)
+-   Initial thickness = 120 m\
+-   Melting rate = 1.2 m/year
+
+$$
+G(t) = 120 - 1.2t
+$$
+
+**Evaluate:**
+
+$$
+G(10) = 120 - 1.2(10) = 108 \text{ meters}
+$$
+
+------------------------------------------------------------------------
+
+### Practice Problems
+
+Start with simple cases, then move to more realistic modeling situations.
+
+**🟢 Level 1: Getting Comfortable**
+
+**1.** A tree grows at a steady rate of 0.8 meters per year. It is currently 2 meters tall.\
+**a.** Write a function $H(t)$ to model the tree height $t$ years from now.\
+**b.** How tall will the tree be in 5 years?
+
+------------------------------------------------------------------------
+
+**2.** A small lake has 500 fish. Every year, 40 new fish are born and none die.\
+**a.** Define a function $P(t)$ for the population after $t$ years.\
+**b.** What is the population after 6 years?
+
+------------------------------------------------------------------------
+
+**3.** A weather balloon starts at 1000 meters and rises at 150 meters per minute.\
+**a.** Let $A(t)$ be the altitude in meters after $t$ minutes. Write the function.\
+**b.** How high will the balloon be after 4 minutes?
+
+------------------------------------------------------------------------
+
+**🟡 Level 2: Adding Complexity**
+
+**4.** Carbon dioxide levels in a closed chamber start at 400 ppm and rise 5 ppm per hour due to respiration.\
+**a.** Write a function $C(t)$ to model the CO₂ concentration after $t$ hours.\
+**b.** Graph the function from $t = 0$ to $t = 10$.\
+**c.** What are the units of the slope?
+
+------------------------------------------------------------------------
+
+**5.** The temperature at the surface of a ocean is 20°C. It drops by 2.5°C for every 1000 meters of depth\
+**a.** Write a function $T(z)$ to model temperature as a function of depth $z$ in meters.\
+**b.** Use a table to show values at 0, 1000, 2000, 3000, and 4000 meters.\
+**c.** Graph the function.
+
+------------------------------------------------------------------------
+
+**6.** A city is losing wetland area due to urban development. The area declines by 3.2 hectares per year. Currently, 180 hectares remain.\
+**a.** Write a function $W(t)$ for wetland area after $t$ years.\
+**b.** Predict when only 100 hectares will remain.
+**c.** How much wetland was there 10 years ago?
+
+------------------------------------------------------------------------
+
+**🔴 Level 3: Challenging Interpretation**
+
+**7.** A tank is filled at a rate of 10 L/min for 6 minutes, then drained at 4 L/min for the next 10 minutes.\
+**a.** Write a piecewise function $V(t)$ for volume over time.\
+**b.** Sketch or describe the graph.
+
+------------------------------------------------------------------------
+
+**8.** An invasive plant spreads in a way that the area it covers doubles every week. At week 0, it covers 2 square meters.\
+**a.** Write a function $A(t)$ to model area in square meters over time.\
+**b.** What type of function is this?
+
+------------------------------------------------------------------------
+
+**9.** The daily temperature at sea level is modeled by:\
+$$
+T(t) = 10 - 5 \cos\left(\frac{\pi t}{12}\right)
+$$
+
+**a.** Describe the starting temperature, peak, and cycle length.\
+**b.** Write a new function $T(t, h)$ that accounts for elevation, assuming a lapse rate of 0.0065°C/m.\
+**c.** What is the temperature at 6 AM and 2000 m elevation?
+
+------------------------------------------------------------------------
+
+## Skills Drills
+
+### Getting Back in the Groove
+
+You’ve seen all of these operations before — expanding algebraic expressions, solving for variables, simplifying equations — but it’s totally normal if some of those steps feel rusty right now.
+
+This section gives you a **high-repetition practice zone** to help wake up your math brain. Think of this like stretching before a run: each drill refreshes a skill you’ll use constantly in calculus.
+
+> **Goal:** Get faster and more confident with everyday math operations that form the foundation of this course.
+
+Don’t worry if you don’t remember everything right away. These are **review** skills — and the best way to remember them is to do them. A lot.
+
+---
+
+### Function Evaluation
+
+> **How-To Evaluate a Function**  
+> - To evaluate, substitute the input into the function rule.  
+> - Example: If $f(x) = x^2 + 1$, then $f(3) = 3^2 + 1 = 10$.  
+> - You can also evaluate at expressions: $f(a + h)$ means plug $(a+h)$ everywhere $x$ appears.  
+
+---
+
+**🟢 Level 1: Recall**  
+Let $f(x) = x^2 + 1$.  
+1. Find $f(3)$  
+2. Find $f(a + h)$  
+
+**🟡 Level 2: Apply Substitution**  
+Let $f(x) = x^3 + 2(x + 7)^2 + \tfrac{1}{2x}$.  
+3. Evaluate $f(2)$  
+4. Evaluate $f(t)$  
+
+**🔴 Level 3: Mixed Practice**  
+Let $f(x) = \frac {1}{x} + e^x$.  
+5. Evaluate $f(a^2)$  
+6. Evaluate $f(a + h)$  
+7. Evaluate $f(x^2 + 2x)$  
+8. Evaluate $f(\triangle)$  
+9. Evaluate $f(\blacksquare)$  
+
+---
+
+**Applications**  
+
+1. The cost of producing $x$ items is modeled by $C(x) = 5x + 200$.  
+   Find the cost of producing 100 items.  
+
+2. The population of a species is modeled by $P(t) = 1000 e^{0.02t}$.  
+   Evaluate $P(10)$ to find the population after 10 years.  
+
+---
+
+### Function Composition & Inverses
+
+> **How-To**  
+> - Composition: $f(g(x))$ means plug the entire rule of $g(x)$ into $f$.  
+> - Example: if $f(x) = 2x+1$ and $g(x) = x^2$, then  
+>   $f(g(x)) = 2(x^2) + 1$.  
+> - Inverse Functions: An inverse "undoes" the original function.  
+>   By definition, $f^{-1}(f(x)) = x$ (for $x$ in the domain).  
+>
+> **Tip:** To find an inverse, swap $x$ and $y$, then solve for $y$.  
+
+---
+
+**🟢 Level 1: Recall**  
+Let $f(x) = 2x + 1$, $g(x) = x^2$.  
+1. Find $f(g(x))$  
+2. Find $g(f(x))$  
+
+**🟡 Level 2: Inverses**  
+3. Find the inverse of $f(x) = 2x + 1$  
+4. Check: $f(f^{-1}(x)) =$ ?  
+
+**🔴 Level 3: Mixed Practice**  
+5. If $h(x) = 3x - 4$, find $h^{-1}(x)$.  
+6. Verify $h(h^{-1}(x)) = x$.  
+7. If $f(x) = \tfrac{1}{x}$, find $f(f(x))$.  
+
+---
+
+**Applications**  
+
+1. A temperature conversion is given by $F(C) = \tfrac{9}{5}C + 32$.  
+   Find the inverse function to convert Fahrenheit back to Celsius.  
+
+2. A bacteria population is modeled by $P(t) = 100e^{0.2t}$.  
+   Find the inverse function $t(P)$ that gives the time when the population reaches a given size $P$.  
+
+---
+
+### Exponents
+
+> **How-To Use Exponent Rules**  
+> - Definition: $b^m \cdot b^n = b^{m+n}$  
+> - Quotient Rule: $\tfrac{b^m}{b^n} = b^{m-n}$  
+> - Power Rule: $(b^m)^n = b^{mn}$  
+> - Zero Exponent: $b^0 = 1 \;\;(b \neq 0)$  
+> - Negative Exponent: $b^{-n} = \tfrac{1}{b^n}$  
+>
+> **Domain Reminder:** Exponents are defined for all real exponents if $b>0$.  
+
+---
+
+**🟢 Level 1: Recall**  
+1. $2^3 =$  
+2. $5^0 =$  
+3. $10^{-2} =$  
+
+**🟡 Level 2: Apply Properties**  
+4. Simplify: $2^3 \cdot 2^4$  
+5. Simplify: $\tfrac{3^5}{3^2}$  
+6. Simplify: $(x^2)^3$  
+
+**🔴 Level 3: Solve Equations**  
+7. Solve for $x$: $2^x = 32$  
+8. Solve for $x$: $5^{2x} = 125$  
+9. Solve for $x$: $10^{x-1} = 0.01$  
+
+---
+
+**Applications**  
+
+1. A bacteria culture doubles every 4 hours.  
+   If the initial population is 500, write an exponential model and find the population after 12 hours.  
+
+2. The half-life of carbon-14 is 5730 years.  
+   Write an exponential decay model for the amount of carbon-14, and determine what fraction remains after 10,000 years.  
+
+---
+
+### Logarithms
+
+> **How-To Use Log Properties**  
+> - Definition: $\log_b x = y \;\;\Longleftrightarrow\;\; b^y = x$  
+> - Product Rule: $\log(ab) = \log a + \log b$  
+> - Quotient Rule: $\log\!\left(\tfrac{a}{b}\right) = \log a - \log b$  
+> - Power Rule: $\log(a^b) = b \log a$  
+> - Natural Log: $\ln x$ is shorthand for $\log_e x$  
+>
+> **Domain Reminder:** Logarithms are only defined for positive inputs ($x > 0$).  
+
+---
+
+**🟢 Level 1: Recall**  
+1. $\log_{10} 10 =$  
+2. $\ln e =$  
+3. $\log_{2} 1 =$  
+
+**🟡 Level 2: Apply Properties**  
+4. Simplify: $\log(100) - \log(10)$  
+5. Expand: $\log(3x)$  
+
+**🔴 Level 3: Solve Equations**  
+6. Solve for $k$: $y = \ln k$  
+7. Solve for $k$: $y = 10^{kt + 1}$  
+8. Isolate $k$: $y = \tfrac{15}{10^{kt + 1}}$  
+9. Solve for $k$: $y = Ae^{-kt} + 5$  
+
+---
+
+**Applications**  
+
+1. A population grows according to $P(t) = 100 e^{0.05t}$.  
+   How long will it take for the population to **triple**?  
+
+2. The intensity of sound in decibels is given by   
+   $L = 10 \log\!\left(\tfrac{I}{I_0}\right)$,  
+   where $I$ is the sound intensity and $I_0$ is the reference intensity.  
+   If a sound measures $L = 70$ dB, find the ratio $\tfrac{I}{I_0}$.  
+
+---
+
+### Factoring
+
+> **How-To Use Factoring Rules**  
+> - Factoring means rewriting an expression as a product of simpler terms.  
+> - Always check for **common factors** first.  
+> - Difference of Squares: $a^2 - b^2 = (a - b)(a + b)$  
+> - Perfect Square Trinomial: $a^2 + 2ab + b^2 = (a + b)^2$  
+> - Quadratic Trinomials: $ax^2 + bx + c$ can sometimes be factored into $(mx + n)(px + q)$  
+
+---
+
+**🟢 Level 1: Recall**  
+1. Factor $y = x^2 - 4$  
+2. Factor $y = x^3 - 4x$  
+
+**🟡 Level 2: Apply Patterns**  
+3. Factor $y = x^2 + 4$  
+4. Factor $y = x^2 + 2$  
+5. Factor $y = 4x^2 + 12x + 9$  
+
+**🔴 Level 3: Mixed Practice**  
+6. Factor $y = 9x^2 - 16$  
+7. Factor $y = x^2 + 5x + 6$  
+8. Factor $y = 2x^2 - 8x$  
+
+---
+
+**Applications**  
+
+1. The height of a ball is given by $h(t) = -5t^2 + 20t$.  
+   Factor the expression to find when the ball hits the ground.  
+
+2. The area of a rectangle is $A = x^2 + 5x + 6$.  
+   Factor the expression to find possible integer side lengths.  
+
+---
+
+### Expansion
+
+> **How-To Use Expansion Rules**  
+> - Distributive Property: $a(b + c) = ab + ac$  
+> - Multiply binomials using **FOIL** (First, Outer, Inner, Last).  
+> - Perfect Square: $(x + a)^2 = x^2 + 2ax + a^2$  
+> - Binomial Cube: $(x + a)^3 = x^3 + 3x^2a + 3xa^2 + a^3$  
+
+---
+
+**🟢 Level 1: Recall**  
+1. Expand $y = (x + 2)^2$  
+2. Expand $y = (x - 3)(x + 3)$  
+
+**🟡 Level 2: Apply Properties**  
+3. Expand $y = 2(x + 1)^2 + 3x^2$  
+4. Expand $y = (3x - 3)^3 + x^2 + 7$  
+
+**🔴 Level 3: Mixed Practice**  
+5. Expand $y = (\sqrt{x} + 1)^2 + 3x^2$  
+6. Expand $y = 2\left(\tfrac{1}{x} + x\right)^2 + 3x^2$  
+7. Expand $y = (2x + 5)(x - 4)$  
+
+---
+
+**Applications**  
+
+1. The area of a square with side length $(x + 2)$ is $A = (x+2)^2$.  
+   Expand the expression to find a formula for the area.  
+
+2. The revenue from selling $(p+3)$ units at a price of $(2p+1)$ dollars each is $R = (p+3)(2p+1)$.  
+   Expand to find a quadratic expression for revenue in terms of $p$.  
+
+---
+
+### Simplifying Expressions
+
+> **How-To Simplify Expressions**  
+> - Cancel common factors when possible.  
+> - Combine like terms.  
+> - Reduce complex fractions by multiplying/dividing carefully.  
+> - Rationalize denominators when needed.  
+
+---
+
+**🟢 Level 1: Recall**  
+1. Simplify $\dfrac{x^2 - 9}{x - 3}$  
+2. Simplify $\dfrac{2x + 4}{x^2 + 2x}$  
+
+**🟡 Level 2: Apply Properties**  
+3. Simplify $\dfrac{3x}{\tfrac{x}{2}}$  
+4. Combine: $2x^2 + 3x - x^2 + 5$  
+
+**🔴 Level 3: Mixed Practice**  
+5. Simplify: $\dfrac{1}{\sqrt{x}} \cdot \sqrt{x^3}$  
+6. Simplify: $\dfrac{x^2y}{xy^2}$  
+7. Simplify: $\dfrac{x^2 - 4}{x^2 - 2x}$  
+
+---
+
+**Applications**  
+
+1. The velocity of a particle is given by  
+   $v(t) = \dfrac{2t^2 - 8}{t - 2}$.  
+   Simplify the expression to find a reduced formula for velocity.  
+
+2. The efficiency of a machine is modeled by  
+   $E(x) = \dfrac{50x + 100}{x^2 + 2x}$.  
+   Simplify the expression to better understand how efficiency changes with $x$.  
+
+---
+
+### Unit Conversions
+
+> **How-To Convert Units**  
+> - Write conversion factors as fractions, e.g. $1 \text{ km} = 1000 \text{ m} \;\;\Longrightarrow\;\; \tfrac{1 \text{ km}}{1000 \text{ m}}$ or $\tfrac{1000 \text{ m}}{1 \text{ km}}$.  
+> - Multiply by the fraction that cancels the unwanted unit.  
+> - Cancel units just like algebraic variables.  
+
+---
+
+**🟢 Level 1: Recall**  
+1. Convert $5000 \text{ mm}$ to meters.  
+2. Convert $45 \text{ km/h}$ to m/s.  
+
+**🟡 Level 2: Apply Conversions**  
+3. Convert $2.5 \text{ days}$ to seconds.  
+4. Convert $0.2\%$ to ppm.  
+
+**🔴 Level 3: Mixed Practice**  
+5. Convert $72 \text{ km/h}$ to miles per hour (use $1 \text{ mile} \approx 1.609 \text{ km}$).  
+6. Convert $1500 \text{ J}$ to kJ.  
+7. Convert $3.2 \text{ L}$ to mL.  
+
+---
+
+**Applications**  
+
+1. A car is traveling at $27 \text{ m/s}$.  
+   Convert this speed to km/h.  
+
+2. A pollutant concentration is reported as $0.004 \text{ g/L}$.  
+   Express this in mg/L (parts per million, ppm).  
+
+---
+
+### Solving Equations
+
+> **How-To Solve Equations**  
+> - Use **inverse operations** step by step to isolate the variable.  
+> - For quadratics:  
+>   - Try **factoring** if possible.  
+>   - If not, use **completing the square** or the **quadratic formula**:  
+>     \[
+>     x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+>     \]  
+
+---
+
+**🟢 Level 1: Recall**  
+1. Solve: $2x + 5 = 11$  
+2. Solve: $\dfrac{x}{3} + 2 = 5$  
+
+**🟡 Level 2: Quadratics**  
+3. Solve: $x^2 - 4 = 0$  
+4. Solve: $x^2 + 2x - 8 = 0$  
+
+**🔴 Level 3: Mixed Practice**  
+5. Solve: $\sqrt{x + 1} = 3$  
+6. Solve: $3x^2 = 27$  
+7. Solve: $(x - 2)(x + 5) = 0$  
+
+---
+
+**Applications**  
+
+1. The area of a rectangle is given by $A = x(x+3)$.  
+   If $A = 40$, solve for $x$.  
+
+2. A ball is launched from the ground with height $h(t) = -5t^2 + 20t$.  
+   Solve for $t$ when the ball hits the ground.  
+
+---
+
+### Rates & Units
+
+> **How-To Calculate Rates**  
+> - Average Rate of Change:  
+>   \[
+>   \text{Rate} = \frac{\text{change in output}}{\text{change in input}}
+>   \]  
+> - Always **include units** (e.g., ppm/year, m/year, km/h).  
+> - For cumulative change: multiply the rate by the time span.  
+
+---
+
+**🟢 Level 1: Recall**  
+1. CO₂ rises from 400 ppm to 420 ppm over 5 years.  
+   What is the average rate of change?  
+
+2. A glacier retreats from 180 m to 150 m over 6 years.  
+   What is the average rate of change?  
+
+**🟡 Level 2: Apply Units**  
+3. A stream flows 15 km in 3 hours.  
+   What’s the average speed (in km/h)?  
+
+4. Precipitation increases by 0.8 mm/day for 10 days.  
+   What is the total change in precipitation?  
+
+**🔴 Level 3: Mixed Practice**  
+5. A city’s population grows from 2.1 million to 2.5 million in 8 years.  
+   What is the average annual growth rate (in people per year)?  
+
+6. A tank drains from 120 L to 30 L in 15 minutes.  
+   What is the average drainage rate (in L/min)?  
+
+---
+
+**Applications**  
+
+1. The temperature in a forest increases from 12 °C at sunrise to 24 °C by noon.  
+   Find the average rate of temperature change (in °C per hour).  
+
+2. A car travels 240 km in 4 hours.  
+   Find the average speed in km/h, then convert it to m/s.  
+
+---
+
