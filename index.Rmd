@@ -13,7 +13,7 @@ description: "A textbook companion to the Univeristy of Washington QSci 291 clas
 ---
 
 # Why Calculus?
-
+THIS IS 292
 Welcome to *Calculus for Environmental Science*. 🌱  
 
 This book is your companion for exploring the natural world through the lens of calculus—especially the powerful ideas of **change** and **accumulation**. You’ll find that calculus is not just about symbols on a page—it’s about asking meaningful questions, interpreting patterns, and making sense of complex environmental systems. And along the way, you’ll see that you are absolutely capable of mastering these ideas.  
