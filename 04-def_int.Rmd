@@ -1,0 +1,141 @@
+# Defining the Definite Integral
+
+The definite integral is defined as the **limit of Riemann sums** as the number of slices grows and their width shrinks:
+
+\[
+\int_a^b f(x)\, dx
+\]
+
+Interpretation:
+
+- **Net accumulation** from \( a \) to \( b \)  
+- **Units:** same as rate × input variable  
+- **Concept:** adding up infinitely many tiny contributions
+
+This definition connects the graphical intuition to the formal mathematical symbol.
+
+---
+
+## Integrals and Signed Area
+
+Not all environmental rates are positive. Many processes have **gains** and **losses**.
+
+Interpretation of signed area:
+
+- Above the axis → **positive accumulation**  
+- Below the axis → **negative accumulation**  
+- Net integral = total gain − total loss
+
+Environmental examples:
+
+- Photosynthesis (positive) vs. respiration (negative)  
+- Forward vs. reverse flow in a tidal river  
+- Population growth vs. decline across seasons
+
+Understanding signed area helps students interpret net change vs. gross change.
+
+---
+
+## Estimating Integrals Graphically
+
+Before students compute integrals symbolically, they should be able to **estimate them visually**.
+
+Skills to emphasize:
+
+- Approximate average height × width  
+- Compare totals between curves  
+- Identify when a curve produces large vs. small accumulation  
+- Recognize the contribution of shape and duration
+
+Environmental examples:
+
+- Which day had higher total evapotranspiration?  
+- Which lake receives more pollutant load based on inflow rate graphs?  
+- How does curve shape influence total CO₂ uptake?
+
+Graphical intuition is essential for later numerical methods.
+
+---
+
+## Antiderivatives as a Tool for Computing Integrals
+
+To compute exact integrals, we use **antiderivatives** (also called indefinite integrals).
+
+An antiderivative \( F \) of \( f \) satisfies:
+
+\[
+F'(x) = f(x)
+\]
+
+The (informal) Fundamental Theorem of Calculus states:
+
+\[
+\int_a^b f(x)\, dx = F(b) - F(a).
+\]
+
+This allows us to compute accumulation without summing slices manually.
+
+Simple examples with environmental rates (e.g., linear or quadratic rate curves) help bridge the conceptual and computational viewpoints.
+
+---
+
+## Accumulation Functions
+
+An accumulation function describes how total accumulation builds over time:
+
+\[
+A(t) = \int_a^t f(x)\, dx
+\]
+
+Interpretation:
+
+- \( A(t) \) = *total amount* accumulated from \( a \) up to time \( t \)  
+- \( A'(t) = f(t) \): the rate of accumulation at that moment
+
+Environmental uses:
+
+- Cumulative snowfall  
+- Cumulative CO₂ uptake across the day  
+- Cumulative stream discharge during a storm  
+- Cumulative nitrogen mineralization over a season
+
+Plotting these functions helps students understand how small local changes create large-scale patterns.
+
+---
+
+## Units, Dimensions, and Why Integrals Make Sense
+
+Integrals always make sense **dimensionally**:
+
+- Rainfall rate (mm/day) × time (days) = total rainfall (mm)  
+- Pollutant concentration (mg/L) × water volume (L) = pollutant mass (mg)  
+- Energy flux (W/m²) × time (hours) = energy (Wh/m²)
+
+This chapter is an ideal place to cultivate good dimensional-analysis instincts.
+
+---
+
+## Summary and Environmental Practice Problems
+
+### Summary
+
+Students should now understand:
+
+- Integrals describe **total accumulation** of a quantity.  
+- Rate graphs encode information about totals through **area under the curve**.  
+- Riemann sums approximate accumulation by adding small pieces.  
+- The definite integral formalizes this process.  
+- Signed area represents gains and losses.  
+- Antiderivatives provide an efficient way to compute integrals.  
+- Accumulation functions show how totals build over time.
+
+### Practice Problems (suggestions)
+
+1. Estimate the total CO₂ uptake for a day from a rate graph.  
+2. Use left, right, and midpoint Riemann sums to approximate total rainfall over a storm.  
+3. For a mixed-sign river flux curve, compute net water movement and interpret gains and losses.  
+4. Write an accumulation function for nitrogen mineralization and interpret \( A(t) \).  
+5. Use a simple antiderivative to compute a definite integral representing total biomass gain.
+
+---
+  

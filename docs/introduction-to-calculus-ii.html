@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Pre-Calculus Foundations Workbook | Environmental Calculus 2 - Active Learning with Case Studies</title>
+  <title>Chapter 2 Introduction to Calculus II | Environmental Calculus 2 - Active Learning with Case Studies</title>
   <meta name="description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
   <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Pre-Calculus Foundations Workbook | Environmental Calculus 2 - Active Learning with Case Studies" />
+  <meta property="og:title" content="Chapter 2 Introduction to Calculus II | Environmental Calculus 2 - Active Learning with Case Studies" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Pre-Calculus Foundations Workbook | Environmental Calculus 2 - Active Learning with Case Studies" />
+  <meta name="twitter:title" content="Chapter 2 Introduction to Calculus II | Environmental Calculus 2 - Active Learning with Case Studies" />
   
   <meta name="twitter:description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="why-calculus-workbook.html"/>
-
+<link rel="prev" href="index.html"/>
+<link rel="next" href="chapter-1-outline-introduction-to-calculus-ii.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -258,19 +258,105 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="pre-calculus-foundations-workbook" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Pre-Calculus Foundations Workbook<a href="pre-calculus-foundations-workbook.html#pre-calculus-foundations-workbook" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>##UNDER CONSTRUCTION
-## Learning Objectives</p>
-
+<div id="introduction-to-calculus-ii" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Introduction to Calculus II<a href="introduction-to-calculus-ii.html#introduction-to-calculus-ii" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Calculus II marks the transition from thinking about <em>instantaneous change</em> to thinking about <em>accumulated change</em>. In Calculus I, your primary tools described how natural systems behave at a given moment, such as how fast a population is growing, how quickly temperature is changing, or how sharply a pollutant concentration shifts at a point in space.</p>
+<p>In this course, we step back and ask a different set of questions:</p>
+<ul>
+<li>How much water flowed down a stream over the day?<br />
+</li>
+<li>How much carbon did a forest take up this summer?<br />
+</li>
+<li>How much nitrogen was exported from a watershed during a storm?<br />
+</li>
+<li>How much biomass accumulated in a recovering ecosystem?</li>
+</ul>
+<p>These are questions about <strong>totals</strong>, and in the natural sciences, totals matter. Being able to quantify accumulation helps us understand environmental systems that are dynamic, interconnected, and continuously changing.</p>
+<p>This course is the second half of the <strong>Q SCI 291–292 sequence</strong>, which builds the mathematical foundation used across biology, ecology, conservation, marine science, and environmental science. Alongside the core mathematical ideas, the course emphasizes learning how to think quantitatively about real systems and developing the reasoning skills needed to communicate scientific results clearly.</p>
+<p>By the end of the course, you will be able to:</p>
+<ul>
+<li><strong>Explain and interpret</strong> definite integrals using Riemann sums, limits, and graphical representations.<br />
+</li>
+<li><strong>Compute and apply integrals</strong> using substitution, integration by parts, and numerical methods to solve environmental and biological problems.<br />
+</li>
+<li><strong>Analyze and model</strong> natural systems using basic differential equations, including separable and first-order linear forms.<br />
+</li>
+<li><strong>Construct and justify clear mathematical reasoning</strong>, written, numerical, and graphical, so you can communicate solutions effectively and assess their validity.</li>
+</ul>
+<hr />
+<div id="what-calculus-ii-is-really-about" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> What Calculus II Is Really About<a href="introduction-to-calculus-ii.html#what-calculus-ii-is-really-about" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>At its core, Calculus II is the study of <strong>accumulation</strong>. Many quantities in the natural world, such as heat, nutrients, biomass, pollutants, water, and individuals, change continuously rather than in neat steps. When a quantity’s rate changes from moment to moment, how do we determine the total amount gained or lost? Integrals give us the language and tools to answer that question.</p>
+<div class="promptbox">
+<div id="example-accumulating-rainfall-in-a-simple-storm" class="section level3 unnumbered hasAnchor">
+<h3>Example: Accumulating Rainfall in a Simple Storm<a href="introduction-to-calculus-ii.html#example-accumulating-rainfall-in-a-simple-storm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To understand the idea of accumulation, imagine a 3-hour storm where the rainfall intensity stays constant within each hour. Suppose the observed intensities are:</p>
+<ul>
+<li>Hour 1: 4 mm/hour<br />
+</li>
+<li>Hour 2: 7 mm/hour<br />
+</li>
+<li>Hour 3: 5 mm/hour</li>
+</ul>
+<p>If the rainfall rate is constant within each hour, then the total rainfall is simply:</p>
+<p><span class="math display">\[
+\text{Total rainfall} = 4 + 7 + 5 = 16 \text{ mm}.
+\]</span></p>
+<p>Each bar represents the amount of rain added during one hour. The total rainfall is the sum of these three rectangular blocks.</p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>This situation is straightforward because each hour contributes a clean, fixed amount of rainfall.</p>
+<hr />
+</div>
+<div id="when-rainfall-intensity-is-not-constant" class="section level3 unnumbered hasAnchor">
+<h3>When Rainfall Intensity Is Not Constant<a href="introduction-to-calculus-ii.html#when-rainfall-intensity-is-not-constant" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Real storms rarely behave this neatly. Rainfall intensity may rise, fall, and fluctuate as storm cells pass overhead. Instead of three flat bars, the intensity becomes a wiggly, continuously changing curve.</p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>This leads us to a central question for this course:</p>
+</div>
+<div id="how-much-total-rain-falls-during-a-storm-like-this" class="section level3 unnumbered hasAnchor">
+<h3><strong>How much total rain falls during a storm like this?</strong><a href="introduction-to-calculus-ii.html#how-much-total-rain-falls-during-a-storm-like-this" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>There are no simple hourly blocks now. The rainfall rate:</p>
+<ul>
+<li>rises<br />
+</li>
+<li>dips<br />
+</li>
+<li>oscillates<br />
+</li>
+<li>never remains constant long enough for a simple calculation</li>
+</ul>
+<p>To find the total rainfall, we need a method that can add up many small and continuously changing contributions.</p>
+</div>
+</div>
+<p>A key insight is that large totals often come from accumulating many <strong>small pieces</strong>. This idea is intuitive when thinking about rainfall or streamflow. It is also the conceptual foundation of Riemann sums and definite integrals. Although we will not enter the technical details yet, this perspective will guide us throughout the course and will help connect data, graphs, equations, and models.</p>
+<p>Another major theme involves <strong>reversing derivatives</strong>. If a derivative represents how something changes, then an antiderivative recovers the original quantity. The Fundamental Theorem of Calculus ties these ideas together and provides the foundation for the integration techniques you will learn.</p>
+<p>Finally, many environmental and biological systems follow rules of change. Populations grow or decline, chemicals decay, temperatures level out, and nutrients move through ecosystems. These processes can be described using <strong>differential equations</strong>, which act as mathematical stories of how systems evolve. In this course, we will learn simple and powerful forms, especially separable and first-order linear equations, that allow us to model natural processes clearly and effectively.</p>
+<hr />
+</div>
+<div id="what-you-bring-from-calculus-i" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> What You Bring From Calculus I<a href="introduction-to-calculus-ii.html#what-you-bring-from-calculus-i" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Although this is a new course, much of what you already know will serve as essential groundwork. Key ideas from Calculus I include:</p>
+<ul>
+<li>Understanding how to read and interpret graphs<br />
+</li>
+<li>Using derivatives as rates of change<br />
+</li>
+<li>Recognizing what it means for a quantity to increase, decrease, level off, or turn around<br />
+</li>
+<li>Working with functions and equations in a flexible and confident way</li>
+</ul>
+<p>Just as important is the habit of thinking carefully about <strong>units</strong>. In this course, integrals always represent something with physical meaning—cubic meters of water, mg of nitrogen, kJ of heat, organisms per square meter. Whether you arrive at a reasonable answer will often hinge on your ability to interpret units and relate them to the system being studied.</p>
+<p>You will also find that clear and organized algebra makes a big difference. Rearranging equations, factoring, simplifying expressions, and solving for unknowns are routine steps in almost every meaningful calculation. Strengthening these skills now will make the deeper ideas of Calc 2 much more accessible.</p>
+<hr />
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="why-calculus-workbook.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chapter-1-outline-introduction-to-calculus-ii.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -301,7 +387,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/rstudio/bookdown-demo/edit/master/102-intro-workbook.Rmd",
+    "link": "https://github.com/rstudio/bookdown-demo/edit/master/02-intro.Rmd",
     "text": "Edit"
   },
   "history": {

@@ -1,5 +1,5 @@
 book_filename: "bookdown-demo"
-rmd_files: ["index.Rmd", "02-intro.Rmd", "20-Equation_sheet.Rmd","21-test_review.Rmd","101-index_wB.Rmd",
+rmd_files: ["index.Rmd", "02-intro.Rmd","03-reimann.Rmd", "20-Equation_sheet.Rmd","21-test_review.Rmd","101-index_wB.Rmd",
             "102-intro-workbook.Rmd"]
 
 output_dir: "docs"
