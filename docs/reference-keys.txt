@@ -8,7 +8,6 @@ a-big-disclaimer
 introduction-to-calculus-ii
 what-calculus-ii-is-really-about
 what-you-bring-from-calculus-i
-chapter-1-outline-introduction-to-calculus-ii
 what-calculus-ii-is-about
 big-themes-of-the-course
 accumulation
@@ -18,7 +17,6 @@ change-over-time-a-first-look-at-differential-equations
 what-you-need-from-calculus-i
 key-concepts-to-bring-with-you
 skills-that-make-calculus-ii-easier
-common-gaps-and-quick-refreshers
 building-an-intuition-for-accumulation
 units-and-interpretation
 looking-ahead-1
