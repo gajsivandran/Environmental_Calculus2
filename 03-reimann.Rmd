@@ -3,6 +3,8 @@ Understanding Accumulation in Natural Systems
 
 Integrals help us understand how quantities **accumulate** over time or space. In environmental science, accumulation is everywhere: rivers accumulate runoff, forests accumulate carbon, lakes accumulate pollutants, and organisms accumulate energy. This chapter introduces the integral as a tool for describing total change when the **rate of change** is known. We begin with intuitive, visual ideas before moving into formal notation.
 
+---
+
 ## Chapter Objectives
 
 By the end of this chapter, you will be able to:
@@ -30,7 +32,7 @@ Common environmental examples include:
 > **Key idea:** If you know the rate at which something changes, the integral gives you the *total change* over a chosen interval.
 
 ::: promptbox
-### A Simple Example: Walking on a Treadmill {-}
+### Walking on a Treadmill {-}
 
 Imagine you're walking on a treadmill at a steady speed of **5 miles per hour**. This speed is a **rate** — it tells you how fast distance is being added as you move.
 
@@ -128,7 +130,7 @@ Environmental examples:
 - Total nitrogen mineralized over a growing season
 
 ::: promptbox
-### A Simple Example: Filling a Water Bottle
+### Filling a Water Bottle {-}
 
 Suppose you are filling a water bottle from a faucet, and the **flow rate** changes over time.
 
@@ -148,6 +150,7 @@ On the graph, these “small amounts” correspond to **thin rectangles under th
 Adding them all together gives the **area under the rate curve**, which equals the **total volume of water** in the bottle.
 
 This is exactly what an integral measures:  
+
 > the total accumulation obtained by adding up tiny contributions from a changing rate.
 
 ```{r rate-curve-area-water-bottle, echo=FALSE, message=FALSE, warning=FALSE, fig.width=7, fig.height=4}
@@ -334,10 +337,6 @@ ggplot(df, aes(x = t, y = f)) +
 
 ---
 
-### Choosing the Height of Each Slice
-
-The key choice in a Riemann sum is *how* we select the height of each rectangle. Different choices lead to different approximations.
-
 ### Choosing a Riemann Sum Method
 
 The difference between left, right, and midpoint Riemann sums is not just mathematical—it reflects **assumptions about how a system behaves within each subinterval**. Choosing a method means deciding *when* you think the rate best represents the entire slice.
@@ -490,7 +489,10 @@ When in doubt:
 
 These choices highlight that Riemann sums are not just numerical tools—they are **models of how we believe the system behaves** between measurements.
 
-  
+
+---
+
+
 ## Approximation and Error in Riemann Sums
 
 It is important to be clear about what Riemann sums are — and what they are not.
@@ -865,10 +867,12 @@ p_left | p_mid | p_right
 
 ```
 
+---
 
 ### Interpreting Error in Environmental Contexts
 
 In environmental science, these distinctions are not just mathematical—they have real consequences.  
+
 An **underestimate** of pollutant load may delay mitigation or regulatory action, while an **overestimate** of available water can lead to management plans that are unsustainable in practice. Each choice reflects assumptions about **timing, uncertainty, and acceptable risk**.
 
 For this reason, understanding *how* and *why* Riemann sums approximate accumulation is just as important as knowing how to compute them.
@@ -885,6 +889,7 @@ Riemann sums make this choice explicit by allowing us to decide **how the rate i
 A **conservative estimate** is one that reduces risk by erring on the side of caution. Whether this means overestimating or underestimating depends entirely on the context and the consequences of being wrong.
 
 The key question is:
+
 > *What is worse: overestimating or underestimating the true accumulation?*
 
 ---
@@ -941,10 +946,6 @@ Overestimates and underestimates are not mistakes.
 They are **tools**.
 
 By understanding how and why approximation error occurs, we can choose methods that align with the **ethical, environmental, and practical consequences** of our decisions.
-
----
-
-
 
 ---
 
@@ -2265,7 +2266,7 @@ The **true area** is given by the exact value:
 
 This comparison highlights why more sophisticated methods are often preferred when accuracy matters.
 
-
+---
 
 ## Accuracy Trade-Offs: Shape vs. Number of Subintervals
 
@@ -2466,3 +2467,1011 @@ Area below the axis represents **negative accumulation**, not a mistake or anoma
 > **Integrals measure net change over an interval, capturing both increases and decreases in a system.**
 
 This idea is essential for interpreting accumulation correctly in environmental, biological, and physical contexts.
+
+---
+
+## Conceptual Questions — How to Use These
+
+The questions below are designed to help you check your **conceptual understanding** of integrals before focusing on computation. Rather than asking you to calculate values, these questions emphasize interpretation, reasoning, and connection to real environmental systems.
+
+As you work through them, focus on *why* each idea makes sense, not just *what* the answer is. Try answering each question on your own before revealing the solution, and use the explanations to reflect on how accumulation, approximation, and modeling choices interact in real scientific contexts.
+
+These questions are excellent preparation for class discussion, problem-solving, and applying calculus thoughtfully in environmental decision-making.
+
+
+### Question 1 {-}  
+In your own words, what does an integral represent in environmental science?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+An integral represents the **total accumulation** of a quantity over time or space when the **rate of change** is known. It adds up many small contributions to determine a total amount.
+
+</details>
+
+---
+
+### Question 2 {-}  
+Why are rates often easier to measure directly than total accumulated quantities?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Rates can be measured instantaneously or over short intervals (for example, streamflow or photosynthesis), while totals require tracking accumulation continuously over time or space.
+
+</details>
+
+---
+
+### Question 3 {-}  
+What does the area under a rate curve represent?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+The area under a rate curve represents the **total accumulated change** of the quantity over the interval shown.
+
+</details>
+
+---
+
+### Question 4 {-}  
+Why do the units of an integral make sense physically?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Because the integral multiplies a rate by a width (time or distance), the units simplify to a total quantity (for example, m³/hr × hr = m³).
+
+</details>
+
+---
+
+### Question 5 {-}  
+Why is multiplying a single rate by total time often a poor approximation in environmental systems?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Because rates in environmental systems usually **change over time**, so a single rate does not accurately represent the entire interval.
+
+</details>
+
+---
+
+### Question 6 {-}  
+What does each rectangle in a Riemann sum represent?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Each rectangle represents a **small contribution** to the total accumulation over a short subinterval.
+
+</details>
+
+---
+
+### Question 7 {-}  
+Why do Riemann sums become more accurate as the number of rectangles increases?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Because smaller subintervals reduce how much the rate can change within each rectangle, making the constant-rate assumption more reasonable.
+
+</details>
+
+---
+
+### Question 8 {-}  
+What assumption is made when using rectangular approximations?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+That the rate remains approximately **constant** within each subinterval.
+
+</details>
+
+---
+
+### Question 9 {-}  
+Why does a left Riemann sum tend to underestimate accumulation for an increasing function?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Because it uses the rate at the beginning of each interval, which is smaller than most values of the rate over that interval.
+
+</details>
+
+---
+
+### Question 10 {-}  
+Why does a right Riemann sum tend to overestimate accumulation for an increasing function?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Because it uses the rate at the end of each interval, which is larger than most values of the rate over that interval.
+
+</details>
+
+---
+
+### Question 11 {-}  
+Why is the midpoint Riemann sum often more accurate than left or right sums?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Because the midpoint value often better represents the **average behavior** of the rate over the subinterval.
+
+</details>
+
+---
+
+### Question 12 {-}  
+What does it mean for accumulation to be “signed”?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+It means that positive rates contribute positively to the total, while negative rates contribute negatively, allowing gains and losses to be combined.
+
+</details>
+
+---
+
+### Question 13 {-}  
+What does a negative area under a rate curve represent?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+A **loss or decrease** in the accumulated quantity over that interval.
+
+</details>
+
+---
+
+### Question 14 {-}  
+Why does a net accumulation of zero not mean “nothing happened”?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Because gains and losses may have occurred but **canceled each other out** over the interval.
+
+</details>
+
+---
+
+### Question 15 {-}  
+What is the main source of error in a Riemann sum approximation?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+The rectangles do not perfectly match the shape of the curve, especially when the rate changes within a subinterval.
+
+</details>
+
+---
+
+### Question 16 {-}  
+What tradeoff is involved in increasing the number of rectangles?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Increasing accuracy comes at the cost of **more computation or more data**.
+
+</details>
+
+---
+
+### Question 17 {-}  
+How does the trapezoidal rule improve upon rectangular methods?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+It accounts for changes in the rate within each subinterval by approximating the curve with straight lines rather than flat rectangles.
+
+</details>
+
+---
+
+### Question 18 {-}  
+Why can changing the shape of the approximation be more effective than increasing \(n\)?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Because better-shaped approximations capture more of the function’s behavior without requiring many more subintervals.
+
+</details>
+
+---
+
+### Question 19 {-}  
+What makes an estimate “conservative” in environmental modeling?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+A conservative estimate reduces risk by erring on the side that avoids harmful consequences if the estimate is wrong.
+
+</details>
+
+---
+
+### Question 20 {-}  
+Why is choosing a Riemann sum method considered a modeling decision rather than a purely mathematical one?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Because the choice reflects assumptions about timing, uncertainty, and acceptable risk, which depend on real-world consequences.
+
+</details>
+
+
+## Practice Problems: Accumulation and Approximation
+
+These problems emphasize **calculation first**, followed by **reflection on meaning, assumptions, and environmental context**. After computing each result, reflect on what the number represents physically and what assumptions were required.
+
+---
+
+### Problem 1: Total Streamflow from Constant Measurements {-}
+
+A stream has a constant discharge of  
+\[
+Q = 8 \;\text{m}^3/\text{hr}
+\]
+for a period of 6 hours.
+
+**Calculate the total volume of water** that flows past the station during this time.
+
+**Reflection prompts:**
+
+- What does this total volume physically represent in the stream?
+- Under what real environmental conditions might assuming a constant discharge be reasonable?
+- How would this calculation change if discharge varied over time?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Because the rate is constant, total volume is:
+\[
+8 \times 6 = 48 \;\text{m}^3.
+\]
+
+**Reflection responses:**
+
+- This volume represents the total amount of water that physically passed the monitoring point during the 6-hour window.
+- Assuming constant discharge is reasonable during dry weather, regulated releases, or over short time spans without storms.
+- If discharge varied, the calculation would require summing many smaller contributions or using an integral instead of simple multiplication.
+
+</details>
+
+---
+
+### Problem 2: Piecewise Streamflow Accumulation {-}
+
+Streamflow during a storm is measured hourly:
+
+| Hour | Flow (m³/hr) |
+|-----:|-------------:|
+| 1    | 4            |
+| 2    | 9            |
+| 3    | 6            |
+
+**Calculate the total volume of water** that passed the station during the storm.
+
+**Reflection prompts:**
+
+- Why is it reasonable to treat flow as constant within each hour?
+- What environmental processes might cause the flow to increase and then decrease?
+- How does this calculation resemble a Riemann sum?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+\[
+4(1) + 9(1) + 6(1) = 19 \;\text{m}^3.
+\]
+
+**Reflection responses:**
+
+- Hourly measurements assume that changes within each hour are small compared to the hour itself.
+- Rainfall intensity, soil saturation, and watershed response can cause flow to rise and then fall.
+- Each hour acts as a rectangle, making this a basic Riemann sum approximation.
+
+</details>
+
+---
+
+### Problem 3: Left Riemann Sum from Data {-}
+
+Pollutant loading rate (kg/hr):
+
+| Time (hr) | Rate (kg/hr) |
+|----------:|-------------:|
+| 0         | 2            |
+| 1         | 5            |
+| 2         | 9            |
+| 3         | 14           |
+
+Use a **left Riemann sum** with \(\Delta t = 1\) hr.
+
+**Reflection prompts:**
+- What assumption does a left Riemann sum make?
+- Why might this underestimate pollutant load?
+- When is underestimation problematic?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+\[
+(2 + 5 + 9)(1) = 16 \;\text{kg}.
+\]
+
+**Reflection responses:**
+
+- It assumes the rate at the start of each hour applies throughout that hour.
+- Since the rate is increasing within each interval, early values are smaller than later values.
+- Underestimation is problematic when setting safety thresholds or regulatory limits.
+
+</details>
+
+---
+
+### Problem 4: Right Riemann Sum {-}
+
+Compute a **right Riemann sum** for the same data.
+
+**Reflection prompts:**
+
+- How does this change the assumption?
+- Why does it overestimate?
+- When is overestimation conservative?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+\[
+(5 + 9 + 14)(1) = 28 \;\text{kg}.
+\]
+
+**Reflection responses:**
+
+- It assumes the rate at the end of each hour applies throughout the hour.
+- Later values are larger, so the method overshoots the true accumulation.
+- Overestimation is conservative when protecting ecosystems or human safety.
+
+</details>
+
+---
+
+### Problem 5: Midpoint Riemann Sum {-}
+
+Using the same pollutant loading data as in Problems 3 and 4:
+
+| Time (hr) | Rate (kg/hr) |
+|----------:|-------------:|
+| 0         | 2            |
+| 1         | 5            |
+| 2         | 9            |
+| 3         | 14           |
+
+**(a)** Identify the **midpoints** of each time interval from \(t=0\) to \(t=3\).  
+**(b)** Estimate the pollutant loading rate at each midpoint using the table below.  
+**(c)** Use a **midpoint Riemann sum** with \(\Delta t = 1\) hr to approximate the total pollutant load.
+
+| Interval | Midpoint (hr) | Estimated rate (kg/hr) |
+|---------:|---------------:|-----------------------:|
+| 0–1      |                |                        |
+| 1–2      |                |                        |
+| 2–3      |                |                        |
+
+**Reflection prompts:**
+
+- Why do midpoint values often better represent average behavior over an interval?
+- Why should the midpoint estimate fall between the left and right sums?
+- When might midpoint assumptions break down in environmental datasets?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+**(a) Midpoints**
+
+Each interval has width \(\Delta t = 1\) hr:
+
+- Interval \(0\text{–}1:\; t = 0.5\)
+- Interval \(1\text{–}2:\; t = 1.5\)
+- Interval \(2\text{–}3:\; t = 2.5\)
+
+**(b) Estimated midpoint rates**
+
+Using the provided data and assuming smooth change between measurements:
+
+- \(f(0.5) \approx 3.5\ \text{kg/hr}\)
+- \(f(1.5) \approx 7\ \text{kg/hr}\)
+- \(f(2.5) \approx 11.5\ \text{kg/hr}\)
+
+**(c) Midpoint Riemann sum**
+
+\[
+(3.5 + 7 + 11.5)(1) = 22\ \text{kg}.
+\]
+
+**Reflection responses:**
+
+- Midpoints often capture the average rate when the process changes smoothly over time.
+- For an increasing rate, left sums underestimate and right sums overestimate, so midpoint values naturally fall between them.
+- Midpoint assumptions can fail when rates change abruptly, such as during flash floods or sudden pollutant releases.
+
+</details>
+
+
+---
+
+### Problem 6: Signed Accumulation {-}
+
+\[
+f(t) = t - 2, \quad 0 \le t \le 4
+\]
+
+**Reflection prompts:**
+
+- What does a negative rate mean?
+- Does zero net accumulation mean nothing happened?
+- How does this relate to day–night cycling?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+\[
+\int_0^4 (t - 2)\,dt = 0.
+\]
+
+**Reflection responses:**
+
+- A negative rate represents net carbon release.
+- Zero net accumulation still allows substantial uptake and release.
+- Daytime photosynthesis and nighttime respiration can cancel over 24 hours.
+
+</details>
+
+---
+
+### Problem 7: Trapezoidal Rule {-}
+
+\[
+f(x) = x^2 \quad \text{on } [1,7], \; n=3
+\]
+
+**Reflection prompts:**
+
+- What assumption does the trapezoidal rule make?
+- Why is it often better than rectangles?
+- When is linear change unrealistic?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+\[
+\Delta x = 2,\quad \text{Area} = 118.
+\]
+
+**Reflection responses:**
+
+- It assumes the rate changes linearly within each interval.
+- Many environmental processes change smoothly rather than abruptly.
+- Rapid nonlinear events (e.g., threshold collapse) violate this assumption.
+
+</details>
+
+---
+
+### Problem 8: Comparing Methods {-}
+
+For the function
+\[
+f(x) = x^2
+\]
+on the interval \([1,7]\) with \(n = 3\), the following approximations were computed:
+
+- Left Riemann sum: \(70\)  
+- Right Riemann sum: \(166\)  
+- Midpoint Riemann sum: \(112\)  
+- Trapezoidal rule: \(118\)  
+
+The **exact value** of the integral is
+\[
+\int_1^7 x^2\,dx = 114.
+\]
+
+**Reflection prompts:**
+
+- Why is midpoint accurate?
+- Is accuracy always the best criterion?
+- When is conservativeness preferred?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Midpoint sum \(=112\) is closest.
+
+**Reflection responses:**
+
+- It captures average behavior over each interval.
+- Best choice depends on goals, not just numerical closeness.
+- Conservative estimates matter in regulation and risk management.
+
+</details>
+
+---
+
+### Problem 9: Effect of Increasing the Number of Rectangles {-}
+
+Consider the function
+\[
+f(x) = \frac{1}{x}
+\]
+on the interval \([1,7]\).
+
+```{r left-riemann-1-over-x, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4}
+
+library(ggplot2)
+library(patchwork)
+
+# Function
+f <- function(x) 1 / x
+
+# Interval
+a <- 1
+b <- 7
+
+# Smooth curve for reference
+x_curve <- seq(a, b, length.out = 500)
+curve_df <- data.frame(x = x_curve, y = f(x_curve))
+
+# Helper function to build rectangles
+build_rects <- function(n) {
+  dx <- (b - a) / n
+  x_left <- seq(a, b - dx, by = dx)
+  
+  data.frame(
+    x0 = x_left,
+    x1 = x_left + dx,
+    height = f(x_left),
+    n = paste0("n = ", n)
+  )
+}
+
+# Rectangle data
+rects <- rbind(
+  build_rects(3),
+  build_rects(6),
+  build_rects(12)
+)
+
+# Force facet order
+rects$n <- factor(rects$n, levels = c("n = 3", "n = 6", "n = 12"))
+
+# Plot
+ggplot(curve_df, aes(x = x, y = y)) +
+  geom_line(linewidth = 1) +
+  geom_rect(
+    data = rects,
+    aes(xmin = x0, xmax = x1, ymin = 0, ymax = height),
+    inherit.aes = FALSE,
+    fill = "#56B4E9",
+    alpha = 0.4,
+    color = "black"
+  ) +
+  geom_vline(xintercept = c(a, b), linetype = "dashed") +
+  facet_wrap(~ n, nrow = 1) +
+  labs(
+    title = "Left Riemann Sums for f(x) = 1/x on [1, 7]",
+    x = "x",
+    y = "f(x) = 1/x"
+  ) +
+  theme_minimal() +
+  theme(
+    strip.text = element_text(face = "bold"),
+    panel.spacing = unit(1, "lines")
+  )
+
+
+
+```
+
+
+You will use **left Riemann sums** to approximate the total accumulation for different numbers of subintervals.
+
+**(a)** Compute a **left Riemann sum** with \(n = 3\).  
+**(b)** Compute a **left Riemann sum** with \(n = 6\).  
+**(c)** Compute a **left Riemann sum** with \(n = 12\).  
+**(d)** Compare your results and describe how the approximation changes as \(n\) increases.
+
+**Reflection prompts:**
+
+- How does increasing \(n\) change the width \(\Delta x\) of each rectangle?
+- Why does a left Riemann sum behave differently for decreasing functions?
+- What does increasing \(n\) represent in terms of environmental data collection?
+- Why might overestimation be conservative in some environmental contexts?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+We use **left endpoints** throughout.
+
+The exact value for comparison is:
+\[
+\int_1^7 \frac{1}{x}\,dx = \ln(7) \approx 1.946.
+\]
+
+---
+
+**(a) \(n = 3\)**
+
+\[
+\Delta x = \frac{7 - 1}{3} = 2
+\]
+
+Left endpoints: \(x = 1, 3, 5\)
+
+\[
+\text{Sum}
+= 2\left(\frac{1}{1} + \frac{1}{3} + \frac{1}{5}\right)
+= 2(1 + 0.3333 + 0.2)
+\approx 3.07
+\]
+
+---
+
+**(b) \(n = 6\)**
+
+\[
+\Delta x = \frac{7 - 1}{6} = 1
+\]
+
+Left endpoints: \(x = 1, 2, 3, 4, 5, 6\)
+
+\[
+\text{Sum}
+= 1\left(1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \frac{1}{5} + \frac{1}{6}\right)
+\approx 2.45
+\]
+
+---
+
+**(c) \(n = 12\)**
+
+\[
+\Delta x = \frac{7 - 1}{12} = 0.5
+\]
+
+Left endpoints:
+\[
+x = 1,\;1.5,\;2,\;2.5,\;3,\;3.5,\;4,\;4.5,\;5,\;5.5,\;6,\;6.5
+\]
+
+\[
+\text{Sum}
+= 0.5\left(
+1 + 0.6667 + 0.5 + 0.4 + 0.3333 + 0.2857
++ 0.25 + 0.2222 + 0.2 + 0.1818 + 0.1667 + 0.1538
+\right)
+\approx 2.18
+\]
+
+---
+
+**(d) Comparison**
+
+| \(n\) | Left Riemann Sum |
+|------:|------------------|
+| 3     | \(3.07\) |
+| 6     | \(2.45\) |
+| 12    | \(2.18\) |
+| Exact | \(\ln(7) \approx 1.95\) |
+
+Because \(f(x) = 1/x\) is **decreasing**, the left Riemann sum **overestimates** the true value. As \(n\) increases and \(\Delta x\) decreases, the approximation improves and approaches the exact value from above.
+
+---
+
+**Reflection responses**
+
+- Increasing \(n\) decreases \(\Delta x\), making rectangles narrower.
+- For decreasing functions, left endpoints use values larger than most of the interval, causing overestimation.
+- Increasing \(n\) corresponds to taking measurements more frequently in time or space.
+- Overestimation may be conservative when estimating risks such as pollutant loads, water demand, or exposure thresholds.
+
+</details>
+
+---
+
+### Problem 10: Signed Accumulation Using Riemann Sums {-}
+
+A simplified model of a **cyclic environmental process** (such as net ecosystem carbon exchange over a day) is given by the rate function
+
+\[
+f(t) = \sin(t),
+\]
+
+where:
+
+- \(t\) is time (hours), and  
+- \(f(t)\) has units of kg/hr.
+
+You will approximate accumulation using **midpoint Riemann sums**.
+
+---
+
+```{r midpoint-riemann-sine, echo=FALSE, message=FALSE, warning=FALSE, fig.width=8, fig.height=4}
+
+library(ggplot2)
+
+# Rate function
+f <- function(t) sin(t)
+
+# Interval
+a <- 0
+b <- 2 * pi
+n <- 4
+dt <- pi / n
+
+# Smooth curve
+t_curve <- seq(a, b, length.out = 500)
+curve_df <- data.frame(t = t_curve, y = f(t_curve))
+
+# Midpoint Riemann setup
+midpoints_A <- seq(dt/2, pi - dt/2, by = dt)
+midpoints_B <- seq(pi + dt/2, 2*pi - dt/2, by = dt)
+
+rects_A <- data.frame(
+  t0 = midpoints_A - dt/2,
+  t1 = midpoints_A + dt/2,
+  height = f(midpoints_A)
+)
+
+rects_B <- data.frame(
+  t0 = midpoints_B - dt/2,
+  t1 = midpoints_B + dt/2,
+  height = f(midpoints_B)
+)
+
+# Approximate areas
+area_A <- sum(rects_A$height * dt)
+area_B <- sum(rects_B$height * dt)
+
+ggplot(curve_df, aes(x = t, y = y)) +
+  
+  # Sine curve
+  geom_line(linewidth = 1.2) +
+  
+  # Horizontal axis
+  geom_hline(yintercept = 0, linewidth = 0.6) +
+  
+  # Rectangles for Part A
+  geom_rect(
+    data = rects_A,
+    aes(xmin = t0, xmax = t1, ymin = 0, ymax = height),
+    inherit.aes = FALSE,
+    fill = "#009E73",
+    alpha = 0.5,
+    color = "black"
+  ) +
+  
+  # Rectangles for Part B
+  geom_rect(
+    data = rects_B,
+    aes(xmin = t0, xmax = t1, ymin = height, ymax = 0),
+    inherit.aes = FALSE,
+    fill = "#D55E00",
+    alpha = 0.5,
+    color = "black"
+  ) +
+  
+  # Vertical markers
+  geom_vline(xintercept = c(0, pi, 2*pi), linetype = "dashed") +
+  
+  # Annotations
+  annotate(
+    "text",
+    x = pi/2,
+    y = -0.2,
+    label = paste0("Part A area"),
+    color = "#009E73",
+    fontface = "bold"
+  ) +
+  
+  annotate(
+    "text",
+    x = 3*pi/2,
+    y = 0.2,
+    label = paste0("Part B area"),
+    color = "#D55E00",
+    fontface = "bold"
+  ) +
+  
+  labs(
+    title = "Midpoint Riemann Sums for f(t) = sin(t)",
+    subtitle = "Positive and negative accumulation over one full cycle",
+    x = "Time (t)",
+    y = "Rate  f(t)"
+  ) +
+  
+  theme_minimal()
+
+```
+
+#### **Part A: Accumulation from \(t = 0\) to \(t = \pi\)** {-}
+
+##### **(a1)** Divide the interval \([0,\pi]\) into \(n = 4\) equal subintervals.   {-}
+Compute the width \(\Delta t\).
+
+##### **(a2)** List the **midpoints** of the four subintervals. {-}
+
+##### **(a3)** Evaluate \(f(t) = \sin(t)\) at each midpoint. {-}
+
+##### **(a4)** Use a midpoint Riemann sum to approximate the {-} total accumulation on \([0,\pi]\).
+
+---
+
+#### **Part B: Accumulation from \(t = \pi\) to \(t = 2\pi\)** {-}
+
+##### **(b1)** Using the same number of subintervals, compute the width \(\Delta t\). {-}
+
+##### **(b2)** List the **midpoints** of the four subintervals on \([\pi, 2\pi]\). {-}
+
+##### **(b3)** Evaluate \(f(t) = \sin(t)\) at each midpoint. {-}
+
+##### **(b4)** Use a midpoint Riemann sum to approximate the total accumulation on \([\pi,2\pi]\). {-}
+
+---
+
+#### **Part C: Accumulation over a Full Cycle** {-}
+
+##### **(c1)** Combine your results from Parts A and B to approximate the total accumulation on \([0,2\pi]\). {-}
+
+---
+
+#### **Reflection prompts** {-}
+
+- Over which interval is the accumulation positive? Over which is it negative?
+- Why do the magnitudes of the two accumulations look similar?
+- What does the combined result suggest about net change over a full cycle?
+- What real environmental systems show this kind of oscillatory behavior?
+
+
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+**Part A Solution: \(0 \le t \le \pi\) **
+
+**(a1) Width of each subinterval **
+
+\[
+\Delta t = \frac{\pi - 0}{4} = \frac{\pi}{4}
+\]
+
+---
+
+**(a2) Midpoints **
+
+The subintervals are:
+\[
+[0,\tfrac{\pi}{4}],\;
+[\tfrac{\pi}{4},\tfrac{\pi}{2}],\;
+[\tfrac{\pi}{2},\tfrac{3\pi}{4}],\;
+[\tfrac{3\pi}{4},\pi]
+\]
+
+Midpoints:
+\[
+\frac{\pi}{8},\;
+\frac{3\pi}{8},\;
+\frac{5\pi}{8},\;
+\frac{7\pi}{8}
+\]
+
+---
+
+**(a3) Evaluate the rate **
+
+\[
+\sin\!\left(\tfrac{\pi}{8}\right) \approx 0.383
+\]
+\[
+\sin\!\left(\tfrac{3\pi}{8}\right) \approx 0.924
+\]
+\[
+\sin\!\left(\tfrac{5\pi}{8}\right) \approx 0.924
+\]
+\[
+\sin\!\left(\tfrac{7\pi}{8}\right) \approx 0.383
+\]
+
+---
+
+**(a4) Midpoint Riemann sum **
+
+\[
+\left(0.383 + 0.924 + 0.924 + 0.383\right)\frac{\pi}{4}
+\approx 2.614 \cdot \frac{\pi}{4}
+\approx \boxed{2.05\ \text{kg}}
+\]
+
+---
+
+**Part B Solution: \(\pi \le t \le 2\pi\) **
+
+**(b1) Width of each subinterval **
+
+\[
+\Delta t = \frac{2\pi - \pi}{4} = \frac{\pi}{4}
+\]
+
+---
+
+**(b2) Midpoints **
+
+\[
+\frac{9\pi}{8},\;
+\frac{11\pi}{8},\;
+\frac{13\pi}{8},\;
+\frac{15\pi}{8}
+\]
+
+---
+
+**(b3) Evaluate the rate **
+
+\[
+\sin\!\left(\tfrac{9\pi}{8}\right) \approx -0.383
+\]
+\[
+\sin\!\left(\tfrac{11\pi}{8}\right) \approx -0.924
+\]
+\[
+\sin\!\left(\tfrac{13\pi}{8}\right) \approx -0.924
+\]
+\[
+\sin\!\left(\tfrac{15\pi}{8}\right) \approx -0.383
+\]
+
+---
+
+**(b4) Midpoint Riemann sum **
+
+\[
+(-2.614)\frac{\pi}{4}
+\approx \boxed{-2.05\ \text{kg}}
+\]
+
+---
+
+**Part C Solution: Full Cycle **
+
+\[
+2.05 + (-2.05) = \boxed{0}
+\]
+
+---
+
+**Interpretation **
+
+- Positive accumulation from \(0\) to \(\pi\): net uptake.  
+- Negative accumulation from \(\pi\) to \(2\pi\): net release.  
+- Over a full cycle, gains and losses cancel.
+
+This models diurnal carbon exchange, tides, seasonal growth cycles, and other oscillatory environmental processes. Net accumulation alone hides substantial internal dynamics.
+
+</details>

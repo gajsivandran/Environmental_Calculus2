@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Definite Integrals and the Fundamental Theorem of Calculus | Environmental Calculus 2 - Active Learning with Case Studies</title>
+  <meta name="description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Definite Integrals and the Fundamental Theorem of Calculus | Environmental Calculus 2 - Active Learning with Case Studies" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Definite Integrals and the Fundamental Theorem of Calculus | Environmental Calculus 2 - Active Learning with Case Studies" />
+  
+  <meta name="twitter:description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
+  
+
+<meta name="author" content="Gaj Sivandran" />
+
+
+<meta name="date" content="2025-12-16" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="what-is-an-integral.html"/>
+<link rel="next" href="calculus-ii-equation-sheet.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">QSCI 292</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Why Calculus?</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#why-this-book"><i class="fa fa-check"></i><b>1.1</b> Why This Book?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#what-is-calculus"><i class="fa fa-check"></i><b>1.2</b> What Is Calculus?</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#how-this-book-works"><i class="fa fa-check"></i><b>1.3</b> How This Book Works</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#success-in-this-class"><i class="fa fa-check"></i><b>1.4</b> Success in This Class</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#looking-ahead"><i class="fa fa-check"></i><b>1.5</b> Looking Ahead</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#a-big-disclaimer"><i class="fa fa-check"></i><b>1.6</b> ⚠️ A Big Disclaimer ⚠️</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html"><i class="fa fa-check"></i><b>2</b> Introduction to Calculus II</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#what-calculus-ii-is-really-about"><i class="fa fa-check"></i><b>2.1</b> What Calculus II Is Really About</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#what-you-bring-from-calculus-i"><i class="fa fa-check"></i><b>2.2</b> What You Bring From Calculus I</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#what-calculus-ii-is-about"><i class="fa fa-check"></i><b>2.3</b> What Calculus II Is About</a></li>
+<li class="chapter" data-level="2.4" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#big-themes-of-the-course"><i class="fa fa-check"></i><b>2.4</b> Big Themes of the Course</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#accumulation"><i class="fa fa-check"></i><b>2.4.1</b> Accumulation</a></li>
+<li class="chapter" data-level="2.4.2" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#reversing-derivatives-antiderivatives-and-the-fundamental-idea"><i class="fa fa-check"></i><b>2.4.2</b> Reversing Derivatives: Antiderivatives and the Fundamental Idea</a></li>
+<li class="chapter" data-level="2.4.3" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#why-this-connection-matters"><i class="fa fa-check"></i><b>2.4.3</b> Why This Connection Matters</a></li>
+<li class="chapter" data-level="2.4.4" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#change-over-time-a-first-look-at-differential-equations"><i class="fa fa-check"></i><b>2.4.4</b> Change Over Time: A First Look at Differential Equations</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#what-you-need-from-calculus-i"><i class="fa fa-check"></i><b>2.5</b> What You Need From Calculus I</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#key-concepts-to-bring-with-you"><i class="fa fa-check"></i><b>2.5.1</b> Key Concepts to Bring With You</a></li>
+<li class="chapter" data-level="2.5.2" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#skills-that-make-calculus-ii-easier"><i class="fa fa-check"></i><b>2.5.2</b> Skills That Make Calculus II Easier</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#building-an-intuition-for-accumulation"><i class="fa fa-check"></i><b>2.6</b> Building an Intuition for Accumulation</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#units-and-interpretation"><i class="fa fa-check"></i><b>2.6.1</b> Units and Interpretation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#looking-ahead-1"><i class="fa fa-check"></i><b>2.7</b> Looking Ahead</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html"><i class="fa fa-check"></i><b>3</b> What Is an Integral?</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#chapter-objectives"><i class="fa fa-check"></i><b>3.1</b> Chapter Objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#accumulation-in-environmental-systems"><i class="fa fa-check"></i><b>3.2</b> Accumulation in Environmental Systems</a>
+<ul>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#walking-on-a-treadmill"><i class="fa fa-check"></i>Walking on a Treadmill</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#from-rate-curves-to-areas-under-curves"><i class="fa fa-check"></i><b>3.3</b> From Rate Curves to Areas Under Curves</a>
+<ul>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#filling-a-water-bottle"><i class="fa fa-check"></i>Filling a Water Bottle</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#riemann-sums-adding-up-small-pieces"><i class="fa fa-check"></i><b>3.4</b> Riemann Sums: Adding Up Small Pieces</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#choosing-a-riemann-sum-method"><i class="fa fa-check"></i><b>3.4.1</b> Choosing a Riemann Sum Method</a></li>
+<li class="chapter" data-level="3.4.2" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#a-practical-guideline"><i class="fa fa-check"></i><b>3.4.2</b> A Practical Guideline</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#approximation-and-error-in-riemann-sums"><i class="fa fa-check"></i><b>3.5</b> Approximation and Error in Riemann Sums</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#why-error-occurs"><i class="fa fa-check"></i><b>3.5.1</b> Why Error Occurs</a></li>
+<li class="chapter" data-level="3.5.2" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#overestimates-and-underestimates"><i class="fa fa-check"></i><b>3.5.2</b> Overestimates and Underestimates</a></li>
+<li class="chapter" data-level="3.5.3" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#interpreting-error-in-environmental-contexts"><i class="fa fa-check"></i><b>3.5.3</b> Interpreting Error in Environmental Contexts</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#riemann-sums-as-a-calculus-expression"><i class="fa fa-check"></i><b>3.6</b> Riemann Sums as a Calculus Expression</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#rectangle-contributions-in-notation"><i class="fa fa-check"></i><b>3.6.1</b> Rectangle Contributions in Notation</a></li>
+<li class="chapter" data-level="3.6.2" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#the-riemann-sum---adding-the-rectangles"><i class="fa fa-check"></i><b>3.6.2</b> The Riemann Sum - Adding the Rectangles</a></li>
+<li class="chapter" data-level="3.6.3" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#left-right-and-midpoint-riemann-sums-in-notation"><i class="fa fa-check"></i><b>3.6.3</b> Left, Right, and Midpoint Riemann Sums in Notation</a></li>
+<li class="chapter" data-level="3.6.4" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#example-1-approximating-accumulation-with-a-left-riemann-sum"><i class="fa fa-check"></i><b>3.6.4</b> Example 1: Approximating Accumulation with a Left Riemann Sum</a></li>
+<li class="chapter" data-level="3.6.5" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#example-2-right-hand-riemann-sum"><i class="fa fa-check"></i><b>3.6.5</b> Example 2: Right-Hand Riemann Sum</a></li>
+<li class="chapter" data-level="3.6.6" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#example-3-midpoint-riemann-sum"><i class="fa fa-check"></i><b>3.6.6</b> Example 3: Midpoint Riemann Sum</a></li>
+<li class="chapter" data-level="3.6.7" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#comparison"><i class="fa fa-check"></i><b>3.6.7</b> Comparison</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#refining-the-approximation"><i class="fa fa-check"></i><b>3.7</b> Refining the Approximation</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#increasing-n"><i class="fa fa-check"></i><b>3.7.1</b> Increasing <span class="math inline">\(n\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#beyond-rectangles-more-accurate-approximation-methods"><i class="fa fa-check"></i><b>3.8</b> Beyond Rectangles: More Accurate Approximation Methods</a></li>
+<li class="chapter" data-level="3.9" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#the-trapezoidal-rule"><i class="fa fa-check"></i><b>3.9</b> The Trapezoidal Rule</a>
+<ul>
+<li class="chapter" data-level="3.9.1" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#idea"><i class="fa fa-check"></i><b>3.9.1</b> Idea</a></li>
+<li class="chapter" data-level="3.9.2" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#area-of-a-single-trapezoid"><i class="fa fa-check"></i><b>3.9.2</b> Area of a Single Trapezoid</a></li>
+<li class="chapter" data-level="3.9.3" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#adding-the-trapezoids-together"><i class="fa fa-check"></i><b>3.9.3</b> Adding the Trapezoids Together</a></li>
+<li class="chapter" data-level="3.9.4" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#interpretation-3"><i class="fa fa-check"></i><b>3.9.4</b> Interpretation</a></li>
+<li class="chapter" data-level="3.9.5" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#example-trapezoidal-rule"><i class="fa fa-check"></i><b>3.9.5</b> Example: Trapezoidal Rule</a></li>
+<li class="chapter" data-level="3.9.6" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#key-takeaways"><i class="fa fa-check"></i><b>3.9.6</b> Key Takeaways</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#accuracy-trade-offs-shape-vs.-number-of-subintervals"><i class="fa fa-check"></i><b>3.10</b> Accuracy Trade-Offs: Shape vs. Number of Subintervals</a>
+<ul>
+<li class="chapter" data-level="3.10.1" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#improving-accuracy-by-changing-the-shape"><i class="fa fa-check"></i><b>3.10.1</b> Improving Accuracy by Changing the Shape</a></li>
+<li class="chapter" data-level="3.10.2" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#improving-accuracy-by-increasing-n"><i class="fa fa-check"></i><b>3.10.2</b> Improving Accuracy by Increasing <span class="math inline">\(n\)</span></a></li>
+<li class="chapter" data-level="3.10.3" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#comparing-the-two-strategies"><i class="fa fa-check"></i><b>3.10.3</b> Comparing the Two Strategies</a></li>
+<li class="chapter" data-level="3.10.4" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#a-modeling-perspective"><i class="fa fa-check"></i><b>3.10.4</b> A Modeling Perspective</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#negative-area-and-signed-accumulation"><i class="fa fa-check"></i><b>3.11</b> Negative Area and Signed Accumulation</a>
+<ul>
+<li class="chapter" data-level="3.11.1" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#what-is-a-negative-area"><i class="fa fa-check"></i><b>3.11.1</b> What Is a Negative Area?</a></li>
+<li class="chapter" data-level="3.11.2" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#why-this-makes-sense-conceptually"><i class="fa fa-check"></i><b>3.11.2</b> Why This Makes Sense Conceptually</a></li>
+<li class="chapter" data-level="3.11.3" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#a-simple-example"><i class="fa fa-check"></i><b>3.11.3</b> A Simple Example</a></li>
+<li class="chapter" data-level="3.11.4" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#interpretation-of-the-result"><i class="fa fa-check"></i><b>3.11.4</b> Interpretation of the Result</a></li>
+<li class="chapter" data-level="3.11.5" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#why-signed-accumulation-matters"><i class="fa fa-check"></i><b>3.11.5</b> Why Signed Accumulation Matters</a></li>
+<li class="chapter" data-level="3.11.6" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#key-takeaway-1"><i class="fa fa-check"></i><b>3.11.6</b> Key Takeaway</a></li>
+</ul></li>
+<li class="chapter" data-level="3.12" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#conceptual-questions-how-to-use-these"><i class="fa fa-check"></i><b>3.12</b> Conceptual Questions — How to Use These</a>
+<ul>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-1"><i class="fa fa-check"></i>Question 1</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-2"><i class="fa fa-check"></i>Question 2</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-3"><i class="fa fa-check"></i>Question 3</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-4"><i class="fa fa-check"></i>Question 4</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-5"><i class="fa fa-check"></i>Question 5</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-6"><i class="fa fa-check"></i>Question 6</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-7"><i class="fa fa-check"></i>Question 7</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-8"><i class="fa fa-check"></i>Question 8</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-9"><i class="fa fa-check"></i>Question 9</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-10"><i class="fa fa-check"></i>Question 10</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-11"><i class="fa fa-check"></i>Question 11</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-12"><i class="fa fa-check"></i>Question 12</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-13"><i class="fa fa-check"></i>Question 13</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-14"><i class="fa fa-check"></i>Question 14</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-15"><i class="fa fa-check"></i>Question 15</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-16"><i class="fa fa-check"></i>Question 16</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-17"><i class="fa fa-check"></i>Question 17</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-18"><i class="fa fa-check"></i>Question 18</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-19"><i class="fa fa-check"></i>Question 19</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-20"><i class="fa fa-check"></i>Question 20</a></li>
+</ul></li>
+<li class="chapter" data-level="3.13" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#practice-problems-accumulation-and-approximation"><i class="fa fa-check"></i><b>3.13</b> Practice Problems: Accumulation and Approximation</a>
+<ul>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#problem-1-total-streamflow-from-constant-measurements"><i class="fa fa-check"></i>Problem 1: Total Streamflow from Constant Measurements</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#problem-2-piecewise-streamflow-accumulation"><i class="fa fa-check"></i>Problem 2: Piecewise Streamflow Accumulation</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#problem-3-left-riemann-sum-from-data"><i class="fa fa-check"></i>Problem 3: Left Riemann Sum from Data</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#problem-4-right-riemann-sum"><i class="fa fa-check"></i>Problem 4: Right Riemann Sum</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#problem-5-midpoint-riemann-sum"><i class="fa fa-check"></i>Problem 5: Midpoint Riemann Sum</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#problem-6-signed-accumulation"><i class="fa fa-check"></i>Problem 6: Signed Accumulation</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#problem-7-trapezoidal-rule"><i class="fa fa-check"></i>Problem 7: Trapezoidal Rule</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#problem-8-comparing-methods"><i class="fa fa-check"></i>Problem 8: Comparing Methods</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#problem-9-effect-of-increasing-the-number-of-rectangles"><i class="fa fa-check"></i>Problem 9: Effect of Increasing the Number of Rectangles</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#problem-10-signed-accumulation-using-riemann-sums"><i class="fa fa-check"></i>Problem 10: Signed Accumulation Using Riemann Sums</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><i class="fa fa-check"></i><b>4</b> Definite Integrals and the Fundamental Theorem of Calculus</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#purpose-of-the-chapter"><i class="fa fa-check"></i><b>4.1</b> Purpose of the Chapter</a></li>
+<li class="chapter" data-level="4.2" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#from-riemann-sums-to-definite-integrals"><i class="fa fa-check"></i><b>4.2</b> From Riemann Sums to Definite Integrals</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#riemann-sums-as-structured-approximations"><i class="fa fa-check"></i><b>4.2.1</b> Riemann Sums as Structured Approximations</a></li>
+<li class="chapter" data-level="4.2.2" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#partitioning-an-interval"><i class="fa fa-check"></i><b>4.2.2</b> Partitioning an Interval</a></li>
+<li class="chapter" data-level="4.2.3" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#width-delta-x-and-resolution"><i class="fa fa-check"></i><b>4.2.3</b> Width <span class="math inline">\(\Delta x\)</span> and Resolution</a></li>
+<li class="chapter" data-level="4.2.4" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#sample-points-left-right-and-midpoint"><i class="fa fa-check"></i><b>4.2.4</b> Sample Points: Left, Right, and Midpoint</a></li>
+<li class="chapter" data-level="4.2.5" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#from-finite-sums-to-a-limit"><i class="fa fa-check"></i><b>4.2.5</b> From Finite Sums to a Limit</a></li>
+<li class="chapter" data-level="4.2.6" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#why-different-sums-converge-to-the-same-value"><i class="fa fa-check"></i><b>4.2.6</b> Why Different Sums Converge to the Same Value</a></li>
+<li class="chapter" data-level="4.2.7" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#defining-the-definite-integral"><i class="fa fa-check"></i><b>4.2.7</b> Defining the Definite Integral</a></li>
+<li class="chapter" data-level="4.2.8" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#conceptual-meaning-over-formal-notation"><i class="fa fa-check"></i><b>4.2.8</b> Conceptual Meaning Over Formal Notation</a></li>
+<li class="chapter" data-level="4.2.9" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#environmental-framing-why-resolution-matters"><i class="fa fa-check"></i><b>4.2.9</b> Environmental Framing: Why Resolution Matters</a></li>
+<li class="chapter" data-level="4.2.10" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#continuous-vs.-discrete-data"><i class="fa fa-check"></i><b>4.2.10</b> Continuous vs. Discrete Data</a></li>
+<li class="chapter" data-level="4.2.11" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#key-takeaway-2"><i class="fa fa-check"></i><b>4.2.11</b> Key Takeaway</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#interpreting-the-definite-integral"><i class="fa fa-check"></i><b>4.3</b> Interpreting the Definite Integral</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#definite-integrals-as-net-accumulation"><i class="fa fa-check"></i><b>4.3.1</b> Definite Integrals as Net Accumulation</a></li>
+<li class="chapter" data-level="4.3.2" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#signed-area-and-physical-meaning"><i class="fa fa-check"></i><b>4.3.2</b> Signed Area and Physical Meaning</a></li>
+<li class="chapter" data-level="4.3.3" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#total-change-from-a-rate"><i class="fa fa-check"></i><b>4.3.3</b> Total Change from a Rate</a></li>
+<li class="chapter" data-level="4.3.4" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#units-analysis-why-units-matter"><i class="fa fa-check"></i><b>4.3.4</b> Units Analysis: Why Units Matter</a></li>
+<li class="chapter" data-level="4.3.5" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#positive-and-negative-contributions"><i class="fa fa-check"></i><b>4.3.5</b> Positive and Negative Contributions</a></li>
+<li class="chapter" data-level="4.3.6" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#net-accumulation-vs.-total-accumulation"><i class="fa fa-check"></i><b>4.3.6</b> Net Accumulation vs. Total Accumulation</a></li>
+<li class="chapter" data-level="4.3.7" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#common-pitfalls"><i class="fa fa-check"></i><b>4.3.7</b> Common Pitfalls</a></li>
+<li class="chapter" data-level="4.3.8" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#environmental-framing"><i class="fa fa-check"></i><b>4.3.8</b> Environmental Framing</a></li>
+<li class="chapter" data-level="4.3.9" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#key-takeaway-3"><i class="fa fa-check"></i><b>4.3.9</b> Key Takeaway</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#properties-of-definite-integrals"><i class="fa fa-check"></i><b>4.4</b> Properties of Definite Integrals</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#linearity-of-the-integral"><i class="fa fa-check"></i><b>4.4.1</b> Linearity of the Integral</a></li>
+<li class="chapter" data-level="4.4.2" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#additivity-over-intervals"><i class="fa fa-check"></i><b>4.4.2</b> Additivity Over Intervals</a></li>
+<li class="chapter" data-level="4.4.3" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#reversing-the-limits-of-integration"><i class="fa fa-check"></i><b>4.4.3</b> Reversing the Limits of Integration</a></li>
+<li class="chapter" data-level="4.4.4" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#integrals-of-constant-functions"><i class="fa fa-check"></i><b>4.4.4</b> Integrals of Constant Functions</a></li>
+<li class="chapter" data-level="4.4.5" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#why-these-properties-matter"><i class="fa fa-check"></i><b>4.4.5</b> Why These Properties Matter</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#the-fundamental-theorem-of-calculus-part-i"><i class="fa fa-check"></i><b>4.5</b> The Fundamental Theorem of Calculus (Part I)</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#big-idea"><i class="fa fa-check"></i><b>4.5.1</b> Big Idea</a></li>
+<li class="chapter" data-level="4.5.2" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#accumulation-as-a-function"><i class="fa fa-check"></i><b>4.5.2</b> Accumulation as a Function</a></li>
+<li class="chapter" data-level="4.5.3" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#what-the-theorem-says-conceptually"><i class="fa fa-check"></i><b>4.5.3</b> What the Theorem Says (Conceptually)</a></li>
+<li class="chapter" data-level="4.5.4" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#why-differentiation-and-integration-are-inverses"><i class="fa fa-check"></i><b>4.5.4</b> Why Differentiation and Integration Are Inverses</a></li>
+<li class="chapter" data-level="4.5.5" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#visual-intuition"><i class="fa fa-check"></i><b>4.5.5</b> Visual Intuition</a></li>
+<li class="chapter" data-level="4.5.6" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#what-to-avoid-at-this-stage"><i class="fa fa-check"></i><b>4.5.6</b> What to Avoid at This Stage</a></li>
+<li class="chapter" data-level="4.5.7" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#environmental-framing-1"><i class="fa fa-check"></i><b>4.5.7</b> Environmental Framing</a></li>
+<li class="chapter" data-level="4.5.8" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#key-takeaway-4"><i class="fa fa-check"></i><b>4.5.8</b> Key Takeaway</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#the-fundamental-theorem-of-calculus-part-ii"><i class="fa fa-check"></i><b>4.6</b> The Fundamental Theorem of Calculus (Part II)</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#step-1-accumulation-is-a-function"><i class="fa fa-check"></i><b>4.6.1</b> Step 1: Accumulation Is a Function</a></li>
+<li class="chapter" data-level="4.6.2" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#step-2-antiderivatives-are-not-unique"><i class="fa fa-check"></i><b>4.6.2</b> Step 2: Antiderivatives Are Not Unique</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#example-1-rate-fx-x"><i class="fa fa-check"></i>Example 1: Rate <span class="math inline">\(f(x) = x\)</span></a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#example-2-rate-fx-x2---2"><i class="fa fa-check"></i>Example 2: Rate <span class="math inline">\(f(x) = x^2 - 2\)</span></a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#the-two-way-relationship"><i class="fa fa-check"></i>The Two-Way Relationship</a></li>
+<li class="chapter" data-level="4.6.3" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#step-3-why-the-constant-does-not-matter-for-definite-integrals"><i class="fa fa-check"></i><b>4.6.3</b> Step 3: Why the Constant Does Not Matter for Definite Integrals</a></li>
+<li class="chapter" data-level="4.6.4" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#step-4-what-the-formula-is-really-saying"><i class="fa fa-check"></i><b>4.6.4</b> Step 4: What the Formula Is Really Saying</a></li>
+<li class="chapter" data-level="4.6.5" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#key-takeaway-5"><i class="fa fa-check"></i><b>4.6.5</b> Key Takeaway</a></li>
+<li class="chapter" data-level="4.6.6" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#what-the-formula-means"><i class="fa fa-check"></i><b>4.6.6</b> What the Formula Means</a></li>
+<li class="chapter" data-level="4.6.7" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#key-skills-you-will-use"><i class="fa fa-check"></i><b>4.6.7</b> Key Skills You Will Use</a></li>
+<li class="chapter" data-level="4.6.8" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#a-simple-environmental-interpretation"><i class="fa fa-check"></i><b>4.6.8</b> A Simple Environmental Interpretation</a></li>
+<li class="chapter" data-level="4.6.9" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#critical-emphasis-more-than-plug-and-chug"><i class="fa fa-check"></i><b>4.6.9</b> Critical Emphasis: More Than Plug-and-Chug</a></li>
+<li class="chapter" data-level="4.6.10" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#key-takeaway-6"><i class="fa fa-check"></i><b>4.6.10</b> Key Takeaway</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="calculus-ii-equation-sheet.html"><a href="calculus-ii-equation-sheet.html"><i class="fa fa-check"></i>Calculus II Equation Sheet</a></li>
+<li class="chapter" data-level="" data-path="test1-review-material.html"><a href="test1-review-material.html"><i class="fa fa-check"></i>Test1 Review Material</a>
+<ul>
+<li class="chapter" data-level="" data-path="test1-review-material.html"><a href="test1-review-material.html#test-instructions"><i class="fa fa-check"></i>Test Instructions</a></li>
+<li class="chapter" data-level="" data-path="test1-review-material.html"><a href="test1-review-material.html#test-1-spring-2025"><i class="fa fa-check"></i>Test 1 Spring 2025</a>
+<ul>
+<li class="chapter" data-level="" data-path="test1-review-material.html"><a href="test1-review-material.html#short-answer-questions-20-points"><i class="fa fa-check"></i>Short-Answer Questions (20 points)</a></li>
+<li class="chapter" data-level="" data-path="test1-review-material.html"><a href="test1-review-material.html#problems-30-points"><i class="fa fa-check"></i>Problems (30 points)</a></li>
+<li class="chapter" data-level="" data-path="test1-review-material.html"><a href="test1-review-material.html#problem-2"><i class="fa fa-check"></i>Problem 2</a></li>
+<li class="chapter" data-level="" data-path="test1-review-material.html"><a href="test1-review-material.html#problem-3"><i class="fa fa-check"></i>Problem 3</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="test1-review-material.html"><a href="test1-review-material.html#test-1-spring-2025-retake"><i class="fa fa-check"></i>Test 1 Spring 2025 Retake</a>
+<ul>
+<li class="chapter" data-level="" data-path="test1-review-material.html"><a href="test1-review-material.html#short-answer-questions-20-points-1"><i class="fa fa-check"></i>Short-Answer Questions (20 points)</a></li>
+<li class="chapter" data-level="" data-path="test1-review-material.html"><a href="test1-review-material.html#problems-30-points-1"><i class="fa fa-check"></i>Problems (30 points)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="test1-review-material.html"><a href="test1-review-material.html#test-1-winter-2025"><i class="fa fa-check"></i>Test 1 Winter 2025</a>
+<ul>
+<li class="chapter" data-level="" data-path="test1-review-material.html"><a href="test1-review-material.html#short-answer-questions-24-points"><i class="fa fa-check"></i>Short-Answer Questions (24 points)</a></li>
+<li class="chapter" data-level="" data-path="test1-review-material.html"><a href="test1-review-material.html#problems-26-points"><i class="fa fa-check"></i>Problems (26 points)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="test1-review-material.html"><a href="test1-review-material.html#practice-workbook-limits-continuity-and-derivatives"><i class="fa fa-check"></i>Practice Workbook: Limits, Continuity, and Derivatives</a></li>
+<li class="chapter" data-level="" data-path="test1-review-material.html"><a href="test1-review-material.html#short-answer-practice"><i class="fa fa-check"></i>Short-Answer Practice</a>
+<ul>
+<li class="chapter" data-level="" data-path="test1-review-material.html"><a href="test1-review-material.html#limits-and-continuity"><i class="fa fa-check"></i><strong>Limits and Continuity</strong></a></li>
+<li class="chapter" data-level="" data-path="test1-review-material.html"><a href="test1-review-material.html#rates-of-change-and-tangent-lines"><i class="fa fa-check"></i><strong>Rates of Change and Tangent Lines</strong></a></li>
+<li class="chapter" data-level="" data-path="test1-review-material.html"><a href="test1-review-material.html#differentiability-and-corners"><i class="fa fa-check"></i><strong>Differentiability and Corners</strong></a></li>
+<li class="chapter" data-level="" data-path="test1-review-material.html"><a href="test1-review-material.html#derivatives-and-interpretation"><i class="fa fa-check"></i><strong>Derivatives and Interpretation</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="test1-review-material.html"><a href="test1-review-material.html#problem-practice"><i class="fa fa-check"></i>Problem Practice</a>
+<ul>
+<li class="chapter" data-level="" data-path="test1-review-material.html"><a href="test1-review-material.html#a.-limits-and-continuity"><i class="fa fa-check"></i><strong>A. Limits and Continuity</strong></a></li>
+<li class="chapter" data-level="" data-path="test1-review-material.html"><a href="test1-review-material.html#b.-the-limit-definition-of-the-derivative"><i class="fa fa-check"></i><strong>B. The Limit Definition of the Derivative</strong></a></li>
+<li class="chapter" data-level="" data-path="test1-review-material.html"><a href="test1-review-material.html#c.-average-and-instantaneous-rate-of-change"><i class="fa fa-check"></i><strong>C. Average and Instantaneous Rate of Change</strong></a></li>
+<li class="chapter" data-level="" data-path="test1-review-material.html"><a href="test1-review-material.html#d.-tangent-lines-and-derivative-applications"><i class="fa fa-check"></i><strong>D. Tangent Lines and Derivative Applications</strong></a></li>
+<li class="chapter" data-level="" data-path="test1-review-material.html"><a href="test1-review-material.html#e.-graphical-reasoning"><i class="fa fa-check"></i><strong>E. Graphical Reasoning</strong></a></li>
+<li class="chapter" data-level="" data-path="test1-review-material.html"><a href="test1-review-material.html#f.-second-derivatives-and-motion"><i class="fa fa-check"></i><strong>F. Second Derivatives and Motion</strong></a></li>
+<li class="chapter" data-level="" data-path="test1-review-material.html"><a href="test1-review-material.html#g.-mixed-concept-practice"><i class="fa fa-check"></i><strong>G. Mixed Concept Practice</strong></a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>I Workbook Chapters</b></span></li>
+<li class="chapter" data-level="5" data-path="why-calculus-workbook.html"><a href="why-calculus-workbook.html"><i class="fa fa-check"></i><b>5</b> Why Calculus Workbook</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="why-calculus-workbook.html"><a href="why-calculus-workbook.html#classroom-etiquette"><i class="fa fa-check"></i><b>5.1</b> Classroom Etiquette</a></li>
+<li class="chapter" data-level="5.2" data-path="why-calculus-workbook.html"><a href="why-calculus-workbook.html#why-are-you-here"><i class="fa fa-check"></i><b>5.2</b> Why are you here?</a></li>
+<li class="chapter" data-level="5.3" data-path="why-calculus-workbook.html"><a href="why-calculus-workbook.html#what-is-calculus-1"><i class="fa fa-check"></i><b>5.3</b> What is Calculus?</a></li>
+<li class="chapter" data-level="5.4" data-path="why-calculus-workbook.html"><a href="why-calculus-workbook.html#my-expectations-of-you"><i class="fa fa-check"></i><b>5.4</b> My Expectations of You</a></li>
+<li class="chapter" data-level="5.5" data-path="why-calculus-workbook.html"><a href="why-calculus-workbook.html#your-expectations-of-me"><i class="fa fa-check"></i><b>5.5</b> Your Expectations of Me</a></li>
+<li class="chapter" data-level="5.6" data-path="why-calculus-workbook.html"><a href="why-calculus-workbook.html#syllabus-highlights"><i class="fa fa-check"></i><b>5.6</b> Syllabus Highlights</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="why-calculus-workbook.html"><a href="why-calculus-workbook.html#assessments"><i class="fa fa-check"></i><b>5.6.1</b> Assessments</a></li>
+<li class="chapter" data-level="5.6.2" data-path="why-calculus-workbook.html"><a href="why-calculus-workbook.html#acedemic-integrity"><i class="fa fa-check"></i><b>5.6.2</b> Acedemic Integrity</a></li>
+<li class="chapter" data-level="5.6.3" data-path="why-calculus-workbook.html"><a href="why-calculus-workbook.html#late-assessment-missed-assessment-policy"><i class="fa fa-check"></i><b>5.6.3</b> Late Assessment / Missed Assessment Policy</a></li>
+<li class="chapter" data-level="5.6.4" data-path="why-calculus-workbook.html"><a href="why-calculus-workbook.html#test-retakes-policy"><i class="fa fa-check"></i><b>5.6.4</b> Test Retakes Policy</a></li>
+<li class="chapter" data-level="5.6.5" data-path="why-calculus-workbook.html"><a href="why-calculus-workbook.html#office-hours"><i class="fa fa-check"></i><b>5.6.5</b> Office Hours</a></li>
+<li class="chapter" data-level="5.6.6" data-path="why-calculus-workbook.html"><a href="why-calculus-workbook.html#class-notes"><i class="fa fa-check"></i><b>5.6.6</b> Class notes</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="why-calculus-workbook.html"><a href="why-calculus-workbook.html#questions"><i class="fa fa-check"></i><b>5.7</b> Questions?</a></li>
+<li class="chapter" data-level="5.8" data-path="why-calculus-workbook.html"><a href="why-calculus-workbook.html#paper-planes"><i class="fa fa-check"></i><b>5.8</b> Paper Planes</a></li>
+<li class="chapter" data-level="5.9" data-path="why-calculus-workbook.html"><a href="why-calculus-workbook.html#rate-of-change---a-first-look"><i class="fa fa-check"></i><b>5.9</b> Rate of Change - A First Look</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="pre-calculus-foundations-workbook.html"><a href="pre-calculus-foundations-workbook.html"><i class="fa fa-check"></i><b>6</b> Pre-Calculus Foundations Workbook</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Environmental Calculus 2 - Active Learning with Case Studies</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="definite-integrals-and-the-fundamental-theorem-of-calculus" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Definite Integrals and the Fundamental Theorem of Calculus<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#definite-integrals-and-the-fundamental-theorem-of-calculus" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="purpose-of-the-chapter" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Purpose of the Chapter<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#purpose-of-the-chapter" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In the previous chapter, you developed an intuition for <strong>accumulation</strong> by approximating totals from rates using rectangles, tables, and graphs. You saw how adding up many small contributions can represent meaningful environmental quantities such as total rainfall, streamflow, carbon exchange, or pollutant transport. You also encountered the idea of <strong>signed accumulation</strong>, where gains and losses can offset each other over time.</p>
+<p>This chapter formalizes those ideas.</p>
+<p>Here, we move from <em>“adding rectangles makes sense”</em> to <em>“integrals are well-defined mathematical objects with powerful and reliable properties.”</em> You will learn how mathematicians define accumulation precisely, why different approximation methods converge to the same value, and how integrals connect directly back to derivatives through one of the most important results in calculus.</p>
+<p>Rather than treating integrals as a new collection of formulas, this chapter emphasizes <strong>meaning first</strong>. Computation matters, but it is grounded in interpretation: what a definite integral represents, how it behaves, and why it works.</p>
+<p>By the end of this chapter, you should clearly understand:</p>
+<ul>
+<li><strong>what a definite integral is</strong> and how it arises from limits of Riemann sums,<br />
+</li>
+<li><strong>why a definite integral represents accumulation</strong>, not just area,<br />
+</li>
+<li><strong>how integration and differentiation are connected</strong>, and why they are inverse ideas,<br />
+</li>
+<li><strong>how to compute definite integrals efficiently and correctly</strong>, while still interpreting results in context.</li>
+</ul>
+<p>This chapter provides the conceptual foundation for everything that follows in Calculus II. Once the meaning of the definite integral is solid, later topics—techniques of integration, applications, and differential equations—become questions of method rather than mystery.</p>
+</div>
+<div id="from-riemann-sums-to-definite-integrals" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> From Riemann Sums to Definite Integrals<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#from-riemann-sums-to-definite-integrals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In the previous chapter, you learned how to approximate accumulation by <strong>adding up rectangles</strong> under a rate curve. These approximations—left, right, midpoint, and trapezoidal—allowed you to estimate totals from discrete measurements and to reason carefully about overestimates, underestimates, and conservativeness.</p>
+<p>In this section, we take the next conceptual step:</p>
+<blockquote>
+<blockquote>
+<p><strong>why all of these approximations are pointing toward the same value</strong>, and how that value becomes the <strong>definite integral</strong>.</p>
+</blockquote>
+</blockquote>
+<p>The key idea is that Riemann sums are not the goal—they are a <em>process</em>. The definite integral is what emerges when that process is carried out with infinitely fine resolution.</p>
+<hr />
+<div id="riemann-sums-as-structured-approximations" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Riemann Sums as Structured Approximations<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#riemann-sums-as-structured-approximations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A Riemann sum is a <strong>structured way</strong> to approximate accumulation. It is not a random guess; it follows a clear set of steps:</p>
+<ol style="list-style-type: decimal">
+<li>Divide an interval <span class="math inline">\([a,b]\)</span> into subintervals.</li>
+<li>Choose a representative rate within each subinterval.</li>
+<li>Multiply rate by width to estimate accumulation over that slice.</li>
+<li>Add the contributions from all slices.</li>
+</ol>
+<p>Each choice—how many slices to use, how wide they are, and where the rate is sampled—represents an assumption about how the system behaves <em>between measurements</em>.</p>
+<p>This is exactly how environmental data are often handled in practice:</p>
+<ul>
+<li>we measure at discrete times or locations</li>
+<li>assume behavior between those measurements and</li>
+<li>sum contributions to estimate a total</li>
+</ul>
+<hr />
+</div>
+<div id="partitioning-an-interval" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Partitioning an Interval<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#partitioning-an-interval" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The first step in any Riemann sum is <strong>partitioning</strong> the interval <span class="math inline">\([a,b]\)</span>.</p>
+<p>A <em>partition</em> divides the interval into <span class="math inline">\(n\)</span> subintervals:
+<span class="math display">\[
+a = x_0 &lt; x_1 &lt; x_2 &lt; \cdots &lt; x_n = b.
+\]</span></p>
+<p>When the partition is uniform (all subintervals the same width), each slice has width
+<span class="math display">\[
+\Delta x = \frac{b - a}{n}.
+\]</span></p>
+<p>Conceptually:</p>
+<ul>
+<li>Smaller <span class="math inline">\(\Delta x\)</span> means <strong>finer resolution</strong>.</li>
+<li>Larger <span class="math inline">\(n\)</span> means <strong>more detailed sampling</strong>.</li>
+</ul>
+<hr />
+</div>
+<div id="width-delta-x-and-resolution" class="section level3 hasAnchor" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Width <span class="math inline">\(\Delta x\)</span> and Resolution<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#width-delta-x-and-resolution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The quantity <span class="math inline">\(\Delta x\)</span> represents the <strong>resolution</strong> of our approximation.</p>
+<ul>
+<li>In time-based problems, <span class="math inline">\(\Delta x\)</span> might represent minutes or hours between measurements.</li>
+<li>In space-based problems, it might represent distance between sampling locations.</li>
+<li>In environmental monitoring, smaller <span class="math inline">\(\Delta x\)</span> usually corresponds to <strong>higher-frequency sensors</strong> or <strong>denser spatial sampling</strong>.</li>
+</ul>
+<p>As <span class="math inline">\(\Delta x\)</span> gets smaller:</p>
+<ul>
+<li>Each rectangle covers a shorter interval.</li>
+<li>The assumption that the rate is “approximately constant” over that interval becomes more reasonable.</li>
+<li>Approximation error decreases.</li>
+</ul>
+<hr />
+</div>
+<div id="sample-points-left-right-and-midpoint" class="section level3 hasAnchor" number="4.2.4">
+<h3><span class="header-section-number">4.2.4</span> Sample Points: Left, Right, and Midpoint<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#sample-points-left-right-and-midpoint" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Once the interval is partitioned, we must choose <strong>where to sample the rate</strong> within each subinterval.</p>
+<p>For the <span class="math inline">\(i\)</span>-th subinterval <span class="math inline">\([x_{i-1}, x_i]\)</span>, we choose a sample point <span class="math inline">\(x_i^*\)</span>.</p>
+<p>Common choices include:</p>
+<ul>
+<li><strong>Left endpoint:</strong> <span class="math inline">\(x_i^* = x_{i-1}\)</span></li>
+<li><strong>Right endpoint:</strong> <span class="math inline">\(x_i^* = x_i\)</span></li>
+<li><strong>Midpoint:</strong> <span class="math inline">\(x_i^* = \tfrac{x_{i-1} + x_i}{2}\)</span></li>
+</ul>
+<p>Each choice reflects a modeling assumption:</p>
+<ul>
+<li>Left sums assume the rate at the start represents the whole interval.</li>
+<li>Right sums assume the rate has already changed to its later value.</li>
+<li>Midpoint sums assume the rate halfway through is most representative.</li>
+</ul>
+<p>Importantly, these choices <strong>do not define different integrals</strong>. They are simply different approximations of the same accumulated quantity.</p>
+<hr />
+</div>
+<div id="from-finite-sums-to-a-limit" class="section level3 hasAnchor" number="4.2.5">
+<h3><span class="header-section-number">4.2.5</span> From Finite Sums to a Limit<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#from-finite-sums-to-a-limit" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A Riemann sum with <span class="math inline">\(n\)</span> subintervals has the general form:
+<span class="math display">\[
+\sum_{i=1}^{n} f(x_i^*)\,\Delta x.
+\]</span></p>
+<p>This expression represents:</p>
+<ul>
+<li>a finite number of rectangles,</li>
+<li>each contributing a small amount to the total,</li>
+<li>added together to approximate accumulation.</li>
+</ul>
+<p>Now imagine increasing <span class="math inline">\(n\)</span>:</p>
+<ul>
+<li>The rectangles become thinner.</li>
+<li>Differences between left, right, and midpoint sampling shrink.</li>
+<li>The total becomes less sensitive to how the sample points are chosen.</li>
+</ul>
+<p>This leads to a crucial observation:</p>
+<blockquote>
+<p>As <span class="math inline">\(\Delta x \to 0\)</span>, all reasonable Riemann sums approach the same value.</p>
+</blockquote>
+<hr />
+</div>
+<div id="why-different-sums-converge-to-the-same-value" class="section level3 hasAnchor" number="4.2.6">
+<h3><span class="header-section-number">4.2.6</span> Why Different Sums Converge to the Same Value<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#why-different-sums-converge-to-the-same-value" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For smooth functions (which model most physical and environmental rates):</p>
+<ul>
+<li>Over very small intervals, the function does not change much.</li>
+<li>Left, right, and midpoint values become nearly identical.</li>
+<li>Rectangles begin to “hug” the curve regardless of sampling choice.</li>
+</ul>
+<p>This is why:</p>
+<ul>
+<li>Left sums may start below the curve and right sums above it,</li>
+<li>but as the rectangles get narrower, both collapse toward the same total area.</li>
+</ul>
+<p>The <strong>definite integral</strong> is defined as this common limiting value.</p>
+<hr />
+</div>
+<div id="defining-the-definite-integral" class="section level3 hasAnchor" number="4.2.7">
+<h3><span class="header-section-number">4.2.7</span> Defining the Definite Integral<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#defining-the-definite-integral" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We now formalize accumulation using a limit.</p>
+<p>The <strong>definite integral</strong> of <span class="math inline">\(f(x)\)</span> from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span> is defined as:
+<span class="math display">\[
+\int_a^b f(x)\,dx
+=
+\lim_{n \to \infty}
+\sum_{i=1}^{n} f(x_i^*)\,\Delta x,
+\]</span>
+provided this limit exists.</p>
+<p><img src="bookdown-demo_files/figure-html/increasing-n-to-integral-1.png" width="960" /></p>
+<p>This definition captures several ideas at once:</p>
+<ul>
+<li>Accumulation is the result of <strong>adding infinitely many infinitesimal contributions</strong>.</li>
+<li>The exact value does <strong>not</strong> depend on how we sampled the rate, as long as the sampling is reasonable.</li>
+<li>The integral represents the <strong>idealized total</strong> we would obtain with perfect resolution.</li>
+</ul>
+<hr />
+</div>
+<div id="conceptual-meaning-over-formal-notation" class="section level3 hasAnchor" number="4.2.8">
+<h3><span class="header-section-number">4.2.8</span> Conceptual Meaning Over Formal Notation<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#conceptual-meaning-over-formal-notation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>At this stage, the symbols matter less than the ideas they encode.</p>
+<p>The expression
+<span class="math display">\[
+\int_a^b f(x)\,dx
+\]</span>
+should be read as:</p>
+<blockquote>
+<p>“The total accumulated effect of the rate <span class="math inline">\(f(x)\)</span> as <span class="math inline">\(x\)</span> runs from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span>.”</p>
+</blockquote>
+<p>It is <strong>not</strong> merely an area formula, and it is <strong>not</strong> just a new symbol to manipulate. It is a precise way of expressing accumulation that you have already been reasoning about intuitively.</p>
+<hr />
+</div>
+<div id="environmental-framing-why-resolution-matters" class="section level3 hasAnchor" number="4.2.9">
+<h3><span class="header-section-number">4.2.9</span> Environmental Framing: Why Resolution Matters<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#environmental-framing-why-resolution-matters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In environmental science, data are almost always <strong>discrete</strong>:</p>
+<ul>
+<li>streamflow measured hourly,</li>
+<li>pollutant concentrations sampled weekly,</li>
+<li>satellite images taken every few days.</li>
+</ul>
+<p>But the processes themselves are <strong>continuous</strong>.</p>
+<p>Riemann sums model how we estimate continuous processes from discrete data. The definite integral represents what we would obtain with infinitely fine measurement resolution.</p>
+<p>This framing explains why:</p>
+<ul>
+<li>higher-frequency measurements improve estimates,</li>
+<li>coarse sampling can miss peaks or rapid changes,</li>
+<li>and different estimation methods converge as resolution increases.</li>
+</ul>
+<hr />
+</div>
+<div id="continuous-vs.-discrete-data" class="section level3 hasAnchor" number="4.2.10">
+<h3><span class="header-section-number">4.2.10</span> Continuous vs. Discrete Data<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#continuous-vs.-discrete-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Riemann sums live at the interface between:</p>
+<ul>
+<li><strong>discrete measurements</strong> (what we observe), and</li>
+<li><strong>continuous processes</strong> (what we model).</li>
+</ul>
+<p>The definite integral represents the continuous ideal that discrete approximations aim to approach.</p>
+<p>Understanding this transition is essential for interpreting environmental data responsibly and for recognizing both the power and the limitations of real-world measurements.</p>
+<hr />
+</div>
+<div id="key-takeaway-2" class="section level3 hasAnchor" number="4.2.11">
+<h3><span class="header-section-number">4.2.11</span> Key Takeaway<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#key-takeaway-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Riemann sums are not competing formulas—they are <strong>stepping stones</strong>.</p>
+<p>By refining partitions and shrinking <span class="math inline">\(\Delta x\)</span>, all reasonable approximations converge to the same accumulated total. That limiting value is the <strong>definite integral</strong>, which provides a precise, reliable, and meaningful way to describe accumulation in natural systems.</p>
+<hr />
+</div>
+</div>
+<div id="interpreting-the-definite-integral" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Interpreting the Definite Integral<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#interpreting-the-definite-integral" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Up to this point, we have focused on how definite integrals are <strong>defined</strong> and how they arise from increasingly refined approximations. In this section, we shift emphasis from <em>how integrals are constructed</em> to <em>what integrals mean</em>. The goal is to develop a habit of interpretation so that every computed integral is understood as a statement about a real system, not just a numerical result.</p>
+<p>A definite integral is a tool for describing <strong>total change</strong>. That change may represent growth or loss, input or output, gain or depletion. Understanding which of these is being measured—and why—depends on careful attention to meaning, units, and sign.</p>
+<hr />
+<div id="definite-integrals-as-net-accumulation" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Definite Integrals as Net Accumulation<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#definite-integrals-as-net-accumulation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>At its core, a definite integral measures <strong>net accumulation</strong> over an interval.</p>
+<p>If <span class="math inline">\(f(t)\)</span> is a rate of change, then
+<span class="math display">\[
+\int_a^b f(t)\,dt
+\]</span>
+represents the total effect of that rate as time runs from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span>.</p>
+<p>“Net” is the key word:</p>
+<ul>
+<li>Positive values of <span class="math inline">\(f(t)\)</span> contribute to an increase.</li>
+<li>Negative values of <span class="math inline">\(f(t)\)</span> contribute to a decrease.</li>
+<li>The integral combines <em>both</em> effects into a single number.</li>
+</ul>
+<p>This is why integrals are well suited to modeling systems with competing processes, such as input and removal, growth and decay, or uptake and release.</p>
+<hr />
+</div>
+<div id="signed-area-and-physical-meaning" class="section level3 hasAnchor" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Signed Area and Physical Meaning<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#signed-area-and-physical-meaning" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Graphically, a definite integral is often described as the <strong>area under a curve</strong>. However, this description can be misleading if taken too literally.</p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>A more accurate statement is:</p>
+<blockquote>
+<p>A definite integral is the <strong>signed area</strong> between the curve and the horizontal axis.</p>
+</blockquote>
+<ul>
+<li>Area <strong>above</strong> the axis contributes positively.</li>
+<li>Area <strong>below</strong> the axis contributes negatively.</li>
+</ul>
+<p>This sign convention reflects physical reality:</p>
+<ul>
+<li>A positive rate increases the accumulated quantity.</li>
+<li>A negative rate decreases it.</li>
+</ul>
+<p>The sign is not an error or a technicality—it is essential information about the direction of change.</p>
+<hr />
+</div>
+<div id="total-change-from-a-rate" class="section level3 hasAnchor" number="4.3.3">
+<h3><span class="header-section-number">4.3.3</span> Total Change from a Rate<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#total-change-from-a-rate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Many environmental variables are naturally expressed as <strong>rates</strong>:</p>
+<ul>
+<li>carbon flux (kg C/hr),</li>
+<li>streamflow (m³/s),</li>
+<li>pollutant loading (kg/day),</li>
+<li>energy exchange (W/m²),</li>
+<li>population growth (individuals/year).</li>
+</ul>
+<p>In each case, the definite integral converts a rate into a <strong>total change</strong> over a specified interval.</p>
+<p>Conceptually:
+<span class="math display">\[
+\text{total change} = \int (\text{rate}) \times (\text{time or space})
+\]</span></p>
+<p>This mirrors the familiar calculation
+<span class="math display">\[
+\text{amount} = \text{rate} \times \text{time},
+\]</span>
+but allows the rate to vary continuously rather than remain constant.</p>
+<hr />
+</div>
+<div id="units-analysis-why-units-matter" class="section level3 hasAnchor" number="4.3.4">
+<h3><span class="header-section-number">4.3.4</span> Units Analysis: Why Units Matter<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#units-analysis-why-units-matter" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Units provide one of the most reliable checks on interpretation.</p>
+<p>When computing a definite integral, the units of the result come from:
+<span class="math display">\[
+(\text{units of } f) \times (\text{units of the variable})
+\]</span></p>
+<p>For example:</p>
+<ul>
+<li><span class="math inline">\(\text{kg/hr} \times \text{hr} = \text{kg}\)</span></li>
+<li><span class="math inline">\(\text{m}^3/\text{s} \times \text{s} = \text{m}^3\)</span></li>
+<li><span class="math inline">\(\mu\text{mol}/(\text{m}^2\cdot\text{s}) \times \text{s} = \mu\text{mol}/\text{m}^2\)</span></li>
+</ul>
+<p>If the resulting units do not make sense for the quantity being measured, something has gone wrong—either in setup or interpretation.</p>
+<hr />
+</div>
+<div id="positive-and-negative-contributions" class="section level3 hasAnchor" number="4.3.5">
+<h3><span class="header-section-number">4.3.5</span> Positive and Negative Contributions<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#positive-and-negative-contributions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In many systems, positive and negative contributions occur within the same interval.</p>
+<p>Examples include:</p>
+<ul>
+<li>carbon uptake during daylight and release at night,</li>
+<li>stream inflow during storms and outflow during dry periods,</li>
+<li>population growth during favorable seasons and decline during harsh ones.</li>
+</ul>
+<p>The definite integral automatically accounts for all contributions and reports their <strong>combined effect</strong>.</p>
+<p>This makes integrals especially powerful for systems where opposing processes operate simultaneously or cyclically.</p>
+<hr />
+</div>
+<div id="net-accumulation-vs.-total-accumulation" class="section level3 hasAnchor" number="4.3.6">
+<h3><span class="header-section-number">4.3.6</span> Net Accumulation vs. Total Accumulation<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#net-accumulation-vs.-total-accumulation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>It is important to distinguish between:</p>
+<ul>
+<li><strong>Net accumulation:</strong><br />
+The signed result of the integral, which reflects the overall change.</li>
+<li><strong>Total accumulation:</strong><br />
+The sum of magnitudes of all positive contributions (often computed by separating regions).</li>
+</ul>
+<p>A net value of zero does <strong>not</strong> imply that nothing happened. It only means that gains and losses balanced over the interval.</p>
+<p>Understanding this distinction is essential for correct interpretation in environmental contexts.</p>
+<hr />
+</div>
+<div id="common-pitfalls" class="section level3 hasAnchor" number="4.3.7">
+<h3><span class="header-section-number">4.3.7</span> Common Pitfalls<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#common-pitfalls" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Several conceptual errors arise frequently when interpreting definite integrals.</p>
+<p><strong>Confusing height with area</strong><br />
+The value of the function <span class="math inline">\(f(x)\)</span> at a point is a <em>rate</em>, not an amount. Only after integrating over an interval does it represent a total.</p>
+<p><strong>Ignoring sign</strong><br />
+Treating all areas as positive removes crucial information about whether the system gained or lost quantity.</p>
+<p><strong>Misinterpreting zero net accumulation</strong><br />
+A result of zero often indicates strong internal dynamics rather than inactivity.</p>
+<p>Recognizing and avoiding these pitfalls leads to more accurate modeling and interpretation.</p>
+<hr />
+</div>
+<div id="environmental-framing" class="section level3 hasAnchor" number="4.3.8">
+<h3><span class="header-section-number">4.3.8</span> Environmental Framing<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#environmental-framing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Definite integrals appear throughout environmental science because they naturally describe systems governed by rates.</p>
+<p><strong>Carbon fluxes</strong><br />
+Integrals of net ecosystem exchange quantify total carbon gain or loss over days, seasons, or years.</p>
+<p><strong>Pollutant loading</strong><br />
+Integrating pollutant concentration multiplied by flow reveals total mass transported into or out of a system.</p>
+<p><strong>Energy exchange</strong><br />
+Integrals of heat flux quantify cumulative energy gain or loss across surfaces or through time.</p>
+<p><strong>Population balance</strong><br />
+Integrating growth rates shows how populations change when births, deaths, immigration, and emigration compete.</p>
+<p>In each case, the integral captures <em>what actually happened over time</em>, not just instantaneous conditions.</p>
+<hr />
+</div>
+<div id="key-takeaway-3" class="section level3 hasAnchor" number="4.3.9">
+<h3><span class="header-section-number">4.3.9</span> Key Takeaway<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#key-takeaway-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A definite integral is not just a computational tool. It is a <strong>statement about a system</strong>.</p>
+<p>It tells you how much accumulated, in which direction, and over what interval. Interpreting that statement—by attending to sign, units, and context—is as important as computing the number itself.</p>
+<hr />
+</div>
+</div>
+<div id="properties-of-definite-integrals" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Properties of Definite Integrals<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#properties-of-definite-integrals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Up to this point, we have focused on <em>what</em> a definite integral represents: accumulation, signed area, and net change from a rate. We now turn to an equally important question:</p>
+<blockquote>
+<p><strong>How do definite integrals behave?</strong></p>
+</blockquote>
+<p>Definite integrals obey a small set of powerful properties that allow us to simplify calculations, combine information, and interpret results more clearly. These properties are not arbitrary rules—they reflect the underlying logic of accumulation and signed area.</p>
+<p>Understanding these properties will help you:</p>
+<ul>
+<li>compute integrals more efficiently,</li>
+<li>break complex problems into manageable pieces,</li>
+<li>and reason about environmental systems without always relying on formulas.</li>
+</ul>
+<hr />
+<div id="linearity-of-the-integral" class="section level3 hasAnchor" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> Linearity of the Integral<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#linearity-of-the-integral" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>One of the most important properties of definite integrals is <strong>linearity</strong>. Linearity tells us that integration distributes over addition and scaling.</p>
+<div id="adding-rates" class="section level4 hasAnchor" number="4.4.1.1">
+<h4><span class="header-section-number">4.4.1.1</span> Adding Rates<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#adding-rates" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>If two rate functions <span class="math inline">\(f(x)\)</span> and <span class="math inline">\(g(x)\)</span> describe independent processes occurring over the same interval <span class="math inline">\([a,b]\)</span>, then their combined accumulation is simply the sum of their individual accumulations:</p>
+<p><span class="math display">\[
+\int_a^b [f(x) + g(x)]\,dx
+=
+\int_a^b f(x)\,dx
++
+\int_a^b g(x)\,dx.
+\]</span></p>
+<p><img src="bookdown-demo_files/figure-html/linearity-three-panels-solid-fixed-1.png" width="960" /></p>
+<p><strong>Conceptual meaning:</strong><br />
+Adding rates adds their contributions <em>at every moment</em>. Because accumulation is built from adding many small pieces, we are free to add those pieces before or after integrating.</p>
+<p><strong>Environmental example:</strong></p>
+<ul>
+<li><span class="math inline">\(f(x)\)</span>: carbon uptake by photosynthesis<br />
+</li>
+<li><span class="math inline">\(g(x)\)</span>: carbon release by respiration</li>
+</ul>
+<p>The integral of <span class="math inline">\(f(x)+g(x)\)</span> gives <strong>net ecosystem carbon exchange</strong>, while integrating them separately allows us to examine each process individually.</p>
+<hr />
+</div>
+<div id="scaling-a-rate" class="section level4 hasAnchor" number="4.4.1.2">
+<h4><span class="header-section-number">4.4.1.2</span> Scaling a Rate<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#scaling-a-rate" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>If a rate is multiplied by a constant factor <span class="math inline">\(c\)</span>, the total accumulation is also multiplied by that factor:</p>
+<p><span class="math display">\[
+\int_a^b c f(x)\,dx
+=
+c \int_a^b f(x)\,dx.
+\]</span></p>
+<p><strong>Conceptual meaning:</strong><br />
+If every small contribution is scaled by the same amount, the total accumulation scales in the same way.</p>
+<p><strong>Environmental example:</strong></p>
+<ul>
+<li>Doubling pollutant concentration at all times doubles the total pollutant load.</li>
+<li>Converting units (e.g., from mg to g) simply rescales the integral.</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="additivity-over-intervals" class="section level3 hasAnchor" number="4.4.2">
+<h3><span class="header-section-number">4.4.2</span> Additivity Over Intervals<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#additivity-over-intervals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Definite integrals can be <strong>broken into pieces</strong>. If <span class="math inline">\(c\)</span> lies between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, then</p>
+<p><span class="math display">\[
+\int_a^b f(x)\,dx
+=
+\int_a^c f(x)\,dx
++
+\int_c^b f(x)\,dx.
+\]</span></p>
+<p><img src="bookdown-demo_files/figure-html/additivity-over-intervals-opacity-1.png" width="960" /></p>
+<p><strong>Conceptual meaning:</strong><br />
+Accumulation over a long interval is just the sum of accumulations over shorter subintervals.</p>
+<p>This property formalizes what you already do intuitively when you:</p>
+<ul>
+<li>add hourly streamflow to get daily discharge,</li>
+<li>add daily carbon uptake to get seasonal totals,</li>
+<li>or sum storm-by-storm nutrient export to estimate annual load.</li>
+</ul>
+<p><strong>Environmental example:</strong><br />
+Breaking a year into seasons allows you to analyze how much accumulation occurs during wet vs. dry periods without changing the total.</p>
+<hr />
+</div>
+<div id="reversing-the-limits-of-integration" class="section level3 hasAnchor" number="4.4.3">
+<h3><span class="header-section-number">4.4.3</span> Reversing the Limits of Integration<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#reversing-the-limits-of-integration" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The direction of integration matters. Reversing the limits of integration changes the <strong>sign</strong> of the result:</p>
+<p><span class="math display">\[
+\int_a^b f(x)\,dx
+=
+- \int_b^a f(x)\,dx.
+\]</span></p>
+<p><strong>Conceptual meaning:</strong><br />
+Integrating “backwards” reverses the direction of accumulation. Because integrals track <em>net change</em>, direction carries information.</p>
+<p>This property reinforces an important idea:</p>
+<blockquote>
+<p><strong>The sign of an integral is not optional—it encodes direction.</strong></p>
+</blockquote>
+<p><strong>Environmental example:</strong></p>
+<ul>
+<li>Integrating forward in time gives net gain or loss.</li>
+<li>Integrating backward in time reverses the sign, reflecting reversal of the process.</li>
+</ul>
+<hr />
+</div>
+<div id="integrals-of-constant-functions" class="section level3 hasAnchor" number="4.4.4">
+<h3><span class="header-section-number">4.4.4</span> Integrals of Constant Functions<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#integrals-of-constant-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If the rate is constant, integration reduces to a familiar calculation:</p>
+<p><span class="math display">\[
+\int_a^b c\,dx = c(b - a).
+\]</span></p>
+<p><strong>Conceptual meaning:</strong><br />
+When nothing changes, accumulation is simply<br />
+<span class="math display">\[
+\text{rate} \times \text{duration}.
+\]</span></p>
+<p>This case anchors the integral to everyday reasoning and helps validate more complex results.</p>
+<p><strong>Environmental example:</strong></p>
+<ul>
+<li>Constant streamflow over a fixed time interval<br />
+</li>
+<li>Constant heat flux over a period of stable conditions</li>
+</ul>
+<hr />
+</div>
+<div id="why-these-properties-matter" class="section level3 hasAnchor" number="4.4.5">
+<h3><span class="header-section-number">4.4.5</span> Why These Properties Matter<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#why-these-properties-matter" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>These properties are not just mathematical conveniences—they shape how we <em>think</em> about accumulation.</p>
+<p>They allow us to:</p>
+<ul>
+<li><strong>Simplify calculations</strong> by breaking problems apart,</li>
+<li><strong>Check results</strong> for consistency and reasonableness,</li>
+<li><strong>Interpret models</strong> in terms of real processes,</li>
+<li>and <strong>scale up</strong> from small measurements to large conclusions.</li>
+</ul>
+<p>Just as importantly, these properties prepare us for:</p>
+<ul>
+<li>the Fundamental Theorem of Calculus,</li>
+<li>integration techniques,</li>
+<li>and more advanced modeling of environmental systems.</li>
+</ul>
+<p>By mastering these behaviors now, you build a toolkit that makes integrals flexible, interpretable, and powerful—far more than just areas under curves.</p>
+</div>
+</div>
+<div id="the-fundamental-theorem-of-calculus-part-i" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> The Fundamental Theorem of Calculus (Part I)<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#the-fundamental-theorem-of-calculus-part-i" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="big-idea" class="section level3 hasAnchor" number="4.5.1">
+<h3><span class="header-section-number">4.5.1</span> Big Idea<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#big-idea" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <strong>Fundamental Theorem of Calculus (Part I)</strong> formalizes a powerful and intuitive idea you have already been using informally:</p>
+<blockquote>
+<p><strong>If you accumulate a quantity by adding up a rate, then the rate of change of that accumulation is the original rate itself.</strong></p>
+</blockquote>
+<p>In other words, <strong>accumulation functions have derivatives equal to the rate being accumulated</strong>.</p>
+<p>This result is not a computational trick—it is a deep conceptual link between the two central ideas of calculus: <strong>rates of change</strong> and <strong>accumulated change</strong>.</p>
+<hr />
+</div>
+<div id="accumulation-as-a-function" class="section level3 hasAnchor" number="4.5.2">
+<h3><span class="header-section-number">4.5.2</span> Accumulation as a Function<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#accumulation-as-a-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Up to this point, students have treated accumulation as a <em>number</em>:</p>
+<ul>
+<li>total water volume,</li>
+<li>total pollutant load,</li>
+<li>total carbon uptake over a fixed interval.</li>
+</ul>
+<p>Now we shift perspective.</p>
+<p>Instead of asking:</p>
+<blockquote>
+<p><em>“How much has accumulated between time <span class="math inline">\(a\)</span> and time <span class="math inline">\(b\)</span>?”</em></p>
+</blockquote>
+<p>we ask:</p>
+<blockquote>
+<p><em>“How much has accumulated from time <span class="math inline">\(a\)</span> <strong>up to an arbitrary time <span class="math inline">\(x\)</span></strong>?”</em></p>
+</blockquote>
+<p>This leads naturally to the idea of an <strong>accumulation function</strong>.</p>
+<p>If <span class="math inline">\(f(t)\)</span> is a rate (for example, m³/hr, kg/day, or individuals/year), we define the accumulation function:
+<span class="math display">\[
+A(x) = \int_a^x f(t)\,dt.
+\]</span></p>
+<p>Key features of this definition:</p>
+<ul>
+<li>The <strong>lower limit <span class="math inline">\(a\)</span></strong> is fixed.</li>
+<li>The <strong>upper limit <span class="math inline">\(x\)</span></strong> is variable.</li>
+<li>The output <span class="math inline">\(A(x)\)</span> represents <em>total accumulation up to time <span class="math inline">\(x\)</span></em>.</li>
+</ul>
+<p>So <span class="math inline">\(A(x)\)</span> is not just a number—it is a <strong>function</strong>.</p>
+<hr />
+</div>
+<div id="what-the-theorem-says-conceptually" class="section level3 hasAnchor" number="4.5.3">
+<h3><span class="header-section-number">4.5.3</span> What the Theorem Says (Conceptually)<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#what-the-theorem-says-conceptually" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The Fundamental Theorem of Calculus (Part I) states:</p>
+<p>If an accumulation function is defined by
+<span class="math display">\[
+A(x) = \int_a^x f(t)\,dt,
+\]</span>
+then
+<span class="math display">\[
+A&#39;(x) = f(x).
+\]</span></p>
+<p>Conceptually, this means:</p>
+<ul>
+<li>The <strong>instantaneous rate of change</strong> of the accumulated total</li>
+<li>is exactly the <strong>original rate function</strong>.</li>
+</ul>
+<p>This matches intuition:</p>
+<ul>
+<li>If water is flowing into a tank at 5 m³/hr at a given moment, then</li>
+<li>the total amount of water in the tank is increasing at 5 m³/hr at that moment.</li>
+</ul>
+<p>Accumulation builds from the rate, and differentiation recovers that rate.</p>
+<hr />
+</div>
+<div id="why-differentiation-and-integration-are-inverses" class="section level3 hasAnchor" number="4.5.4">
+<h3><span class="header-section-number">4.5.4</span> Why Differentiation and Integration Are Inverses<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#why-differentiation-and-integration-are-inverses" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This theorem explains <em>why</em> derivatives and integrals undo each other.</p>
+<ul>
+<li><strong>Integration</strong> takes a rate and produces total change.</li>
+<li><strong>Differentiation</strong> takes total change and produces a rate.</li>
+</ul>
+<p>They are inverse processes because:</p>
+<ul>
+<li>integration answers <em>“how much has accumulated?”</em></li>
+<li>differentiation answers <em>“how fast is that accumulation changing right now?”</em></li>
+</ul>
+<p>This is not an algebraic coincidence—it reflects how physical systems behave.</p>
+<hr />
+</div>
+<div id="visual-intuition" class="section level3 hasAnchor" number="4.5.5">
+<h3><span class="header-section-number">4.5.5</span> Visual Intuition<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#visual-intuition" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="bookdown-demo_files/figure-html/ftc-slices-to-accumulation-step-1.png" width="960" /></p>
+<p>The figure above shows how an <strong>accumulation function is built directly from a rate function</strong>, one small piece at a time.</p>
+<p><strong>Left panel: Rate sliced into pieces</strong></p>
+<ul>
+<li>The curve represents a <strong>rate function</strong> <span class="math inline">\(f(x)\)</span>.</li>
+<li>The interval from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span> has been divided into many small widths <span class="math inline">\(\Delta x\)</span>.</li>
+<li>Each colored rectangle represents a single contribution:
+<span class="math display">\[
+\text{(rate at that slice)} \times \Delta x = f(x_i^*)\,\Delta x.
+\]</span></li>
+<li>These rectangles are not the accumulation themselves — they are the <strong>ingredients</strong> that will be added together.</li>
+</ul>
+<p>At this stage, nothing is smooth yet. We are simply accounting for how much “change” each small slice contributes.</p>
+<hr />
+<p><strong>Right panel: Accumulation built slice-by-slice</strong></p>
+<ul>
+<li>The right panel shows what happens when those colored pieces are <strong>added cumulatively</strong>.</li>
+<li>Each step corresponds to adding one rectangle from the left panel.</li>
+<li>The height of each step is exactly the area of one colored slice.</li>
+<li>The colors match between panels to emphasize that <em>each piece of area becomes one jump in accumulation</em>.</li>
+</ul>
+<p>The black line connecting the tops of the steps hints at what happens as <span class="math inline">\(\Delta x\)</span> gets smaller:
+the accumulation function begins to look smooth.</p>
+<hr />
+<p><strong>Connecting the two panels</strong></p>
+<p>Define the accumulation function
+<span class="math display">\[
+A(x) = \text{area under } f \text{ from } a \text{ to } x.
+\]</span></p>
+<ul>
+<li>When <span class="math inline">\(x\)</span> moves slightly to the right by <span class="math inline">\(\Delta x\)</span>, the added accumulation is approximately:
+<span class="math display">\[
+\Delta A \approx f(x)\,\Delta x.
+\]</span></li>
+<li>Dividing by <span class="math inline">\(\Delta x\)</span> gives:
+<span class="math display">\[
+\frac{\Delta A}{\Delta x} \approx f(x).
+\]</span></li>
+<li>As the slices become thinner, this approximation becomes exact.</li>
+</ul>
+<hr />
+<p><strong>Key insight</strong></p>
+<blockquote>
+<p>The slope of the accumulation function at <span class="math inline">\(x\)</span> equals the height of the rate function at <span class="math inline">\(x\)</span>.</p>
+</blockquote>
+<p>This is the heart of the Fundamental Theorem of Calculus (Part I):
+integration builds accumulation, and differentiation recovers the original rate.</p>
+<p>Rather than being a formula to memorize, the theorem is a statement about how <strong>adding tiny pieces of change creates a function whose slope is the rate that generated it</strong>.</p>
+</div>
+<div id="what-to-avoid-at-this-stage" class="section level3 hasAnchor" number="4.5.6">
+<h3><span class="header-section-number">4.5.6</span> What to Avoid at This Stage<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#what-to-avoid-at-this-stage" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>It is tempting to jump directly to formulas and shortcuts, but doing so weakens understanding.</p>
+<p>Avoid:</p>
+<ul>
+<li>Treating the theorem as merely a way to “cancel” integrals and derivatives.</li>
+<li>Focusing on symbolic manipulation before meaning is clear.</li>
+<li>Introducing antiderivative notation before you grasp accumulation as a process.</li>
+</ul>
+<p>At this stage, the emphasis is <strong>conceptual</strong>, not procedural.</p>
+<hr />
+</div>
+<div id="environmental-framing-1" class="section level3 hasAnchor" number="4.5.7">
+<h3><span class="header-section-number">4.5.7</span> Environmental Framing<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#environmental-framing-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The theorem can be summarized in plain language:</p>
+<blockquote>
+<p><strong>If I know the rate of a process at every moment, then I can recover the total change—and if I track total change over time, its derivative tells me the rate.</strong></p>
+</blockquote>
+<p>Environmental interpretations include:</p>
+<ul>
+<li>Streamflow rate → accumulated discharge</li>
+<li>Carbon flux → total carbon stored</li>
+<li>Population growth rate → total population change</li>
+<li>Energy flux → total energy transferred</li>
+</ul>
+<p>This principle underlies nearly every quantitative model in environmental science.</p>
+<hr />
+</div>
+<div id="key-takeaway-4" class="section level3 hasAnchor" number="4.5.8">
+<h3><span class="header-section-number">4.5.8</span> Key Takeaway<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#key-takeaway-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The Fundamental Theorem of Calculus (Part I) tells us that:</p>
+<ul>
+<li>Accumulation and rate are not separate ideas.</li>
+<li>They are two perspectives on the same process.</li>
+<li>Calculus provides the precise language connecting them.</li>
+</ul>
+<p>Understanding this connection sets the stage for computing integrals efficiently <em>without losing sight of what they mean</em>.</p>
+<hr />
+</div>
+</div>
+<div id="the-fundamental-theorem-of-calculus-part-ii" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> The Fundamental Theorem of Calculus (Part II)<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#the-fundamental-theorem-of-calculus-part-ii" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Up to this point, we have built integrals from the ground up:</p>
+<ul>
+<li>as sums of small pieces,</li>
+<li>as limits of better and better approximations,</li>
+<li>and as accumulation driven by a changing rate.</li>
+</ul>
+<p>All of that work answered an important <em>conceptual</em> question:</p>
+<blockquote>
+<p><strong>What does an integral mean?</strong></p>
+</blockquote>
+<p>Part II of the Fundamental Theorem of Calculus answers a different question:</p>
+<blockquote>
+<p><strong>How do we compute an integral efficiently and exactly?</strong></p>
+</blockquote>
+<p>Rather than adding infinitely many tiny rectangles by hand, the theorem shows that accumulated change can be found by working with an <strong>antiderivative</strong>.</p>
+<p>At its core, the theorem states:</p>
+<p><span class="math display">\[
+\int_a^b f(x)\,dx = F(b) - F(a),
+\]</span></p>
+<p>where <span class="math inline">\(F&#39;(x) = f(x)\)</span>.</p>
+<p>This formula is powerful — but it only makes sense because of everything that came before.</p>
+<hr />
+<div id="step-1-accumulation-is-a-function" class="section level3 hasAnchor" number="4.6.1">
+<h3><span class="header-section-number">4.6.1</span> Step 1: Accumulation Is a Function<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#step-1-accumulation-is-a-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Fix a starting point <span class="math inline">\(a\)</span>, and define a function:</p>
+<p><span class="math display">\[
+A(x) = \int_a^x f(t)\,dt.
+\]</span></p>
+<p>This function represents:</p>
+<ul>
+<li>the <strong>total accumulated change</strong> from <span class="math inline">\(a\)</span> to <span class="math inline">\(x\)</span>,</li>
+<li>built from the rate <span class="math inline">\(f(t)\)</span>,</li>
+<li>using the ideas of Riemann sums and limits.</li>
+</ul>
+<p>From Part I of the Fundamental Theorem of Calculus, we know:</p>
+<p><span class="math display">\[
+A&#39;(x) = f(x).
+\]</span></p>
+<p>That is, <strong>the derivative of the accumulation function equals the rate</strong>.</p>
+<p>So <span class="math inline">\(A(x)\)</span> is an antiderivative of <span class="math inline">\(f(x)\)</span>.</p>
+<hr />
+</div>
+<div id="step-2-antiderivatives-are-not-unique" class="section level3 hasAnchor" number="4.6.2">
+<h3><span class="header-section-number">4.6.2</span> Step 2: Antiderivatives Are Not Unique<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#step-2-antiderivatives-are-not-unique" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>There is only one derivative for a function. However, there are an infintie number of antiderivates to function.</p>
+<p>Lets see if we can understand this graphically.</p>
+<p><img src="bookdown-demo_files/figure-html/antiderivatives-linear-rate-1.png" width="960" /></p>
+<p><img src="bookdown-demo_files/figure-html/antiderivatives-quadratic-shifted-1.png" width="960" /></p>
+<p>The figures above show two paired examples.<br />
+In each pair:</p>
+<ul>
+<li>The <strong>left panel</strong> shows a <em>rate function</em>.</li>
+<li>The <strong>right panel</strong> shows several possible <em>antiderivatives</em> of that rate.</li>
+</ul>
+<p>These pairs illustrate two equally important ideas:</p>
+<ol style="list-style-type: decimal">
+<li><strong>The right-hand curves are antiderivatives of the left-hand curve.</strong><br />
+</li>
+<li><strong>The left-hand curve is the derivative of every curve on the right.</strong></li>
+</ol>
+<p>Both perspectives matter.</p>
+<hr />
+</div>
+<div id="example-1-rate-fx-x" class="section level3 unnumbered hasAnchor">
+<h3>Example 1: Rate <span class="math inline">\(f(x) = x\)</span><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#example-1-rate-fx-x" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In the top pair of plots:</p>
+<ul>
+<li>The left panel shows the rate function <span class="math inline">\(f(x) = x\)</span>.</li>
+<li>The right panel shows several curves of the form:
+<span class="math display">\[
+F(x) = \tfrac12 x^2 + C.
+\]</span></li>
+</ul>
+<p>All of the curves on the right have different vertical positions, but they share the same shape.</p>
+<p>Why?</p>
+<ul>
+<li>The <strong>slope</strong> of each curve on the right at any value of <span class="math inline">\(x\)</span> is exactly <span class="math inline">\(x\)</span>.</li>
+<li>That slope matches the <strong>height</strong> of the rate function on the left.</li>
+</ul>
+<p>So:</p>
+<ul>
+<li>If you start with the rate <span class="math inline">\(f(x) = x\)</span> and <em>accumulate</em>, you get a parabola.</li>
+<li>If you start with any of the parabolas on the right and <em>differentiate</em>, you recover the line <span class="math inline">\(f(x) = x\)</span>.</li>
+</ul>
+<p>The constant <span class="math inline">\(C\)</span> only changes where accumulation starts — not how it grows.</p>
+<hr />
+</div>
+<div id="example-2-rate-fx-x2---2" class="section level3 unnumbered hasAnchor">
+<h3>Example 2: Rate <span class="math inline">\(f(x) = x^2 - 2\)</span><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#example-2-rate-fx-x2---2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In the bottom pair of plots:</p>
+<ul>
+<li>The left panel shows the rate function <span class="math inline">\(f(x) = x^2 - 2\)</span>.</li>
+<li>The right panel shows several curves of the form:
+<span class="math display">\[
+F(x) = \tfrac13 x^3 - 2x + C.
+\]</span></li>
+</ul>
+<p>Again, the curves on the right are vertically shifted versions of one another, but they all share the same overall shape.</p>
+<p>What connects the two panels?</p>
+<ul>
+<li>Wherever the rate on the left is <strong>positive</strong>, the antiderivative on the right is <strong>increasing</strong>.</li>
+<li>Wherever the rate on the left is <strong>negative</strong>, the antiderivative on the right is <strong>decreasing</strong>.</li>
+<li>Where the rate crosses zero, the antiderivative has a <strong>horizontal tangent</strong>.</li>
+</ul>
+<p>This shows that the behavior of the accumulation function is completely determined by the rate.</p>
+<hr />
+</div>
+<div id="the-two-way-relationship" class="section level3 unnumbered hasAnchor">
+<h3>The Two-Way Relationship<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#the-two-way-relationship" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>These examples highlight a key idea of calculus:</p>
+<ul>
+<li><strong>Differentiation moves from accumulation to rate.</strong></li>
+<li><strong>Integration moves from rate to accumulation.</strong></li>
+</ul>
+<p>The left panel answers the question:</p>
+<blockquote>
+<p><em>How fast is the quantity changing right now?</em></p>
+</blockquote>
+<p>The right panel answers the question:</p>
+<blockquote>
+<p><em>How much has the quantity changed overall?</em></p>
+</blockquote>
+<p>They are two views of the same process.</p>
+<hr />
+</div>
+<div id="step-3-why-the-constant-does-not-matter-for-definite-integrals" class="section level3 hasAnchor" number="4.6.3">
+<h3><span class="header-section-number">4.6.3</span> Step 3: Why the Constant Does Not Matter for Definite Integrals<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#step-3-why-the-constant-does-not-matter-for-definite-integrals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The definite integral
+<span class="math display">\[
+\int_a^b f(x)\,dx
+\]</span>
+asks:</p>
+<blockquote>
+<p><em>How much has accumulated between <span class="math inline">\(x = a\)</span> and <span class="math inline">\(x = b\)</span>?</em></p>
+</blockquote>
+<p>Using the accumulation function:
+<span class="math display">\[
+\int_a^b f(x)\,dx = A(b) - A(a).
+\]</span></p>
+<p>But since <span class="math inline">\(F(x) = A(x) + C\)</span>,
+<span class="math display">\[
+F(b) - F(a) = [A(b) + C] - [A(a) + C].
+\]</span></p>
+<p>The constant cancels:
+<span class="math display">\[
+F(b) - F(a) = A(b) - A(a).
+\]</span></p>
+<p>So <strong>any antiderivative produces the same net change</strong>, even if it is shifted up or down.</p>
+<hr />
+</div>
+<div id="step-4-what-the-formula-is-really-saying" class="section level3 hasAnchor" number="4.6.4">
+<h3><span class="header-section-number">4.6.4</span> Step 4: What the Formula Is Really Saying<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#step-4-what-the-formula-is-really-saying" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When we write:
+<span class="math display">\[
+\int_a^b f(x)\,dx = F(b) - F(a),
+\]</span>
+we are not using a shortcut or a trick.</p>
+<p>We are doing the following:</p>
+<ul>
+<li>building accumulation conceptually (Part I),</li>
+<li>recognizing that accumulation is an antiderivative,</li>
+<li>and measuring how much that accumulation changes over an interval.</li>
+</ul>
+<p>The formula works because <strong>integration and differentiation are inverse processes</strong>, not because we memorized a rule.</p>
+<hr />
+</div>
+<div id="key-takeaway-5" class="section level3 hasAnchor" number="4.6.5">
+<h3><span class="header-section-number">4.6.5</span> Key Takeaway<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#key-takeaway-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>The definite integral measures <strong>net accumulated change</strong>.</p>
+<p>Antiderivatives allow us to compute that change exactly, because subtracting values automatically removes any constant offset.</p>
+</blockquote>
+<p>This is why the Fundamental Theorem of Calculus is not just a computational tool — it is a precise statement about how rates, accumulation, and change are connected.</p>
+</div>
+<div id="what-the-formula-means" class="section level3 hasAnchor" number="4.6.6">
+<h3><span class="header-section-number">4.6.6</span> What the Formula Means<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#what-the-formula-means" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The expression
+<span class="math display">\[
+F(b) - F(a)
+\]</span>
+should be read as:</p>
+<ul>
+<li><span class="math inline">\(F(a)\)</span>: the accumulated amount <em>up to the starting point</em><br />
+</li>
+<li><span class="math inline">\(F(b)\)</span>: the accumulated amount <em>up to the ending point</em><br />
+</li>
+<li>The difference: <strong>how much was added (or removed) between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span></strong></li>
+</ul>
+<p><img src="bookdown-demo_files/figure-html/ftc-part2-three-panel-1.png" width="960" /></p>
+<p>In other words:</p>
+<blockquote>
+<p>A definite integral measures <em>change</em>, not just area.</p>
+</blockquote>
+<hr />
+</div>
+<div id="key-skills-you-will-use" class="section level3 hasAnchor" number="4.6.7">
+<h3><span class="header-section-number">4.6.7</span> Key Skills You Will Use<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#key-skills-you-will-use" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="identifying-antiderivatives" class="section level4 unnumbered hasAnchor">
+<h4>1. Identifying Antiderivatives<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#identifying-antiderivatives" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>To apply the theorem, you must recognize or compute a function <span class="math inline">\(F(x)\)</span> such that:
+<span class="math display">\[
+F&#39;(x) = f(x).
+\]</span></p>
+<p>This draws directly on your derivative knowledge from Calculus I.</p>
+<p>Examples:</p>
+<ul>
+<li>If <span class="math inline">\(f(x) = x^2\)</span>, then <span class="math inline">\(F(x) = \tfrac{x^3}{3}\)</span>.</li>
+<li>If <span class="math inline">\(f(x) = \sin x\)</span>, then <span class="math inline">\(F(x) = -\cos x\)</span>.</li>
+<li>If <span class="math inline">\(f(x) = e^x\)</span>, then <span class="math inline">\(F(x) = e^x\)</span>.</li>
+</ul>
+<hr />
+</div>
+<div id="evaluating-at-the-bounds" class="section level4 unnumbered hasAnchor">
+<h4>2. Evaluating at the Bounds<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#evaluating-at-the-bounds" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Once an antiderivative is found:</p>
+<ol style="list-style-type: decimal">
+<li>Evaluate it at the upper bound <span class="math inline">\(b\)</span>.</li>
+<li>Evaluate it at the lower bound <span class="math inline">\(a\)</span>.</li>
+<li>Subtract:
+<span class="math display">\[
+F(b) - F(a).
+\]</span></li>
+</ol>
+<p>This step reflects the idea of <strong>accumulation over an interval</strong>, not a single point.</p>
+<hr />
+</div>
+<div id="interpreting-the-result" class="section level4 unnumbered hasAnchor">
+<h4>3. Interpreting the Result<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#interpreting-the-result" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The numerical value you obtain always represents a <strong>net accumulation</strong>:</p>
+<ul>
+<li>Positive value → net gain<br />
+</li>
+<li>Negative value → net loss<br />
+</li>
+<li>Zero → gains and losses balance</li>
+</ul>
+<p>The meaning depends entirely on the context of the rate:</p>
+<ul>
+<li>water volume,</li>
+<li>carbon exchange,</li>
+<li>energy transfer,</li>
+<li>population change.</li>
+</ul>
+<p>Units follow naturally:</p>
+<blockquote>
+<p><em>(rate units) × (input units) = accumulated units</em></p>
+</blockquote>
+<hr />
+</div>
+</div>
+<div id="a-simple-environmental-interpretation" class="section level3 hasAnchor" number="4.6.8">
+<h3><span class="header-section-number">4.6.8</span> A Simple Environmental Interpretation<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#a-simple-environmental-interpretation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Suppose <span class="math inline">\(f(t)\)</span> represents carbon flux (kg/hr).</p>
+<p>Then:
+<span class="math display">\[
+\int_a^b f(t)\,dt
+\]</span>
+means:</p>
+<blockquote>
+<p>the <strong>net amount of carbon added to or removed from a system</strong> between times <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</p>
+</blockquote>
+<p>Computing this as <span class="math inline">\(F(b) - F(a)\)</span> is not skipping the accumulation process — it is using the mathematical structure of accumulation functions to compute it exactly.</p>
+<hr />
+</div>
+<div id="critical-emphasis-more-than-plug-and-chug" class="section level3 hasAnchor" number="4.6.9">
+<h3><span class="header-section-number">4.6.9</span> Critical Emphasis: More Than Plug-and-Chug<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#critical-emphasis-more-than-plug-and-chug" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>It is tempting to treat
+<span class="math display">\[
+\int_a^b f(x)\,dx = F(b) - F(a)
+\]</span>
+as a recipe:</p>
+<ol style="list-style-type: decimal">
+<li>Find an antiderivative.</li>
+<li>Plug in numbers.</li>
+<li>Subtract.</li>
+</ol>
+<p>But without understanding <em>why</em> this works, it is easy to:</p>
+<ul>
+<li>lose track of units,</li>
+<li>misinterpret negative results,</li>
+<li>forget what is actually accumulating,</li>
+<li>or treat integrals as purely symbolic exercises.</li>
+</ul>
+<p><strong>The formula works because integration and differentiation describe opposite sides of the same process:</strong></p>
+<ul>
+<li>differentiation tracks <em>instantaneous change</em>,</li>
+<li>integration reconstructs <em>total change</em> from that information.</li>
+</ul>
+<hr />
+</div>
+<div id="key-takeaway-6" class="section level3 hasAnchor" number="4.6.10">
+<h3><span class="header-section-number">4.6.10</span> Key Takeaway<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#key-takeaway-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>The Fundamental Theorem of Calculus (Part II) gives us an efficient way to compute accumulation — but its meaning comes from Part I.</p>
+</blockquote>
+<p>Definite integrals are not defined by antiderivatives.<br />
+Antiderivatives are a powerful <em>tool</em> for computing definite integrals that already have a clear conceptual meaning.</p>
+<p>Understanding this connection allows you to compute integrals confidently <strong>and</strong> interpret them correctly in real environmental systems.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="what-is-an-integral.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="calculus-ii-equation-sheet.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/rstudio/bookdown-demo/edit/master/04-def_int.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
