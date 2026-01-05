@@ -151,6 +151,8 @@ critical-emphasis-more-than-plug-and-chug
 key-takeaway-6
 conceptual-questions-definite-integrals-riemann-sums-and-the-fundamental-theorem-of-calculus
 practice-problems
+intro-calculus-workbook
+teaching-team-introductions
 gaj-sivandran
 classroom-etiquette
 why-are-you-here

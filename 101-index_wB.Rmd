@@ -1,5 +1,6 @@
 # (PART) Workbook Chapters {-}
 
+# Intro Calculus Workbook
 ## Teaching Team Introductions
 ### Gaj Sivandran
 
