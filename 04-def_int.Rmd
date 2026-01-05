@@ -25,7 +25,7 @@ In the previous chapter, you learned how to approximate accumulation by **adding
 
 In this section, we take the next conceptual step:  
 
->>**why all of these approximations are pointing toward the same value**, and how that value becomes the **definite integral**.
+>**why all of these approximations are pointing toward the same value**, and how that value becomes the **definite integral**.
 
 The key idea is that Riemann sums are not the goal—they are a *process*. The definite integral is what emerges when that process is carried out with infinitely fine resolution.
 
@@ -1270,9 +1270,25 @@ So \(A(x)\) is an antiderivative of \(f(x)\).
 
 ### Step 2: Antiderivatives Are Not Unique
 
-There is only one derivative for a function. However, there are an infintie number of antiderivates to function.
+There is only one derivative for a function. However, there are an infintie number of antiderivates. Lets see if we can understand this graphically.
 
-Lets see if we can understand this graphically.
+The figures below show two paired examples.  
+In each pair:
+
+- The **left panel** shows a *rate function*.
+- The **right panel** shows several possible *antiderivatives* of that rate.
+
+These pairs illustrate two equally important ideas:
+
+
+1. **The right-hand curves are antiderivatives of the left-hand curve.**  
+2. **The left-hand curve is the derivative of every curve on the right.**
+
+Both perspectives matter.
+
+---
+
+### Example 1: Rate \(f(x) = x\) {-}
 
 ```{r antiderivatives-linear-rate, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4}
 
@@ -1327,7 +1343,31 @@ p_anti <- ggplot(df_anti, aes(x = x)) +
 p_rate | p_anti
 
 ```
+In this example:
 
+- The left panel shows the rate function \(f(x) = x\).
+- The right panel shows several curves of the form:
+  \[
+  F(x) = \tfrac12 x^2 + C.
+  \]
+
+All of the curves on the right have different vertical positions, but they share the same shape.
+
+Why?
+
+- The **slope** of each curve on the right at any value of \(x\) is exactly \(x\).
+- That slope matches the **height** of the rate function on the left.
+
+So:
+
+- If you start with the rate \(f(x) = x\) and *accumulate*, you get a parabola.
+- If you start with any of the parabolas on the right and *differentiate*, you recover the line \(f(x) = x\).
+
+The constant \(C\) only changes where accumulation starts — not how it grows.
+
+---
+
+### Example 2: Rate \(f(x) = x^2 - 2\) {-}
 ```{r antiderivatives-quadratic-shifted, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4}
 
 library(ggplot2)
@@ -1380,53 +1420,7 @@ p_anti <- ggplot(df_anti, aes(x = x)) +
 # Combine panels
 p_rate | p_anti
 ```
-
-
-The figures above show two paired examples.  
-In each pair:
-
-- The **left panel** shows a *rate function*.
-- The **right panel** shows several possible *antiderivatives* of that rate.
-
-These pairs illustrate two equally important ideas:
-
-
-1. **The right-hand curves are antiderivatives of the left-hand curve.**  
-2. **The left-hand curve is the derivative of every curve on the right.**
-
-Both perspectives matter.
-
----
-
-### Example 1: Rate \(f(x) = x\) {-}
-
-In the top pair of plots:
-
-- The left panel shows the rate function \(f(x) = x\).
-- The right panel shows several curves of the form:
-  \[
-  F(x) = \tfrac12 x^2 + C.
-  \]
-
-All of the curves on the right have different vertical positions, but they share the same shape.
-
-Why?
-
-- The **slope** of each curve on the right at any value of \(x\) is exactly \(x\).
-- That slope matches the **height** of the rate function on the left.
-
-So:
-
-- If you start with the rate \(f(x) = x\) and *accumulate*, you get a parabola.
-- If you start with any of the parabolas on the right and *differentiate*, you recover the line \(f(x) = x\).
-
-The constant \(C\) only changes where accumulation starts — not how it grows.
-
----
-
-### Example 2: Rate \(f(x) = x^2 - 2\) {-}
-
-In the bottom pair of plots:
+In this example:
 
 - The left panel shows the rate function \(f(x) = x^2 - 2\).
 - The right panel shows several curves of the form:
@@ -1689,6 +1683,201 @@ Computing this as \(F(b) - F(a)\) is not skipping the accumulation process — i
 
 ---
 
+::: promptbox
+
+### Worked Example: Applying the Fundamental Theorem of Calculus {-}
+
+Suppose the rate at which **carbon is exchanged** between an ecosystem and the atmosphere is modeled by:
+\[
+f(t) = 3t^2
+\]
+measured in **kg of carbon per hour**, where \(t\) is time in hours.
+
+We want to find the **net carbon exchanged** between \(t = 1\) hour and \(t = 4\) hours.
+
+---
+
+#### 1. Identifying Antiderivatives {-}
+
+To apply the Fundamental Theorem of Calculus, we first find an antiderivative \(F(t)\) such that:
+\[
+F'(t) = f(t).
+\]
+
+Since:
+\[
+f(t) = 3t^2,
+\]
+an antiderivative is:
+\[
+F(t) = t^3,
+\]
+because:
+\[
+\frac{d}{dt}(t^3) = 3t^2.
+\]
+
+---
+
+#### 2. Evaluating at the Bounds {-}
+
+Next, we evaluate the antiderivative at the upper and lower bounds.
+
+Upper bound:
+\[
+F(4) = 4^3 = 64
+\]
+
+Lower bound:
+\[
+F(1) = 1^3 = 1
+\]
+
+Subtract:
+\[
+F(4) - F(1) = 64 - 1 = 63
+\]
+
+So,
+\[
+\int_1^4 3t^2\,dt = 63.
+\]
+
+---
+
+```{r rate-and-accumulation-with-horizontal-guides, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4}
+
+library(ggplot2)
+library(patchwork)
+
+# Define rate and antiderivative
+f <- function(t) 3 * t^2        # rate (kg/hr)
+F <- function(t) t^3            # accumulation (kg)
+
+# Interval
+a <- 1
+b <- 4
+
+# Domain for plotting
+t <- seq(0, 4.5, length.out = 400)
+
+df <- data.frame(
+  t = t,
+  rate = f(t),
+  accumulation = F(t)
+)
+
+# Panel 1: Rate function with shaded area
+p_rate <- ggplot(df, aes(x = t, y = rate)) +
+  geom_line(linewidth = 1.2) +
+  geom_area(
+    data = subset(df, t >= a & t <= b),
+    aes(x = t, y = rate),
+    fill = "#56B4E9",
+    alpha = 0.5
+  ) +
+  geom_vline(xintercept = c(a, b), linetype = "dashed") +
+  labs(
+    title = "Rate Function  f(t) = 3t²",
+    x = "Time (hours)",
+    y = "Rate (kg/hr)"
+  ) +
+  theme_minimal()
+
+# Panel 2: Accumulation function with annotations and horizontal guides
+p_acc <- ggplot(df, aes(x = t, y = accumulation)) +
+  geom_line(linewidth = 1.2, color = "#009E73") +
+  
+  # Vertical guides
+  geom_vline(xintercept = c(a, b), linetype = "dashed") +
+  
+  # Horizontal guides to y-axis
+  geom_hline(yintercept = F(a), linetype = "dotted", color = "gray40") +
+  geom_hline(yintercept = F(b), linetype = "dotted", color = "gray40") +
+  
+  # Points at a and b
+  geom_point(aes(x = a, y = F(a)), size = 3) +
+  geom_point(aes(x = b, y = F(b)), size = 3) +
+  
+  # Labels
+  annotate(
+    "text",
+    x = 0,
+    y = F(a)+5,
+    label = expression(F(1))
+  ) +
+  annotate(
+    "text",
+    x = 0,
+    y = F(b)+5,
+    label = expression(F(4))
+  ) +
+  
+  # Arrow showing difference
+  annotate(
+    "segment",
+    x = b + 0.1,
+    xend = b + 0.1,
+    y = F(a),
+    yend = F(b),
+    arrow = arrow(length = unit(0.2, "cm"))
+  ) +
+  annotate(
+    "text",
+    x = 3,
+    y = 10,
+    label = expression(F(4) - F(1)),
+    hjust = 0
+  ) +
+  
+  labs(
+    title = "Accumulation Function  F(t) = t³",
+    x = "Time (hours)",
+    y = "Accumulated Carbon (kg)"
+  ) +
+  theme_minimal()
+
+# Combine panels
+p_rate | p_acc
+
+
+```
+
+
+#### 3. Interpreting the Result {-}
+
+The value **63** represents the **net accumulated carbon exchange** over the interval from 1 to 4 hours.
+
+Because the result is **positive**, this means:
+
+- there was a **net gain** of carbon by the ecosystem during this time.
+
+Including units:
+\[
+(\text{kg/hr}) \times (\text{hr}) = \text{kg},
+\]
+so the final answer is:
+
+\[
+\boxed{63\ \text{kg of carbon}}
+\]
+
+---
+
+### Interpretation in Context {-}
+
+This calculation does **not** tell us how fast carbon was moving at any single moment.  
+It tells us **how much carbon was transferred in total** over a period of time.
+
+Even though the rate was changing continuously, the Fundamental Theorem of Calculus allows us to compute the exact accumulated change using an antiderivative.
+
+> The definite integral measures **total change over an interval**, not instantaneous behavior.
+
+
+
+:::
+
+
 ### Critical Emphasis: More Than Plug-and-Chug
 
 It is tempting to treat
@@ -1723,3 +1912,863 @@ Definite integrals are not defined by antiderivatives.
 Antiderivatives are a powerful *tool* for computing definite integrals that already have a clear conceptual meaning.
 
 Understanding this connection allows you to compute integrals confidently **and** interpret them correctly in real environmental systems.
+
+
+
+## Conceptual Questions: Definite Integrals, Riemann Sums, and the Fundamental Theorem of Calculus
+
+The questions in this section are designed to help you focus on **meaning rather than mechanics**. Instead of asking you to compute integrals, they ask you to explain what integrals represent, how Riemann sums give rise to them, and why the Fundamental Theorem of Calculus connects accumulation and rate so powerfully.
+
+Use these questions to check your conceptual understanding, clarify common misconceptions, and practice explaining calculus ideas in words. Being able to articulate *why* an integral works is just as important as knowing *how* to compute one.
+
+
+---
+
+### Question 1 {-}
+Why are Riemann sums described as a *process* rather than a final answer?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Riemann sums are a method for approximating accumulation using finitely many rectangles. They show how accumulation is built piece by piece. The definite integral is the value that emerges when this approximation process is carried out with infinitely fine resolution.
+</details>
+
+---
+
+### Question 2 {-}
+What does shrinking \(\Delta x\) represent conceptually in an environmental context?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Shrinking \(\Delta x\) represents increasing measurement resolution, such as sampling more frequently in time or more densely in space. It reflects a closer approximation of a continuous process using discrete data.
+</details>
+
+---
+
+### Question 3 {-}
+Why do left, right, and midpoint Riemann sums converge to the same value for smooth functions?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+For smooth functions, the rate changes very little over sufficiently small intervals. As \(\Delta x \to 0\), differences between left, right, and midpoint samples vanish, causing all reasonable sums to approach the same accumulated total.
+</details>
+
+---
+
+### Question 4 {-}
+What assumption about the system is made when using rectangles to approximate accumulation?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Each rectangle assumes the rate is approximately constant over its subinterval. Smaller rectangles make this assumption more reasonable, which is why refinement improves accuracy.
+</details>
+
+---
+
+### Question 5 {-}
+Why is a definite integral better interpreted as *accumulation* rather than *area*?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+A definite integral represents total accumulated change from a rate, including sign and units. Area is a helpful visualization, but accumulation captures the physical meaning of the process.
+</details>
+
+---
+
+### Question 6 {-}
+What does the sign of a definite integral tell you about a system?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+The sign indicates the direction of net change. Positive means net gain, negative means net loss, and zero means gains and losses balance over the interval.
+</details>
+
+---
+
+### Question 7 {-}
+Why does a zero net integral not imply that “nothing happened”?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+A net value of zero means positive and negative contributions canceled. Significant gains and losses may still have occurred internally.
+</details>
+
+---
+
+### Question 8 {-}
+How do units help verify the interpretation of a definite integral?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Units of an integral come from multiplying the rate’s units by the variable’s units. If the resulting units do not match the physical quantity, the setup or interpretation is incorrect.
+</details>
+
+---
+
+### Question 9 {-}
+Why is linearity of the integral consistent with physical intuition?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Independent processes contribute additively at every moment. Since accumulation adds contributions over time or space, adding rates adds their accumulated effects.
+</details>
+
+---
+
+### Question 10 {-}
+What does the additivity property of integrals say about breaking an interval into pieces?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Accumulation over a long interval equals the sum of accumulations over subintervals. This matches how real-world totals are built from smaller segments.
+</details>
+
+---
+
+### Question 11 {-}
+Why does reversing the limits of integration change the sign of the integral?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Reversing the limits reverses the direction of accumulation. Since integrals track directional change, the sign flips.
+</details>
+
+---
+
+### Question 12 {-}
+Why does integrating a constant rate reduce to “rate × duration”?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+If the rate is constant, every small contribution is the same. Adding them over the interval is equivalent to multiplying the rate by the interval length.
+</details>
+
+---
+
+### Question 13 {-}
+What conceptual role does the accumulation function \(A(x)\) play?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+It describes how total accumulated change builds from a fixed starting point up to a variable endpoint, turning accumulation into a function.
+</details>
+
+---
+
+### Question 14 {-}
+According to the Fundamental Theorem of Calculus (Part I), why is \(A'(x) = f(x)\) reasonable?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Over a small change \(\Delta x\), accumulation increases by approximately \(f(x)\Delta x\). Dividing by \(\Delta x\) shows the rate of change of accumulation equals the original rate.
+</details>
+
+---
+
+### Question 15 {-}
+Why are differentiation and integration considered inverse processes?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Integration builds total change from a rate, while differentiation recovers the instantaneous rate from accumulated change. Each undoes the effect of the other.
+</details>
+
+---
+
+### Question 16 {-}
+Why do antiderivatives differ by a constant?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Adding a constant shifts a function vertically without changing its slope. Since derivatives depend on slope, all such functions share the same derivative.
+</details>
+
+---
+
+### Question 17 {-}
+Why does the constant of integration not affect a definite integral?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+A definite integral measures change between two points. When computing \(F(b) - F(a)\), any constant cancels.
+</details>
+
+---
+
+### Question 18 {-}
+What does \(F(b) - F(a)\) represent conceptually?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+It represents the net change in the accumulated quantity between \(a\) and \(b\), not the value at either point alone.
+</details>
+
+---
+
+### Question 19 {-}
+Why is treating the Fundamental Theorem of Calculus as “plug-and-chug” dangerous?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Without conceptual understanding, it is easy to misinterpret signs, units, or meaning. The formula works because of accumulation logic, not algebraic coincidence.
+</details>
+
+---
+
+### Question 20 {-}
+How does the Fundamental Theorem of Calculus unify the main ideas of calculus?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+It connects rates and accumulation, showing that differentiation and integration are two perspectives on the same process of change.
+</details>
+
+---
+
+### Question 21 {-}
+How does a definite integral formalize the idea behind Riemann sums?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+A definite integral is defined as the limit of Riemann sums as subinterval widths approach zero, capturing exactly what the sums approximate.
+</details>
+
+---
+
+### Question 22 {-}
+In what sense is a Riemann sum an environmental modeling tool?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Riemann sums mirror how environmental data are used: discrete measurements represent behavior between observations, and contributions are summed to estimate totals.
+</details>
+
+---
+
+### Question 23 {-}
+Why does the definite integral not depend on left, right, or midpoint sampling?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+As partitions become finer, differences between sampling choices disappear. All reasonable approximations converge to the same value.
+</details>
+
+---
+
+### Question 24 {-}
+What conceptual role does the limit play in connecting Riemann sums to integrals?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+The limit removes dependence on arbitrary choices like rectangle width or sample location, producing an idealized accumulated total.
+</details>
+
+---
+
+### Question 25 {-}
+Why is it misleading to think of Riemann sums and definite integrals as separate formulas?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+They describe the same idea at different stages. Riemann sums show construction; the definite integral names the limiting result.
+</details>
+
+---
+
+### Question 26 {-}
+How does understanding Riemann sums prevent misuse of the Fundamental Theorem of Calculus?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+It reinforces that integrals represent accumulated change. The theorem is a shortcut for computing a quantity already defined through limits of sums.
+</details>
+
+---
+
+### Question 27 {-}
+Why is the phrase “area under the curve” incomplete without the Riemann-sum perspective?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Without Riemann sums, area seems purely geometric. Riemann sums reveal it comes from adding rate × width contributions, giving meaning to sign and units.
+</details>
+
+---
+
+### Question 28 {-}
+How does refining a Riemann sum connect to the idea of “perfect measurement”?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Refinement corresponds to measuring at infinitely fine resolution. The definite integral represents the total that would be obtained with no missing detail.
+</details>
+
+---
+
+### Question 29 {-}
+Why can definite integrals be trusted even when real data are discrete?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Riemann sums explain how discrete measurements approximate continuous accumulation. Integrals represent the continuous benchmark those approximations approach.
+</details>
+
+---
+
+### Question 30 {-}
+What is gained conceptually by teaching Riemann sums before antiderivatives?
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Students first understand what an integral represents and why it exists. Antiderivatives then appear as an efficient computational tool, not the definition of integration.
+</details>
+
+---
+
+## Practice Problems
+
+The problems in this section are designed to strengthen your **calculation skills with definite integrals**, especially using **linearity, additivity, and the Fundamental Theorem of Calculus**. These are not concept checks — they are meant to feel like real calculus problems where careful setup and execution matter.
+
+### Tips for Success {-}
+
+- **Look for linearity first.** If the integrand is a sum or has constants, split the integral before doing any computation.
+- **Factor out constants early.** This simplifies both the antiderivative and the arithmetic.
+- **Watch the bounds carefully.** Most errors come from evaluating \(F(b) - F(a)\) incorrectly, not from finding the antiderivative.
+- **Use additivity strategically.** When information is given on subintervals, combine integrals rather than trying to invent a function.
+- **Keep units and interpretation in mind** for applied problems — the final number should make sense in context.
+
+Work each problem symbolically, simplify as much as possible, and only then plug in the bounds. Check your result against the solution to catch small algebra or sign errors early.
+
+
+---
+
+### Problem 1 {-}
+Evaluate the definite integral:
+\[
+\int_0^2 \left(3x^2 + 4x\right)\,dx
+\]
+using linearity.
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Split using linearity:
+\[
+\int_0^2 3x^2\,dx + \int_0^2 4x\,dx.
+\]
+
+Compute:
+\[
+\int_0^2 3x^2\,dx = [x^3]_0^2 = 8,
+\quad
+\int_0^2 4x\,dx = [2x^2]_0^2 = 8.
+\]
+
+Add:
+\[
+8 + 8 = 16.
+\]
+
+\[
+\boxed{16}
+\]
+</details>
+
+---
+
+### Problem 2 {-}
+Evaluate:
+\[
+\int_1^3 5e^x\,dx.
+\]
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Factor out the constant:
+\[
+5\int_1^3 e^x\,dx.
+\]
+
+Antiderivative:
+\[
+\int e^x\,dx = e^x.
+\]
+
+Evaluate:
+\[
+5(e^3 - e).
+\]
+
+\[
+\boxed{5(e^3 - e)}
+\]
+</details>
+
+---
+
+### Problem 3 {-}
+Evaluate:
+\[
+\int_{-1}^1 (2x - 3)\,dx.
+\]
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Antiderivative:
+\[
+x^2 - 3x.
+\]
+
+Evaluate:
+\[
+[x^2 - 3x]_{-1}^1 = (1 - 3) - (1 + 3) = -6.
+\]
+
+\[
+\boxed{-6}
+\]
+</details>
+
+---
+
+### Problem 4 {-}
+Evaluate:
+\[
+\int_0^1 (6x^3 - 4x + 2)\,dx.
+\]
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Apply linearity:
+\[
+\int_0^1 6x^3\,dx - \int_0^1 4x\,dx + \int_0^1 2\,dx.
+\]
+
+Compute:
+\[
+\frac{3}{2} - 2 + 2 = \frac{3}{2}.
+\]
+
+\[
+\boxed{\tfrac{3}{2}}
+\]
+</details>
+
+---
+
+### Problem 5 {-}
+Suppose
+\[
+\int_0^4 f(x)\,dx = 7
+\quad \text{and} \quad
+\int_4^9 f(x)\,dx = -5.
+\]
+
+Find:
+\[
+\int_0^9 f(x)\,dx.
+\]
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+By additivity:
+\[
+7 + (-5) = 2.
+\]
+
+\[
+\boxed{2}
+\]
+</details>
+
+---
+
+### Problem 6 {-}
+Evaluate:
+\[
+\int_{-2}^2 3x^2\,dx.
+\]
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Antiderivative:
+\[
+x^3.
+\]
+
+Evaluate:
+\[
+[x^3]_{-2}^2 = 8 - (-8) = 16.
+\]
+
+\[
+\boxed{16}
+\]
+</details>
+
+---
+
+### Problem 7 {-}
+Evaluate:
+\[
+\int_0^{\pi} (4\sin x + 2)\,dx.
+\]
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Split:
+\[
+4\int_0^{\pi} \sin x\,dx + \int_0^{\pi} 2\,dx.
+\]
+
+Compute:
+\[
+4(2) + 2\pi = 8 + 2\pi.
+\]
+
+\[
+\boxed{8 + 2\pi}
+\]
+</details>
+
+---
+
+### Problem 8 {-}
+Evaluate:
+\[
+\int_1^2 (3x^2 - e^x)\,dx.
+\]
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Antiderivative:
+\[
+x^3 - e^x.
+\]
+
+Evaluate:
+\[
+(8 - e^2) - (1 - e) = 7 + e - e^2.
+\]
+
+\[
+\boxed{7 + e - e^2}
+\]
+</details>
+
+---
+
+### Problem 9 {-}
+Evaluate:
+\[
+\int_{-1}^{3} (2x - 1)\,dx
+\]
+by splitting the interval at \(x = 0\).
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Split:
+\[
+\int_{-1}^{0} (2x - 1)\,dx + \int_0^{3} (2x - 1)\,dx.
+\]
+
+Antiderivative:
+\[
+x^2 - x.
+\]
+
+Compute:
+\[
+(-2) + 6 = 4.
+\]
+
+\[
+\boxed{4}
+\]
+</details>
+
+---
+
+### Problem 10 {-}
+Evaluate:
+\[
+\int_0^2 (5 - 3x)\,dx.
+\]
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Antiderivative:
+\[
+5x - \tfrac{3}{2}x^2.
+\]
+
+Evaluate:
+\[
+(10 - 6) - 0 = 4.
+\]
+
+\[
+\boxed{4}
+\]
+</details>
+
+---
+
+### Problem 11 {-}
+Suppose
+\[
+\int_0^4 f(x)\,dx = 10
+\quad \text{and} \quad
+\int_4^7 f(x)\,dx = -3.
+\]
+
+Find  
+\[
+\int_0^7 f(x)\,dx
+\]
+and interpret the result.
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+By additivity,
+\[
+\int_0^7 f(x)\,dx = 10 + (-3) = 7.
+\]
+This means there was a net gain of 7 units over the interval, despite some loss occurring.
+</details>
+
+---
+
+
+### Problem 12 {-}
+The rate at which **nutrients enter a wetland** is modeled by
+\[
+f(t) = 4t
+\]
+measured in **kg/day**, where \(t\) is time in days.
+
+Find the **net nutrient input** between \(t = 2\) days and \(t = 5\) days.
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+**Step 1: Identify an antiderivative**
+
+\[
+F(t) = 2t^2
+\]
+
+**Step 2: Evaluate at the bounds**
+
+\[
+F(5) = 2(25) = 50
+\]
+\[
+F(2) = 2(4) = 8
+\]
+
+**Step 3: Subtract**
+
+\[
+F(5) - F(2) = 50 - 8 = 42
+\]
+
+**Interpretation:**  
+The wetland received a **net input of 42 kg of nutrients** over this time interval.
+</details>
+
+---
+
+### Problem 13 {-}
+The rate at which **carbon is released from soil** is given by
+\[
+f(t) = 6e^t
+\]
+measured in **kg/hr**, where \(t\) is time in hours.
+
+Find the **net carbon released** between \(t = 0\) and \(t = 2\).
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+**Step 1: Identify an antiderivative**
+
+\[
+F(t) = 6e^t
+\]
+
+**Step 2: Evaluate at the bounds**
+
+\[
+F(2) = 6e^2
+\]
+\[
+F(0) = 6e^0 = 6
+\]
+
+**Step 3: Subtract**
+
+\[
+6e^2 - 6
+\]
+
+**Interpretation:**  
+This represents the **net carbon released** over the two-hour period, measured in kilograms.
+</details>
+
+---
+
+### Problem 14 {-}
+The rate of **water uptake by vegetation** is modeled by
+\[
+f(t) = t^2 - 4
+\]
+measured in **liters/day**, where \(t\) is time in days.
+
+Find the **net water uptake** from \(t = 1\) to \(t = 4\).
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+**Step 1: Identify an antiderivative**
+
+\[
+F(t) = \tfrac{1}{3}t^3 - 4t
+\]
+
+**Step 2: Evaluate at the bounds**
+
+\[
+F(4) = \tfrac{64}{3} - 16 = \tfrac{16}{3}
+\]
+\[
+F(1) = \tfrac{1}{3} - 4 = -\tfrac{11}{3}
+\]
+
+**Step 3: Subtract**
+
+\[
+F(4) - F(1) = \tfrac{16}{3} - \left(-\tfrac{11}{3}\right) = 9
+\]
+
+**Interpretation:**  
+There was a **net uptake of 9 liters of water** over this interval.
+</details>
+
+---
+
+### Problem 15 {-}
+The rate at which **energy is transferred** across a surface is
+\[
+f(t) = 5\sin t
+\]
+measured in **J/s**, where \(t\) is time in seconds.
+
+Find the **net energy transferred** from \(t = 0\) to \(t = \pi\).
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+**Step 1: Identify an antiderivative**
+
+\[
+F(t) = -5\cos t
+\]
+
+**Step 2: Evaluate at the bounds**
+
+\[
+F(\pi) = -5(-1) = 5
+\]
+\[
+F(0) = -5(1) = -5
+\]
+
+**Step 3: Subtract**
+
+\[
+5 - (-5) = 10
+\]
+
+**Interpretation:**  
+A total of **10 joules of energy** were transferred over the interval.
+</details>
+
+---
+
+### Problem 16 {-}
+The rate of **population change** for a species is modeled by
+\[
+f(t) = 12 - 3t
+\]
+measured in **individuals/year**, where \(t\) is time in years.
+
+Find the **net population change** between \(t = 1\) and \(t = 4\).
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+**Step 1: Identify an antiderivative**
+
+\[
+F(t) = 12t - \tfrac{3}{2}t^2
+\]
+
+**Step 2: Evaluate at the bounds**
+
+\[
+F(4) = 48 - 24 = 24
+\]
+\[
+F(1) = 12 - 1.5 = 10.5
+\]
+
+**Step 3: Subtract**
+
+\[
+24 - 10.5 = 13.5
+\]
+
+**Interpretation:**  
+The population increased by **13.5 individuals** over this time period.
+</details>
+

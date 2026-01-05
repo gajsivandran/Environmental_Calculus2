@@ -55,22 +55,6 @@ In small groups:
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 :::
 
-## What is Calculus?
-
-![](images/change1.png){fig.alt='Change is the only constant in life - Heraclitus' style="float:right; width:300px; margin:10px;"}
-![](images/change2.png){fig.alt='Charles Darwin Quote - It is not the strongest of the species that survives, nor the most intelligent that survives. It is the one that is most adaptable to change' style="width:400px; margin:10px;"}
-
-
-::: promptbox
-
-**Discussion**
-
-What do you see in this graph?
-
-![](images/change3.png){fig.alt='Bar graph of 10 hottest years in the US - from hottest down - 2024, 2012, 2016, 2017, 2021,2015, 2020, 2023,2006,1998' style="float:center; width:800px; margin:10px;"}
-<br><br><br><br>
-
-:::
 
 ## My Expectations of You
 
@@ -104,17 +88,22 @@ In a small group make 2 lists
 
 ### Assessments
 
-![](images/assessmentpie.png){fig.alt='Pie chart of assessment breakdown - percentages in text' style="float:right; width:300px; margin:10px;"}
+![](images/assessmentpie.png){fig.alt='Pie chart of assessment breakdown - percentages in text' style="float:right; width:500px; margin:10px;"}
 
-**Preparation and Participation** [20%]
+**Preparation** [10%]
 
 - Before class readings/questions
-- In-class activities
 - After-class self checks
+
+**Participation** [10%]
+
+- In-class activities
+- Polleverywhere
+
 
 **Homeworks** [10%]
 
-- Roughly every week
+- Roughly every week 
 - Revise and resubmit
 - Grade on accuracy and effort
 
@@ -124,10 +113,9 @@ In a small group make 2 lists
 - 2 can be re-taken during finals week
 - 1 pg of notes (2sides)
 
-**Project** [10%]
+**Applications** [10%]
 
-- Low stakes group project applying the big picture concepts of this class
-- Focuses on reading and interpreting the math
+- A couple of case studies that utilize the content we cover in class
 
 ::: promptbox
 **Class discussion**
@@ -189,9 +177,14 @@ Love calc so much you want to do more problems
 
 You can retake upto 2 tests. Your best score counts – so no risk
 
-### Office Hours
+### Class notes
 
-![](images/when2meet.png){fig.alt='Decorative cartoon of common excuses' style="float:left; width:100px; margin:10px;"}
+All notes that I take in class are available on the onenote notebook link on Canvas
+All lectures will be recorded - these will also be made available on Canvas
+
+From time to time the technology will fail us. Remember these are being provided as a *bonus*. There is no substitute for attending class and taking your own notes.
+
+### Office Hours
 
 Please select ALL times that **could** work.
 
@@ -201,12 +194,7 @@ Office hours will be posted on Canvas as soon as they are set.
 
 <br><br><br>
 
-### Class notes
 
-All notes that I take in class are available on the onenote notebook link on Canvas
-All lectures will be recorded - these will also be made available on Canvas
-
-From time to time the technology will fail us. Remember these are being provided as a *bonus*. There is no substitute for attending class and taking your own notes.
 
 ## Questions?
 ::: promptbox
@@ -215,102 +203,6 @@ From time to time the technology will fail us. Remember these are being provided
 
 Ask me anything - whats on your mind - need clarification on any of the things we've talked about?
 <br><br><br><br><br><br><br><br><br>
-
-:::
-
-## Paper Planes
-
-::: promptbox
-
-**Paper Plane Activity**
-We are going to make paper planes and then see how well they fly.
-
-We are going to break into 4 groups:
-
-- Group 1: Instructions not included – I know how to make a paper plane already
-- Group 2: Notes -  Watch the video multiple times, pausing and taking notes – I’m confident I can make a good plane
-- Group 3: Team – Work together and make 1 TEAM plane. 
-- Group 4: Solo first + then team up - Make your own plane, then make a team plane
-
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe
-    src="https://www.youtube.com/embed/eHSa-vF6ZlM"
-    title="YouTube video"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen
-    style="position:absolute; top:0; left:0; width:100%; height:100%;">
-  </iframe>
-</div>
-
-
-
-
-
-**Discussion**
-
-Why did we make paper planes in calc?
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-
-:::
-
-
-## Rate of Change - A First Look
-
-::: promptbox
-
-**Class Discussion**
-
-
-![](images/Bolt.png){fig.alt='Picture of Usain Bolt winning a 100m race' style="float:right; width:300px; margin:10px;"}
-
-When we try to understand derivatives, the most common place to start is Position->Velocity->Acceleration and how they are linked.
-
-Lets have a look at this while watching Usain Bolt run the 100m in 9.69s
-
-While we watch this video I want you to keep in mind the idea of change - what variables are changing as we move through this race.
-
-[Usain Bolt 100m Record](https://www.youtube.com/clip/UgkxYLQtjngzm0z_y34zOcFQH24uIOKdLFCd){target="_blank" rel="noopener"}
-
-**Group Discussion**
-
-1) How fast did he run? Can you calculate it?
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-2) What was the fastest he ran? OR what was his top speed (velocity)?
-When do you think this happened?
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-3)The time it took him to get to 10m markers was measured, and the plot is below. What does this tell us about how fast he ran?
-
-![](images/Bolt2.png){fig.alt='Position vs time graph, showing ten segments, each with slightly different slopes, the first segment took 1.83s, a segment in the middle of the race took 0.82s' style="width:500px; margin:10px;"}
-<br><br><br><br><br><br><br>
-
-
-4)If we fit a smooth curve to this path, instead of looking at the slope over every 10m, we can look at the **instantaneous rate of change** or the derivative at any point. 
-
-Note: The reason the curve needs to be smooth will be covered later - this is all just a preview
-
-![](images/Bolt3.png){fig.alt='Position vs time grpah, but instead of straight line segments, it is one smooth line through the points' style="width:500px; margin:10px;"}
-<br><br><br><br><br><br><br>
-
-5) No if we calculate the instantaneous rate of change and plot it against time - we get the velocity vs time relationship.
-
-Using this - try to describe how is velocity (speed) varied during the race.
-
-![](images/Bolt4.png){fig.alt='Velocity vs time grpah, shows the velocity increase at the start of the race, then level out, before decreasing at the end of the race. In the video the decrease was associated with Usain Bolt celebrating early' style="width:500px; margin:10px;"}
-<br><br><br><br><br><br><br>
-
-6) The world wondered how fast he could actually run the 100m. A year later at the world championships sensors were places along the tract to capture in high resolution his position with time.
-
-- What do you notice this time?
-- What is causing the oscillating in the red line?
-
-![](images/Bolt5.png){fig.alt='Velocity vs time grpah, black line shows increasing velcity and then levels out at 12m/s, the red line shows the instantaneous velocity whcih oscilates around the average through the race' style="width:500px; margin:10px;"}
-<br><br><br><br><br><br><br>
-
 
 :::
 

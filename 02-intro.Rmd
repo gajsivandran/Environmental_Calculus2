@@ -121,13 +121,13 @@ You will also find that clear and organized algebra makes a big difference. Rear
 ---
 
 
-## What Calculus II Is About
+## Calc 2
 
 Calculus II shifts the focus from understanding how a quantity changes at a single moment to understanding how much of that quantity accumulates over time or space. In Calculus I you learned to work with derivatives and rates of change. In this course, you will explore how to measure totals when the rate is not constant.
 
 Accumulation is central in the environmental sciences. Many quantities of interest vary continuously, such as total rainfall across a storm, carbon taken up by a forest across a season, pollutant load exported from a watershed, biomass added in a growing ecosystem, or heat absorbed by the ocean surface. Integrals give us the language and tools to quantify these totals.
 
-![](images/Accumulation.png){fig.alt='decorative' style="float=center, width:450px; margin:10px;"}
+![](images/Accumulation.png){fig.cap="" fig.alt="" style="float=center; width:450px; margin:10px;"}
 
 
 This course serves as a bridge between the mechanics of differentiation and the broader world of mathematical modeling and scientific interpretation. Throughout the course you will learn to connect graphs, equations, and context to make sense of complex natural systems.
@@ -160,7 +160,9 @@ Accumulation is one of the central ideas of this course. Integrals appear throug
 
 A derivative describes how something changes at each moment. An integral describes how much has changed in total. These two ideas are connected through antiderivatives, which allow us to reverse the process of differentiation. This relationship is one of the central insights of Calculus II and is the foundation of the Fundamental Theorem of Calculus.
 
-![](images/int_conceptual.png){fig.alt='A simple conceptual diagram showing the relationship between differentiation and integration. On the left is a function f(x) a differentiation arrow points to f'(x). Another arrow goes from right to left, from f'(x) to f(x) with the word integration' style="float=center, width:450px; margin:10px;"}
+![](images/int_conceptual.png){fig.cap="" fig.alt="A simple conceptual diagram showing the relationship between differentiation and integration. On the left is a function f(x) a differentiation arrow points to f'(x). Another arrow goes from right to left, from f'(x) to f(x) with the word integration" style="float=center; width:450px; margin:10px;"}
+
+
 
 Thinking in terms of environmental systems makes this connection clearer. In many natural processes, a rate of change is easier to measure or model than the total amount. Antiderivatives give us a way to move from the rate back to the accumulated quantity.
 
@@ -213,14 +215,6 @@ Differential equations are not just mathematical objects. They are a way of thin
 
 ---
 
-## What You Need From Calculus I
-
-### Key Concepts to Bring With You
-
-- Understanding of functions and how to interpret graphs  
-- Familiarity with rates of change and derivative rules  
-
-These ideas provide the foundation for visualizing and interpreting integrals.
 
 ### Skills That Make Calculus II Easier
 
