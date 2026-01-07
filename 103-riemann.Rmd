@@ -1,0 +1,914 @@
+# Workbook: Approximating an Integral: Understanding Area, Accumulation, and Riemann Sums
+
+---
+
+## Activity 1 — What Does “Area Under a Curve” Mean? {-}
+
+### Activity 1A: Area Under a Constant Function {-}
+
+Consider the function  
+\[
+f(x) = 3 \quad \text{on } [0,5].
+\]
+
+**Prompt (Think–Pair–Share):**
+
+- What does the graph of this function look like?
+- How would you describe the “area under the curve” in plain language? 
+- Can you calculate the area?
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+What if *f* represented the velocity and *x* represented time 
+
+- What would the area under the curve represent?
+
+\[
+v(t) = 3 \quad \text{on } [0,5].
+\]
+
+<br><br><br><br><br><br><br>
+
+
+
+::: promptbox
+**Key takeaway:**  
+Summary:
+
+<br><br><br><br><br><br>
+:::
+
+---
+
+### Activity 1B: Area Under a Piecewise Linear Function {-}
+
+Consider the following piecewise description (a graph should be provided):
+
+- From \(x = 0\) to \(x = 2\): \(f(x) = 2\)
+- From \(x = 2\) to \(x = 5\): a straight line from \(f(2) = 2\) to \(f(5) = 6\)
+
+```{r piecewise-linear-plot, echo=FALSE, warning=FALSE, message=FALSE}
+# Segment 1: constant from x = 0 to x = 2
+x1 <- seq(0, 2, length.out = 100)
+y1 <- rep(2, length(x1))
+
+# Segment 2: linear from (2, 2) to (5, 6)
+x2 <- seq(2, 5, length.out = 100)
+y2 <- 2 + (6 - 2) / (5 - 2) * (x2 - 2)
+
+# Set up the plotting window
+plot(
+  NA,
+  xlim = c(0, 5),
+  ylim = c(0, 7),
+  xlab = "x",
+  ylab = "f(x)",
+  main = "Piecewise Linear Function"
+)
+
+# Reference lines
+abline(h = 0, col = "gray80", lty = 2)
+abline(v = 0, col = "gray80", lty = 2)
+
+# Draw the function
+lines(x1, y1, lwd = 2)
+lines(x2, y2, lwd = 2)
+
+# Mark the join point
+points(2, 2, pch = 19)
+```
+
+**Guiding Questions:**
+
+- What is the accumulation of this function between [0 5]?
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+::: promptbox
+**Key takeaway:**  
+Summary:
+
+<br><br><br><br><br><br>
+:::
+
+
+---
+
+### Activity 1C (Student Extrapolation): Area from Discrete Data {-}
+
+You are given the following table of values:
+
+| \(x\)     | 0 | 1 | 2 | 3 | 4 |
+|:---------:|:-:|:-:|:-:|:-:|:-:|
+| \(f(x)\)  | 2 | 3 | 5 | 4 | 6 |
+
+**Prompt:**
+
+- In this case no function is given to us. Just the data points.
+- Estimate the area from \(x = 0\) to \(x = 4\)?
+
+```{r discrete-data-plot, echo=FALSE, warning=FALSE, message=FALSE}
+# Given data
+x <- c(0, 1, 2, 3, 4)
+y <- c(2, 3, 5, 4, 6)
+
+# Create the plot
+plot(
+  x, y,
+  pch = 15,            # square marker
+  cex = 1.6,           # larger size
+  col = "darkgreen",   # green color
+  xlab = "x",
+  ylab = "f(x)",
+  main = "Discrete Data Points",
+  xlim = c(0, 4),
+  ylim = c(0, 7)
+)
+
+# Reference lines
+abline(h = 0, col = "gray80", lty = 2)
+abline(v = 0, col = "gray80", lty = 2)
+
+```
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+::: promptbox
+**Reflection:**
+
+- What assumptions are you making?
+- How might different assumptions change your estimate?
+<br><br><br><br><br><br>
+
+:::
+
+---
+
+### Activity 1D: Area Under a Continuous Function {-}
+
+Consider the function  
+\[
+f(x) = x^2 \quad \text{on } [0,2].
+\]
+
+```{r quadratic-shaded-area, echo=FALSE, warning=FALSE, message=FALSE}
+# Function and domain
+f <- function(x) x^2
+x_plot <- seq(-3, 3, length.out = 400)
+
+# Shaded region bounds
+a <- 0
+b <- 2
+x_shade <- seq(a, b, length.out = 200)
+
+# Plot the function over [-3, 3]
+plot(
+  x_plot, f(x_plot),
+  type = "l",
+  lwd = 2,
+  xlab = "x",
+  ylab = "f(x)",
+  main = expression(f(x) == x^2),
+  xlim = c(-3, 3),
+  ylim = c(0, f(3))
+)
+
+# Reference lines
+abline(h = 0, col = "gray80", lty = 2)
+abline(v = 0, col = "gray80", lty = 2)
+
+# Shade the area under the curve on [0, 2]
+polygon(
+  c(x_shade, rev(x_shade)),
+  c(f(x_shade), rep(0, length(x_shade))),
+  col = rgb(0, 0, 1, 0.2),
+  border = NA
+)
+
+# Re-draw the curve on top for clarity
+lines(x_plot, f(x_plot), lwd = 2)
+
+# Mark the bounds a and b
+abline(v = a, col = "gray50", lty = 3)
+abline(v = b, col = "gray50", lty = 3)
+
+```
+**Discussion Prompts:**
+
+- Why can’t we use simple geometry here?
+- What makes this harder than the previous examples?
+- Ideas on how we could 'approximate this area'?
+<br><br><br><br><br><br>
+
+
+
+---
+
+## Activity 2 — The Big Picture: Riemann Sums {-}
+
+### Reading the Math {-}
+
+**Prompt**
+
+- Can you decipher what this is telling us to do?
+<br><br><br><br><br><br>
+\[
+\sum_{i=1}^{n} f(x_i)\,\Delta x
+\]
+<br><br><br><br><br><br>
+
+### Activity 2A: Left-Hand Riemann Sum {-}
+
+We return to the function  
+\[
+f(x) = x^2 \quad \text{on } [0,2].
+\]
+
+Now lets pull together the variables we need
+
+**\( \Delta x \)**
+
+
+
+<br><br><br><br><br><br>
+
+**\( f(x_i) \)**
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+**\(\sum_{i=1}^{n} f(x_i)\,\Delta x\)**
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+---
+
+### Activity 2B: Right-Hand and Midpoint Sums {-}
+
+**Prompt:**
+
+- If the left-hand sum samples the left endpoint of each subinterval:
+  - Where would the right-hand sum sample?
+  - Where would the midpoint sum sample?
+
+<br><br><br><br><br>
+
+**Student Tasks:**
+Calculate the right-hand and midpoint Riemann sums for 
+\[
+f(x) = x^2 \quad \text{on } [0,2].
+\]
+*[Hint: Create a process, build a table of data points, their function values, then calculate the sum]*
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+---
+
+## Activity 3 — Choosing a Method: Conservative vs Optimistic Estimates {-}
+
+### Discussion Activity {-}
+
+Assume the function is **increasing** on the interval.
+
+```{r riemann-under-over-triangles2, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4}
+
+library(ggplot2)
+library(patchwork)
+
+# Increasing rate function
+f_fun <- function(t) 0.2 * t + 1
+
+t <- seq(0, 10, length.out = 500)
+curve_df <- data.frame(t = t, f = f_fun(t))
+
+# Interval and partition
+a <- 2
+b <- 8
+n <- 3
+dt <- (b - a) / n
+
+base <- data.frame(
+  t0 = seq(a, b - dt, by = dt)
+)
+base$t1 <- base$t0 + dt
+base$left  <- base$t0
+base$right <- base$t1
+base$mid   <- (base$t0 + base$t1) / 2
+
+# Build triangle error regions
+make_error_triangles <- function(sample_t, type = c("under", "over")) {
+  type <- match.arg(type)
+  
+  do.call(
+    rbind,
+    lapply(seq_len(nrow(base)), function(i) {
+      
+      t_seq <- seq(base$t0[i], base$t1[i], length.out = 50)
+      curve_vals <- f_fun(t_seq)
+      rect_height <- f_fun(sample_t[i])
+      
+      if (type == "under") {
+        keep <- curve_vals > rect_height
+        ymin <- rect_height
+        ymax <- curve_vals
+        fill <- "under"
+      } else {
+        keep <- curve_vals < rect_height
+        ymin <- curve_vals
+        ymax <- rect_height
+        fill <- "over"
+      }
+      
+      if (!any(keep)) return(NULL)
+      
+      data.frame(
+        t = t_seq[keep],
+        ymin = ymin[keep],
+        ymax = ymax[keep],
+        fill = fill
+      )
+    })
+  )
+}
+
+# Plot builder
+make_plot <- function(sample_t, title, rect_fill, error_type, subtitle) {
+  
+  rects <- data.frame(
+    t0 = base$t0,
+    t1 = base$t1,
+    height = f_fun(sample_t),
+    sample_t = sample_t
+  )
+  
+  p <- ggplot(curve_df, aes(x = t, y = f)) +
+    geom_line(linewidth = 1) +
+    
+    # Rectangles
+    geom_rect(
+      data = rects,
+      aes(xmin = t0, xmax = t1, ymin = 0, ymax = height),
+      inherit.aes = FALSE,
+      fill = rect_fill,
+      alpha = 0.5,
+      color = "black"
+    ) +
+    
+    # Sampling points
+    geom_point(
+      data = rects,
+      aes(x = sample_t, y = height),
+      inherit.aes = FALSE,
+      size = 3
+    ) +
+    
+    geom_vline(xintercept = c(a, b), linetype = "dashed") +
+    
+    labs(
+      title = title,
+      subtitle = subtitle,
+      x = "Time",
+      y = "Rate"
+    ) +
+    
+    theme_minimal() +
+    theme(
+      legend.position = "none",
+      plot.title = element_text(face = "bold", hjust = 0.5),
+      plot.subtitle = element_text(hjust = 0.5)
+    )
+  
+  # Add error shading ONLY if needed
+  if (error_type != "none") {
+    
+    error_df <- make_error_triangles(sample_t, error_type)
+    
+    p <- p +
+      geom_ribbon(
+        data = error_df,
+        aes(x = t, ymin = ymin, ymax = ymax, fill = fill),
+        inherit.aes = FALSE,
+        alpha = 0.6
+      ) +
+      scale_fill_manual(
+        values = c(
+          "under" = "#F0E442",
+          "over"  = "#D55E00"
+        )
+      )
+  }
+  
+  p
+}
+
+# Build panels
+p_left <- make_plot(
+  base$left,
+  "Left Riemann Sum",
+  rect_fill = "#E69F00",
+  error_type = "under",
+  subtitle = "Yellow regions show underestimation"
+)
+
+p_mid <- make_plot(
+  base$mid,
+  "Midpoint Riemann Sum",
+  rect_fill = "grey70",
+  error_type = "none",
+  subtitle = "Over- and underestimates balance"
+)
+
+p_right <- make_plot(
+  base$right,
+  "Right Riemann Sum",
+  rect_fill = "#56B4E9",
+  error_type = "over",
+  subtitle = "Red regions show overestimation"
+)
+
+# Combine panels
+p_left | p_mid | p_right
+
+
+```
+
+
+**Small-Group Discussion Prompts:**
+
+- Which method gives a conservative estimate?
+- Which method gives an optimistic estimate?
+- When might overestimating be safer?
+- When might underestimating be risky?
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+**Assume the function is decreasing**
+```{r riemann-under-over-triangles-decreasing2, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4}
+
+library(ggplot2)
+library(patchwork)
+
+# Decreasing rate function
+f_fun <- function(t) -0.2 * t + 3
+
+t <- seq(0, 10, length.out = 500)
+curve_df <- data.frame(t = t, f = f_fun(t))
+
+# Interval and partition
+a <- 2
+b <- 8
+n <- 3
+dt <- (b - a) / n
+
+base <- data.frame(
+  t0 = seq(a, b - dt, by = dt)
+)
+base$t1 <- base$t0 + dt
+base$left  <- base$t0
+base$right <- base$t1
+base$mid   <- (base$t0 + base$t1) / 2
+
+# Build triangle error regions
+make_error_triangles <- function(sample_t, type = c("under", "over")) {
+  type <- match.arg(type)
+  
+  do.call(
+    rbind,
+    lapply(seq_len(nrow(base)), function(i) {
+      
+      t_seq <- seq(base$t0[i], base$t1[i], length.out = 50)
+      curve_vals <- f_fun(t_seq)
+      rect_height <- f_fun(sample_t[i])
+      
+      if (type == "under") {
+        keep <- curve_vals > rect_height
+        ymin <- rect_height
+        ymax <- curve_vals
+        fill <- "under"
+      } else {
+        keep <- curve_vals < rect_height
+        ymin <- curve_vals
+        ymax <- rect_height
+        fill <- "over"
+      }
+      
+      if (!any(keep)) return(NULL)
+      
+      data.frame(
+        t = t_seq[keep],
+        ymin = ymin[keep],
+        ymax = ymax[keep],
+        fill = fill
+      )
+    })
+  )
+}
+
+# Plot builder
+make_plot <- function(sample_t, title, rect_fill, error_type, subtitle) {
+  
+  rects <- data.frame(
+    t0 = base$t0,
+    t1 = base$t1,
+    height = f_fun(sample_t),
+    sample_t = sample_t
+  )
+  
+  p <- ggplot(curve_df, aes(x = t, y = f)) +
+    geom_line(linewidth = 1) +
+    
+    geom_rect(
+      data = rects,
+      aes(xmin = t0, xmax = t1, ymin = 0, ymax = height),
+      inherit.aes = FALSE,
+      fill = rect_fill,
+      alpha = 0.5,
+      color = "black"
+    ) +
+    
+    geom_point(
+      data = rects,
+      aes(x = sample_t, y = height),
+      inherit.aes = FALSE,
+      size = 3
+    ) +
+    
+    geom_vline(xintercept = c(a, b), linetype = "dashed") +
+    
+    labs(
+      title = title,
+      subtitle = subtitle,
+      x = "Time",
+      y = "Rate"
+    ) +
+    
+    theme_minimal() +
+    theme(
+      legend.position = "none",
+      plot.title = element_text(face = "bold", hjust = 0.5),
+      plot.subtitle = element_text(hjust = 0.5)
+    )
+  
+  if (error_type != "none") {
+    
+    error_df <- make_error_triangles(sample_t, error_type)
+    
+    p <- p +
+      geom_ribbon(
+        data = error_df,
+        aes(x = t, ymin = ymin, ymax = ymax, fill = fill),
+        inherit.aes = FALSE,
+        alpha = 0.6
+      ) +
+      scale_fill_manual(
+        values = c(
+          "under" = "#56B4E9",  # blue = missing area
+          "over"  = "#D55E00"   # red = extra area
+        )
+      )
+  }
+  
+  p
+}
+
+# Build panels (NOTE: error types flipped)
+p_left <- make_plot(
+  base$left,
+  "Left Riemann Sum",
+  rect_fill = "#E69F00",
+  error_type = "over",
+  subtitle = "Overestimates\n(decreasing rate)"
+)
+
+p_mid <- make_plot(
+  base$mid,
+  "Midpoint Riemann Sum",
+  rect_fill = "grey70",
+  error_type = "none",
+  subtitle = "Over- and underestimates balance"
+)
+
+p_right <- make_plot(
+  base$right,
+  "Right Riemann Sum",
+  rect_fill = "#009E73",
+  error_type = "under",
+  subtitle = "Underestimates\n(decreasing rate)"
+)
+
+# Combine panels
+p_left | p_mid | p_right
+
+```
+
+**Prompt**
+
+- What about now?
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+---
+
+## Activity 4 — Increasing the Number of Intervals {-}
+
+### Activity 4A (Discussion): Accuracy vs Cost {-}
+
+**Prompts:**
+- What happens to the the Riemann summ as \(n\) increases?
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+---
+
+### Activity 4B Big-Picture Bridge to Integrals {-}
+
+**Reflective Prompt:**
+> In Calculus I, Newton moved from average rates of change to instantaneous rates by letting \(\Delta x \to 0\).
+
+- What do you think happens if we let the number of rectangles grow without bound?
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+```{r refining-approximation-left-sums2, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4}
+
+library(ggplot2)
+library(patchwork)
+
+# Increasing function
+f_fun <- function(x) 0.5 * x + 1
+
+# Interval
+a <- 0
+b <- 6
+
+# True area (exact integral)
+true_area <- integrate(f_fun, a, b)$value
+
+# Helper function to build a plot
+make_plot <- function(n_rect, title_suffix) {
+  
+  dx <- (b - a) / n_rect
+  x_left <- seq(a, b - dx, by = dx)
+  
+  rects <- data.frame(
+    x0 = x_left,
+    x1 = x_left + dx,
+    height = f_fun(x_left)
+  )
+  
+  approx_area <- sum(rects$height * dx)
+  
+  curve_x <- seq(a, b, length.out = 400)
+  curve_df <- data.frame(x = curve_x, y = f_fun(curve_x))
+  
+  ggplot(curve_df, aes(x = x, y = y)) +
+    geom_line(linewidth = 1) +
+    geom_rect(
+      data = rects,
+      aes(xmin = x0, xmax = x1, ymin = 0, ymax = height),
+      inherit.aes = FALSE,
+      fill = "#E69F00",
+      alpha = 0.5,
+      color = "black"
+    ) +
+    labs(
+      title = paste0("Left Riemann Sum (", n_rect, " rectangles)"),
+      subtitle = paste0(
+        "Rectangle area = ", round(approx_area, 2),
+        "   |   True area = ", round(true_area, 2)
+      ),
+      x = "x",
+      y = "f(x)"
+    ) +
+    theme_minimal() +
+    theme(
+      plot.title = element_text(face = "bold", hjust = 0.5),
+      plot.subtitle = element_text(hjust = 0.5)
+    )
+}
+
+# Build panels
+p1 <- make_plot(3, "3 rectangles")
+p2 <- make_plot(8, "8 rectangles")
+p3 <- make_plot(20, "20 rectangles")
+
+# Combine
+p1 | p2 | p3
+
+```
+
+- How might this lead us from Riemann sums to *exact* area?
+
+\[
+\sum_{i=1}^{n} f(x_i)\,\Delta x \rightarrow \int_{a}^{b} f(x)\,dx
+\]
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+---
+
+
+## Activity 5 — Signed Area: When the Function Goes Negative {-}
+
+In this final activity, we use a **realistic environmental signal** to build intuition for signed area. Many environmental fluxes naturally oscillate between positive and negative values over time.
+
+---
+
+### Activity 5A (Worked Together): Carbon Flux as a Sinusoidal Process {-}
+
+Consider a short-term model of **net carbon exchange** between a forest and the atmosphere over three days.
+
+- Positive values of \(f(t)\): net **carbon sequestration** (uptake)
+- Negative values of \(f(t)\): net **carbon release**
+
+Suppose the net carbon flux (in metric tons of CO\(_2\) per day) is modeled by:
+\[
+f(t) = 2\sin\!\left(2\pi t\right)
+\quad \text{on } [0,3],
+\]
+where \(t\) is time in days.
+
+```{r carbon-sinusoid-1day, echo=FALSE, warning=FALSE, message=FALSE}
+# One-day period sinusoid: period = 1 day
+f <- function(t) 2 * sin(2 * pi * t)
+t <- seq(0, 3, length.out = 800)
+
+plot(
+  t, f(t),
+  type = "l",
+  lwd = 2,
+  xlab = "Time (days)",
+  ylab = expression("Net carbon flux (metric tons CO"[2]*"/day)"),
+  main = "Net Carbon Exchange",
+  xlim = c(0, 3),
+  ylim = c(-2.5, 2.5)
+)
+
+abline(h = 0, col = "gray60", lty = 2)
+abline(v = 0:3, col = "gray80", lty = 3)  # day markers at t = 0,1,2,3
+
+```
+
+**Interpretation prompts (class discussion):**
+
+- Why might carbon flux vary smoothly rather than remain constant?
+<br><br><br><br><br>
+
+- At what times is the forest acting as a carbon sink?
+<br><br><br><br><br>
+
+- At what times is it acting as a carbon source?
+<br><br><br><br><br>
+
+- What do the zeros of the function represent physically?
+<br><br><br><br><br>
+
+- Lets do a unit check, what are the units of the area under the curve?
+<br><br><br><br><br>
+
+- How much **net carbon** has accumulated over the full three days.
+<br><br><br><br><br>
+
+- How would you approximate this with a Riemann Sum?
+<br><br><br><br><br><br><br><br><br><br>
+
+```{r carbon-sinusoid-lh-riemann-colored, echo=FALSE, warning=FALSE, message=FALSE}
+# One-day period sinusoid (period = 1 day)
+f <- function(t) 2 * sin(2 * pi * t)
+
+# Smooth curve for the function
+t <- seq(0, 3, length.out = 800)
+
+# Left-hand Riemann sum settings
+dx <- 0.1
+x_left <- seq(0, 3 - dx, by = dx)
+h <- f(x_left)
+
+# Plot the function
+plot(
+  t, f(t),
+  type = "l",
+  lwd = 2,
+  xlab = "Time (days)",
+  ylab = expression("Net carbon flux (metric tons CO"[2]*"/day)"),
+  main = "Net Carbon Exchange with Left-Hand Riemann Sum (Δx = 0.1)",
+  xlim = c(0, 3),
+  ylim = c(-2.5, 2.5)
+)
+
+# Reference lines
+abline(h = 0, col = "gray60", lty = 2)
+abline(v = 0:3, col = "gray80", lty = 3)
+
+# Draw LH Riemann rectangles with color + outline
+for (i in seq_along(x_left)) {
+  x0 <- x_left[i]
+  x1 <- x_left[i] + dx
+  
+  if (h[i] >= 0) {
+    rect(
+      x0, 0, x1, h[i],
+      col = rgb(0, 0.6, 0, 0.4),     # green fill
+      border = "darkgreen",
+      lwd = 0.8
+    )
+  } else {
+    rect(
+      x0, h[i], x1, 0,
+      col = rgb(0.8, 0, 0, 0.4),     # red fill
+      border = "darkred",
+      lwd = 0.8
+    )
+  }
+}
+
+# Re-draw the curve on top
+lines(t, f(t), lwd = 2)
+
+```
+
+
+- Now with a much smaller delta x
+```{r carbon-sinusoid-lh-riemann-colored2, echo=FALSE, warning=FALSE, message=FALSE}
+# One-day period sinusoid (period = 1 day)
+f <- function(t) 2 * sin(2 * pi * t)
+
+# Smooth curve for the function
+t <- seq(0, 3, length.out = 800)
+
+# Left-hand Riemann sum settings
+dx <- 0.01
+x_left <- seq(0, 3 - dx, by = dx)
+h <- f(x_left)
+
+# Plot the function
+plot(
+  t, f(t),
+  type = "l",
+  lwd = 2,
+  xlab = "Time (days)",
+  ylab = expression("Net carbon flux (metric tons CO"[2]*"/day)"),
+  main = "Net Carbon Exchange with Left-Hand Riemann Sum (Δx = 0.01)",
+  xlim = c(0, 3),
+  ylim = c(-2.5, 2.5)
+)
+
+# Reference lines
+abline(h = 0, col = "gray60", lty = 2)
+abline(v = 0:3, col = "gray80", lty = 3)
+
+# Draw LH Riemann rectangles with color + outline
+for (i in seq_along(x_left)) {
+  x0 <- x_left[i]
+  x1 <- x_left[i] + dx
+  
+  if (h[i] >= 0) {
+    rect(
+      x0, 0, x1, h[i],
+      col = rgb(0, 0.6, 0, 0.4),     # green fill
+      border = "darkgreen",
+      lwd = 0.8
+    )
+  } else {
+    rect(
+      x0, h[i], x1, 0,
+      col = rgb(0.8, 0, 0, 0.4),     # red fill
+      border = "darkred",
+      lwd = 0.8
+    )
+  }
+}
+
+# Re-draw the curve on top
+lines(t, f(t), lwd = 2)
+
+```
+
+---
+
+
+::: promptbox
+**Key Idea**
+
+Environmental processes often involve **competing fluxes**:
+- Uptake vs release
+- Storage vs loss
+
+A definite integral does not measure “area” alone—it measures **net accumulation**.
+
+Signed area is the mathematical tool that allows calculus to track *both magnitude and direction* in real environmental systems.
+
+:::
+
+
+
+## Closing Reflection {-}
+
+Riemann sums are not the destination.  
+They are the bridge between intuition, geometry, and the formal definition of the integral.
+
+## 2 min write {-}
+
+Bullet 3 takeaways from today
+
+

@@ -178,3 +178,4 @@ thinkpairshare
 part-4-riemann-sums-as-an-idea-not-a-formula
 part-5-reversing-derivatives
 conceptual-prompt
+workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums
