@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 7 Workbook: Approximating an Integral: Understanding Area, Accumulation, and Riemann Sums | Environmental Calculus 2 - Active Learning with Case Studies</title>
+  <title>Chapter 8 Week 1 In-Class: Riemann Sums → Derivatives → Antiderivatives | Environmental Calculus 2 - Active Learning with Case Studies</title>
   <meta name="description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
   <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 7 Workbook: Approximating an Integral: Understanding Area, Accumulation, and Riemann Sums | Environmental Calculus 2 - Active Learning with Case Studies" />
+  <meta property="og:title" content="Chapter 8 Week 1 In-Class: Riemann Sums → Derivatives → Antiderivatives | Environmental Calculus 2 - Active Learning with Case Studies" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 7 Workbook: Approximating an Integral: Understanding Area, Accumulation, and Riemann Sums | Environmental Calculus 2 - Active Learning with Case Studies" />
+  <meta name="twitter:title" content="Chapter 8 Week 1 In-Class: Riemann Sums → Derivatives → Antiderivatives | Environmental Calculus 2 - Active Learning with Case Studies" />
   
   <meta name="twitter:description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="workbook-introduction-to-calculus-ii-accumulation-and-change.html"/>
-<link rel="next" href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html"/>
+<link rel="prev" href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -444,289 +444,1343 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums" class="section level1 hasAnchor" number="7">
-<h1><span class="header-section-number">Chapter 7</span> Workbook: Approximating an Integral: Understanding Area, Accumulation, and Riemann Sums<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="week-1-in-class-riemann-sums-derivatives-antiderivatives" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Chapter 8</span> Week 1 In-Class: Riemann Sums → Derivatives → Antiderivatives<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#week-1-in-class-riemann-sums-derivatives-antiderivatives" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This class session is structured around <strong>three connected ideas</strong>:
+1. Approximating accumulation using Riemann sums [FOCUS]<br />
+2. Practicing derivatives as rates of change<br />
+3. Previewing antiderivatives as a way to undo rates</p>
+<p>The emphasis is on <strong>reasoning, interpretation, and sketches</strong>, not speed.</p>
 <hr />
-<div id="activity-1-what-does-area-under-a-curve-mean" class="section level2 unnumbered hasAnchor">
-<h2>Activity 1 — What Does “Area Under a Curve” Mean?<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#activity-1-what-does-area-under-a-curve-mean" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="activity-1a-area-under-a-constant-function" class="section level3 unnumbered hasAnchor">
-<h3>Activity 1A: Area Under a Constant Function<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#activity-1a-area-under-a-constant-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Consider the function<br />
-<span class="math display">\[
-f(x) = 3 \quad \text{on } [0,5].
-\]</span></p>
-<p><strong>Prompt (Think–Pair–Share):</strong></p>
-<ul>
-<li>What does the graph of this function look like?</li>
-<li>How would you describe the “area under the curve” in plain language?</li>
-<li>Can you calculate the area?</li>
-</ul>
-<p><br><br><br><br><br><br><br><br><br><br><br><br></p>
-<p>What if <em>f</em> represented the velocity and <em>x</em> represented time</p>
-<ul>
-<li>What would the area under the curve represent?</li>
-</ul>
+<div id="area-under-the-curve" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Area Under The Curve<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#area-under-the-curve" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="environmental-context-streamflow-after-a-storm" class="section level3 unnumbered hasAnchor">
+<h3>Environmental Context: Streamflow After a Storm<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#environmental-context-streamflow-after-a-storm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>After a heavy rain event, the <strong>streamflow</strong> in a small watershed changes over the course of the day. Hydrologists model the streamflow rate <span class="math inline">\(q(t)\)</span> (in cubic meters per hour) as a <strong>piecewise linear function</strong> of time <span class="math inline">\(t\)</span> (in hours since the storm began).</p>
+<p>The streamflow is given by:</p>
 <p><span class="math display">\[
-v(t) = 3 \quad \text{on } [0,5].
+q(t) =
+\begin{cases}
+20 + 10t, &amp; 0 \le t &lt; 2 \\
+60 - 5(t - 2), &amp; 2 \le t &lt; 6 \\
+40 - 10(t - 6), &amp; 6 \le t \le 8
+\end{cases}
 \]</span></p>
-<p><br><br><br><br><br><br><br></p>
-<div class="promptbox">
-<p><strong>Key takeaway:</strong><br />
-Summary:</p>
-<p><br><br><br><br><br><br></p>
-</div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<hr />
+<div id="a.-understanding-the-model" class="section level4 unnumbered hasAnchor">
+<h4>A. Understanding the Model<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#a.-understanding-the-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ol style="list-style-type: decimal">
+<li>In words, describe what is happening to the streamflow during each time interval:
+<ul>
+<li><span class="math inline">\(0 \le t &lt; 2\)</span></li>
+<li><span class="math inline">\(2 \le t &lt; 6\)</span></li>
+<li><span class="math inline">\(6 \le t \le 8\)</span></li>
+</ul></li>
+</ol>
 <hr />
 </div>
-<div id="activity-1b-area-under-a-piecewise-linear-function" class="section level3 unnumbered hasAnchor">
-<h3>Activity 1B: Area Under a Piecewise Linear Function<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#activity-1b-area-under-a-piecewise-linear-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Consider the following piecewise description (a graph should be provided):</p>
+<div id="b.-calculating-accumulated-water-volume" class="section level4 unnumbered hasAnchor">
+<h4>B. Calculating Accumulated Water Volume<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#b.-calculating-accumulated-water-volume" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The <strong>total volume of water</strong> that flows past a point in the stream is given by the <strong>area under the streamflow curve</strong>.</p>
+<ol style="list-style-type: decimal">
+<li><p>Explain why the area under <span class="math inline">\(q(t)\)</span> represents total water volume. Use the units of the problem to back up your argument</p></li>
+<li><p>Using simple geometric shapes (rectangles and triangles) calculate the total volume accumulated in the intervals:</p>
 <ul>
-<li>From <span class="math inline">\(x = 0\)</span> to <span class="math inline">\(x = 2\)</span>: <span class="math inline">\(f(x) = 2\)</span></li>
-<li>From <span class="math inline">\(x = 2\)</span> to <span class="math inline">\(x = 5\)</span>: a straight line from <span class="math inline">\(f(2) = 2\)</span> to <span class="math inline">\(f(5) = 6\)</span></li>
-</ul>
-<p><img src="bookdown-demo_files/figure-html/piecewise-linear-plot-1.png" width="672" /></p>
-<p><strong>Guiding Questions:</strong></p>
-<ul>
-<li>What is the accumulation of this function between [0 5]?</li>
-</ul>
-<p><br><br><br><br><br><br><br><br><br><br><br><br></p>
-<div class="promptbox">
-<p><strong>Key takeaway:</strong><br />
-Summary:</p>
-<p><br><br><br><br><br><br></p>
-</div>
+<li><span class="math inline">\(0 \le t &lt; 2\)</span></li>
+<li><span class="math inline">\(2 \le t &lt; 6\)</span></li>
+<li><span class="math inline">\(6 \le t \le 8\)</span></li>
+</ul></li>
+<li><p>Compute the total area under <span class="math inline">\(q(t)\)</span> from <span class="math inline">\(t = 0\)</span> to <span class="math inline">\(t = 8\)</span>.</p></li>
+</ol>
 <hr />
 </div>
-<div id="activity-1c-student-extrapolation-area-from-discrete-data" class="section level3 unnumbered hasAnchor">
-<h3>Activity 1C (Student Extrapolation): Area from Discrete Data<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#activity-1c-student-extrapolation-area-from-discrete-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>You are given the following table of values:</p>
+<div id="c.-interpretation" class="section level4 unnumbered hasAnchor">
+<h4>C. Interpretation<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#c.-interpretation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ol style="list-style-type: decimal">
+<li>What does your final numerical value represent physically?</li>
+<li>During which 1 hour interval did the stream contribute the <strong>largest amount of water</strong>? Why?</li>
+<li>If you were estimating this area using rectangles instead of exact geometry, where would your approximation likely <strong>overestimate</strong> or <strong>underestimate</strong> the true value?
+<ul>
+<li>Assume you are using 8 sub-intervals (n=8)</li>
+<li>State how you are deciding on the ‘height’ of the rectangles</li>
+<li>No calculations - just make a graphical reasoning</li>
+</ul></li>
+</ol>
+<hr />
+</div>
+</div>
+<div id="environmental-context-ocean-salinity-with-depth" class="section level3 unnumbered hasAnchor">
+<h3>Environmental Context: Ocean Salinity with Depth<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#environmental-context-ocean-salinity-with-depth" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In coastal and open-ocean systems, the <strong>salt concentration</strong> of seawater varies with depth due to surface freshwater input, vertical mixing, and stratification. One way to summarize how salt is distributed through the water column is to examine how salt concentration changes with depth.</p>
+<p>Let <span class="math inline">\(C(z)\)</span> be the <strong>salt concentration</strong> (in kg/m<span class="math inline">\(^3\)</span>) as a function of depth <span class="math inline">\(z\)</span> (in meters), measured downward from the ocean surface. Suppose the concentration profile is modeled by the piecewise linear function:</p>
+<p><span class="math display">\[
+C(z) =
+\begin{cases}
+32.6 + 0.010z, &amp; 0 \le z &lt; 30 \\
+32.9 + 0.015(z - 30), &amp; 30 \le z &lt; 150 \\
+34.7 + 0.002(z - 150), &amp; 150 \le z \le 300
+\end{cases}
+\]</span></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>NOTE: This plot rotates the axis so that the independent variable is on the y axis - this is common when looking at vertical profiles as it feel more intuitive (depth is down).</p>
+<p>Carefully think about how this impacts the ‘area’ your are calculating.</p>
+<hr />
+<div id="a.-understanding-the-model-1" class="section level4 unnumbered hasAnchor">
+<h4>A. Understanding the Model<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#a.-understanding-the-model-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ol style="list-style-type: decimal">
+<li>In words, describe what is happening to the salt concentration during each depth interval:
+<ul>
+<li><span class="math inline">\(0 \le z &lt; 30\)</span></li>
+<li><span class="math inline">\(30 \le z &lt; 150\)</span></li>
+<li><span class="math inline">\(150 \le z \le 300\)</span></li>
+</ul></li>
+</ol>
+<hr />
+</div>
+<div id="b.-calculating-accumulated-salt-content-over-depth" class="section level4 unnumbered hasAnchor">
+<h4>B. Calculating Accumulated Salt Content Over Depth<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#b.-calculating-accumulated-salt-content-over-depth" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The <strong>total salt content per unit horizontal area</strong> in the water column can be represented by the <strong>area under the concentration curve</strong>.</p>
+<ol style="list-style-type: decimal">
+<li><p>Explain why the area under <span class="math inline">\(C(z)\)</span> represents total salt content per unit area.<br />
+Use the units of the problem to support your explanation.</p></li>
+<li><p>Using simple geometric shapes (rectangles and triangles), calculate the accumulated salt content in the intervals:</p>
+<ul>
+<li><span class="math inline">\(0 \le z &lt; 30\)</span></li>
+<li><span class="math inline">\(30 \le z &lt; 150\)</span></li>
+<li><span class="math inline">\(150 \le z \le 300\)</span></li>
+</ul></li>
+<li><p>Compute the total area under <span class="math inline">\(C(z)\)</span> from <span class="math inline">\(z = 0\)</span> to <span class="math inline">\(z = 300\)</span>.</p></li>
+</ol>
+<hr />
+</div>
+</div>
+</div>
+<div id="riemann-sums" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Riemann Sums<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#riemann-sums" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="environmental-context-algal-biomass-growth-over-time" class="section level3 unnumbered hasAnchor">
+<h3>Environmental Context: Algal Biomass Growth Over Time<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#environmental-context-algal-biomass-growth-over-time" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>After a nutrient pulse, <strong>algal biomass</strong> in a lake or coastal system can increase rapidly. Ecologists often measure biomass at discrete time points and use these data to estimate the <strong>total biomass accumulated</strong> over a given time period.</p>
+<p>Let <span class="math inline">\(B(t)\)</span> represent <strong>algal biomass density</strong> (in g/m<span class="math inline">\(^2\)</span>) measured at time <span class="math inline">\(t\)</span> (in days) after the nutrient input.</p>
+</div>
+<div id="observed-data" class="section level3 unnumbered hasAnchor">
+<h3>Observed Data<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#observed-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <table>
 <thead>
 <tr class="header">
-<th align="center"><span class="math inline">\(x\)</span></th>
+<th align="center">Time <span class="math inline">\(t\)</span> (days)</th>
 <th align="center">0</th>
 <th align="center">1</th>
 <th align="center">2</th>
 <th align="center">3</th>
 <th align="center">4</th>
+<th align="center">5</th>
+<th align="center">6</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center"><span class="math inline">\(f(x)\)</span></td>
-<td align="center">2</td>
-<td align="center">3</td>
+<td align="center"><span class="math inline">\(B(t)\)</span> (g/m<span class="math inline">\(^2\)</span>)</td>
 <td align="center">5</td>
-<td align="center">4</td>
-<td align="center">6</td>
+<td align="center">9</td>
+<td align="center">16</td>
+<td align="center">28</td>
+<td align="center">45</td>
+<td align="center">60</td>
+<td align="center">70</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Prompt:</strong></p>
-<ul>
-<li>In this case no function is given to us. Just the data points.</li>
-<li>Estimate the area from <span class="math inline">\(x = 0\)</span> to <span class="math inline">\(x = 4\)</span>?</li>
-</ul>
-<p><img src="bookdown-demo_files/figure-html/discrete-data-plot-1.png" width="672" /></p>
-<p><br><br><br><br><br><br><br><br><br><br><br><br></p>
-<div class="promptbox">
-<p><strong>Reflection:</strong></p>
-<ul>
-<li>What assumptions are you making?</li>
-<li>How might different assumptions change your estimate?
-<br><br><br><br><br><br></li>
-</ul>
-</div>
+<div id="a.-plotting-the-data" class="section level4 unnumbered hasAnchor">
+<h4>A. Plotting the Data<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#a.-plotting-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ol style="list-style-type: decimal">
+<li><p>Sketch a plot of algal biomass versus time.</p></li>
+<li><p>Describe how the biomass changes over time.</p></li>
+</ol>
 <hr />
 </div>
-<div id="activity-1d-area-under-a-continuous-function" class="section level3 unnumbered hasAnchor">
-<h3>Activity 1D: Area Under a Continuous Function<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#activity-1d-area-under-a-continuous-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Consider the function<br />
+<div id="b.-left-hand-riemann-sum" class="section level4 unnumbered hasAnchor">
+<h4>B. Left-Hand Riemann Sum<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#b.-left-hand-riemann-sum" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>A <strong>Riemann sum</strong> is written as
 <span class="math display">\[
-f(x) = x^2 \quad \text{on } [0,2].
+\sum_{i=1}^{n} f(x_i^*)\,\Delta x.
 \]</span></p>
-<p><img src="bookdown-demo_files/figure-html/quadratic-shaded-area-1.png" width="672" />
-<strong>Discussion Prompts:</strong></p>
+<p>The width of the rectangles
+<span class="math display">\[
+\Delta x = \frac{b - a}{n}.
+\]</span></p>
 <ul>
-<li>Why can’t we use simple geometry here?</li>
-<li>What makes this harder than the previous examples?</li>
-<li>Ideas on how we could ‘approximate this area’?
-<br><br><br><br><br><br></li>
+<li><p><strong>Left Riemann sum:</strong><br />
+<span class="math display">\[
+x_i^* = a + (i - 1)\Delta x
+\]</span></p></li>
+<li><p><strong>Right Riemann sum:</strong><br />
+<span class="math display">\[
+x_i^* = a + i\Delta x
+\]</span></p></li>
+<li><p><strong>Midpoint Riemann sum:</strong><br />
+<span class="math display">\[
+x_i^* = a + \left(i - \tfrac{1}{2}\right)\Delta x
+\]</span></p></li>
 </ul>
+<p>Note:</p>
+<ul>
+<li>a is the left edge of the interval we are interested in</li>
+<li>b is the right edge of the interval</li>
+</ul>
+<p>Use the data to approximate the <strong>total accumulated biomass</strong> from <span class="math inline">\(t = 0\)</span> to <span class="math inline">\(t = 6\)</span> using
+<span class="math inline">\(n = 3\)</span></p>
+<ol style="list-style-type: decimal">
+<li>Identify the subinterval width <span class="math inline">\(\Delta t\)</span>.</li>
+<li>Using <strong>left endpoints</strong> expression above, create a table of <span class="math inline">\(x_i\)</span> and<span class="math inline">\(f(x_i)\)</span>.</li>
+<li>Compute the numerical value of the Riemann sum.</li>
+<li>State the units of your result and explain what the number represents physically.</li>
+</ol>
+<hr />
+</div>
+<div id="c.-right-hand-riemann-sum" class="section level4 unnumbered hasAnchor">
+<h4>C. Right-Hand Riemann Sum<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#c.-right-hand-riemann-sum" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Repeat the approximation using <strong>right endpoints</strong>.</p>
+<ol style="list-style-type: decimal">
+<li>Write the right-hand Riemann sum,</li>
+<li>Using <strong>right endpoints</strong> expression above, create a table of <span class="math inline">\(x_i\)</span> and<span class="math inline">\(f(x_i)\)</span>.</li>
+<li>Compute the numerical value of the Riemann sum.</li>
+<li>Compare this result to the left-hand sum.
+<ul>
+<li>Which is larger?</li>
+<li>Why does this make sense given the shape of the graph?</li>
+</ul></li>
+</ol>
+<hr />
+</div>
+<div id="d.-midpoint-riemann-sum" class="section level4 unnumbered hasAnchor">
+<h4>D. Midpoint Riemann Sum<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#d.-midpoint-riemann-sum" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Now approximate the accumulated biomass using the <strong>midpoint rule</strong>.</p>
+<ol style="list-style-type: decimal">
+<li>Identify the midpoint of each time interval</li>
+<li>Using <strong>mid-point</strong> expression above, create a table of <span class="math inline">\(x_i\)</span> and<span class="math inline">\(f(x_i)\)</span>.</li>
+<li>Compute the midpoint Riemann sum.</li>
+<li>Compare this value to the left- and right-hand sums.</li>
+</ol>
+<hr />
+</div>
+<div id="e.-effect-of-changing-the-number-of-intervals" class="section level4 unnumbered hasAnchor">
+<h4>E. Effect of Changing the Number of Intervals<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#e.-effect-of-changing-the-number-of-intervals" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Now re-calculate the Left Hand Riemann Sum with <strong>more sub-intervals</strong> <span class="math inline">\(n = 6\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Calculate an approximate total biomass using <span class="math inline">\(n = 6\)</span></li>
+<li>Comment on which you think is a better estimate?</li>
+<li>Do you think going to <span class="math inline">\(n = 12\)</span> for <strong>this</strong> dataset would give you better results? [trick question]</li>
+</ol>
+<hr />
+</div>
+<div id="f.-reflection" class="section level4 unnumbered hasAnchor">
+<h4>F. Reflection<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#f.-reflection" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ol style="list-style-type: decimal">
+<li>Which Riemann sum method do you trust most for this dataset? Why?</li>
+</ol>
+</div>
+</div>
+<div id="environmental-context-net-toxin-uptake-vs.-elimination" class="section level3 unnumbered hasAnchor">
+<h3>Environmental Context: Net Toxin Uptake vs. Elimination<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#environmental-context-net-toxin-uptake-vs.-elimination" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A fish living in a contaminated lake sometimes <strong>absorbs</strong> toxin (through feeding/exposure) and sometimes <strong>eliminates</strong> toxin (through metabolism and excretion). Let <span class="math inline">\(r(t)\)</span> represent the <strong>net rate of toxin accumulation</strong> in the fish (in mg/day), where:</p>
+<ul>
+<li><span class="math inline">\(r(t) &gt; 0\)</span>: net uptake (toxin is increasing in the fish)</li>
+<li><span class="math inline">\(r(t) &lt; 0\)</span>: net elimination (toxin is decreasing in the fish)</li>
+</ul>
+<p>Suppose the net rate is modeled by the cubic function:</p>
+<p><span class="math display">\[
+r(t) = (t-2)(6-t)(t-4)
+\quad \text{for } 0 \le t \le 6
+\]</span></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<hr />
+<div id="a.-left-hand-riemann-sum-6-intervals" class="section level4 unnumbered hasAnchor">
+<h4>A. Left-Hand Riemann Sum (6 intervals)<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#a.-left-hand-riemann-sum-6-intervals" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Use a <strong>left-hand Riemann sum</strong> with <strong>6 equal subintervals</strong> on <span class="math inline">\([0,6]\)</span> to approximate the accumulation.</p>
+<ol style="list-style-type: decimal">
+<li><p>Compute <span class="math inline">\(\Delta t\)</span>.</p></li>
+<li><p>Instead of calculating the total sum, this time just generate a list of the 6 rectangles and their area. In other words do the <span class="math inline">\(f(x_i) \Delta x\)</span> part of the Riemann sum without adding everything together</p></li>
+</ol>
+<hr />
+</div>
+<div id="b.-net-accumulation-signed-accumulation" class="section level4 unnumbered hasAnchor">
+<h4>B. NET Accumulation (Signed Accumulation)<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#b.-net-accumulation-signed-accumulation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The <strong>net change in toxin burden</strong> over the 6-day period is approximated by the <strong>signed area</strong> under <span class="math inline">\(r(t)\)</span>. Signed means we <strong>include</strong> the signs.</p>
+<ol style="list-style-type: decimal">
+<li><p>Using your left-hand Riemann sum from Part A, estimate the <strong>NET accumulation</strong> of toxin in the fish over <span class="math inline">\(0 \le t \le 6\)</span>.</p></li>
+<li><p>Interpret your answer:</p>
+<ul>
+<li>Is the fish ending the period with <strong>more toxin</strong> or <strong>less toxin</strong> than it started with?</li>
+<li>Include units.</li>
+</ul></li>
+</ol>
+<hr />
+</div>
+<div id="c.-total-exchange-total-toxin-processed" class="section level4 unnumbered hasAnchor">
+<h4>C. Total Exchange (Total Toxin Processed)<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#c.-total-exchange-total-toxin-processed" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The <strong>total exchange</strong> counts <em>both</em> uptake and elimination as positive contributions. This corresponds to the area under <span class="math inline">\(|r(t)|\)</span>. The absolute function here <strong>ignores</strong> the signs.</p>
+<ol style="list-style-type: decimal">
+<li>Using the <strong>same 6-subinterval partition</strong> and <strong>left endpoints</strong>, compute the left-hand Riemann sum approximation for:</li>
+</ol>
+<p><span class="math display">\[
+\int_{0}^{6} |r(t)|\,dt
+\]</span></p>
+<p>That is, compute:</p>
+<p><span class="math display">\[
+\sum_{i=1}^{6} |r(t_{i-1})|\,\Delta t
+\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Interpret your result:
+<ul>
+<li>What does this number represent physically?</li>
+<li>Why is it always nonnegative?</li>
+</ul></li>
+</ol>
+<hr />
+</div>
+<div id="d.-compare-net-vs-total" class="section level4 unnumbered hasAnchor">
+<h4>D. Compare NET vs TOTAL<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#d.-compare-net-vs-total" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ol style="list-style-type: decimal">
+<li>Explain why the <strong>total exchange</strong> is always greater than or equal to the magnitude of the <strong>net accumulation</strong>:</li>
+</ol>
+<p><span class="math display">\[
+\int_0^6 |r(t)|\,dt \ge \left|\int_0^6 r(t)\,dt\right|
+\]</span></p>
 <hr />
 </div>
 </div>
-<div id="activity-2-the-big-picture-riemann-sums" class="section level2 unnumbered hasAnchor">
-<h2>Activity 2 — The Big Picture: Riemann Sums<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#activity-2-the-big-picture-riemann-sums" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="reading-the-math" class="section level3 unnumbered hasAnchor">
-<h3>Reading the Math<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#reading-the-math" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>Prompt</strong></p>
+</div>
+<div id="practice-differentiation-rules" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Practice: Differentiation Rules<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#practice-differentiation-rules" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For each function, compute the derivative. Clearly indicate which rule(s) you are using.
+You can find the rules on in the equation sheet tab of the textbook.</p>
+<hr />
+<div id="product-rule" class="section level3 hasAnchor" number="8.3.1">
+<h3><span class="header-section-number">8.3.1</span> 1. Product Rule<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#product-rule" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>An ecologist models total nutrient uptake as the product of plant biomass and nutrient concentration:</p>
+<p><span class="math display">\[
+f(t) = (2t^2 + 1)(5t - 3)
+\]</span></p>
+<p>Find <span class="math inline">\(f&#39;(t)\)</span>.</p>
+<hr />
+</div>
+<div id="chain-rule" class="section level3 hasAnchor" number="8.3.2">
+<h3><span class="header-section-number">8.3.2</span> 2. Chain Rule<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#chain-rule" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Water temperature in a lake varies with depth, and a biological response depends exponentially on temperature:</p>
+<p><span class="math display">\[
+g(z) = e^{0.4z^2}
+\]</span></p>
+<p>Find <span class="math inline">\(g&#39;(z)\)</span>.</p>
+<hr />
+</div>
+<div id="quotient-rule" class="section level3 hasAnchor" number="8.3.3">
+<h3><span class="header-section-number">8.3.3</span> 3. Quotient Rule<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#quotient-rule" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pollutant concentration in a stream is modeled as the ratio of input mass to flow rate:</p>
+<p><span class="math display">\[
+h(t) = \frac{3t^2 + 1}{t + 2}
+\]</span></p>
+<p>Find <span class="math inline">\(h&#39;(t)\)</span>.</p>
+<hr />
+</div>
+<div id="combined-rules-product-chain" class="section level3 hasAnchor" number="8.3.4">
+<h3><span class="header-section-number">8.3.4</span> 4. Combined Rules (Product + Chain)<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#combined-rules-product-chain" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A simplified model for carbon uptake combines light availability and temperature response:</p>
+<p><span class="math display">\[
+p(t) = t^2 \sin(3t)
+\]</span></p>
+<p>Find <span class="math inline">\(p&#39;(t)\)</span>.</p>
+<p><em>Be explicit about which rules you are using at each step.</em></p>
+<hr />
+</div>
+</div>
+<div id="practice-very-simple-antiderivatives" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Practice: Very Simple Antiderivatives<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#practice-very-simple-antiderivatives" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For each function, find <strong>one</strong> antiderivative.<br />
+(You do not need to include a constant of integration yet.)</p>
+<hr />
+<ol style="list-style-type: decimal">
+<li><span class="math display">\[
+f(x) = 3x^2
+\]</span></li>
+</ol>
+<hr />
+<ol start="2" style="list-style-type: decimal">
+<li><span class="math display">\[
+g(t) = 5
+\]</span></li>
+</ol>
+<hr />
+<ol start="3" style="list-style-type: decimal">
+<li><span class="math display">\[
+h(x) = 2x
+\]</span></li>
+</ol>
+<hr />
+<ol start="4" style="list-style-type: decimal">
+<li><span class="math display">\[
+p(t) = e^t
+\]</span></li>
+</ol>
+<hr />
+<ol start="5" style="list-style-type: decimal">
+<li><span class="math display">\[
+q(x) = \cos x
+\]</span></li>
+</ol>
+<hr />
+<p>Check your answers by taking the derivative of them (extra derivative practice)</p>
+</div>
+<div id="solutions" class="section level2 unnumbered hasAnchor">
+<h2>SOLUTIONS<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#solutions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<details open>
+<summary>
+<strong>Click to Unlock Solutions</strong>
+</summary>
+</div>
+<div id="sol_set1" hidden="" markdown="1" style="margin-top:0.75rem;">
+<div id="solution-key-area-under-the-curve-streamflow-after-a-storm" class="section level2 unnumbered hasAnchor">
+<h2>✅ Solution Key — Area Under the Curve (Streamflow After a Storm)<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#solution-key-area-under-the-curve-streamflow-after-a-storm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<blockquote>
+<p><strong>Note:</strong> The function has a jump at <span class="math inline">\(t=2\)</span>. A single-point jump does <strong>not</strong> affect area, so the accumulated volume is still well-defined.</p>
+</blockquote>
+<hr />
+<div id="a.-understanding-the-model-2" class="section level3 unnumbered hasAnchor">
+<h3>A. Understanding the Model<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#a.-understanding-the-model-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+q(t) =
+\begin{cases}
+20 + 10t, &amp; 0 \le t &lt; 2 \\
+60 - 5(t - 2), &amp; 2 \le t &lt; 6 \\
+40 - 10(t - 6), &amp; 6 \le t \le 8
+\end{cases}
+\]</span></p>
+<ol style="list-style-type: decimal">
+<li><strong><span class="math inline">\(0 \le t &lt; 2\)</span></strong><br />
+Streamflow is <strong>increasing linearly</strong>:
 <ul>
-<li>Can you decipher what this is telling us to do?
-<br><br><br><br><br><br>
+<li><span class="math inline">\(q(0)=20\)</span> m<span class="math inline">\(^3\)</span>/hr</li>
+<li><span class="math inline">\(q(2^-)=20+10(2)=40\)</span> m<span class="math inline">\(^3\)</span>/hr<br />
+Interpretation: runoff is building after the storm begins.</li>
+</ul></li>
+<li><strong><span class="math inline">\(2 \le t &lt; 6\)</span></strong><br />
+Streamflow <strong>decreases slowly and linearly</strong>:
+<ul>
+<li><span class="math inline">\(q(2)=60\)</span> m<span class="math inline">\(^3\)</span>/hr</li>
+<li><span class="math inline">\(q(6)=60-5(6-2)=40\)</span> m<span class="math inline">\(^3\)</span>/hr<br />
+Interpretation: flow recedes after the peak.</li>
+</ul></li>
+<li><strong><span class="math inline">\(6 \le t \le 8\)</span></strong><br />
+Streamflow <strong>decreases faster</strong>:
+<ul>
+<li><span class="math inline">\(q(6)=40\)</span> m<span class="math inline">\(^3\)</span>/hr</li>
+<li><span class="math inline">\(q(8)=40-10(8-6)=20\)</span> m<span class="math inline">\(^3\)</span>/hr<br />
+Interpretation: returning toward baseline.</li>
+</ul></li>
+</ol>
+<hr />
+</div>
+<div id="b.-calculating-accumulated-water-volume-1" class="section level3 unnumbered hasAnchor">
+<h3>B. Calculating Accumulated Water Volume<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#b.-calculating-accumulated-water-volume-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="b1.-why-area-under-qt-is-volume-units" class="section level4 unnumbered hasAnchor">
+<h4>B1. Why area under <span class="math inline">\(q(t)\)</span> is volume (units)<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#b1.-why-area-under-qt-is-volume-units" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><span class="math inline">\(q(t)\)</span> has units: <span class="math inline">\(\text{m}^3/\text{hour}\)</span></li>
+<li>Multiply by time (hours):<br />
 <span class="math display">\[
-\sum_{i=1}^{n} f(x_i)\,\Delta x
+\left(\frac{\text{m}^3}{\text{hr}}\right)(\text{hr})=\text{m}^3
 \]</span>
-<br><br><br><br><br><br></li>
+So the area under <span class="math inline">\(q(t)\)</span> over a time interval gives total water volume (m<span class="math inline">\(^3\)</span>).</li>
 </ul>
-</div>
-<div id="activity-2a-left-hand-riemann-sum" class="section level3 unnumbered hasAnchor">
-<h3>Activity 2A: Left-Hand Riemann Sum<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#activity-2a-left-hand-riemann-sum" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>We return to the function<br />
-<span class="math display">\[
-f(x) = x^2 \quad \text{on } [0,2].
-\]</span></p>
-<p>Now lets pull together the variables we need</p>
-<p><strong><span class="math inline">\(\Delta x\)</span></strong></p>
-<p><br><br><br><br><br><br></p>
-<p><strong><span class="math inline">\(f(x_i)\)</span></strong></p>
-<p><br><br><br><br><br><br><br><br><br><br><br><br></p>
-<p><strong><span class="math inline">\(\sum_{i=1}^{n} f(x_i)\,\Delta x\)</span></strong></p>
-<p><br><br><br><br><br><br><br><br><br><br><br><br></p>
 <hr />
 </div>
-<div id="activity-2b-right-hand-and-midpoint-sums" class="section level3 unnumbered hasAnchor">
-<h3>Activity 2B: Right-Hand and Midpoint Sums<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#activity-2b-right-hand-and-midpoint-sums" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>Prompt:</strong></p>
+<div id="b2.-volume-on-each-interval-rectangles-triangles" class="section level4 unnumbered hasAnchor">
+<h4>B2. Volume on each interval (rectangles + triangles)<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#b2.-volume-on-each-interval-rectangles-triangles" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Because the streamflow is <strong>linear on each interval</strong>, the area under <span class="math inline">\(q(t)\)</span> can be computed by decomposing each region into <strong>rectangles and triangles</strong>.</p>
+<hr />
+<p><strong>Interval 1: <span class="math inline">\(0 \le t &lt; 2\)</span></strong></p>
 <ul>
-<li>If the left-hand sum samples the left endpoint of each subinterval:
+<li>Minimum flow on this interval: <span class="math inline">\(20\)</span> m<span class="math inline">\(^3\)</span>/hr<br />
+</li>
+<li>Flow increases by <span class="math inline">\(40 - 20 = 20\)</span> m<span class="math inline">\(^3\)</span>/hr over 2 hours</li>
+</ul>
+<p>Break the region into:
+- A rectangle of height <span class="math inline">\(20\)</span> and width <span class="math inline">\(2\)</span>
+- A triangle with base <span class="math inline">\(2\)</span> and height <span class="math inline">\(20\)</span></p>
+<p><span class="math display">\[
+V_1 = (20)(2) + \tfrac{1}{2}(2)(20) = 40 + 20 = 60\ \text{m}^3
+\]</span></p>
+<hr />
+<p><strong>Interval 2: <span class="math inline">\(2 \le t &lt; 6\)</span></strong></p>
 <ul>
-<li>Where would the right-hand sum sample?</li>
-<li>Where would the midpoint sum sample?</li>
+<li>Flow decreases from <span class="math inline">\(60\)</span> to <span class="math inline">\(40\)</span> m<span class="math inline">\(^3\)</span>/hr<br />
+</li>
+<li>Minimum flow: <span class="math inline">\(40\)</span> m<span class="math inline">\(^3\)</span>/hr<br />
+</li>
+<li>Decrease of <span class="math inline">\(20\)</span> m<span class="math inline">\(^3\)</span>/hr over 4 hours</li>
+</ul>
+<p>Break the region into:
+- A rectangle of height <span class="math inline">\(40\)</span> and width <span class="math inline">\(4\)</span>
+- A triangle with base <span class="math inline">\(4\)</span> and height <span class="math inline">\(20\)</span></p>
+<p><span class="math display">\[
+V_2 = (40)(4) + \tfrac{1}{2}(4)(20) = 160 + 40 = 200\ \text{m}^3
+\]</span></p>
+<hr />
+<p><strong>Interval 3: <span class="math inline">\(6 \le t \le 8\)</span></strong></p>
+<ul>
+<li>Flow decreases from <span class="math inline">\(40\)</span> to <span class="math inline">\(20\)</span> m<span class="math inline">\(^3\)</span>/hr<br />
+</li>
+<li>Minimum flow: <span class="math inline">\(20\)</span> m<span class="math inline">\(^3\)</span>/hr<br />
+</li>
+<li>Decrease of <span class="math inline">\(20\)</span> m<span class="math inline">\(^3\)</span>/hr over 2 hours</li>
+</ul>
+<p>Break the region into:
+- A rectangle of height <span class="math inline">\(20\)</span> and width <span class="math inline">\(2\)</span>
+- A triangle with base <span class="math inline">\(2\)</span> and height <span class="math inline">\(20\)</span></p>
+<p><span class="math display">\[
+V_3 = (20)(2) + \tfrac{1}{2}(2)(20) = 40 + 20 = 60\ \text{m}^3
+\]</span></p>
+<hr />
+</div>
+<div id="b3.-total-volume-from-t0-to-t8" class="section level4 unnumbered hasAnchor">
+<h4>B3. Total volume from <span class="math inline">\(t=0\)</span> to <span class="math inline">\(t=8\)</span><a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#b3.-total-volume-from-t0-to-t8" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math display">\[
+V_{\text{total}} = V_1+V_2+V_3 = 60+200+60 = 320\ \text{m}^3
+\]</span></p>
+<p><span class="math display">\[
+\boxed{V_{\text{total}} = 320\ \text{m}^3}
+\]</span></p>
+<hr />
+</div>
+</div>
+<div id="c.-interpretation-1" class="section level3 unnumbered hasAnchor">
+<h3>C. Interpretation<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#c.-interpretation-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="c1.-what-does-the-final-value-represent" class="section level4 unnumbered hasAnchor">
+<h4>C1. What does the final value represent?<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#c1.-what-does-the-final-value-represent" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math display">\[
+\boxed{320\ \text{m}^3}
+\]</span>
+is the <strong>total volume of water</strong> that flowed past the point during the 8-hour period.</p>
+<hr />
+</div>
+<div id="c2.-during-which-1-hour-interval-is-the-volume-largest" class="section level4 unnumbered hasAnchor">
+<h4>C2. During which 1-hour interval is the volume largest?<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#c2.-during-which-1-hour-interval-is-the-volume-largest" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Largest interval is:
+<span class="math display">\[
+\boxed{[2,3]\ \text{hours} \text{ with } 57.5\ \text{m}^3}
+\]</span></p>
+<p><strong>Why:</strong> it starts at the highest flow (60) and remains high through that hour.</p>
+<hr />
+</div>
+<div id="c3.-overestimate-vs-underestimate-using-rectangles-graphical-reasoning-only" class="section level4 unnumbered hasAnchor">
+<h4>C3. Overestimate vs underestimate using rectangles (graphical reasoning only)<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#c3.-overestimate-vs-underestimate-using-rectangles-graphical-reasoning-only" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We partition <span class="math inline">\([0,8]\)</span> into <span class="math inline">\(n=8\)</span> equal subintervals, so each rectangle has width
+<span class="math display">\[
+\Delta t = \frac{8-0}{8} = 1\ \text{hour}.
+\]</span></p>
+<p>To decide the <em>height</em> of each rectangle, we must choose a sampling rule. Two common choices are:</p>
+<ul>
+<li><strong>Left-hand rectangles:</strong> height on <span class="math inline">\([k,k+1]\)</span> is <span class="math inline">\(q(k)\)</span></li>
+<li><strong>Right-hand rectangles:</strong> height on <span class="math inline">\([k,k+1]\)</span> is <span class="math inline">\(q(k+1)\)</span></li>
+</ul>
+<p>Now use only the <strong>shape of the graph</strong>:</p>
+<ul>
+<li>On <span class="math inline">\(0 \le t &lt; 2\)</span>, the streamflow is <strong>increasing</strong>.
+<ul>
+<li><strong>Left-hand rectangles</strong> use the <em>smaller</em> value at the start of each interval, so they will tend to <strong>underestimate</strong> the area here.</li>
+<li><strong>Right-hand rectangles</strong> use the <em>larger</em> value at the end of each interval, so they will tend to <strong>overestimate</strong> the area here.</li>
+</ul></li>
+<li>On <span class="math inline">\(2 \le t \le 8\)</span>, the streamflow is <strong>decreasing</strong>.
+<ul>
+<li><strong>Left-hand rectangles</strong> use the <em>larger</em> value at the start of each interval, so they will tend to <strong>overestimate</strong> the area here.</li>
+<li><strong>Right-hand rectangles</strong> use the <em>smaller</em> value at the end of each interval, so they will tend to <strong>underestimate</strong> the area here.</li>
 </ul></li>
 </ul>
-<p><br><br><br><br><br></p>
-<p><strong>Student Tasks:</strong>
-Calculate the right-hand and midpoint Riemann sums for
+<p><strong>Conclusion (graph-based):</strong>
+- <strong>Left-hand sum:</strong> underestimate on <span class="math inline">\([0,2)\)</span>, overestimate on <span class="math inline">\([2,8]\)</span>.
+- <strong>Right-hand sum:</strong> overestimate on <span class="math inline">\([0,2)\)</span>, underestimate on <span class="math inline">\([2,8]\)</span>.</p>
+<p>Because the graph is decreasing for <em>most</em> of the interval (from <span class="math inline">\(t=2\)</span> to <span class="math inline">\(t=8\)</span>), you should expect the <strong>left-hand method to have a stronger tendency to overestimate overall</strong>, while the <strong>right-hand method tends to underestimate overall</strong>.</p>
+<p><em>(If you want to visualize this: draw the rectangles on the graph and notice whether the tops of the rectangles mostly sit above or below the curve on each region.)</em></p>
+<hr />
+</div>
+</div>
+</div>
+<div id="solution-key-ocean-salt-concentration-with-depth" class="section level2 unnumbered hasAnchor">
+<h2>✅ Solution Key — Ocean Salt Concentration with Depth<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#solution-key-ocean-salt-concentration-with-depth" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<blockquote>
+<p><strong>Important note about the rotated plot:</strong><br />
+Even though the plot puts depth <span class="math inline">\(z\)</span> on the <strong>vertical axis</strong>, the accumulated quantity we want is still the same mathematical idea:
 <span class="math display">\[
-f(x) = x^2 \quad \text{on } [0,2].
+\text{Total salt content per unit area} \;=\; \int_0^{300} C(z)\,dz.
 \]</span>
-<em>[Hint: Create a process, build a table of data points, their function values, then calculate the sum]</em></p>
-<p><br><br><br><br><br><br><br><br><br><br><br><br></p>
+The “area under the curve” refers to multiplying <strong>concentration</strong> by <strong>thickness</strong>.<br />
+Graph orientation does not change the calculation—just be careful about what the axes represent.</p>
+</blockquote>
+<hr />
+<div id="a.-understanding-the-model-3" class="section level3 unnumbered hasAnchor">
+<h3>A. Understanding the Model<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#a.-understanding-the-model-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+C(z) =
+\begin{cases}
+32.6 + 0.010z, &amp; 0 \le z &lt; 30 \\
+32.9 + 0.015(z - 30), &amp; 30 \le z &lt; 150 \\
+34.7 + 0.002(z - 150), &amp; 150 \le z \le 300
+\end{cases}
+\]</span></p>
+<ol style="list-style-type: decimal">
+<li><p><strong><span class="math inline">\(0 \le z &lt; 30\)</span></strong><br />
+Salt concentration <strong>increases slightly</strong> with depth (a weak gradient near the surface).<br />
+This is consistent with surface water being a bit fresher due to precipitation or river input.</p></li>
+<li><p><strong><span class="math inline">\(30 \le z &lt; 150\)</span></strong><br />
+Salt concentration <strong>increases more rapidly</strong> with depth (a stronger gradient).<br />
+This is a typical <strong>halocline</strong> region where stratification is stronger.</p></li>
+<li><p><strong><span class="math inline">\(150 \le z \le 300\)</span></strong><br />
+Salt concentration still <strong>increases</strong>, but only <strong>very slowly</strong> (nearly uniform deeper water).</p></li>
+</ol>
 <hr />
 </div>
-</div>
-<div id="activity-3-choosing-a-method-conservative-vs-optimistic-estimates" class="section level2 unnumbered hasAnchor">
-<h2>Activity 3 — Choosing a Method: Conservative vs Optimistic Estimates<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#activity-3-choosing-a-method-conservative-vs-optimistic-estimates" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="discussion-activity" class="section level3 unnumbered hasAnchor">
-<h3>Discussion Activity<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#discussion-activity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Assume the function is <strong>increasing</strong> on the interval.</p>
-<p><img src="bookdown-demo_files/figure-html/riemann-under-over-triangles2-1.png" width="960" /></p>
-<p><strong>Small-Group Discussion Prompts:</strong></p>
+<div id="b.-calculating-accumulated-salt-content-over-depth-1" class="section level3 unnumbered hasAnchor">
+<h3>B. Calculating Accumulated Salt Content Over Depth<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#b.-calculating-accumulated-salt-content-over-depth-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="b1.-why-area-under-cz-is-salt-content-per-unit-area-units" class="section level4 unnumbered hasAnchor">
+<h4>B1. Why area under <span class="math inline">\(C(z)\)</span> is “salt content per unit area” (units)<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#b1.-why-area-under-cz-is-salt-content-per-unit-area-units" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
-<li>Which method gives a conservative estimate?</li>
-<li>Which method gives an optimistic estimate?</li>
-<li>When might overestimating be safer?</li>
-<li>When might underestimating be risky?</li>
+<li><span class="math inline">\(C(z)\)</span> has units: <span class="math inline">\(\text{kg}/\text{m}^3\)</span></li>
+<li>A thin layer of water with thickness <span class="math inline">\(dz\)</span> has units: <span class="math inline">\(\text{m}\)</span></li>
 </ul>
-<p><br><br><br><br><br><br><br><br><br><br><br><br></p>
-<p><strong>Assume the function is decreasing</strong>
-<img src="bookdown-demo_files/figure-html/riemann-under-over-triangles-decreasing2-1.png" width="960" /></p>
-<p><strong>Prompt</strong></p>
-<ul>
-<li>What about now?</li>
-</ul>
-<p><br><br><br><br><br><br><br><br><br><br><br><br></p>
+<p>Multiplying:
+<span class="math display">\[
+\left(\frac{\text{kg}}{\text{m}^3}\right)(\text{m}) = \frac{\text{kg}}{\text{m}^2}
+\]</span></p>
+<p>So the accumulated area
+<span class="math display">\[
+\int_0^{300} C(z)\,dz
+\]</span>
+has units <span class="math inline">\(\text{kg}/\text{m}^2\)</span>, meaning:</p>
+<blockquote>
+<p><strong>total mass of salt above each 1 m<span class="math inline">\(^2\)</span> patch of ocean surface</strong> in the top 300 m.</p>
+</blockquote>
 <hr />
 </div>
-</div>
-<div id="activity-4-increasing-the-number-of-intervals" class="section level2 unnumbered hasAnchor">
-<h2>Activity 4 — Increasing the Number of Intervals<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#activity-4-increasing-the-number-of-intervals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="activity-4a-discussion-accuracy-vs-cost" class="section level3 unnumbered hasAnchor">
-<h3>Activity 4A (Discussion): Accuracy vs Cost<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#activity-4a-discussion-accuracy-vs-cost" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>Prompts:</strong>
-- What happens to the the Riemann summ as <span class="math inline">\(n\)</span> increases?</p>
-<p><br><br><br><br><br><br><br><br><br><br><br><br></p>
+<div id="b2.-accumulated-salt-content-on-each-interval-rectangles-triangles" class="section level4 unnumbered hasAnchor">
+<h4>B2. Accumulated salt content on each interval (rectangles + triangles)<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#b2.-accumulated-salt-content-on-each-interval-rectangles-triangles" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Because <span class="math inline">\(C(z)\)</span> is <strong>linear on each interval</strong>, we compute area using <strong>rectangles + triangles</strong>.</p>
 <hr />
-</div>
-<div id="activity-4b-big-picture-bridge-to-integrals" class="section level3 unnumbered hasAnchor">
-<h3>Activity 4B Big-Picture Bridge to Integrals<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#activity-4b-big-picture-bridge-to-integrals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>Reflective Prompt:</strong>
-&gt; In Calculus I, Newton moved from average rates of change to instantaneous rates by letting <span class="math inline">\(\Delta x \to 0\)</span>.</p>
+<p><strong>Interval 1: <span class="math inline">\(0 \le z &lt; 30\)</span></strong></p>
+<p>Compute endpoint concentrations:
+<span class="math display">\[
+C(0)=32.6
+\]</span>
+<span class="math display">\[
+C(30^-)=32.6+0.010(30)=32.9
+\]</span></p>
+<p>Change in concentration over the interval:
+<span class="math display">\[
+32.9-32.6=0.3
+\]</span></p>
+<p>Break into:</p>
 <ul>
-<li>What do you think happens if we let the number of rectangles grow without bound?</li>
-</ul>
-<p><br><br><br><br><br><br><br><br><br><br><br><br></p>
-<p><img src="bookdown-demo_files/figure-html/refining-approximation-left-sums2-1.png" width="960" /></p>
-<ul>
-<li>How might this lead us from Riemann sums to <em>exact</em> area?</li>
+<li>Rectangle: height <span class="math inline">\(32.6\)</span>, width <span class="math inline">\(30\)</span></li>
+<li>Triangle: base <span class="math inline">\(30\)</span>, height <span class="math inline">\(0.3\)</span></li>
 </ul>
 <p><span class="math display">\[
-\sum_{i=1}^{n} f(x_i)\,\Delta x \rightarrow \int_{a}^{b} f(x)\,dx
+A_1 = (32.6)(30) + \tfrac12(30)(0.3)
+= 978 + 4.5
+= 982.5\ \frac{\text{kg}}{\text{m}^2}
 \]</span></p>
-<p><br><br><br><br><br><br><br><br><br><br><br><br></p>
 <hr />
-</div>
-</div>
-<div id="activity-5-signed-area-when-the-function-goes-negative" class="section level2 unnumbered hasAnchor">
-<h2>Activity 5 — Signed Area: When the Function Goes Negative<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#activity-5-signed-area-when-the-function-goes-negative" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In this final activity, we use a <strong>realistic environmental signal</strong> to build intuition for signed area. Many environmental fluxes naturally oscillate between positive and negative values over time.</p>
-<hr />
-<div id="activity-5a-worked-together-carbon-flux-as-a-sinusoidal-process" class="section level3 unnumbered hasAnchor">
-<h3>Activity 5A (Worked Together): Carbon Flux as a Sinusoidal Process<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#activity-5a-worked-together-carbon-flux-as-a-sinusoidal-process" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Consider a short-term model of <strong>net carbon exchange</strong> between a forest and the atmosphere over three days.</p>
-<ul>
-<li>Positive values of <span class="math inline">\(f(t)\)</span>: net <strong>carbon sequestration</strong> (uptake)</li>
-<li>Negative values of <span class="math inline">\(f(t)\)</span>: net <strong>carbon release</strong></li>
-</ul>
-<p>Suppose the net carbon flux (in metric tons of CO<span class="math inline">\(_2\)</span> per day) is modeled by:
+<p><strong>Interval 2: <span class="math inline">\(30 \le z &lt; 150\)</span></strong></p>
+<p>Compute endpoint concentrations:
 <span class="math display">\[
-f(t) = 2\sin\!\left(2\pi t\right)
-\quad \text{on } [0,3],
+C(30)=32.9
 \]</span>
-where <span class="math inline">\(t\)</span> is time in days.</p>
-<p><img src="bookdown-demo_files/figure-html/carbon-sinusoid-1day-1.png" width="672" /></p>
-<p><strong>Interpretation prompts (class discussion):</strong></p>
+<span class="math display">\[
+C(150^-)=32.9+0.015(150-30)=32.9+0.015(120)=32.9+1.8=34.7
+\]</span></p>
+<p>Change in concentration:
+<span class="math display">\[
+34.7-32.9=1.8
+\]</span></p>
+<p>Width:
+<span class="math display">\[
+150-30=120
+\]</span></p>
+<p>Break into:</p>
 <ul>
-<li><p>Why might carbon flux vary smoothly rather than remain constant?
-<br><br><br><br><br></p></li>
-<li><p>At what times is the forest acting as a carbon sink?
-<br><br><br><br><br></p></li>
-<li><p>At what times is it acting as a carbon source?
-<br><br><br><br><br></p></li>
-<li><p>What do the zeros of the function represent physically?
-<br><br><br><br><br></p></li>
-<li><p>Lets do a unit check, what are the units of the area under the curve?
-<br><br><br><br><br></p></li>
-<li><p>How much <strong>net carbon</strong> has accumulated over the full three days.
-<br><br><br><br><br></p></li>
-<li><p>How would you approximate this with a Riemann Sum?
-<br><br><br><br><br><br><br><br><br><br></p></li>
+<li>Rectangle: height <span class="math inline">\(32.9\)</span>, width <span class="math inline">\(120\)</span></li>
+<li>Triangle: base <span class="math inline">\(120\)</span>, height <span class="math inline">\(1.8\)</span></li>
 </ul>
-<p><img src="bookdown-demo_files/figure-html/carbon-sinusoid-lh-riemann-colored-1.png" width="672" /></p>
+<p><span class="math display">\[
+A_2 = (32.9)(120) + \tfrac12(120)(1.8)
+= 3948 + 108
+= 4056\ \frac{\text{kg}}{\text{m}^2}
+\]</span></p>
+<hr />
+<p><strong>Interval 3: <span class="math inline">\(150 \le z \le 300\)</span></strong></p>
+<p>Compute endpoint concentrations:
+<span class="math display">\[
+C(150)=34.7
+\]</span>
+<span class="math display">\[
+C(300)=34.7+0.002(300-150)=34.7+0.002(150)=34.7+0.3=35.0
+\]</span></p>
+<p>Change in concentration:
+<span class="math display">\[
+35.0-34.7=0.3
+\]</span></p>
+<p>Width:
+<span class="math display">\[
+300-150=150
+\]</span></p>
+<p>Break into:</p>
 <ul>
-<li>Now with a much smaller delta x
-<img src="bookdown-demo_files/figure-html/carbon-sinusoid-lh-riemann-colored2-1.png" width="672" /></li>
+<li>Rectangle: height <span class="math inline">\(34.7\)</span>, width <span class="math inline">\(150\)</span></li>
+<li>Triangle: base <span class="math inline">\(150\)</span>, height <span class="math inline">\(0.3\)</span></li>
+</ul>
+<p><span class="math display">\[
+A_3 = (34.7)(150) + \tfrac12(150)(0.3)
+= 5205 + 22.5
+= 5227.5\ \frac{\text{kg}}{\text{m}^2}
+\]</span></p>
+<hr />
+</div>
+<div id="b3.-total-accumulated-salt-content-from-z0-to-z300" class="section level4 hasAnchor" number="8.4.0.1">
+<h4><span class="header-section-number">8.4.0.1</span> B3. Total accumulated salt content from <span class="math inline">\(z=0\)</span> to <span class="math inline">\(z=300\)</span><a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#b3.-total-accumulated-salt-content-from-z0-to-z300" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math display">\[
+A_{\text{total}} = A_1 + A_2 + A_3
+= 982.5 + 4056 + 5227.5
+= 10266\ \frac{\text{kg}}{\text{m}^2}
+\]</span></p>
+<p><span class="math display">\[
+\boxed{A_{\text{total}} = 10266\ \text{kg/m}^2}
+\]</span></p>
+<hr />
+</div>
+</div>
+</div>
+<div id="solution-key-algal-biomass-growth-over-time" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> ✅ Solution Key — Algal Biomass Growth Over Time<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#solution-key-algal-biomass-growth-over-time" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="observed-data-1" class="section level3 hasAnchor" number="8.5.1">
+<h3><span class="header-section-number">8.5.1</span> Observed Data<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#observed-data-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Time <span class="math inline">\(t\)</span> (days)</th>
+<th align="center">0</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+<th align="center">5</th>
+<th align="center">6</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(B(t)\)</span> (g/m<span class="math inline">\(^2\)</span>)</td>
+<td align="center">5</td>
+<td align="center">9</td>
+<td align="center">16</td>
+<td align="center">28</td>
+<td align="center">45</td>
+<td align="center">60</td>
+<td align="center">70</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+<div id="a.-plotting-the-data-1" class="section level3 unnumbered hasAnchor">
+<h3>A. Plotting the Data<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#a.-plotting-the-data-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><p><strong>Sketch:</strong> Plot the points <span class="math inline">\((t,B(t))\)</span> and connect them with line segments.<br />
+The curve rises throughout the interval and becomes steeper over time.</p></li>
+<li><p><strong>Description:</strong> Biomass increases over time and the rate of increase appears to <strong>accelerate</strong> (the jumps from day to day get larger, especially from <span class="math inline">\(t=3\)</span> onward).</p></li>
+</ol>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<hr />
+</div>
+<div id="b.-left-hand-riemann-sum-n-3" class="section level3 unnumbered hasAnchor">
+<h3>B. Left-Hand Riemann Sum (n = 3)<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#b.-left-hand-riemann-sum-n-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We approximate the total accumulated biomass from <span class="math inline">\(t=0\)</span> to <span class="math inline">\(t=6\)</span> with <span class="math inline">\(n=3\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Width</strong>
+<span class="math display">\[
+\Delta t = \frac{6-0}{3} = 2\ \text{days}
+\]</span></p></li>
+<li><p><strong>Left endpoints</strong><br />
+Using <span class="math inline">\(x_i^* = a + (i-1)\Delta x\)</span> with <span class="math inline">\(a=0\)</span> and <span class="math inline">\(\Delta t = 2\)</span>:
+<span class="math display">\[
+t_0=0,\quad t_1=2,\quad t_2=4
+\]</span></p></li>
+</ol>
+<p>Table:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Interval</th>
+<th align="center">Left endpoint <span class="math inline">\(t\)</span></th>
+<th align="center"><span class="math inline">\(B(t)\)</span> (g/m<span class="math inline">\(^2\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\([0,2]\)</span></td>
+<td align="center">0</td>
+<td align="center">5</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\([2,4]\)</span></td>
+<td align="center">2</td>
+<td align="center">16</td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\([4,6]\)</span></td>
+<td align="center">4</td>
+<td align="center">45</td>
+</tr>
+</tbody>
+</table>
+<ol start="3" style="list-style-type: decimal">
+<li><p><strong>Compute the sum</strong>
+<span class="math display">\[
+L_3 = \Delta t\,[B(0)+B(2)+B(4)]
+  = 2\,(5+16+45)
+  = 2\cdot 66
+  = 132
+\]</span></p></li>
+<li><p><strong>Units + meaning</strong><br />
+</p></li>
+</ol>
+<ul>
+<li><span class="math inline">\(B(t)\)</span> is in g/m<span class="math inline">\(^2\)</span> and <span class="math inline">\(\Delta t\)</span> is in days, so the sum has units:
+<span class="math display">\[
+(\text{g/m}^2)\cdot(\text{day}) = \text{g}\cdot\text{day}/\text{m}^2
+\]</span></li>
+<li>This represents <strong>biomass-density accumulated over time</strong> (area under the <span class="math inline">\(B(t)\)</span> curve), sometimes described as “biomass-days per square meter.”</li>
+</ul>
+<p><span class="math display">\[
+\boxed{L_3 = 132\ \text{g}\cdot\text{day}/\text{m}^2}
+\]</span></p>
+<hr />
+</div>
+<div id="c.-right-hand-riemann-sum-n-3" class="section level3 unnumbered hasAnchor">
+<h3>C. Right-Hand Riemann Sum (n = 3)<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#c.-right-hand-riemann-sum-n-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><strong>Right endpoints</strong><br />
+Using <span class="math inline">\(x_i^* = a + i\Delta x\)</span> with <span class="math inline">\(a=0\)</span>, <span class="math inline">\(\Delta t = 2\)</span>:
+<span class="math display">\[
+t_1=2,\quad t_2=4,\quad t_3=6
+\]</span></li>
+</ol>
+<p>Table:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Interval</th>
+<th align="center">Right endpoint <span class="math inline">\(t\)</span></th>
+<th align="center"><span class="math inline">\(B(t)\)</span> (g/m<span class="math inline">\(^2\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\([0,2]\)</span></td>
+<td align="center">2</td>
+<td align="center">16</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\([2,4]\)</span></td>
+<td align="center">4</td>
+<td align="center">45</td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\([4,6]\)</span></td>
+<td align="center">6</td>
+<td align="center">70</td>
+</tr>
+</tbody>
+</table>
+<p>2–3. <strong>Compute the sum</strong>
+<span class="math display">\[
+R_3 = \Delta t\,[B(2)+B(4)+B(6)]
+     = 2\,(16+45+70)
+     = 2\cdot 131
+     = 262
+\]</span></p>
+<p><span class="math display">\[
+\boxed{R_3 = 262\ \text{g}\cdot\text{day}/\text{m}^2}
+\]</span></p>
+<ol start="4" style="list-style-type: decimal">
+<li><strong>Compare to left-hand</strong></li>
+</ol>
+<ul>
+<li><span class="math inline">\(R_3\)</span> is larger than <span class="math inline">\(L_3\)</span>.</li>
+<li>This makes sense because <span class="math inline">\(B(t)\)</span> is <strong>increasing</strong>: right-endpoint rectangles tend to sit <strong>above</strong> the curve more than left-endpoint rectangles.</li>
 </ul>
 <hr />
-<div class="promptbox">
-<p><strong>Key Idea</strong></p>
-<p>Environmental processes often involve <strong>competing fluxes</strong>:
-- Uptake vs release
-- Storage vs loss</p>
-<p>A definite integral does not measure “area” alone—it measures <strong>net accumulation</strong>.</p>
-<p>Signed area is the mathematical tool that allows calculus to track <em>both magnitude and direction</em> in real environmental systems.</p>
+</div>
+<div id="d.-midpoint-riemann-sum-n-3" class="section level3 unnumbered hasAnchor">
+<h3>D. Midpoint Riemann Sum (n = 3)<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#d.-midpoint-riemann-sum-n-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><p><strong>Midpoints of each interval</strong><br />
+Intervals are <span class="math inline">\([0,2]\)</span>, <span class="math inline">\([2,4]\)</span>, <span class="math inline">\([4,6]\)</span>. Midpoints:
+<span class="math display">\[
+t=\;1,\;3,\;5
+\]</span></p></li>
+<li><p><strong>Midpoint values from data</strong>
+<span class="math display">\[
+B(1)=9,\quad B(3)=28,\quad B(5)=60
+\]</span></p></li>
+</ol>
+<p>Table:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Interval</th>
+<th align="center">Midpoint <span class="math inline">\(t\)</span></th>
+<th align="center"><span class="math inline">\(B(t)\)</span> (g/m<span class="math inline">\(^2\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\([0,2]\)</span></td>
+<td align="center">1</td>
+<td align="center">9</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\([2,4]\)</span></td>
+<td align="center">3</td>
+<td align="center">28</td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\([4,6]\)</span></td>
+<td align="center">5</td>
+<td align="center">60</td>
+</tr>
+</tbody>
+</table>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Compute the sum</strong>
+<span class="math display">\[
+M_3 = \Delta t\,[B(1)+B(3)+B(5)]
+  = 2\,(9+28+60)
+  = 2\cdot 97
+  = 194
+\]</span></li>
+</ol>
+<p><span class="math display">\[
+\boxed{M_3 = 194\ \text{g}\cdot\text{day}/\text{m}^2}
+\]</span></p>
+<ol start="4" style="list-style-type: decimal">
+<li><strong>Compare</strong>
+<span class="math display">\[
+L_3 = 132,\quad M_3 = 194,\quad R_3 = 262
+\]</span>
+The midpoint estimate lands between left and right, which is typical for increasing data.</li>
+</ol>
+<hr />
+</div>
+<div id="e.-effect-of-changing-the-number-of-intervals-1" class="section level3 unnumbered hasAnchor">
+<h3>E. Effect of Changing the Number of Intervals<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#e.-effect-of-changing-the-number-of-intervals-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now compute the <strong>left-hand</strong> sum with <span class="math inline">\(n=6\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><strong>Width</strong>
+<span class="math display">\[
+\Delta t = \frac{6-0}{6} = 1\ \text{day}
+\]</span></li>
+</ol>
+<p>Left endpoints are:
+<span class="math display">\[
+t = 0,1,2,3,4,5
+\]</span></p>
+<p>So
+<span class="math display">\[
+L_6 = 1\,[B(0)+B(1)+B(2)+B(3)+B(4)+B(5)]
+\]</span>
+<span class="math display">\[
+L_6 = 5+9+16+28+45+60 = 163
+\]</span></p>
+<p><span class="math display">\[
+\boxed{L_6 = 163\ \text{g}\cdot\text{day}/\text{m}^2}
+\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li><p><strong>Which is better, <span class="math inline">\(L_3\)</span> or <span class="math inline">\(L_6\)</span>?</strong><br />
+<span class="math inline">\(L_6\)</span> is generally the better estimate because it uses <strong>more rectangles</strong> (smaller <span class="math inline">\(\Delta t\)</span>), which better captures the change in <span class="math inline">\(B(t)\)</span> over time.</p></li>
+<li><p><strong>Would <span class="math inline">\(n=12\)</span> give better results for this dataset? (trick question)</strong><br />
+Not with the information given. We only have biomass values at integer days <span class="math inline">\(t=0,1,2,3,4,5,6\)</span>.<br />
+To use <span class="math inline">\(n=12\)</span> (which would require <span class="math inline">\(\Delta t = 0.5\)</span> days), we would need biomass values at half-days (e.g., <span class="math inline">\(t=0.5,1.5,2.5,\dots\)</span>) or a model for estimating them.</p></li>
+</ol>
+<p>So: <strong>you can’t legitimately do <span class="math inline">\(n=12\)</span> from this dataset alone</strong> without making additional assumptions or interpolations.</p>
+<hr />
+</div>
+<div id="f.-reflection-1" class="section level3 unnumbered hasAnchor">
+<h3>F. Reflection<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#f.-reflection-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><strong>Which method do you trust most? Why?</strong><br />
+Typically the <strong>midpoint rule</strong> is most trusted because it samples the function in the <em>middle</em> of each interval, which often balances over/underestimation when the data trend is smooth.</li>
+</ol>
+<p>However, in a data-only setting, your confidence also depends on whether midpoint values are truly measured (as they are here at <span class="math inline">\(t=1,3,5\)</span>) or estimated.</p>
+<hr />
 </div>
 </div>
+<div id="solution-key-net-toxin-uptake-vs.-elimination" class="section level2 unnumbered hasAnchor">
+<h2>✅ Solution Key — Net Toxin Uptake vs. Elimination<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#solution-key-net-toxin-uptake-vs.-elimination" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We are given the net toxin accumulation rate (mg/day):
+<span class="math display">\[
+r(t) = (t-2)(6-t)(t-4), \quad 0 \le t \le 6
+\]</span></p>
+<p>The sign of <span class="math inline">\(r(t)\)</span> tells the direction of change in toxin burden:
+- <span class="math inline">\(r(t) &gt; 0\)</span>: net uptake
+- <span class="math inline">\(r(t) &lt; 0\)</span>: net elimination</p>
+<hr />
+<div id="a.-left-hand-riemann-sum-6-intervals-1" class="section level3 unnumbered hasAnchor">
+<h3>A. Left-Hand Riemann Sum (6 intervals)<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#a.-left-hand-riemann-sum-6-intervals-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We split <span class="math inline">\([0,6]\)</span> into <span class="math inline">\(n=6\)</span> equal subintervals.</p>
+<div id="a1.-compute-delta-t" class="section level4 hasAnchor" number="8.5.1.1">
+<h4><span class="header-section-number">8.5.1.1</span> A1. Compute <span class="math inline">\(\Delta t\)</span><a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#a1.-compute-delta-t" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math display">\[
+\Delta t = \frac{6-0}{6} = 1\ \text{day}
+\]</span></p>
+<p>Left endpoints are:
+<span class="math display">\[
+t_0=0,\ t_1=1,\ t_2=2,\ t_3=3,\ t_4=4,\ t_5=5
+\]</span></p>
 </div>
-<div id="closing-reflection" class="section level2 unnumbered hasAnchor">
-<h2>Closing Reflection<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#closing-reflection" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Riemann sums are not the destination.<br />
-They are the bridge between intuition, geometry, and the formal definition of the integral.</p>
+<div id="a2.-list-the-6-rectangles-and-their-areas-rt_idelta-t" class="section level4 hasAnchor" number="8.5.1.2">
+<h4><span class="header-section-number">8.5.1.2</span> A2. List the 6 rectangles and their areas <span class="math inline">\(r(t_i)\Delta t\)</span><a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#a2.-list-the-6-rectangles-and-their-areas-rt_idelta-t" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Since <span class="math inline">\(\Delta t = 1\)</span>, each rectangle area is just <span class="math inline">\(r(t_i)\cdot 1 = r(t_i)\)</span>.</p>
+<p>Compute <span class="math inline">\(r(t)\)</span> at the left endpoints:</p>
+<ul>
+<li><span class="math inline">\(r(0)=(0-2)(6-0)(0-4)=(-2)(6)(-4)=48\)</span></li>
+<li><span class="math inline">\(r(1)=(1-2)(6-1)(1-4)=(-1)(5)(-3)=15\)</span></li>
+<li><span class="math inline">\(r(2)=(2-2)(6-2)(2-4)=(0)(4)(-2)=0\)</span></li>
+<li><span class="math inline">\(r(3)=(3-2)(6-3)(3-4)=(1)(3)(-1)=-3\)</span></li>
+<li><span class="math inline">\(r(4)=(4-2)(6-4)(4-4)=(2)(2)(0)=0\)</span></li>
+<li><span class="math inline">\(r(5)=(5-2)(6-5)(5-4)=(3)(1)(1)=3\)</span></li>
+</ul>
+<p>Rectangle areas <span class="math inline">\(r(t_i)\Delta t\)</span> (mg) are:</p>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Subinterval</th>
+<th align="center">Left endpoint <span class="math inline">\(t_i\)</span></th>
+<th align="center">Height <span class="math inline">\(r(t_i)\)</span> (mg/day)</th>
+<th align="center">Area <span class="math inline">\(r(t_i)\Delta t\)</span> (mg)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\([0,1]\)</span></td>
+<td align="center">0</td>
+<td align="center">48</td>
+<td align="center">48</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\([1,2]\)</span></td>
+<td align="center">1</td>
+<td align="center">15</td>
+<td align="center">15</td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\([2,3]\)</span></td>
+<td align="center">2</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\([3,4]\)</span></td>
+<td align="center">3</td>
+<td align="center">-3</td>
+<td align="center">-3</td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\([4,5]\)</span></td>
+<td align="center">4</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\([5,6]\)</span></td>
+<td align="center">5</td>
+<td align="center">3</td>
+<td align="center">3</td>
+</tr>
+</tbody>
+</table>
+<hr />
 </div>
-<div id="min-write" class="section level2 unnumbered hasAnchor">
-<h2>2 min write<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#min-write" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Bullet 3 takeaways from today</p>
+</div>
+<div id="b.-net-accumulation-signed-accumulation-1" class="section level3 unnumbered hasAnchor">
+<h3>B. NET Accumulation (Signed Accumulation)<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#b.-net-accumulation-signed-accumulation-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The net accumulation is the <strong>signed</strong> sum of rectangle areas:</p>
+<p><span class="math display">\[
+\text{NET} \approx \sum_{i=1}^{6} r(t_{i-1})\Delta t
+\]</span></p>
+<p>Using the areas from Part A:
+<span class="math display">\[
+\text{NET} \approx 48 + 15 + 0 + (-3) + 0 + 3 = 63
+\]</span></p>
+<p><span class="math display">\[
+\boxed{\text{NET} \approx 63\ \text{mg}}
+\]</span></p>
+<div id="interpretation-5" class="section level4 hasAnchor" number="8.5.1.3">
+<h4><span class="header-section-number">8.5.1.3</span> Interpretation<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#interpretation-5" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Because the net value is <strong>positive</strong>, the fish ends the 6-day period with <strong>more toxin</strong> than it started with.</li>
+<li>The negative rectangle (at <span class="math inline">\(t=3\)</span>) represents a period of <strong>net elimination</strong>, which subtracts from the total.</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="c.-total-exchange-total-toxin-processed-1" class="section level3 unnumbered hasAnchor">
+<h3>C. Total Exchange (Total Toxin Processed)<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#c.-total-exchange-total-toxin-processed-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Total exchange counts uptake and elimination as <strong>positive contributions</strong>, so we sum <span class="math inline">\(|r(t_i)|\Delta t\)</span>:</p>
+<p><span class="math display">\[
+\text{TOTAL} \approx \sum_{i=1}^{6} |r(t_{i-1})|\Delta t
+\]</span></p>
+<p>Using the same rectangle list:</p>
+<p><span class="math display">\[
+\text{TOTAL} \approx |48| + |15| + |0| + |-3| + |0| + |3|
+\]</span>
+<span class="math display">\[
+\text{TOTAL} \approx 48 + 15 + 0 + 3 + 0 + 3 = 69
+\]</span></p>
+<p><span class="math display">\[
+\boxed{\text{TOTAL} \approx 69\ \text{mg}}
+\]</span></p>
+<div id="interpretation-6" class="section level4 hasAnchor" number="8.5.1.4">
+<h4><span class="header-section-number">8.5.1.4</span> Interpretation<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#interpretation-6" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>This represents the <strong>total amount of toxin moved through the fish</strong> (gained and eliminated combined) over the 6 days, using this rectangle approximation.</li>
+<li>It is always <strong>nonnegative</strong> because absolute value makes every contribution <span class="math inline">\(\ge 0\)</span>.</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="d.-compare-net-vs-total-1" class="section level3 unnumbered hasAnchor">
+<h3>D. Compare NET vs TOTAL<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#d.-compare-net-vs-total-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Why is total exchange always at least as large as the magnitude of net accumulation?</li>
+</ol>
+<ul>
+<li>The <strong>net</strong> accumulation adds positive and negative contributions together, so elimination can <strong>cancel</strong> uptake.</li>
+<li>The <strong>total exchange</strong> turns every contribution positive, so nothing cancels.</li>
+</ul>
+<p>That is why:
+<span class="math display">\[
+\int_0^6 |r(t)|\,dt \ge \left|\int_0^6 r(t)\,dt\right|
+\]</span></p>
+<p>In plain language:<br />
+&gt; <strong>Total exchange measures total activity. Net accumulation measures the final balance after cancellation.</strong></p>
+<hr />
+</div>
+</div>
+<div id="solution-key-differentiation-rules" class="section level2 unnumbered hasAnchor">
+<h2>✅ Solution Key — Differentiation Rules<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#solution-key-differentiation-rules" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<hr />
+<div id="product-rule-1" class="section level3 hasAnchor" number="8.5.2">
+<h3><span class="header-section-number">8.5.2</span> 1. Product Rule<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#product-rule-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Given:
+<span class="math display">\[
+f(t) = (2t^2 + 1)(5t - 3)
+\]</span></p>
+<p><strong>Rule used:</strong> Product Rule<br />
+<span class="math display">\[
+(fg)&#39; = f&#39;g + fg&#39;
+\]</span></p>
+<p>Let:
+<span class="math display">\[
+f(t) = 2t^2 + 1 \quad \Rightarrow \quad f&#39;(t) = 4t
+\]</span>
+<span class="math display">\[
+g(t) = 5t - 3 \quad \Rightarrow \quad g&#39;(t) = 5
+\]</span></p>
+<p>Apply the product rule:
+<span class="math display">\[
+f&#39;(t) = f&#39;(t)g(t) + f(t)g&#39;(t)
+= (4t)(5t - 3) + (2t^2 + 1)(5)
+\]</span></p>
+<p>Simplify:
+<span class="math display">\[
+\boxed{f&#39;(t) = 30t^2 - 12t + 5}
+\]</span></p>
+<hr />
+</div>
+<div id="chain-rule-1" class="section level3 hasAnchor" number="8.5.3">
+<h3><span class="header-section-number">8.5.3</span> 2. Chain Rule<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#chain-rule-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Given:
+<span class="math display">\[
+g(z) = e^{0.4z^2}
+\]</span></p>
+<p><strong>Rule used:</strong> Chain Rule<br />
+<span class="math display">\[
+\frac{d}{dz}\big(e^{f(z)}\big) = e^{f(z)}\,f&#39;(z)
+\]</span></p>
+<p>Let:
+<span class="math display">\[
+f(z) = 0.4z^2 \quad \Rightarrow \quad f&#39;(z) = 0.8z
+\]</span></p>
+<p>Apply the chain rule:
+<span class="math display">\[
+\boxed{g&#39;(z) = 0.8z\,e^{0.4z^2}}
+\]</span></p>
+<hr />
+</div>
+<div id="quotient-rule-1" class="section level3 hasAnchor" number="8.5.4">
+<h3><span class="header-section-number">8.5.4</span> 3. Quotient Rule<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#quotient-rule-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Given:
+<span class="math display">\[
+h(t) = \frac{3t^2 + 1}{t + 2}
+\]</span></p>
+<p><strong>Rule used:</strong> Quotient Rule<br />
+<span class="math display">\[
+\left(\frac{f}{g}\right)&#39; = \frac{f&#39;g - fg&#39;}{g^2}
+\]</span></p>
+<p>Let:
+<span class="math display">\[
+f(t) = 3t^2 + 1 \quad \Rightarrow \quad f&#39;(t) = 6t
+\]</span>
+<span class="math display">\[
+g(t) = t + 2 \quad \Rightarrow \quad g&#39;(t) = 1
+\]</span></p>
+<p>Apply the quotient rule:
+<span class="math display">\[
+h&#39;(t) = \frac{(6t)(t+2) - (3t^2 + 1)(1)}{(t+2)^2}
+\]</span></p>
+<p>Simplify the numerator:
+<span class="math display">\[
+\boxed{h&#39;(t) = \frac{3t^2 + 12t - 1}{(t+2)^2}}
+\]</span></p>
+<hr />
+</div>
+<div id="combined-rules-product-chain-1" class="section level3 hasAnchor" number="8.5.5">
+<h3><span class="header-section-number">8.5.5</span> 4. Combined Rules (Product + Chain)<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#combined-rules-product-chain-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Given:
+<span class="math display">\[
+p(t) = t^2 \sin(3t)
+\]</span></p>
+<p><strong>Rules used:</strong> Product Rule and Chain Rule</p>
+<p>Let:
+<span class="math display">\[
+f(t) = t^2 \quad \Rightarrow \quad f&#39;(t) = 2t
+\]</span>
+<span class="math display">\[
+g(t) = \sin(3t) \quad \Rightarrow \quad g&#39;(t) = 3\cos(3t)
+\]</span></p>
+<p>Apply the product rule:
+<span class="math display">\[
+p&#39;(t) = f&#39;(t)g(t) + f(t)g&#39;(t)
+\]</span></p>
+<p><span class="math display">\[
+\boxed{p&#39;(t) = 2t\sin(3t) + 3t^2\cos(3t)}
+\]</span></p>
+<hr />
+</div>
+</div>
+<div id="solution-key-very-simple-antiderivatives" class="section level2 hasAnchor" number="8.6">
+<h2><span class="header-section-number">8.6</span> ✅ Solution Key — Very Simple Antiderivatives<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html#solution-key-very-simple-antiderivatives" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For each function, find <strong>one</strong> antiderivative.</p>
+<hr />
+<ol style="list-style-type: decimal">
+<li><span class="math display">\[
+f(x) = 3x^2
+\]</span></li>
+</ol>
+<p>Reverse the power rule:
+<span class="math display">\[
+\boxed{F(x) = x^3}
+\]</span></p>
+<hr />
+<ol start="2" style="list-style-type: decimal">
+<li><span class="math display">\[
+g(t) = 5
+\]</span></li>
+</ol>
+<p>A constant integrates to a linear function:
+<span class="math display">\[
+\boxed{G(t) = 5t}
+\]</span></p>
+<hr />
+<ol start="3" style="list-style-type: decimal">
+<li><span class="math display">\[
+h(x) = 2x
+\]</span></li>
+</ol>
+<p>Reverse the power rule:
+<span class="math display">\[
+\boxed{H(x) = x^2}
+\]</span></p>
+<hr />
+<ol start="4" style="list-style-type: decimal">
+<li><span class="math display">\[
+p(t) = e^t
+\]</span></li>
+</ol>
+<p>The exponential is its own derivative:
+<span class="math display">\[
+\boxed{P(t) = e^t}
+\]</span></p>
+<hr />
+<ol start="5" style="list-style-type: decimal">
+<li><span class="math display">\[
+q(x) = \cos x
+\]</span></li>
+</ol>
+<p>Since <span class="math inline">\(\frac{d}{dx}(\sin x) = \cos x\)</span>:
+<span class="math display">\[
+\boxed{Q(x) = \sin x}
+\]</span></p>
+<hr />
+<p><strong>Note:</strong><br />
+Each antiderivative represents a <em>family</em> of functions. We omit the constant of integration here to focus on the core idea of “undoing” differentiation.</p>
+</div>
+</div>
+<form onsubmit="unlock_set1(); return false;" id="gate_set1" style="margin-top:0.75rem;">
+<input type="password" id="pwd_set1" placeholder="Enter password" aria-label="Answer key password">
+<button type="submit">Unlock</button>
+<span id="msg_set1" style="margin-left:0.5rem;" aria-live="polite"></span>
+</form>
+<script>
+function unlock_set1() {
+  var input = document.getElementById('pwd_set1');
+  var msg   = document.getElementById('msg_set1');
+  var sol   = document.getElementById('sol_set1');
+  var gate  = document.getElementById('gate_set1');
+  var pw    = (input.value || '').trim();
+  var det   = gate.closest('details'); if (det) det.open = true;
 
-</div>
+  if (pw === 'dockers') {
+    sol.hidden = false;
+    gate.hidden = true;
+    input.value = '';
+    msg.textContent = '';
+  } else {
+    msg.textContent = 'Oi! Stop guessing :), ask a TA for help';
+    input.value = '';
+    input.focus();
+  }
+}
+</script>
+<noscript>
+<p>
+<em>Note:</em> JavaScript is required to unlock solutions.
+</p>
+</noscript>
+</details>
+
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="workbook-introduction-to-calculus-ii-accumulation-and-change.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -757,7 +1811,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/rstudio/bookdown-demo/edit/master/103-riemann.Rmd",
+    "link": "https://github.com/rstudio/bookdown-demo/edit/master/104-Riemann_prac.Rmd",
     "text": "Edit"
   },
   "history": {
