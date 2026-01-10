@@ -496,16 +496,13 @@ Check your answers by taking the derivative of them (extra derivative practice)
 <details open>
 <summary><strong>Click to Unlock Solutions</strong></summary>
 
-<div id="sol_set1" hidden markdown="1" style="margin-top:0.75rem;">
-
-
-## ✅ Solution Key — Area Under the Curve (Streamflow After a Storm){-}
+**✅ Solution Key — Area Under the Curve (Streamflow After a Storm){-}
 
 > **Note:** The function has a jump at \(t=2\). A single-point jump does **not** affect area, so the accumulated volume is still well-defined.
 
 ---
 
-### A. Understanding the Model{-}
+**A. Understanding the Model**
 
 \[
 q(t) =
@@ -536,9 +533,9 @@ q(t) =
 
 ---
 
-### B. Calculating Accumulated Water Volume{-}
+**B. Calculating Accumulated Water Volume**
 
-#### B1. Why area under \(q(t)\) is volume (units){-}
+**B1. Why area under \(q(t)\) is volume (units)**
 
 - \(q(t)\) has units: \(\text{m}^3/\text{hour}\)
 - Multiply by time (hours):  
@@ -549,7 +546,7 @@ So the area under \(q(t)\) over a time interval gives total water volume (m\(^3\
 
 ---
 
-#### B2. Volume on each interval (rectangles + triangles) {-}
+**B2. Volume on each interval (rectangles + triangles) **
 
 Because the streamflow is **linear on each interval**, the area under \(q(t)\) can be computed by decomposing each region into **rectangles and triangles**.
 
@@ -602,7 +599,7 @@ V_3 = (20)(2) + \tfrac{1}{2}(2)(20) = 40 + 20 = 60\ \text{m}^3
 
 ---
 
-#### B3. Total volume from \(t=0\) to \(t=8\){-}
+**B3. Total volume from \(t=0\) to \(t=8\)**
 
 \[
 V_{\text{total}} = V_1+V_2+V_3 = 60+200+60 = 320\ \text{m}^3
@@ -614,9 +611,9 @@ V_{\text{total}} = V_1+V_2+V_3 = 60+200+60 = 320\ \text{m}^3
 
 ---
 
-### C. Interpretation{-}
+**C. Interpretation**
 
-#### C1. What does the final value represent?{-}
+**C1. What does the final value represent?**
 
 \[
 \boxed{320\ \text{m}^3}
@@ -625,7 +622,7 @@ is the **total volume of water** that flowed past the point during the 8-hour pe
 
 ---
 
-#### C2. During which 1-hour interval is the volume largest?{-}
+**C2. During which 1-hour interval is the volume largest?**
 
 
 Largest interval is:
@@ -637,7 +634,7 @@ Largest interval is:
 
 ---
 
-#### C3. Overestimate vs underestimate using rectangles (graphical reasoning only) {-}
+**C3. Overestimate vs underestimate using rectangles (graphical reasoning only) **
 
 We partition \([0,8]\) into \(n=8\) equal subintervals, so each rectangle has width
 \[
@@ -671,7 +668,7 @@ Because the graph is decreasing for *most* of the interval (from \(t=2\) to \(t=
 
 
 
-## ✅ Solution Key — Ocean Salt Concentration with Depth{-}
+**✅ Solution Key — Ocean Salt Concentration with Depth**
 
 > **Important note about the rotated plot:**  
 > Even though the plot puts depth \(z\) on the **vertical axis**, the accumulated quantity we want is still the same mathematical idea:
@@ -683,7 +680,7 @@ Because the graph is decreasing for *most* of the interval (from \(t=2\) to \(t=
 
 ---
 
-### A. Understanding the Model {-}
+**A. Understanding the Model **
 
 \[
 C(z) =
@@ -707,9 +704,9 @@ C(z) =
 
 ---
 
-### B. Calculating Accumulated Salt Content Over Depth {-}
+**B. Calculating Accumulated Salt Content Over Depth **
 
-#### B1. Why area under \(C(z)\) is “salt content per unit area” (units) {-}
+**B1. Why area under \(C(z)\) is “salt content per unit area” (units) **
 
 - \(C(z)\) has units: \(\text{kg}/\text{m}^3\)
 - A thin layer of water with thickness \(dz\) has units: \(\text{m}\)
@@ -729,7 +726,7 @@ has units \(\text{kg}/\text{m}^2\), meaning:
 
 ---
 
-#### B2. Accumulated salt content on each interval (rectangles + triangles){-}
+**B2. Accumulated salt content on each interval (rectangles + triangles)**
 
 Because \(C(z)\) is **linear on each interval**, we compute area using **rectangles + triangles**.
 
@@ -829,7 +826,7 @@ A_3 = (34.7)(150) + \tfrac12(150)(0.3)
 
 ---
 
-#### B3. Total accumulated salt content from \(z=0\) to \(z=300\)
+**B3. Total accumulated salt content from \(z=0\) to \(z=300\)**
 
 \[
 A_{\text{total}} = A_1 + A_2 + A_3
@@ -843,9 +840,9 @@ A_{\text{total}} = A_1 + A_2 + A_3
 
 ---
 
-## ✅ Solution Key — Algal Biomass Growth Over Time
+**✅ Solution Key — Algal Biomass Growth Over Time**
 
-### Observed Data
+**Observed Data**
 
 | Time \(t\) (days) | 0 | 1 | 2 | 3 | 4 | 5 | 6 |
 |:-----------------:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
@@ -853,7 +850,7 @@ A_{\text{total}} = A_1 + A_2 + A_3
 
 ---
 
-### A. Plotting the Data {-}
+**A. Plotting the Data **
 
 1. **Sketch:** Plot the points \((t,B(t))\) and connect them with line segments.  
    The curve rises throughout the interval and becomes steeper over time.
@@ -883,7 +880,7 @@ grid()
 
 ---
 
-### B. Left-Hand Riemann Sum (n = 3) {-}
+**B. Left-Hand Riemann Sum (n = 3) **
 
 We approximate the total accumulated biomass from \(t=0\) to \(t=6\) with \(n=3\).
 
@@ -927,7 +924,7 @@ L_3 = \Delta t\,[B(0)+B(2)+B(4)]
 
 ---
 
-### C. Right-Hand Riemann Sum (n = 3) {-}
+**C. Right-Hand Riemann Sum (n = 3) **
 
 1. **Right endpoints**  
 Using \(x_i^* = a + i\Delta x\) with \(a=0\), \(\Delta t = 2\):
@@ -961,7 +958,7 @@ R_3 = \Delta t\,[B(2)+B(4)+B(6)]
 
 ---
 
-### D. Midpoint Riemann Sum (n = 3) {-}
+**D. Midpoint Riemann Sum (n = 3) **
 
 1. **Midpoints of each interval**  
 Intervals are \([0,2]\), \([2,4]\), \([4,6]\). Midpoints:
@@ -1002,7 +999,7 @@ The midpoint estimate lands between left and right, which is typical for increas
 
 ---
 
-### E. Effect of Changing the Number of Intervals {-}
+**E. Effect of Changing the Number of Intervals **
 
 Now compute the **left-hand** sum with \(n=6\).
 
@@ -1039,7 +1036,7 @@ So: **you can’t legitimately do \(n=12\) from this dataset alone** without mak
 
 ---
 
-### F. Reflection {-}
+**F. Reflection **
 
 1. **Which method do you trust most? Why?**  
 Typically the **midpoint rule** is most trusted because it samples the function in the *middle* of each interval, which often balances over/underestimation when the data trend is smooth.  
@@ -1048,7 +1045,7 @@ However, in a data-only setting, your confidence also depends on whether midpoin
 
 ---
 
-## ✅ Solution Key — Net Toxin Uptake vs. Elimination{-}
+**✅ Solution Key — Net Toxin Uptake vs. Elimination**
 
 We are given the net toxin accumulation rate (mg/day):
 \[
@@ -1061,11 +1058,11 @@ The sign of \(r(t)\) tells the direction of change in toxin burden:
 
 ---
 
-### A. Left-Hand Riemann Sum (6 intervals) {-}
+**A. Left-Hand Riemann Sum (6 intervals) **
 
 We split \([0,6]\) into \(n=6\) equal subintervals.
 
-#### A1. Compute \(\Delta t\)
+**A1. Compute \(\Delta t\)**
 
 \[
 \Delta t = \frac{6-0}{6} = 1\ \text{day}
@@ -1076,7 +1073,7 @@ Left endpoints are:
 t_0=0,\ t_1=1,\ t_2=2,\ t_3=3,\ t_4=4,\ t_5=5
 \]
 
-#### A2. List the 6 rectangles and their areas \(r(t_i)\Delta t\)
+**A2. List the 6 rectangles and their areas \(r(t_i)\Delta t\)**
 
 Since \(\Delta t = 1\), each rectangle area is just \(r(t_i)\cdot 1 = r(t_i)\).
 
@@ -1102,7 +1099,7 @@ Rectangle areas \(r(t_i)\Delta t\) (mg) are:
 
 ---
 
-### B. NET Accumulation (Signed Accumulation) {-}
+**B. NET Accumulation (Signed Accumulation) **
 
 The net accumulation is the **signed** sum of rectangle areas:
 
@@ -1119,14 +1116,14 @@ Using the areas from Part A:
 \boxed{\text{NET} \approx 63\ \text{mg}}
 \]
 
-#### Interpretation
+**Interpretation**
 
 - Because the net value is **positive**, the fish ends the 6-day period with **more toxin** than it started with.
 - The negative rectangle (at \(t=3\)) represents a period of **net elimination**, which subtracts from the total.
 
 ---
 
-### C. Total Exchange (Total Toxin Processed) {-}
+**C. Total Exchange (Total Toxin Processed) **
 
 Total exchange counts uptake and elimination as **positive contributions**, so we sum \(|r(t_i)|\Delta t\):
 
@@ -1147,14 +1144,14 @@ Using the same rectangle list:
 \boxed{\text{TOTAL} \approx 69\ \text{mg}}
 \]
 
-#### Interpretation
+**Interpretation**
 
 - This represents the **total amount of toxin moved through the fish** (gained and eliminated combined) over the 6 days, using this rectangle approximation.
 - It is always **nonnegative** because absolute value makes every contribution \(\ge 0\).
 
 ---
 
-### D. Compare NET vs TOTAL {-}
+**D. Compare NET vs TOTAL **
 
 1. Why is total exchange always at least as large as the magnitude of net accumulation?
 
@@ -1171,11 +1168,11 @@ In plain language:
 
 ---
 
-## ✅ Solution Key — Differentiation Rules{-}
+**✅ Solution Key — Differentiation Rules**
 
 ---
 
-### 1. Product Rule
+**1. Product Rule**
 
 Given:
 \[
@@ -1208,7 +1205,7 @@ Simplify:
 
 ---
 
-### 2. Chain Rule
+**2. Chain Rule**
 
 Given:
 \[
@@ -1232,7 +1229,7 @@ Apply the chain rule:
 
 ---
 
-### 3. Quotient Rule
+**3. Quotient Rule**
 
 Given:
 \[
@@ -1264,7 +1261,7 @@ Simplify the numerator:
 
 ---
 
-### 4. Combined Rules (Product + Chain)
+**4. Combined Rules (Product + Chain)**
 
 Given:
 \[
@@ -1292,7 +1289,7 @@ p'(t) = f'(t)g(t) + f(t)g'(t)
 
 ---
 
-## ✅ Solution Key — Very Simple Antiderivatives
+**✅ Solution Key — Very Simple Antiderivatives**
 
 For each function, find **one** antiderivative.
 
@@ -1363,37 +1360,5 @@ Each antiderivative represents a *family* of functions. We omit the constant of 
 
 
 
-</div>
 
-<form onsubmit="unlock_set1(); return false;" id="gate_set1" style="margin-top:0.75rem;">
-  <input type="password" id="pwd_set1" placeholder="Enter password" aria-label="Answer key password">
-  <button type="submit">Unlock</button>
-  <span id="msg_set1" style="margin-left:0.5rem;" aria-live="polite"></span>
-</form>
-
-<script>
-function unlock_set1() {
-  var input = document.getElementById('pwd_set1');
-  var msg   = document.getElementById('msg_set1');
-  var sol   = document.getElementById('sol_set1');
-  var gate  = document.getElementById('gate_set1');
-  var pw    = (input.value || '').trim();
-  var det   = gate.closest('details'); if (det) det.open = true;
-
-  if (pw === 'dockers') {
-    sol.hidden = false;
-    gate.hidden = true;
-    input.value = '';
-    msg.textContent = '';
-  } else {
-    msg.textContent = 'Oi! Stop guessing :), ask a TA for help';
-    input.value = '';
-    input.focus();
-  }
-}
-</script>
-
-<noscript>
-<p><em>Note:</em> JavaScript is required to unlock solutions.</p>
-</noscript>
 </details>

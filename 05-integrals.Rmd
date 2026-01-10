@@ -1,0 +1,522 @@
+# Techniques of Integration (Indefinite Integrals)
+
+## Purpose of the Chapter
+
+In the previous chapter, you learned what a definite integral *means* (accumulation) and why it can be computed using antiderivatives (the Fundamental Theorem of Calculus).  
+
+This chapter answers the next practical question:
+
+> **How do we actually find antiderivatives when the integrand is not “obvious”?**
+
+Rather than treating integration as a list of formulas, this chapter emphasizes **pattern recognition + strategy**: identify the structure of a function, choose an appropriate method, and interpret the result in context.
+
+By the end of this chapter, you should be able to:
+
+- compute **indefinite integrals** using core rules and techniques,
+- recognize when to use **substitution**, **integration by parts**, **partial fractions**, or **numerical methods**,
+- connect each technique back to derivative rules (chain rule, product rule),
+- interpret results using **units, sign, and context**, not just algebra.
+
+---
+
+## Indefinite Integrals and the Constant of Integration
+
+In the previous chapter, you learned how a **definite integral** measures *net accumulated change over a specific interval*. The bounds told you exactly where accumulation started and stopped, and the result was a **single number** with a clear physical meaning.
+
+In this section, we remove those bounds and ask a different—but closely related—question:
+
+> **What functions have a given rate of change?**
+
+The answer leads us to **indefinite integrals**, antiderivatives, and the essential role of the constant of integration.
+
+---
+
+### From Definite to Indefinite Integrals
+
+A **definite integral**
+\[
+\int_a^b f(x)\,dx
+\]
+asks:
+
+> *How much total change occurred between \(x=a\) and \(x=b\)?*
+
+An **indefinite integral**
+\[
+\int f(x)\,dx
+\]
+asks something more open-ended:
+
+> *What function (or functions) have derivative equal to \(f(x)\)?*
+
+When the bounds disappear, two important things change:
+
+1. **The result is no longer a number.**  
+   An indefinite integral produces a *function*.
+
+2. **The accumulation is no longer anchored.**  
+   Without a starting point, we cannot say how much has accumulated—only *how accumulation grows*.
+
+This is why we write:
+\[
+\int f(x)\,dx = F(x) + C,
+\]
+where \(F'(x) = f(x)\).
+
+The indefinite integral does not describe a single accumulated quantity.  
+It describes an entire **family of possible accumulation functions**.
+
+---
+
+### Integrals as Families of Functions
+
+Consider the rate function:
+\[
+f(x) = 2x.
+\]
+
+Any of the following functions has derivative \(2x\):
+\[
+x^2,\quad x^2 + 3,\quad x^2 - 10,\quad x^2 + C.
+\]
+
+```{r antiderivative-family-example, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4}
+
+library(ggplot2)
+library(patchwork)
+
+# Domain
+x <- seq(-3, 3, length.out = 400)
+
+# Rate function
+f <- function(x) 2 * x
+
+# Antiderivatives with different constants
+F_base  <- x^2
+F_up    <- x^2 + 3
+F_down  <- x^2 - 10
+
+# Data frames
+df_rate <- data.frame(
+  x = x,
+  y = f(x)
+)
+
+df_anti <- data.frame(
+  x = x,
+  Base = F_base,
+  ShiftUp = F_up,
+  ShiftDown = F_down
+)
+
+# Left panel: rate function
+p_rate <- ggplot(df_rate, aes(x = x, y = y)) +
+  geom_line(linewidth = 1.2) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "gray50") +
+  labs(
+    title = "Rate Function  f(x) = 2x",
+    x = "x",
+    y = "Rate"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5)
+  )
+
+# Right panel: family of antiderivatives
+p_anti <- ggplot(df_anti, aes(x = x)) +
+  geom_line(aes(y = Base), linewidth = 1.2, color = "#0072B2") +
+  geom_line(aes(y = ShiftUp), linewidth = 1.2, color = "#D55E00") +
+  geom_line(aes(y = ShiftDown), linewidth = 1.2, color = "#009E73") +
+  labs(
+    title = "Antiderivatives  F(x) = x² + C",
+    x = "x",
+    y = "Accumulated Value"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5)
+  )
+
+# Combine panels
+p_rate | p_anti
+
+```
+
+> Remember from Calc I that a derivative function f(x) describes the slopes of a function. The slopes of the functions on the right are all the same for the same x value. So a constant doesn't impact slope. 
+
+All of these functions increase at the same rate for the same values of \(x\).  
+The only difference is **where they start**.
+
+This is the key conceptual shift:
+
+> **An indefinite integral describes how accumulation changes, not how much has accumulated so far.**
+
+The missing information is the starting value—and that missing information is encoded in the constant \(C\).
+
+---
+
+### Antiderivatives and the “+ C”
+
+An **antiderivative** of \(f(x)\) is any function whose derivative is \(f(x)\).
+
+Because derivatives eliminate constants:
+
+Differentiate term by term:
+\[
+\frac{d}{dx}\big(F(x) + C\big)
+= \frac{d}{dx}F(x) + \frac{d}{dx}C.
+\]
+
+Since a constant does not change with \(x\),
+\[
+\frac{d}{dx}C = 0.
+\]
+
+Therefore,
+\[
+\frac{d}{dx}\big(F(x) + C\big)
+= F'(x) + 0
+= F'(x).
+\]
+
+every antiderivative comes with an unavoidable ambiguity.
+
+That ambiguity is not a flaw—it reflects reality.
+
+---
+
+#### Why Antiderivatives Are Not Unique
+
+If \(f(x)\) represents a **rate** (such as carbon flux, water inflow, or population growth), then the *accumulated amount* depends on **initial conditions**:
+
+- How much carbon was already present?
+- How much water was in the reservoir at the start?
+- What was the initial population size?
+
+Different starting values produce different accumulation curves—but all follow the **same rate of change**.
+
+Mathematically, this is why we must include the constant of integration, \(+C\).
+
+---
+
+::: promptbox
+
+**Environmental Example: Two Lakes with the Same Inflow Rate**
+
+Suppose two lakes experience the **same inflow rate** of water, modeled by
+\[
+f(t) = 2t \quad \text{(m³/day)},
+\]
+where \(t\) is time in days.
+
+This rate describes how quickly water is entering each lake at any moment.
+
+Integrating the rate gives an accumulation function:
+\[
+V(t) = t^2 + C,
+\]
+where \(V(t)\) is the volume of water in the lake and \(C\) represents the **initial volume**.
+
+Now suppose:
+
+- **Lake A** starts with 100 m³ of water  
+- **Lake B** starts with 250 m³ of water  
+
+Both lakes gain water according to the *same rate*, so their accumulation functions have the same shape.  
+The only difference is their starting point.
+
+- Lake A: \(V_A(t) = t^2 + 100\)
+- Lake B: \(V_B(t) = t^2 + 250\)
+
+Graphically, these curves are **vertical shifts** of one another.
+
+```{r two-lakes-same-rate-different-start, echo=FALSE, message=FALSE, warning=FALSE, fig.width=7, fig.height=4}
+
+library(ggplot2)
+
+# Time domain (days)
+t <- seq(0, 10, length.out = 400)
+
+# Lake volume functions
+VA <- t^2 + 100   # Lake A
+VB <- t^2 + 250   # Lake B
+
+# Data frame
+df <- data.frame(
+  t = t,
+  LakeA = VA,
+  LakeB = VB
+)
+
+# Plot
+ggplot(df, aes(x = t)) +
+  geom_line(aes(y = LakeA, color = "Lake A"), linewidth = 1.2) +
+  geom_line(aes(y = LakeB, color = "Lake B"), linewidth = 1.2) +
+  scale_y_continuous(limits = c(0, 400)) +
+  labs(
+    title = "Two Lakes with the Same Inflow Rate",
+    subtitle = "Same rate of change, different initial volumes",
+    x = "Time (days)",
+    y = "Water Volume (m3)",
+    color = NULL
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(face = "bold"),
+    plot.subtitle = element_text(color = "gray40")
+  )
+
+```
+**Key Insight**
+
+> The rate of change determines the *shape* of accumulation.  
+> Initial conditions determine the *vertical position*.
+
+This is why antiderivatives are not unique:  
+the mathematics reflects the physical reality that systems can evolve at the same rate while starting from different states.
+
+:::
+
+
+#### Vertical Shifts and Initial Conditions
+
+The constant \(C\) represents a **vertical shift** of the accumulation function.
+
+Conceptually:
+- The *shape* of the curve is determined by the rate \(f(x)\).
+- The *vertical position* is determined by initial conditions.
+
+This mirrors environmental modeling:
+
+- Same rainfall rate → same growth pattern of water volume  
+- Different initial storage → different total volume at all times
+
+Ignoring \(C\) is equivalent to assuming the system always starts at zero—which is rarely justified unless explicitly stated.
+
+---
+
+#### Why Constants Cancel in Definite Integrals
+
+When computing a definite integral using an antiderivative:
+\[
+\int_a^b f(x)\,dx = [F(x) + C]_a^b,
+\]
+the constant cancels:
+\[
+(F(b) + C) - (F(a) + C) = F(b) - F(a).
+\]
+
+This is why definite integrals do **not** require a constant of integration.
+
+A definite integral measures **change between two points**, not absolute level.  
+Only differences matter.
+
+Indefinite integrals, by contrast, describe **absolute accumulation**, so the constant matters.
+
+---
+
+### Quick Interpretation Habit
+
+To use indefinite integrals correctly—especially in applied contexts—it helps to adopt two quick interpretation checks.
+
+---
+
+#### Units in Indefinite Integrals
+
+Even without bounds, units still carry meaning.
+
+If:
+- \(f(x)\) has units of *rate* (e.g., kg/day),
+- and \(x\) has units of *time* (days),
+
+then:
+\[
+\int f(x)\,dx
+\]
+has units of **accumulated quantity** (kg).
+
+However, without bounds:
+- you do **not** yet know *how much* has accumulated,
+- only how accumulation depends on \(x\).
+
+This distinction prevents a common mistake: treating an indefinite integral as a physical total without specifying a reference point.
+
+---
+
+#### Determining \(C\) from a Known Starting Value
+
+In real problems, the constant \(C\) is determined using **initial conditions**.
+
+Example:
+- Suppose \(f(t)\) is a rate of change.
+- You find an antiderivative \(F(t) + C\).
+- You are told that the accumulated quantity equals \(A_0\) at time \(t=t_0\).
+
+Then you solve:
+\[
+F(t_0) + C = A_0
+\]
+to determine \(C\).
+
+This step turns a *family* of solutions into a **specific model**.
+
+---
+
+### Key Takeaway
+
+> **Indefinite integrals describe how accumulation grows; the constant of integration encodes where accumulation starts.**
+
+Definite integrals eliminate this ambiguity by focusing on change between two points.  
+Indefinite integrals retain it—because real systems depend on initial conditions.
+
+Understanding this distinction is essential before learning any integration technique, because every technique ultimately produces an antiderivative—and every antiderivative represents a family of possible accumulated states.
+
+
+---
+
+## 2) Reverse Differentiation as a Skill
+
+### 2.1 The “Antiderivative Dictionary”
+- Power rule in reverse (including the special case \(x^{-1}\))
+- Exponentials and logarithms
+- Basic trig antiderivatives
+
+### 2.2 Pattern Recognition Over Memorization
+- Reading an integrand as a derivative you’ve seen before
+- Common structures that should trigger a known rule
+
+### 2.3 Practice: Fast Recognition Drills
+- Short, high-repetition integrals
+- “Name the rule” before computing
+
+---
+
+## 3) Substitution: When a Function Is Hiding Inside Another
+
+### 3.1 The Big Idea (Chain Rule in Reverse)
+- Recognizing \(f(g(x))g'(x)\)
+- Why substitution is a “change of variable,” not a trick
+
+### 3.2 The Mechanics of \(u\)-Substitution
+- Choosing \(u\)
+- Converting \(dx\) to \(du\)
+- Integrate in \(u\), then substitute back
+
+### 3.3 Substitution in Definite Integrals (Optional here, or saved for later)
+- Changing bounds instead of substituting back
+- Why this can reduce algebra mistakes
+
+### 3.4 Common Pitfalls
+- Missing the derivative factor
+- Incorrect \(du\)
+- Substituting back too early
+
+---
+
+## 4) Integration by Parts: When Two Things Are Multiplying
+
+### 4.1 The Big Idea (Product Rule in Reverse)
+- Derivation from \((uv)' = u'v + uv'\)
+- Why this method “moves complexity” from one factor to another
+
+### 4.2 The Formula and How to Use It
+- \(\int u\,dv = uv - \int v\,du\)
+- Picking \(u\) and \(dv\) strategically
+
+### 4.3 Strategy for Choosing \(u\)
+- Heuristics (what tends to simplify when differentiated)
+- Avoiding “no progress” loops
+
+### 4.4 Repeated Integration by Parts (When Needed)
+- When one round isn’t enough
+- When it terminates vs when it cycles
+
+---
+
+## 5) Trig Integrals and Trig Substitutions (Optional / Course-Dependent)
+
+### 5.1 Trig Identities That Unlock Integrals
+- Pythagorean identities
+- Power-reduction / rewrite strategies
+
+### 5.2 Common Trig Integral Patterns
+- Products of powers of \(\sin\) and \(\cos\)
+- Secant/tangent patterns (if included)
+
+### 5.3 Trig Substitution (If included)
+- When radicals suggest circles/triangles
+- How substitution changes the integrand
+- Back-substitution with triangles
+
+---
+
+## 6) Partial Fractions (Rational Functions)
+
+### 6.1 Recognizing “Rational Function” Structure
+- When \( \frac{P(x)}{Q(x)} \) is the form
+- Proper vs improper rational functions
+
+### 6.2 Algebra Step: Long Division (If Needed)
+- Reducing improper to proper + polynomial part
+
+### 6.3 Decomposition Patterns
+- Distinct linear factors
+- Repeated linear factors
+- Irreducible quadratics (if included)
+
+### 6.4 Integrating the Pieces
+- Log forms from linear denominators
+- Arctan forms from irreducible quadratics (if included)
+
+### 6.5 Common Pitfalls
+- Missing terms in the decomposition
+- Algebra errors that cascade
+
+---
+
+## 7) Numerical Integration Revisited (A Reality Check)
+
+### 7.1 When You Don’t Have a Formula
+- Discrete measurements and tabular data
+- Modeling vs measurement
+
+### 7.2 Trapezoid Rule (and Simpson’s Rule if included)
+- What the method assumes about the curve
+- Accuracy intuition: curvature + resolution
+
+### 7.3 Comparing Numeric and Analytic Results
+- Sanity checks
+- When disagreement is informative (not just “error”)
+
+---
+
+## 8) Strategy: How to Choose a Method
+
+### 8.1 The Decision Tree
+- Basic rules vs substitution vs parts vs partial fractions vs numerical
+- “What do you try first?” checklist
+
+### 8.2 Mixed-Technique Problems
+- When a problem requires multiple steps
+- How to avoid committing too early
+
+### 8.3 Workflow Habits That Prevent Mistakes
+- Rewrite/simplify first
+- Check by differentiating
+- Units and sign checks (especially for applied setups)
+
+---
+
+## Chapter Wrap-Up
+
+### Key Takeaways
+- Integration methods are organized around *structure*
+- Each technique is the inverse of a derivative rule
+- Interpretation (units, sign, context) is part of correctness
+
+### Practice Sets
+- Skills drills (fast technique recognition)
+- Mixed-method practice
+- Applied accumulation problems (analytic + numeric comparison)
+

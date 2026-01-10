@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Intro Calculus Workbook | Environmental Calculus 2 - Active Learning with Case Studies</title>
+  <title>Chapter 5 Techniques of Integration (Indefinite Integrals) | Environmental Calculus 2 - Active Learning with Case Studies</title>
   <meta name="description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
   <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Intro Calculus Workbook | Environmental Calculus 2 - Active Learning with Case Studies" />
+  <meta property="og:title" content="Chapter 5 Techniques of Integration (Indefinite Integrals) | Environmental Calculus 2 - Active Learning with Case Studies" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Intro Calculus Workbook | Environmental Calculus 2 - Active Learning with Case Studies" />
+  <meta name="twitter:title" content="Chapter 5 Techniques of Integration (Indefinite Integrals) | Environmental Calculus 2 - Active Learning with Case Studies" />
   
   <meta name="twitter:description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="test1-review-material.html"/>
-<link rel="next" href="workbook-introduction-to-calculus-ii-accumulation-and-change.html"/>
+<link rel="prev" href="definite-integrals-and-the-fundamental-theorem-of-calculus.html"/>
+<link rel="next" href="calculus-ii-equation-sheet.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -507,178 +507,467 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="intro-calculus-workbook" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Intro Calculus Workbook<a href="intro-calculus-workbook.html#intro-calculus-workbook" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="teaching-team-introductions" class="section level2 hasAnchor" number="6.1">
-<h2><span class="header-section-number">6.1</span> Teaching Team Introductions<a href="intro-calculus-workbook.html#teaching-team-introductions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="gaj-sivandran" class="section level3 hasAnchor" number="6.1.1">
-<h3><span class="header-section-number">6.1.1</span> Gaj Sivandran<a href="intro-calculus-workbook.html#gaj-sivandran" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="images/gaj_timeline.png" alt="Timeline of Gaj's career"></p>
-<p><strong>Teaching Interests</strong></p>
+<div id="techniques-of-integration-indefinite-integrals" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Techniques of Integration (Indefinite Integrals)<a href="techniques-of-integration-indefinite-integrals.html#techniques-of-integration-indefinite-integrals" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="purpose-of-the-chapter-1" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Purpose of the Chapter<a href="techniques-of-integration-indefinite-integrals.html#purpose-of-the-chapter-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In the previous chapter, you learned what a definite integral <em>means</em> (accumulation) and why it can be computed using antiderivatives (the Fundamental Theorem of Calculus).</p>
+<p>This chapter answers the next practical question:</p>
+<blockquote>
+<p><strong>How do we actually find antiderivatives when the integrand is not “obvious”?</strong></p>
+</blockquote>
+<p>Rather than treating integration as a list of formulas, this chapter emphasizes <strong>pattern recognition + strategy</strong>: identify the structure of a function, choose an appropriate method, and interpret the result in context.</p>
+<p>By the end of this chapter, you should be able to:</p>
 <ul>
-<li>Design (freshman and senior)</li>
-<li>Fundamental engineering (statics, fluids)</li>
-<li>Environmental labs</li>
-<li>Water resources</li>
+<li>compute <strong>indefinite integrals</strong> using core rules and techniques,</li>
+<li>recognize when to use <strong>substitution</strong>, <strong>integration by parts</strong>, <strong>partial fractions</strong>, or <strong>numerical methods</strong>,</li>
+<li>connect each technique back to derivative rules (chain rule, product rule),</li>
+<li>interpret results using <strong>units, sign, and context</strong>, not just algebra.</li>
 </ul>
-<p><strong>Research Interests</strong></p>
-<ul>
-<li>Climate change</li>
-<li>Active learning pedagogy</li>
-<li>Simulation modeling</li>
-<li>Decision support (socio-economic modelling)</li>
-</ul>
-<p><strong>Random Facts</strong></p>
-<ul>
-<li>I have an 11yr old daughter that helps me write exam questions</li>
-<li>Dogs &gt;Cats, Cricket &gt; Baseball, AFL &gt; NFL, Vegemite &gt; Peanut butter</li>
-<li>I like to run very very long distances, stilling working on why</li>
-</ul>
+<hr />
 </div>
+<div id="indefinite-integrals-and-the-constant-of-integration" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Indefinite Integrals and the Constant of Integration<a href="techniques-of-integration-indefinite-integrals.html#indefinite-integrals-and-the-constant-of-integration" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In the previous chapter, you learned how a <strong>definite integral</strong> measures <em>net accumulated change over a specific interval</em>. The bounds told you exactly where accumulation started and stopped, and the result was a <strong>single number</strong> with a clear physical meaning.</p>
+<p>In this section, we remove those bounds and ask a different—but closely related—question:</p>
+<blockquote>
+<p><strong>What functions have a given rate of change?</strong></p>
+</blockquote>
+<p>The answer leads us to <strong>indefinite integrals</strong>, antiderivatives, and the essential role of the constant of integration.</p>
+<hr />
+<div id="from-definite-to-indefinite-integrals" class="section level3 hasAnchor" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> From Definite to Indefinite Integrals<a href="techniques-of-integration-indefinite-integrals.html#from-definite-to-indefinite-integrals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A <strong>definite integral</strong>
+<span class="math display">\[
+\int_a^b f(x)\,dx
+\]</span>
+asks:</p>
+<blockquote>
+<p><em>How much total change occurred between <span class="math inline">\(x=a\)</span> and <span class="math inline">\(x=b\)</span>?</em></p>
+</blockquote>
+<p>An <strong>indefinite integral</strong>
+<span class="math display">\[
+\int f(x)\,dx
+\]</span>
+asks something more open-ended:</p>
+<blockquote>
+<p><em>What function (or functions) have derivative equal to <span class="math inline">\(f(x)\)</span>?</em></p>
+</blockquote>
+<p>When the bounds disappear, two important things change:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>The result is no longer a number.</strong><br />
+An indefinite integral produces a <em>function</em>.</p></li>
+<li><p><strong>The accumulation is no longer anchored.</strong><br />
+Without a starting point, we cannot say how much has accumulated—only <em>how accumulation grows</em>.</p></li>
+</ol>
+<p>This is why we write:
+<span class="math display">\[
+\int f(x)\,dx = F(x) + C,
+\]</span>
+where <span class="math inline">\(F&#39;(x) = f(x)\)</span>.</p>
+<p>The indefinite integral does not describe a single accumulated quantity.<br />
+It describes an entire <strong>family of possible accumulation functions</strong>.</p>
+<hr />
 </div>
-<div id="classroom-etiquette" class="section level2 hasAnchor" number="6.2">
-<h2><span class="header-section-number">6.2</span> Classroom Etiquette<a href="intro-calculus-workbook.html#classroom-etiquette" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><img src="images/hands.png" style="float:right; width:250px; margin:10px;" fig.alt="Decorative" /></p>
+<div id="integrals-as-families-of-functions" class="section level3 hasAnchor" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Integrals as Families of Functions<a href="techniques-of-integration-indefinite-integrals.html#integrals-as-families-of-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Consider the rate function:
+<span class="math display">\[
+f(x) = 2x.
+\]</span></p>
+<p>Any of the following functions has derivative <span class="math inline">\(2x\)</span>:
+<span class="math display">\[
+x^2,\quad x^2 + 3,\quad x^2 - 10,\quad x^2 + C.
+\]</span></p>
+<p><img src="bookdown-demo_files/figure-html/antiderivative-family-example-1.png" width="960" /></p>
+<blockquote>
+<p>Remember from Calc I that a derivative function f(x) describes the slopes of a function. The slopes of the functions on the right are all the same for the same x value. So a constant doesn’t impact slope.</p>
+</blockquote>
+<p>All of these functions increase at the same rate for the same values of <span class="math inline">\(x\)</span>.<br />
+The only difference is <strong>where they start</strong>.</p>
+<p>This is the key conceptual shift:</p>
+<blockquote>
+<p><strong>An indefinite integral describes how accumulation changes, not how much has accumulated so far.</strong></p>
+</blockquote>
+<p>The missing information is the starting value—and that missing information is encoded in the constant <span class="math inline">\(C\)</span>.</p>
+<hr />
+</div>
+<div id="antiderivatives-and-the-c" class="section level3 hasAnchor" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> Antiderivatives and the “+ C”<a href="techniques-of-integration-indefinite-integrals.html#antiderivatives-and-the-c" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>An <strong>antiderivative</strong> of <span class="math inline">\(f(x)\)</span> is any function whose derivative is <span class="math inline">\(f(x)\)</span>.</p>
+<p>Because derivatives eliminate constants:</p>
+<p>Differentiate term by term:
+<span class="math display">\[
+\frac{d}{dx}\big(F(x) + C\big)
+= \frac{d}{dx}F(x) + \frac{d}{dx}C.
+\]</span></p>
+<p>Since a constant does not change with <span class="math inline">\(x\)</span>,
+<span class="math display">\[
+\frac{d}{dx}C = 0.
+\]</span></p>
+<p>Therefore,
+<span class="math display">\[
+\frac{d}{dx}\big(F(x) + C\big)
+= F&#39;(x) + 0
+= F&#39;(x).
+\]</span></p>
+<p>every antiderivative comes with an unavoidable ambiguity.</p>
+<p>That ambiguity is not a flaw—it reflects reality.</p>
+<hr />
+<div id="why-antiderivatives-are-not-unique" class="section level4 hasAnchor" number="5.2.3.1">
+<h4><span class="header-section-number">5.2.3.1</span> Why Antiderivatives Are Not Unique<a href="techniques-of-integration-indefinite-integrals.html#why-antiderivatives-are-not-unique" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>If <span class="math inline">\(f(x)\)</span> represents a <strong>rate</strong> (such as carbon flux, water inflow, or population growth), then the <em>accumulated amount</em> depends on <strong>initial conditions</strong>:</p>
 <ul>
-<li>Please feel free to bring your breakfast/lunch to class – just be sure to clean up before you leave</li>
-<li>Bring whatever tech you need to take notes and engage. We will be using Poll everywhere</li>
-<li>Ask questions – but please be respectful of all voices and views - wrong answers have more value than right ones!</li>
+<li>How much carbon was already present?</li>
+<li>How much water was in the reservoir at the start?</li>
+<li>What was the initial population size?</li>
 </ul>
-</div>
-<div id="why-are-you-here" class="section level2 hasAnchor" number="6.3">
-<h2><span class="header-section-number">6.3</span> Why are you here?<a href="intro-calculus-workbook.html#why-are-you-here" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Different starting values produce different accumulation curves—but all follow the <strong>same rate of change</strong>.</p>
+<p>Mathematically, this is why we must include the constant of integration, <span class="math inline">\(+C\)</span>.</p>
+<hr />
 <div class="promptbox">
-<p><strong>Discussion</strong>
-In small groups:</p>
-<p><img src="images/declared_majors.png" style="float:right; width:200px; margin:10px;" fig.alt="Decorative" /></p>
+<p><strong>Environmental Example: Two Lakes with the Same Inflow Rate</strong></p>
+<p>Suppose two lakes experience the <strong>same inflow rate</strong> of water, modeled by
+<span class="math display">\[
+f(t) = 2t \quad \text{(m³/day)},
+\]</span>
+where <span class="math inline">\(t\)</span> is time in days.</p>
+<p>This rate describes how quickly water is entering each lake at any moment.</p>
+<p>Integrating the rate gives an accumulation function:
+<span class="math display">\[
+V(t) = t^2 + C,
+\]</span>
+where <span class="math inline">\(V(t)\)</span> is the volume of water in the lake and <span class="math inline">\(C\)</span> represents the <strong>initial volume</strong>.</p>
+<p>Now suppose:</p>
 <ul>
-<li>Introduce yourselves</li>
-<li>Why are you all here?</li>
-<li>What do you think this class could be useful for?</li>
-<li>What do you notice about the declared majors in this class?</li>
+<li><strong>Lake A</strong> starts with 100 m³ of water<br />
+</li>
+<li><strong>Lake B</strong> starts with 250 m³ of water</li>
 </ul>
-<p><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
-</div>
-</div>
-<div id="my-expectations-of-you" class="section level2 hasAnchor" number="6.4">
-<h2><span class="header-section-number">6.4</span> My Expectations of You<a href="intro-calculus-workbook.html#my-expectations-of-you" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><img src="images/endure.png" style="float:right; width:100px; margin:10px;" fig.alt="Cover of the book Endure" /></p>
-<p><strong>Objective 1</strong> : The ability to apply calculus to the natural system</p>
+<p>Both lakes gain water according to the <em>same rate</em>, so their accumulation functions have the same shape.<br />
+The only difference is their starting point.</p>
 <ul>
-<li>Calculus is a language that allows us to tell complex environmental stories</li>
+<li>Lake A: <span class="math inline">\(V_A(t) = t^2 + 100\)</span></li>
+<li>Lake B: <span class="math inline">\(V_B(t) = t^2 + 250\)</span></li>
 </ul>
-<p><strong>Objective 2</strong>: Effort</p>
+<p>Graphically, these curves are <strong>vertical shifts</strong> of one another.</p>
+<p><img src="bookdown-demo_files/figure-html/two-lakes-same-rate-different-start-1.png" width="672" />
+<strong>Key Insight</strong></p>
+<blockquote>
+<p>The rate of change determines the <em>shape</em> of accumulation.<br />
+Initial conditions determine the <em>vertical position</em>.</p>
+</blockquote>
+<p>This is why antiderivatives are not unique:<br />
+the mathematics reflects the physical reality that systems can evolve at the same rate while starting from different states.</p>
+</div>
+</div>
+<div id="vertical-shifts-and-initial-conditions" class="section level4 hasAnchor" number="5.2.3.2">
+<h4><span class="header-section-number">5.2.3.2</span> Vertical Shifts and Initial Conditions<a href="techniques-of-integration-indefinite-integrals.html#vertical-shifts-and-initial-conditions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The constant <span class="math inline">\(C\)</span> represents a <strong>vertical shift</strong> of the accumulation function.</p>
+<p>Conceptually:
+- The <em>shape</em> of the curve is determined by the rate <span class="math inline">\(f(x)\)</span>.
+- The <em>vertical position</em> is determined by initial conditions.</p>
+<p>This mirrors environmental modeling:</p>
 <ul>
-<li>The best definition of I have come across <em>the struggle to continue against a mounting desire to stop - Alex Hutchinson, Endure</em></li>
+<li>Same rainfall rate → same growth pattern of water volume<br />
+</li>
+<li>Different initial storage → different total volume at all times</li>
 </ul>
+<p>Ignoring <span class="math inline">\(C\)</span> is equivalent to assuming the system always starts at zero—which is rarely justified unless explicitly stated.</p>
+<hr />
 </div>
-<div id="your-expectations-of-me" class="section level2 hasAnchor" number="6.5">
-<h2><span class="header-section-number">6.5</span> Your Expectations of Me<a href="intro-calculus-workbook.html#your-expectations-of-me" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="promptbox">
-<p><strong>Discussion</strong></p>
-<p>In a small group make 2 lists</p>
+<div id="why-constants-cancel-in-definite-integrals" class="section level4 hasAnchor" number="5.2.3.3">
+<h4><span class="header-section-number">5.2.3.3</span> Why Constants Cancel in Definite Integrals<a href="techniques-of-integration-indefinite-integrals.html#why-constants-cancel-in-definite-integrals" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>When computing a definite integral using an antiderivative:
+<span class="math display">\[
+\int_a^b f(x)\,dx = [F(x) + C]_a^b,
+\]</span>
+the constant cancels:
+<span class="math display">\[
+(F(b) + C) - (F(a) + C) = F(b) - F(a).
+\]</span></p>
+<p>This is why definite integrals do <strong>not</strong> require a constant of integration.</p>
+<p>A definite integral measures <strong>change between two points</strong>, not absolute level.<br />
+Only differences matter.</p>
+<p>Indefinite integrals, by contrast, describe <strong>absolute accumulation</strong>, so the constant matters.</p>
+<hr />
+</div>
+</div>
+<div id="quick-interpretation-habit" class="section level3 hasAnchor" number="5.2.4">
+<h3><span class="header-section-number">5.2.4</span> Quick Interpretation Habit<a href="techniques-of-integration-indefinite-integrals.html#quick-interpretation-habit" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To use indefinite integrals correctly—especially in applied contexts—it helps to adopt two quick interpretation checks.</p>
+<hr />
+<div id="units-in-indefinite-integrals" class="section level4 hasAnchor" number="5.2.4.1">
+<h4><span class="header-section-number">5.2.4.1</span> Units in Indefinite Integrals<a href="techniques-of-integration-indefinite-integrals.html#units-in-indefinite-integrals" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Even without bounds, units still carry meaning.</p>
+<p>If:
+- <span class="math inline">\(f(x)\)</span> has units of <em>rate</em> (e.g., kg/day),
+- and <span class="math inline">\(x\)</span> has units of <em>time</em> (days),</p>
+<p>then:
+<span class="math display">\[
+\int f(x)\,dx
+\]</span>
+has units of <strong>accumulated quantity</strong> (kg).</p>
+<p>However, without bounds:
+- you do <strong>not</strong> yet know <em>how much</em> has accumulated,
+- only how accumulation depends on <span class="math inline">\(x\)</span>.</p>
+<p>This distinction prevents a common mistake: treating an indefinite integral as a physical total without specifying a reference point.</p>
+<hr />
+</div>
+<div id="determining-c-from-a-known-starting-value" class="section level4 hasAnchor" number="5.2.4.2">
+<h4><span class="header-section-number">5.2.4.2</span> Determining <span class="math inline">\(C\)</span> from a Known Starting Value<a href="techniques-of-integration-indefinite-integrals.html#determining-c-from-a-known-starting-value" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>In real problems, the constant <span class="math inline">\(C\)</span> is determined using <strong>initial conditions</strong>.</p>
+<p>Example:
+- Suppose <span class="math inline">\(f(t)\)</span> is a rate of change.
+- You find an antiderivative <span class="math inline">\(F(t) + C\)</span>.
+- You are told that the accumulated quantity equals <span class="math inline">\(A_0\)</span> at time <span class="math inline">\(t=t_0\)</span>.</p>
+<p>Then you solve:
+<span class="math display">\[
+F(t_0) + C = A_0
+\]</span>
+to determine <span class="math inline">\(C\)</span>.</p>
+<p>This step turns a <em>family</em> of solutions into a <strong>specific model</strong>.</p>
+<hr />
+</div>
+</div>
+<div id="key-takeaway-7" class="section level3 hasAnchor" number="5.2.5">
+<h3><span class="header-section-number">5.2.5</span> Key Takeaway<a href="techniques-of-integration-indefinite-integrals.html#key-takeaway-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p><strong>Indefinite integrals describe how accumulation grows; the constant of integration encodes where accumulation starts.</strong></p>
+</blockquote>
+<p>Definite integrals eliminate this ambiguity by focusing on change between two points.<br />
+Indefinite integrals retain it—because real systems depend on initial conditions.</p>
+<p>Understanding this distinction is essential before learning any integration technique, because every technique ultimately produces an antiderivative—and every antiderivative represents a family of possible accumulated states.</p>
+<hr />
+</div>
+</div>
+<div id="reverse-differentiation-as-a-skill" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> 2) Reverse Differentiation as a Skill<a href="techniques-of-integration-indefinite-integrals.html#reverse-differentiation-as-a-skill" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="the-antiderivative-dictionary" class="section level3 hasAnchor" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> 2.1 The “Antiderivative Dictionary”<a href="techniques-of-integration-indefinite-integrals.html#the-antiderivative-dictionary" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li>What can you come to see me about?</li>
+<li>Power rule in reverse (including the special case <span class="math inline">\(x^{-1}\)</span>)</li>
+<li>Exponentials and logarithms</li>
+<li>Basic trig antiderivatives</li>
 </ul>
-<p><br><br><br><br><br><br><br><br></p>
+</div>
+<div id="pattern-recognition-over-memorization" class="section level3 hasAnchor" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> 2.2 Pattern Recognition Over Memorization<a href="techniques-of-integration-indefinite-integrals.html#pattern-recognition-over-memorization" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li>What should you find someone else for?
-<br><br><br><br><br><br><br><br></li>
+<li>Reading an integrand as a derivative you’ve seen before</li>
+<li>Common structures that should trigger a known rule</li>
 </ul>
 </div>
-</div>
-<div id="syllabus-highlights" class="section level2 hasAnchor" number="6.6">
-<h2><span class="header-section-number">6.6</span> Syllabus Highlights<a href="intro-calculus-workbook.html#syllabus-highlights" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="assessments" class="section level3 hasAnchor" number="6.6.1">
-<h3><span class="header-section-number">6.6.1</span> Assessments<a href="intro-calculus-workbook.html#assessments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="images/assessmentpie.png" style="float:right; width:500px; margin:10px;" fig.alt="Pie chart of assessment breakdown - percentages in text" /></p>
-<p><strong>Preparation</strong> [10%]</p>
+<div id="practice-fast-recognition-drills" class="section level3 hasAnchor" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> 2.3 Practice: Fast Recognition Drills<a href="techniques-of-integration-indefinite-integrals.html#practice-fast-recognition-drills" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li>Before class readings/questions</li>
-<li>After-class self checks</li>
+<li>Short, high-repetition integrals</li>
+<li>“Name the rule” before computing</li>
 </ul>
-<p><strong>Participation</strong> [10%]</p>
+<hr />
+</div>
+</div>
+<div id="substitution-when-a-function-is-hiding-inside-another" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> 3) Substitution: When a Function Is Hiding Inside Another<a href="techniques-of-integration-indefinite-integrals.html#substitution-when-a-function-is-hiding-inside-another" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="the-big-idea-chain-rule-in-reverse" class="section level3 hasAnchor" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> 3.1 The Big Idea (Chain Rule in Reverse)<a href="techniques-of-integration-indefinite-integrals.html#the-big-idea-chain-rule-in-reverse" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li>In-class activities</li>
-<li>Polleverywhere</li>
+<li>Recognizing <span class="math inline">\(f(g(x))g&#39;(x)\)</span></li>
+<li>Why substitution is a “change of variable,” not a trick</li>
 </ul>
-<p><strong>Homeworks</strong> [10%]</p>
+</div>
+<div id="the-mechanics-of-u-substitution" class="section level3 hasAnchor" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> 3.2 The Mechanics of <span class="math inline">\(u\)</span>-Substitution<a href="techniques-of-integration-indefinite-integrals.html#the-mechanics-of-u-substitution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li>Roughly every week</li>
-<li>Revise and resubmit</li>
-<li>Grade on accuracy and effort</li>
+<li>Choosing <span class="math inline">\(u\)</span></li>
+<li>Converting <span class="math inline">\(dx\)</span> to <span class="math inline">\(du\)</span></li>
+<li>Integrate in <span class="math inline">\(u\)</span>, then substitute back</li>
 </ul>
-<p><strong>Tests</strong> [60%]</p>
+</div>
+<div id="substitution-in-definite-integrals-optional-here-or-saved-for-later" class="section level3 hasAnchor" number="5.4.3">
+<h3><span class="header-section-number">5.4.3</span> 3.3 Substitution in Definite Integrals (Optional here, or saved for later)<a href="techniques-of-integration-indefinite-integrals.html#substitution-in-definite-integrals-optional-here-or-saved-for-later" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li>4 Tests over the term</li>
-<li>2 can be re-taken during finals week</li>
-<li>1 pg of notes (2sides)</li>
+<li>Changing bounds instead of substituting back</li>
+<li>Why this can reduce algebra mistakes</li>
 </ul>
-<p><strong>Applications</strong> [10%]</p>
+</div>
+<div id="common-pitfalls-1" class="section level3 hasAnchor" number="5.4.4">
+<h3><span class="header-section-number">5.4.4</span> 3.4 Common Pitfalls<a href="techniques-of-integration-indefinite-integrals.html#common-pitfalls-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li>A couple of case studies that utilize the content we cover in class</li>
+<li>Missing the derivative factor</li>
+<li>Incorrect <span class="math inline">\(du\)</span></li>
+<li>Substituting back too early</li>
 </ul>
-<div class="promptbox">
-<p><strong>Class discussion</strong></p>
-<p>Why do you think there is so much weight on tests and participation?</p>
-<p><br><br><br><br></p>
+<hr />
 </div>
 </div>
-<div id="acedemic-integrity" class="section level3 hasAnchor" number="6.6.2">
-<h3><span class="header-section-number">6.6.2</span> Acedemic Integrity<a href="intro-calculus-workbook.html#acedemic-integrity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>This class has been designed to reward you for doing your <strong>own</strong> work
-Tests will be relatively straightforward if you make the effort on the in-class and homework assessments</p>
-<p>Using these resources will only make studying for tests harder. Many of these resources give you the <em>illusion</em> of understanding - but the reality is quite different.</p>
-<p><img src="images/milkcrate.png" style="float:right; width:300px; margin:10px;" fig.alt="A picture of a person trying to climb a pyramid made up of milk crates" /></p>
-<p><img src="images/chegg.png" style="width:300px; margin:10px;" fig.alt="Pie chart of assessment breakdown - percentages in text" /></p>
+<div id="integration-by-parts-when-two-things-are-multiplying" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> 4) Integration by Parts: When Two Things Are Multiplying<a href="techniques-of-integration-indefinite-integrals.html#integration-by-parts-when-two-things-are-multiplying" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="the-big-idea-product-rule-in-reverse" class="section level3 hasAnchor" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> 4.1 The Big Idea (Product Rule in Reverse)<a href="techniques-of-integration-indefinite-integrals.html#the-big-idea-product-rule-in-reverse" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Derivation from <span class="math inline">\((uv)&#39; = u&#39;v + uv&#39;\)</span></li>
+<li>Why this method “moves complexity” from one factor to another</li>
+</ul>
 </div>
-<div id="late-assessment-missed-assessment-policy" class="section level3 hasAnchor" number="6.6.3">
-<h3><span class="header-section-number">6.6.3</span> Late Assessment / Missed Assessment Policy<a href="intro-calculus-workbook.html#late-assessment-missed-assessment-policy" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>This is a firm policy to make sure I am being fair to all of you.</p>
-<p><strong>Grace period:</strong> Homeworks for this class are due Friday at 11:59pm. Homeworks will be accepted 72 hrs after their due date with no penalty (Monday 11:59pm). Graded work not turned in by this time will receive a grade of zero.</p>
-<p><strong>Missed Tests</strong>: If you miss a test, you will need to use one of your ‘re-takes’ during finals weeks to do it. However, if you have a legitimate reason, I will work with you to reschedule the test earlier so you can save your re-take.</p>
-<p><strong>Missed Class Preparation/Participation:</strong> From time to time we miss class for several reasons (studying for another test that day, field work, illness, etc). There will be <strong>no opportunity</strong> to submit preparation and participation activities if they are missed. The purpose of these activities are to reinforce concepts in the moment – and have little value out the context of the material being covered that day.</p>
-<p>To accommodate for this, 5% of the total preparation and participation assessments will be dropped. There will also be additional extra-credit opportunities throughout the term.</p>
-<p><strong>Exceptional Circumstances</strong>: You must contact me 48 hours before the <strong>actual</strong> due date (not after the 48hr grace period) of a graded assignment to give me advanced notice, or within 12 hours after the work is due in the case of an emergency. If you fail to do this, you will receive zero credit for the missed assignment.</p>
-<div class="promptbox">
-<p><strong>Class Discussion</strong></p>
-<p>What do we consider <strong>exceptional circumstances</strong>?</p>
-<p><img src="images/excuses.png" style="left; width:300px; margin:10px;" fig.alt="Decorative cartoon of common excuses" /></p>
+<div id="the-formula-and-how-to-use-it" class="section level3 hasAnchor" number="5.5.2">
+<h3><span class="header-section-number">5.5.2</span> 4.2 The Formula and How to Use It<a href="techniques-of-integration-indefinite-integrals.html#the-formula-and-how-to-use-it" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><span class="math inline">\(\int u\,dv = uv - \int v\,du\)</span></li>
+<li>Picking <span class="math inline">\(u\)</span> and <span class="math inline">\(dv\)</span> strategically</li>
+</ul>
 </div>
+<div id="strategy-for-choosing-u" class="section level3 hasAnchor" number="5.5.3">
+<h3><span class="header-section-number">5.5.3</span> 4.3 Strategy for Choosing <span class="math inline">\(u\)</span><a href="techniques-of-integration-indefinite-integrals.html#strategy-for-choosing-u" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Heuristics (what tends to simplify when differentiated)</li>
+<li>Avoiding “no progress” loops</li>
+</ul>
 </div>
-<div id="test-retakes-policy" class="section level3 hasAnchor" number="6.6.4">
-<h3><span class="header-section-number">6.6.4</span> Test Retakes Policy<a href="intro-calculus-workbook.html#test-retakes-policy" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>There is no Final in this class – BUT – I will use the finals timeslot for the retakes. So don’t plan an early break if you think you might be doing a retake.</p>
-<p>If you miss a test during the term for a valid reason (health, emergency etc) and inform me in a timely manner, I’ll schedule a time during office hours for you to take the test. This flexibility is only good for a couple of days as I want to get the graded tests back to the rest of the class.</p>
-<p>If you miss a test for another reason (slept in, went to a wedding etc) you can always use one of your retakes – that’s what they are for.</p>
-<p>Reasons to retake
-Missed a test
-Want to try for a better grade
-Love calc so much you want to do more problems</p>
-<p>You can retake upto 2 tests. Your best score counts – so no risk</p>
-</div>
-<div id="class-notes" class="section level3 hasAnchor" number="6.6.5">
-<h3><span class="header-section-number">6.6.5</span> Class notes<a href="intro-calculus-workbook.html#class-notes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>All notes that I take in class are available on the onenote notebook link on Canvas
-All lectures will be recorded - these will also be made available on Canvas</p>
-<p>From time to time the technology will fail us. Remember these are being provided as a <em>bonus</em>. There is no substitute for attending class and taking your own notes.</p>
-</div>
-<div id="office-hours" class="section level3 hasAnchor" number="6.6.6">
-<h3><span class="header-section-number">6.6.6</span> Office Hours<a href="intro-calculus-workbook.html#office-hours" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Please select ALL times that <strong>could</strong> work.</p>
-<p>I will always try to hang around for 30mins or so after class to answer any questions.</p>
-<p>Office hours will be posted on Canvas as soon as they are set.</p>
-<p><br><br><br></p>
+<div id="repeated-integration-by-parts-when-needed" class="section level3 hasAnchor" number="5.5.4">
+<h3><span class="header-section-number">5.5.4</span> 4.4 Repeated Integration by Parts (When Needed)<a href="techniques-of-integration-indefinite-integrals.html#repeated-integration-by-parts-when-needed" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>When one round isn’t enough</li>
+<li>When it terminates vs when it cycles</li>
+</ul>
+<hr />
 </div>
 </div>
-<div id="questions" class="section level2 hasAnchor" number="6.7">
-<h2><span class="header-section-number">6.7</span> Questions?<a href="intro-calculus-workbook.html#questions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="promptbox">
-<p><strong>Class discussion</strong></p>
-<p>Ask me anything - whats on your mind - need clarification on any of the things we’ve talked about?
-<br><br><br><br><br><br><br><br><br></p>
+<div id="trig-integrals-and-trig-substitutions-optional-course-dependent" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> 5) Trig Integrals and Trig Substitutions (Optional / Course-Dependent)<a href="techniques-of-integration-indefinite-integrals.html#trig-integrals-and-trig-substitutions-optional-course-dependent" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="trig-identities-that-unlock-integrals" class="section level3 hasAnchor" number="5.6.1">
+<h3><span class="header-section-number">5.6.1</span> 5.1 Trig Identities That Unlock Integrals<a href="techniques-of-integration-indefinite-integrals.html#trig-identities-that-unlock-integrals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Pythagorean identities</li>
+<li>Power-reduction / rewrite strategies</li>
+</ul>
 </div>
+<div id="common-trig-integral-patterns" class="section level3 hasAnchor" number="5.6.2">
+<h3><span class="header-section-number">5.6.2</span> 5.2 Common Trig Integral Patterns<a href="techniques-of-integration-indefinite-integrals.html#common-trig-integral-patterns" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Products of powers of <span class="math inline">\(\sin\)</span> and <span class="math inline">\(\cos\)</span></li>
+<li>Secant/tangent patterns (if included)</li>
+</ul>
+</div>
+<div id="trig-substitution-if-included" class="section level3 hasAnchor" number="5.6.3">
+<h3><span class="header-section-number">5.6.3</span> 5.3 Trig Substitution (If included)<a href="techniques-of-integration-indefinite-integrals.html#trig-substitution-if-included" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>When radicals suggest circles/triangles</li>
+<li>How substitution changes the integrand</li>
+<li>Back-substitution with triangles</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="partial-fractions-rational-functions" class="section level2 hasAnchor" number="5.7">
+<h2><span class="header-section-number">5.7</span> 6) Partial Fractions (Rational Functions)<a href="techniques-of-integration-indefinite-integrals.html#partial-fractions-rational-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="recognizing-rational-function-structure" class="section level3 hasAnchor" number="5.7.1">
+<h3><span class="header-section-number">5.7.1</span> 6.1 Recognizing “Rational Function” Structure<a href="techniques-of-integration-indefinite-integrals.html#recognizing-rational-function-structure" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>When <span class="math inline">\(\frac{P(x)}{Q(x)}\)</span> is the form</li>
+<li>Proper vs improper rational functions</li>
+</ul>
+</div>
+<div id="algebra-step-long-division-if-needed" class="section level3 hasAnchor" number="5.7.2">
+<h3><span class="header-section-number">5.7.2</span> 6.2 Algebra Step: Long Division (If Needed)<a href="techniques-of-integration-indefinite-integrals.html#algebra-step-long-division-if-needed" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Reducing improper to proper + polynomial part</li>
+</ul>
+</div>
+<div id="decomposition-patterns" class="section level3 hasAnchor" number="5.7.3">
+<h3><span class="header-section-number">5.7.3</span> 6.3 Decomposition Patterns<a href="techniques-of-integration-indefinite-integrals.html#decomposition-patterns" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Distinct linear factors</li>
+<li>Repeated linear factors</li>
+<li>Irreducible quadratics (if included)</li>
+</ul>
+</div>
+<div id="integrating-the-pieces" class="section level3 hasAnchor" number="5.7.4">
+<h3><span class="header-section-number">5.7.4</span> 6.4 Integrating the Pieces<a href="techniques-of-integration-indefinite-integrals.html#integrating-the-pieces" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Log forms from linear denominators</li>
+<li>Arctan forms from irreducible quadratics (if included)</li>
+</ul>
+</div>
+<div id="common-pitfalls-2" class="section level3 hasAnchor" number="5.7.5">
+<h3><span class="header-section-number">5.7.5</span> 6.5 Common Pitfalls<a href="techniques-of-integration-indefinite-integrals.html#common-pitfalls-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Missing terms in the decomposition</li>
+<li>Algebra errors that cascade</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="numerical-integration-revisited-a-reality-check" class="section level2 hasAnchor" number="5.8">
+<h2><span class="header-section-number">5.8</span> 7) Numerical Integration Revisited (A Reality Check)<a href="techniques-of-integration-indefinite-integrals.html#numerical-integration-revisited-a-reality-check" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="when-you-dont-have-a-formula" class="section level3 hasAnchor" number="5.8.1">
+<h3><span class="header-section-number">5.8.1</span> 7.1 When You Don’t Have a Formula<a href="techniques-of-integration-indefinite-integrals.html#when-you-dont-have-a-formula" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Discrete measurements and tabular data</li>
+<li>Modeling vs measurement</li>
+</ul>
+</div>
+<div id="trapezoid-rule-and-simpsons-rule-if-included" class="section level3 hasAnchor" number="5.8.2">
+<h3><span class="header-section-number">5.8.2</span> 7.2 Trapezoid Rule (and Simpson’s Rule if included)<a href="techniques-of-integration-indefinite-integrals.html#trapezoid-rule-and-simpsons-rule-if-included" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>What the method assumes about the curve</li>
+<li>Accuracy intuition: curvature + resolution</li>
+</ul>
+</div>
+<div id="comparing-numeric-and-analytic-results" class="section level3 hasAnchor" number="5.8.3">
+<h3><span class="header-section-number">5.8.3</span> 7.3 Comparing Numeric and Analytic Results<a href="techniques-of-integration-indefinite-integrals.html#comparing-numeric-and-analytic-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Sanity checks</li>
+<li>When disagreement is informative (not just “error”)</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="strategy-how-to-choose-a-method" class="section level2 hasAnchor" number="5.9">
+<h2><span class="header-section-number">5.9</span> 8) Strategy: How to Choose a Method<a href="techniques-of-integration-indefinite-integrals.html#strategy-how-to-choose-a-method" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="the-decision-tree" class="section level3 hasAnchor" number="5.9.1">
+<h3><span class="header-section-number">5.9.1</span> 8.1 The Decision Tree<a href="techniques-of-integration-indefinite-integrals.html#the-decision-tree" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Basic rules vs substitution vs parts vs partial fractions vs numerical</li>
+<li>“What do you try first?” checklist</li>
+</ul>
+</div>
+<div id="mixed-technique-problems" class="section level3 hasAnchor" number="5.9.2">
+<h3><span class="header-section-number">5.9.2</span> 8.2 Mixed-Technique Problems<a href="techniques-of-integration-indefinite-integrals.html#mixed-technique-problems" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>When a problem requires multiple steps</li>
+<li>How to avoid committing too early</li>
+</ul>
+</div>
+<div id="workflow-habits-that-prevent-mistakes" class="section level3 hasAnchor" number="5.9.3">
+<h3><span class="header-section-number">5.9.3</span> 8.3 Workflow Habits That Prevent Mistakes<a href="techniques-of-integration-indefinite-integrals.html#workflow-habits-that-prevent-mistakes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Rewrite/simplify first</li>
+<li>Check by differentiating</li>
+<li>Units and sign checks (especially for applied setups)</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="chapter-wrap-up" class="section level2 hasAnchor" number="5.10">
+<h2><span class="header-section-number">5.10</span> Chapter Wrap-Up<a href="techniques-of-integration-indefinite-integrals.html#chapter-wrap-up" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="key-takeaways-1" class="section level3 hasAnchor" number="5.10.1">
+<h3><span class="header-section-number">5.10.1</span> Key Takeaways<a href="techniques-of-integration-indefinite-integrals.html#key-takeaways-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Integration methods are organized around <em>structure</em></li>
+<li>Each technique is the inverse of a derivative rule</li>
+<li>Interpretation (units, sign, context) is part of correctness</li>
+</ul>
+</div>
+<div id="practice-sets" class="section level3 hasAnchor" number="5.10.2">
+<h3><span class="header-section-number">5.10.2</span> Practice Sets<a href="techniques-of-integration-indefinite-integrals.html#practice-sets" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Skills drills (fast technique recognition)</li>
+<li>Mixed-method practice</li>
+<li>Applied accumulation problems (analytic + numeric comparison)</li>
+</ul>
 
+</div>
 </div>
 </div>
             </section>
@@ -686,8 +975,8 @@ All lectures will be recorded - these will also be made available on Canvas</p>
           </div>
         </div>
       </div>
-<a href="test1-review-material.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="workbook-introduction-to-calculus-ii-accumulation-and-change.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="calculus-ii-equation-sheet.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -718,7 +1007,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/rstudio/bookdown-demo/edit/master/101-index_wB.Rmd",
+    "link": "https://github.com/rstudio/bookdown-demo/edit/master/05-integrals.Rmd",
     "text": "Edit"
   },
   "history": {
