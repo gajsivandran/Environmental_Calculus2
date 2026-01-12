@@ -153,7 +153,7 @@ This is exactly what an integral measures:
 
 > the total accumulation obtained by adding up tiny contributions from a changing rate.
 
-```{r rate-curve-area-water-bottle, echo=FALSE, message=FALSE, warning=FALSE, fig.width=7, fig.height=4}
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=7, fig.height=4}
 
 library(ggplot2)
 
@@ -165,9 +165,12 @@ rects <- data.frame(
 )
 
 # Widths and accumulation
-rects$dt <- rects$t1 - rects$t0
+rects$dt   <- rects$t1 - rects$t0
 rects$area <- rects$r * rects$dt
 rects$mid_t <- (rects$t0 + rects$t1) / 2
+
+# IMPORTANT FIX: use a clean ASCII fill id (avoid encoding issues in scale labels)
+rects$fill_id <- factor(paste0("interval_", seq_len(nrow(rects))))
 
 total_volume_ml <- sum(rects$area)
 
@@ -177,11 +180,16 @@ step_df <- data.frame(
   r = c(50, 90, 30, 30)
 )
 
+# Optional: force UTF-8 for any text labels we create (safe in bookdown)
+rects$height_lab <- enc2utf8(paste0("height = ", rects$r))
+rects$width_lab  <- enc2utf8(paste0("width = ", rects$dt))
+rects$area_lab   <- enc2utf8(paste0(rects$r, " \u00D7 ", rects$dt, " = ", rects$area))
+
 ggplot() +
   # Shaded rectangles (each a different color)
   geom_rect(
     data = rects,
-    aes(xmin = t0, xmax = t1, ymin = 0, ymax = r, fill = factor(t0)),
+    aes(xmin = t0, xmax = t1, ymin = 0, ymax = r, fill = fill_id),
     alpha = 0.4,
     color = "black"
   ) +
@@ -196,7 +204,7 @@ ggplot() +
   # Height annotations
   geom_text(
     data = rects,
-    aes(x = mid_t, y = r +8, label = paste0("height = ", r)),
+    aes(x = mid_t, y = r + 8, label = height_lab),
     vjust = 1,
     size = 3.3
   ) +
@@ -204,7 +212,7 @@ ggplot() +
   # Width annotations
   geom_text(
     data = rects,
-    aes(x = mid_t, y = 5, label = paste0("width = ", dt)),
+    aes(x = mid_t, y = 5, label = width_lab),
     vjust = 1,
     size = 3.3
   ) +
@@ -212,11 +220,7 @@ ggplot() +
   # Area (height × width) annotations
   geom_text(
     data = rects,
-    aes(
-      x = mid_t,
-      y = r/2,
-      label = paste0(r, " × ", dt, " = ", area)
-    ),
+    aes(x = mid_t, y = r/2, label = area_lab),
     fontface = "bold",
     size = 3.3
   ) +
@@ -227,7 +231,7 @@ ggplot() +
     x = max(rects$t1),
     y = max(rects$r) * 1.15,
     hjust = 1,
-    label = paste0("Total accumulation = ", total_volume_ml, " mL"),
+    label = enc2utf8(paste0("Total accumulation = ", total_volume_ml, " mL")),
     fontface = "bold",
     size = 4
   ) +
@@ -239,6 +243,7 @@ ggplot() +
   ) +
   
   scale_fill_brewer(palette = "Pastel1") +
+  coord_cartesian(ylim = c(0, max(rects$r) * 1.25)) +
   theme_minimal() +
   theme(
     legend.position = "none",
@@ -246,7 +251,6 @@ ggplot() +
   )
 
 ```
-
 
 :::
 

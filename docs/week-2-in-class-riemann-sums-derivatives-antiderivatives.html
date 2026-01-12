@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 8 Workbook: Approximating an Integral: Understanding Area, Accumulation, and Riemann Sums | Environmental Calculus 2 - Active Learning with Case Studies</title>
+  <title>Chapter 10 Week 2 In-Class: Riemann Sums → Derivatives → Antiderivatives | Environmental Calculus 2 - Active Learning with Case Studies</title>
   <meta name="description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
   <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 8 Workbook: Approximating an Integral: Understanding Area, Accumulation, and Riemann Sums | Environmental Calculus 2 - Active Learning with Case Studies" />
+  <meta property="og:title" content="Chapter 10 Week 2 In-Class: Riemann Sums → Derivatives → Antiderivatives | Environmental Calculus 2 - Active Learning with Case Studies" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 8 Workbook: Approximating an Integral: Understanding Area, Accumulation, and Riemann Sums | Environmental Calculus 2 - Active Learning with Case Studies" />
+  <meta name="twitter:title" content="Chapter 10 Week 2 In-Class: Riemann Sums → Derivatives → Antiderivatives | Environmental Calculus 2 - Active Learning with Case Studies" />
   
   <meta name="twitter:description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="workbook-introduction-to-calculus-ii-accumulation-and-change.html"/>
-<link rel="next" href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html"/>
+<link rel="prev" href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -568,280 +568,421 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums" class="section level1 hasAnchor" number="8">
-<h1><span class="header-section-number">Chapter 8</span> Workbook: Approximating an Integral: Understanding Area, Accumulation, and Riemann Sums<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<hr />
-<div id="activity-1-what-does-area-under-a-curve-mean" class="section level2 unnumbered hasAnchor">
-<h2>Activity 1 — What Does “Area Under a Curve” Mean?<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#activity-1-what-does-area-under-a-curve-mean" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="activity-1a-area-under-a-constant-function" class="section level3 unnumbered hasAnchor">
-<h3>Activity 1A: Area Under a Constant Function<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#activity-1a-area-under-a-constant-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Consider the function<br />
-<span class="math display">\[
-f(x) = 3 \quad \text{on } [0,5].
-\]</span></p>
-<p><strong>Prompt (Think–Pair–Share):</strong></p>
-<ul>
-<li>What does the graph of this function look like?</li>
-<li>How would you describe the “area under the curve” in plain language?</li>
-<li>Can you calculate the area?</li>
-</ul>
-<p><br><br><br><br><br><br><br><br><br><br><br><br></p>
-<p>What if <em>f</em> represented the velocity and <em>x</em> represented time</p>
-<ul>
-<li>What would the area under the curve represent?</li>
-</ul>
-<p><span class="math display">\[
-v(t) = 3 \quad \text{on } [0,5].
-\]</span></p>
-<p><br><br><br><br><br><br><br></p>
-<div class="promptbox">
-<p><strong>Key takeaway:</strong><br />
-Summary:</p>
-<p><br><br><br><br><br><br></p>
-</div>
-<hr />
-</div>
-<div id="activity-1b-area-under-a-piecewise-linear-function" class="section level3 unnumbered hasAnchor">
-<h3>Activity 1B: Area Under a Piecewise Linear Function<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#activity-1b-area-under-a-piecewise-linear-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Consider the following piecewise description (a graph should be provided):</p>
-<ul>
-<li>From <span class="math inline">\(x = 0\)</span> to <span class="math inline">\(x = 2\)</span>: <span class="math inline">\(f(x) = 2\)</span></li>
-<li>From <span class="math inline">\(x = 2\)</span> to <span class="math inline">\(x = 5\)</span>: a straight line from <span class="math inline">\(f(2) = 2\)</span> to <span class="math inline">\(f(5) = 6\)</span></li>
-</ul>
-<p><img src="bookdown-demo_files/figure-html/piecewise-linear-plot-1.png" width="672" /></p>
-<p><strong>Guiding Questions:</strong></p>
-<ul>
-<li>What is the accumulation of this function between [0 5]?</li>
-</ul>
-<p><br><br><br><br><br><br><br><br><br><br><br><br></p>
-<div class="promptbox">
-<p><strong>Key takeaway:</strong><br />
-Summary:</p>
-<p><br><br><br><br><br><br></p>
-</div>
-<hr />
-</div>
-<div id="activity-1c-student-extrapolation-area-from-discrete-data" class="section level3 unnumbered hasAnchor">
-<h3>Activity 1C (Student Extrapolation): Area from Discrete Data<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#activity-1c-student-extrapolation-area-from-discrete-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>You are given the following table of values:</p>
-<table>
-<thead>
-<tr class="header">
-<th align="center"><span class="math inline">\(x\)</span></th>
-<th align="center">0</th>
-<th align="center">1</th>
-<th align="center">2</th>
-<th align="center">3</th>
-<th align="center">4</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center"><span class="math inline">\(f(x)\)</span></td>
-<td align="center">2</td>
-<td align="center">3</td>
-<td align="center">5</td>
-<td align="center">4</td>
-<td align="center">6</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Prompt:</strong></p>
-<ul>
-<li>In this case no function is given to us. Just the data points.</li>
-<li>Estimate the area from <span class="math inline">\(x = 0\)</span> to <span class="math inline">\(x = 4\)</span>?</li>
-</ul>
-<p><img src="bookdown-demo_files/figure-html/discrete-data-plot-1.png" width="672" /></p>
-<p><br><br><br><br><br><br><br><br><br><br><br><br></p>
-<div class="promptbox">
-<p><strong>Reflection:</strong></p>
-<ul>
-<li>What assumptions are you making?</li>
-<li>How might different assumptions change your estimate?
-<br><br><br><br><br><br></li>
-</ul>
-</div>
-<hr />
-</div>
-<div id="activity-1d-area-under-a-continuous-function" class="section level3 unnumbered hasAnchor">
-<h3>Activity 1D: Area Under a Continuous Function<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#activity-1d-area-under-a-continuous-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Consider the function<br />
-<span class="math display">\[
-f(x) = x^2 \quad \text{on } [0,2].
-\]</span></p>
-<p><img src="bookdown-demo_files/figure-html/quadratic-shaded-area-1.png" width="672" />
-<strong>Discussion Prompts:</strong></p>
-<ul>
-<li>Why can’t we use simple geometry here?</li>
-<li>What makes this harder than the previous examples?</li>
-<li>Ideas on how we could ‘approximate this area’?
-<br><br><br><br><br><br></li>
-</ul>
-<hr />
-</div>
-</div>
-<div id="activity-2-the-big-picture-riemann-sums" class="section level2 unnumbered hasAnchor">
-<h2>Activity 2 — The Big Picture: Riemann Sums<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#activity-2-the-big-picture-riemann-sums" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="reading-the-math" class="section level3 unnumbered hasAnchor">
-<h3>Reading the Math<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#reading-the-math" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>Prompt</strong></p>
-<ul>
-<li>Can you decipher what this is telling us to do?
-<br><br><br><br><br><br>
-<span class="math display">\[
-\sum_{i=1}^{n} f(x_i)\,\Delta x
-\]</span>
-<br><br><br><br><br><br></li>
-</ul>
-</div>
-<div id="activity-2a-left-hand-riemann-sum" class="section level3 unnumbered hasAnchor">
-<h3>Activity 2A: Left-Hand Riemann Sum<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#activity-2a-left-hand-riemann-sum" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>We return to the function<br />
-<span class="math display">\[
-f(x) = x^2 \quad \text{on } [0,2].
-\]</span></p>
-<p>Now lets pull together the variables we need</p>
-<p><strong><span class="math inline">\(\Delta x\)</span></strong></p>
-<p><br><br><br><br><br><br></p>
-<p><strong><span class="math inline">\(f(x_i)\)</span></strong></p>
-<p><br><br><br><br><br><br><br><br><br><br><br><br></p>
-<p><strong><span class="math inline">\(\sum_{i=1}^{n} f(x_i)\,\Delta x\)</span></strong></p>
-<p><br><br><br><br><br><br><br><br><br><br><br><br></p>
-<hr />
-</div>
-<div id="activity-2b-right-hand-and-midpoint-sums" class="section level3 unnumbered hasAnchor">
-<h3>Activity 2B: Right-Hand and Midpoint Sums<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#activity-2b-right-hand-and-midpoint-sums" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>Prompt:</strong></p>
-<ul>
-<li>If the left-hand sum samples the left endpoint of each subinterval:
-<ul>
-<li>Where would the right-hand sum sample?</li>
-<li>Where would the midpoint sum sample?</li>
-</ul></li>
-</ul>
-<p><br><br><br><br><br></p>
-<p><strong>Student Tasks:</strong>
-Calculate the right-hand and midpoint Riemann sums for
-<span class="math display">\[
-f(x) = x^2 \quad \text{on } [0,2].
-\]</span>
-<em>[Hint: Create a process, build a table of data points, their function values, then calculate the sum]</em></p>
-<p><br><br><br><br><br><br><br><br><br><br><br><br></p>
-<hr />
-</div>
-</div>
-<div id="activity-3-choosing-a-method-conservative-vs-optimistic-estimates" class="section level2 unnumbered hasAnchor">
-<h2>Activity 3 — Choosing a Method: Conservative vs Optimistic Estimates<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#activity-3-choosing-a-method-conservative-vs-optimistic-estimates" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="discussion-activity" class="section level3 unnumbered hasAnchor">
-<h3>Discussion Activity<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#discussion-activity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Assume the function is <strong>increasing</strong> on the interval.</p>
-<p><img src="bookdown-demo_files/figure-html/riemann-under-over-triangles2-1.png" width="960" /></p>
-<p><strong>Small-Group Discussion Prompts:</strong></p>
-<ul>
-<li>Which method gives a conservative estimate?</li>
-<li>Which method gives an optimistic estimate?</li>
-<li>When might overestimating be safer?</li>
-<li>When might underestimating be risky?</li>
-</ul>
-<p><br><br><br><br><br><br><br><br><br><br><br><br></p>
-<p><strong>Assume the function is decreasing</strong>
-<img src="bookdown-demo_files/figure-html/riemann-under-over-triangles-decreasing2-1.png" width="960" /></p>
-<p><strong>Prompt</strong></p>
-<ul>
-<li>What about now?</li>
-</ul>
-<p><br><br><br><br><br><br><br><br><br><br><br><br></p>
-<hr />
-</div>
-</div>
-<div id="activity-4-increasing-the-number-of-intervals" class="section level2 unnumbered hasAnchor">
-<h2>Activity 4 — Increasing the Number of Intervals<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#activity-4-increasing-the-number-of-intervals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="activity-4a-discussion-accuracy-vs-cost" class="section level3 unnumbered hasAnchor">
-<h3>Activity 4A (Discussion): Accuracy vs Cost<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#activity-4a-discussion-accuracy-vs-cost" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>Prompts:</strong>
-- What happens to the the Riemann summ as <span class="math inline">\(n\)</span> increases?</p>
-<p><br><br><br><br><br><br><br><br><br><br><br><br></p>
-<hr />
-</div>
-<div id="activity-4b-big-picture-bridge-to-integrals" class="section level3 unnumbered hasAnchor">
-<h3>Activity 4B Big-Picture Bridge to Integrals<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#activity-4b-big-picture-bridge-to-integrals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>Reflective Prompt:</strong>
-&gt; In Calculus I, Newton moved from average rates of change to instantaneous rates by letting <span class="math inline">\(\Delta x \to 0\)</span>.</p>
-<ul>
-<li>What do you think happens if we let the number of rectangles grow without bound?</li>
-</ul>
-<p><br><br><br><br><br><br><br><br><br><br><br><br></p>
-<p><img src="bookdown-demo_files/figure-html/refining-approximation-left-sums2-1.png" width="960" /></p>
-<ul>
-<li>How might this lead us from Riemann sums to <em>exact</em> area?</li>
-</ul>
-<p><span class="math display">\[
-\sum_{i=1}^{n} f(x_i)\,\Delta x \rightarrow \int_{a}^{b} f(x)\,dx
-\]</span></p>
-<p><br><br><br><br><br><br><br><br><br><br><br><br></p>
-<hr />
-</div>
-</div>
-<div id="activity-5-signed-area-when-the-function-goes-negative" class="section level2 unnumbered hasAnchor">
-<h2>Activity 5 — Signed Area: When the Function Goes Negative<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#activity-5-signed-area-when-the-function-goes-negative" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In this final activity, we use a <strong>realistic environmental signal</strong> to build intuition for signed area. Many environmental fluxes naturally oscillate between positive and negative values over time.</p>
-<hr />
-<div id="activity-5a-worked-together-carbon-flux-as-a-sinusoidal-process" class="section level3 unnumbered hasAnchor">
-<h3>Activity 5A (Worked Together): Carbon Flux as a Sinusoidal Process<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#activity-5a-worked-together-carbon-flux-as-a-sinusoidal-process" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Consider a short-term model of <strong>net carbon exchange</strong> between a forest and the atmosphere over three days.</p>
-<ul>
-<li>Positive values of <span class="math inline">\(f(t)\)</span>: net <strong>carbon sequestration</strong> (uptake)</li>
-<li>Negative values of <span class="math inline">\(f(t)\)</span>: net <strong>carbon release</strong></li>
-</ul>
-<p>Suppose the net carbon flux (in metric tons of CO<span class="math inline">\(_2\)</span> per day) is modeled by:
-<span class="math display">\[
-f(t) = 2\sin\!\left(2\pi t\right)
-\quad \text{on } [0,3],
-\]</span>
-where <span class="math inline">\(t\)</span> is time in days.</p>
-<p><img src="bookdown-demo_files/figure-html/carbon-sinusoid-1day-1.png" width="672" /></p>
-<p><strong>Interpretation prompts (class discussion):</strong></p>
-<ul>
-<li><p>Why might carbon flux vary smoothly rather than remain constant?
-<br><br><br><br><br></p></li>
-<li><p>At what times is the forest acting as a carbon sink?
-<br><br><br><br><br></p></li>
-<li><p>At what times is it acting as a carbon source?
-<br><br><br><br><br></p></li>
-<li><p>What do the zeros of the function represent physically?
-<br><br><br><br><br></p></li>
-<li><p>Lets do a unit check, what are the units of the area under the curve?
-<br><br><br><br><br></p></li>
-<li><p>How much <strong>net carbon</strong> has accumulated over the full three days.
-<br><br><br><br><br></p></li>
-<li><p>How would you approximate this with a Riemann Sum?
-<br><br><br><br><br><br><br><br><br><br></p></li>
-</ul>
-<p><img src="bookdown-demo_files/figure-html/carbon-sinusoid-lh-riemann-colored-1.png" width="672" /></p>
-<ul>
-<li>Now with a much smaller delta x
-<img src="bookdown-demo_files/figure-html/carbon-sinusoid-lh-riemann-colored2-1.png" width="672" /></li>
-</ul>
-<hr />
-<div class="promptbox">
+<div id="week-2-in-class-riemann-sums-derivatives-antiderivatives" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Chapter 10</span> Week 2 In-Class: Riemann Sums → Derivatives → Antiderivatives<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#week-2-in-class-riemann-sums-derivatives-antiderivatives" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="trapezoidal-rule" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> Trapezoidal Rule<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#trapezoidal-rule" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The idea here is approximate the area under the curve using the area of a trapezoid.</p>
+<p><img src="bookdown-demo_files/figure-html/trapezoid-vs-left-riemann2-1.png" width="960" /></p>
+<div class="promptox">
 <p><strong>Key Idea</strong></p>
-<p>Environmental processes often involve <strong>competing fluxes</strong>:
-- Uptake vs release
-- Storage vs loss</p>
-<p>A definite integral does not measure “area” alone—it measures <strong>net accumulation</strong>.</p>
-<p>Signed area is the mathematical tool that allows calculus to track <em>both magnitude and direction</em> in real environmental systems.</p>
+<p>We are following the same procedure as we did for Riemann Sums. The key differences</p>
+<ul>
+<li>Need a new expression for the area</li>
+</ul>
+<p>The area <span class="math inline">\(A\)</span> of a trapezoid is given by</p>
+<p><span class="math display">\[
+A = \frac{1}{2}(b_1 + b_2)h
+\]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(b_1\)</span> and <span class="math inline">\(b_2\)</span> are the lengths of the two <strong>parallel sides</strong> (the bases),</li>
+<li><span class="math inline">\(h\)</span> is the <strong>height</strong>, the perpendicular distance between the bases.</li>
+</ul>
+<p>What could be replace <span class="math inline">\(b_1\)</span> and <span class="math inline">\(b_2\)</span> with?</p>
+<p><br><br><br></p>
 </div>
 </div>
+<div id="problem-approximating-an-integral-with-the-trapezoid-rule" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> Problem: Approximating an Integral with the Trapezoid Rule<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#problem-approximating-an-integral-with-the-trapezoid-rule" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let<br />
+<span class="math display">\[
+f(x) = x^2
+\]</span>
+on the interval <span class="math inline">\([1,7]\)</span>.</p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-14-1.png" width="960" /></p>
+<p>Use the <strong>Trapezoid Rule</strong> with <span class="math inline">\(n = 3\)</span> subintervals to approximate
+<span class="math display">\[
+\int_{1}^{7} f(x)\,dx.
+\]</span></p>
+<hr />
+<div id="step-1-set-up-the-riemann-sum-framework" class="section level3 hasAnchor" number="10.2.1">
+<h3><span class="header-section-number">10.2.1</span> Step 1: Set Up the Riemann Sum Framework<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#step-1-set-up-the-riemann-sum-framework" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The trapezoid rule is built from a <strong>Riemann sum</strong>, where the interval <span class="math inline">\([a,b]\)</span> is divided into <span class="math inline">\(n\)</span> equal subintervals of width
+<span class="math display">\[
+\Delta x = \frac{b-a}{n}.
+\]</span></p>
+<p>For this problem:
+<span class="math display">\[
+\Delta x =
+\]</span></p>
+<hr />
 </div>
-<div id="closing-reflection" class="section level2 unnumbered hasAnchor">
-<h2>Closing Reflection<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#closing-reflection" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Riemann sums are not the destination.<br />
-They are the bridge between intuition, geometry, and the formal definition of the integral.</p>
+<div id="step-2-identify-the-x_i-and-fx_i-values" class="section level3 hasAnchor" number="10.2.2">
+<h3><span class="header-section-number">10.2.2</span> Step 2: Identify the <span class="math inline">\(x_i\)</span> and <span class="math inline">\(f(x_i)\)</span> Values<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#step-2-identify-the-x_i-and-fx_i-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The partition points (also called <strong>nodes</strong>) are defined by
+<span class="math display">\[
+x_i = a + i\Delta x, \quad i = 0,1,2,\dots,n.
+\]</span></p>
+<p>Using <span class="math inline">\(a=1\)</span> and <span class="math inline">\(\Delta x=2\)</span>:
+<span class="math display">\[
+\begin{aligned}
+x_0 &amp;=  \\
+x_1 &amp;=  \\
+x_2 &amp;=  \\
+x_3 &amp;=
+\end{aligned}
+\]</span></p>
+<p>These <span class="math inline">\(x_i\)</span> values mark the endpoints of each trapezoid.</p>
+<hr />
 </div>
-<div id="min-write" class="section level2 unnumbered hasAnchor">
-<h2>2 min write<a href="workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums.html#min-write" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Bullet 3 takeaways from today</p>
+<div id="step-3-trapezoid-rule-as-a-riemann-sum" class="section level3 hasAnchor" number="10.2.3">
+<h3><span class="header-section-number">10.2.3</span> Step 3: Trapezoid Rule as a Riemann Sum<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#step-3-trapezoid-rule-as-a-riemann-sum" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The trapezoid rule can be written as a <strong>weighted Riemann sum</strong>:
+<span class="math display">\[
+T_n = \frac{\Delta x}{2}
+\left[
+f(x_0) + 2f(x_1) + 2f(x_2) + \cdots + 2f(x_{n-1}) + f(x_n)
+\right].
+\]</span></p>
+<p><strong>Important observations:</strong></p>
+<ul>
+<li>The first and last function values are counted <strong>once</strong></li>
+<li>All interior function values are counted <strong>twice</strong></li>
+</ul>
+<hr />
+</div>
+<div id="step-4-why-this-formula-represents-trapezoids" class="section level3 hasAnchor" number="10.2.4">
+<h3><span class="header-section-number">10.2.4</span> Step 4: Why This Formula Represents Trapezoids<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#step-4-why-this-formula-represents-trapezoids" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>On each subinterval <span class="math inline">\([x_{i-1}, x_i]\)</span>, the area is approximated by a trapezoid with:</p>
+<ul>
+<li>Base width: <span class="math inline">\(\Delta x\)</span></li>
+<li>Parallel sides: <span class="math inline">\(f(x_{i-1})\)</span> and <span class="math inline">\(f(x_i)\)</span></li>
+</ul>
+<p>The area of a single trapezoid is
+<span class="math display">\[
+\text{Area}_i
+= \frac{1}{2}\left[f(x_{i-1}) + f(x_i)\right]\Delta x.
+\]</span></p>
+<p>Summing the areas of all trapezoids gives
+<span class="math display">\[
+\sum_{i=1}^{n}
+\frac{1}{2}\left[f(x_{i-1}) + f(x_i)\right]\Delta x,
+\]</span>
+which simplifies to the trapezoid rule formula above.</p>
+<hr />
+</div>
+<div id="numerical-evaluation" class="section level3 hasAnchor" number="10.2.5">
+<h3><span class="header-section-number">10.2.5</span> Numerical Evaluation<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#numerical-evaluation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><br><br><br><br><br><br><br><br><br><br><br><br></p>
+<hr />
+</div>
+<div id="key-takeaway-8" class="section level3 hasAnchor" number="10.2.6">
+<h3><span class="header-section-number">10.2.6</span> Key Takeaway<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#key-takeaway-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The trapezoid rule is still a <strong>Riemann sum</strong>, but it improves accuracy by:</p>
+<ul>
+<li>Using both left and right endpoint values</li>
+<li>Approximating the region under the curve with trapezoids instead of rectangles</li>
+</ul>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div id="definite-integrals-and-the-fundamental-theorem-of-calculus-1" class="section level2 hasAnchor" number="10.3">
+<h2><span class="header-section-number">10.3</span> Definite Integrals and the Fundamental Theorem of Calculus<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#definite-integrals-and-the-fundamental-theorem-of-calculus-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In the previous chapter, you developed an intuition for <strong>accumulation</strong> by approximating totals from rates using rectangles, tables, and graphs. You saw how adding up many small contributions can represent meaningful environmental quantities such as total rainfall, streamflow, carbon exchange, or pollutant transport. You also encountered the idea of <strong>signed accumulation</strong>, where gains and losses can offset each other over time.</p>
+<p>This chapter formalizes those ideas.</p>
+<p>Here, we move from <em>“adding rectangles makes sense”</em> to <em>“integrals are well-defined mathematical objects with powerful and reliable properties.”</em> You will learn how mathematicians define accumulation precisely, why different approximation methods converge to the same value, and how integrals connect directly back to derivatives through one of the most important results in calculus.</p>
+<p>Rather than treating integrals as a new collection of formulas, this chapter emphasizes <strong>meaning first</strong>. Computation matters, but it is grounded in interpretation: what a definite integral represents, how it behaves, and why it works.</p>
+<p>By the end of this chapter, you should clearly understand:</p>
+<ul>
+<li>what a definite integral is and how it arises from limits of Riemann sums<br />
+</li>
+<li>why a definite integral represents accumulation, not just area<br />
+</li>
+<li>how integration and differentiation are connected<br />
+</li>
+<li>how to compute definite integrals efficiently <em>without losing meaning</em></li>
+</ul>
+<hr />
+</div>
+<div id="from-riemann-sums-to-definite-integrals-1" class="section level2 hasAnchor" number="10.4">
+<h2><span class="header-section-number">10.4</span> From Riemann Sums to Definite Integrals<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#from-riemann-sums-to-definite-integrals-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In the previous chapter, you learned how to approximate accumulation by <strong>adding up rectangles</strong> under a rate curve. These approximations—left, right, midpoint, and trapezoidal—allowed you to estimate totals from discrete measurements and to reason carefully about overestimates, underestimates, and conservativeness.</p>
+<p>In this section, we take the next conceptual step:</p>
+<blockquote>
+<p><strong>Riemann sums are a process.<br />
+The definite integral is the result of that process.</strong></p>
+</blockquote>
+<hr />
+<div id="riemann-sums-as-structured-approximations-1" class="section level3 hasAnchor" number="10.4.1">
+<h3><span class="header-section-number">10.4.1</span> Riemann Sums as Structured Approximations<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#riemann-sums-as-structured-approximations-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A Riemann sum is a structured way to approximate accumulation:</p>
+<ol style="list-style-type: decimal">
+<li>Partition an interval <span class="math inline">\([a,b]\)</span></li>
+<li>Choose a representative rate in each slice</li>
+<li>Multiply rate by width</li>
+<li>Add all contributions</li>
+</ol>
+<p>This mirrors how environmental data are handled in practice: discrete measurements represent continuous processes.</p>
+<hr />
+</div>
+<div id="from-finite-sums-to-a-limit-1" class="section level3 hasAnchor" number="10.4.2">
+<h3><span class="header-section-number">10.4.2</span> From Finite Sums to a Limit<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#from-finite-sums-to-a-limit-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A Riemann sum has the form:
+<span class="math display">\[
+\sum_{i=1}^n f(x_i^*)\Delta x
+\]</span></p>
+<p>As <span class="math inline">\(n \to \infty\)</span>, rectangles become thinner and approximation error shrinks.</p>
+<hr />
+</div>
+<div id="defining-the-definite-integral-1" class="section level3 hasAnchor" number="10.4.3">
+<h3><span class="header-section-number">10.4.3</span> Defining the Definite Integral<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#defining-the-definite-integral-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <strong>definite integral</strong> is defined as:
+<span class="math display">\[
+\int_a^b f(x)\,dx
+=
+\lim_{n\to\infty}
+\sum_{i=1}^n f(x_i^*)\Delta x
+\]</span></p>
+<p>This definition formalizes accumulation with perfect resolution.</p>
+<hr />
+</div>
+<div id="conceptual-meaning" class="section level3 hasAnchor" number="10.4.4">
+<h3><span class="header-section-number">10.4.4</span> Conceptual Meaning<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#conceptual-meaning" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The expression
+<span class="math display">\[
+\int_a^b f(x)\,dx
+\]</span>
+means:</p>
+<blockquote>
+<p>The total accumulated effect of the rate <span class="math inline">\(f(x)\)</span> as <span class="math inline">\(x\)</span> runs from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span></p>
+</blockquote>
+<hr />
+</div>
+</div>
+<div id="evaluating-a-definite-integral-step-by-step" class="section level2 hasAnchor" number="10.5">
+<h2><span class="header-section-number">10.5</span> Evaluating a Definite Integral (Step by Step)<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#evaluating-a-definite-integral-step-by-step" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Before learning shortcut rules for integrals, it is essential to practice the <strong>core process</strong> used to evaluate a definite integral. This section will guide you through that process one step at a time, with checkpoints to help you reflect on what each step means.</p>
+<hr />
+<div id="what-does-a-definite-integral-represent" class="section level3 hasAnchor" number="10.5.1">
+<h3><span class="header-section-number">10.5.1</span> What does a definite integral represent?<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#what-does-a-definite-integral-represent" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A definite integral,
+<span class="math display">\[
+\int_a^b f(x)\,dx,
+\]</span>
+represents the <strong>net accumulation</strong> of a quantity whose rate or density is given by <span class="math inline">\(f(x)\)</span> over the interval <span class="math inline">\([a,b]\)</span>.</p>
+<hr />
+</div>
+<div id="step-1-identify-the-function-being-accumulated" class="section level3 hasAnchor" number="10.5.2">
+<h3><span class="header-section-number">10.5.2</span> Step 1: Identify the function being accumulated<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#step-1-identify-the-function-being-accumulated" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Consider the integral:
+<span class="math display">\[
+\int_1^4 x^2\,dx.
+\]</span></p>
+<p><strong>Checkpoint 1</strong></p>
+<ul>
+<li><p>What is the function being accumulated?</p></li>
+<li><p>Over what interval does the accumulation occur?</p></li>
+<li><p>Function: __________________________<br />
+</p></li>
+<li><p>Interval: __________________________</p></li>
+</ul>
+<hr />
+</div>
+<div id="step-2-find-an-antiderivative" class="section level3 hasAnchor" number="10.5.3">
+<h3><span class="header-section-number">10.5.3</span> Step 2: Find an antiderivative<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#step-2-find-an-antiderivative" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To evaluate a definite integral, you first need an <strong>antiderivative</strong>.</p>
+<blockquote>
+<p>An antiderivative of <span class="math inline">\(f(x)\)</span> is a function <span class="math inline">\(F(x)\)</span> such that<br />
+<span class="math display">\[
+F&#39;(x) = f(x).
+\]</span></p>
+</blockquote>
+<p><strong>Practice</strong></p>
+<p>Find an antiderivative of:
+<span class="math display">\[
+f(x) = x^2
+\]</span></p>
+<p><span class="math display">\[
+F(x) = \rule{6cm}{0.15mm}
+\]</span></p>
+<p><em>(Do not include a constant of integration.)</em></p>
+<hr />
+</div>
+<div id="step-3-evaluate-the-antiderivative-at-the-bounds" class="section level3 hasAnchor" number="10.5.4">
+<h3><span class="header-section-number">10.5.4</span> Step 3: Evaluate the antiderivative at the bounds<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#step-3-evaluate-the-antiderivative-at-the-bounds" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Next, evaluate your antiderivative at the <strong>upper bound</strong> and the <strong>lower bound</strong>.</p>
+<p><strong>Upper bound:</strong></p>
+<p><span class="math display">\[
+F(4) = \rule{6cm}{0.15mm}
+\]</span></p>
+<p><strong>Lower bound:</strong></p>
+<p><span class="math display">\[
+F(1) = \rule{6cm}{0.15mm}
+\]</span></p>
+<hr />
+</div>
+<div id="step-4-subtract-to-find-the-net-accumulation" class="section level3 hasAnchor" number="10.5.5">
+<h3><span class="header-section-number">10.5.5</span> Step 4: Subtract to find the net accumulation<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#step-4-subtract-to-find-the-net-accumulation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The value of the definite integral is found by subtracting:
+<span class="math display">\[
+\int_1^4 x^2\,dx = F(4) - F(1).
+\]</span></p>
+<p><strong>Compute the difference:</strong></p>
+<p><span class="math display">\[
+F(4) - F(1) = \rule{6cm}{0.15mm}
+\]</span></p>
+<hr />
+</div>
+<div id="step-5-interpret-the-result" class="section level3 hasAnchor" number="10.5.6">
+<h3><span class="header-section-number">10.5.6</span> Step 5: Interpret the result<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#step-5-interpret-the-result" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Your final answer represents the <strong>total accumulated amount</strong> of <span class="math inline">\(x^2\)</span> from <span class="math inline">\(x=1\)</span> to <span class="math inline">\(x=4\)</span>.</p>
+<p><strong>Reflection questions</strong></p>
+<ul>
+<li>Is your result positive or negative? Why does that make sense?</li>
+<li>Would your answer change if you added a constant <span class="math inline">\(C\)</span> to the antiderivative? Why or why not?</li>
+</ul>
+<p><span class="math display">\[
+\rule{12cm}{0.15mm}
+\]</span></p>
+<hr />
+</div>
+</div>
+<div id="why-there-is-no-constant-of-integration" class="section level2 hasAnchor" number="10.6">
+<h2><span class="header-section-number">10.6</span> Why there is no constant of integration<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#why-there-is-no-constant-of-integration" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Suppose your antiderivative had included a constant <span class="math inline">\(C\)</span>:
+<span class="math display">\[
+F(x) + C.
+\]</span></p>
+<p>When evaluating the definite integral, you would compute:
+<span class="math display">\[
+(F(4) + C) - (F(1) + C).
+\]</span></p>
+<p><strong>Checkpoint 2</strong></p>
+<ul>
+<li>What happens to the constant <span class="math inline">\(C\)</span>?</li>
+<li>What does this tell you about definite integrals?</li>
+</ul>
+<p><span class="math display">\[
+\rule{12cm}{0.15mm}
+\]</span></p>
+<hr />
+</div>
+<div id="summary-the-evaluation-process" class="section level2 hasAnchor" number="10.7">
+<h2><span class="header-section-number">10.7</span> Summary: The Evaluation Process<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#summary-the-evaluation-process" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Every definite integral is evaluated using the same three-step process:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Find an antiderivative</strong></li>
+<li><strong>Evaluate it at the upper and lower bounds</strong></li>
+<li><strong>Subtract to find net accumulation</strong></li>
+</ol>
+<hr />
+<div id="optional-challenge" class="section level3 hasAnchor" number="10.7.1">
+<h3><span class="header-section-number">10.7.1</span> Optional Challenge<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#optional-challenge" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Evaluate the following using the same steps:</p>
+<p><span class="math display">\[
+\int_0^2 (3x^2)\,dx
+\]</span></p>
+<p><br><br><br><br><br><br><br><br><br><br></p>
+</div>
+</div>
+<div id="properties-of-definite-integrals-1" class="section level2 hasAnchor" number="10.8">
+<h2><span class="header-section-number">10.8</span> Properties of Definite Integrals<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#properties-of-definite-integrals-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="linearity" class="section level3 hasAnchor" number="10.8.1">
+<h3><span class="header-section-number">10.8.1</span> Linearity<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#linearity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+\int_a^b [f(x)+g(x)]dx
+=
+\int_a^b f(x)dx + \int_a^b g(x)dx
+\]</span></p>
+<p><span class="math display">\[
+\int_a^b c f(x)\,dx = c\int_a^b f(x)\,dx
+\]</span></p>
+<p>Linearity reflects additive physical processes.</p>
+<hr />
+</div>
+<div id="additivity-over-intervals-1" class="section level3 hasAnchor" number="10.8.2">
+<h3><span class="header-section-number">10.8.2</span> Additivity Over Intervals<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#additivity-over-intervals-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If <span class="math inline">\(a&lt;c&lt;b\)</span>,
+<span class="math display">\[
+\int_a^b f(x)dx = \int_a^c f(x)dx + \int_c^b f(x)dx
+\]</span></p>
+<hr />
+</div>
+<div id="reversing-limits" class="section level3 hasAnchor" number="10.8.3">
+<h3><span class="header-section-number">10.8.3</span> Reversing Limits<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#reversing-limits" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+\int_a^b f(x)dx = -\int_b^a f(x)dx
+\]</span></p>
+<p>Direction matters.</p>
+<hr />
+</div>
+<div id="constant-functions" class="section level3 hasAnchor" number="10.8.4">
+<h3><span class="header-section-number">10.8.4</span> Constant Functions<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#constant-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+\int_a^b c\,dx = c(b-a)
+\]</span></p>
+<p>This anchors integration to everyday reasoning.</p>
+<hr />
+</div>
+</div>
+<div id="the-fundamental-theorem-of-calculus-part-i-1" class="section level2 hasAnchor" number="10.9">
+<h2><span class="header-section-number">10.9</span> The Fundamental Theorem of Calculus (Part I)<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#the-fundamental-theorem-of-calculus-part-i-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Define an accumulation function:
+<span class="math display">\[
+A(x) = \int_a^x f(t)\,dt
+\]</span></p>
+<p>Then:
+<span class="math display">\[
+A&#39;(x) = f(x)
+\]</span></p>
+<blockquote>
+<p>The rate of change of accumulation equals the original rate.</p>
+</blockquote>
+<hr />
+</div>
+<div id="the-fundamental-theorem-of-calculus-part-ii-1" class="section level2 hasAnchor" number="10.10">
+<h2><span class="header-section-number">10.10</span> The Fundamental Theorem of Calculus (Part II)<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#the-fundamental-theorem-of-calculus-part-ii-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If <span class="math inline">\(F&#39;(x)=f(x)\)</span>, then:
+<span class="math display">\[
+\int_a^b f(x)\,dx = F(b) - F(a)
+\]</span></p>
+<p>This works because accumulation functions are antiderivatives.</p>
+<hr />
+<div id="worked-example" class="section level3 unnumbered hasAnchor promptbox">
+<h3>Worked Example<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#worked-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Suppose carbon flux is modeled by:
+<span class="math display">\[
+f(t)=3t^2 + 7 \quad \text{(kg/hr)}
+\]</span></p>
+<p>Find net carbon exchange from <span class="math inline">\(t=1\)</span> to <span class="math inline">\(t=4\)</span>.</p>
+<p><strong>Antiderivative:</strong>
+<br><br><br><br></p>
+<p><strong>Evaluate:</strong>
+<br><br><br><br><br><br><br><br><br><br><br><br></p>
+</div>
+<hr />
+</div>
+<div id="conceptual-questions" class="section level2 hasAnchor" number="10.11">
+<h2><span class="header-section-number">10.11</span> Conceptual Questions<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#conceptual-questions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Why are Riemann sums a <em>process</em> rather than a final answer?</p>
+<p><br><br><br><br><br><br><br><br></p>
+<hr />
+</div>
+<div id="practice-problems-1" class="section level2 hasAnchor" number="10.12">
+<h2><span class="header-section-number">10.12</span> Practice Problems<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#practice-problems-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Evaluate:
+<span class="math display">\[
+\int_0^2 (3x^2+4x)\,dx
+\]</span></p>
+<p><br><br><br><br><br><br><br><br></p>
+<hr />
+<div id="key-takeaway-9" class="section level3 hasAnchor" number="10.12.1">
+<h3><span class="header-section-number">10.12.1</span> Key Takeaway<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#key-takeaway-9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Definite integrals describe <strong>accumulated change</strong>.<br />
+Antiderivatives provide an efficient way to compute that change — but meaning always comes first.</p>
 
+</div>
 </div>
 </div>
             </section>
@@ -849,8 +990,8 @@ They are the bridge between intuition, geometry, and the formal definition of th
           </div>
         </div>
       </div>
-<a href="workbook-introduction-to-calculus-ii-accumulation-and-change.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -881,7 +1022,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/rstudio/bookdown-demo/edit/master/103-riemann.Rmd",
+    "link": "https://github.com/rstudio/bookdown-demo/edit/master/105_Trap_Int.Rmd",
     "text": "Edit"
   },
   "history": {

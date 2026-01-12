@@ -393,7 +393,7 @@ You can find the rules on in the equation sheet tab of the textbook.
 
 ---
 
-### 1. Product Rule
+### Product Rule
 
 An ecologist models total nutrient uptake as the product of plant biomass and nutrient concentration:
 
@@ -405,7 +405,7 @@ Find \(f'(t)\).
 
 ---
 
-### 2. Chain Rule
+### Chain Rule
 
 Water temperature in a lake varies with depth, and a biological response depends exponentially on temperature:
 
@@ -417,7 +417,7 @@ Find \(g'(z)\).
 
 ---
 
-### 3. Quotient Rule
+### Quotient Rule
 
 Pollutant concentration in a stream is modeled as the ratio of input mass to flow rate:
 
@@ -429,7 +429,7 @@ Find \(h'(t)\).
 
 ---
 
-### 4. Combined Rules (Product + Chain)
+### Combined Rules (Product + Chain)
 
 A simplified model for carbon uptake combines light availability and temperature response:
 
@@ -1357,8 +1357,6 @@ Since \(\frac{d}{dx}(\sin x) = \cos x\):
 
 **Note:**  
 Each antiderivative represents a *family* of functions. We omit the constant of integration here to focus on the core idea of “undoing” differentiation.
-
-
 
 
 </details>

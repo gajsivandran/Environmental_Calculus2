@@ -1,0 +1,622 @@
+# Week 2 In-Class: Riemann Sums → Derivatives → Antiderivatives
+
+## Trapezoidal Rule
+
+The idea here is approximate the area under the curve using the area of a trapezoid.
+
+
+```{r trapezoid-vs-left-riemann2, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4}
+
+library(ggplot2)
+library(patchwork)
+
+# Function
+f_fun <- function(x) x^2
+
+# Interval and partition
+a <- 1
+b <- 7
+n <- 3
+dx <- (b - a) / n
+
+# Partition points
+x_vals <- seq(a, b, by = dx)
+y_vals <- f_fun(x_vals)
+
+# Smooth curve
+x_curve <- seq(a - 1, b + 1, length.out = 400)
+curve_df <- data.frame(x = x_curve, y = f_fun(x_curve))
+
+# ---------- Left Riemann rectangles ----------
+rect_df <- data.frame(
+  x0 = x_vals[-length(x_vals)],
+  x1 = x_vals[-1],
+  height = f_fun(x_vals[-length(x_vals)])
+)
+
+p_left <- ggplot(curve_df, aes(x = x, y = y)) +
+  geom_line(linewidth = 1) +
+  geom_rect(
+    data = rect_df,
+    aes(xmin = x0, xmax = x1, ymin = 0, ymax = height),
+    inherit.aes = FALSE,
+    fill = "#56B4E9",
+    alpha = 0.5,
+    color = "black"
+  ) +
+  geom_vline(xintercept = x_vals, linetype = "dashed", alpha = 0.5) +
+  labs(
+    title = "Left-Hand Riemann Sum",
+    subtitle = "Rectangles use left-endpoint values",
+    x = "x",
+    y = "f(x)"
+  ) +
+  coord_cartesian(ylim = c(0, max(y_vals) * 1.1)) +
+  theme_minimal()
+
+# ---------- Trapezoidal rule ----------
+trap_df <- do.call(
+  rbind,
+  lapply(1:(length(x_vals) - 1), function(i) {
+    data.frame(
+      x = c(x_vals[i], x_vals[i], x_vals[i+1], x_vals[i+1]),
+      y = c(0, y_vals[i], y_vals[i+1], 0),
+      group = i
+    )
+  })
+)
+
+# Highlight one trapezoid
+i_focus <- 2
+trap_focus <- subset(trap_df, group == i_focus)
+trap_other <- subset(trap_df, group != i_focus)
+
+p_trap <- ggplot(curve_df, aes(x = x, y = y)) +
+  geom_line(linewidth = 1) +
+  geom_polygon(
+    data = trap_other,
+    aes(x = x, y = y, group = group),
+    fill = "grey80",
+    alpha = 0.4,
+    color = "black"
+  ) +
+  geom_polygon(
+    data = trap_focus,
+    aes(x = x, y = y),
+    fill = "#E69F00",
+    alpha = 0.6,
+    color = "black"
+  ) +
+  geom_vline(xintercept = x_vals, linetype = "dashed", alpha = 0.5) +
+  labs(
+    title = "Trapezoidal Rule",
+    subtitle = "Uses straight-line approximation between endpoints",
+    x = "x",
+    y = "f(x)"
+  ) +
+  coord_cartesian(ylim = c(0, max(y_vals) * 1.1)) +
+  theme_minimal()
+
+# ---------- Combine panels ----------
+p_left | p_trap
+
+```
+
+::: promptox
+**Key Idea**
+
+We are following the same procedure as we did for Riemann Sums. The key differences
+
+- Need a new expression for the area 
+
+
+The area \(A\) of a trapezoid is given by
+
+\[
+A = \frac{1}{2}(b_1 + b_2)h
+\]
+
+where:
+
+- \(b_1\) and \(b_2\) are the lengths of the two **parallel sides** (the bases),
+- \(h\) is the **height**, the perpendicular distance between the bases.
+
+What could be replace \(b_1\) and \(b_2\) with?
+
+<br><br><br>
+
+
+:::
+
+
+## Problem: Approximating an Integral with the Trapezoid Rule
+
+Let  
+\[
+f(x) = x^2
+\]
+on the interval \([1,7]\).
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4}
+
+# Define the function
+f <- function(x) x^2
+
+# Create a sequence of x values on [1, 7]
+x <- seq(0, 8, length.out = 300)
+
+# Plot the function
+plot(
+  x, f(x),
+  type = "l",
+  lwd = 2,
+  xlab = "x",
+  ylab = "f(x) = x^2",
+  main = expression(paste("Plot of ", f(x) == x^2)),
+  ylim = c(0, max(f(x)))
+)
+
+# Add reference axes
+abline(h = 0, col = "gray70", lty = 2)
+abline(v = 0, col = "gray70", lty = 2)
+```
+
+
+Use the **Trapezoid Rule** with \(n = 3\) subintervals to approximate
+\[
+\int_{1}^{7} f(x)\,dx.
+\]
+
+---
+
+### Step 1: Set Up the Riemann Sum Framework
+
+The trapezoid rule is built from a **Riemann sum**, where the interval \([a,b]\) is divided into \(n\) equal subintervals of width
+\[
+\Delta x = \frac{b-a}{n}.
+\]
+
+For this problem:
+\[
+\Delta x = 
+\]
+
+---
+
+### Step 2: Identify the \(x_i\) and  \(f(x_i)\) Values
+
+The partition points (also called **nodes**) are defined by
+\[
+x_i = a + i\Delta x, \quad i = 0,1,2,\dots,n.
+\]
+
+Using \(a=1\) and \(\Delta x=2\):
+\[
+\begin{aligned}
+x_0 &=  \\
+x_1 &=  \\
+x_2 &=  \\
+x_3 &= 
+\end{aligned}
+\]
+
+These \(x_i\) values mark the endpoints of each trapezoid.
+
+---
+
+### Step 3: Trapezoid Rule as a Riemann Sum
+
+The trapezoid rule can be written as a **weighted Riemann sum**:
+\[
+T_n = \frac{\Delta x}{2}
+\left[
+f(x_0) + 2f(x_1) + 2f(x_2) + \cdots + 2f(x_{n-1}) + f(x_n)
+\right].
+\]
+
+**Important observations:**
+
+- The first and last function values are counted **once**
+- All interior function values are counted **twice**
+
+---
+
+### Step 4: Why This Formula Represents Trapezoids
+
+On each subinterval \([x_{i-1}, x_i]\), the area is approximated by a trapezoid with:
+
+- Base width: \(\Delta x\)
+- Parallel sides: \(f(x_{i-1})\) and \(f(x_i)\)
+
+The area of a single trapezoid is
+\[
+\text{Area}_i
+= \frac{1}{2}\left[f(x_{i-1}) + f(x_i)\right]\Delta x.
+\]
+
+Summing the areas of all trapezoids gives
+\[
+\sum_{i=1}^{n}
+\frac{1}{2}\left[f(x_{i-1}) + f(x_i)\right]\Delta x,
+\]
+which simplifies to the trapezoid rule formula above.
+
+---
+
+### Numerical Evaluation
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+---
+
+### Key Takeaway
+
+The trapezoid rule is still a **Riemann sum**, but it improves accuracy by:
+
+- Using both left and right endpoint values
+- Approximating the region under the curve with trapezoids instead of rectangles
+
+
+
+\newpage
+
+## Definite Integrals and the Fundamental Theorem of Calculus
+
+In the previous chapter, you developed an intuition for **accumulation** by approximating totals from rates using rectangles, tables, and graphs. You saw how adding up many small contributions can represent meaningful environmental quantities such as total rainfall, streamflow, carbon exchange, or pollutant transport. You also encountered the idea of **signed accumulation**, where gains and losses can offset each other over time.
+
+This chapter formalizes those ideas.
+
+Here, we move from *“adding rectangles makes sense”* to *“integrals are well-defined mathematical objects with powerful and reliable properties.”* You will learn how mathematicians define accumulation precisely, why different approximation methods converge to the same value, and how integrals connect directly back to derivatives through one of the most important results in calculus.
+
+Rather than treating integrals as a new collection of formulas, this chapter emphasizes **meaning first**. Computation matters, but it is grounded in interpretation: what a definite integral represents, how it behaves, and why it works.
+
+By the end of this chapter, you should clearly understand:
+
+- what a definite integral is and how it arises from limits of Riemann sums  
+- why a definite integral represents accumulation, not just area  
+- how integration and differentiation are connected  
+- how to compute definite integrals efficiently *without losing meaning*
+
+---
+
+## From Riemann Sums to Definite Integrals
+
+In the previous chapter, you learned how to approximate accumulation by **adding up rectangles** under a rate curve. These approximations—left, right, midpoint, and trapezoidal—allowed you to estimate totals from discrete measurements and to reason carefully about overestimates, underestimates, and conservativeness.
+
+In this section, we take the next conceptual step:
+
+> **Riemann sums are a process.  
+> The definite integral is the result of that process.**
+
+---
+
+### Riemann Sums as Structured Approximations
+
+A Riemann sum is a structured way to approximate accumulation:
+
+1. Partition an interval \([a,b]\)
+2. Choose a representative rate in each slice
+3. Multiply rate by width
+4. Add all contributions
+
+This mirrors how environmental data are handled in practice: discrete measurements represent continuous processes.
+
+---
+
+### From Finite Sums to a Limit
+
+A Riemann sum has the form:
+\[
+\sum_{i=1}^n f(x_i^*)\Delta x
+\]
+
+As \(n \to \infty\), rectangles become thinner and approximation error shrinks.
+
+---
+
+### Defining the Definite Integral
+
+The **definite integral** is defined as:
+\[
+\int_a^b f(x)\,dx
+=
+\lim_{n\to\infty}
+\sum_{i=1}^n f(x_i^*)\Delta x
+\]
+
+This definition formalizes accumulation with perfect resolution.
+
+---
+
+### Conceptual Meaning
+
+The expression
+\[
+\int_a^b f(x)\,dx
+\]
+means:
+
+> The total accumulated effect of the rate \(f(x)\) as \(x\) runs from \(a\) to \(b\)
+
+---
+
+## Evaluating a Definite Integral (Step by Step)
+
+Before learning shortcut rules for integrals, it is essential to practice the **core process** used to evaluate a definite integral. This section will guide you through that process one step at a time, with checkpoints to help you reflect on what each step means.
+
+---
+
+### What does a definite integral represent?
+
+A definite integral,
+\[
+\int_a^b f(x)\,dx,
+\]
+represents the **net accumulation** of a quantity whose rate or density is given by \(f(x)\) over the interval \([a,b]\).
+
+---
+
+### Step 1: Identify the function being accumulated
+
+Consider the integral:
+\[
+\int_1^4 x^2\,dx.
+\]
+
+**Checkpoint 1**
+
+- What is the function being accumulated?
+- Over what interval does the accumulation occur?
+
+
+- Function: __________________________  
+- Interval: __________________________
+
+---
+
+### Step 2: Find an antiderivative
+
+To evaluate a definite integral, you first need an **antiderivative**.
+
+> An antiderivative of \(f(x)\) is a function \(F(x)\) such that  
+> \[
+> F'(x) = f(x).
+> \]
+
+**Practice**
+
+Find an antiderivative of:
+\[
+f(x) = x^2
+\]
+
+
+\[
+F(x) = \rule{6cm}{0.15mm}
+\]
+
+*(Do not include a constant of integration.)*
+
+---
+
+### Step 3: Evaluate the antiderivative at the bounds
+
+Next, evaluate your antiderivative at the **upper bound** and the **lower bound**.
+
+**Upper bound:**
+
+\[
+F(4) = \rule{6cm}{0.15mm}
+\]
+
+**Lower bound:**
+
+\[
+F(1) = \rule{6cm}{0.15mm}
+\]
+
+---
+
+### Step 4: Subtract to find the net accumulation
+
+The value of the definite integral is found by subtracting:
+\[
+\int_1^4 x^2\,dx = F(4) - F(1).
+\]
+
+**Compute the difference:**
+
+\[
+F(4) - F(1) = \rule{6cm}{0.15mm}
+\]
+
+---
+
+### Step 5: Interpret the result
+
+Your final answer represents the **total accumulated amount** of \(x^2\) from \(x=1\) to \(x=4\).
+
+**Reflection questions**
+
+- Is your result positive or negative? Why does that make sense?
+- Would your answer change if you added a constant \(C\) to the antiderivative? Why or why not?
+
+
+
+\[
+\rule{12cm}{0.15mm}
+\]
+
+---
+
+## Why there is no constant of integration
+
+Suppose your antiderivative had included a constant \(C\):
+\[
+F(x) + C.
+\]
+
+When evaluating the definite integral, you would compute:
+\[
+(F(4) + C) - (F(1) + C).
+\]
+
+**Checkpoint 2**
+
+- What happens to the constant \(C\)?
+- What does this tell you about definite integrals?
+
+
+
+\[
+\rule{12cm}{0.15mm}
+\]
+
+---
+
+## Summary: The Evaluation Process
+
+Every definite integral is evaluated using the same three-step process:
+
+1. **Find an antiderivative**
+2. **Evaluate it at the upper and lower bounds**
+3. **Subtract to find net accumulation**
+
+---
+
+### Optional Challenge
+
+Evaluate the following using the same steps:
+
+\[
+\int_0^2 (3x^2)\,dx
+\]
+
+
+<br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+
+
+## Properties of Definite Integrals
+
+### Linearity
+
+\[
+\int_a^b [f(x)+g(x)]dx
+=
+\int_a^b f(x)dx + \int_a^b g(x)dx
+\]
+
+\[
+\int_a^b c f(x)\,dx = c\int_a^b f(x)\,dx
+\]
+
+Linearity reflects additive physical processes.
+
+---
+
+### Additivity Over Intervals
+
+If \(a<c<b\),
+\[
+\int_a^b f(x)dx = \int_a^c f(x)dx + \int_c^b f(x)dx
+\]
+
+---
+
+### Reversing Limits
+
+\[
+\int_a^b f(x)dx = -\int_b^a f(x)dx
+\]
+
+Direction matters.
+
+---
+
+### Constant Functions
+
+\[
+\int_a^b c\,dx = c(b-a)
+\]
+
+This anchors integration to everyday reasoning.
+
+---
+
+## The Fundamental Theorem of Calculus (Part I)
+
+Define an accumulation function:
+\[
+A(x) = \int_a^x f(t)\,dt
+\]
+
+Then:
+\[
+A'(x) = f(x)
+\]
+
+> The rate of change of accumulation equals the original rate.
+
+---
+
+## The Fundamental Theorem of Calculus (Part II)
+
+If \(F'(x)=f(x)\), then:
+\[
+\int_a^b f(x)\,dx = F(b) - F(a)
+\]
+
+This works because accumulation functions are antiderivatives.
+
+---
+
+::: promptbox
+
+### Worked Example {-}
+
+Suppose carbon flux is modeled by:
+\[
+f(t)=3t^2 + 7 \quad \text{(kg/hr)}
+\]
+
+Find net carbon exchange from \(t=1\) to \(t=4\).
+
+**Antiderivative:**
+<br><br><br><br>
+
+
+**Evaluate:**
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+:::
+
+---
+
+## Conceptual Questions
+
+Why are Riemann sums a *process* rather than a final answer?
+
+<br><br><br><br><br><br><br><br>
+
+---
+
+## Practice Problems
+
+Evaluate:
+\[
+\int_0^2 (3x^2+4x)\,dx
+\]
+
+<br><br><br><br><br><br><br><br>
+
+---
+
+### Key Takeaway
+
+Definite integrals describe **accumulated change**.  
+Antiderivatives provide an efficient way to compute that change — but meaning always comes first.
+
