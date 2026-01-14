@@ -958,6 +958,70 @@ can always be written as the sum of **two simpler integrals**.
 What does each part represent?
 
 
+## Practice Set F: Indefinite Integrals
+
+For each problem, find the **most general antiderivative**.  
+Be sure to include the **constant of integration** \(C\).
+
+---
+
+### F1. Polynomial Function
+
+Evaluate:
+\[
+\int (4x^3 - 6x + 5)\,dx
+\]
+
+---
+
+### F2. Constant Multiple and Power Rule
+
+Evaluate:
+\[
+\int 7x^{1/2}\,dx
+\]
+
+---
+
+### F3. Exponential Function
+
+Evaluate:
+\[
+\int 3e^{x}\,dx
+\]
+
+---
+
+### F4. Trigonometric Function (Sine)
+
+Evaluate:
+\[
+\int \sin x\,dx
+\]
+
+---
+
+### F5. Trigonometric Function (Cosine)
+
+Evaluate:
+\[
+\int 5\cos x\,dx
+\]
+
+---
+
+### Reminder
+
+- Use the **power rule** for polynomials.
+- Recall that  
+  \[
+  \int e^{x}\,dx = e^{x} + C,
+  \quad
+  \int \sin x\,dx = -\cos x + C,
+  \quad
+  \int \cos x\,dx = \sin x + C.
+  \]
+- Do not forget the constant of integration \(C\).
 
 
 
@@ -1052,6 +1116,7 @@ Total nutrient uptake over 3 days is **90 mg**.
 \(C(t)=4e^t+2\) (kg/day)
 
 1. **Rewrite as a sum**
+
 \[
 \int_0^2 (4e^t+2)\,dt
 =
@@ -1059,9 +1124,11 @@ Total nutrient uptake over 3 days is **90 mg**.
 +
 2\int_0^2 1\,dt.
 \]
+
 **Guidance:** Use linearity to split the exponential part from the constant part.
 
 2. **Evaluate and total**
+
 \[
 4\int_0^2 e^t\,dt
 =
@@ -1083,6 +1150,7 @@ Total:
 =
 4e^2.
 \]
+
 **Guidance:** \(\int e^t dt=e^t\) and \(\int 1 dt=t\).
 
 3. **Interpretation (with units)**
@@ -1096,6 +1164,7 @@ Total carbon uptake over \([0,2]\) is **\(4e^2\) kg** (approximately \(29.6\) kg
 \(f(t)=4t+2\), \(g(t)=4e^t+2\) on \([0,2]\)
 
 1. **Compute both totals**
+
 \[
 \int_0^2 f(t)\,dt
 =
@@ -1116,6 +1185,7 @@ Total carbon uptake over \([0,2]\) is **\(4e^2\) kg** (approximately \(29.6\) kg
 4e^2
 \approx 29.6.
 \]
+
 **Guidance:** Use FTC Part II to evaluate each definite integral.
 
 2. **Which is greater?**
@@ -1156,6 +1226,7 @@ A straight line with intercept \(R(0)=6\), slope \(-2\), crossing the \(t\)-axis
 **Guidance:** Linear rate decreases steadily and crosses zero once.
 
 3. **Split the integral**
+
 \[
 \int_0^5 R(t)\,dt
 =
@@ -1163,6 +1234,7 @@ A straight line with intercept \(R(0)=6\), slope \(-2\), crossing the \(t\)-axis
 +
 \int_3^5 (6-2t)\,dt.
 \]
+
 **Guidance:** Split where the rate changes sign to separate input vs removal.
 
 4. **Compute input, removal, net**
@@ -1203,7 +1275,9 @@ System A: \(f(t)=2-t\)
 System B: \(g(t)=\sin\left(\frac{\pi t}{2}\right)\) on \([0,4]\)
 
 1. **Net change**
+
 System A:
+
 \[
 \int_0^4 (2-t)\,dt
 =
@@ -1441,7 +1515,9 @@ It does not show *when* changes happen within the interval, only the total signe
 =
 3+(-1)=2.
 \]
+
 Then
+
 \[
 \int_{0}^{5}[2f(x)+1]dx
 =
@@ -1451,6 +1527,7 @@ Then
 =
 9.
 \]
+
 **Guidance:** Use additivity to get \(\int f\), then linearity for \(2f+1\).
 
 9. First
@@ -1473,6 +1550,73 @@ So
 where the first term is the accumulation from the varying part and the second term is the constant background contribution \(c(b-a)\).  
 **Guidance:** Linearity lets you separate “variable accumulation” from “constant accumulation.”
 
+
+## Practice Set F: Indefinite Integrals
+
+
+### F1. Polynomial Function
+
+\[
+\int (4x^3 - 6x + 5)\,dx
+=
+x^4 - 3x^2 + 5x + C.
+\]
+
+**Guidance:** Apply the power rule term-by-term and add the constant of integration.
+
+---
+
+### F2. Constant Multiple and Power Rule
+
+\[
+\int 7x^{1/2}\,dx
+=
+\frac{14}{3}x^{3/2} + C.
+\]
+
+**Guidance:** Pull out the constant and increase the exponent by one.
+
+---
+
+### F3. Exponential Function
+
+\[
+\int 3e^{x}\,dx
+=
+3e^{x} + C.
+\]
+
+**Guidance:** The exponential function \(e^x\) is its own derivative.
+
+---
+
+### F4. Trigonometric Function (Sine)
+
+\[
+\int \sin x\,dx
+=
+-\cos x + C.
+\]
+
+**Guidance:** The derivative of \(-\cos x\) is \(\sin x\).
+
+---
+
+### F5. Trigonometric Function (Cosine)
+
+\[
+\int 5\cos x\,dx
+=
+5\sin x + C.
+\]
+
+**Guidance:** The antiderivative of \(\cos x\) is \(\sin x\), scaled by the constant.
+
+---
+
+### Key Reminder
+
+Always include the constant of integration \(C\), since indefinite integrals represent a family of functions.
 
 
 </div>
