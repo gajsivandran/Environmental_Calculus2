@@ -306,7 +306,6 @@ f2.-constant-multiple-and-power-rule
 f3.-exponential-function
 f4.-trigonometric-function-sine
 f5.-trigonometric-function-cosine
-reminder
 answer-key
 practice-set-a-linearity-and-constants-1
 a1.-using-linearity-1

@@ -1010,18 +1010,7 @@ Evaluate:
 
 ---
 
-### Reminder
 
-- Use the **power rule** for polynomials.
-- Recall that  
-  \[
-  \int e^{x}\,dx = e^{x} + C,
-  \quad
-  \int \sin x\,dx = -\cos x + C,
-  \quad
-  \int \cos x\,dx = \sin x + C.
-  \]
-- Do not forget the constant of integration \(C\).
 
 
 
