@@ -284,6 +284,7 @@ the mathematics reflects the physical reality that systems can evolve at the sam
 The constant \(C\) represents a **vertical shift** of the accumulation function.
 
 Conceptually:
+
 - The *shape* of the curve is determined by the rate \(f(x)\).
 - The *vertical position* is determined by initial conditions.
 
@@ -307,12 +308,15 @@ the constant cancels:
 (F(b) + C) - (F(a) + C) = F(b) - F(a).
 \]
 
+
 This is why definite integrals do **not** require a constant of integration.
 
 A definite integral measures **change between two points**, not absolute level.  
 Only differences matter.
 
 Indefinite integrals, by contrast, describe **absolute accumulation**, so the constant matters.
+
+
 
 ---
 
@@ -327,6 +331,7 @@ To use indefinite integrals correctly—especially in applied contexts—it help
 Even without bounds, units still carry meaning.
 
 If:
+
 - \(f(x)\) has units of *rate* (e.g., kg/day),
 - and \(x\) has units of *time* (days),
 
@@ -337,6 +342,7 @@ then:
 has units of **accumulated quantity** (kg).
 
 However, without bounds:
+
 - you do **not** yet know *how much* has accumulated,
 - only how accumulation depends on \(x\).
 

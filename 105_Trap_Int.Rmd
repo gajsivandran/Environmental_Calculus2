@@ -620,3 +620,887 @@ Evaluate:
 Definite integrals describe **accumulated change**.  
 Antiderivatives provide an efficient way to compute that change — but meaning always comes first.
 
+
+
+\newpage
+
+## Practice: Properties of Definite Integrals & the Fundamental Theorem of Calculus
+
+These problems are designed to help you practice using the **properties of definite integrals** and the **Fundamental Theorem of Calculus** in a purposeful way.
+
+As you work, ask yourself:
+- Can I simplify this integral *before* computing?
+- Does the sign of the rate matter?
+- What does the result represent physically?
+
+---
+
+## Practice Set A: Linearity and Constants
+
+### A1. Using Linearity
+
+Let
+\[
+f(t) = 5t^2 - 4t + 6.
+\]
+
+1. Rewrite the integral using linearity:
+\[
+\int_0^2 (5t^2 - 4t + 6)\,dt
+\]
+
+2. Identify which term you expect to contribute the most to the total accumulation.
+
+3. Evaluate the integral.
+
+---
+
+### A2. Constant Multiple Rule
+
+Suppose nutrient uptake is modeled by
+\[
+N(t) = 12(0.5t^2 + 1)
+\quad \text{(mg/day)}.
+\]
+
+1. Rewrite the integral by factoring out the constant.
+2. Evaluate
+\[
+\int_0^3 N(t)\,dt.
+\]
+3. Interpret your answer, including units.
+
+---
+
+### A3. Accumulation with an Exponential Rate
+
+Suppose the rate of carbon uptake by vegetation is modeled by
+\[
+C(t) = 4e^{t} + 2
+\quad \text{(kg/day)}.
+\]
+
+1. Use linearity to rewrite the integral
+\[
+\int_0^2 (4e^{t} + 2)\,dt
+\]
+as a sum of two simpler integrals.
+
+2. Evaluate each integral and compute the total carbon uptake over \([0,2]\).
+
+3. Interpret your result, including units.
+
+---
+
+### A4. Comparing Exponential and Linear Growth
+
+Consider two accumulation processes over the interval \([0,2]\):
+
+\[
+f(t) = 4t + 2
+\qquad
+g(t) = 4e^{t} + 2.
+\]
+
+1. Compute
+\[
+\int_0^2 f(t)\,dt
+\quad \text{and} \quad
+\int_0^2 g(t)\,dt.
+\]
+
+2. Which process leads to greater total accumulation?
+
+3. Explain why exponential rates can produce much larger accumulation even over short time intervals.
+
+---
+
+### Concept Check (Exponential Rates)
+
+Without computing:
+
+- How does the *shape* of \(e^t\) influence accumulation compared to a linear rate?
+- What happens to the accumulation if the interval length increases slightly?
+
+---
+
+## Practice Set B: Signed Accumulation and Additivity
+
+### B1. Positive vs. Negative Contributions
+
+A wetland’s net nutrient flux is modeled by
+\[
+R(t) = 6 - 2t
+\quad \text{(kg/day)}.
+\]
+
+1. Determine when the rate is positive and when it is negative.
+2. Sketch a graph of the rate.
+3. Split the integral at the appropriate time.
+4. Compute:
+   - total nutrient input  
+   - total nutrient removal  
+   - net nutrient change on \([0,5]\)
+
+---
+
+### B2. Same Net Change, Different Behavior
+
+Two systems are observed over the interval \([0,4]\).
+
+System A:
+\[
+f(t) = 2 - t
+\]
+
+System B:
+\[
+g(t) = \sin\!\left(\frac{\pi t}{2}\right)
+\]
+
+1. Compute the net change for each system.
+2. Compare the *total* amount exchanged in each system.
+3. Explain how two systems can have the same net change but behave very differently.
+
+---
+
+## Practice Set C: Accumulation Functions (FTC Part I)
+
+### C1. Building an Accumulation Function
+
+Let
+\[
+r(t) = 3t + 2
+\quad \text{(kg/hr)}.
+\]
+
+Define the accumulation function:
+\[
+A(x) = \int_1^x r(t)\,dt.
+\]
+
+1. Find an explicit formula for \(A(x)\).
+2. Compute \(A(4)\).
+3. Explain what \(A'(x)\) represents.
+4. State the units of \(A(x)\).
+
+---
+
+### C2. Interpreting Accumulation Without Computing
+
+Based on the behavior of the rate function:
+
+- Where would the accumulation function increase most rapidly?
+- Where would it be concave up?
+- What would a flat section of the accumulation function represent?
+
+---
+
+## Practice Set D: Evaluating Definite Integrals Using FTC Part II
+
+### D1. Two Approaches to Net Change
+
+Let
+\[
+f(t) = t^2 - 4t.
+\]
+
+1. Identify where the rate is positive and where it is negative.
+2. Compute the net change on \([0,5]\) by:
+   - splitting the interval where the sign changes  
+   - using an antiderivative and FTC Part II
+3. Explain why both approaches give the same result.
+
+---
+
+
+## Conceptual Reflection
+
+Answer in complete sentences.
+
+1. Why are Riemann sums considered a *process* rather than a final result?
+2. When is it useful to split an integral before computing it?
+3. Can a system experience large total exchange but small net change? Explain.
+4. What information does a definite integral **not** provide on its own?
+
+---
+
+
+## Practice Set E 
+
+### E1. Linearity (Sum and Difference)
+
+1. Suppose  
+\[
+\int_{2}^{6} f(x)\,dx = 5
+\quad \text{and} \quad
+\int_{2}^{6} g(x)\,dx = -3.
+\]  
+Evaluate:
+\[
+\int_{2}^{6} [f(x) + g(x)]\,dx
+\]
+
+---
+
+2. Given  
+\[
+\int_{-1}^{3} h(x)\,dx = 7,
+\]  
+find:
+\[
+\int_{-1}^{3} [h(x) - 4]\,dx
+\]
+
+---
+
+3. Let  
+\[
+\int_{0}^{4} p(x)\,dx = 6
+\quad \text{and} \quad
+\int_{0}^{4} q(x)\,dx = 10.
+\]  
+Compute:
+\[
+\int_{0}^{4} [3p(x) - 2q(x)]\,dx
+\]
+
+---
+
+### E2. Constant Multiple Rule
+
+4. If  
+\[
+\int_{1}^{5} r(x)\,dx = -2,
+\]  
+evaluate:
+\[
+\int_{1}^{5} 6r(x)\,dx
+\]
+
+---
+
+5. Given  
+\[
+\int_{-2}^{2} f(x)\,dx = 9,
+\]  
+find:
+\[
+\int_{-2}^{2} \tfrac{1}{3} f(x)\,dx
+\]
+
+---
+
+### E3. Additivity Over Intervals
+
+6. Suppose  
+\[
+\int_{0}^{3} f(x)\,dx = 4
+\quad \text{and} \quad
+\int_{3}^{7} f(x)\,dx = -1.
+\]  
+Find:
+\[
+\int_{0}^{7} f(x)\,dx
+\]
+
+---
+
+7. You are told that  
+\[
+\int_{1}^{4} g(x)\,dx = 6
+\quad \text{and} \quad
+\int_{1}^{2} g(x)\,dx = 2.
+\]  
+Determine:
+\[
+\int_{2}^{4} g(x)\,dx
+\]
+
+---
+
+### E4. Combining Multiple Properties
+
+8. Let  
+\[
+\int_{0}^{2} f(x)\,dx = 3,
+\quad
+\int_{2}^{5} f(x)\,dx = -1.
+\]  
+Evaluate:
+\[
+\int_{0}^{5} [2f(x) + 1]\,dx
+\]
+
+---
+
+9. Suppose  
+\[
+\int_{-4}^{0} h(x)\,dx = -5
+\quad \text{and} \quad
+\int_{0}^{4} h(x)\,dx = 7.
+\]  
+Find:
+\[
+\int_{-4}^{4} [-h(x)]\,dx
+\]
+
+---
+
+### E5. Conceptual (No Computation Required)
+
+10. Without evaluating any integrals, explain **why**  
+\[
+\int_{a}^{b} [f(x) + c]\,dx
+\]  
+can always be written as the sum of **two simpler integrals**.  
+
+What does each part represent?
+
+
+
+
+
+
+
+
+
+
+
+
+
+<details open>
+<summary><strong>Click to Unlock Solutions</strong></summary>
+
+<div id="sol_set1" hidden markdown="1" style="margin-top:0.75rem;">
+
+
+## Answer Key
+
+---
+
+## Practice Set A: Linearity and Constants
+
+### A1. Using Linearity
+
+Let \(f(t)=5t^2-4t+6\).
+
+1. **Rewrite using linearity**
+\[
+\int_0^2 (5t^2-4t+6)\,dt
+=
+5\int_0^2 t^2\,dt
+-4\int_0^2 t\,dt
++6\int_0^2 1\,dt.
+\]
+**Guidance:** Split into simpler integrals and pull constants out.
+
+2. **Largest contributor**
+The term \(5t^2\).  
+**Guidance:** On \([0,2]\), \(t^2\) grows faster than \(t\) or a constant, so it tends to dominate.
+
+3. **Evaluate**
+\[
+\int_0^2 (5t^2-4t+6)\,dt
+=
+\left[\frac{5}{3}t^3-2t^2+6t\right]_0^2
+=
+\frac{40}{3}.
+\]
+**Guidance:** Use an antiderivative and evaluate at the bounds (FTC Part II).
+
+---
+
+### A2. Constant Multiple Rule
+
+\(N(t)=12(0.5t^2+1)\) (mg/day)
+
+1. **Factor out the constant**
+\[
+\int_0^3 N(t)\,dt
+=
+12\int_0^3 (0.5t^2+1)\,dt.
+\]
+**Guidance:** A constant multiplier can be pulled outside the integral.
+
+2. **Evaluate**
+\[
+12\int_0^3 (0.5t^2+1)\,dt
+=
+12\left[\frac{1}{6}t^3+t\right]_0^3
+=
+12\left(\frac{27}{6}+3\right)
+=
+12(7.5)
+=
+90.
+\]
+So,
+\[
+\int_0^3 N(t)\,dt = 90\ \text{mg}.
+\]
+**Guidance:** Integrate the simpler expression first, then multiply by 12.
+
+3. **Interpretation (with units)**
+Total nutrient uptake over 3 days is **90 mg**.  
+**Guidance:** Integrating mg/day over days gives mg (a total amount).
+
+---
+
+### A3. Accumulation with an Exponential Rate
+
+\(C(t)=4e^t+2\) (kg/day)
+
+1. **Rewrite as a sum**
+\[
+\int_0^2 (4e^t+2)\,dt
+=
+4\int_0^2 e^t\,dt
++
+2\int_0^2 1\,dt.
+\]
+**Guidance:** Use linearity to split the exponential part from the constant part.
+
+2. **Evaluate and total**
+\[
+4\int_0^2 e^t\,dt
+=
+4\left[e^t\right]_0^2
+=
+4(e^2-1),
+\qquad
+2\int_0^2 1\,dt
+=
+2[t]_0^2
+=
+4.
+\]
+Total:
+\[
+\int_0^2 (4e^t+2)\,dt
+=
+4(e^2-1)+4
+=
+4e^2.
+\]
+**Guidance:** \(\int e^t dt=e^t\) and \(\int 1 dt=t\).
+
+3. **Interpretation (with units)**
+Total carbon uptake over \([0,2]\) is **\(4e^2\) kg** (approximately \(29.6\) kg).  
+**Guidance:** A rate in kg/day integrated over days gives total kg.
+
+---
+
+### A4. Comparing Exponential and Linear Growth
+
+\(f(t)=4t+2\), \(g(t)=4e^t+2\) on \([0,2]\)
+
+1. **Compute both totals**
+\[
+\int_0^2 f(t)\,dt
+=
+\int_0^2 (4t+2)\,dt
+=
+\left[2t^2+2t\right]_0^2
+=
+8+4
+=
+12.
+\]
+
+\[
+\int_0^2 g(t)\,dt
+=
+\int_0^2 (4e^t+2)\,dt
+=
+4e^2
+\approx 29.6.
+\]
+**Guidance:** Use FTC Part II to evaluate each definite integral.
+
+2. **Which is greater?**
+The exponential process \(g(t)\) produces greater accumulation.  
+**Guidance:** Exponential growth accelerates, so the area under the curve increases quickly.
+
+3. **Why exponential can be much larger**
+Because \(e^t\) increases at an increasing rate (its slope increases as \(t\) increases), the accumulated area grows faster than for a linear rate.  
+**Guidance:** A “steepening” rate creates disproportionately more area toward the right end of the interval.
+
+---
+
+### Concept Check (Exponential Rates) — No Computation
+
+- **Shape effect:** Since \(e^t\) curves upward (increasing slope), the accumulation grows faster than a linear rate that increases at a constant slope.  
+- **Slightly longer interval:** A small increase in interval length adds a disproportionately large amount of accumulation because the rate is much larger near the right endpoint.
+
+---
+
+## Practice Set B: Signed Accumulation and Additivity
+
+### B1. Positive vs. Negative Contributions
+
+\(R(t)=6-2t\) (kg/day)
+
+1. **When positive/negative**
+\[
+6-2t>0 \Rightarrow t<3,
+\quad
+6-2t<0 \Rightarrow t>3,
+\quad
+R(3)=0.
+\]
+**Guidance:** Solve \(R(t)=0\) to find the sign-change time.
+
+2. **Sketch (description)**
+A straight line with intercept \(R(0)=6\), slope \(-2\), crossing the \(t\)-axis at \(t=3\).  
+**Guidance:** Linear rate decreases steadily and crosses zero once.
+
+3. **Split the integral**
+\[
+\int_0^5 R(t)\,dt
+=
+\int_0^3 (6-2t)\,dt
++
+\int_3^5 (6-2t)\,dt.
+\]
+**Guidance:** Split where the rate changes sign to separate input vs removal.
+
+4. **Compute input, removal, net**
+Total input (where \(R>0\)):
+\[
+\int_0^3 (6-2t)\,dt
+=
+\left[6t-t^2\right]_0^3
+=
+18-9
+=
+9\ \text{kg}.
+\]
+
+Net change on \([0,5]\):
+\[
+\int_0^5 (6-2t)\,dt
+=
+\left[6t-t^2\right]_0^5
+=
+30-25
+=
+5\ \text{kg}.
+\]
+
+Total removal (magnitude of negative part):
+\[
+\text{removal} = 9-5 = 4\ \text{kg}.
+\]
+(Equivalently, \(\int_3^5 (6-2t)\,dt=-4\) kg, so removal is \(4\) kg.)  
+**Guidance:** Net = input − removal, and the negative integral gives the signed removal.
+
+---
+
+### B2. Same Net Change, Different Behavior
+
+System A: \(f(t)=2-t\)  
+System B: \(g(t)=\sin\left(\frac{\pi t}{2}\right)\) on \([0,4]\)
+
+1. **Net change**
+System A:
+\[
+\int_0^4 (2-t)\,dt
+=
+\left[2t-\frac{t^2}{2}\right]_0^4
+=
+8-8
+=
+0.
+\]
+
+System B:
+Let \(u=\frac{\pi t}{2}\), so \(dt=\frac{2}{\pi}du\), and \(t:0\to 4\) maps to \(u:0\to 2\pi\):
+\[
+\int_0^4 \sin\left(\frac{\pi t}{2}\right)\,dt
+=
+\frac{2}{\pi}\int_0^{2\pi}\sin(u)\,du
+=
+\frac{2}{\pi}\left[-\cos(u)\right]_0^{2\pi}
+=
+0.
+\]
+**Guidance:** Net change is the signed area; both cancel to zero.
+
+2. **Total amount exchanged**
+System A:
+Positive on \([0,2]\), negative on \([2,4]\).
+\[
+\text{Total exchange}=\int_0^2 (2-t)\,dt + \int_2^4 (t-2)\,dt = 2+2=4.
+\]
+
+System B:
+Over one full period, positive on \([0,2]\), negative on \([2,4]\), and symmetric:
+\[
+\text{Total exchange}=\int_0^4 \left|\sin\left(\frac{\pi t}{2}\right)\right|dt
+=
+2\int_0^2 \sin\left(\frac{\pi t}{2}\right)dt
+=
+2\cdot \frac{2}{\pi}\int_0^\pi \sin(u)\,du
+=
+2\cdot \frac{2}{\pi}\cdot 2
+=
+\frac{8}{\pi}.
+\]
+So System A has total exchange \(4\), System B has total exchange \(\frac{8}{\pi}\approx 2.55\).  
+**Guidance:** “Total exchanged” means integrate the absolute value (or add magnitudes of positive/negative parts).
+
+3. **Explanation**
+They can have the same net change because gains and losses cancel, even if the timing and magnitude of exchanges differ.  
+**Guidance:** Net change compresses all behavior into one signed number, hiding internal variability.
+
+---
+
+## Practice Set C: Accumulation Functions (FTC Part I)
+
+### C1. Building an Accumulation Function
+
+\(r(t)=3t+2\) (kg/hr), \(A(x)=\int_1^x r(t)\,dt\)
+
+1. **Explicit formula**
+\[
+A(x)=\int_1^x (3t+2)\,dt
+=
+\left[\frac{3}{2}t^2+2t\right]_1^x
+=
+\left(\frac{3}{2}x^2+2x\right)-\left(\frac{3}{2}+2\right)
+=
+\frac{3}{2}x^2+2x-\frac{7}{2}.
+\]
+**Guidance:** Build \(A(x)\) by integrating and subtracting the value at the lower limit.
+
+2. **Compute \(A(4)\)**
+\[
+A(4)=\frac{3}{2}(16)+8-\frac{7}{2}=24+8-3.5=28.5=\frac{57}{2}.
+\]
+**Guidance:** Plug \(x=4\) into your explicit accumulation function.
+
+3. **Meaning of \(A'(x)\)**
+\[
+A'(x)=r(x)=3x+2.
+\]
+**Guidance:** FTC Part I says the derivative of the accumulation is the original rate.
+
+4. **Units of \(A(x)\)**
+Kilograms (kg).  
+**Guidance:** Integrating kg/hr over hours gives kg.
+
+---
+
+### C2. Interpreting Accumulation Without Computing
+
+- **Increase most rapidly:** Where the rate is largest (largest \(r(t)\)).  
+- **Concave up:** Where the rate is increasing (where \(r'(t)>0\)).  
+- **Flat section:** Where the rate is zero (no accumulation).  
+**Guidance:** Slope of accumulation is the rate; concavity depends on whether the rate is increasing/decreasing.
+
+---
+
+## Practice Set D: Evaluating Definite Integrals Using FTC Part II
+
+### D1. Two Approaches to Net Change
+
+\(f(t)=t^2-4t\)
+
+1. **Where positive/negative**
+\[
+t^2-4t=t(t-4).
+\]
+So \(f(t)<0\) on \((0,4)\), \(f(t)>0\) on \((4,\infty)\) (and \(f=0\) at \(t=0,4\)).  
+**Guidance:** Factor to find zeros and test intervals.
+
+2. **Net change on \([0,5]\)**
+
+**Split at sign change \(t=4\):**
+\[
+\int_0^5 (t^2-4t)\,dt
+=
+\int_0^4 (t^2-4t)\,dt+\int_4^5 (t^2-4t)\,dt.
+\]
+(First part negative, second part positive.)
+
+**FTC Part II (direct):**
+\[
+\int_0^5 (t^2-4t)\,dt
+=
+\left[\frac{t^3}{3}-2t^2\right]_0^5
+=
+\frac{125}{3}-50
+=
+-\frac{25}{3}.
+\]
+**Guidance:** Both methods compute the same signed area; splitting just reveals the negative vs positive contributions.
+
+3. **Why both match**
+Splitting the interval doesn’t change the total signed area; it only separates it into pieces that add back to the same value.  
+**Guidance:** Additivity guarantees the split-integral sum equals the original integral.
+
+---
+
+## Conceptual Reflection (Sample Strong Answers)
+
+1. **Riemann sums as a process**
+Because you refine the partition (increase \(n\)) to make the approximation converge to the exact integral.  
+
+2. **When to split an integral**
+When the function changes sign, changes behavior, or the interval is naturally broken into segments with known information.  
+
+3. **Large exchange but small net change**
+Yes—large positive and negative contributions can nearly cancel, producing a small net change.  
+
+4. **What a definite integral does not provide**
+It does not show *when* changes happen within the interval, only the total signed accumulation.  
+
+---
+
+## Practice Set E
+
+### E1. Linearity (Sum and Difference)
+
+1. \[
+\int_{2}^{6}[f(x)+g(x)]dx
+=
+\int_{2}^{6}f(x)dx+\int_{2}^{6}g(x)dx
+=
+5+(-3)=2.
+\]
+**Guidance:** Add the given integral values using linearity.
+
+2. \[
+\int_{-1}^{3}[h(x)-4]dx
+=
+\int_{-1}^{3}h(x)dx-\int_{-1}^{3}4\,dx
+=
+7-4(3-(-1))=7-16=-9.
+\]
+**Guidance:** Treat the constant as \(4\cdot 1\) and use \(\int_a^b 1\,dx=b-a\).
+
+3. \[
+\int_{0}^{4}[3p(x)-2q(x)]dx
+=
+3\int_{0}^{4}p(x)dx-2\int_{0}^{4}q(x)dx
+=
+3(6)-2(10)=18-20=-2.
+\]
+**Guidance:** Pull out constants, then combine.
+
+---
+
+### E2. Constant Multiple Rule
+
+4. \[
+\int_{1}^{5}6r(x)\,dx=6\int_{1}^{5}r(x)\,dx=6(-2)=-12.
+\]
+**Guidance:** Constants factor out of integrals.
+
+5. \[
+\int_{-2}^{2}\frac{1}{3}f(x)\,dx
+=
+\frac{1}{3}\int_{-2}^{2}f(x)\,dx
+=
+\frac{1}{3}\cdot 9=3.
+\]
+**Guidance:** Multiply the known integral by \(\frac{1}{3}\).
+
+---
+
+### E3. Additivity Over Intervals
+
+6. \[
+\int_{0}^{7}f(x)\,dx
+=
+\int_{0}^{3}f(x)\,dx+\int_{3}^{7}f(x)\,dx
+=
+4+(-1)=3.
+\]
+**Guidance:** Add the pieces over adjacent intervals.
+
+7. \[
+\int_{2}^{4}g(x)\,dx
+=
+\int_{1}^{4}g(x)\,dx-\int_{1}^{2}g(x)\,dx
+=
+6-2=4.
+\]
+**Guidance:** Use additivity by subtraction to isolate the missing interval.
+
+---
+
+### E4. Combining Multiple Properties
+
+8. First compute
+\[
+\int_{0}^{5} f(x)\,dx
+=
+\int_{0}^{2}f(x)\,dx+\int_{2}^{5}f(x)\,dx
+=
+3+(-1)=2.
+\]
+Then
+\[
+\int_{0}^{5}[2f(x)+1]dx
+=
+2\int_{0}^{5}f(x)\,dx+\int_{0}^{5}1\,dx
+=
+2(2)+(5-0)
+=
+9.
+\]
+**Guidance:** Use additivity to get \(\int f\), then linearity for \(2f+1\).
+
+9. First
+\[
+\int_{-4}^{4}h(x)\,dx=\int_{-4}^{0}h(x)\,dx+\int_{0}^{4}h(x)\,dx=-5+7=2.
+\]
+So
+\[
+\int_{-4}^{4}[-h(x)]dx=-\int_{-4}^{4}h(x)\,dx=-2.
+\]
+**Guidance:** Add the two halves, then apply the negative sign via the constant multiple rule.
+
+---
+
+### E5. Conceptual (No Computation Required)
+
+10. \[
+\int_a^b [f(x)+c]\,dx=\int_a^b f(x)\,dx+\int_a^b c\,dx
+\]
+where the first term is the accumulation from the varying part and the second term is the constant background contribution \(c(b-a)\).  
+**Guidance:** Linearity lets you separate “variable accumulation” from “constant accumulation.”
+
+
+
+</div>
+
+<form onsubmit="unlock_set1(); return false;" id="gate_set1" style="margin-top:0.75rem;">
+  <input type="password" id="pwd_set1" placeholder="Enter password" aria-label="Answer key password">
+  <button type="submit">Unlock</button>
+  <span id="msg_set1" style="margin-left:0.5rem;" aria-live="polite"></span>
+</form>
+
+<script>
+function unlock_set1() {
+  var input = document.getElementById('pwd_set1');
+  var msg   = document.getElementById('msg_set1');
+  var sol   = document.getElementById('sol_set1');
+  var gate  = document.getElementById('gate_set1');
+  var pw    = (input.value || '').trim();
+  var det   = gate.closest('details'); if (det) det.open = true;
+
+  if (pw === 'redback') {
+    sol.hidden = false;
+    gate.hidden = true;
+    input.value = '';
+    msg.textContent = '';
+  } else {
+    msg.textContent = 'Stop guessing :) Ask a TA';
+    input.value = '';
+    input.focus();
+  }
+}
+</script>
