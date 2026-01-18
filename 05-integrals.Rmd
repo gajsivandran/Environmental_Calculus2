@@ -381,148 +381,2761 @@ Understanding this distinction is essential before learning any integration tech
 
 ---
 
-## 2) Reverse Differentiation as a Skill
+## Reverse Differentiation as a Skill
 
-### 2.1 The “Antiderivative Dictionary”
-- Power rule in reverse (including the special case \(x^{-1}\))
-- Exponentials and logarithms
-- Basic trig antiderivatives
+At this stage, integration should not feel like a new topic—it should feel like **recognition**.
 
-### 2.2 Pattern Recognition Over Memorization
-- Reading an integrand as a derivative you’ve seen before
-- Common structures that should trigger a known rule
+Every integration rule you learn already exists somewhere in your derivative toolkit. The challenge is not memorizing formulas, but training yourself to *see* an integrand as the derivative of something familiar.
 
-### 2.3 Practice: Fast Recognition Drills
-- Short, high-repetition integrals
-- “Name the rule” before computing
+Think of this section as building an **antiderivative dictionary** and learning how to look up entries quickly.
 
 ---
 
-## 3) Substitution: When a Function Is Hiding Inside Another
+### The “Antiderivative Dictionary”
 
-### 3.1 The Big Idea (Chain Rule in Reverse)
-- Recognizing \(f(g(x))g'(x)\)
-- Why substitution is a “change of variable,” not a trick
+An antiderivative dictionary is a mental catalog that pairs common derivatives with their original functions. When you integrate, you are asking:
 
-### 3.2 The Mechanics of \(u\)-Substitution
-- Choosing \(u\)
-- Converting \(dx\) to \(du\)
-- Integrate in \(u\), then substitute back
+> *Have I seen this derivative before?*
 
-### 3.3 Substitution in Definite Integrals (Optional here, or saved for later)
-- Changing bounds instead of substituting back
-- Why this can reduce algebra mistakes
-
-### 3.4 Common Pitfalls
-- Missing the derivative factor
-- Incorrect \(du\)
-- Substituting back too early
+Below are the core entries you should know cold.
 
 ---
 
-## 4) Integration by Parts: When Two Things Are Multiplying
+#### Power Rule (in Reverse)
 
-### 4.1 The Big Idea (Product Rule in Reverse)
-- Derivation from \((uv)' = u'v + uv'\)
-- Why this method “moves complexity” from one factor to another
+From differentiation:
+\[
+\frac{d}{dx}(x^n) = nx^{n-1}
+\]
 
-### 4.2 The Formula and How to Use It
-- \(\int u\,dv = uv - \int v\,du\)
-- Picking \(u\) and \(dv\) strategically
+Reversing this:
+\[
+\int x^n \, dx = \frac{x^{n+1}}{n+1} + C \quad (n \neq -1)
+\]
 
-### 4.3 Strategy for Choosing \(u\)
-- Heuristics (what tends to simplify when differentiated)
-- Avoiding “no progress” loops
+**Examples**
+\[
+\int x^4 dx = \frac{x^5}{5} + C
+\]
 
-### 4.4 Repeated Integration by Parts (When Needed)
-- When one round isn’t enough
-- When it terminates vs when it cycles
-
----
-
-## 5) Trig Integrals and Trig Substitutions (Optional / Course-Dependent)
-
-### 5.1 Trig Identities That Unlock Integrals
-- Pythagorean identities
-- Power-reduction / rewrite strategies
-
-### 5.2 Common Trig Integral Patterns
-- Products of powers of \(\sin\) and \(\cos\)
-- Secant/tangent patterns (if included)
-
-### 5.3 Trig Substitution (If included)
-- When radicals suggest circles/triangles
-- How substitution changes the integrand
-- Back-substitution with triangles
+\[
+\int x^{-3} dx = \frac{x^{-2}}{-2} + C = -\frac{1}{2x^2} + C
+\]
 
 ---
 
-## 6) Partial Fractions (Rational Functions)
+#### The Special Case: \(x^{-1}\)
 
-### 6.1 Recognizing “Rational Function” Structure
-- When \( \frac{P(x)}{Q(x)} \) is the form
-- Proper vs improper rational functions
+The power rule fails when \(n = -1\).
 
-### 6.2 Algebra Step: Long Division (If Needed)
-- Reducing improper to proper + polynomial part
+Instead:
+\[
+\int \frac{1}{x}\,dx = \ln|x| + C
+\]
 
-### 6.3 Decomposition Patterns
-- Distinct linear factors
-- Repeated linear factors
-- Irreducible quadratics (if included)
+This is not arbitrary—it comes directly from:
+\[
+\frac{d}{dx}(\ln|x|) = \frac{1}{x}
+\]
 
-### 6.4 Integrating the Pieces
-- Log forms from linear denominators
-- Arctan forms from irreducible quadratics (if included)
-
-### 6.5 Common Pitfalls
-- Missing terms in the decomposition
-- Algebra errors that cascade
+**Key recognition trigger:**  
+Any time you see a lone \(1/x\), think *logarithm*.
 
 ---
 
-## 7) Numerical Integration Revisited (A Reality Check)
+#### Exponentials and Logarithms
 
-### 7.1 When You Don’t Have a Formula
-- Discrete measurements and tabular data
-- Modeling vs measurement
+Exponentials are special because they reproduce themselves under differentiation.
 
-### 7.2 Trapezoid Rule (and Simpson’s Rule if included)
-- What the method assumes about the curve
-- Accuracy intuition: curvature + resolution
+\[
+\frac{d}{dx}(e^x) = e^x
+\]
 
-### 7.3 Comparing Numeric and Analytic Results
-- Sanity checks
-- When disagreement is informative (not just “error”)
+So:
+\[
+\int e^x dx = e^x + C
+\]
 
----
+Similarly:
+\[
+\int a^x dx = \frac{a^x}{\ln a} + C \quad (a > 0, a \neq 1)
+\]
 
-## 8) Strategy: How to Choose a Method
+**Logarithms**
+\[
+\frac{d}{dx}(\ln|x|) = \frac{1}{x}
+\]
 
-### 8.1 The Decision Tree
-- Basic rules vs substitution vs parts vs partial fractions vs numerical
-- “What do you try first?” checklist
-
-### 8.2 Mixed-Technique Problems
-- When a problem requires multiple steps
-- How to avoid committing too early
-
-### 8.3 Workflow Habits That Prevent Mistakes
-- Rewrite/simplify first
-- Check by differentiating
-- Units and sign checks (especially for applied setups)
+So:
+\[
+\int \frac{1}{x} dx = \ln|x| + C
+\]
 
 ---
 
-## Chapter Wrap-Up
+#### Basic Trigonometric Antiderivatives
 
-### Key Takeaways
-- Integration methods are organized around *structure*
-- Each technique is the inverse of a derivative rule
-- Interpretation (units, sign, context) is part of correctness
+These come directly from familiar derivative rules.
 
-### Practice Sets
-- Skills drills (fast technique recognition)
-- Mixed-method practice
-- Applied accumulation problems (analytic + numeric comparison)
+| Integrand | Antiderivative |
+|:---------:|:---------------:|
+| \(\cos x\) | \(\sin x + C\) |
+| \(\sin x\) | \(-\cos x + C\) |
+| \(\sec^2 x\) | \(\tan x + C\) |
+| \(\csc^2 x\) | \(-\cot x + C\) |
+| \(\sec x \tan x\) | \(\sec x + C\) |
+| \(\csc x \cot x\) | \(-\csc x + C\) |
+
+**Sign matters.**  
+For sine and cosine in particular, the negative sign is part of the recognition.
+
+---
+
+### Pattern Recognition Over Memorization
+
+A common misconception is that integration is about remembering formulas.
+
+In reality, successful integration looks like this:
+
+1. **Scan the integrand**
+2. **Ask:** “What derivative does this resemble?”
+3. **Match structure**, not symbols
+4. **Apply the corresponding reverse rule**
+
+---
+
+#### Reading an Integrand as a Derivative
+
+Consider:
+\[
+\int 6x^5 dx
+\]
+
+Instead of thinking “apply the power rule,” think:
+
+> *What function has derivative \(6x^5\)?*
+
+You know:
+\[
+\frac{d}{dx}(x^6) = 6x^5
+\]
+
+So immediately:
+\[
+\int 6x^5 dx = x^6 + C
+\]
+
+This mindset becomes essential later when functions are more complicated.
+
+---
+
+#### Common Structures That Should Trigger a Rule
+
+Here are some quick recognition cues:
+
+- **Powers of \(x\)** → power rule  
+- **\(1/x\)** → logarithm  
+- **\(e^x\)** → exponential  
+- **Trig functions alone** → basic trig antiderivatives  
+- **Constant multiples** → pull out the constant  
+
+If nothing jumps out immediately, that’s a signal—not a failure. It often means a **strategy** (like substitution) is coming later.
+
+---
+
+
+
+### Key Takeaway
+
+> **Integration is reverse differentiation plus pattern recognition.**
+
+Build a small, reliable antiderivative dictionary.  
+Practice recognizing structures before computing.  
+Speed comes from understanding, not memorization.
+
+Once this skill is in place, integration techniques become tools—not obstacles.
+
+---
+
+## Substitution: When a Function Is Hiding Inside Another
+
+Many integrals fail not because the function is complicated, but because it is **nested**.
+
+Substitution is the technique that lets us *temporarily ignore the outer complexity* by focusing on the inner structure. Conceptually, it is nothing more than the **chain rule in reverse**.
+
+---
+
+### The Big Idea: The Chain Rule in Reverse
+
+Recall the chain rule from differentiation:
+\[
+\frac{d}{dx}\big(F(g(x))\big) = F'(g(x))\,g'(x).
+\]
+
+Substitution works when an integrand matches this derivative structure:
+\[
+F'(g(x))\,g'(x).
+\]
+
+For notational simplicity, we often write this pattern as
+\[
+f(g(x))\,g'(x),
+\]
+where \(f\) represents the derivative of some outer function \(F\).
+
+The key recognition step is:
+
+> **Do I see a function inside another function, along with (almost) its derivative?**
+
+At first, this pattern can be difficult to spot. That is normal.  
+Recognition improves with repetition, not memorization.
+
+Equally important, we will practice **course correction**: learning how to recognize when substitution is *not* working and what that tells you about which strategy to try next.
+
+---
+
+#### Recognizing \(f(g(x))g'(x)\)
+
+Consider:
+\[
+\int (3x^2 + 1)^5 \cdot 6x \, dx.
+\]
+
+Read it structurally:
+
+- Inner function: \(g(x) = 3x^2 + 1\)
+- Outer function: \(F(u) = u^5\)
+- Derivative of the inner function: \(g'(x) = 6x\)
+
+This matches the chain rule pattern exactly.
+
+Instead of expanding powers or managing products, we *rename the inner function* and simplify the structure.
+
+---
+
+#### Why Substitution Is a Change of Variable (Not a Trick)
+
+Substitution is often taught procedurally, which makes it feel like a trick.
+
+Conceptually, it is much simpler:
+
+> **We change variables so that the integral matches something we already know how to do.**
+
+We are not changing the mathematics—only the *perspective*.
+
+This mirrors modeling practice:
+
+- If a process depends on temperature, we might re-express time-dependent data in terms of temperature.
+- If a rate depends on concentration, we may analyze accumulation with concentration as the variable.
+
+Substitution is exactly this idea, applied mathematically.
+
+---
+
+### The Mechanics of \(u\)-Substitution
+
+Once the structure is recognized, the mechanics follow a consistent pattern.
+
+---
+
+#### Step 1: Choose \(u\)
+
+Choose \(u\) to be the **inner function**.
+
+Example:
+\[
+\int (3x^2 + 1)^5 \cdot 6x \, dx
+\]
+
+Let:
+\[
+u = 3x^2 + 1.
+\]
+
+---
+
+#### Step 2: Convert \(dx\) to \(du\)
+
+Differentiate \(u\):
+\[
+\frac{du}{dx} = 6x
+\quad \Rightarrow \quad
+du = 6x\,dx.
+\]
+
+This step is not symbolic bookkeeping—it is where the **meaning of the integral is preserved**.
+
+---
+
+##### What \(dx\) Actually Means
+
+Recall where integrals come from.
+
+A definite integral begins as a Riemann sum:
+\[
+\sum f(x_i)\,\Delta x.
+\]
+
+Here:
+- \(f(x_i)\) is the height of each rectangle,
+- \(\Delta x\) is the **width** of each rectangle.
+
+When we take the limit as the widths shrink,
+\[
+\Delta x \to 0,
+\]
+the sum becomes an integral:
+\[
+\int f(x)\,dx.
+\]
+
+The symbol \(dx\) represents an **infinitesimally small width measured in the \(x\)-direction**.
+
+---
+
+##### Why \(dx\) Must Change When the Variable Changes
+
+When we use substitution, we are no longer measuring accumulation in terms of \(x\).  
+We are changing variables and measuring accumulation in terms of a new quantity \(u\).
+
+That means:
+- the “height” of each rectangle is rewritten in terms of \(u\),
+- **the width must also be rewritten**.
+
+Leaving \(dx\) behind would mix measurements from two different coordinate systems.
+
+---
+
+##### What \(du = 6x\,dx\) Is Really Saying
+
+When we compute:
+\[
+du = 6x\,dx,
+\]
+we are expressing how an **infinitesimal change in \(x\)** corresponds to an **infinitesimal change in \(u\)**.
+
+- \(dx\) measures tiny steps in \(x\),
+- \(du\) measures the corresponding tiny steps in \(u\),
+- the factor \(6x\) tells us how those widths scale.
+
+The product \(6x\,dx\) is the **new width** after changing variables.
+
+---
+
+##### The Key Idea
+
+> Substitution changes both the function *and* the width over which accumulation happens.
+
+Failing to convert the differential breaks the meaning of the integral.
+
+---
+
+##### A Useful Mental Model
+
+Think of substitution as re-measuring the same total accumulation using a **different ruler**.
+
+- \(dx\) measures length in \(x\)-units,
+- \(du\) measures length in \(u\)-units,
+- \(\frac{du}{dx}\) tells you how to convert between them.
+
+---
+
+#### Step 3: Rewrite the Integral in Terms of \(u\)
+
+Substitute:
+
+- \((3x^2 + 1) \rightarrow u\)
+- \(6x\,dx \rightarrow du\)
+
+The integral becomes:
+\[
+\int u^5 \, du.
+\]
+
+Now the structure is simple.
+
+---
+
+#### Step 4: Integrate and Substitute Back
+
+Integrate:
+\[
+\int u^5 du = \frac{u^6}{6} + C.
+\]
+
+Substitute back:
+\[
+\frac{(3x^2 + 1)^6}{6} + C.
+\]
+
+---
+
+### Why Substitution Works
+
+Substitution temporarily turns a **composite rate** into a **simple rate**.
+
+You are effectively saying:
+
+> *Let me measure accumulation with respect to the inner process first.*
+
+Once that accumulation is understood, you translate it back to the original variable.
+
+---
+
+### Substitution in Definite Integrals
+
+Substitution works the same way for definite integrals, with one improvement:  
+you can **change the bounds instead of substituting back**.
+
+---
+
+#### Changing the Bounds
+
+Example:
+\[
+\int_0^2 (3x^2 + 1)^5 \cdot 6x \, dx
+\]
+
+Let:
+\[
+u = 3x^2 + 1.
+\]
+
+Convert the bounds:
+
+- When \(x = 0\): \(u = 1\)
+- When \(x = 2\): \(u = 13\)
+
+Now the integral becomes:
+\[
+\int_1^{13} u^5 \, du.
+\]
+
+---
+
+#### Why This Reduces Errors
+
+- No need to rewrite \(x\) in terms of \(u\)
+- Cleaner algebra
+- Fewer opportunities to lose constants or signs
+
+---
+
+::: promptbox
+
+**Worked Example: Why the Differential Must Change**
+
+Let’s look at a substitution example where the role of \(dx\) and \(du\) is especially clear.
+
+---
+
+Evaluate:
+\[
+\int 2x \, e^{x^2} \, dx
+\]
+
+---
+
+**Step 1: Recognize the Structure**
+
+- Inner function: \(x^2\)
+- Outer function: \(F(u) = e^u\)
+- Derivative of the inner function: \(2x\)
+
+This matches the chain rule pattern.
+
+---
+
+**Step 2: Choose \(u\)**
+
+Let:
+\[
+u = x^2.
+\]
+
+Then:
+\[
+du = 2x\,dx.
+\]
+
+👉 **The entire factor \(2x\,dx\) is exactly \(du\).**
+
+---
+
+**Step 3: Rewrite the Integral in Terms of \(u\)**
+
+\[
+\int e^{u}\,du.
+\]
+
+---
+
+**Step 4: Integrate and Substitute Back**
+
+\[
+e^{x^2} + C.
+\]
+
+---
+
+**Key Insight from This Example**
+
+> The differential tells you **what variable the accumulation is happening in**.
+
+Both the function and the width must be expressed in the same variable.
+
+:::
+
+---
+
+### Common Pitfalls
+
+Substitution errors almost always fall into one of the following categories.
+
+---
+
+#### Missing the Derivative Factor
+
+\[
+\int (x^2 + 1)^4 dx
+\]
+
+There is no \(2x\) present.
+
+This means substitution will not simplify the integral without additional manipulation.
+
+---
+
+#### Incorrect \(du\)
+
+\[
+u = x^2 + 1 \quad \Rightarrow \quad du = 2x
+\]
+
+This is incomplete.
+
+Correct:
+\[
+du = 2x\,dx.
+\]
+
+---
+
+#### Substituting Back Too Early
+
+Once the integral is rewritten in terms of \(u\), **stay in \(u\)** until after integration.
+
+---
+
+### Strategy Check
+
+Before using substitution, ask:
+
+- Do I see a nested structure?
+- Is the derivative of the inner function present (up to a constant)?
+- Will this rewrite the integral into something simpler?
+
+If the answer is no, that is information—not failure.
+
+---
+
+### Key Takeaway
+
+> **Substitution is the chain rule in reverse, framed as a change of variable.**
+
+It simplifies nested structure by re-measuring accumulation in the variable that controls change.
+
+If substitution fails, it usually fails clearly—telling you it is time for a different strategy.
+
+---
+
+### When the Derivative Is *Almost* There – *Close Enough Can Be Enough*
+
+Very often, the derivative of the inner function is present **up to a constant factor**.
+
+This is not a problem—it is a feature.
+
+---
+
+#### Example
+
+Evaluate:
+\[
+\int (3x^2 + 1)^4 \cdot x \, dx
+\]
+
+---
+
+#### Step 1: Recognize the Structure
+
+- Inner function: \(3x^2 + 1\)
+- Derivative: \(6x\)
+
+The integrand contains \(x\), not \(6x\).
+
+---
+
+#### Step 2: Adjust with a Constant
+
+\[
+= \int (3x^2 + 1)^4 \cdot \frac{1}{6}(6x)\, dx
+= \frac{1}{6} \int (3x^2 + 1)^4 \cdot 6x\, dx.
+\]
+
+---
+
+#### Step 3: Substitute and Integrate
+
+\[
+\frac{1}{6} \int u^4 du
+= \frac{(3x^2 + 1)^5}{30} + C.
+\]
+
+---
+
+### Strategy Rule: *Course Correct*
+
+> **Substitution tolerates constant mismatches—but not structural ones.**
+
+If the mismatch depends on \(x\), substitution is no longer the right tool.
+
+---
+
+## Integration by Parts: When Accumulation Involves a Product
+
+Substitution helps when a function is **nested**.  
+Integration by parts is the complementary idea: it helps when a function is a **product**.
+
+This technique is not new mathematics. It is simply the **product rule, rearranged** to solve a different question.
+
+---
+
+### The Big Idea: The Product Rule in Reverse
+
+Recall the product rule from differentiation:
+\[
+\frac{d}{dx}\big(u(x)v(x)\big)
+=
+u'(x)v(x) + u(x)v'(x).
+\]
+
+This rule tells us how the rate of change of a **product** is built from two interacting pieces:  
+one changing while the other is held fixed, and vice versa.
+
+Integration by parts asks the inverse question:
+
+> *If a rate involves a product, can we undo it?*
+
+---
+
+To do this, we rearrange the product rule to isolate one of the product terms:
+\[
+u(x)v'(x)
+=
+\frac{d}{dx}\big(u(x)v(x)\big) - u'(x)v(x).
+\]
+
+This step is purely algebraic—but conceptually important.  
+It expresses a **product-type rate** as the difference between:
+
+- the derivative of the full product, and
+- a new product that may be simpler.
+
+---
+
+Now integrate both sides:
+\[
+\int u(x)v'(x)\,dx
+=
+u(x)v(x) - \int u'(x)v(x)\,dx.
+\]
+
+This is **integration by parts**.
+
+---
+
+### What This Formula Is Really Doing
+
+Integration by parts does not magically evaluate an integral.  
+It **rearranges where the difficulty lives**.
+
+- One factor is differentiated (often simplifying it),
+- the other is integrated (often staying manageable),
+- the remaining integral is easier than the original.
+
+In other words:
+
+> **We trade one product for another, hoping the trade is in our favor.**
+
+If the new integral is simpler, the method succeeds.  
+If it is not, that is useful information—it means a different strategy is needed.
+
+---
+
+### Why This Mirrors the Product Rule
+
+Just as substitution reverses the chain rule,  
+integration by parts reverses the product rule.
+
+- Substitution handles *nesting*.
+- Integration by parts handles *interaction*.
+
+Recognizing which structure you are facing is the key skill—not memorizing formulas.
+
+
+### The Formula (and What It Means)
+
+We usually write the result as:
+\[
+\int u\,dv = uv - \int v\,du.
+\]
+
+This is not something to memorize blindly.  
+It is a bookkeeping statement that encodes the product rule.
+
+Conceptually:
+
+> **We trade one product for another that is easier to integrate.**
+
+---
+
+### When Integration by Parts Is the Right Tool
+
+Integration by parts is useful when:
+
+- the integrand is a **product** of two functions, and
+- differentiating one factor simplifies it.
+
+Classic triggers include:
+
+- polynomials multiplied by exponentials or trig functions,
+- logarithms multiplied by anything,
+- inverse trig functions multiplied by powers of \(x\).
+
+A useful diagnostic question is:
+
+> **If I differentiate one factor, does it become simpler?**
+
+If yes, integration by parts is a good candidate.
+
+::: promptbox
+
+**Quick Diagnostic Example**
+
+Consider the integral:
+\[
+\int x \sin x \, dx.
+\]
+
+Before doing any computation, ask:
+
+> *If I differentiate one factor, does it become simpler?*
+
+- Differentiating \(x\) gives \(1\), which is simpler.
+- Differentiating \(\sin x\) gives \(\cos x\), which is not simpler in any meaningful way.
+
+This suggests choosing \(u = x\) is a good strategic move.
+
+---
+
+**What a “Good” Choice Looks Like**
+
+- Start with: \(x \sin x\)
+- Differentiate \(x \rightarrow 1\)
+
+The product has lost structure.  
+That is what “easier” means here.
+
+---
+
+**What a “Bad” Choice Looks Like**
+
+If instead you differentiate the other factor:
+
+- Start with: \(x \sin x\)
+- Differentiate \(\sin x \rightarrow \cos x\)
+
+The product is still a product of two nontrivial functions.  
+Nothing has simplified.
+
+This is a warning sign.
+
+---
+
+**The Takeaway**
+
+“Easier” does not mean *finished*.  
+It means **less structure than before**.
+
+If differentiating a factor removes complexity, integration by parts is likely to help.
+
+:::
+
+
+---
+
+### Choosing \(u\) and \(dv\)
+
+The method requires a choice:
+
+- one part becomes \(u\),
+- the other becomes \(dv\).
+
+There is no single correct rule, but a common guideline is:
+
+> Choose \(u\) to be the factor that becomes simpler when differentiated.
+
+This often—but not always—means:
+
+- logarithms,
+- inverse trig functions,
+- algebraic powers of \(x\).
+
+---
+
+### A First Worked Example
+
+Evaluate:
+\[
+\int x e^x \, dx.
+\]
+
+---
+
+#### Step 1: Choose \(u\) and \(dv\)
+
+Let:
+\[
+u = x.
+\]
+
+Take the derivative of both sides with respect to \(x\):
+\[
+\frac{du}{dx} = \frac{d}{dx}(x) = 1.
+\]
+
+Multiply both sides by \(dx\):
+\[
+du = dx.
+\]
+
+This tells us that an infinitesimal change in \(u\) is the same as an infinitesimal change in \(x\).
+
+---
+
+Now choose the remaining part of the integrand to be \(dv\):
+
+Let:
+\[
+dv = e^x\,dx.
+\]
+
+To find \(v\), integrate both sides:
+\[
+\int dv = \int e^x\,dx.
+\]
+
+This gives:
+\[
+v = e^x.
+\]
+
+Here, we are identifying which part of the product will be **accumulated** (integrated) when we reverse the product rule.
+
+---
+
+Together, these steps do the following:
+
+- \(u\) is the factor we plan to **differentiate**, producing \(du\),
+- \(dv\) is the factor we plan to **integrate**, producing \(v\).
+
+This choice determines how the product rule is unwound in the next step.
+
+
+---
+
+#### Step 2: Apply the Formula
+
+\[
+\int u\,dv = uv - \int v\,du
+\]
+
+\[
+\int x e^x dx = x e^x - \int e^x dx.
+\]
+
+---
+
+#### Step 3: Finish the Integral
+
+\[
+x e^x - e^x + C.
+\]
+
+Or factor:
+\[
+e^x(x - 1) + C.
+\]
+
+---
+
+### Why This Worked
+
+Originally, the integral involved a product that could not be simplified directly.
+
+By differentiating \(x\), we turned it into a constant.  
+By integrating \(e^x\), we left it unchanged.
+
+The result was an integral that was **simpler than the original**.
+
+That is the goal of integration by parts.
+
+---
+
+### A Second Example: Logarithms
+
+Evaluate:
+\[
+\int \ln x \, dx.
+\]
+
+At first glance, this looks like it should require substitution—but there is no obvious inner function.
+
+Instead, think of it as a product:
+\[
+\ln x = (\ln x)\cdot 1.
+\]
+
+---
+
+#### Step 1: Choose \(u\) and \(dv\)
+
+Let:
+\[
+u = \ln x
+\quad \Rightarrow \quad
+du = \frac{1}{x} dx.
+\]
+
+Let:
+\[
+dv = dx
+\quad \Rightarrow \quad
+v = x.
+\]
+
+---
+
+#### Step 2: Apply the Formula
+
+\[
+\int \ln x \, dx
+= x\ln x - \int x \cdot \frac{1}{x} dx.
+\]
+
+---
+
+#### Step 3: Simplify
+
+\[
+x\ln x - \int 1\,dx
+= x\ln x - x + C.
+\]
+
+---
+
+### A Useful Interpretation
+
+Integration by parts redistributes *where the complexity lives*.
+
+- One factor is differentiated (losing complexity),
+- the other is integrated (often staying similar).
+
+If the trade makes the remaining integral simpler, the method succeeds.  
+If it does not, that is a signal to try a different strategy.
+
+---
+
+### Common Pitfalls
+
+---
+
+#### Choosing \(u\) That Gets More Complicated
+
+Example:
+\[
+\int x e^x dx
+\]
+
+Choosing:
+\[
+u = e^x
+\]
+does not help—its derivative is still \(e^x\).
+
+Good choices simplify when differentiated.
+
+---
+
+#### Forgetting the Minus Sign
+
+The formula is:
+\[
+\int u\,dv = uv - \int v\,du.
+\]
+
+The minus sign matters and is a common source of errors.
+
+---
+
+#### Stopping Too Soon
+
+Sometimes, integration by parts must be applied **more than once**.
+
+Example:
+\[
+\int x^2 e^x dx
+\]
+
+Each application reduces the power of \(x\) until the integral becomes straightforward.
+
+---
+
+### Strategy Check
+
+Before using integration by parts, ask:
+
+- Is the integrand a product?
+- Will differentiating one factor simplify it?
+- Does substitution clearly *not* apply?
+
+If yes, integration by parts is likely the right tool.
+
+---
+
+### Key Takeaway
+
+> **Integration by parts is the product rule in reverse.**
+
+It works by trading one product for another that is easier to integrate.
+
+Mastery comes not from memorizing the formula, but from recognizing when a product structure can be simplified through differentiation.
+
+Once this technique is comfortable, you are ready to handle integrals involving products, logarithms, and repeated structure—especially those that arise naturally in modeling and applications.
+
+---
+
+## Partial Fractions: When a Rational Function Can Be Taken Apart
+
+Substitution helps when a function is **nested**.  
+Integration by parts helps when a function is a **product**.  
+
+Partial fractions address a different structure altogether:  
+**ratios of polynomials**.
+
+When an integrand is a rational function,
+\[
+\frac{P(x)}{Q(x)},
+\]
+partial fractions allows us to rewrite that ratio as a **sum of simpler pieces** whose antiderivatives we already know.
+
+---
+
+### The Big Idea: Decomposing a Ratio into Simpler Parts
+
+The core idea behind partial fractions is not calculus—it is algebra.
+
+Instead of integrating a complicated fraction directly, we ask:
+
+> *Can this rational function be written as a sum of simpler rational functions?*
+
+If the answer is yes, then integration becomes straightforward, because integration is linear:
+\[
+\int (f(x) + g(x))\,dx = \int f(x)\,dx + \int g(x)\,dx.
+\]
+
+---
+
+### When Partial Fractions Is the Right Tool
+
+Partial fractions is appropriate when:
+
+- the integrand is a **rational function** (a polynomial divided by a polynomial),
+- the degree of the numerator is **less than** the degree of the denominator (or can be made so),
+- the denominator can be **factored** into simpler pieces.
+
+If these conditions are met, partial fractions is often the most direct strategy.
+
+---
+
+### Step 0: Make the Rational Function Proper
+
+Before decomposing, always check degrees.
+
+If:
+\[
+\deg(P) \ge \deg(Q),
+\]
+perform **polynomial division** first.
+
+Example:
+\[
+\frac{x^2 + 1}{x - 1}
+= x + 1 + \frac{2}{x - 1}.
+\]
+
+Only the proper fraction needs partial fractions.
+
+---
+
+### The Big Structural Insight
+
+The denominator controls the form of the decomposition.
+
+Each factor in the denominator corresponds to a term in the decomposition.
+
+We match structure first—just as with substitution and integration by parts.
+
+---
+
+#### Why We Break the Fraction Apart
+
+At first glance, partial fractions can feel like we are making the problem *more* complicated by introducing multiple terms.
+
+In reality, we are doing the opposite.
+
+A rational function such as
+\[
+\frac{P(x)}{Q(x)}
+\]
+is often difficult to integrate directly because it does **not** match any antiderivative rule we know.
+
+But integration is linear:
+\[
+\int (f(x) + g(x))\,dx = \int f(x)\,dx + \int g(x)\,dx.
+\]
+
+So our goal is to rewrite a single complicated ratio as a **sum of simple ratios**, each of which matches a familiar antiderivative.
+
+---
+
+#### What We Are Trying to Create
+
+When the denominator factors into linear terms, we aim to produce fractions of the form:
+\[
+\frac{1}{x - a}.
+\]
+
+This is not arbitrary.
+
+We do this because we already know the antiderivative:
+\[
+\int \frac{1}{x - a}\,dx = \ln|x - a| + C.
+\]
+
+Once the integrand is written in this form, the calculus is finished.
+
+---
+
+#### How the Denominator Dictates the Form
+
+Each factor in the denominator represents a potential *rate behavior* that contributes to the overall expression.
+
+For example:
+\[
+(x - 1)(x + 2)
+\]
+leads to terms of the form:
+\[
+\frac{A}{x - 1} + \frac{B}{x + 2}.
+\]
+
+Each term isolates the influence of one factor in the denominator and turns it into a rate with a known accumulation rule.
+
+---
+
+#### The Unifying Idea
+
+Partial fractions is not about solving for constants.
+
+It is about **engineering the integrand** so that every piece matches a known antiderivative identity.
+
+The constants \(A\) and \(B\) are simply whatever values make the algebra work.
+
+---
+
+#### Structural Parallel
+
+This mirrors earlier techniques:
+
+- Substitution rewrites a complicated expression so it matches the chain rule in reverse.
+- Integration by parts rewrites a product so it matches the product rule in reverse.
+- Partial fractions rewrites a ratio so it matches **logarithmic and power-rule antiderivatives**.
+
+In every case, the strategy is the same:
+
+> **Change the form, not the meaning, until the structure becomes familiar.**
+
+That is the real power of partial fractions.
+
+---
+
+### Case 1: Distinct Linear Factors
+
+Consider:
+\[
+\int \frac{5x + 1}{(x - 1)(x + 2)}\,dx.
+\]
+
+Because the denominator factors into distinct linear terms, we write:
+\[
+\frac{5x + 1}{(x - 1)(x + 2)}
+=
+\frac{A}{x - 1} + \frac{B}{x + 2}.
+\]
+
+The goal is to find constants \(A\) and \(B\).
+
+---
+
+#### Solving for the Coefficients
+
+Start with the decomposition:
+\[
+\frac{5x + 1}{(x - 1)(x + 2)}
+=
+\frac{A}{x - 1} + \frac{B}{x + 2}.
+\]
+
+Multiply both sides by the common denominator \((x - 1)(x + 2)\):
+\[
+5x + 1 = A(x + 2) + B(x - 1).
+\]
+
+Expand the right-hand side:
+\[
+5x + 1 = Ax + 2A + Bx - B.
+\]
+
+Combine like terms:
+\[
+5x + 1 = (A + B)x + (2A - B).
+\]
+
+Match coefficients:
+
+- Coefficient of \(x\):
+\[
+A + B = 5
+\]
+
+- Constant term:
+\[
+2A - B = 1
+\]
+
+Solve the system.
+
+Add the equations:
+\[
+(A + B) + (2A - B) = 5 + 1
+\]
+\[
+3A = 6
+\]
+\[
+A = 2.
+\]
+
+Substitute into \(A + B = 5\):
+\[
+2 + B = 5
+\]
+\[
+B = 3.
+\]
+
+So the coefficients are:
+\[
+A = 2, \quad B = 3.
+\]
+
+---
+
+#### Integrate Term by Term
+
+Once the decomposition is complete, the integral becomes a sum of simpler integrals:
+\[
+\int \left(\frac{2}{x - 1} + \frac{3}{x + 2}\right)\,dx.
+\]
+
+Use linearity to split the integral:
+\[
+\int \left(\frac{2}{x - 1} + \frac{3}{x + 2}\right)\,dx
+=
+\int \frac{2}{x - 1}\,dx + \int \frac{3}{x + 2}\,dx.
+\]
+
+Now pull constants outside each integral:
+\[
+\int \frac{2}{x - 1}\,dx + \int \frac{3}{x + 2}\,dx
+=
+2\int \frac{1}{x - 1}\,dx + 3\int \frac{1}{x + 2}\,dx.
+\]
+
+Use the logarithm antiderivative identity:
+\[
+\int \frac{1}{x-a}\,dx = \ln|x-a| + C.
+\]
+
+Apply it to each term:
+
+- For \(a=1\):
+\[
+2\int \frac{1}{x - 1}\,dx = 2\ln|x - 1|.
+\]
+
+- For \(a=-2\):
+\[
+3\int \frac{1}{x + 2}\,dx = 3\ln|x + 2|.
+\]
+
+Combine the results:
+\[
+2\ln|x - 1| + 3\ln|x + 2| + C.
+\]
+
+The single constant \(C\) at the end accounts for the constants that would arise from each integral.
+
+---
+
+### Case 2: Repeated Linear Factors
+
+If the denominator contains a repeated linear factor such as
+\[
+(x - a)^2,
+\]
+then **each power of that factor requires its own term** in the decomposition.
+
+This ensures that the decomposition has enough flexibility to match the original numerator.
+
+---
+
+#### Example
+
+Evaluate:
+\[
+\int \frac{1}{(x - 1)^2}\,dx.
+\]
+
+---
+
+#### Step 1: Write the Partial Fraction Decomposition
+
+Because the factor \((x - 1)\) appears with power 2, we include **one term for each power**:
+\[
+\frac{1}{(x - 1)^2}
+=
+\frac{A}{x - 1} + \frac{B}{(x - 1)^2}.
+\]
+
+The goal is to determine the constants \(A\) and \(B\).
+
+---
+
+#### Step 2: Clear the Denominator
+
+Multiply both sides by \((x - 1)^2\):
+\[
+1 = A(x - 1) + B.
+\]
+
+This equation must be true for **all** values of \(x\).
+
+---
+
+#### Step 3: Choose a Convenient Value of \(x\)
+
+Because the equation holds for all \(x\), we are free to choose values of \(x\) that simplify the algebra.
+
+---
+
+##### Why Choose \(x = 1\)?
+
+We choose \(x = 1\) because it **zeros out one of the terms**.
+
+Substitute \(x = 1\) into the equation:
+\[
+1 = A(1 - 1) + B.
+\]
+
+Since \(1 - 1 = 0\), the term involving \(A\) disappears:
+\[
+1 = 0 + B.
+\]
+
+So immediately:
+\[
+B = 1.
+\]
+
+This isolates one coefficient without solving a system of equations.
+
+---
+
+#### Step 4: Solve for the Remaining Coefficient
+
+Substitute \(B = 1\) back into the equation:
+\[
+1 = A(x - 1) + 1.
+\]
+
+Subtract 1 from both sides:
+\[
+0 = A(x - 1).
+\]
+
+Since this must hold for all \(x\), we conclude:
+\[
+A = 0.
+\]
+
+---
+
+#### Step 5: Write the Final Decomposition
+
+\[
+\frac{1}{(x - 1)^2}
+=
+\frac{0}{x - 1} + \frac{1}{(x - 1)^2}
+=
+\frac{1}{(x - 1)^2}.
+\]
+
+In this case, the algebra confirms that no additional simplification is needed.
+
+---
+
+#### Step 6: Integrate
+
+Rewrite using exponents:
+\[
+\int \frac{1}{(x - 1)^2}\,dx
+=
+\int (x - 1)^{-2}\,dx.
+\]
+
+Apply the power rule:
+\[
+\int (x - 1)^{-2}\,dx
+=
+\frac{(x - 1)^{-1}}{-1} + C
+=
+-\frac{1}{x - 1} + C.
+\]
+
+---
+
+### Key Insight
+
+For repeated linear factors:
+
+- **every power must appear in the decomposition**,
+- choosing values that zero out factors simplifies coefficient solving,
+- once decomposed, each term integrates using familiar rules.
+
+This case reinforces the core strategy of partial fractions:  
+**rewrite first, integrate second**.
+
+---
+
+### Why Partial Fractions Works
+
+Partial fractions succeeds because it converts a **single complicated rate** into a **sum of simple rates**.
+
+Each piece corresponds to a familiar antiderivative:
+- logarithms,
+- power rules,
+- inverse trigonometric functions.
+
+Rather than inventing a new technique, partial fractions allows us to reuse old ones.
+
+---
+
+### Common Pitfalls
+
+---
+
+#### Skipping Polynomial Division
+
+If the fraction is not proper, decomposition will fail or become messy.
+
+Always divide first.
+
+---
+
+#### Missing Terms in the Decomposition
+
+Each factor and each power must appear.
+
+For example:
+\[
+(x - 1)^3 \Rightarrow \frac{A}{x - 1} + \frac{B}{(x - 1)^2} + \frac{C}{(x - 1)^3}.
+\]
+
+---
+
+#### Forgetting the Goal
+
+Partial fractions is not about finding \(A\), \(B\), and \(C\).  
+It is about rewriting the integrand into **integrable pieces**.
+
+---
+
+### Strategy Check
+
+Before using partial fractions, ask:
+
+- Is this a rational function?
+- Is the fraction proper (or can it be made proper)?
+- Can the denominator be factored?
+
+If yes, partial fractions is likely the right tool.
+
+---
+
+### Key Takeaway
+
+> **Partial fractions replaces a difficult rational expression with a sum of simple ones.**
+
+It works because integration is linear and familiar antiderivatives are reusable.
+
+Once mastered, partial fractions becomes a powerful algebraic tool for turning complex ratios into manageable integrals—especially in applied models involving rational rates.
+
+
+## Strategy: How to Choose a Method
+
+By this point, you have seen several integration techniques.  
+The challenge now is no longer *how* to execute a method, but **which method to try**—and in what order.
+
+This section focuses on strategy: recognizing structure, choosing wisely, and avoiding common traps that come from committing too early.
+
+---
+
+### The Decision Tree
+
+Every integration problem begins the same way:
+
+> **Pause before computing.**
+
+Ask what kind of object you are looking at.
+
+---
+
+#### Step 1: Look for the Simplest Case First
+
+Always start by asking:
+
+> *Can this be integrated directly using basic rules?*
+
+Try this **before** anything else.
+
+Basic rules include:
+
+- Power rule
+- Exponentials
+- Logarithms
+- Basic trigonometric antiderivatives
+- Linearity (splitting sums, pulling out constants)
+
+If the integrand is already a sum of familiar forms, you are done.
+
+---
+
+#### Step 2: Check for a Nested Structure → Substitution
+
+If basic rules do not apply, ask:
+
+> *Do I see a function inside another function, along with (almost) its derivative?*
+
+Indicators for substitution:
+
+- Powers of expressions like \((3x^2+1)^5\)
+- Exponentials like \(e^{x^2}\)
+- Rational expressions where the numerator resembles the derivative of the denominator
+
+If the answer is yes, try substitution next.
+
+---
+
+#### Step 3: Check for a Product → Integration by Parts
+
+If substitution does not simplify the integrand, ask:
+
+> *Is the integrand a product of two functions?*
+
+Then ask the diagnostic question:
+
+> *If I differentiate one factor, does it become simpler?*
+
+Common triggers:
+
+- \(x e^x\)
+- \(x \sin x\)
+- \(\ln x\)
+- inverse trig functions times algebraic factors
+
+If differentiating one part reduces complexity, integration by parts is a good candidate.
+
+---
+
+#### Step 4: Check for a Rational Function → Partial Fractions
+
+If the integrand is a ratio of polynomials:
+\[
+\frac{P(x)}{Q(x)},
+\]
+ask:
+
+- Is the degree of the numerator less than the degree of the denominator?
+- Can the denominator be factored?
+
+If yes, partial fractions is often the right tool.
+
+---
+
+#### Step 5: When None of These Apply
+
+If:
+
+- the function does not simplify,
+- no structure matches known rules,
+- or the antiderivative cannot be written in elementary functions,
+
+then **numerical methods** or approximation may be appropriate.
+
+Not every integral has a closed-form solution—and recognizing that is part of mathematical maturity.
+
+---
+
+#### A Compact “What Do I Try First?” Checklist
+
+1. Simplify algebraically (expand, cancel, split)
+2. Apply basic rules if possible
+3. Look for substitution
+4. Look for integration by parts
+5. Look for partial fractions
+6. Consider numerical or approximate methods
+
+Order matters. Skipping early steps creates unnecessary difficulty.
+
+---
+
+#### Strategy Is Reversible
+
+Trying a method and backing out is not failure.
+
+It is feedback.
+
+If:
+
+- substitution makes the expression worse,
+- integration by parts increases complexity,
+- partial fractions cannot be set up cleanly,
+
+that information tells you something important about the structure of the problem.
+
+---
+
+### Workflow Habits That Prevent Mistakes
+
+Good integration is not just about technique—it is about habits.
+
+---
+
+#### Rewrite and Simplify First
+
+Before choosing a method:
+
+- expand products if helpful,
+- cancel factors,
+- rewrite powers and fractions,
+- split sums.
+
+Many “hard” integrals become easy after algebraic cleanup.
+
+---
+
+#### Check by Differentiating
+
+Whenever possible, differentiate your result.
+
+Ask:
+
+- *Do I recover the original integrand?*
+- *Does the structure match?*
+
+This is the fastest way to catch sign errors, missing constants, or incorrect substitutions.
+
+---
+
+#### Units and Sign Checks (Especially in Applications)
+
+In applied contexts:
+
+- Check that the units of the result make sense
+- Check whether the sign matches the physical interpretation
+  - accumulation should increase when rates are positive,
+  - decreases should be reflected by negative values.
+
+A mathematically correct answer that violates units or interpretation is still wrong.
+
+---
+
+### Final Strategy Takeaway
+
+> **Integration is not about choosing the “right formula.”  
+> It is about recognizing structure and making the problem simpler, step by step.**
+
+When in doubt:
+
+- simplify,
+- match structure,
+- choose the method that reduces complexity,
+- and let failed attempts guide your next move.
+
+That is how experts integrate—and how you will too.
+
+---
+
+## Practice
+
+### Practice: Fast Recognition Drills
+
+These exercises are not about careful algebra. They are about **speed and confidence**.
+
+The goal is to train your brain to identify patterns *before* computing.
+
+---
+
+#### Drill A: Name the Rule (No Computing) {-}
+
+For each integrand, identify the rule you would use.
+
+1. \(\int x^7 dx\)  
+2. \(\int \frac{1}{x} dx\)  
+3. \(\int e^x dx\)  
+4. \(\int 4\cos x dx\)  
+5. \(\int x^{-2} dx\)
+
+*Do not integrate yet. Just name the rule.*
+
+<details>
+<summary><strong>Click to reveal solutions</strong></summary>
+
+1. Power rule  
+2. Logarithmic rule (\(\int 1/x\,dx\))  
+3. Exponential rule  
+4. Trigonometric rule (cosine) + constant multiple  
+5. Power rule (negative exponent)
+
+</details>
+
+---
+
+#### Drill B: One-Step Integrals {-}
+
+Now compute quickly.
+
+1. \(\int 3x^2 dx\)  
+2. \(\int \sin x dx\)  
+3. \(\int \frac{5}{x} dx\)  
+4. \(\int e^x dx\)  
+5. \(\int \cos x dx\)
+
+<details>
+<summary><strong>Click to reveal solutions</strong></summary>
+
+1. \(x^3 + C\)  
+2. \(-\cos x + C\)  
+3. \(5\ln|x| + C\)  
+4. \(e^x + C\)  
+5. \(\sin x + C\)
+
+</details>
+
+---
+
+#### Drill C: Recognition First, Then Solve {-}
+
+Before integrating, say out loud:  
+> *“This looks like the derivative of…”*
+
+1. \(\int 8x^3 dx\)  
+2. \(\int \cos x dx\)  
+3. \(\int a^x dx\)
+
+Then compute.
+
+<details>
+<summary><strong>Click to reveal solutions</strong></summary>
+
+1. \(2x^4 + C\)  
+   (since \(\frac{d}{dx}(2x^4) = 8x^3\))
+
+2. \(\sin x + C\)  
+   (since \(\frac{d}{dx}(\sin x) = \cos x\))
+
+3. \(\frac{a^x}{\ln a} + C\)  
+   (since \(\frac{d}{dx}(a^x) = a^x \ln a\))
+
+</details>
+
+---
+
+#### Why These Drills Matter {-}
+
+Later integration techniques—substitution, integration by parts, partial fractions—**all depend on recognition**.
+
+If you cannot instantly recognize basic antiderivatives, advanced techniques will feel overwhelming.
+
+Think of this section as learning vocabulary before writing sentences.
+
+---
+
+### Practice: Substitution (u-Sub) Pattern Recognition and Application
+
+This practice section is designed to slow things down **before** computation.  
+Your goal is to *see the structure* first, then execute the mechanics.
+
+---
+
+#### Part A: Identifying the Parts of the Integral (Pattern Recognition) {-}
+
+For each integrand below:
+
+1. Identify the **inner function** (if there is one).
+2. Identify the **derivative of the inner function**.
+3. Decide whether substitution is appropriate.
+4. **Check whether the derivative is present exactly, off by a constant, or missing.**
+
+Do **not** compute the integral yet.
+
+---
+
+#### A Helpful Instruction: “Off by a Constant” Is Still OK {-}
+
+When checking for substitution, the derivative of the inner function does **not** need to appear perfectly.
+
+If the integrand contains
+\[
+g'(x)\quad \text{or} \quad c\,g'(x),
+\]
+where \(c\) is a constant, substitution still works.
+
+In that case:
+- factor out the constant,
+- proceed with substitution,
+- and account for the constant in front of the integral.
+
+What *does not* work is when the mismatch depends on \(x\).
+
+---
+
+#### Warning: Some Problems Are Designed *Not* to Use Substitution {-}
+
+The list below intentionally mixes problems where substitution **does** work with problems where it **does not**.
+
+Your job is to tell the difference *before* computing.
+
+---
+
+#### A1. {-}
+
+\[
+\int (3x^2 + 1)^5 \cdot 6x \, dx
+\]
+
+#### A2. {-}
+
+\[
+\int (x^2 + 1)^4 \, dx
+\]
+
+#### A3.{-}
+
+\[
+\int e^{x^2} \cdot 2x \, dx
+\]
+
+#### A4. {-}
+
+\[
+\int x e^{x} \, dx
+\]
+
+#### A5.{-}
+
+\[
+\int \frac{4x}{x^2 + 7} \, dx
+\]
+
+#### A6.{-}
+
+\[
+\int \cos(5x)\, dx
+\]
+
+#### A7.{-}
+
+\[
+\int (x + 1)^4 \, dx
+\]
+
+---
+
+<details>
+<summary><strong>Click to reveal analysis</strong></summary>
+
+- **A1**
+  - Inner function: \(3x^2 + 1\)  
+  - Derivative: \(6x\)  
+  - Match: exact  
+  - Substitution: ✔️
+
+- **A2**
+  - Inner function: \(x^2 + 1\)  
+  - Derivative: \(2x\)  
+  - Match: missing  
+  - Substitution: ✖️  
+  - Reason: no factor of \(x\) to supply \(du\)
+
+- **A3**
+  - Inner function: \(x^2\)  
+  - Derivative: \(2x\)  
+  - Match: exact  
+  - Substitution: ✔️
+
+- **A4**
+  - Structure: product, not nesting  
+  - Substitution: ✖️  
+  - Reason: derivative mismatch depends on \(x\); integration by parts is appropriate
+
+- **A5**
+  - Inner function: \(x^2 + 7\)  
+  - Derivative: \(2x\)  
+  - Match: off by a constant  
+  - Substitution: ✔️
+
+- **A6**
+  - Inner function: \(5x\)  
+  - Derivative: \(5\)  
+  - Match: off by a constant  
+  - Substitution: ✔️
+
+- **A7**
+  - Inner function: \(x + 1\)  
+  - Derivative: \(1\)  
+  - Match: exact  
+  - Substitution: ✔️ (though basic power rule also works)
+
+</details>
+
+---
+
+#### Part B: Solve Using Substitution {-}
+
+Now compute each integral **where substitution is appropriate**.  
+If substitution is *not* appropriate, do not force it.
+
+---
+
+#### B1.{-}
+
+\[
+\int (3x^2 + 1)^5 \cdot 6x \, dx
+\]
+
+#### B2.{-}
+
+\[
+\int e^{x^2} \cdot 2x \, dx
+\]
+
+#### B3.{-}
+
+\[
+\int \frac{4x}{x^2 + 7} \, dx
+\]
+
+#### B4.{-}
+
+\[
+\int \cos(5x)\, dx
+\]
+
+#### B5.{-}
+
+\[
+\int (x + 1)^4 \, dx
+\]
+
+---
+
+<details>
+<summary><strong>Click to reveal solutions</strong></summary>
+
+- **B1**
+  - Let \(u = 3x^2 + 1\), \(du = 6x\,dx\)
+  \[
+  \frac{(3x^2 + 1)^6}{6} + C
+  \]
+
+- **B2**
+  - Let \(u = x^2\), \(du = 2x\,dx\)
+  \[
+  e^{x^2} + C
+  \]
+
+- **B3**
+  - Let \(u = x^2 + 7\), \(du = 2x\,dx\)
+  \[
+  2\ln(x^2 + 7) + C
+  \]
+
+- **B4**
+  - Let \(u = 5x\), \(du = 5\,dx\)
+  \[
+  \frac{1}{5}\sin(5x) + C
+  \]
+
+- **B5**
+  - Let \(u = x + 1\), \(du = dx\)
+  \[
+  \frac{(x + 1)^5}{5} + C
+  \]
+
+</details>
+
+---
+
+#### Reflection Prompt {-}
+
+After completing this section, ask yourself:
+
+- Did I identify the inner function *before* choosing \(u\)?
+- Did I check whether the derivative was exact, off by a constant, or missing?
+- Did I consciously reject substitution when the structure did not fit?
+
+Being able to say *“this is not a substitution problem”* is a core integration skill.
+
+
+### Practice: Integration by Parts (Pattern Recognition and Application)
+
+This practice section focuses on **deciding when integration by parts is appropriate** and executing it deliberately.
+
+Remember: integration by parts is not about memorizing a formula—it is about **strategically simplifying a product**.
+
+---
+
+#### Part A: Identifying the Structure (Pattern Recognition) {-}
+
+For each integrand below:
+
+1. Decide whether the integrand is a **product**.
+2. Ask the diagnostic question:  
+   > *If I differentiate one factor, does it become simpler?*
+3. Decide whether integration by parts is appropriate.
+4. If yes, identify a **good choice** for \(u\) and \(dv\).
+
+Do **not** compute the integral yet.
+
+---
+
+#### A Helpful Instruction: What “Simpler” Means {-}
+
+A factor becomes *simpler* if differentiation:
+- reduces its degree,
+- removes structure (e.g., polynomial → constant),
+- turns a complicated function into a basic one.
+
+Differentiation that preserves or increases complexity is usually a bad sign.
+
+---
+
+#### Warning: Not Every Product Uses Integration by Parts {-}
+
+Some products are better handled by:
+- substitution,
+- basic rules,
+- or algebraic simplification.
+
+These problems intentionally mix cases where integration by parts **does** and **does not** work.
+
+---
+
+#### A1. {-}
+
+\[
+\int x e^x \, dx
+\]
+
+#### A2.{-}
+
+\[
+\int x \sin x \, dx
+\]
+
+#### A3. {-}
+
+\[
+\int e^{x^2} \cdot 2x \, dx
+\]
+
+#### A4.{-}
+
+\[
+\int \ln x \, dx
+\]
+
+#### A5. {-}
+
+\[
+\int (x + 1)^4 \, dx
+\]
+
+#### A6.{-}
+
+\[
+\int x^2 e^x \, dx
+\]
+
+---
+
+<details>
+<summary><strong>Click to reveal analysis</strong></summary>
+
+- **A1**
+  - Product: yes  
+  - Simplifies when differentiating \(x\)  
+  - Method: integration by parts  
+  - Good choice: \(u = x\), \(dv = e^x dx\)
+
+- **A2**
+  - Product: yes  
+  - Simplifies when differentiating \(x\)  
+  - Method: integration by parts  
+  - Good choice: \(u = x\), \(dv = \sin x dx\)
+
+- **A3**
+  - Product: yes  
+  - Better structure: nesting  
+  - Method: substitution  
+  - Reason: derivative matches inner function
+
+- **A4**
+  - Product: implicit (\(\ln x \cdot 1\))  
+  - Simplifies when differentiating \(\ln x\)  
+  - Method: integration by parts  
+  - Good choice: \(u = \ln x\), \(dv = dx\)
+
+- **A5**
+  - Not a meaningful product  
+  - Method: basic power rule  
+  - Reason: no simplification via differentiation
+
+- **A6**
+  - Product: yes  
+  - Simplifies when differentiating \(x^2\)  
+  - Method: integration by parts (possibly repeated)
+
+</details>
+
+---
+
+#### Part B: Solve Using Integration by Parts {-}
+
+Now compute each integral **where integration by parts is appropriate**.  
+Write your choices of \(u\) and \(dv\) clearly before applying the formula.
+
+---
+
+#### B1.{-}
+
+\[
+\int x e^x \, dx
+\]
+
+#### B2.{-}
+
+\[
+\int x \sin x \, dx
+\]
+
+#### B3.{-}
+
+\[
+\int \ln x \, dx
+\]
+
+#### B4.{-}
+
+\[
+\int x^2 e^x \, dx
+\]
+
+---
+
+<details>
+<summary><strong>Click to reveal solutions</strong></summary>
+
+- **B1**
+  - Let \(u = x\), \(dv = e^x dx\)
+  \[
+  x e^x - e^x + C
+  \]
+
+- **B2**
+  - Let \(u = x\), \(dv = \sin x dx\)
+  \[
+  -x \cos x + \sin x + C
+  \]
+
+- **B3**
+  - Let \(u = \ln x\), \(dv = dx\)
+  \[
+  x \ln x - x + C
+  \]
+
+- **B4**
+  - Let \(u = x^2\), \(dv = e^x dx\)
+
+  Apply integration by parts twice:
+  \[
+  x^2 e^x - 2x e^x + 2e^x + C
+  \]
+
+</details>
+
+---
+
+#### Reflection Prompt {-}
+
+After completing this section, ask yourself:
+
+- Did I confirm the integrand was a product *before* choosing integration by parts?
+- Did differentiating \(u\) actually simplify the expression?
+- If integration by parts failed, did that point me toward a better strategy?
+
+Being able to reject integration by parts confidently is just as important as using it correctly.
+
+### Practice: Partial Fractions (Structured Practice)
+
+This set gives you **two problems of each major type**, with solutions that show the **key algebraic steps**, not just the final answer.
+
+For each problem:
+1. Set up the decomposition.
+2. Solve for the coefficients.
+3. Integrate term by term.
+
+---
+
+#### Type I: Distinct Linear Factors {-}
+
+---
+
+#### P1.1 {-}
+ 
+\[
+\int \frac{3x + 5}{(x + 1)(x + 2)}\,dx
+\]
+
+
+#### P1.2{-}
+
+\[
+\int \frac{4x - 1}{(x - 1)(x + 3)}\,dx
+\]
+
+---
+
+<details>
+<summary><strong>Click to reveal solutions</strong></summary>
+
+**P1.1**
+
+Set up:
+\[
+\frac{3x + 5}{(x + 1)(x + 2)}
+=
+\frac{A}{x + 1} + \frac{B}{x + 2}.
+\]
+
+Clear denominators:
+\[
+3x + 5 = A(x + 2) + B(x + 1).
+\]
+
+Expand:
+\[
+3x + 5 = (A + B)x + (2A + B).
+\]
+
+Match coefficients:
+\[
+A + B = 3,\quad 2A + B = 5.
+\]
+
+Subtract:
+\[
+A = 2,\quad B = 1.
+\]
+
+Integrate:
+\[
+\int \left(\frac{2}{x + 1} + \frac{1}{x + 2}\right)dx
+=
+2\ln|x + 1| + \ln|x + 2| + C.
+\]
+
+
+
+**P1.2**
+
+Set up:
+\[
+\frac{4x - 1}{(x - 1)(x + 3)}
+=
+\frac{A}{x - 1} + \frac{B}{x + 3}.
+\]
+
+Clear denominators:
+\[
+4x - 1 = A(x + 3) + B(x - 1).
+\]
+
+Expand:
+\[
+4x - 1 = (A + B)x + (3A - B).
+\]
+
+Match coefficients:
+\[
+A + B = 4,\quad 3A - B = -1.
+\]
+
+Add:
+\[
+4A = 3 \Rightarrow A = \frac{3}{4}.
+\]
+
+Then:
+\[
+B = 4 - \frac{3}{4} = \frac{13}{4}.
+\]
+
+Integrate:
+\[
+\frac{3}{4}\ln|x - 1| + \frac{13}{4}\ln|x + 3| + C.
+\]
+
+</details>
+
+---
+
+#### Type II: Repeated Linear Factors {-}
+
+---
+
+#### P2.1 {-}
+
+\[
+\int \frac{2x + 3}{(x - 1)^2}\,dx
+\]
+
+
+
+#### P2.2{-}
+
+\[
+\int \frac{x + 1}{(x + 2)^2}\,dx
+\]
+
+---
+
+<details>
+<summary><strong>Click to reveal solutions</strong></summary>
+
+**P2.1**
+
+Set up:
+\[
+\frac{2x + 3}{(x - 1)^2}
+=
+\frac{A}{x - 1} + \frac{B}{(x - 1)^2}.
+\]
+
+Clear denominators:
+\[
+2x + 3 = A(x - 1) + B.
+\]
+
+Choose \(x = 1\):
+\[
+2(1) + 3 = B \Rightarrow B = 5.
+\]
+
+Substitute back:
+\[
+2x + 3 = A(x - 1) + 5 \Rightarrow A = 2.
+\]
+
+Integrate:
+\[
+\int \left(\frac{2}{x - 1} + \frac{5}{(x - 1)^2}\right)dx
+=
+2\ln|x - 1| - \frac{5}{x - 1} + C.
+\]
+
+---
+
+**P2.2**
+
+Set up:
+\[
+\frac{x + 1}{(x + 2)^2}
+=
+\frac{A}{x + 2} + \frac{B}{(x + 2)^2}.
+\]
+
+Clear denominators:
+\[
+x + 1 = A(x + 2) + B.
+\]
+
+Choose \(x = -2\):
+\[
+-1 = B.
+\]
+
+Substitute back:
+\[
+x + 1 = A(x + 2) - 1 \Rightarrow A = 1.
+\]
+
+Integrate:
+\[
+\int \left(\frac{1}{x + 2} - \frac{1}{(x + 2)^2}\right)dx
+=
+\ln|x + 2| + \frac{1}{x + 2} + C.
+\]
+
+</details>
+
+---
+
+#### Type III: Irreducible Quadratic Factors {-}
+
+---
+
+#### P3.1 {-}
+
+\[
+\int \frac{2x + 1}{x^2 + 1}\,dx
+\]
+
+---
+
+#### P3.2{-}
+
+\[
+\int \frac{3x}{x^2 + 4}\,dx
+\]
+
+---
+
+<details>
+<summary><strong>Click to reveal solutions</strong></summary>
+
+**P3.1**
+
+Split:
+\[
+\int \frac{2x}{x^2 + 1}dx + \int \frac{1}{x^2 + 1}dx.
+\]
+
+First term (substitution):
+\[
+u = x^2 + 1,\quad du = 2x\,dx
+\Rightarrow \ln(x^2 + 1).
+\]
+
+Second term:
+\[
+\int \frac{1}{x^2 + 1}dx = \arctan x.
+\]
+
+Final:
+\[
+\ln(x^2 + 1) + \arctan x + C.
+\]
+
+---
+
+**P3.2**
+
+Let:
+\[
+u = x^2 + 4,\quad du = 2x\,dx.
+\]
+
+Rewrite:
+\[
+\int \frac{3x}{x^2 + 4}dx
+=
+\frac{3}{2}\int \frac{1}{u}du.
+\]
+
+Integrate:
+\[
+\frac{3}{2}\ln(x^2 + 4) + C.
+\]
+
+</details>
+
+---
+
+#### Strategy Reminder {-}
+
+- **Linear factors → logarithms**
+- **Repeated factors → powers + logarithms**
+- **Quadratics → substitution and arctangent**
+
+Partial fractions is successful when the algebra is used to *manufacture familiar antiderivatives*.
+
+
+### Mixed Practice: Choosing and Executing the Right Method
+
+Real integration problems rarely announce which technique they need.  
+This mixed practice set is designed to help you **pause, diagnose, and choose deliberately** before computing.
+
+---
+
+#### Section 1: Which Method? {-}
+
+For each integral below:
+
+1. Decide which method you would use  
+   (basic rules, substitution, integration by parts, partial fractions).
+2. Give a **one-phrase justification**.
+3. Do **not** compute yet.
+
+---
+
+#### M1. {-}
+\[
+\int x^5 \, dx
+\]
+
+#### M2. {-}
+\[
+\int (3x^2 + 1)^4 \cdot 6x \, dx
+\]
+
+#### M3. {-}
+\[
+\int x e^x \, dx
+\]
+
+#### M4. {-}
+\[
+\int \frac{3x + 2}{(x - 1)(x + 2)} \, dx
+\]
+
+#### M5. {-}
+\[
+\int \cos(4x)\, dx
+\]
+
+#### M6. {-}
+\[
+\int \ln x \, dx
+\]
+
+#### M7. {-}
+\[
+\int \frac{2x}{x^2 + 5} \, dx
+\]
+
+#### M8. {-}
+\[
+\int x^2 e^x \, dx
+\]
+
+#### M9. {-}
+\[
+\int \frac{1}{(x - 3)^2} \, dx
+\]
+
+#### M10. {-}
+\[
+\int (x + 1)^7 \, dx
+\]
+
+---
+
+<details>
+<summary><strong>Click to reveal method choices</strong></summary>
+
+- **M1**: Basic power rule  
+- **M2**: Substitution (nested function + derivative present)  
+- **M3**: Integration by parts (product; \(x\) simplifies when differentiated)  
+- **M4**: Partial fractions (rational function with factorable denominator)  
+- **M5**: Substitution (inner function off by a constant)  
+- **M6**: Integration by parts (implicit product \(\ln x \cdot 1\))  
+- **M7**: Substitution (numerator is derivative of denominator up to constant)  
+- **M8**: Integration by parts (product; requires repetition)  
+- **M9**: Basic power rule (rewrite with negative exponent)  
+- **M10**: Basic power rule (simple polynomial)
+
+</details>
+
+---
+
+#### Section 2: Solve  {-}
+
+Now compute each integral using the method you identified above.  
+Write your setup clearly before integrating.
+
+---
+
+#### M1. {-}
+\[
+\int x^5 \, dx
+\]
+
+#### M2. {-}
+\[
+\int (3x^2 + 1)^4 \cdot 6x \, dx
+\]
+
+#### M3. {-}
+\[
+\int x e^x \, dx
+\]
+
+#### M4. {-}
+\[
+\int \frac{3x + 2}{(x - 1)(x + 2)} \, dx
+\]
+
+#### M5. {-}
+\[
+\int \cos(4x)\, dx
+\]
+
+#### M6. {-}
+\[
+\int \ln x \, dx
+\]
+
+#### M7. {-}
+\[
+\int \frac{2x}{x^2 + 5} \, dx
+\]
+
+#### M8. {-}
+\[
+\int x^2 e^x \, dx
+\]
+
+#### M9. {-}
+\[
+\int \frac{1}{(x - 3)^2} \, dx
+\]
+
+#### M10. {-}
+\[
+\int (x + 1)^7 \, dx
+\]
+
+---
+
+<details>
+<summary><strong>Click to reveal solutions</strong></summary>
+
+- **M1**
+\[
+\frac{x^6}{6} + C
+\]
+
+- **M2**
+Let \(u = 3x^2 + 1,\; du = 6x\,dx\)
+\[
+\frac{u^5}{5} + C
+=
+\frac{(3x^2 + 1)^5}{5} + C
+\]
+
+- **M3**
+\[
+x e^x - e^x + C
+\]
+
+- **M4**
+Decompose:
+\[
+\frac{3x + 2}{(x - 1)(x + 2)}
+=
+\frac{1}{x - 1} + \frac{2}{x + 2}
+\]
+\[
+\ln|x - 1| + 2\ln|x + 2| + C
+\]
+
+- **M5**
+\[
+\frac{1}{4}\sin(4x) + C
+\]
+
+- **M6**
+\[
+x \ln x - x + C
+\]
+
+- **M7**
+Let \(u = x^2 + 5,\; du = 2x\,dx\)
+\[
+\ln(x^2 + 5) + C
+\]
+
+- **M8**
+Apply integration by parts twice:
+\[
+x^2 e^x - 2x e^x + 2e^x + C
+\]
+
+- **M9**
+\[
+-\frac{1}{x - 3} + C
+\]
+
+- **M10**
+\[
+\frac{(x + 1)^8}{8} + C
+\]
+
+</details>
+
+---
+
+#### Final Reflection  {-}
+
+After finishing, ask yourself:
+
+- Did I pause to identify structure before computing?
+- Did my chosen method *simplify* the problem?
+- Could I explain my choice in one clear sentence?
+
+Being able to **choose well** is the difference between memorizing techniques and actually doing calculus.
 
