@@ -23,7 +23,7 @@
 <meta name="author" content="Gaj Sivandran" />
 
 
-<meta name="date" content="2026-01-18" />
+<meta name="date" content="2026-01-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -649,7 +649,174 @@
             <section class="normal" id="section-">
 <div id="calculus-ii-equation-sheet" class="section level1 unnumbered hasAnchor">
 <h1>Calculus II Equation Sheet<a href="calculus-ii-equation-sheet.html#calculus-ii-equation-sheet" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>##UNDER CONSTRUCTION</p>
+<p><strong>Riemann Sums and Trapezoidal Rule</strong></p>
+<p><strong>Partition of an Interval</strong></p>
+<p>On the interval <span class="math inline">\([a,b]\)</span> with <span class="math inline">\(n\)</span> equal subintervals,
+<span class="math display">\[
+\Delta x = \frac{b-a}{n},
+\qquad
+x_i = a + i\Delta x,
+\quad i = 0,1,\dots,n.
+\]</span></p>
+<hr />
+<p><strong>General Riemann Sum</strong></p>
+<p>A Riemann sum for <span class="math inline">\(f(x)\)</span> on <span class="math inline">\([a,b]\)</span> is
+<span class="math display">\[
+\int_a^b f(x)\,dx
+\;\approx\;
+\sum_{i=1}^{n} f(x_i^*)\,\Delta x,
+\]</span>
+where <span class="math inline">\(x_i^*\)</span> is a sample point in the <span class="math inline">\(i\)</span>th subinterval.</p>
+<hr />
+<p><strong>Common Choices of Sample Points</strong></p>
+<ul>
+<li><p><strong>Left Riemann Sum</strong>
+<span class="math display">\[
+x_i^* = a + (i-1)\Delta x
+\]</span></p></li>
+<li><p><strong>Right Riemann Sum</strong>
+<span class="math display">\[
+x_i^* = a + i\Delta x
+\]</span></p></li>
+<li><p><strong>Midpoint Riemann Sum</strong>
+<span class="math display">\[
+x_i^* = a + \left(i-\tfrac{1}{2}\right)\Delta x
+\]</span></p></li>
+</ul>
+<hr />
+<p><strong>Trapezoidal Rule</strong></p>
+<p>The trapezoidal rule approximates the integral by connecting function values at adjacent endpoints with straight line segments.</p>
+<p><span class="math display">\[
+\int_a^b f(x)\,dx
+\;\approx\;
+\frac{\Delta x}{2}
+\left[
+f(x_0)
++ 2f(x_1)
++ 2f(x_2)
++ \cdots
++ 2f(x_{n-1})
++ f(x_n)
+\right].
+\]</span></p>
+<hr />
+<p><strong>Fundamental Theorem of Calculus</strong></p>
+<p><strong>Part I (Accumulation)</strong></p>
+<p>If
+<span class="math display">\[
+F(x) = \int_a^x f(t)\,dt,
+\]</span>
+then
+<span class="math display">\[
+F&#39;(x) = f(x).
+\]</span></p>
+<hr />
+<p><strong>Part II (Evaluation)</strong></p>
+<p>If <span class="math inline">\(F&#39;(x) = f(x)\)</span>, then
+<span class="math display">\[
+\int_a^b f(x)\,dx = F(b) - F(a).
+\]</span></p>
+<hr />
+<p><strong>Properties of Definite Integrals</strong></p>
+<p><strong>Linearity</strong>
+<span class="math display">\[
+\int_a^b [f(x) + g(x)]\,dx
+=
+\int_a^b f(x)\,dx + \int_a^b g(x)\,dx
+\]</span></p>
+<p><span class="math display">\[
+\int_a^b c f(x)\,dx
+=
+c \int_a^b f(x)\,dx
+\]</span></p>
+<hr />
+<p><strong>Additivity</strong>
+<span class="math display">\[
+\int_a^b f(x)\,dx
+=
+\int_a^c f(x)\,dx + \int_c^b f(x)\,dx
+\]</span></p>
+<hr />
+<p><strong>Reversing Limits</strong>
+<span class="math display">\[
+\int_a^b f(x)\,dx = -\int_b^a f(x)\,dx
+\]</span></p>
+<hr />
+<p><strong>Constant Functions</strong>
+<span class="math display">\[
+\int_a^b c\,dx = c(b-a)
+\]</span></p>
+<hr />
+<p><strong>Indefinite Integrals</strong></p>
+<p><span class="math display">\[
+\int f(x)\,dx = F(x) + C
+\quad \text{where } F&#39;(x) = f(x).
+\]</span></p>
+<hr />
+<p><strong>Basic Antiderivative Rules</strong></p>
+<p><strong>Power Rule</strong> (<span class="math inline">\(n \neq -1\)</span>)
+<span class="math display">\[
+\int x^n\,dx = \frac{x^{n+1}}{n+1} + C
+\]</span></p>
+<hr />
+<p><strong>Exponential</strong>
+<span class="math display">\[
+\int e^x\,dx = e^x + C
+\]</span>
+<span class="math display">\[
+\int a^x\,dx = \frac{a^x}{\ln a} + C
+\]</span></p>
+<hr />
+<p><strong>Logarithmic</strong>
+<span class="math display">\[
+\int \frac{1}{x}\,dx = \ln |x| + C
+\]</span></p>
+<hr />
+<p><strong>Trigonometric</strong>
+<span class="math display">\[
+\int \sin x\,dx = -\cos x + C
+\]</span>
+<span class="math display">\[
+\int \cos x\,dx = \sin x + C
+\]</span></p>
+<hr />
+<p><strong>Substitution</strong></p>
+<p>If <span class="math inline">\(u = g(x)\)</span> and <span class="math inline">\(du = g&#39;(x)\,dx\)</span>, then
+<span class="math display">\[
+\int f(g(x))g&#39;(x)\,dx = \int f(u)\,du
+\]</span></p>
+<hr />
+<p><strong>Integration by Parts</strong></p>
+<p><span class="math display">\[
+\int u\,dv = uv - \int v\,du
+\]</span></p>
+<hr />
+<p><strong>Partial Fractions (General Forms)</strong></p>
+<p><strong>Distinct Linear Factors</strong>
+<span class="math display">\[
+\frac{A}{x-a} + \frac{B}{x-b}
+\]</span></p>
+<hr />
+<p><strong>Repeated Linear Factors</strong>
+<span class="math display">\[
+\frac{A_1}{x-a}
++ \frac{A_2}{(x-a)^2}
++ \cdots
++ \frac{A_n}{(x-a)^n}
+\]</span></p>
+<hr />
+<p><strong>Irreducible Quadratic Factors</strong>
+<span class="math display">\[
+\frac{Ax + B}{x^2 + px + q}
+\]</span></p>
+<hr />
+<p><strong>Repeated Irreducible Quadratics</strong>
+<span class="math display">\[
+\frac{A_1x + B_1}{x^2 + px + q}
++
+\frac{A_2x + B_2}{(x^2 + px + q)^2}
++ \cdots
+\]</span></p>
 <hr />
 <p><strong>Basic Derivative Rules</strong></p>
 <table>

@@ -6,7 +6,232 @@ output:
 ---
 
 # Calculus II Equation Sheet {-}
-##UNDER CONSTRUCTION
+
+
+**Riemann Sums and Trapezoidal Rule**
+
+**Partition of an Interval**
+
+On the interval \([a,b]\) with \(n\) equal subintervals,
+\[
+\Delta x = \frac{b-a}{n},
+\qquad
+x_i = a + i\Delta x,
+\quad i = 0,1,\dots,n.
+\]
+
+---
+
+**General Riemann Sum**
+
+A Riemann sum for \(f(x)\) on \([a,b]\) is
+\[
+\int_a^b f(x)\,dx
+\;\approx\;
+\sum_{i=1}^{n} f(x_i^*)\,\Delta x,
+\]
+where \(x_i^*\) is a sample point in the \(i\)th subinterval.
+
+---
+
+**Common Choices of Sample Points**
+
+- **Left Riemann Sum**
+\[
+x_i^* = a + (i-1)\Delta x
+\]
+
+- **Right Riemann Sum**
+\[
+x_i^* = a + i\Delta x
+\]
+
+- **Midpoint Riemann Sum**
+\[
+x_i^* = a + \left(i-\tfrac{1}{2}\right)\Delta x
+\]
+
+---
+
+**Trapezoidal Rule**
+
+The trapezoidal rule approximates the integral by connecting function values at adjacent endpoints with straight line segments.
+
+\[
+\int_a^b f(x)\,dx
+\;\approx\;
+\frac{\Delta x}{2}
+\left[
+f(x_0)
++ 2f(x_1)
++ 2f(x_2)
++ \cdots
++ 2f(x_{n-1})
++ f(x_n)
+\right].
+\]
+
+---
+
+**Fundamental Theorem of Calculus**
+
+**Part I (Accumulation)**
+
+If
+\[
+F(x) = \int_a^x f(t)\,dt,
+\]
+then
+\[
+F'(x) = f(x).
+\]
+
+---
+
+**Part II (Evaluation)**
+
+If \(F'(x) = f(x)\), then
+\[
+\int_a^b f(x)\,dx = F(b) - F(a).
+\]
+
+---
+
+**Properties of Definite Integrals**
+
+**Linearity**
+\[
+\int_a^b [f(x) + g(x)]\,dx
+=
+\int_a^b f(x)\,dx + \int_a^b g(x)\,dx
+\]
+
+\[
+\int_a^b c f(x)\,dx
+=
+c \int_a^b f(x)\,dx
+\]
+
+---
+
+**Additivity**
+\[
+\int_a^b f(x)\,dx
+=
+\int_a^c f(x)\,dx + \int_c^b f(x)\,dx
+\]
+
+---
+
+**Reversing Limits**
+\[
+\int_a^b f(x)\,dx = -\int_b^a f(x)\,dx
+\]
+
+---
+
+**Constant Functions**
+\[
+\int_a^b c\,dx = c(b-a)
+\]
+
+---
+
+**Indefinite Integrals**
+
+\[
+\int f(x)\,dx = F(x) + C
+\quad \text{where } F'(x) = f(x).
+\]
+
+---
+
+**Basic Antiderivative Rules**
+
+**Power Rule** (\(n \neq -1\))
+\[
+\int x^n\,dx = \frac{x^{n+1}}{n+1} + C
+\]
+
+---
+
+**Exponential**
+\[
+\int e^x\,dx = e^x + C
+\]
+\[
+\int a^x\,dx = \frac{a^x}{\ln a} + C
+\]
+
+---
+
+**Logarithmic**
+\[
+\int \frac{1}{x}\,dx = \ln |x| + C
+\]
+
+---
+
+**Trigonometric**
+\[
+\int \sin x\,dx = -\cos x + C
+\]
+\[
+\int \cos x\,dx = \sin x + C
+\]
+
+---
+
+**Substitution**
+
+If \(u = g(x)\) and \(du = g'(x)\,dx\), then
+\[
+\int f(g(x))g'(x)\,dx = \int f(u)\,du
+\]
+
+---
+
+**Integration by Parts**
+
+\[
+\int u\,dv = uv - \int v\,du
+\]
+
+---
+
+**Partial Fractions (General Forms)**
+
+**Distinct Linear Factors**
+\[
+\frac{A}{x-a} + \frac{B}{x-b}
+\]
+
+---
+
+**Repeated Linear Factors**
+\[
+\frac{A_1}{x-a}
++ \frac{A_2}{(x-a)^2}
++ \cdots
++ \frac{A_n}{(x-a)^n}
+\]
+
+---
+
+**Irreducible Quadratic Factors**
+\[
+\frac{Ax + B}{x^2 + px + q}
+\]
+
+---
+
+**Repeated Irreducible Quadratics**
+\[
+\frac{A_1x + B_1}{x^2 + px + q}
++
+\frac{A_2x + B_2}{(x^2 + px + q)^2}
++ \cdots
+\]
 
 ---
 
