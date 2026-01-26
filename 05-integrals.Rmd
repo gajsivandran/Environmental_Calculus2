@@ -180,7 +180,7 @@ Therefore,
 = F'(x).
 \]
 
-every antiderivative comes with an unavoidable ambiguity.
+Every antiderivative comes with an unavoidable ambiguity.
 
 That ambiguity is not a flaw—it reflects reality.
 
@@ -1725,16 +1725,18 @@ This ensures that the decomposition has enough flexibility to match the original
 
 Evaluate:
 \[
-\int \frac{1}{(x - 1)^2}\,dx.
+\int \frac{2x + 3}{(x - 1)^2}\,dx.
 \]
+
+This example is deliberately chosen so that **both terms in the decomposition matter**.
 
 ---
 
 #### Step 1: Write the Partial Fraction Decomposition
 
-Because the factor \((x - 1)\) appears with power 2, we include **one term for each power**:
+Because the factor \((x - 1)\) appears with power 2, we must include **one term for each power**:
 \[
-\frac{1}{(x - 1)^2}
+\frac{2x + 3}{(x - 1)^2}
 =
 \frac{A}{x - 1} + \frac{B}{(x - 1)^2}.
 \]
@@ -1747,57 +1749,59 @@ The goal is to determine the constants \(A\) and \(B\).
 
 Multiply both sides by \((x - 1)^2\):
 \[
-1 = A(x - 1) + B.
+2x + 3 = A(x - 1) + B.
 \]
 
-This equation must be true for **all** values of \(x\).
+This equation must hold for **all** values of \(x\).
 
 ---
 
 #### Step 3: Choose a Convenient Value of \(x\)
 
-Because the equation holds for all \(x\), we are free to choose values of \(x\) that simplify the algebra.
+Because the equation is true for all \(x\), we can choose values that simplify the algebra.
 
 ---
 
 ##### Why Choose \(x = 1\)?
 
-We choose \(x = 1\) because it **zeros out one of the terms**.
-
-Substitute \(x = 1\) into the equation:
+Substituting \(x = 1\) eliminates the term involving \(A\):
 \[
-1 = A(1 - 1) + B.
+2(1) + 3 = A(1 - 1) + B.
 \]
 
-Since \(1 - 1 = 0\), the term involving \(A\) disappears:
+So:
 \[
-1 = 0 + B.
+5 = 0 + B,
+\]
+which gives
+\[
+B = 5.
 \]
 
-So immediately:
-\[
-B = 1.
-\]
-
-This isolates one coefficient without solving a system of equations.
+This isolates one coefficient immediately.
 
 ---
 
 #### Step 4: Solve for the Remaining Coefficient
 
-Substitute \(B = 1\) back into the equation:
+Substitute \(B = 5\) back into the equation:
 \[
-1 = A(x - 1) + 1.
+2x + 3 = A(x - 1) + 5.
 \]
 
-Subtract 1 from both sides:
+Subtract 5 from both sides:
 \[
-0 = A(x - 1).
+2x - 2 = A(x - 1).
 \]
 
-Since this must hold for all \(x\), we conclude:
+Factor the left-hand side:
 \[
-A = 0.
+2(x - 1) = A(x - 1).
+\]
+
+Since this must hold for all \(x \neq 1\), we conclude:
+\[
+A = 2.
 \]
 
 ---
@@ -1805,33 +1809,40 @@ A = 0.
 #### Step 5: Write the Final Decomposition
 
 \[
-\frac{1}{(x - 1)^2}
+\frac{2x + 3}{(x - 1)^2}
 =
-\frac{0}{x - 1} + \frac{1}{(x - 1)^2}
-=
-\frac{1}{(x - 1)^2}.
+\frac{2}{x - 1} + \frac{5}{(x - 1)^2}.
 \]
 
-In this case, the algebra confirms that no additional simplification is needed.
+This is the key payoff of partial fractions:  
+a single complicated ratio rewritten as a sum of simpler pieces.
 
 ---
 
-#### Step 6: Integrate
+#### Step 6: Integrate Term by Term
 
-Rewrite using exponents:
+Split the integral:
 \[
-\int \frac{1}{(x - 1)^2}\,dx
-=
-\int (x - 1)^{-2}\,dx.
+\int \left(\frac{2}{x - 1} + \frac{5}{(x - 1)^2}\right)dx.
 \]
 
-Apply the power rule:
+Integrate each term separately:
+
 \[
-\int (x - 1)^{-2}\,dx
+\int \frac{2}{x - 1}dx = 2\ln|x - 1|
+\]
+
+\[
+\int \frac{5}{(x - 1)^2}dx
 =
-\frac{(x - 1)^{-1}}{-1} + C
+5\int (x - 1)^{-2}dx
 =
--\frac{1}{x - 1} + C.
+-\frac{5}{x - 1}.
+\]
+
+Combine the results:
+\[
+2\ln|x - 1| - \frac{5}{x - 1} + C.
 \]
 
 ---
@@ -1840,12 +1851,18 @@ Apply the power rule:
 
 For repeated linear factors:
 
-- **every power must appear in the decomposition**,
-- choosing values that zero out factors simplifies coefficient solving,
-- once decomposed, each term integrates using familiar rules.
+- **each power of the factor must appear in the decomposition**,  
+- repeated factors produce **both logarithmic and power-rule terms**,  
+- choosing values that zero out factors simplifies coefficient solving,  
+- once decomposed, integration uses familiar rules only.
 
-This case reinforces the core strategy of partial fractions:  
-**rewrite first, integrate second**.
+This case shows *why* repeated factors require extra terms:  
+without them, the algebra cannot reproduce the original numerator.
+
+As always, the strategy is:
+
+> **Rewrite first. Integrate second.**
+
 
 ---
 
@@ -3087,10 +3104,10 @@ Decompose:
 \[
 \frac{3x + 2}{(x - 1)(x + 2)}
 =
-\frac{1}{x - 1} + \frac{2}{x + 2}
+\frac{5}{3(x - 1)} + \frac{4}{3(x + 2)}
 \]
 \[
-\ln|x - 1| + 2\ln|x + 2| + C
+\frac {5}{3\ln|x - 1|} + \frac{4}{3\ln|x + 2|} + C
 \]
 
 - **M5**

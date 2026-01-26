@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Calculus II Equation Sheet | Environmental Calculus 2 - Active Learning with Case Studies</title>
+  <title>Chapter 11 Week 4/5 In-Class: Integration Techniques | Environmental Calculus 2 - Active Learning with Case Studies</title>
   <meta name="description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
   <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Calculus II Equation Sheet | Environmental Calculus 2 - Active Learning with Case Studies" />
+  <meta property="og:title" content="Chapter 11 Week 4/5 In-Class: Integration Techniques | Environmental Calculus 2 - Active Learning with Case Studies" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Calculus II Equation Sheet | Environmental Calculus 2 - Active Learning with Case Studies" />
+  <meta name="twitter:title" content="Chapter 11 Week 4/5 In-Class: Integration Techniques | Environmental Calculus 2 - Active Learning with Case Studies" />
   
   <meta name="twitter:description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="techniques-of-integration-indefinite-integrals.html"/>
-<link rel="next" href="test1-review-material.html"/>
+<link rel="prev" href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -689,371 +689,572 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="calculus-ii-equation-sheet" class="section level1 unnumbered hasAnchor">
-<h1>Calculus II Equation Sheet<a href="calculus-ii-equation-sheet.html#calculus-ii-equation-sheet" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><strong>Riemann Sums and Trapezoidal Rule</strong></p>
-<p><strong>Partition of an Interval</strong></p>
-<p>On the interval <span class="math inline">\([a,b]\)</span> with <span class="math inline">\(n\)</span> equal subintervals,
-<span class="math display">\[
-\Delta x = \frac{b-a}{n},
-\qquad
-x_i = a + i\Delta x,
-\quad i = 0,1,\dots,n.
-\]</span></p>
-<hr />
-<p><strong>General Riemann Sum</strong></p>
-<p>A Riemann sum for <span class="math inline">\(f(x)\)</span> on <span class="math inline">\([a,b]\)</span> is
-<span class="math display">\[
-\int_a^b f(x)\,dx
-\;\approx\;
-\sum_{i=1}^{n} f(x_i^*)\,\Delta x,
-\]</span>
-where <span class="math inline">\(x_i^*\)</span> is a sample point in the <span class="math inline">\(i\)</span>th subinterval.</p>
-<hr />
-<p><strong>Common Choices of Sample Points</strong></p>
+<div id="week-45-in-class-integration-techniques" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">Chapter 11</span> Week 4/5 In-Class: Integration Techniques<a href="week-45-in-class-integration-techniques.html#week-45-in-class-integration-techniques" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="purpose-of-this-workbook" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Purpose of This Workbook<a href="week-45-in-class-integration-techniques.html#purpose-of-this-workbook" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This workbook is designed to help you <strong>learn integration by doing</strong>.</p>
+<p>In lecture and the textbook, you are introduced to integration techniques as ideas:<br />
+how they work, why they exist, and how they connect back to derivatives.<br />
+This workbook is where those ideas become <strong>skills</strong>.</p>
+<p>Rather than presenting long solution sets to copy, each section of this workbook is structured to support <strong>active problem solving</strong>:</p>
 <ul>
-<li><p><strong>Left Riemann Sum</strong>
+<li>short notes that highlight what to <em>notice</em>,</li>
+<li>guided examples worked through together in class,</li>
+<li>scaffolded practice that helps you choose a method deliberately,</li>
+<li>independent problems that build confidence and fluency.</li>
+</ul>
+<p>The emphasis throughout is not on memorizing formulas, but on <strong>recognizing structure</strong> and making informed strategic choices.</p>
+<hr />
+</div>
+<div id="how-to-use-this-workbook" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> How to Use This Workbook<a href="week-45-in-class-integration-techniques.html#how-to-use-this-workbook" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Each section follows the same rhythm:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>What to Notice</strong><br />
+Brief notes that highlight key patterns, warning signs, and strategy cues.</p></li>
+<li><p><strong>Worked Example (Instructor-Led)</strong><br />
+A carefully chosen example you will work through together in class.<br />
+These examples emphasize <em>why</em> a method works, not just how to execute it.</p></li>
+<li><p><strong>Guided Practice</strong><br />
+One or two problems with prompts to help you identify structure before computing.</p></li>
+<li><p><strong>Independent Practice</strong><br />
+A small set of problems to reinforce the technique and test your understanding.<br />
+Some problems are designed to look tempting but require a different method.</p></li>
+<li><p><strong>Strategy Check</strong><br />
+Short reflection questions that help you articulate <em>how</em> you chose a method.</p></li>
+</ol>
+<p>You are encouraged to <strong>pause before computing</strong> and ask:
+&gt; <em>What structure do I see, and what method does it suggest?</em></p>
+<p>That habit is more important than speed.</p>
+<hr />
+</div>
+<div id="learning-outcomes" class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">11.3</span> Learning Outcomes<a href="week-45-in-class-integration-techniques.html#learning-outcomes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>By actively engaging with this workbook, you should be able to:</p>
+<ul>
+<li>identify when an integral can be evaluated using <strong>basic antiderivative rules</strong>,</li>
+<li>recognize <strong>nested structures</strong> and apply substitution appropriately,</li>
+<li>identify <strong>product structures</strong> and use integration by parts strategically,</li>
+<li>decompose rational functions using <strong>partial fractions</strong> and integrate term by term,</li>
+<li>explain <em>why</em> a particular integration method is appropriate in a given situation,</li>
+<li>distinguish between integrals that have elementary antiderivatives and those that do not,</li>
+<li>check your results by differentiation and by interpreting <strong>units and sign</strong>,</li>
+<li>develop confidence in rejecting inappropriate methods and course-correcting.</li>
+</ul>
+<hr />
+</div>
+<div id="a-note-on-productive-struggle" class="section level2 hasAnchor" number="11.4">
+<h2><span class="header-section-number">11.4</span> A Note on Productive Struggle<a href="week-45-in-class-integration-techniques.html#a-note-on-productive-struggle" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Some problems in this workbook are intentionally designed to <strong>fail</strong> if the wrong method is chosen.</p>
+<p>This is not a trick.</p>
+<p>Being able to recognize <em>why</em> a method does not apply—and to adjust your strategy—is a core calculus skill.<br />
+Mistakes, false starts, and revisions are part of learning to think mathematically.</p>
+<p>If a problem feels uncomfortable at first, that is often a sign you are learning the right thing.</p>
+<hr />
+</div>
+<div id="expectations" class="section level2 hasAnchor" number="11.5">
+<h2><span class="header-section-number">11.5</span> Expectations<a href="week-45-in-class-integration-techniques.html#expectations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To get the most out of this workbook:</p>
+<ul>
+<li>write down your reasoning, not just final answers,</li>
+<li>clearly indicate your choice of method before computing,</li>
+<li>use differentiation to check your work whenever possible,</li>
+<li>reflect briefly on strategy, even when the computation was straightforward.</li>
+</ul>
+<p>Integration is not about finding the “right formula.”<br />
+It is about understanding structure, making good decisions, and refining your approach with practice.</p>
+<p>This workbook is designed to help you build that skill set.</p>
+</div>
+<div id="section-1-reverse-differentiation-basic-antiderivative-rules" class="section level2 hasAnchor" number="11.6">
+<h2><span class="header-section-number">11.6</span> Section 1: Reverse Differentiation (Basic Antiderivative Rules)<a href="week-45-in-class-integration-techniques.html#section-1-reverse-differentiation-basic-antiderivative-rules" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Before learning new techniques, it is essential to be fluent with <strong>basic antiderivatives</strong>.<br />
+Most integration problems become difficult only because these foundations are shaky.</p>
+<p>This section focuses on building the habit of <strong>recognition first, computation second</strong>.</p>
+<hr />
+<div id="what-to-notice" class="section level3 hasAnchor" number="11.6.1">
+<h3><span class="header-section-number">11.6.1</span> What to Notice<a href="week-45-in-class-integration-techniques.html#what-to-notice" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Integration is <strong>reverse differentiation</strong></li>
+<li>Ask: <em>“What function has this derivative?”</em></li>
+<li>Constants factor out of integrals</li>
+<li>Sums integrate term-by-term</li>
+<li>Structure matters more than symbols</li>
+<li>If an integrand matches a known derivative exactly, no advanced technique is needed</li>
+</ul>
+<hr />
+</div>
+<div id="the-core-antiderivative-rules" class="section level3 hasAnchor" number="11.6.2">
+<h3><span class="header-section-number">11.6.2</span> The Core Antiderivative Rules<a href="week-45-in-class-integration-techniques.html#the-core-antiderivative-rules" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>These are entries in your <strong>antiderivative dictionary</strong>. You should recognize them immediately.</p>
+<ul>
+<li><p><strong>Power Rule (Reverse)</strong>
 <span class="math display">\[
-x_i^* = a + (i-1)\Delta x
+\int x^n dx = \frac{x^{n+1}}{n+1} + C \quad (n \neq -1)
 \]</span></p></li>
-<li><p><strong>Right Riemann Sum</strong>
+<li><p><strong>Logarithmic Case</strong>
 <span class="math display">\[
-x_i^* = a + i\Delta x
+\int \frac{1}{x} dx = \ln|x| + C
 \]</span></p></li>
-<li><p><strong>Midpoint Riemann Sum</strong>
+<li><p><strong>Exponential</strong>
 <span class="math display">\[
-x_i^* = a + \left(i-\tfrac{1}{2}\right)\Delta x
+\int e^x dx = e^x + C
+\]</span></p></li>
+<li><p><strong>Constant Multiple</strong>
+<span class="math display">\[
+\int c\,f(x)\,dx = c\int f(x)\,dx
+\]</span></p></li>
+<li><p><strong>Linearity</strong>
+<span class="math display">\[
+\int [f(x)+g(x)]dx = \int f(x)dx + \int g(x)dx
 \]</span></p></li>
 </ul>
 <hr />
-<p><strong>Trapezoidal Rule</strong></p>
-<p>The trapezoidal rule approximates the integral by connecting function values at adjacent endpoints with straight line segments.</p>
+</div>
+<div id="worked-example-instructor-led" class="section level3 hasAnchor" number="11.6.3">
+<h3><span class="header-section-number">11.6.3</span> Worked Example (Instructor-Led)<a href="week-45-in-class-integration-techniques.html#worked-example-instructor-led" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Evaluate:
+<span class="math display">\[
+\int 6x^5 \, dx
+\]</span></p>
+<hr />
+<p><strong>Pause &amp; Predict</strong></p>
+<p>Before computing:</p>
+<ul>
+<li>What derivative produces <span class="math inline">\(6x^5\)</span>?</li>
+<li>Do you need an advanced technique?</li>
+</ul>
+<hr />
+<p><strong>Recognize the Structure</strong></p>
+<p>From differentiation:
+<span class="math display">\[
+\frac{d}{dx}(x^6) = 6x^5
+\]</span></p>
+<p>So the antiderivative is immediate.</p>
+<hr />
+<p><strong>Integrate</strong></p>
 <p><span class="math display">\[
-\int_a^b f(x)\,dx
-\;\approx\;
-\frac{\Delta x}{2}
-\left[
-f(x_0)
-+ 2f(x_1)
-+ 2f(x_2)
-+ \cdots
-+ 2f(x_{n-1})
-+ f(x_n)
-\right].
+\int 6x^5 dx = x^6 + C
 \]</span></p>
 <hr />
-<p><strong>Fundamental Theorem of Calculus</strong></p>
-<p><strong>Part I (Accumulation)</strong></p>
-<p>If
+<p><strong>Why This Was Easy</strong></p>
+<p>Nothing was nested.<br />
+Nothing was multiplied in a way that required restructuring.<br />
+This integral matched a known derivative exactly.</p>
+<p>This is the <em>ideal</em> situation—always check for it first.</p>
+<hr />
+</div>
+<div id="guided-practice-with-prompts" class="section level3 hasAnchor" number="11.6.4">
+<h3><span class="header-section-number">11.6.4</span> Guided Practice (With Prompts)<a href="week-45-in-class-integration-techniques.html#guided-practice-with-prompts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Evaluate:
 <span class="math display">\[
-F(x) = \int_a^x f(t)\,dt,
-\]</span>
-then
+\int 4x^3 \, dx
+\]</span></p>
+<p>Before computing:</p>
+<ol style="list-style-type: decimal">
+<li>What power of <span class="math inline">\(x\)</span> would differentiate to give <span class="math inline">\(4x^3\)</span>?</li>
+<li>What constant must appear in the result?</li>
+<li>Does this require any technique beyond the power rule?</li>
+</ol>
+<p>Now compute the integral.</p>
+<hr />
+</div>
+<div id="independent-practice" class="section level3 hasAnchor" number="11.6.5">
+<h3><span class="header-section-number">11.6.5</span> Independent Practice<a href="week-45-in-class-integration-techniques.html#independent-practice" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Evaluate each integral using basic rules only.</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\displaystyle \int x^7 dx\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle \int 10x^2 dx\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle \int x^{-3} dx\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle \int \frac{1}{x} dx\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle \int (3x^2 + 5x - 1) dx\)</span></p></li>
+</ol>
+<p>(<em>Use linearity and constant multiples where appropriate.</em>)</p>
+<hr />
+</div>
+<div id="common-mistakes-to-watch-for" class="section level3 hasAnchor" number="11.6.6">
+<h3><span class="header-section-number">11.6.6</span> Common Mistakes to Watch For<a href="week-45-in-class-integration-techniques.html#common-mistakes-to-watch-for" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Forgetting the constant of integration</li>
+<li>Misapplying the power rule when <span class="math inline">\(n = -1\)</span></li>
+<li>Treating sums as products</li>
+<li>Overcomplicating a problem that already matches a basic rule</li>
+</ul>
+<p>If the integrand looks simple, trust that instinct.</p>
+<hr />
+</div>
+<div id="strategy-check-3" class="section level3 hasAnchor" number="11.6.7">
+<h3><span class="header-section-number">11.6.7</span> Strategy Check<a href="week-45-in-class-integration-techniques.html#strategy-check-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Answer briefly:</p>
+<ul>
+<li>How can you tell when an integral can be handled immediately?</li>
+<li>Why should basic rules always be checked <strong>before</strong> trying substitution or integration by parts?</li>
+<li>Which integrals in the practice set required linearity?</li>
+</ul>
+<p>Fluency with reverse differentiation is the foundation for everything that follows.</p>
+</div>
+</div>
+<div id="section-2-substitution-the-chain-rule-in-reverse" class="section level2 hasAnchor" number="11.7">
+<h2><span class="header-section-number">11.7</span> Section 2: Substitution (The Chain Rule in Reverse)<a href="week-45-in-class-integration-techniques.html#section-2-substitution-the-chain-rule-in-reverse" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Many integrals are not difficult because they are complicated, but because they are <strong>nested</strong>.
+Substitution is the technique that allows us to temporarily simplify a nested structure by changing variables.</p>
+<p>Conceptually, substitution is nothing more than the <strong>chain rule in reverse</strong>.</p>
+<hr />
+<div id="what-to-notice-1" class="section level3 hasAnchor" number="11.7.1">
+<h3><span class="header-section-number">11.7.1</span> What to Notice<a href="week-45-in-class-integration-techniques.html#what-to-notice-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Substitution applies when a function is <strong>inside another function</strong></li>
+<li>Look for a pattern of the form:
 <span class="math display">\[
-F&#39;(x) = f(x).
+f(g(x)) \cdot g&#39;(x)
+\]</span></li>
+<li>The derivative of the inner function must be:
+<ul>
+<li>present exactly ✔️<br />
+</li>
+<li>present up to a constant ✔️<br />
+</li>
+<li>missing ✖️</li>
+</ul></li>
+<li>Substitution changes <strong>both</strong> the expression <em>and</em> the differential</li>
+<li>If substitution does not simplify the integral, it is not the right tool</li>
+</ul>
+<hr />
+</div>
+<div id="the-core-pattern" class="section level3 hasAnchor" number="11.7.2">
+<h3><span class="header-section-number">11.7.2</span> The Core Pattern<a href="week-45-in-class-integration-techniques.html#the-core-pattern" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>From differentiation, the chain rule says:
+<span class="math display">\[
+\frac{d}{dx}[F(g(x))] = F&#39;(g(x)) \cdot g&#39;(x)
+\]</span></p>
+<p>Reversing this idea gives the substitution pattern:
+<span class="math display">\[
+\int F&#39;(g(x)) \cdot g&#39;(x)\,dx = F(g(x)) + C
+\]</span></p>
+<p>The key question is always:</p>
+<blockquote>
+<p><em>Do I see a function and (almost) its derivative multiplied together?</em></p>
+</blockquote>
+<hr />
+</div>
+<div id="worked-example-instructor-led-1" class="section level3 hasAnchor" number="11.7.3">
+<h3><span class="header-section-number">11.7.3</span> Worked Example (Instructor-Led)<a href="week-45-in-class-integration-techniques.html#worked-example-instructor-led-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Evaluate:
+<span class="math display">\[
+\int (3x^2 + 1)^4 \cdot 6x \, dx
 \]</span></p>
 <hr />
-<p><strong>Part II (Evaluation)</strong></p>
-<p>If <span class="math inline">\(F&#39;(x) = f(x)\)</span>, then
+<p><strong>Pause &amp; Predict</strong></p>
+<p>Before computing:</p>
+<ul>
+<li>What is the inner function?</li>
+<li>Do you see its derivative?</li>
+</ul>
+<hr />
+<p><strong>Identify the Structure</strong></p>
+<ul>
+<li>Inner function: <span class="math inline">\(3x^2 + 1\)</span></li>
+<li>Derivative: <span class="math inline">\(6x\)</span></li>
+</ul>
+<p>The integrand matches the chain rule pattern exactly.</p>
+<hr />
+<p><strong>Choose the Substitution</strong></p>
+<p>Let:
 <span class="math display">\[
-\int_a^b f(x)\,dx = F(b) - F(a).
+u = 3x^2 + 1
+\]</span></p>
+<p>Differentiate with respect to <span class="math inline">\(x\)</span>:
+<span class="math display">\[
+\frac{du}{dx} = 6x
+\quad \Rightarrow \quad
+du = 6x\,dx
 \]</span></p>
 <hr />
-<p><strong>Properties of Definite Integrals</strong></p>
-<p><strong>Linearity</strong>
-<span class="math display">\[
-\int_a^b [f(x) + g(x)]\,dx
-=
-\int_a^b f(x)\,dx + \int_a^b g(x)\,dx
-\]</span></p>
+<p><strong>Rewrite the Integral</strong></p>
+<p>Substitute:</p>
+<ul>
+<li><span class="math inline">\((3x^2 + 1) \rightarrow u\)</span></li>
+<li><span class="math inline">\(6x\,dx \rightarrow du\)</span></li>
+</ul>
 <p><span class="math display">\[
-\int_a^b c f(x)\,dx
-=
-c \int_a^b f(x)\,dx
+\int u^4 \, du
 \]</span></p>
 <hr />
-<p><strong>Additivity</strong>
-<span class="math display">\[
-\int_a^b f(x)\,dx
-=
-\int_a^c f(x)\,dx + \int_c^b f(x)\,dx
-\]</span></p>
-<hr />
-<p><strong>Reversing Limits</strong>
-<span class="math display">\[
-\int_a^b f(x)\,dx = -\int_b^a f(x)\,dx
-\]</span></p>
-<hr />
-<p><strong>Constant Functions</strong>
-<span class="math display">\[
-\int_a^b c\,dx = c(b-a)
-\]</span></p>
-<hr />
-<p><strong>Indefinite Integrals</strong></p>
+<p><strong>Integrate</strong></p>
 <p><span class="math display">\[
-\int f(x)\,dx = F(x) + C
-\quad \text{where } F&#39;(x) = f(x).
+\frac{u^5}{5} + C
+\]</span></p>
+<p>Substitute back:
+<span class="math display">\[
+\frac{(3x^2 + 1)^5}{5} + C
 \]</span></p>
 <hr />
-<p><strong>Basic Antiderivative Rules</strong></p>
-<p><strong>Power Rule</strong> (<span class="math inline">\(n \neq -1\)</span>)
+<p><strong>Why This Worked</strong></p>
+<p>The integrand already <em>was</em> a derivative — it was just written in a nested form.
+Substitution removed the nesting so the basic power rule could be applied.</p>
+<hr />
+</div>
+<div id="guided-practice-with-prompts-1" class="section level3 hasAnchor" number="11.7.4">
+<h3><span class="header-section-number">11.7.4</span> Guided Practice (With Prompts)<a href="week-45-in-class-integration-techniques.html#guided-practice-with-prompts-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Evaluate:
 <span class="math display">\[
-\int x^n\,dx = \frac{x^{n+1}}{n+1} + C
+\int \frac{4x}{x^2 + 7} \, dx
+\]</span></p>
+<p>Before computing, answer:</p>
+<ol style="list-style-type: decimal">
+<li>What is the inner function?</li>
+<li>What is its derivative?</li>
+<li>Is the derivative present exactly or off by a constant?</li>
+<li>What substitution would you choose?</li>
+</ol>
+<p>Write your setup before integrating.</p>
+<hr />
+</div>
+<div id="independent-practice-1" class="section level3 hasAnchor" number="11.7.5">
+<h3><span class="header-section-number">11.7.5</span> Independent Practice<a href="week-45-in-class-integration-techniques.html#independent-practice-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For each integral:</p>
+<ul>
+<li>Decide whether substitution is appropriate.</li>
+<li>If yes, state your choice of <span class="math inline">\(u\)</span> before computing.</li>
+<li>If no, briefly say why.</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\displaystyle \int (x^2 + 5)^3 \cdot 2x \, dx\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle \int \cos(4x)\, dx\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle \int (x^2 + 5)^3 \, dx\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle \int \frac{6x}{x^2 - 1} \, dx\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle \int x e^x \, dx\)</span></p></li>
+</ol>
+<p>(<em>At least one of these is <strong>not</strong> a substitution problem.</em>)</p>
+<hr />
+</div>
+<div id="common-mistakes-to-watch-for-1" class="section level3 hasAnchor" number="11.7.6">
+<h3><span class="header-section-number">11.7.6</span> Common Mistakes to Watch For<a href="week-45-in-class-integration-techniques.html#common-mistakes-to-watch-for-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Choosing <span class="math inline">\(u\)</span> without checking for its derivative</li>
+<li>Forgetting to convert <span class="math inline">\(dx\)</span> to <span class="math inline">\(du\)</span></li>
+<li>Substituting back too early</li>
+<li>Forcing substitution when the structure does not match</li>
+</ul>
+<p>If substitution makes the integral messier, that is useful feedback.</p>
+<hr />
+</div>
+<div id="strategy-check-4" class="section level3 hasAnchor" number="11.7.7">
+<h3><span class="header-section-number">11.7.7</span> Strategy Check<a href="week-45-in-class-integration-techniques.html#strategy-check-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Answer briefly:</p>
+<ul>
+<li>How do you identify the inner function?</li>
+<li>When is “off by a constant” acceptable?</li>
+<li>How can you tell that substitution is <em>not</em> the right method?</li>
+</ul>
+<p>Being able to confidently reject substitution is just as important as using it correctly.</p>
+</div>
+</div>
+<div id="section-4-integration-by-parts-the-product-rule-in-reverse" class="section level2 hasAnchor" number="11.8">
+<h2><span class="header-section-number">11.8</span> Section 4: Integration by Parts (The Product Rule in Reverse)<a href="week-45-in-class-integration-techniques.html#section-4-integration-by-parts-the-product-rule-in-reverse" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Substitution helps when a function is <strong>nested</strong> inside another function.<br />
+Integration by parts is used when an integrand is a <strong>product</strong> of two functions.</p>
+<p>Conceptually, this technique is not new mathematics.<br />
+It is the <strong>product rule, rearranged</strong> to answer a different question.</p>
+<hr />
+<div id="what-to-notice-2" class="section level3 hasAnchor" number="11.8.1">
+<h3><span class="header-section-number">11.8.1</span> What to Notice<a href="week-45-in-class-integration-techniques.html#what-to-notice-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Integration by parts applies when the integrand is a <strong>product</strong></li>
+<li>One factor should become <strong>simpler when differentiated</strong></li>
+<li>The goal is to trade one product for another that is easier to integrate</li>
+<li>Not every product uses integration by parts</li>
+<li>If substitution fits the structure, use substitution instead</li>
+</ul>
+<hr />
+</div>
+<div id="the-core-idea-the-product-rule-in-reverse" class="section level3 hasAnchor" number="11.8.2">
+<h3><span class="header-section-number">11.8.2</span> The Core Idea: The Product Rule in Reverse<a href="week-45-in-class-integration-techniques.html#the-core-idea-the-product-rule-in-reverse" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Recall the product rule from differentiation:
+<span class="math display">\[
+\frac{d}{dx}[u(x)v(x)] = u&#39;(x)v(x) + u(x)v&#39;(x)
+\]</span></p>
+<p>Rearrange this equation to isolate one product:
+<span class="math display">\[
+u(x)v&#39;(x) = \frac{d}{dx}[u(x)v(x)] - u&#39;(x)v(x)
+\]</span></p>
+<p>Now integrate both sides:
+<span class="math display">\[
+\int u(x)v&#39;(x)\,dx
+=
+u(x)v(x) - \int u&#39;(x)v(x)\,dx
+\]</span></p>
+<p>This is the integration by parts formula:
+<span class="math display">\[
+\int u\,dv = uv - \int v\,du
+\]</span></p>
+<p>This formula is not meant to be memorized in isolation.<br />
+It encodes the product rule.</p>
+<hr />
+</div>
+<div id="what-the-formula-is-really-doing" class="section level3 hasAnchor" number="11.8.3">
+<h3><span class="header-section-number">11.8.3</span> What the Formula Is Really Doing<a href="week-45-in-class-integration-techniques.html#what-the-formula-is-really-doing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Integration by parts <strong>moves complexity</strong>:</p>
+<ul>
+<li>one factor is differentiated (often simplifying),</li>
+<li>the other is integrated (often staying manageable),</li>
+<li>the remaining integral is simpler than the original.</li>
+</ul>
+<p>If the remaining integral is not simpler, the method has failed—and that is useful information.</p>
+<hr />
+</div>
+<div id="when-integration-by-parts-is-a-good-choice" class="section level3 hasAnchor" number="11.8.4">
+<h3><span class="header-section-number">11.8.4</span> When Integration by Parts Is a Good Choice<a href="week-45-in-class-integration-techniques.html#when-integration-by-parts-is-a-good-choice" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ask the diagnostic question:</p>
+<blockquote>
+<p><em>If I differentiate one factor, does it become simpler?</em></p>
+</blockquote>
+<p>Common situations where the answer is yes:</p>
+<ul>
+<li>polynomials multiplied by exponentials or trigonometric functions</li>
+<li>logarithms multiplied by anything</li>
+<li>inverse trigonometric functions multiplied by algebraic factors</li>
+</ul>
+<hr />
+</div>
+<div id="worked-example-instructor-led-2" class="section level3 hasAnchor" number="11.8.5">
+<h3><span class="header-section-number">11.8.5</span> Worked Example (Instructor-Led)<a href="week-45-in-class-integration-techniques.html#worked-example-instructor-led-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Evaluate:
+<span class="math display">\[
+\int x e^x \, dx
 \]</span></p>
 <hr />
-<p><strong>Exponential</strong>
+<p><strong>Pause &amp; Predict</strong></p>
+<p>Before computing:</p>
+<ul>
+<li>Is this a product?</li>
+<li>Would substitution simplify this?</li>
+<li>Which factor becomes simpler when differentiated?</li>
+</ul>
+<hr />
+<p><strong>Choose <span class="math inline">\(u\)</span> and <span class="math inline">\(dv\)</span></strong></p>
+<p>Let:
 <span class="math display">\[
-\int e^x\,dx = e^x + C
-\]</span>
+u = x
+\quad \Rightarrow \quad
+du = dx
+\]</span></p>
+<p>Let:
 <span class="math display">\[
-\int a^x\,dx = \frac{a^x}{\ln a} + C
+dv = e^x\,dx
+\quad \Rightarrow \quad
+v = e^x
 \]</span></p>
 <hr />
-<p><strong>Logarithmic</strong>
-<span class="math display">\[
-\int \frac{1}{x}\,dx = \ln |x| + C
-\]</span></p>
-<hr />
-<p><strong>Trigonometric</strong>
-<span class="math display">\[
-\int \sin x\,dx = -\cos x + C
-\]</span>
-<span class="math display">\[
-\int \cos x\,dx = \sin x + C
-\]</span></p>
-<hr />
-<p><strong>Substitution</strong></p>
-<p>If <span class="math inline">\(u = g(x)\)</span> and <span class="math inline">\(du = g&#39;(x)\,dx\)</span>, then
-<span class="math display">\[
-\int f(g(x))g&#39;(x)\,dx = \int f(u)\,du
-\]</span></p>
-<hr />
-<p><strong>Integration by Parts</strong></p>
+<p><strong>Apply the Formula</strong></p>
 <p><span class="math display">\[
 \int u\,dv = uv - \int v\,du
 \]</span></p>
-<hr />
-<p><strong>Partial Fractions (General Forms)</strong></p>
-<p><strong>Distinct Linear Factors</strong>
-<span class="math display">\[
-\frac{A}{x-a} + \frac{B}{x-b}
-\]</span></p>
-<hr />
-<p><strong>Repeated Linear Factors</strong>
-<span class="math display">\[
-\frac{A_1}{x-a}
-+ \frac{A_2}{(x-a)^2}
-+ \cdots
-+ \frac{A_n}{(x-a)^n}
-\]</span></p>
-<hr />
-<p><strong>Irreducible Quadratic Factors</strong>
-<span class="math display">\[
-\frac{Ax + B}{x^2 + px + q}
-\]</span></p>
-<hr />
-<p><strong>Repeated Irreducible Quadratics</strong>
-<span class="math display">\[
-\frac{A_1x + B_1}{x^2 + px + q}
-+
-\frac{A_2x + B_2}{(x^2 + px + q)^2}
-+ \cdots
-\]</span></p>
-<hr />
-<p><strong>Basic Derivative Rules</strong></p>
-<table>
-<colgroup>
-<col width="12%" />
-<col width="40%" />
-<col width="46%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="center">Rule</th>
-<th align="center">Function Form</th>
-<th align="center">Derivative Form</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">Constant</td>
-<td align="center"><span class="math inline">\(c\)</span></td>
-<td align="center"><span class="math inline">\(0\)</span></td>
-</tr>
-<tr class="even">
-<td align="center">Power</td>
-<td align="center"><span class="math inline">\(x^n\)</span></td>
-<td align="center"><span class="math inline">\(n x^{n-1}\)</span></td>
-</tr>
-<tr class="odd">
-<td align="center">Constant Multiple</td>
-<td align="center"><span class="math inline">\(c \cdot f(x)\)</span></td>
-<td align="center"><span class="math inline">\(c \cdot f&#39;(x)\)</span></td>
-</tr>
-<tr class="even">
-<td align="center">Sum</td>
-<td align="center"><span class="math inline">\(f(x) + g(x)\)</span></td>
-<td align="center"><span class="math inline">\(f&#39;(x) + g&#39;(x)\)</span></td>
-</tr>
-<tr class="odd">
-<td align="center">Difference</td>
-<td align="center"><span class="math inline">\(f(x) - g(x)\)</span></td>
-<td align="center"><span class="math inline">\(f&#39;(x) - g&#39;(x)\)</span></td>
-</tr>
-<tr class="even">
-<td align="center">Product</td>
-<td align="center"><span class="math inline">\(f(x)g(x)\)</span></td>
-<td align="center"><span class="math inline">\(f&#39;(x)g(x) + f(x)g&#39;(x)\)</span></td>
-</tr>
-<tr class="odd">
-<td align="center">Quotient</td>
-<td align="center"><span class="math inline">\(\dfrac{f(x)}{g(x)}\)</span></td>
-<td align="center"><span class="math inline">\(\dfrac{f&#39;(x)g(x) - f(x)g&#39;(x)}{g(x)^2}\)</span></td>
-</tr>
-<tr class="even">
-<td align="center">Chain</td>
-<td align="center"><span class="math inline">\(f(g(x))\)</span></td>
-<td align="center"><span class="math inline">\(f&#39;(g(x)) \cdot g&#39;(x)\)</span></td>
-</tr>
-<tr class="odd">
-<td align="center">Inverse</td>
-<td align="center"><span class="math inline">\(f^{-1}(x)\)</span></td>
-<td align="center"><span class="math inline">\(\dfrac{1}{f&#39;(f^{-1}(x))}\)</span></td>
-</tr>
-</tbody>
-</table>
-<hr />
-<p><strong>Trigonometric Derivatives</strong></p>
-<table>
-<thead>
-<tr class="header">
-<th align="center">Function</th>
-<th align="center">Derivative</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center"><span class="math inline">\(\sin x\)</span></td>
-<td align="center"><span class="math inline">\(\cos x\)</span></td>
-</tr>
-<tr class="even">
-<td align="center"><span class="math inline">\(\cos x\)</span></td>
-<td align="center"><span class="math inline">\(-\sin x\)</span></td>
-</tr>
-<tr class="odd">
-<td align="center"><span class="math inline">\(\tan x\)</span></td>
-<td align="center"><span class="math inline">\(\sec^2 x\)</span></td>
-</tr>
-<tr class="even">
-<td align="center"><span class="math inline">\(\sec x\)</span></td>
-<td align="center"><span class="math inline">\(\sec x \tan x\)</span></td>
-</tr>
-<tr class="odd">
-<td align="center"><span class="math inline">\(\csc x\)</span></td>
-<td align="center"><span class="math inline">\(-\csc x \cot x\)</span></td>
-</tr>
-<tr class="even">
-<td align="center"><span class="math inline">\(\cot x\)</span></td>
-<td align="center"><span class="math inline">\(-\csc^2 x\)</span></td>
-</tr>
-</tbody>
-</table>
-<hr />
-<p><strong>Exponential &amp; Logarithmic Derivatives</strong></p>
-<table>
-<thead>
-<tr class="header">
-<th align="center">Function</th>
-<th align="center">Derivative</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center"><span class="math inline">\(a^x\)</span></td>
-<td align="center"><span class="math inline">\(a^x \ln(a)\)</span></td>
-</tr>
-<tr class="even">
-<td align="center"><span class="math inline">\(e^x\)</span></td>
-<td align="center"><span class="math inline">\(e^x\)</span></td>
-</tr>
-<tr class="odd">
-<td align="center"><span class="math inline">\(a^{g(x)}\)</span></td>
-<td align="center"><span class="math inline">\(g&#39;(x)\, a^{g(x)} \ln(a)\)</span></td>
-</tr>
-<tr class="even">
-<td align="center"><span class="math inline">\(e^{g(x)}\)</span></td>
-<td align="center"><span class="math inline">\(g&#39;(x)\, e^{g(x)}\)</span></td>
-</tr>
-<tr class="odd">
-<td align="center"><span class="math inline">\(\log_a(x)\)</span></td>
-<td align="center"><span class="math inline">\(\dfrac{1}{x \ln(a)}\)</span></td>
-</tr>
-<tr class="even">
-<td align="center"><span class="math inline">\(\ln(x)\)</span></td>
-<td align="center"><span class="math inline">\(\dfrac{1}{x}\)</span></td>
-</tr>
-<tr class="odd">
-<td align="center"><span class="math inline">\(\log_a(g(x))\)</span></td>
-<td align="center"><span class="math inline">\(\dfrac{g&#39;(x)}{g(x)\ln(a)}\)</span></td>
-</tr>
-<tr class="even">
-<td align="center"><span class="math inline">\(\ln(g(x))\)</span></td>
-<td align="center"><span class="math inline">\(\dfrac{g&#39;(x)}{g(x)}\)</span></td>
-</tr>
-</tbody>
-</table>
-<hr />
-<p><strong>Average Rate of Change</strong></p>
 <p><span class="math display">\[
-  AV_[a,b] = \frac{f(b) - f(a)}{b-a}
-  \]</span></p>
-<p><strong>Limit Definition of a Derivative</strong></p>
-<p><span class="math display">\[
-  f&#39;(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}
-  \]</span></p>
+\int x e^x dx = x e^x - \int e^x dx
+\]</span></p>
 <hr />
-<p><strong>General Functions &amp; Forms</strong></p>
+<p><strong>Finish the Integral</strong></p>
+<p><span class="math display">\[
+x e^x - e^x + C
+\]</span></p>
+<p>Or, factored:
+<span class="math display">\[
+e^x(x - 1) + C
+\]</span></p>
+<hr />
+</div>
+<div id="why-this-worked-1" class="section level3 hasAnchor" number="11.8.6">
+<h3><span class="header-section-number">11.8.6</span> Why This Worked<a href="week-45-in-class-integration-techniques.html#why-this-worked-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Differentiating <span class="math inline">\(x\)</span> reduced the product to a constant.<br />
+The remaining integral was simpler than the original.</p>
+<p>This is the goal of integration by parts.</p>
+<hr />
+</div>
+<div id="a-bad-choice-example" class="section level3 hasAnchor" number="11.8.7">
+<h3><span class="header-section-number">11.8.7</span> A “Bad Choice” Example<a href="week-45-in-class-integration-techniques.html#a-bad-choice-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Consider the same integral:
+<span class="math display">\[
+\int x e^x dx
+\]</span></p>
+<p>If we choose:
+<span class="math display">\[
+u = e^x
+\]</span></p>
+<p>Then:
+<span class="math display">\[
+du = e^x dx
+\]</span></p>
+<p>The resulting integral remains a product of two nontrivial functions.<br />
+Nothing has simplified.</p>
+<p>This is a signal to change strategy.</p>
+<hr />
+</div>
+<div id="guided-practice-with-prompts-2" class="section level3 hasAnchor" number="11.8.8">
+<h3><span class="header-section-number">11.8.8</span> Guided Practice (With Prompts)<a href="week-45-in-class-integration-techniques.html#guided-practice-with-prompts-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Evaluate:
+<span class="math display">\[
+\int x \sin x \, dx
+\]</span></p>
+<p>Before computing, answer:</p>
+<ol style="list-style-type: decimal">
+<li>Which factor becomes simpler when differentiated?</li>
+<li>What will you choose for <span class="math inline">\(u\)</span>?</li>
+<li>What will you choose for <span class="math inline">\(dv\)</span>?</li>
+</ol>
+<p>Write your choices before applying the formula.</p>
+<hr />
+</div>
+<div id="independent-practice-2" class="section level3 hasAnchor" number="11.8.9">
+<h3><span class="header-section-number">11.8.9</span> Independent Practice<a href="week-45-in-class-integration-techniques.html#independent-practice-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For each integral:</p>
 <ul>
-<li><p><strong>Linear Forms:</strong><br />
-General: <span class="math inline">\(f(x) = ax+b\)</span>,<br />
-Point-slope: <span class="math inline">\(y-y_1 = m(x-x_1)\)</span>,<br />
-Slope-intercept: <span class="math inline">\(y=mx+b\)</span></p></li>
-<li><p><strong>Quadratic Forms:</strong><br />
-General: <span class="math inline">\(ax^2+bx+c\)</span>,<br />
-Vertex: <span class="math inline">\(a(x-h)^2+k\)</span>,<br />
-Roots: <span class="math inline">\(\dfrac{-b \pm \sqrt{b^2-4ac}}{2a}\)</span></p></li>
-<li><p><strong>Polynomial (nth-order):</strong><br />
-<span class="math inline">\(f(x) = a_nx^n + \dots + a_1x + a_0\)</span></p></li>
-<li><p><strong>Transformations:</strong><br />
-<span class="math inline">\(g(x) = a f(x-b) + c\)</span></p></li>
-<li><p><strong>Sinusoid:</strong><br />
-<span class="math inline">\(f(x) = a \sin(kx+b)+c,\ \ T=\dfrac{2\pi}{k}\)</span></p></li>
+<li>Decide whether integration by parts is appropriate.</li>
+<li>If yes, state your choices of <span class="math inline">\(u\)</span> and <span class="math inline">\(dv\)</span> before computing.</li>
+<li>If no, briefly explain why.</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\displaystyle \int x \cos x \, dx\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle \int \ln x \, dx\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle \int x^2 e^x \, dx\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle \int e^{x^2} \cdot 2x \, dx\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle \int (x^2 + 1)^3 \, dx\)</span></p></li>
+</ol>
+<p>(<em>At least one of these should <strong>not</strong> use integration by parts.</em>)</p>
+<hr />
+</div>
+<div id="common-mistakes-to-watch-for-2" class="section level3 hasAnchor" number="11.8.10">
+<h3><span class="header-section-number">11.8.10</span> Common Mistakes to Watch For<a href="week-45-in-class-integration-techniques.html#common-mistakes-to-watch-for-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Choosing <span class="math inline">\(u\)</span> that becomes more complicated when differentiated</li>
+<li>Forgetting the minus sign in the formula</li>
+<li>Stopping before the integral is fully simplified</li>
+<li>Using integration by parts when substitution applies</li>
 </ul>
 <hr />
-<p><strong>Applications</strong></p>
+</div>
+<div id="strategy-check-5" class="section level3 hasAnchor" number="11.8.11">
+<h3><span class="header-section-number">11.8.11</span> Strategy Check<a href="week-45-in-class-integration-techniques.html#strategy-check-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Answer briefly:</p>
 <ul>
-<li><strong>Slope of tangent line:</strong> <span class="math inline">\(m = f&#39;(a)\)</span><br />
-</li>
-<li><strong>Tangent line equation:</strong> <span class="math inline">\(y = f&#39;(a)(x-a)+f(a)\)</span><br />
-</li>
-<li><strong>Linear approximation:</strong> <span class="math inline">\(L(x)=f(a)+f&#39;(a)(x-a)\)</span><br />
-</li>
-<li><strong>Related rates:</strong> <span class="math inline">\(\dfrac{dy}{dt} = \dfrac{dy}{dx}\cdot\dfrac{dx}{dt}\)</span><br />
-</li>
-<li><strong>Concavity:</strong> <span class="math inline">\(f&#39;&#39;&gt;0 \Rightarrow\)</span> concave up, <span class="math inline">\(f&#39;&#39;&lt;0 \Rightarrow\)</span> concave down<br />
-</li>
-<li><strong>Extrema:</strong> solve <span class="math inline">\(f&#39;(x)=0\)</span>, check sign of <span class="math inline">\(f&#39;\)</span> or use <span class="math inline">\(f&#39;&#39;\)</span></li>
+<li>How do you decide which factor to differentiate?</li>
+<li>What does it mean for an integral to become “simpler”?</li>
+<li>How can a failed attempt guide your next method choice?</li>
 </ul>
-<hr />
+<p>Integration by parts is powerful when used deliberately.<br />
+When used mechanically, it often makes problems worse.</p>
+<p>Learning to recognize when—and why—it works is the real goal.</p>
 
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="techniques-of-integration-indefinite-integrals.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="test1-review-material.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -1084,7 +1285,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/rstudio/bookdown-demo/edit/master/20-Equation_sheet.Rmd",
+    "link": "https://github.com/rstudio/bookdown-demo/edit/master/106_int.Rmd",
     "text": "Edit"
   },
   "history": {

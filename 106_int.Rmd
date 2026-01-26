@@ -1,0 +1,657 @@
+# Week 4/5 In-Class: Integration Techniques
+
+## Purpose of This Workbook
+
+This workbook is designed to help you **learn integration by doing**.
+
+In lecture and the textbook, you are introduced to integration techniques as ideas:  
+how they work, why they exist, and how they connect back to derivatives.  
+This workbook is where those ideas become **skills**.
+
+Rather than presenting long solution sets to copy, each section of this workbook is structured to support **active problem solving**:
+
+- short notes that highlight what to *notice*,
+- guided examples worked through together in class,
+- scaffolded practice that helps you choose a method deliberately,
+- independent problems that build confidence and fluency.
+
+The emphasis throughout is not on memorizing formulas, but on **recognizing structure** and making informed strategic choices.
+
+---
+
+## How to Use This Workbook
+
+Each section follows the same rhythm:
+
+1. **What to Notice**  
+   Brief notes that highlight key patterns, warning signs, and strategy cues.
+
+2. **Worked Example (Instructor-Led)**  
+   A carefully chosen example you will work through together in class.  
+   These examples emphasize *why* a method works, not just how to execute it.
+
+3. **Guided Practice**  
+   One or two problems with prompts to help you identify structure before computing.
+
+4. **Independent Practice**  
+   A small set of problems to reinforce the technique and test your understanding.  
+   Some problems are designed to look tempting but require a different method.
+
+5. **Strategy Check**  
+   Short reflection questions that help you articulate *how* you chose a method.
+
+You are encouraged to **pause before computing** and ask:
+> *What structure do I see, and what method does it suggest?*
+
+That habit is more important than speed.
+
+---
+
+## Learning Outcomes
+
+By actively engaging with this workbook, you should be able to:
+
+- identify when an integral can be evaluated using **basic antiderivative rules**,
+- recognize **nested structures** and apply substitution appropriately,
+- identify **product structures** and use integration by parts strategically,
+- decompose rational functions using **partial fractions** and integrate term by term,
+- explain *why* a particular integration method is appropriate in a given situation,
+- distinguish between integrals that have elementary antiderivatives and those that do not,
+- check your results by differentiation and by interpreting **units and sign**,
+- develop confidence in rejecting inappropriate methods and course-correcting.
+
+---
+
+## A Note on Productive Struggle
+
+Some problems in this workbook are intentionally designed to **fail** if the wrong method is chosen.
+
+This is not a trick.
+
+Being able to recognize *why* a method does not apply—and to adjust your strategy—is a core calculus skill.  
+Mistakes, false starts, and revisions are part of learning to think mathematically.
+
+If a problem feels uncomfortable at first, that is often a sign you are learning the right thing.
+
+---
+
+## Expectations
+
+To get the most out of this workbook:
+
+- write down your reasoning, not just final answers,
+- clearly indicate your choice of method before computing,
+- use differentiation to check your work whenever possible,
+- reflect briefly on strategy, even when the computation was straightforward.
+
+Integration is not about finding the “right formula.”  
+It is about understanding structure, making good decisions, and refining your approach with practice.
+
+This workbook is designed to help you build that skill set.
+
+## Section 1: Reverse Differentiation (Basic Antiderivative Rules)
+
+Before learning new techniques, it is essential to be fluent with **basic antiderivatives**.  
+Most integration problems become difficult only because these foundations are shaky.
+
+This section focuses on building the habit of **recognition first, computation second**.
+
+---
+
+### What to Notice
+
+- Integration is **reverse differentiation**
+- Ask: *“What function has this derivative?”*
+- Constants factor out of integrals
+- Sums integrate term-by-term
+- Structure matters more than symbols
+- If an integrand matches a known derivative exactly, no advanced technique is needed
+
+---
+
+### The Core Antiderivative Rules
+
+These are entries in your **antiderivative dictionary**. You should recognize them immediately.
+
+- **Power Rule (Reverse)**
+  \[
+  \int x^n dx = \frac{x^{n+1}}{n+1} + C \quad (n \neq -1)
+  \]
+
+- **Logarithmic Case**
+  \[
+  \int \frac{1}{x} dx = \ln|x| + C
+  \]
+
+- **Exponential**
+  \[
+  \int e^x dx = e^x + C
+  \]
+
+- **Constant Multiple**
+  \[
+  \int c\,f(x)\,dx = c\int f(x)\,dx
+  \]
+
+- **Linearity**
+  \[
+  \int [f(x)+g(x)]dx = \int f(x)dx + \int g(x)dx
+  \]
+
+---
+
+### Worked Example (Instructor-Led)
+
+Evaluate:
+\[
+\int 6x^5 \, dx
+\]
+
+---
+
+**Pause & Predict**
+
+Before computing:
+
+- What derivative produces \(6x^5\)?
+- Do you need an advanced technique?
+
+---
+
+**Recognize the Structure**
+
+From differentiation:
+\[
+\frac{d}{dx}(x^6) = 6x^5
+\]
+
+So the antiderivative is immediate.
+
+---
+
+**Integrate**
+
+\[
+\int 6x^5 dx = x^6 + C
+\]
+
+---
+
+**Why This Was Easy**
+
+Nothing was nested.  
+Nothing was multiplied in a way that required restructuring.  
+This integral matched a known derivative exactly.
+
+This is the *ideal* situation—always check for it first.
+
+---
+
+### Guided Practice (With Prompts)
+
+Evaluate:
+\[
+\int 4x^3 \, dx
+\]
+
+Before computing:
+
+1. What power of \(x\) would differentiate to give \(4x^3\)?
+2. What constant must appear in the result?
+3. Does this require any technique beyond the power rule?
+
+Now compute the integral.
+
+---
+
+### Independent Practice
+
+Evaluate each integral using basic rules only.
+
+1. \(\displaystyle \int x^7 dx\)
+
+2. \(\displaystyle \int 10x^2 dx\)
+
+3. \(\displaystyle \int x^{-3} dx\)
+
+4. \(\displaystyle \int \frac{1}{x} dx\)
+
+5. \(\displaystyle \int (3x^2 + 5x - 1) dx\)
+
+(*Use linearity and constant multiples where appropriate.*)
+
+---
+
+### Common Mistakes to Watch For
+
+- Forgetting the constant of integration
+- Misapplying the power rule when \(n = -1\)
+- Treating sums as products
+- Overcomplicating a problem that already matches a basic rule
+
+If the integrand looks simple, trust that instinct.
+
+---
+
+### Strategy Check
+
+Answer briefly:
+
+- How can you tell when an integral can be handled immediately?
+- Why should basic rules always be checked **before** trying substitution or integration by parts?
+- Which integrals in the practice set required linearity?
+
+Fluency with reverse differentiation is the foundation for everything that follows.
+
+## Section 2: Substitution (The Chain Rule in Reverse)
+
+Many integrals are not difficult because they are complicated, but because they are **nested**.
+Substitution is the technique that allows us to temporarily simplify a nested structure by changing variables.
+
+Conceptually, substitution is nothing more than the **chain rule in reverse**.
+
+---
+
+### What to Notice
+
+- Substitution applies when a function is **inside another function**
+- Look for a pattern of the form:
+  \[
+  f(g(x)) \cdot g'(x)
+  \]
+- The derivative of the inner function must be:
+  - present exactly ✔️  
+  - present up to a constant ✔️  
+  - missing ✖️
+- Substitution changes **both** the expression *and* the differential
+- If substitution does not simplify the integral, it is not the right tool
+
+---
+
+### The Core Pattern
+
+From differentiation, the chain rule says:
+\[
+\frac{d}{dx}[F(g(x))] = F'(g(x)) \cdot g'(x)
+\]
+
+Reversing this idea gives the substitution pattern:
+\[
+\int F'(g(x)) \cdot g'(x)\,dx = F(g(x)) + C
+\]
+
+The key question is always:
+
+> *Do I see a function and (almost) its derivative multiplied together?*
+
+---
+
+### Worked Example (Instructor-Led)
+
+Evaluate:
+\[
+\int (3x^2 + 1)^4 \cdot 6x \, dx
+\]
+
+---
+
+**Pause & Predict**
+
+Before computing:
+
+- What is the inner function?
+- Do you see its derivative?
+
+---
+
+**Identify the Structure**
+
+- Inner function: \(3x^2 + 1\)
+- Derivative: \(6x\)
+
+The integrand matches the chain rule pattern exactly.
+
+---
+
+**Choose the Substitution**
+
+Let:
+\[
+u = 3x^2 + 1
+\]
+
+Differentiate with respect to \(x\):
+\[
+\frac{du}{dx} = 6x
+\quad \Rightarrow \quad
+du = 6x\,dx
+\]
+
+---
+
+**Rewrite the Integral**
+
+Substitute:
+
+- \((3x^2 + 1) \rightarrow u\)
+- \(6x\,dx \rightarrow du\)
+
+\[
+\int u^4 \, du
+\]
+
+---
+
+**Integrate**
+
+\[
+\frac{u^5}{5} + C
+\]
+
+Substitute back:
+\[
+\frac{(3x^2 + 1)^5}{5} + C
+\]
+
+---
+
+**Why This Worked**
+
+The integrand already *was* a derivative — it was just written in a nested form.
+Substitution removed the nesting so the basic power rule could be applied.
+
+---
+
+### Guided Practice (With Prompts)
+
+Evaluate:
+\[
+\int \frac{4x}{x^2 + 7} \, dx
+\]
+
+Before computing, answer:
+
+1. What is the inner function?
+2. What is its derivative?
+3. Is the derivative present exactly or off by a constant?
+4. What substitution would you choose?
+
+Write your setup before integrating.
+
+---
+
+### Independent Practice
+
+For each integral:
+
+- Decide whether substitution is appropriate.
+- If yes, state your choice of \(u\) before computing.
+- If no, briefly say why.
+
+1. \(\displaystyle \int (x^2 + 5)^3 \cdot 2x \, dx\)
+
+2. \(\displaystyle \int \cos(4x)\, dx\)
+
+3. \(\displaystyle \int (x^2 + 5)^3 \, dx\)
+
+4. \(\displaystyle \int \frac{6x}{x^2 - 1} \, dx\)
+
+5. \(\displaystyle \int x e^x \, dx\)
+
+(*At least one of these is **not** a substitution problem.*)
+
+---
+
+### Common Mistakes to Watch For
+
+- Choosing \(u\) without checking for its derivative
+- Forgetting to convert \(dx\) to \(du\)
+- Substituting back too early
+- Forcing substitution when the structure does not match
+
+If substitution makes the integral messier, that is useful feedback.
+
+---
+
+### Strategy Check
+
+Answer briefly:
+
+- How do you identify the inner function?
+- When is “off by a constant” acceptable?
+- How can you tell that substitution is *not* the right method?
+
+Being able to confidently reject substitution is just as important as using it correctly.
+
+## Section 4: Integration by Parts (The Product Rule in Reverse)
+
+Substitution helps when a function is **nested** inside another function.  
+Integration by parts is used when an integrand is a **product** of two functions.
+
+Conceptually, this technique is not new mathematics.  
+It is the **product rule, rearranged** to answer a different question.
+
+---
+
+### What to Notice
+
+- Integration by parts applies when the integrand is a **product**
+- One factor should become **simpler when differentiated**
+- The goal is to trade one product for another that is easier to integrate
+- Not every product uses integration by parts
+- If substitution fits the structure, use substitution instead
+
+---
+
+### The Core Idea: The Product Rule in Reverse
+
+Recall the product rule from differentiation:
+\[
+\frac{d}{dx}[u(x)v(x)] = u'(x)v(x) + u(x)v'(x)
+\]
+
+Rearrange this equation to isolate one product:
+\[
+u(x)v'(x) = \frac{d}{dx}[u(x)v(x)] - u'(x)v(x)
+\]
+
+Now integrate both sides:
+\[
+\int u(x)v'(x)\,dx
+=
+u(x)v(x) - \int u'(x)v(x)\,dx
+\]
+
+This is the integration by parts formula:
+\[
+\int u\,dv = uv - \int v\,du
+\]
+
+This formula is not meant to be memorized in isolation.  
+It encodes the product rule.
+
+---
+
+### What the Formula Is Really Doing
+
+Integration by parts **moves complexity**:
+
+- one factor is differentiated (often simplifying),
+- the other is integrated (often staying manageable),
+- the remaining integral is simpler than the original.
+
+If the remaining integral is not simpler, the method has failed—and that is useful information.
+
+---
+
+### When Integration by Parts Is a Good Choice
+
+Ask the diagnostic question:
+
+> *If I differentiate one factor, does it become simpler?*
+
+Common situations where the answer is yes:
+
+- polynomials multiplied by exponentials or trigonometric functions
+- logarithms multiplied by anything
+- inverse trigonometric functions multiplied by algebraic factors
+
+---
+
+### Worked Example (Instructor-Led)
+
+Evaluate:
+\[
+\int x e^x \, dx
+\]
+
+---
+
+**Pause & Predict**
+
+Before computing:
+
+- Is this a product?
+- Would substitution simplify this?
+- Which factor becomes simpler when differentiated?
+
+---
+
+**Choose \(u\) and \(dv\)**
+
+Let:
+\[
+u = x
+\quad \Rightarrow \quad
+du = dx
+\]
+
+Let:
+\[
+dv = e^x\,dx
+\quad \Rightarrow \quad
+v = e^x
+\]
+
+---
+
+**Apply the Formula**
+
+\[
+\int u\,dv = uv - \int v\,du
+\]
+
+\[
+\int x e^x dx = x e^x - \int e^x dx
+\]
+
+---
+
+**Finish the Integral**
+
+\[
+x e^x - e^x + C
+\]
+
+Or, factored:
+\[
+e^x(x - 1) + C
+\]
+
+---
+
+### Why This Worked
+
+Differentiating \(x\) reduced the product to a constant.  
+The remaining integral was simpler than the original.
+
+This is the goal of integration by parts.
+
+---
+
+### A “Bad Choice” Example
+
+Consider the same integral:
+\[
+\int x e^x dx
+\]
+
+If we choose:
+\[
+u = e^x
+\]
+
+Then:
+\[
+du = e^x dx
+\]
+
+The resulting integral remains a product of two nontrivial functions.  
+Nothing has simplified.
+
+This is a signal to change strategy.
+
+---
+
+### Guided Practice (With Prompts)
+
+Evaluate:
+\[
+\int x \sin x \, dx
+\]
+
+Before computing, answer:
+
+1. Which factor becomes simpler when differentiated?
+2. What will you choose for \(u\)?
+3. What will you choose for \(dv\)?
+
+Write your choices before applying the formula.
+
+---
+
+### Independent Practice
+
+For each integral:
+
+- Decide whether integration by parts is appropriate.
+- If yes, state your choices of \(u\) and \(dv\) before computing.
+- If no, briefly explain why.
+
+
+1. \(\displaystyle \int x \cos x \, dx\)
+
+2. \(\displaystyle \int \ln x \, dx\)
+
+3. \(\displaystyle \int x^2 e^x \, dx\)
+
+4. \(\displaystyle \int e^{x^2} \cdot 2x \, dx\)
+
+5. \(\displaystyle \int (x^2 + 1)^3 \, dx\)
+
+(*At least one of these should **not** use integration by parts.*)
+
+---
+
+### Common Mistakes to Watch For
+
+- Choosing \(u\) that becomes more complicated when differentiated
+- Forgetting the minus sign in the formula
+- Stopping before the integral is fully simplified
+- Using integration by parts when substitution applies
+
+---
+
+### Strategy Check
+
+Answer briefly:
+
+- How do you decide which factor to differentiate?
+- What does it mean for an integral to become “simpler”?
+- How can a failed attempt guide your next method choice?
+
+Integration by parts is powerful when used deliberately.  
+When used mechanically, it often makes problems worse.
+
+Learning to recognize when—and why—it works is the real goal.
+
