@@ -1,0 +1,878 @@
+# Test 2 Review Material {-}
+
+## Test Instructions {-}
+Below are the general instructions for all tests
+
+- You will get a chance to **retake** this. Your **highest** score counts toward your final grade.  
+- Follow the guidance for each part and **show all work** for full credit.  
+- **Non-graphical calculators** are allowed.  
+- **One page (two sides)** of handwritten (or font size 8) notes are allowed.
+- The equation sheet from the textbook is included as part of the test pack (it doesn't count as note pages)
+
+## Test Format {-}
+The Format of the test will include:
+
+- 10 pick the best technique (do not solve)  [10pts]
+- 2 Substitution [2 x 5pts]
+- 2 Integration by Parts [2 x 5pts]
+- 1 Partial Fraction [5pts]
+- 3 Choose your method and solve [3 x 5pts]
+
+
+### Practice: Identifying the Appropriate Technique  {-}
+
+For each integral below, **choose the single most appropriate method**.  
+You do **not** need to evaluate the integral.
+
+**Options:**
+
+- **A.** Basic integration rules only  
+- **B.** Substitution  
+- **C.** Integration by parts  
+- **D.** Partial fractions  
+
+---
+
+1. \[
+\int (2x+3)^5\,dx
+\]
+
+2. \[
+\int x e^{4x}\,dx
+\]
+
+3. \[
+\int \frac{3}{x^2-16}\,dx
+\]
+
+4. \[
+\int \ln(5x)\,dx
+\]
+
+5. \[
+\int \frac{8x}{x^2+1}\,dx
+\]
+
+6. \[
+\int (x^2-1)^3\,dx
+\]
+
+7. \[
+\int \frac{2x-5}{x^2-5x+4}\,dx
+\]
+
+8. \[
+\int x^3 \ln x\,dx
+\]
+
+9. \[
+\int \frac{7x+1}{x(x+1)}\,dx
+\]
+
+10. \[
+\int e^{-2x}\,dx
+\]
+
+11. \[
+\int x\cosh x\,dx
+\]
+
+12. \[
+\int \frac{5}{(x-1)(x+4)}\,dx
+\]
+
+13. \[
+\int x^2 e^{x}\,dx
+\]
+
+14. \[
+\int \frac{4x}{\sqrt{x^2+9}}\,dx
+\]
+
+15. \[
+\int (3x^4-2x)^2\,dx
+\]
+
+16. \[
+\int x\ln(x^2)\,dx
+\]
+
+17. \[
+\int \frac{6x+3}{x^2+3x+7}\,dx
+\]
+
+18. \[
+\int x^2\arctan x\,dx
+\]
+
+19. \[
+\int \frac{2}{x^2-1}\,dx
+\]
+
+20. \[
+\int x e^{-x}\,dx
+\]
+
+---
+
+<details>
+<summary><strong>Click to reveal answer key</strong></summary>
+
+**Answer Key — Technique Only**
+
+1. **B** (substitution)  
+2. **C** (integration by parts)  
+3. **D** (partial fractions)  
+4. **C** (integration by parts)  
+5. **B** (substitution)  
+6. **A** (basic rules only)  
+7. **B** (substitution — numerator is derivative of denominator)  
+8. **C** (integration by parts)  
+9. **D** (partial fractions)  
+10. **A** (basic rules only)  
+11. **C** (integration by parts)  
+12. **D** (partial fractions)  
+13. **C** (integration by parts)  
+14. **B** (substitution)  
+15. **A** (basic rules only)  
+16. **C** (integration by parts)  
+17. **B** (substitution)  
+18. **C** (integration by parts)  
+19. **D** (partial fractions)  
+20. **C** (integration by parts)
+
+</details>
+
+
+
+### Practice: Substitution (u-sub) {-}
+
+Evaluate each integral using **substitution**.  
+For each problem, a **hint** is provided — try first, then click to reveal if needed.
+
+---
+
+**1.**
+\[
+\int 3x(2x^2+1)^5\,dx
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+Let \(u=2x^2+1\). You’ll need to rewrite \(x\,dx\) in terms of \(du\).
+</details>
+
+---
+
+**2.**
+\[
+\int \frac{5x}{x^2+4}\,dx
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+Let \(u=x^2+4\). Then \(du\) is proportional to \(x\,dx\).
+</details>
+
+---
+
+**3.**
+\[
+\int x^2 e^{x^3}\,dx
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+Let \(u=x^3\). Then \(du\) contains \(x^2\,dx\).
+</details>
+
+---
+
+**4.**
+\[
+\int \frac{2x}{\sqrt{x^2+9}}\,dx
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+Let \(u=x^2+9\). Then the integrand becomes a power of \(u\).
+</details>
+
+---
+
+**5.**
+\[
+\int \cos(4x)\,dx
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+Let \(u=4x\). Don’t forget the constant when converting \(dx\).
+</details>
+
+---
+
+**6.**
+\[
+\int (x+1)^7\,dx
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+Let \(u=x+1\). Then apply the power rule in \(u\).
+</details>
+
+---
+
+**7.**
+\[
+\int \frac{6x+9}{x^2+3x+1}\,dx
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+Let \(u=x^2+3x+1\). Notice that \(6x+9 = 3(2x+3)\).
+</details>
+
+---
+
+**8.**
+\[
+\int x\sin(x^2)\,dx
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+Let \(u=x^2\). Then \(du\) is proportional to \(x\,dx\).
+</details>
+
+---
+
+**9.**
+\[
+\int \frac{1}{(3x-2)^4}\,dx
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+Rewrite as \((3x-2)^{-4}\). Let \(u=3x-2\).
+</details>
+
+---
+
+**10.**
+\[
+\int \sqrt{5x+1}\,dx
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+Let \(u=5x+1\). Then rewrite the root as a power of \(u\).
+</details>
+
+---
+
+<details>
+<summary><strong>Click to reveal answer key</strong></summary>
+
+**Answer Key — Substitution**
+
+**1.**
+Let \(u=2x^2+1\), \(du=4x\,dx\), so \(x\,dx=\frac14 du\).
+\[
+\int 3x(2x^2+1)^5dx=\frac34\int u^5\,du=\frac34\cdot\frac{u^6}{6}+C=\frac18u^6+C
+\]
+\[
+\boxed{\frac{(2x^2+1)^6}{8}+C}
+\]
+
+---
+
+**2.**
+Let \(u=x^2+4\), \(du=2x\,dx\), so \(x\,dx=\frac12 du\).
+\[
+\int \frac{5x}{x^2+4}dx=\frac52\int \frac{1}{u}\,du=\frac52\ln|u|+C
+\]
+\[
+\boxed{\frac{5}{2}\ln(x^2+4)+C}
+\]
+
+---
+
+**3.**
+Let \(u=x^3\), \(du=3x^2\,dx\), so \(x^2\,dx=\frac13 du\).
+\[
+\int x^2 e^{x^3}dx=\frac13\int e^u\,du=\frac13 e^u+C
+\]
+\[
+\boxed{\frac13 e^{x^3}+C}
+\]
+
+---
+
+**4.**
+Let \(u=x^2+9\), \(du=2x\,dx\).
+\[
+\int \frac{2x}{\sqrt{x^2+9}}dx=\int u^{-1/2}\,du=2u^{1/2}+C
+\]
+\[
+\boxed{2\sqrt{x^2+9}+C}
+\]
+
+---
+
+**5.**
+Let \(u=4x\), \(du=4\,dx\), so \(dx=\frac14 du\).
+\[
+\int \cos(4x)\,dx=\frac14\int \cos u\,du=\frac14\sin u+C
+\]
+\[
+\boxed{\frac14\sin(4x)+C}
+\]
+
+---
+
+**6.**
+Let \(u=x+1\), \(du=dx\).
+\[
+\int (x+1)^7dx=\int u^7\,du=\frac{u^8}{8}+C
+\]
+\[
+\boxed{\frac{(x+1)^8}{8}+C}
+\]
+
+---
+
+**7.**
+Let \(u=x^2+3x+1\), \(du=(2x+3)\,dx\). Since \(6x+9=3(2x+3)\),
+\[
+\int \frac{6x+9}{x^2+3x+1}dx
+=
+3\int \frac{2x+3}{u}\,dx
+=
+3\int \frac{1}{u}\,du
+=
+3\ln|u|+C
+\]
+\[
+\boxed{3\ln|x^2+3x+1|+C}
+\]
+
+---
+
+**8.**
+Let \(u=x^2\), \(du=2x\,dx\), so \(x\,dx=\frac12 du\).
+\[
+\int x\sin(x^2)dx=\frac12\int \sin u\,du=-\frac12\cos u+C
+\]
+\[
+\boxed{-\frac12\cos(x^2)+C}
+\]
+
+---
+
+**9.**
+Let \(u=3x-2\), \(du=3\,dx\), so \(dx=\frac13 du\).
+\[
+\int (3x-2)^{-4}dx=\frac13\int u^{-4}\,du=\frac13\cdot\frac{u^{-3}}{-3}+C
+\]
+\[
+\boxed{-\frac{1}{9(3x-2)^3}+C}
+\]
+
+---
+
+**10.**
+Let \(u=5x+1\), \(du=5\,dx\), so \(dx=\frac15 du\).
+\[
+\int \sqrt{5x+1}\,dx=\frac15\int u^{1/2}\,du=\frac15\cdot\frac{2}{3}u^{3/2}+C
+\]
+\[
+\boxed{\frac{2}{15}(5x+1)^{3/2}+C}
+\]
+
+</details>
+
+
+
+### Practice: Integration by Parts {-}
+
+Evaluate each integral using **integration by parts**.  
+For each problem, a **hint** is provided — try first, then click to reveal if needed.
+
+---
+
+**1.**
+\[
+\int x e^{5x}\,dx
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+Choose \(u=x\) since it simplifies when differentiated.
+</details>
+
+---
+
+**2.**
+\[
+\int x^2 e^{2x}\,dx
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+Let \(u=x^2\). You will need integration by parts **twice**.
+</details>
+
+---
+
+**3.**
+\[
+\int \ln x \, dx
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+Write this as \(\ln x \cdot 1\) and choose \(dv=dx\).
+</details>
+
+---
+
+**4.**
+\[
+\int x\ln x \, dx
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+Let \(u=\ln x\) and \(dv=x\,dx\).
+</details>
+
+---
+
+**5.**
+\[
+\int x^2 \ln x \, dx
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+Let \(u=\ln x\). The remaining integral becomes a polynomial.
+</details>
+
+---
+
+**6.**
+\[
+\int (\ln x)^2 \, dx
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+Treat this as \((\ln x)^2\cdot 1\). Choose \(dv=dx\).
+</details>
+
+---
+
+**7.**
+\[
+\int x(\ln x)^2\,dx
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+Let \(u=(\ln x)^2\). You will reduce the problem to \(\int x\ln x\,dx\).
+</details>
+
+---
+
+**8.**
+\[
+\int x\sin x\,dx
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+Let \(u=x\), \(dv=\sin x\,dx\). Remember \(\int \sin x\,dx=-\cos x\).
+</details>
+
+---
+
+**9.**
+\[
+\int x\cos x\,dx
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+Let \(u=x\), \(dv=\cos x\,dx\). Remember \(\int \cos x\,dx=\sin x\).
+</details>
+
+---
+
+**10.**
+\[
+\int x^2 e^{-x}\,dx
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+Let \(u=x^2\). This problem requires **two rounds** of integration by parts.
+</details>
+
+---
+
+<details>
+<summary><strong>Click to reveal answer key</strong></summary>
+
+**Answer Key — Integration by Parts**
+
+---
+
+**1.**
+\[
+\boxed{\frac{e^{5x}}{25}(5x-1)+C}
+\]
+
+---
+
+**2.**
+\[
+\boxed{e^{2x}\left(\frac{x^2}{2}-\frac{x}{2}+\frac{1}{4}\right)+C}
+\]
+
+---
+
+**3.**
+\[
+\boxed{x\ln x-x+C}
+\]
+
+---
+
+**4.**
+\[
+\boxed{\frac{x^2}{2}\ln x - \frac{x^2}{4}+C}
+\]
+
+---
+
+**5.**
+\[
+\boxed{\frac{x^3}{3}\ln x - \frac{x^3}{9}+C}
+\]
+
+---
+
+**6.**
+\[
+\boxed{x\big((\ln x)^2 - 2\ln x + 2\big)+C}
+\]
+
+---
+
+**7.**
+\[
+\boxed{\frac{x^2}{2}(\ln x)^2-\frac{x^2}{2}\ln x+\frac{x^2}{4}+C}
+\]
+
+---
+
+**8.**
+\[
+\boxed{-x\cos x+\sin x+C}
+\]
+
+---
+
+**9.**
+\[
+\boxed{x\sin x+\cos x+C}
+\]
+
+---
+
+**10.**
+\[
+\boxed{-e^{-x}(x^2+2x+2)+C}
+\]
+
+</details>
+
+
+### Practice: Partial Fractions (Factorable Quadratics) {-}
+
+Evaluate each integral using **partial fractions**.  
+All denominators are **quadratic and factorable** (repeated factors may appear).  
+For each problem, a **hint** is provided — try first, then click to reveal if needed.
+
+---
+
+**1.**
+\[
+\int \frac{6}{x^2-9}\,dx
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+Factor \(x^2-9=(x-3)(x+3)\).
+</details>
+
+---
+
+**2.**
+\[
+\int \frac{5}{x^2+3x-10}\,dx
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+Factor the denominator into \((x-2)(x+5)\), then use \(\frac{A}{x-2}+\frac{B}{x+5}\).
+</details>
+
+---
+
+**3.**
+\[
+\int \frac{2x+1}{x^2-x-6}\,dx
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+Factor \(x^2-x-6\). Use \(\frac{A}{x-3}+\frac{B}{x+2}\) and match coefficients.
+</details>
+
+---
+
+**4.**
+\[
+\int \frac{3x-2}{x^2-4x+3}\,dx
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+Factor \(x^2-4x+3=(x-1)(x-3)\), then solve for \(A,B\).
+</details>
+
+---
+
+**5.**
+\[
+\int \frac{4}{x(x-5)}\,dx
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+Use \(\frac{A}{x}+\frac{B}{x-5}\).
+</details>
+
+---
+
+**6.**
+\[
+\int \frac{7x+1}{(x-2)(x+1)}\,dx
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+Use \(\frac{A}{x-2}+\frac{B}{x+1}\) and match coefficients.
+</details>
+
+---
+
+**7.**
+\[
+\int \frac{3}{(x-1)^2}\,dx
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+This is a repeated linear factor: rewrite as \(3(x-1)^{-2}\).
+</details>
+
+---
+
+**8.**
+\[
+\int \frac{x}{(x+2)^2}\,dx
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+For a repeated factor, use  
+\(\displaystyle \frac{A}{x+2}+\frac{B}{(x+2)^2}\).
+</details>
+
+---
+
+**9.**
+\[
+\int \frac{2x+5}{(x-1)(x-4)}\,dx
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+Use \(\frac{A}{x-1}+\frac{B}{x-4}\) and solve for \(A,B\).
+</details>
+
+---
+
+**10.**
+\[
+\int \frac{1}{x^2-x}\,dx
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+Factor \(x^2-x=x(x-1)\), then decompose.
+</details>
+
+---
+
+<details>
+<summary><strong>Click to reveal answer key</strong></summary>
+
+**Answer Key — Partial Fractions (with brief notes)**
+
+---
+
+**1.**
+\[
+\int \frac{6}{x^2-9}\,dx
+\]
+Factor \(x^2-9=(x-3)(x+3)\) and decompose:
+\[
+\frac{6}{(x-3)(x+3)}=\frac{1}{x-3}-\frac{1}{x+3}.
+\]
+\[
+\boxed{\ln|x-3|-\ln|x+3|+C=\ln\left|\frac{x-3}{x+3}\right|+C}
+\]
+
+---
+
+**2.**
+\[
+\int \frac{5}{x^2+3x-10}\,dx
+\]
+Factor \(x^2+3x-10=(x-2)(x+5)\) and decompose:
+\[
+\frac{5}{(x-2)(x+5)}=\frac{5/7}{x-2}-\frac{5/7}{x+5}.
+\]
+\[
+\boxed{\frac{5}{7}\ln|x-2|-\frac{5}{7}\ln|x+5|+C}
+\]
+
+---
+
+**3.**
+\[
+\int \frac{2x+1}{x^2-x-6}\,dx
+\]
+Factor \(x^2-x-6=(x-3)(x+2)\) and decompose:
+\[
+\frac{2x+1}{(x-3)(x+2)}=\frac{7/5}{x-3}+\frac{3/5}{x+2}.
+\]
+\[
+\boxed{\frac{7}{5}\ln|x-3|+\frac{3}{5}\ln|x+2|+C}
+\]
+
+---
+
+**4.**
+\[
+\int \frac{3x-2}{x^2-4x+3}\,dx
+\]
+Factor \(x^2-4x+3=(x-1)(x-3)\) and decompose:
+\[
+\frac{3x-2}{(x-1)(x-3)}=\frac{-1/2}{x-1}+\frac{7/2}{x-3}.
+\]
+\[
+\boxed{-\frac12\ln|x-1|+\frac{7}{2}\ln|x-3|+C}
+\]
+
+---
+
+**5.**
+\[
+\int \frac{4}{x(x-5)}\,dx
+\]
+Decompose:
+\[
+\frac{4}{x(x-5)}=\frac{-4/5}{x}+\frac{4/5}{x-5}.
+\]
+\[
+\boxed{-\frac45\ln|x|+\frac45\ln|x-5|+C}
+\]
+
+---
+
+**6.**
+\[
+\int \frac{7x+1}{(x-2)(x+1)}\,dx
+\]
+Decompose:
+\[
+\frac{7x+1}{(x-2)(x+1)}=\frac{5}{x-2}+\frac{2}{x+1}.
+\]
+\[
+\boxed{5\ln|x-2|+2\ln|x+1|+C}
+\]
+
+---
+
+**7.**
+\[
+\int \frac{3}{(x-1)^2}\,dx
+\]
+Rewrite as \(3(x-1)^{-2}\):
+\[
+\boxed{-\frac{3}{x-1}+C}
+\]
+
+---
+
+**8.**
+First decompose:
+\[
+\frac{x}{(x+2)^2}
+=
+\frac{1}{x+2}
+-
+\frac{2}{(x+2)^2}
+\]
+
+Then integrate:
+\[
+\boxed{\ln|x+2|+\frac{2}{x+2}+C}
+\]
+
+---
+
+**9.**
+\[
+\int \frac{2x+5}{(x-1)(x-4)}\,dx
+\]
+Decompose:
+\[
+\frac{2x+5}{(x-1)(x-4)}=\frac{-7/3}{x-1}+\frac{13/3}{x-4}.
+\]
+\[
+\boxed{-\frac{7}{3}\ln|x-1|+\frac{13}{3}\ln|x-4|+C}
+\]
+
+---
+
+**10.**
+\[
+\int \frac{1}{x^2-x}\,dx
+\]
+Factor \(x^2-x=x(x-1)\) and decompose:
+\[
+\frac{1}{x(x-1)}=-\frac{1}{x}+\frac{1}{x-1}.
+\]
+\[
+\boxed{-\ln|x|+\ln|x-1|+C=\ln\left|\frac{x-1}{x}\right|+C}
+\]
+
+</details>
+
