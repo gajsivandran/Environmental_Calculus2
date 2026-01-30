@@ -655,3 +655,611 @@ When used mechanically, it often makes problems worse.
 
 Learning to recognize when—and why—it works is the real goal.
 
+
+\newpage
+
+## Section 5: Partial Fractions (Breaking Rational Functions Apart)
+
+Substitution and integration by parts focus on **structure** (nesting or products).  
+Partial fractions is different: it applies to **rational functions**.
+
+A rational function is a ratio of polynomials.
+
+This technique works by **rewriting a complicated fraction** as a sum of **simpler fractions** that are easy to integrate.
+
+---
+
+### What to Notice
+
+- Partial fractions applies only to **rational functions**
+- The denominator must be **factorable**
+- The degree of the numerator must be **less than** the degree of the denominator  
+  (otherwise, simplify first)
+- Each factor in the denominator contributes its own term
+- Once decomposed, integration uses only **basic rules**
+
+---
+
+### The Core Idea: Decomposition Instead of Substitution
+
+The goal is not to “solve” the integral directly.
+
+Instead, you:
+
+1. Rewrite the integrand as a **sum of simpler rational pieces**
+2. Integrate each piece using basic logarithm or power rules
+
+
+Nothing new happens at the integration step.  
+All the work is in the algebra.
+
+---
+
+### Types of Denominator Factors (In This Course)
+
+In this course, we focus on **linear factors only**.
+
+#### 1. Distinct Linear Factors
+
+Example:
+\[
+\frac{1}{(x-1)(x+2)}
+\]
+
+Decomposes as:
+\[
+\frac{A}{x-1} + \frac{B}{x+2}
+\]
+
+Each linear factor gets **one term**.
+
+---
+
+#### 2. Repeated Linear Factors
+
+Example:
+\[
+\frac{1}{(x-1)^2}
+\]
+
+Decomposes as:
+\[
+\frac{A}{x-1} + \frac{B}{(x-1)^2}
+\]
+
+Each **power** of a repeated factor gets its own term.
+
+---
+
+### Types of Denominator Factors (In This Course)
+
+In this course, we focus on **linear factors only**.
+
+#### 1. Distinct Linear Factors
+
+Example:
+\[
+\frac{1}{(x-1)(x+2)}
+\]
+
+Decomposes as:
+\[
+\frac{A}{x-1} + \frac{B}{x+2}
+\]
+
+Each linear factor gets **one term**.
+
+---
+
+**Integration Form**
+
+Once decomposed, each term integrates using the logarithm rule:
+\[
+\int \frac{A}{x+a}\,dx = A \ln|x+a| + C
+\]
+
+The integration step is straightforward.  
+All of the difficulty happens *before* this, during decomposition.
+
+---
+
+#### 2. Repeated Linear Factors
+
+Example:
+\[
+\frac{1}{(x-1)^2}
+\]
+
+Decomposes as:
+\[
+\frac{A}{x-1} + \frac{B}{(x-1)^2}
+\]
+
+Each **power** of a repeated factor gets its own term.
+
+---
+
+#### Integration Forms
+
+Each term integrates using basic power rules:
+\[
+\int \frac{A}{x+a}\,dx = A \ln|x+a| + C
+\]
+
+\[
+\int \frac{B}{(x+a)^2}\,dx = -\frac{B}{x+a} + C
+\]
+
+Notice that:
+- the first term produces a logarithm,
+- the second produces a rational function,
+- no substitution is required.
+
+---
+
+**Key Structural Takeaway**
+
+- Distinct linear factors → logarithms  
+- Repeated linear factors → logarithms **and** power-rule terms  
+- Partial fractions is an **algebra-first** technique  
+
+If the denominator structure is wrong, the method does not apply.
+
+
+
+### Out of Scope (For This Course)
+
+You may see references to:
+
+- irreducible quadratic factors  
+- quadratic terms in the numerator  
+
+These require additional decomposition rules and lead to arctangent-type integrals.
+
+They exist, but they are **out of scope for this course**.  
+Our focus is on structure, not exhaustive case handling.
+
+---
+
+### When Partial Fractions Is a Good Choice
+
+Ask the diagnostic question:
+
+> *Is this a rational function with a factorable denominator?*
+
+If yes:
+
+- and the denominator factors into linear terms,
+- and the numerator degree is smaller,
+
+then partial fractions is likely the right tool.
+
+If the integrand is not a rational function, partial fractions does not apply.
+
+---
+
+### Worked Example (Instructor-Led)
+
+Evaluate:
+\[
+\int \frac{7x+1}{x^2+x-2}\,dx
+\]
+
+---
+
+**Pause & Predict**
+
+Before computing:
+
+- Is this a rational function?
+- Does the denominator factor?
+- Are the factors linear and distinct?
+
+---
+
+**Factor the denominator**
+\[
+x^2+x-2 = (x-1)(x+2)
+\]
+
+**Set Up the Decomposition**
+
+Write:
+\[
+\frac{7x+1}{(x-1)(x+2)}
+=
+\frac{A}{x-1} + \frac{B}{x+2}
+\]
+
+Solve for \(A\) and \(B\), then integrate each term using basic rules.
+
+
+
+### Worked Example (Instructor-Led)
+
+Evaluate:
+\[
+\int \frac{5x+3}{(x^2-1}\,dx
+\]
+
+---
+
+**Pause & Predict**
+
+Before computing:
+
+- Is this a rational function?
+- Does the denominator factor?
+- Is the factor repeated?
+
+---
+
+**Factor the denominator**
+\[
+x^2-1 = (x-1)^2
+\]
+
+
+**Set Up the Decomposition**
+
+Write:
+\[
+\frac{5x+3}{(x-1)^2}
+=
+\frac{A}{x-1} + \frac{B}{(x-1)^2}
+\]
+
+Each power of the repeated linear factor requires its own term.
+
+Solve for \(A\) and \(B\), then integrate each term using basic rules.
+
+### Your Turn
+
+
+Evaluate each integral using partial fractions.
+
+---
+
+1. 
+\[
+\int \frac{3}{x^2 - x - 2}\,dx
+\]
+
+---
+
+2.
+\[
+\int \frac{5x-1}{x^2 + 2x - 3}\,dx
+\]
+
+---
+
+3. 
+\[
+\int \frac{4}{x^2 - 4x + 4}\,dx
+\]
+
+---
+
+4. 
+\[
+\int \frac{6x+1}{x^2 + 2x + 1}\,dx
+\]
+
+---
+
+5.
+\[
+\int \frac{2x+5}{x^2 + x - 6}\,dx
+\]
+
+---
+
+6. 
+\[
+\int \frac{7x-3}{x^2 - 5x + 6}\,dx
+\]
+
+---
+
+<details open>
+<summary><strong>Click to Unlock Solutions</strong></summary>
+
+<div id="sol_set1" hidden markdown="1" style="margin-top:0.75rem;">
+
+**Answer Key**
+
+
+
+### Solution 1
+\[
+\int \frac{3}{x^2-x-2}\,dx
+\]
+
+**Step 1: Factor the denominator**
+\[
+x^2-x-2=(x-2)(x+1)
+\]
+
+**Step 2: Set up partial fractions**
+\[
+\frac{3}{(x-2)(x+1)}=\frac{A}{x-2}+\frac{B}{x+1}
+\]
+
+**Step 3: Clear denominators**
+\[
+3=A(x+1)+B(x-2)
+\]
+
+**Step 4: Solve for \(A,B\)**
+
+Plug \(x=2\):
+\[
+3=A(3)\Rightarrow A=1
+\]
+
+Plug \(x=-1\):
+\[
+3=B(-3)\Rightarrow B=-1
+\]
+
+So:
+\[
+\frac{3}{(x-2)(x+1)}=\frac{1}{x-2}-\frac{1}{x+1}
+\]
+
+**Step 5: Integrate**
+\[
+\int\left(\frac{1}{x-2}-\frac{1}{x+1}\right)\,dx
+=\ln|x-2|-\ln|x+1|+C
+\]
+
+---
+
+### Solution 2
+\[
+\int \frac{5x-1}{x^2+2x-3}\,dx
+\]
+
+**Step 1: Factor the denominator**
+\[
+x^2+2x-3=(x+3)(x-1)
+\]
+
+**Step 2: Set up partial fractions**
+\[
+\frac{5x-1}{(x+3)(x-1)}=\frac{A}{x+3}+\frac{B}{x-1}
+\]
+
+**Step 3: Clear denominators**
+\[
+5x-1=A(x-1)+B(x+3)
+\]
+
+**Step 4: Solve for \(A,B\)**
+
+Plug \(x=1\):
+\[
+5(1)-1=B(4)\Rightarrow 4=4B\Rightarrow B=1
+\]
+
+Plug \(x=-3\):
+\[
+5(-3)-1=A(-4)\Rightarrow -16=-4A\Rightarrow A=4
+\]
+
+So:
+\[
+\frac{5x-1}{(x+3)(x-1)}=\frac{4}{x+3}+\frac{1}{x-1}
+\]
+
+**Step 5: Integrate**
+\[
+\int\left(\frac{4}{x+3}+\frac{1}{x-1}\right)\,dx
+=4\ln|x+3|+\ln|x-1|+C
+\]
+
+---
+
+### Solution 3
+\[
+\int \frac{4}{x^2-4x+4}\,dx
+\]
+
+**Step 1: Recognize the repeated root**
+\[
+x^2-4x+4=(x-2)^2
+\]
+
+**Step 2: Rewrite the integrand**
+\[
+\int \frac{4}{(x-2)^2}\,dx
+=
+\int 4(x-2)^{-2}\,dx
+\]
+
+**Step 3: Integrate (power rule)**
+\[
+4\cdot \frac{(x-2)^{-1}}{-1}+C
+=
+-\frac{4}{x-2}+C
+\]
+
+---
+
+### Solution 4
+\[
+\int \frac{6x+1}{x^2+2x+1}\,dx
+\]
+
+**Step 1: Recognize the repeated root**
+\[
+x^2+2x+1=(x+1)^2
+\]
+
+**Step 2: Set up the repeated-root form**
+\[
+\frac{6x+1}{(x+1)^2}=\frac{A}{x+1}+\frac{B}{(x+1)^2}
+\]
+
+**Step 3: Clear denominators**
+\[
+6x+1=A(x+1)+B
+\]
+
+**Step 4: Solve for \(A,B\)**
+
+Match coefficients:
+\[
+6x+1=Ax+(A+B)
+\]
+So:
+\[
+A=6,\quad A+B=1\Rightarrow 6+B=1\Rightarrow B=-5
+\]
+
+Thus:
+\[
+\frac{6x+1}{(x+1)^2}=\frac{6}{x+1}-\frac{5}{(x+1)^2}
+\]
+
+**Step 5: Integrate**
+\[
+\int \frac{6}{x+1}\,dx=6\ln|x+1|
+\]
+\[
+\int -\frac{5}{(x+1)^2}\,dx
+=
+-5\int (x+1)^{-2}\,dx
+=
+-5\left(\frac{(x+1)^{-1}}{-1}\right)
+=
+\frac{5}{x+1}
+\]
+
+Final:
+\[
+6\ln|x+1|+\frac{5}{x+1}+C
+\]
+
+---
+
+### Solution 5
+\[
+\int \frac{2x+5}{x^2+x-6}\,dx
+\]
+
+**Step 1: Factor the denominator**
+\[
+x^2+x-6=(x+3)(x-2)
+\]
+
+**Step 2: Set up partial fractions (A and B only)**
+\[
+\frac{2x+5}{(x+3)(x-2)}=\frac{A}{x+3}+\frac{B}{x-2}
+\]
+
+**Step 3: Clear denominators**
+\[
+2x+5=A(x-2)+B(x+3)
+\]
+
+**Step 4: Solve for \(A,B\)**
+
+Plug \(x=2\):
+\[
+2(2)+5=B(5)\Rightarrow 9=5B\Rightarrow B=\frac{9}{5}
+\]
+
+Plug \(x=-3\):
+\[
+2(-3)+5=A(-5)\Rightarrow -1=-5A\Rightarrow A=\frac{1}{5}
+\]
+
+So:
+\[
+\frac{2x+5}{(x+3)(x-2)}=\frac{1/5}{x+3}+\frac{9/5}{x-2}
+\]
+
+**Step 5: Integrate**
+\[
+\int\left(\frac{1/5}{x+3}+\frac{9/5}{x-2}\right)\,dx
+=
+\frac{1}{5}\ln|x+3|+\frac{9}{5}\ln|x-2|+C
+\]
+
+---
+
+### Solution 6
+\[
+\int \frac{7x-3}{x^2-5x+6}\,dx
+\]
+
+**Step 1: Factor the denominator**
+\[
+x^2-5x+6=(x-2)(x-3)
+\]
+
+**Step 2: Set up partial fractions (A and B only)**
+\[
+\frac{7x-3}{(x-2)(x-3)}=\frac{A}{x-2}+\frac{B}{x-3}
+\]
+
+**Step 3: Clear denominators**
+\[
+7x-3=A(x-3)+B(x-2)
+\]
+
+**Step 4: Solve for \(A,B\)**
+
+Plug \(x=2\):
+\[
+7(2)-3=A(-1)\Rightarrow 11=-A\Rightarrow A=-11
+\]
+
+Plug \(x=3\):
+\[
+7(3)-3=B(1)\Rightarrow 18=B
+\]
+
+So:
+\[
+\frac{7x-3}{(x-2)(x-3)}=\frac{-11}{x-2}+\frac{18}{x-3}
+\]
+
+**Step 5: Integrate**
+\[
+\int\left(\frac{-11}{x-2}+\frac{18}{x-3}\right)\,dx
+=
+-11\ln|x-2|+18\ln|x-3|+C
+\]
+
+</div>
+
+<form onsubmit="unlock_set1(); return false;" id="gate_set1" style="margin-top:0.75rem;">
+  <input type="password" id="pwd_set1" placeholder="Enter password" aria-label="Answer key password">
+  <button type="submit">Unlock</button>
+  <span id="msg_set1" style="margin-left:0.5rem;" aria-live="polite"></span>
+</form>
+
+<script>
+function unlock_set1() {
+  var input = document.getElementById('pwd_set1');
+  var msg   = document.getElementById('msg_set1');
+  var sol   = document.getElementById('sol_set1');
+  var gate  = document.getElementById('gate_set1');
+  var pw    = (input.value || '').trim();
+  var det   = gate.closest('details'); if (det) det.open = true;
+
+  if (pw === 'redback') {
+    sol.hidden = false;
+    gate.hidden = true;
+    input.value = '';
+    msg.textContent = '';
+  } else {
+    msg.textContent = 'Stop guessing :) Ask a TA';
+    input.value = '';
+    input.focus();
+  }
+}
+</script>

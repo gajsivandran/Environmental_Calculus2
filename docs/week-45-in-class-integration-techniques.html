@@ -23,7 +23,7 @@
 <meta name="author" content="Gaj Sivandran" />
 
 
-<meta name="date" content="2026-01-29" />
+<meta name="date" content="2026-01-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -679,6 +679,18 @@
 <li class="chapter" data-level="11.8.10" data-path="week-45-in-class-integration-techniques.html"><a href="week-45-in-class-integration-techniques.html#common-mistakes-to-watch-for-2"><i class="fa fa-check"></i><b>11.8.10</b> Common Mistakes to Watch For</a></li>
 <li class="chapter" data-level="11.8.11" data-path="week-45-in-class-integration-techniques.html"><a href="week-45-in-class-integration-techniques.html#strategy-check-5"><i class="fa fa-check"></i><b>11.8.11</b> Strategy Check</a></li>
 </ul></li>
+<li class="chapter" data-level="11.9" data-path="week-45-in-class-integration-techniques.html"><a href="week-45-in-class-integration-techniques.html#section-5-partial-fractions-breaking-rational-functions-apart"><i class="fa fa-check"></i><b>11.9</b> Section 5: Partial Fractions (Breaking Rational Functions Apart)</a>
+<ul>
+<li class="chapter" data-level="11.9.1" data-path="week-45-in-class-integration-techniques.html"><a href="week-45-in-class-integration-techniques.html#what-to-notice-3"><i class="fa fa-check"></i><b>11.9.1</b> What to Notice</a></li>
+<li class="chapter" data-level="11.9.2" data-path="week-45-in-class-integration-techniques.html"><a href="week-45-in-class-integration-techniques.html#the-core-idea-decomposition-instead-of-substitution"><i class="fa fa-check"></i><b>11.9.2</b> The Core Idea: Decomposition Instead of Substitution</a></li>
+<li class="chapter" data-level="11.9.3" data-path="week-45-in-class-integration-techniques.html"><a href="week-45-in-class-integration-techniques.html#types-of-denominator-factors-in-this-course"><i class="fa fa-check"></i><b>11.9.3</b> Types of Denominator Factors (In This Course)</a></li>
+<li class="chapter" data-level="11.9.4" data-path="week-45-in-class-integration-techniques.html"><a href="week-45-in-class-integration-techniques.html#types-of-denominator-factors-in-this-course-1"><i class="fa fa-check"></i><b>11.9.4</b> Types of Denominator Factors (In This Course)</a></li>
+<li class="chapter" data-level="11.9.5" data-path="week-45-in-class-integration-techniques.html"><a href="week-45-in-class-integration-techniques.html#out-of-scope-for-this-course"><i class="fa fa-check"></i><b>11.9.5</b> Out of Scope (For This Course)</a></li>
+<li class="chapter" data-level="11.9.6" data-path="week-45-in-class-integration-techniques.html"><a href="week-45-in-class-integration-techniques.html#when-partial-fractions-is-a-good-choice"><i class="fa fa-check"></i><b>11.9.6</b> When Partial Fractions Is a Good Choice</a></li>
+<li class="chapter" data-level="11.9.7" data-path="week-45-in-class-integration-techniques.html"><a href="week-45-in-class-integration-techniques.html#worked-example-instructor-led-3"><i class="fa fa-check"></i><b>11.9.7</b> Worked Example (Instructor-Led)</a></li>
+<li class="chapter" data-level="11.9.8" data-path="week-45-in-class-integration-techniques.html"><a href="week-45-in-class-integration-techniques.html#worked-example-instructor-led-4"><i class="fa fa-check"></i><b>11.9.8</b> Worked Example (Instructor-Led)</a></li>
+<li class="chapter" data-level="11.9.9" data-path="week-45-in-class-integration-techniques.html"><a href="week-45-in-class-integration-techniques.html#your-turn"><i class="fa fa-check"></i><b>11.9.9</b> Your Turn</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -1255,6 +1267,511 @@ Nothing has simplified.</p>
 <p>Integration by parts is powerful when used deliberately.<br />
 When used mechanically, it often makes problems worse.</p>
 <p>Learning to recognize when—and why—it works is the real goal.</p>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div id="section-5-partial-fractions-breaking-rational-functions-apart" class="section level2 hasAnchor" number="11.9">
+<h2><span class="header-section-number">11.9</span> Section 5: Partial Fractions (Breaking Rational Functions Apart)<a href="week-45-in-class-integration-techniques.html#section-5-partial-fractions-breaking-rational-functions-apart" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Substitution and integration by parts focus on <strong>structure</strong> (nesting or products).<br />
+Partial fractions is different: it applies to <strong>rational functions</strong>.</p>
+<p>A rational function is a ratio of polynomials.</p>
+<p>This technique works by <strong>rewriting a complicated fraction</strong> as a sum of <strong>simpler fractions</strong> that are easy to integrate.</p>
+<hr />
+<div id="what-to-notice-3" class="section level3 hasAnchor" number="11.9.1">
+<h3><span class="header-section-number">11.9.1</span> What to Notice<a href="week-45-in-class-integration-techniques.html#what-to-notice-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Partial fractions applies only to <strong>rational functions</strong></li>
+<li>The denominator must be <strong>factorable</strong></li>
+<li>The degree of the numerator must be <strong>less than</strong> the degree of the denominator<br />
+(otherwise, simplify first)</li>
+<li>Each factor in the denominator contributes its own term</li>
+<li>Once decomposed, integration uses only <strong>basic rules</strong></li>
+</ul>
+<hr />
+</div>
+<div id="the-core-idea-decomposition-instead-of-substitution" class="section level3 hasAnchor" number="11.9.2">
+<h3><span class="header-section-number">11.9.2</span> The Core Idea: Decomposition Instead of Substitution<a href="week-45-in-class-integration-techniques.html#the-core-idea-decomposition-instead-of-substitution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The goal is not to “solve” the integral directly.</p>
+<p>Instead, you:</p>
+<ol style="list-style-type: decimal">
+<li>Rewrite the integrand as a <strong>sum of simpler rational pieces</strong></li>
+<li>Integrate each piece using basic logarithm or power rules</li>
+</ol>
+<p>Nothing new happens at the integration step.<br />
+All the work is in the algebra.</p>
+<hr />
+</div>
+<div id="types-of-denominator-factors-in-this-course" class="section level3 hasAnchor" number="11.9.3">
+<h3><span class="header-section-number">11.9.3</span> Types of Denominator Factors (In This Course)<a href="week-45-in-class-integration-techniques.html#types-of-denominator-factors-in-this-course" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In this course, we focus on <strong>linear factors only</strong>.</p>
+<div id="distinct-linear-factors" class="section level4 hasAnchor" number="11.9.3.1">
+<h4><span class="header-section-number">11.9.3.1</span> 1. Distinct Linear Factors<a href="week-45-in-class-integration-techniques.html#distinct-linear-factors" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Example:
+<span class="math display">\[
+\frac{1}{(x-1)(x+2)}
+\]</span></p>
+<p>Decomposes as:
+<span class="math display">\[
+\frac{A}{x-1} + \frac{B}{x+2}
+\]</span></p>
+<p>Each linear factor gets <strong>one term</strong>.</p>
+<hr />
+</div>
+<div id="repeated-linear-factors" class="section level4 hasAnchor" number="11.9.3.2">
+<h4><span class="header-section-number">11.9.3.2</span> 2. Repeated Linear Factors<a href="week-45-in-class-integration-techniques.html#repeated-linear-factors" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Example:
+<span class="math display">\[
+\frac{1}{(x-1)^2}
+\]</span></p>
+<p>Decomposes as:
+<span class="math display">\[
+\frac{A}{x-1} + \frac{B}{(x-1)^2}
+\]</span></p>
+<p>Each <strong>power</strong> of a repeated factor gets its own term.</p>
+<hr />
+</div>
+</div>
+<div id="types-of-denominator-factors-in-this-course-1" class="section level3 hasAnchor" number="11.9.4">
+<h3><span class="header-section-number">11.9.4</span> Types of Denominator Factors (In This Course)<a href="week-45-in-class-integration-techniques.html#types-of-denominator-factors-in-this-course-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In this course, we focus on <strong>linear factors only</strong>.</p>
+<div id="distinct-linear-factors-1" class="section level4 hasAnchor" number="11.9.4.1">
+<h4><span class="header-section-number">11.9.4.1</span> 1. Distinct Linear Factors<a href="week-45-in-class-integration-techniques.html#distinct-linear-factors-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Example:
+<span class="math display">\[
+\frac{1}{(x-1)(x+2)}
+\]</span></p>
+<p>Decomposes as:
+<span class="math display">\[
+\frac{A}{x-1} + \frac{B}{x+2}
+\]</span></p>
+<p>Each linear factor gets <strong>one term</strong>.</p>
+<hr />
+<p><strong>Integration Form</strong></p>
+<p>Once decomposed, each term integrates using the logarithm rule:
+<span class="math display">\[
+\int \frac{A}{x+a}\,dx = A \ln|x+a| + C
+\]</span></p>
+<p>The integration step is straightforward.<br />
+All of the difficulty happens <em>before</em> this, during decomposition.</p>
+<hr />
+</div>
+<div id="repeated-linear-factors-1" class="section level4 hasAnchor" number="11.9.4.2">
+<h4><span class="header-section-number">11.9.4.2</span> 2. Repeated Linear Factors<a href="week-45-in-class-integration-techniques.html#repeated-linear-factors-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Example:
+<span class="math display">\[
+\frac{1}{(x-1)^2}
+\]</span></p>
+<p>Decomposes as:
+<span class="math display">\[
+\frac{A}{x-1} + \frac{B}{(x-1)^2}
+\]</span></p>
+<p>Each <strong>power</strong> of a repeated factor gets its own term.</p>
+<hr />
+</div>
+<div id="integration-forms" class="section level4 hasAnchor" number="11.9.4.3">
+<h4><span class="header-section-number">11.9.4.3</span> Integration Forms<a href="week-45-in-class-integration-techniques.html#integration-forms" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Each term integrates using basic power rules:
+<span class="math display">\[
+\int \frac{A}{x+a}\,dx = A \ln|x+a| + C
+\]</span></p>
+<p><span class="math display">\[
+\int \frac{B}{(x+a)^2}\,dx = -\frac{B}{x+a} + C
+\]</span></p>
+<p>Notice that:
+- the first term produces a logarithm,
+- the second produces a rational function,
+- no substitution is required.</p>
+<hr />
+<p><strong>Key Structural Takeaway</strong></p>
+<ul>
+<li>Distinct linear factors → logarithms<br />
+</li>
+<li>Repeated linear factors → logarithms <strong>and</strong> power-rule terms<br />
+</li>
+<li>Partial fractions is an <strong>algebra-first</strong> technique</li>
+</ul>
+<p>If the denominator structure is wrong, the method does not apply.</p>
+</div>
+</div>
+<div id="out-of-scope-for-this-course" class="section level3 hasAnchor" number="11.9.5">
+<h3><span class="header-section-number">11.9.5</span> Out of Scope (For This Course)<a href="week-45-in-class-integration-techniques.html#out-of-scope-for-this-course" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You may see references to:</p>
+<ul>
+<li>irreducible quadratic factors<br />
+</li>
+<li>quadratic terms in the numerator</li>
+</ul>
+<p>These require additional decomposition rules and lead to arctangent-type integrals.</p>
+<p>They exist, but they are <strong>out of scope for this course</strong>.<br />
+Our focus is on structure, not exhaustive case handling.</p>
+<hr />
+</div>
+<div id="when-partial-fractions-is-a-good-choice" class="section level3 hasAnchor" number="11.9.6">
+<h3><span class="header-section-number">11.9.6</span> When Partial Fractions Is a Good Choice<a href="week-45-in-class-integration-techniques.html#when-partial-fractions-is-a-good-choice" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ask the diagnostic question:</p>
+<blockquote>
+<p><em>Is this a rational function with a factorable denominator?</em></p>
+</blockquote>
+<p>If yes:</p>
+<ul>
+<li>and the denominator factors into linear terms,</li>
+<li>and the numerator degree is smaller,</li>
+</ul>
+<p>then partial fractions is likely the right tool.</p>
+<p>If the integrand is not a rational function, partial fractions does not apply.</p>
+<hr />
+</div>
+<div id="worked-example-instructor-led-3" class="section level3 hasAnchor" number="11.9.7">
+<h3><span class="header-section-number">11.9.7</span> Worked Example (Instructor-Led)<a href="week-45-in-class-integration-techniques.html#worked-example-instructor-led-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Evaluate:
+<span class="math display">\[
+\int \frac{7x+1}{x^2+x-2}\,dx
+\]</span></p>
+<hr />
+<p><strong>Pause &amp; Predict</strong></p>
+<p>Before computing:</p>
+<ul>
+<li>Is this a rational function?</li>
+<li>Does the denominator factor?</li>
+<li>Are the factors linear and distinct?</li>
+</ul>
+<hr />
+<p><strong>Factor the denominator</strong>
+<span class="math display">\[
+x^2+x-2 = (x-1)(x+2)
+\]</span></p>
+<p><strong>Set Up the Decomposition</strong></p>
+<p>Write:
+<span class="math display">\[
+\frac{7x+1}{(x-1)(x+2)}
+=
+\frac{A}{x-1} + \frac{B}{x+2}
+\]</span></p>
+<p>Solve for <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, then integrate each term using basic rules.</p>
+</div>
+<div id="worked-example-instructor-led-4" class="section level3 hasAnchor" number="11.9.8">
+<h3><span class="header-section-number">11.9.8</span> Worked Example (Instructor-Led)<a href="week-45-in-class-integration-techniques.html#worked-example-instructor-led-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Evaluate:
+<span class="math display">\[
+\int \frac{5x+3}{(x^2-1}\,dx
+\]</span></p>
+<hr />
+<p><strong>Pause &amp; Predict</strong></p>
+<p>Before computing:</p>
+<ul>
+<li>Is this a rational function?</li>
+<li>Does the denominator factor?</li>
+<li>Is the factor repeated?</li>
+</ul>
+<hr />
+<p><strong>Factor the denominator</strong>
+<span class="math display">\[
+x^2-1 = (x-1)^2
+\]</span></p>
+<p><strong>Set Up the Decomposition</strong></p>
+<p>Write:
+<span class="math display">\[
+\frac{5x+3}{(x-1)^2}
+=
+\frac{A}{x-1} + \frac{B}{(x-1)^2}
+\]</span></p>
+<p>Each power of the repeated linear factor requires its own term.</p>
+<p>Solve for <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, then integrate each term using basic rules.</p>
+</div>
+<div id="your-turn" class="section level3 hasAnchor" number="11.9.9">
+<h3><span class="header-section-number">11.9.9</span> Your Turn<a href="week-45-in-class-integration-techniques.html#your-turn" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Evaluate each integral using partial fractions.</p>
+<hr />
+<ol style="list-style-type: decimal">
+<li><span class="math display">\[
+\int \frac{3}{x^2 - x - 2}\,dx
+\]</span></li>
+</ol>
+<hr />
+<ol start="2" style="list-style-type: decimal">
+<li><span class="math display">\[
+\int \frac{5x-1}{x^2 + 2x - 3}\,dx
+\]</span></li>
+</ol>
+<hr />
+<ol start="3" style="list-style-type: decimal">
+<li><span class="math display">\[
+\int \frac{4}{x^2 - 4x + 4}\,dx
+\]</span></li>
+</ol>
+<hr />
+<ol start="4" style="list-style-type: decimal">
+<li><span class="math display">\[
+\int \frac{6x+1}{x^2 + 2x + 1}\,dx
+\]</span></li>
+</ol>
+<hr />
+<ol start="5" style="list-style-type: decimal">
+<li><span class="math display">\[
+\int \frac{2x+5}{x^2 + x - 6}\,dx
+\]</span></li>
+</ol>
+<hr />
+<ol start="6" style="list-style-type: decimal">
+<li><span class="math display">\[
+\int \frac{7x-3}{x^2 - 5x + 6}\,dx
+\]</span></li>
+</ol>
+<hr />
+<details open>
+<summary>
+<strong>Click to Unlock Solutions</strong>
+</summary>
+<div id="sol_set1" hidden="" markdown="1" style="margin-top:0.75rem;">
+<p><strong>Answer Key</strong></p>
+<div id="solution-1" class="section level3 hasAnchor" number="11.9.10">
+<h3><span class="header-section-number">11.9.10</span> Solution 1<a href="week-45-in-class-integration-techniques.html#solution-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+\int \frac{3}{x^2-x-2}\,dx
+\]</span></p>
+<p><strong>Step 1: Factor the denominator</strong>
+<span class="math display">\[
+x^2-x-2=(x-2)(x+1)
+\]</span></p>
+<p><strong>Step 2: Set up partial fractions</strong>
+<span class="math display">\[
+\frac{3}{(x-2)(x+1)}=\frac{A}{x-2}+\frac{B}{x+1}
+\]</span></p>
+<p><strong>Step 3: Clear denominators</strong>
+<span class="math display">\[
+3=A(x+1)+B(x-2)
+\]</span></p>
+<p><strong>Step 4: Solve for <span class="math inline">\(A,B\)</span></strong></p>
+<p>Plug <span class="math inline">\(x=2\)</span>:
+<span class="math display">\[
+3=A(3)\Rightarrow A=1
+\]</span></p>
+<p>Plug <span class="math inline">\(x=-1\)</span>:
+<span class="math display">\[
+3=B(-3)\Rightarrow B=-1
+\]</span></p>
+<p>So:
+<span class="math display">\[
+\frac{3}{(x-2)(x+1)}=\frac{1}{x-2}-\frac{1}{x+1}
+\]</span></p>
+<p><strong>Step 5: Integrate</strong>
+<span class="math display">\[
+\int\left(\frac{1}{x-2}-\frac{1}{x+1}\right)\,dx
+=\ln|x-2|-\ln|x+1|+C
+\]</span></p>
+<hr />
+</div>
+<div id="solution-2" class="section level3 hasAnchor" number="11.9.11">
+<h3><span class="header-section-number">11.9.11</span> Solution 2<a href="week-45-in-class-integration-techniques.html#solution-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+\int \frac{5x-1}{x^2+2x-3}\,dx
+\]</span></p>
+<p><strong>Step 1: Factor the denominator</strong>
+<span class="math display">\[
+x^2+2x-3=(x+3)(x-1)
+\]</span></p>
+<p><strong>Step 2: Set up partial fractions</strong>
+<span class="math display">\[
+\frac{5x-1}{(x+3)(x-1)}=\frac{A}{x+3}+\frac{B}{x-1}
+\]</span></p>
+<p><strong>Step 3: Clear denominators</strong>
+<span class="math display">\[
+5x-1=A(x-1)+B(x+3)
+\]</span></p>
+<p><strong>Step 4: Solve for <span class="math inline">\(A,B\)</span></strong></p>
+<p>Plug <span class="math inline">\(x=1\)</span>:
+<span class="math display">\[
+5(1)-1=B(4)\Rightarrow 4=4B\Rightarrow B=1
+\]</span></p>
+<p>Plug <span class="math inline">\(x=-3\)</span>:
+<span class="math display">\[
+5(-3)-1=A(-4)\Rightarrow -16=-4A\Rightarrow A=4
+\]</span></p>
+<p>So:
+<span class="math display">\[
+\frac{5x-1}{(x+3)(x-1)}=\frac{4}{x+3}+\frac{1}{x-1}
+\]</span></p>
+<p><strong>Step 5: Integrate</strong>
+<span class="math display">\[
+\int\left(\frac{4}{x+3}+\frac{1}{x-1}\right)\,dx
+=4\ln|x+3|+\ln|x-1|+C
+\]</span></p>
+<hr />
+</div>
+<div id="solution-3" class="section level3 hasAnchor" number="11.9.12">
+<h3><span class="header-section-number">11.9.12</span> Solution 3<a href="week-45-in-class-integration-techniques.html#solution-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+\int \frac{4}{x^2-4x+4}\,dx
+\]</span></p>
+<p><strong>Step 1: Recognize the repeated root</strong>
+<span class="math display">\[
+x^2-4x+4=(x-2)^2
+\]</span></p>
+<p><strong>Step 2: Rewrite the integrand</strong>
+<span class="math display">\[
+\int \frac{4}{(x-2)^2}\,dx
+=
+\int 4(x-2)^{-2}\,dx
+\]</span></p>
+<p><strong>Step 3: Integrate (power rule)</strong>
+<span class="math display">\[
+4\cdot \frac{(x-2)^{-1}}{-1}+C
+=
+-\frac{4}{x-2}+C
+\]</span></p>
+<hr />
+</div>
+<div id="solution-4" class="section level3 hasAnchor" number="11.9.13">
+<h3><span class="header-section-number">11.9.13</span> Solution 4<a href="week-45-in-class-integration-techniques.html#solution-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+\int \frac{6x+1}{x^2+2x+1}\,dx
+\]</span></p>
+<p><strong>Step 1: Recognize the repeated root</strong>
+<span class="math display">\[
+x^2+2x+1=(x+1)^2
+\]</span></p>
+<p><strong>Step 2: Set up the repeated-root form</strong>
+<span class="math display">\[
+\frac{6x+1}{(x+1)^2}=\frac{A}{x+1}+\frac{B}{(x+1)^2}
+\]</span></p>
+<p><strong>Step 3: Clear denominators</strong>
+<span class="math display">\[
+6x+1=A(x+1)+B
+\]</span></p>
+<p><strong>Step 4: Solve for <span class="math inline">\(A,B\)</span></strong></p>
+<p>Match coefficients:
+<span class="math display">\[
+6x+1=Ax+(A+B)
+\]</span>
+So:
+<span class="math display">\[
+A=6,\quad A+B=1\Rightarrow 6+B=1\Rightarrow B=-5
+\]</span></p>
+<p>Thus:
+<span class="math display">\[
+\frac{6x+1}{(x+1)^2}=\frac{6}{x+1}-\frac{5}{(x+1)^2}
+\]</span></p>
+<p><strong>Step 5: Integrate</strong>
+<span class="math display">\[
+\int \frac{6}{x+1}\,dx=6\ln|x+1|
+\]</span>
+<span class="math display">\[
+\int -\frac{5}{(x+1)^2}\,dx
+=
+-5\int (x+1)^{-2}\,dx
+=
+-5\left(\frac{(x+1)^{-1}}{-1}\right)
+=
+\frac{5}{x+1}
+\]</span></p>
+<p>Final:
+<span class="math display">\[
+6\ln|x+1|+\frac{5}{x+1}+C
+\]</span></p>
+<hr />
+</div>
+<div id="solution-5" class="section level3 hasAnchor" number="11.9.14">
+<h3><span class="header-section-number">11.9.14</span> Solution 5<a href="week-45-in-class-integration-techniques.html#solution-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+\int \frac{2x+5}{x^2+x-6}\,dx
+\]</span></p>
+<p><strong>Step 1: Factor the denominator</strong>
+<span class="math display">\[
+x^2+x-6=(x+3)(x-2)
+\]</span></p>
+<p><strong>Step 2: Set up partial fractions (A and B only)</strong>
+<span class="math display">\[
+\frac{2x+5}{(x+3)(x-2)}=\frac{A}{x+3}+\frac{B}{x-2}
+\]</span></p>
+<p><strong>Step 3: Clear denominators</strong>
+<span class="math display">\[
+2x+5=A(x-2)+B(x+3)
+\]</span></p>
+<p><strong>Step 4: Solve for <span class="math inline">\(A,B\)</span></strong></p>
+<p>Plug <span class="math inline">\(x=2\)</span>:
+<span class="math display">\[
+2(2)+5=B(5)\Rightarrow 9=5B\Rightarrow B=\frac{9}{5}
+\]</span></p>
+<p>Plug <span class="math inline">\(x=-3\)</span>:
+<span class="math display">\[
+2(-3)+5=A(-5)\Rightarrow -1=-5A\Rightarrow A=\frac{1}{5}
+\]</span></p>
+<p>So:
+<span class="math display">\[
+\frac{2x+5}{(x+3)(x-2)}=\frac{1/5}{x+3}+\frac{9/5}{x-2}
+\]</span></p>
+<p><strong>Step 5: Integrate</strong>
+<span class="math display">\[
+\int\left(\frac{1/5}{x+3}+\frac{9/5}{x-2}\right)\,dx
+=
+\frac{1}{5}\ln|x+3|+\frac{9}{5}\ln|x-2|+C
+\]</span></p>
+<hr />
+</div>
+<div id="solution-6" class="section level3 hasAnchor" number="11.9.15">
+<h3><span class="header-section-number">11.9.15</span> Solution 6<a href="week-45-in-class-integration-techniques.html#solution-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+\int \frac{7x-3}{x^2-5x+6}\,dx
+\]</span></p>
+<p><strong>Step 1: Factor the denominator</strong>
+<span class="math display">\[
+x^2-5x+6=(x-2)(x-3)
+\]</span></p>
+<p><strong>Step 2: Set up partial fractions (A and B only)</strong>
+<span class="math display">\[
+\frac{7x-3}{(x-2)(x-3)}=\frac{A}{x-2}+\frac{B}{x-3}
+\]</span></p>
+<p><strong>Step 3: Clear denominators</strong>
+<span class="math display">\[
+7x-3=A(x-3)+B(x-2)
+\]</span></p>
+<p><strong>Step 4: Solve for <span class="math inline">\(A,B\)</span></strong></p>
+<p>Plug <span class="math inline">\(x=2\)</span>:
+<span class="math display">\[
+7(2)-3=A(-1)\Rightarrow 11=-A\Rightarrow A=-11
+\]</span></p>
+<p>Plug <span class="math inline">\(x=3\)</span>:
+<span class="math display">\[
+7(3)-3=B(1)\Rightarrow 18=B
+\]</span></p>
+<p>So:
+<span class="math display">\[
+\frac{7x-3}{(x-2)(x-3)}=\frac{-11}{x-2}+\frac{18}{x-3}
+\]</span></p>
+<p><strong>Step 5: Integrate</strong>
+<span class="math display">\[
+\int\left(\frac{-11}{x-2}+\frac{18}{x-3}\right)\,dx
+=
+-11\ln|x-2|+18\ln|x-3|+C
+\]</span></p>
+</div>
+</div>
+<form onsubmit="unlock_set1(); return false;" id="gate_set1" style="margin-top:0.75rem;">
+<input type="password" id="pwd_set1" placeholder="Enter password" aria-label="Answer key password">
+<button type="submit">Unlock</button>
+<span id="msg_set1" style="margin-left:0.5rem;" aria-live="polite"></span>
+</form>
+<script>
+function unlock_set1() {
+  var input = document.getElementById('pwd_set1');
+  var msg   = document.getElementById('msg_set1');
+  var sol   = document.getElementById('sol_set1');
+  var gate  = document.getElementById('gate_set1');
+  var pw    = (input.value || '').trim();
+  var det   = gate.closest('details'); if (det) det.open = true;
+
+  if (pw === 'redback') {
+    sol.hidden = false;
+    gate.hidden = true;
+    input.value = '';
+    msg.textContent = '';
+  } else {
+    msg.textContent = 'Stop guessing :) Ask a TA';
+    input.value = '';
+    input.focus();
+  }
+}
+</script>
 
 </div>
 </div>
