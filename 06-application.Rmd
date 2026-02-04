@@ -1,0 +1,93 @@
+# Applications of Derivatives
+
+The previous chapter focused heavily on learning the mechanics of derivatives—rules, notation, and techniques. That work matters, but mathematics becomes most useful when we put it to work.
+
+In this chapter, we shift from *how to compute derivatives* to *how to use them*. Derivatives help us understand how systems behave: where quantities increase or decrease, when change is fastest, and where important thresholds or optimal conditions occur. Rather than treating derivatives as abstract calculations, we use them as tools for interpreting and analyzing real systems.
+
+The goal here is meaning first. Each application connects the mathematics back to what the derivative represents and why it matters, turning computation into insight.
+
+### From Density to Total: What an Integral Really Does
+
+A density tells us *how much exists per unit length, area, or volume*—but not the total amount by itself. To find a total, we need to **add up contributions from many small pieces**. That is exactly what an integral does.
+
+For example, a population density might be measured in people per square kilometer. A small patch of land with area \( \Delta A \) contains approximately
+\[
+(\text{population density}) \times (\text{area})
+\]
+people. To find the total population across an entire region, we divide the region into many small patches, estimate the contribution from each one, and add them together.
+
+As those patches become smaller and more numerous, this process becomes an integral.
+
+In words:
+
+> **An integral converts a density into a total by adding up contributions across a region.**
+
+This idea applies broadly—population from population density, mass from mass density, carbon storage from carbon density, or rainfall from rainfall rate. In every case, the integral represents accumulation: taking something measured *per unit* and turning it into a meaningful total.
+
+
+
+### Example: Estimating Total Plant Population from a Density Function
+
+Suppose an ecologist surveys a rectangular grassland plot that is 10 meters long and 6 meters wide. Rather than counting every individual plant, the ecologist records how the **density of a particular plant species** varies across the plot.
+
+Based on field measurements, the density of plants (in plants per square meter) is modeled by the function
+\[
+\rho(x,y) = 2 + 0.1x + 0.05y,
+\]
+where:
+- \(x\) is the distance (in meters) from the western edge of the plot,
+- \(y\) is the distance (in meters) from the southern edge of the plot.
+
+#### What the Density Function Means
+
+The value of \(\rho(x,y)\) represents the **average number of plants per square meter** at the location \((x,y)\). For example:
+- Near the southwest corner \((0,0)\), the density is \(2\) plants/m\(^2\).
+- Moving east increases density slightly (\(0.1x\)), perhaps due to better sunlight.
+- Moving north also increases density (\(0.05y\)), possibly due to soil moisture.
+
+This function does not count plants directly. Instead, it describes how tightly packed the plants are across the plot.
+
+---
+
+#### Finding the Total Number of Plants
+
+To estimate the total number of plants in the entire plot, we add up the contributions from all small areas. Mathematically, this is done with a double integral over the region
+\[
+0 \le x \le 10, \qquad 0 \le y \le 6.
+\]
+
+The total population is
+\[
+\iint_R \rho(x,y)\, dA
+=
+\int_{0}^{10} \int_{0}^{6} \left(2 + 0.1x + 0.05y\right)\, dy\, dx.
+\]
+
+First integrate with respect to \(y\):
+\[
+\int_{0}^{6} \left(2 + 0.1x + 0.05y\right)\, dy
+=
+\left(2 + 0.1x\right)6 + 0.05\frac{6^2}{2}
+=
+12 + 0.6x + 0.9.
+\]
+
+Now integrate with respect to \(x\):
+\[
+\int_{0}^{10} \left(12.9 + 0.6x\right)\, dx
+=
+12.9(10) + 0.6\frac{10^2}{2}
+=
+129 + 30
+=
+159.
+\]
+
+---
+
+#### Interpretation
+
+The integral estimates that approximately **159 individual plants** of this species are present in the plot. The calculation works because the integral converts a spatial density (plants per square meter) into a total count by summing contributions across the entire area.
+
+This same reasoning underlies many environmental calculations, including estimating biomass, carbon storage, or pollutant load from spatially varying density data.
+

@@ -962,16 +962,16 @@ Evaluate each integral using partial fractions.
 
 ---
 
-<details open>
-<summary><strong>Click to Unlock Solutions</strong></summary>
 
-<div id="sol_set1" hidden markdown="1" style="margin-top:0.75rem;">
+
+<details>
+<summary><strong>Click to reveal answer key</strong></summary>
 
 **Answer Key**
 
 
 
-### Solution 1
+**Solution 1**
 \[
 \int \frac{3}{x^2-x-2}\,dx
 \]
@@ -1016,7 +1016,7 @@ So:
 
 ---
 
-### Solution 2
+**Solution 2**
 \[
 \int \frac{5x-1}{x^2+2x-3}\,dx
 \]
@@ -1061,7 +1061,7 @@ So:
 
 ---
 
-### Solution 3
+**Solution 3**
 \[
 \int \frac{4}{x^2-4x+4}\,dx
 \]
@@ -1087,7 +1087,7 @@ x^2-4x+4=(x-2)^2
 
 ---
 
-### Solution 4
+**Solution 4**
 \[
 \int \frac{6x+1}{x^2+2x+1}\,dx
 \]
@@ -1144,7 +1144,7 @@ Final:
 
 ---
 
-### Solution 5
+**Solution 5**
 \[
 \int \frac{2x+5}{x^2+x-6}\,dx
 \]
@@ -1190,7 +1190,7 @@ So:
 
 ---
 
-### Solution 6
+**Solution 6**
 \[
 \int \frac{7x-3}{x^2-5x+6}\,dx
 \]
@@ -1234,6 +1234,999 @@ So:
 -11\ln|x-2|+18\ln|x-3|+C
 \]
 
+
+</details>
+
+
+
+\newpage
+
+
+
+## Test 2 Review
+
+
+### Practice: Identifying the Appropriate Technique  {-}
+
+For each integral below, **choose the single most appropriate method**.  
+You do **not** need to evaluate the integral.
+
+**Options:**
+
+- **A.** Basic integration rules only  
+- **B.** Substitution  
+- **C.** Integration by parts  
+- **D.** Partial fractions  
+
+---
+
+1. \[
+\int (4x^2+1)^6 \, dx
+\]
+
+2. \[
+\int x e^{x^2+3}\, dx
+\]
+
+3. \[
+\int \frac{1}{x^2+4x+4}\, dx
+\]
+
+4. \[
+\int \frac{6x}{x^2+9}\, dx
+\]
+
+5. \[
+\int x^2 e^{x}\, dx
+\]
+
+6. \[
+\int \frac{5}{x(x-3)}\, dx
+\]
+
+7. \[
+\int (x^3+1)\ln x\, dx
+\]
+
+8. \[
+\int e^{5x}\, dx
+\]
+
+9. \[
+\int \frac{2x+1}{(x+1)^2}\, dx
+\]
+
+10. \[
+\int x\cos x\, dx
+\]
+
+11. \[
+\int \frac{4}{x^2-1}\, dx
+\]
+
+12. \[
+\int (3x-2)e^{(3x-2)^2}\, dx
+\]
+
+13. \[
+\int \ln x \, dx
+\]
+
+14. \[
+\int \frac{x}{\sqrt{x^2-4}}\, dx
+\]
+
+15. \[
+\int x^3\sin x\, dx
+\]
+
+16. \[
+\int (x^2-5)^4\, dx
+\]
+
+17. \[
+\int \frac{3}{(x-2)(x+5)}\, dx
+\]
+
+18. \[
+\int x e^{-x}\, dx
+\]
+
+### Evaluate each integral using **substitution** {-}
+
+**1.**
+\[
+\int 4x(2x^2-3)^6\,dx
+\]
+
+**2.**
+\[
+\int \frac{7x}{x^2+1}\,dx
+\]
+
+**3.**
+\[
+\int e^{5x+2}\,dx
+\]
+
+
+**4.**
+\[
+\int \frac{3x}{\sqrt{x^2-4}}\,dx
+\]
+
+**5.**
+\[
+\int (4x-1)^5\,dx
+\]
+
+---
+
+### Practice: Integration by Parts {-}
+
+Evaluate each integral using **integration by parts**.
+
+**1.**
+\[
+\int x e^{-3x}\,dx
+\]
+
+
+**2.**
+\[
+\int x^3 e^{x}\,dx
+\]
+
+
+
+**3.**
+\[
+\int x\ln(2x)\,dx
+\]
+*Hint: \[ \frac{d (ln(g(x))}{dx} = \frac{g'(x))}{g(x)}\]*
+
+
+**4.**
+\[
+\int (x^2+3x)\sin x\,dx
+\]
+
+*Hint: using Linearity might help keep things organized*
+
+
+
+**5.**
+\[
+\int x^{-2}\ln(x)\,dx
+=
+\int \frac{\ln x}{x^2}\,dx.
+\]
+
+
+### Practice: Partial Fractions (Factorable Quadratics) {-}
+
+Evaluate each integral using **partial fractions**.  
+All denominators are **quadratic and factorable** (repeated factors may appear).
+
+
+
+**1.**
+\[
+\int \frac{8}{x^2-16}\,dx
+\]
+
+
+
+**2.**
+\[
+\int \frac{5x}{x^2-3x}\,dx
+\]
+
+
+
+**3.**
+\[
+\int \frac{2x-7}{x^2-9x+18}\,dx
+\]
+
+
+**4.**
+\[
+\int \frac{6x+2}{x^2+2x+1}\,dx
+\]
+
+
+
+**5.**
+\[
+\int \frac{x+3}{(x+1)(x+3)}\,dx
+\]
+
+*Hint: Can you see a shortcut?*
+
+
+<details open>
+<summary><strong>Click to Unlock Solutions</strong></summary>
+
+<div id="sol_set1" hidden markdown="1" style="margin-top:0.75rem;">
+
+
+
+### Answer Key (Most Appropriate \(\rightarrow\) Least)
+
+1. **A**  
+2. **B**  
+3. **B, D**  
+4. **B**  
+5. **C**  
+6. **D**  
+7. **C**  
+8. **A,B**  
+9. **B,D**  
+10. **C**  
+11. **D**  
+12. **B**  
+13. **C**  
+14. **B**  
+15. **C**  
+16. **A**  
+17. **D**  
+18. **C**
+
+**Worked Solutions (Technique + Setup + Full Evaluation)**
+
+
+### Practice: Substitution (u-sub) {-}
+
+**1.**
+\[
+\int 4x(2x^2-3)^6\,dx
+\]
+
+Let
+\[
+u = 2x^2-3.
+\]
+Differentiate:
+\[
+\frac{du}{dx}=4x
+\quad\Rightarrow\quad
+du=4x\,dx.
+\]
+Isolate \(dx\):
+\[
+dx=\frac{du}{4x}.
+\]
+
+Substitute into the integral:
+\[
+\int 4x(2x^2-3)^6\,dx
+=
+\int 4x(u)^6\left(\frac{du}{4x}\right)
+=
+\int u^6\,du.
+\]
+
+Integrate:
+\[
+\int u^6\,du = \frac{u^7}{7}+C.
+\]
+
+Back-substitute:
+\[
+\boxed{\frac{(2x^2-3)^7}{7}+C}
+\]
+
+---
+
+**2.**
+\[
+\int \frac{7x}{x^2+1}\,dx
+\]
+
+Let
+\[
+u=x^2+1.
+\]
+Differentiate:
+\[
+\frac{du}{dx}=2x
+\quad\Rightarrow\quad
+du=2x\,dx.
+\]
+Isolate \(dx\):
+\[
+dx=\frac{du}{2x}.
+\]
+
+Substitute:
+\[
+\int \frac{7x}{x^2+1}\,dx
+=
+\int \frac{7x}{u}\left(\frac{du}{2x}\right)
+=
+\int \frac{7}{2}\cdot \frac{1}{u}\,du.
+\]
+
+Integrate:
+\[
+\int \frac{1}{u}\,du=\ln|u|+C
+\quad\Rightarrow\quad
+\frac{7}{2}\ln|u|+C.
+\]
+
+Back-substitute (note \(x^2+1>0\), so absolute value is optional):
+\[
+\boxed{\frac{7}{2}\ln(x^2+1)+C}
+\]
+
+---
+
+**3.**
+\[
+\int e^{5x+2}\,dx
+\]
+
+Let
+\[
+u=5x+2.
+\]
+Differentiate:
+\[
+\frac{du}{dx}=5
+\quad\Rightarrow\quad
+du=5\,dx.
+\]
+Isolate \(dx\):
+\[
+dx=\frac{du}{5}.
+\]
+
+Substitute:
+\[
+\int e^{5x+2}\,dx
+=
+\int e^{u}\left(\frac{du}{5}\right)
+=
+\frac{1}{5}\int e^{u}\,du.
+\]
+
+Integrate:
+\[
+\frac{1}{5}e^{u}+C.
+\]
+
+Back-substitute:
+\[
+\boxed{\frac{1}{5}e^{5x+2}+C}
+\]
+
+---
+
+**4.**
+\[
+\int \frac{3x}{\sqrt{x^2-4}}\,dx
+\]
+
+Let
+\[
+u=x^2-4.
+\]
+Differentiate:
+\[
+\frac{du}{dx}=2x
+\quad\Rightarrow\quad
+du=2x\,dx.
+\]
+Isolate \(dx\):
+\[
+dx=\frac{du}{2x}.
+\]
+
+Substitute:
+\[
+\int \frac{3x}{\sqrt{x^2-4}}\,dx
+=
+\int \frac{3x}{\sqrt{u}}\left(\frac{du}{2x}\right)
+=
+\int \frac{3}{2}u^{-1/2}\,du.
+\]
+
+Integrate:
+\[
+\int u^{-1/2}\,du = 2u^{1/2}+C
+\]
+so
+\[
+\frac{3}{2}\cdot 2u^{1/2}+C = 3u^{1/2}+C.
+\]
+
+Back-substitute:
+\[
+\boxed{3\sqrt{x^2-4}+C}
+\]
+
+---
+
+**5.**
+\[
+\int (4x-1)^5\,dx
+\]
+
+Let
+\[
+u=4x-1.
+\]
+Differentiate:
+\[
+\frac{du}{dx}=4
+\quad\Rightarrow\quad
+du=4\,dx.
+\]
+Isolate \(dx\):
+\[
+dx=\frac{du}{4}.
+\]
+
+Substitute:
+\[
+\int (4x-1)^5\,dx
+=
+\int u^5\left(\frac{du}{4}\right)
+=
+\frac{1}{4}\int u^5\,du.
+\]
+
+Integrate:
+\[
+\frac{1}{4}\cdot \frac{u^6}{6}+C
+=
+\frac{u^6}{24}+C.
+\]
+
+Back-substitute:
+\[
+\boxed{\frac{(4x-1)^6}{24}+C}
+\]
+
+### Solutions: Integration by Parts {-}
+
+---
+
+**1.**
+\[
+\int x e^{-3x}\,dx
+\]
+
+Let
+\[
+u=x \quad\Rightarrow\quad du=dx
+\]
+\[
+dv=e^{-3x}\,dx
+\]
+Integrate \(dv\):
+\[
+v=\int e^{-3x}\,dx=-\frac{1}{3}e^{-3x}.
+\]
+
+Apply integration by parts \(\int u\,dv = uv-\int v\,du\):
+\[
+\int x e^{-3x}\,dx
+= x\left(-\frac{1}{3}e^{-3x}\right)-\int \left(-\frac{1}{3}e^{-3x}\right)\,dx
+\]
+\[
+= -\frac{x}{3}e^{-3x}+\frac{1}{3}\int e^{-3x}\,dx.
+\]
+
+Compute the remaining integral:
+\[
+\int e^{-3x}\,dx=-\frac{1}{3}e^{-3x}.
+\]
+
+Substitute back:
+\[
+-\frac{x}{3}e^{-3x}+\frac{1}{3}\left(-\frac{1}{3}e^{-3x}\right)+C
+=
+-\frac{x}{3}e^{-3x}-\frac{1}{9}e^{-3x}+C.
+\]
+
+Final answer:
+\[
+\boxed{-\left(\frac{x}{3}+\frac{1}{9}\right)e^{-3x}+C}
+\]
+
+---
+
+**2.**
+\[
+\int x^3 e^{x}\,dx
+\]
+
+Let
+\[
+u=x^3 \quad\Rightarrow\quad du=3x^2\,dx
+\]
+\[
+dv=e^x\,dx \quad\Rightarrow\quad v=e^x.
+\]
+
+Apply parts:
+\[
+\int x^3 e^{x}\,dx = x^3e^x-\int e^x(3x^2)\,dx
+= x^3e^x-3\int x^2e^x\,dx.
+\]
+
+Now evaluate \(\int x^2e^x\,dx\) by parts.
+
+Let
+\[
+u=x^2 \Rightarrow du=2x\,dx,
+\quad
+dv=e^x\,dx \Rightarrow v=e^x.
+\]
+Then
+\[
+\int x^2e^x\,dx = x^2e^x-\int e^x(2x)\,dx
+= x^2e^x-2\int xe^x\,dx.
+\]
+
+Now evaluate \(\int xe^x\,dx\) by parts.
+
+Let
+\[
+u=x \Rightarrow du=dx,
+\quad
+dv=e^x\,dx \Rightarrow v=e^x.
+\]
+Then
+\[
+\int xe^x\,dx = xe^x-\int e^x\,dx = xe^x-e^x+C.
+\]
+
+Substitute back:
+\[
+\int x^2e^x\,dx
+= x^2e^x-2(xe^x-e^x)+C
+= x^2e^x-2xe^x+2e^x+C.
+\]
+
+Substitute into the original:
+\[
+\int x^3 e^{x}\,dx
+= x^3e^x-3\left(x^2e^x-2xe^x+2e^x\right)+C
+\]
+\[
+= x^3e^x-3x^2e^x+6xe^x-6e^x+C
+= e^x(x^3-3x^2+6x-6)+C.
+\]
+
+Final answer:
+\[
+\boxed{e^x(x^3-3x^2+6x-6)+C}
+\]
+
+---
+
+**3.**
+\[
+\int x\ln(2x)\,dx
+\]
+
+Let
+\[
+u=\ln(2x) \quad\Rightarrow\quad du=\frac{1}{x}\,dx
+\]
+\[
+dv=x\,dx.
+\]
+Integrate \(dv\):
+\[
+v=\int x\,dx=\frac{x^2}{2}.
+\]
+
+Apply parts:
+\[
+\int x\ln(2x)\,dx
+=
+\left(\ln(2x)\right)\left(\frac{x^2}{2}\right)
+-\int \frac{x^2}{2}\cdot \frac{1}{x}\,dx
+\]
+\[
+=
+\frac{x^2}{2}\ln(2x)-\int \frac{x}{2}\,dx.
+\]
+
+Compute the remaining integral:
+\[
+\int \frac{x}{2}\,dx=\frac{1}{2}\cdot\frac{x^2}{2}=\frac{x^2}{4}.
+\]
+
+Final answer:
+\[
+\boxed{\frac{x^2}{2}\ln(2x)-\frac{x^2}{4}+C}
+\]
+
+---
+
+**4.**
+\[
+\int (x^2+3x)\sin x\,dx
+\]
+
+Split the integral:
+\[
+\int (x^2+3x)\sin x\,dx
+=
+\int x^2\sin x\,dx+3\int x\sin x\,dx.
+\]
+
+---
+
+#### Part A: \( \displaystyle \int x^2\sin x\,dx \){-}
+
+Use integration by parts with
+\[
+u=x^2 \Rightarrow du=2x\,dx,
+\qquad
+dv=\sin x\,dx \Rightarrow v=-\cos x.
+\]
+
+Then
+\[
+\int x^2\sin x\,dx
+=
+x^2(-\cos x)-\int (-\cos x)(2x)\,dx
+=
+-x^2\cos x+2\int x\cos x\,dx.
+\]
+
+Now compute \( \displaystyle \int x\cos x\,dx \) by parts.
+
+Let
+\[
+u=x \Rightarrow du=dx,
+\qquad
+dv=\cos x\,dx \Rightarrow v=\sin x.
+\]
+
+Then
+\[
+\int x\cos x\,dx
+=
+x\sin x-\int \sin x\,dx
+=
+x\sin x+\cos x.
+\]
+
+So
+\[
+\int x^2\sin x\,dx
+=
+-x^2\cos x+2x\sin x+2\cos x.
+\]
+
+---
+
+#### Part B: \( \displaystyle 3\int x\sin x\,dx \){-}
+
+First compute \( \displaystyle \int x\sin x\,dx \) by parts.
+
+Let
+\[
+u=x \Rightarrow du=dx,
+\qquad
+dv=\sin x\,dx \Rightarrow v=-\cos x.
+\]
+
+Then
+\[
+\int x\sin x\,dx
+=
+-x\cos x+\int \cos x\,dx
+=
+-x\cos x+\sin x.
+\]
+
+Multiply by 3:
+\[
+3\int x\sin x\,dx
+=
+-3x\cos x+3\sin x.
+\]
+
+---
+
+#### Combine results {-}
+
+\[
+\int (x^2+3x)\sin x\,dx
+=
+(-x^2\cos x+2x\sin x+2\cos x)
++(-3x\cos x+3\sin x)+C.
+\]
+
+Final answer:
+\[
+\boxed{-x^2\cos x-3x\cos x+2x\sin x+3\sin x+2\cos x+C}
+\]
+
+
+---
+
+**5.**
+
+Evaluate
+\[
+\int x^{-2}\ln(x)\,dx
+=
+\int \frac{\ln x}{x^2}\,dx.
+\]
+
+---
+
+#### Step 1: Choose \(u\) and \(dv\) {-}
+
+Let
+\[
+u=\ln x \quad\Rightarrow\quad du=\frac{1}{x}\,dx,
+\]
+\[
+dv=x^{-2}\,dx \quad\Rightarrow\quad v=\int x^{-2}\,dx=-x^{-1}.
+\]
+
+---
+
+#### Step 2: Apply integration by parts {-}
+
+Recall:
+\[
+\int u\,dv = uv-\int v\,du.
+\]
+
+So,
+\[
+\int x^{-2}\ln x\,dx
+=
+(\ln x)(-x^{-1})-\int (-x^{-1})\left(\frac{1}{x}\,dx\right).
+\]
+
+Simplify:
+\[
+= -\frac{\ln x}{x}+\int \frac{1}{x^2}\,dx.
+\]
+
+---
+
+#### Step 3: Evaluate the remaining integral {-}
+
+\[
+\int \frac{1}{x^2}\,dx = \int x^{-2}\,dx = -x^{-1}.
+\]
+
+---
+
+#### Step 4: Combine terms {-}
+
+\[
+-\frac{\ln x}{x}-\frac{1}{x}+C
+=
+-\frac{\ln x+1}{x}+C.
+\]
+
+---
+
+### Final Answer{-} 
+\[
+\boxed{-\frac{\ln x+1}{x}+C}
+\]
+
+
+### Solutions: Partial Fractions (Factorable Quadratics) {-}
+
+---
+
+**1.**
+\[
+\int \frac{8}{x^2-16}\,dx
+\]
+
+Factor:
+\[
+x^2-16=(x-4)(x+4).
+\]
+
+Set up partial fractions:
+\[
+\frac{8}{(x-4)(x+4)}=\frac{A}{x-4}+\frac{B}{x+4}.
+\]
+
+Multiply through:
+\[
+8=A(x+4)+B(x-4)=(A+B)x+(4A-4B).
+\]
+
+Match coefficients:
+\[
+A+B=0,\qquad 4A-4B=8 \Rightarrow A-B=2.
+\]
+Solve:
+\[
+A=1,\quad B=-1.
+\]
+
+Integrate:
+\[
+\int\left(\frac{1}{x-4}-\frac{1}{x+4}\right)\,dx
+=\ln|x-4|-\ln|x+4|+C
+=\ln\left|\frac{x-4}{x+4}\right|+C.
+\]
+
+\[
+\boxed{\ln\left|\frac{x-4}{x+4}\right|+C}
+\]
+
+---
+
+**2.**
+\[
+\int \frac{5x}{x^2-3x}\,dx
+\]
+
+Factor:
+\[
+x^2-3x=x(x-3).
+\]
+
+Set up:
+\[
+\frac{5x}{x(x-3)}=\frac{A}{x}+\frac{B}{x-3}.
+\]
+
+Multiply through by \(x(x-3)\):
+\[
+5x=A(x-3)+Bx=(A+B)x-3A.
+\]
+
+Match coefficients:
+\[
+A+B=5,\qquad -3A=0 \Rightarrow A=0.
+\]
+So
+\[
+B=5.
+\]
+
+Integrate:
+\[
+\int \frac{5}{x-3}\,dx=5\ln|x-3|+C.
+\]
+
+\[
+\boxed{5\ln|x-3|+C}
+\]
+
+---
+
+**3.**
+\[
+\int \frac{2x-7}{x^2-9x+18}\,dx
+\]
+
+Factor:
+\[
+x^2-9x+18=(x-3)(x-6).
+\]
+
+Set up:
+\[
+\frac{2x-7}{(x-3)(x-6)}=\frac{A}{x-3}+\frac{B}{x-6}.
+\]
+
+Multiply through:
+\[
+2x-7=A(x-6)+B(x-3)=(A+B)x-(6A+3B).
+\]
+
+Match coefficients:
+\[
+A+B=2,\qquad 6A+3B=7.
+\]
+
+Solve:
+From \(A+B=2\), \(B=2-A\).
+\[
+6A+3(2-A)=7 \Rightarrow 6A+6-3A=7 \Rightarrow 3A=1 \Rightarrow A=\frac{1}{3}.
+\]
+\[
+B=2-\frac{1}{3}=\frac{5}{3}.
+\]
+
+Integrate:
+\[
+\int\left(\frac{1/3}{x-3}+\frac{5/3}{x-6}\right)\,dx
+=\frac{1}{3}\ln|x-3|+\frac{5}{3}\ln|x-6|+C.
+\]
+
+\[
+\boxed{\frac{1}{3}\ln|x-3|+\frac{5}{3}\ln|x-6|+C}
+\]
+
+---
+
+**4.**
+\[
+\int \frac{6x+2}{x^2+2x+1}\,dx
+\]
+
+Factor:
+\[
+x^2+2x+1=(x+1)^2.
+\]
+
+Set up (repeated linear factor):
+\[
+\frac{6x+2}{(x+1)^2}=\frac{A}{x+1}+\frac{B}{(x+1)^2}.
+\]
+
+Multiply through by \((x+1)^2\):
+\[
+6x+2=A(x+1)+B=Ax+A+B.
+\]
+
+Match coefficients:
+\[
+A=6,\qquad A+B=2 \Rightarrow 6+B=2 \Rightarrow B=-4.
+\]
+
+So
+\[
+\frac{6x+2}{(x+1)^2}=\frac{6}{x+1}-\frac{4}{(x+1)^2}.
+\]
+
+Integrate:
+\[
+\int \left(\frac{6}{x+1}-\frac{4}{(x+1)^2}\right)\,dx
+=6\ln|x+1|-4\int (x+1)^{-2}\,dx.
+\]
+
+Compute:
+\[
+\int (x+1)^{-2}\,dx=-(x+1)^{-1}.
+\]
+
+So
+\[
+6\ln|x+1|-4\left(-(x+1)^{-1}\right)+C
+=6\ln|x+1|+\frac{4}{x+1}+C.
+\]
+
+\[
+\boxed{6\ln|x+1|+\frac{4}{x+1}+C}
+\]
+
+---
+
+**5.**
+\[
+\int \frac{x+3}{(x+1)(x+3)}\,dx
+\]
+
+Cancel the common factor \((x+3)\) (valid for \(x\neq -3\)):
+\[
+\frac{x+3}{(x+1)(x+3)}=\frac{1}{x+1}.
+\]
+
+Integrate:
+\[
+\int \frac{1}{x+1}\,dx=\ln|x+1|+C.
+\]
+
+\[
+\boxed{\ln|x+1|+C}
+\]
+
+
 </div>
 
 <form onsubmit="unlock_set1(); return false;" id="gate_set1" style="margin-top:0.75rem;">
@@ -1251,7 +2244,7 @@ function unlock_set1() {
   var pw    = (input.value || '').trim();
   var det   = gate.closest('details'); if (det) det.open = true;
 
-  if (pw === 'redback') {
+  if (pw === 'straya') {
     sol.hidden = false;
     gate.hidden = true;
     input.value = '';
@@ -1263,3 +2256,5 @@ function unlock_set1() {
   }
 }
 </script>
+
+

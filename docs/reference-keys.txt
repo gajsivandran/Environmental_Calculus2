@@ -484,9 +484,5 @@ when-partial-fractions-is-a-good-choice
 worked-example-instructor-led-3
 worked-example-instructor-led-4
 your-turn
-solution-1
-solution-2
-solution-3
-solution-4
-solution-5
-solution-6
+test-2-review
+answer-key-most-appropriate-rightarrow-least
