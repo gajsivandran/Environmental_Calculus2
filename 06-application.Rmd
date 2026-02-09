@@ -1,93 +1,1533 @@
-# Applications of Derivatives
+# Applications of Integration
 
-The previous chapter focused heavily on learning the mechanics of derivatives—rules, notation, and techniques. That work matters, but mathematics becomes most useful when we put it to work.
+The previous chapter focused heavily on learning the mechanics of integration—notation, rules, and techniques. That work matters, but mathematics becomes most useful when we put it to work.
 
-In this chapter, we shift from *how to compute derivatives* to *how to use them*. Derivatives help us understand how systems behave: where quantities increase or decrease, when change is fastest, and where important thresholds or optimal conditions occur. Rather than treating derivatives as abstract calculations, we use them as tools for interpreting and analyzing real systems.
+In this chapter, we shift from *how to compute integrals* to *how to use them*. Integrals help us understand how quantities accumulate: how small contributions add up over space or time, how totals emerge from rates or densities, and how gains and losses combine to produce net change. Rather than treating integration as a collection of formulas, we use it as a tool for interpreting and analyzing real systems.
 
-The goal here is meaning first. Each application connects the mathematics back to what the derivative represents and why it matters, turning computation into insight.
+The goal here is meaning first. Each application connects the mathematics back to what an integral represents and why it matters, turning computation into insight.
 
-### From Density to Total: What an Integral Really Does
+## From Rates and Densities to Totals
 
-A density tells us *how much exists per unit length, area, or volume*—but not the total amount by itself. To find a total, we need to **add up contributions from many small pieces**. That is exactly what an integral does.
+Many quantities we measure in environmental and natural systems are **not totals**. Instead, they describe how something varies *per unit* of space or time.
 
-For example, a population density might be measured in people per square kilometer. A small patch of land with area \( \Delta A \) contains approximately
+Examples include:
+
+- rainfall rate (mm per hour),
+- population density (individuals per square kilometer),
+- carbon flux (kg of carbon per square meter per year),
+- streamflow rate (cubic meters per second),
+- plankton concentration in seawater (cells per cubic meter),
+- leaf-area density in a forest canopy (square meters of leaf area per cubic meter of air).
+
+Each of these tells us *how much is happening locally*—at a moment in time or at a specific location—but not the total amount by itself.
+
+### Small Pieces Add Up
+
+To move from a rate or density to a total, we imagine breaking the system into many small pieces.
+
+- Over a short time interval \( \Delta t \), a rain rate \( r(t) \) produces approximately  
+  \[
+  r(t)\,\Delta t
+  \]
+  units of rainfall.
+- Over a small area \( \Delta A \), a density \( \rho(x,y) \) contains approximately  
+  \[
+  \rho(x,y)\,\Delta A
+  \]
+  units of mass or population.
+
+Each piece contributes a little. The total comes from **adding all of those small contributions together**.
+
+This idea that the *total = sum of many small pieces* is the core intuition behind integration.
+
+### From Sums to Integrals
+
+If we divide an interval into many small pieces and add the contributions,
 \[
-(\text{population density}) \times (\text{area})
+\text{total} \approx \sum (\text{rate or density}) \times (\text{size of piece}),
 \]
-people. To find the total population across an entire region, we divide the region into many small patches, estimate the contribution from each one, and add them together.
+we get an approximation. As those pieces become smaller and more numerous, the approximation improves.
 
-As those patches become smaller and more numerous, this process becomes an integral.
+This representation links back to the goal of a Riemann sum, to represent the area under the curve with simple geometric shapes so that we can sum them up to get a total.
 
-In words:
-
-> **An integral converts a density into a total by adding up contributions across a region.**
-
-This idea applies broadly—population from population density, mass from mass density, carbon storage from carbon density, or rainfall from rainfall rate. In every case, the integral represents accumulation: taking something measured *per unit* and turning it into a meaningful total.
-
-
-
-### Example: Estimating Total Plant Population from a Density Function
-
-Suppose an ecologist surveys a rectangular grassland plot that is 10 meters long and 6 meters wide. Rather than counting every individual plant, the ecologist records how the **density of a particular plant species** varies across the plot.
-
-Based on field measurements, the density of plants (in plants per square meter) is modeled by the function
+An **integral** represents the limit of this process:
 \[
-\rho(x,y) = 2 + 0.1x + 0.05y,
+\text{total} = \int (\text{rate or density}) \, (\text{unit of accumulation}).
 \]
-where:
-- \(x\) is the distance (in meters) from the western edge of the plot,
-- \(y\) is the distance (in meters) from the southern edge of the plot.
 
-#### What the Density Function Means
+- Integrating a **rate over time** gives a total amount.
+- Integrating a **density over space** gives a total mass or population.
+- Integrating a **flux over area and time** gives total transfer.
 
-The value of \(\rho(x,y)\) represents the **average number of plants per square meter** at the location \((x,y)\). For example:
-- Near the southwest corner \((0,0)\), the density is \(2\) plants/m\(^2\).
-- Moving east increases density slightly (\(0.1x\)), perhaps due to better sunlight.
-- Moving north also increases density (\(0.05y\)), possibly due to soil moisture.
+The integral formalizes what we already expect: adding up infinitely many infinitesimal contributions.
 
-This function does not count plants directly. Instead, it describes how tightly packed the plants are across the plot.
+### Units Tell the Story
+
+One of the most powerful ways to interpret an integral is through units.
+
+- Rainfall rate: mm/hour  
+  Multiply by time (hours) → mm of rainfall
+- Population density: individuals/km²  
+  Multiply by area (km²) → number of individuals
+- Carbon flux: kg/m²/year  
+  Multiply by area and time → kg of carbon
+- Plankton concentration: cells/m³  
+  Multiply by volume (m³) → number of cells
+- Leaf-area density: m² of leaf area/m³  
+  Multiply by volume (m³) → total leaf area
+
+The integral works because the units of the integrand and the differential combine to produce a meaningful total. When the units make sense, the model usually does too.
+
+### Accumulation, Not Just Area
+
+Although integrals are often introduced geometrically as “area under a curve,” the more important idea is **accumulation**.
+
+An integral answers questions like:
+- How much has accumulated over this time period?
+- What is the total amount contained in this region?
+- How do gains and losses combine to produce net change?
+
+In the sections that follow, we will apply this same accumulation idea to many different contexts. The mathematics will look familiar, but the meaning will always come first.
+
+
+## Accumulation When Totals Are Always Positive
+
+In many real-world situations, accumulation only moves in one direction. Each small contribution adds to the total, and nothing is ever taken away. In these cases, the accumulated quantity is **always nonnegative**, and the interpretation of an integral is especially direct.
+
+These are often the first—and most intuitive—contexts in which integrals arise.
+
+### Examples of Always-Positive Accumulation
+
+- **Total rainfall over time**  
+  Rainfall rate may vary, but rain only adds water. Integrating a rain rate over time gives total precipitation, which cannot decrease.
+
+- **Total distance traveled**  
+  When speed is nonnegative, integrating speed over time gives total distance traveled. Even if speed changes, the total distance only increases.
+
+- **Total water volume collected**  
+  Integrating an inflow rate into a reservoir gives total volume added, assuming no outflow is included in the model.
+
+- **Total biomass produced**  
+  Integrating a production rate (such as plant growth or primary productivity) gives cumulative biomass generated over a season.
+
+- **Total plankton abundance in a water column**  
+  Integrating plankton concentration over depth gives total abundance per unit area. Concentration varies with depth, but the total count is always positive.
+
+In each case, the integral represents **how much has accumulated**, not a balance between competing processes.
+
+### Why These Examples Matter
+
+These examples highlight two important ideas:
+
+1. The quantity being integrated represents **something that cannot be negative** in context.
+2. The integral answers a question about **total amount**, not change relative to a baseline.
+
+Because all contributions are positive, the integral behaves like an ever-increasing sum. This makes these situations ideal for building intuition about how integrals work before introducing more complex cases.
+
+## Net Accumulation: When Gains and Losses Compete
+
+In many environmental and natural systems, accumulation does **not** move in just one direction. Instead, quantities are constantly being added *and* removed. Growth competes with decay, inflow with outflow, uptake with release. In these situations, an integral represents **net accumulation**.
+
+The mathematics looks the same—but the interpretation deepens.
+
+### Signed Contributions Matter
+
+When a rate can be positive or negative, each small contribution carries a **sign**:
+
+- Positive values add to the total.
+- Negative values subtract from the total.
+
+Over a short interval \( \Delta t \), a rate \( r(t) \) contributes approximately  
+\[
+r(t)\,\Delta t,
+\]
+which may increase or decrease the accumulated amount depending on the sign of \( r(t) \).
+
+The integral adds *all* of these signed contributions:
+\[
+\text{net change} = \int r(t)\,dt.
+\]
+
+Rather than answering “How much was added?”, the integral now answers  
+**“What was the overall balance after gains and losses were combined?”**
+
+### Common Examples of Net Accumulation
+
+- **Streamflow with inflow and outflow**  
+  A river reach may receive water from upstream and lose water to evaporation or groundwater. Integrating the *net flow rate* gives the change in stored water.
+
+- **Carbon balance in an ecosystem**  
+  Photosynthesis adds carbon; respiration releases it. Integrating net carbon flux over time gives the net carbon gain or loss.
+
+- **Drug concentration in the bloodstream**  
+  Absorption adds drug; metabolism and excretion remove it. The integral tracks net drug accumulation over time.
+
+- **Population change**  
+  Births increase population; deaths decrease it. Integrating the difference between birth and death rates gives net population change.
+
+- **Heat transfer**  
+  Heat may enter and leave a system simultaneously. The integral captures the net energy transferred.
+
+In each case, the total is not guaranteed to increase—it depends on which processes dominate.
+
+### Geometry Still Helps—But Carefully
+
+Geometrically, net accumulation corresponds to **signed area**:
+
+- Area above the axis contributes positively.
+- Area below the axis contributes negatively.
+
+Two regions of equal size but opposite sign can cancel, producing a net change of zero—even though substantial activity occurred. This reinforces an important idea:
+
+> A net integral of zero does **not** mean “nothing happened.”  
+> It means gains and losses balanced perfectly.
+
+### Why Net Accumulation Is Powerful
+
+Net accumulation allows integrals to model **balance laws**—the fundamental bookkeeping equations of science. These models track what comes in, what goes out, and what remains.
+
+As you move forward, keep this distinction in mind:
+
+- **Always-positive accumulation** measures *how much*.
+- **Net accumulation** measures *what remains after everything is accounted for*.
+
+Both rely on the same mathematical machinery. What changes is the story the integral is telling—and learning to read that story is the real goal of this chapter.
+
+
+## Using Integrals to Compute the Average Value of a Function
+
+In everyday life, an *average* represents a typical or representative value. We average temperatures over a day, rainfall over a season, or pollution levels over a region. When a quantity varies continuously, integrals provide a natural and precise way to compute that average.
+
+### The Idea: Average as “Total Divided by Size”
+
+For a list of discrete values,
+\[
+\text{average} = \frac{\text{sum of values}}{\text{number of values}}.
+\]
+
+The same idea carries over to continuous functions:
+
+- The **integral** gives the *total accumulated amount*.
+- Dividing by the **length of the interval** spreads that total evenly.
+
+This leads directly to the definition of the average value of a function.
+
+### Definition: Average Value of a Function
+
+If \( f(x) \) is continuous on the interval \([a,b]\), its **average value** on that interval is
+\[
+f_{\text{avg}} = \frac{1}{b-a}\int_a^b f(x)\,dx.
+\]
+
+Conceptually:
+- \( \int_a^b f(x)\,dx \) computes the total accumulation.
+- Dividing by \( b-a \) converts that total into an average per unit of \(x\).
+
+### A Physical Interpretation
+
+Imagine replacing the variable function \( f(x) \) with a constant height \( f_{\text{avg}} \) over the interval \([a,b]\).
+
+The rectangle with height \( f_{\text{avg}} \) and width \( b-a \) has the **same area** as the area under the curve:
+\[
+(b-a)\,f_{\text{avg}} = \int_a^b f(x)\,dx.
+\]
+
+So the average value is the height of a rectangle that represents the same total accumulation as the original function.
+
+::: promptbox
+**Example: Average Value of \( x^2 \) on \([2,4]\)**
+
+Let  
+\[
+f(x) = x^2.
+\]
+
+We want to find the **average value** of \( f(x) \) on the interval \([2,4]\).
+
+```{r, echo=FALSE, message=FALSE, error=FALSE}
+# Example: Average value of f(x) = x^2 on [2, 4]
+
+# Define the function
+f <- function(x) {
+  x^2
+}
+
+# Interval
+a <- 2
+b <- 4
+
+# Compute the average value analytically
+f_avg <- (1 / (b - a)) * ( (b^3 / 3) - (a^3 / 3) )
+
+# Create a sequence of x values for plotting
+x <- seq(1.5, 4.5, length.out = 500)
+y <- f(x)
+
+# Plot the function
+plot(
+  x, y,
+  type = "l",
+  lwd = 2,
+  xlab = "x",
+  ylab = "f(x)",
+  main = "Average Value of f(x) = x^2 on [2, 4]"
+)
+
+# Shade the area under the curve on [2, 4]
+x_shade <- seq(a, b, length.out = 300)
+y_shade <- f(x_shade)
+
+polygon(
+  c(a, x_shade, b),
+  c(0, y_shade, 0),
+  col = rgb(0.2, 0.4, 0.8, 0.3),
+  border = NA
+)
+
+# Add the average value as a dashed horizontal line
+abline(
+  h = f_avg,
+  lty = 2,
+  lwd = 2
+)
+
+# Add a vertical boundary lines for clarity
+abline(v = c(a, b), lty = 3)
+
+# Annotate the average value
+text(
+  x = 3,
+  y = f_avg,
+  labels = expression(f[avg] == 28/3),
+  pos = 3
+)
+```
 
 ---
 
-#### Finding the Total Number of Plants
+**Step 1: Write the Average Value Formula**
 
-To estimate the total number of plants in the entire plot, we add up the contributions from all small areas. Mathematically, this is done with a double integral over the region
+The average value of a function on \([a,b]\) is
 \[
-0 \le x \le 10, \qquad 0 \le y \le 6.
+f_{\text{avg}} = \frac{1}{b-a}\int_a^b f(x)\,dx.
 \]
 
-The total population is
+Here, \( a = 2 \) and \( b = 4 \), so
 \[
-\iint_R \rho(x,y)\, dA
-=
-\int_{0}^{10} \int_{0}^{6} \left(2 + 0.1x + 0.05y\right)\, dy\, dx.
+f_{\text{avg}} = \frac{1}{4-2}\int_2^4 x^2\,dx.
 \]
 
-First integrate with respect to \(y\):
+---
+
+**Step 2: Compute the Integral**
+
+An antiderivative of \( x^2 \) is
 \[
-\int_{0}^{6} \left(2 + 0.1x + 0.05y\right)\, dy
-=
-\left(2 + 0.1x\right)6 + 0.05\frac{6^2}{2}
-=
-12 + 0.6x + 0.9.
+\int x^2\,dx = \frac{x^3}{3}.
 \]
+
+Evaluate from 2 to 4:
+\[
+\int_2^4 x^2\,dx
+= \left.\frac{x^3}{3}\right|_2^4
+= \frac{4^3}{3} - \frac{2^3}{3}
+= \frac{64 - 8}{3}
+= \frac{56}{3}.
+\]
+
+---
+
+**Step 3: Divide by the Interval Length**
+
+The interval length is \( 4 - 2 = 2 \), so
+\[
+f_{\text{avg}} = \frac{1}{2}\cdot\frac{56}{3} = \frac{28}{3}.
+\]
+
+---
+
+**Final Answer**
+
+The average value of \( x^2 \) on the interval \([2,4]\) is
+\[
+\boxed{\frac{28}{3}}.
+\]
+
+---
+
+**Interpretation**
+
+This means that the constant function
+\[
+y = \frac{28}{3}
+\]
+has the same total area over \([2,4]\) as the curve \( y = x^2 \). In other words, a rectangle of height \( \tfrac{28}{3} \) and width 2 represents the same total accumulation as the original function over this interval.
+
+:::
+
+### Environmental Examples
+
+- **Average temperature over a day**  
+  Integrate temperature over time and divide by the length of the day.
+
+- **Average rainfall rate during a storm**  
+  Total rainfall divided by storm duration.
+
+- **Average plankton concentration with depth**  
+  Integrate concentration over depth and divide by total depth.
+
+- **Average pollutant concentration along a river reach**  
+  Integrate concentration over distance and divide by the length of the reach.
+
+In each case, the integral finds the total, and the division converts it into a meaningful average.
+
+### Signed Functions and Averages
+
+If \( f(x) \) takes both positive and negative values, the average value reflects **net behavior**.
+
+- Positive regions increase the average.
+- Negative regions decrease it.
+- Large positive and negative regions can cancel.
+
+As with net accumulation, an average of zero does not necessarily mean “nothing happened”—it means gains and losses balanced.
+
+### Why This Matters
+
+The average value formula shows that integrals do more than measure totals. They allow us to define representative values for quantities that vary continuously in space or time.
+
+This idea appears repeatedly in science and engineering, from climate averages to mean concentrations and long-term rates. Once again, the mathematics is simple—but the interpretation is powerful.
+
+
+## Area Between Two Curves
+
+Sometimes we are interested not in accumulation relative to an axis, but in the **space between two functions**. This arises naturally when comparing two quantities that vary over the same interval—such as upper and lower bounds, competing models, or maximum and minimum possible values.
+
+In these situations, integration allows us to compute the **area between curves**.
+
+### The Core Idea
+
+Suppose we have two functions:
+
+- \( f(x) \): the **upper** curve  
+- \( g(x) \): the **lower** curve  
+
+on an interval \([a,b]\).
+
+At each value of \(x\), the vertical distance between the curves is
+\[
+f(x) - g(x).
+\]
+
+If we break the interval into small pieces of width \( \Delta x \), each thin vertical strip has approximate area
+\[
+\big(f(x) - g(x)\big)\Delta x.
+\]
+
+Adding up all of these strips leads to the integral:
+\[
+\text{Area} = \int_a^b \big[f(x) - g(x)\big]\,dx.
+\]
+
+### Why This Always Produces a Positive Area
+
+Area is a **geometric quantity**, not a signed one. By subtracting the lower curve from the upper curve, we ensure that the integrand represents a nonnegative height at every point.
+
+This is different from net accumulation:
+- Net accumulation can cancel positive and negative contributions.
+- Area between curves measures *separation*, not balance.
+
+### Environmental and Scientific Examples
+
+- **Temperature envelopes**  
+  The area between daily maximum and minimum temperature curves represents total thermal variability over time.
+
+- **Uncertainty bands in models**  
+  The area between upper and lower prediction curves measures total uncertainty across a domain.
+
+- **Water table and bedrock profiles**  
+  The area between elevation curves can represent stored groundwater volume per unit width.
+
+- **Canopy structure**  
+  The area between top-of-canopy and ground-height curves reflects available vertical space for biomass or light penetration.
+  
+  
+::: promptbox
+
+**Example: Extra Water Stored Above a “Minimum Flow” Target**
+
+Suppose a river manager wants to maintain a **minimum ecological flow** of 30 m³/s to support fish habitat. During spring snowmelt, the actual streamflow exceeds that target. The *extra* water above the target represents potential storage, recharge, or managed releases.
+
+Let \(t\) be time in **days** over a 10-day period, and let streamflow be measured in **m³/s**.
+
+Define:
+
+- Actual flow (a simple “spring pulse” model):
+  \[
+  Q(t) = 30 + 10\sin\!\left(\frac{\pi t}{10}\right)
+  \quad \text{m}^3/\text{s}
+  \]
+- Target minimum flow:
+  \[
+  Q_{\min}(t) = 30
+  \quad \text{m}^3/\text{s}
+  \]
+
+```{r, echo=FALSE, message=FALSE, error=FALSE}
+# Area Between Curves Example:
+# Extra water above a minimum ecological flow
+
+# Time in days
+t <- seq(0, 10, length.out = 500)
+
+# Define the functions (m^3/s)
+Q <- function(t) {
+  30 + 10 * sin(pi * t / 10)
+}
+
+Q_min <- function(t) {
+  rep(30, length(t))
+}
+
+# Evaluate functions
+Q_vals <- Q(t)
+Qmin_vals <- Q_min(t)
+
+# Plot the flow curves
+plot(
+  t, Q_vals,
+  type = "l",
+  lwd = 2,
+  ylim = c(25, 45),
+  xlab = "Time (days)",
+  ylab = expression(Streamflow~(m^3/s)),
+  main = "Extra Streamflow Above Minimum Ecological Flow"
+)
+
+lines(t, Qmin_vals, lwd = 2, lty = 2)
+
+# Shade the area between the curves
+polygon(
+  c(t, rev(t)),
+  c(Q_vals, rev(Qmin_vals)),
+  col = rgb(0.2, 0.6, 0.8, 0.3),
+  border = NA
+)
+
+# Add legend
+legend(
+  "top",
+  legend = c("Actual flow Q(t)", "Minimum flow Q_min", "Extra volume"),
+  lwd = c(2, 2, NA),
+  lty = c(1, 2, NA),
+  pch = c(NA, NA, 15),
+  pt.cex = 2,
+  col = c("black", "black", rgb(0.2, 0.6, 0.8, 0.3)),
+  bty = "n"
+)
+
+# ---- Optional: compute the extra volume numerically ----
+
+# Numerical integration (convert days to seconds)
+extra_volume <- 86400 * integrate(
+  function(t) Q(t) - 30,
+  lower = 0,
+  upper = 10
+)$value
+
+
+
+
+
+
+```
+**What does the area between curves represent?**
+
+The difference
+\[
+Q(t) - Q_{\min}(t) = 10\sin\!\left(\frac{\pi t}{10}\right)
+\]
+is the **extra discharge** above the minimum flow (m³/s).
+
+If we integrate this over time, we get **extra volume of water**:
+\[
+\int_0^{10} \big(Q(t) - Q_{\min}(t)\big)\,dt
+\quad \Rightarrow \quad
+(\text{m}^3/\text{s})\cdot(\text{time})
+\]
+
+To make units intuitive, convert days to seconds:
+\[
+1\ \text{day} = 86400\ \text{s}.
+\]
+
+So the extra volume (in m³) is:
+\[
+V_{\text{extra}} = 86400\int_0^{10} 10\sin\!\left(\frac{\pi t}{10}\right)\,dt.
+\]
+
+**Compute the integral**
+
+\[
+\int 10\sin\!\left(\frac{\pi t}{10}\right)\,dt
+= 10\left(-\frac{10}{\pi}\right)\cos\!\left(\frac{\pi t}{10}\right)
+= -\frac{100}{\pi}\cos\!\left(\frac{\pi t}{10}\right).
+\]
+
+Evaluate from 0 to 10:
+\[
+\int_0^{10} 10\sin\!\left(\frac{\pi t}{10}\right)\,dt
+= \left[-\frac{100}{\pi}\cos\!\left(\frac{\pi t}{10}\right)\right]_0^{10}
+\]
+\[
+= -\frac{100}{\pi}\cos(\pi) - \left(-\frac{100}{\pi}\cos(0)\right)
+= -\frac{100}{\pi}(-1) + \frac{100}{\pi}(1)
+= \frac{200}{\pi}.
+\]
+
+Now convert to volume:
+\[
+V_{\text{extra}} = 86400\cdot \frac{200}{\pi}
+= \frac{17,\!280,\!000}{\pi}
+\approx 5,\!501,\!000\ \text{m}^3.
+\]
+
+**Result and Interpretation**
+
+\[
+\boxed{V_{\text{extra}} \approx 5.50\times 10^6\ \text{m}^3}
+\]
+
+That’s the **extra water volume** delivered above the ecological minimum over the 10-day snowmelt pulse.
+
+:::
+
+
+::: promptbox
+
+**Example: Population Change from Birth and Death Rates**
+
+Many populations change because individuals are **born** and **die** continuously over time. Rather than counting individuals one by one, we often model these processes using **rates**.
+
+In this example, we use integration to measure the **area between two rate curves**—birth rate and death rate—and interpret that area as net population change.
+
+---
+
+**Model setup**
+
+Let \(t\) represent time in **years**, with \(0 \le t \le 10\).
+
+Define:
+- Birth rate:
+  \[
+  B(t) = 120 + 20\sin\!\left(\frac{\pi t}{5}\right)
+  \quad \text{individuals/year}
+  \]
+- Death rate:
+  \[
+  D(t) = 100 + 10\cos\!\left(\frac{\pi t}{5}\right)
+  \quad \text{individuals/year}
+  \]
+
+These functions capture a simple idea:
+- Births fluctuate more strongly (e.g., seasonal reproduction).
+- Deaths fluctuate less and around a lower baseline.
+
+---
+
+**What does the area between the curves represent?**
+
+At any time \(t\), the vertical difference
+\[
+B(t) - D(t)
+\]
+represents the **net rate of population change** (individuals per year).
+
+- If \(B(t) > D(t)\), the population is increasing.
+- If \(B(t) < D(t)\), the population is decreasing.
+
+The **area between the curves** over a time interval is
+\[
+\int_0^{10} \big[B(t) - D(t)\big]\,dt,
+\]
+which gives the **net change in population size** over 10 years.
+
+---
+
+**Compute the net population change**
+
+First compute the difference:
+\[
+B(t) - D(t)
+= (120 - 100)
++ 20\sin\!\left(\frac{\pi t}{5}\right)
+- 10\cos\!\left(\frac{\pi t}{5}\right).
+\]
+
+Integrate term by term:
+\[
+\int_0^{10} 20\,dt = 200,
+\]
+
+\[
+\int_0^{10} 20\sin\!\left(\frac{\pi t}{5}\right)\,dt
+= 20\left[-\frac{5}{\pi}\cos\!\left(\frac{\pi t}{5}\right)\right]_0^{10}
+= 0,
+\]
+
+\[
+\int_0^{10} 10\cos\!\left(\frac{\pi t}{5}\right)\,dt
+= 10\left[\frac{5}{\pi}\sin\!\left(\frac{\pi t}{5}\right)\right]_0^{10}
+= 0.
+\]
+
+So the oscillating terms cancel over the full interval, leaving:
+\[
+\int_0^{10} \big[B(t) - D(t)\big]\,dt = 200.
+\]
+
+---
+
+```{r, echo=FALSE, message=FALSE, error=FALSE}
+
+# Area Between Curves Example:
+# Birth rate vs death rate over time
+
+# Time in years
+t <- seq(0, 10, length.out = 500)
+
+# Define the rate functions (individuals per year)
+B <- function(t) {
+  120 + 20 * sin(pi * t / 5)
+}
+
+D <- function(t) {
+  100 + 10 * cos(pi * t / 5)
+}
+
+# Evaluate the functions
+B_vals <- B(t)
+D_vals <- D(t)
+
+# Plot the two curves
+plot(
+  t, B_vals,
+  type = "l",
+  lwd = 2,
+  ylim = range(c(B_vals, D_vals)),
+  xlab = "Time (years)",
+  ylab = "Rate (individuals per year)",
+  main = "Birth and Death Rates Over Time"
+)
+
+lines(t, D_vals, lwd = 2, lty = 2)
+
+# Shade the area between the curves
+polygon(
+  c(t, rev(t)),
+  c(B_vals, rev(D_vals)),
+  col = rgb(0.3, 0.7, 0.4, 0.3),
+  border = NA
+)
+
+# Add a legend
+legend(
+  "topright",
+  legend = c("Birth rate B(t)", "Death rate D(t)", "Net population change"),
+  lwd = c(2, 2, NA),
+  lty = c(1, 2, NA),
+  pch = c(NA, NA, 15),
+  pt.cex = 2,
+  col = c("black", "black", rgb(0.3, 0.7, 0.4, 0.3)),
+  bty = "n"
+)
+
+# ---- Optional: compute net population change numerically ----
+
+net_change <- integrate(
+  function(t) B(t) - D(t),
+  lower = 0,
+  upper = 10
+)$value
+
+
+```
+
+**Result and interpretation**
+
+\[
+\boxed{\text{Net population change over 10 years} = 200\ \text{individuals}}
+\]
+
+- The population gains 200 individuals overall.
+- Even though births and deaths fluctuate, the **area between the curves** captures the long-term balance.
+- Large seasonal swings can occur, but what matters for long-term size is the total area between the rates.
+
+---
+
+**Big picture**
+
+This example mirrors many real systems:
+
+- Carbon uptake vs. release
+- Inflow vs. outflow
+- Growth vs. decay
+
+The integral does not track individuals—it tracks **imbalance**. The area between curves turns competing processes into a single, interpretable number.
+
+:::
+
+### When Curves Cross -and the crossing
+
+If the curves cross within the interval, the “upper” and “lower” roles may switch. In practice, this means:
+
+1. Find the intersection points.
+2. Break the interval into subintervals where one function stays above the other.
+3. Compute the area on each subinterval and add the results.
+
+This step reinforces an important habit: **sketching the curves first** is often essential for setting up the correct integral.
+
+### Big Picture
+
+Area between curves extends the idea of integration beyond accumulation relative to an axis. It allows us to quantify differences, gaps, and separations—turning visual comparisons into precise numerical measures.
+
+Once again, the formula is simple. The insight comes from understanding *what is being measured* and *why that measurement matters*.
+
+
+## Double Integrals: Accumulation Over Two Dimensions
+
+So far, we’ve used integrals to accumulate quantities over **one variable**—time, distance, or depth. Many environmental quantities, however, vary over **two spatial dimensions** at once. In those cases, we need a way to accumulate contributions across an entire region, not just along a line.
+
+That is the role of **double integrals**.
+
+### From Length to Area
+
+Recall the basic idea of integration:
+
+- A function value gives “amount per unit.”
+- Multiplying by a small piece gives a contribution.
+- Adding up all contributions gives a total.
+
+With double integrals, the only change is the shape of the small piece.
+
+Instead of thin intervals of width \(dx\), we break a region into many small **area elements** of size
+\[
+\Delta A \approx \Delta x\,\Delta y.
+\]
+
+Each small rectangle contributes approximately
+\[
+f(x,y)\,\Delta A.
+\]
+
+Adding up all such contributions leads to a double integral.
+
+### Definition: Double Integral Over a Region
+
+If \(f(x,y)\) represents a density, rate, or intensity over a region \(R\), then the total amount is
+\[
+\iint_R f(x,y)\,dA.
+\]
+
+Conceptually:
+
+- \(f(x,y)\) tells us how much exists *per unit area* at location \((x,y)\),
+- \(dA\) represents a tiny patch of area,
+- the double integral adds contributions from **everywhere in the region**.
+
+### Units Still Tell the Story
+
+Units are especially helpful with double integrals.
+
+Examples:
+
+- Population density (individuals/km²)  
+  \(\times\) area (km²) → total population
+- Rainfall rate (mm/hour) over a landscape  
+  \(\times\) area \(\times\) time → total rainfall volume
+- Pollutant mass per unit area (kg/m²)  
+  \(\times\) area → total pollutant mass
+- Heat flux per unit area (W/m²)  
+  \(\times\) area → total heat transfer rate
+
+If the units multiply cleanly into a meaningful total, the integral is doing the right job.
+
+### Rectangular Regions and Iterated Integrals
+
+When the region \(R\) is rectangular,
+\[
+R = \{(x,y)\mid a \le x \le b,\; c \le y \le d\},
+\]
+the double integral can be computed as an **iterated integral**:
+\[
+\iint_R f(x,y)\,dA
+=
+\int_a^b \int_c^d f(x,y)\,dy\,dx
+=
+\int_c^d \int_a^b f(x,y)\,dx\,dy.
+\]
+
+This means:
+
+- Integrate with respect to one variable first,
+- Treat the other variable as a constant,
+- Then integrate the result again.
+
+Both orders give the same total (as long as \(f\) behaves nicely).
+
+### Interpretation: Stacking Integrals
+
+One useful way to think about a double integral is as a “stack” of single integrals.
+
+For example:
+
+- Fix \(x\), integrate \(f(x,y)\) over \(y\): this gives the total contribution along a vertical slice.
+- Then integrate those slice totals over \(x\): this adds up all slices across the region.
+
+Geometrically, this mirrors how we built Riemann sums—just in two directions instead of one.
+
+### Why Double Integrals Matter
+
+Double integrals allow us to:
+
+- Compute totals over landscapes, surfaces, and regions,
+- Move from local measurements to regional summaries,
+- Model spatially distributed systems in a mathematically precise way.
+
+The mathematics extends ideas you already know. The key shift is conceptual: we are no longer accumulating along a line, but across an area.
+
+In the sections that follow, we’ll use double integrals to compute masses, totals, and averages over regions—and to see how spatial variation shapes environmental outcomes.
+
+::: promptbox
+**Example: Evaluating a Double Integral Over a Rectangle**
+
+We will compute a double integral step by step, focusing only on the mechanics.
+
+Let
+\[
+f(x,y) = x^2 + xy - y,
+\]
+and consider the rectangular region
+\[
+R = \{(x,y)\mid -5 \le x \le 5,\; -2 \le y \le 2\}.
+\]
+
+We want to evaluate
+\[
+\iint_R \big(x^2 + xy - y\big)\,dA.
+\]
+
+---
+
+**Step 1: Write as an iterated integral**
+
+Because \(R\) is rectangular, we can integrate with respect to either variable first. We’ll integrate with respect to \(y\) first:
+\[
+\iint_R \big(x^2 + xy - y\big)\,dA
+=
+\int_{-5}^{5} \int_{-2}^{2} \big(x^2 + xy - y\big)\,dy\,dx.
+\]
+
+---
+
+**Step 2: Integrate with respect to \(y\)**
+
+Treat \(x\) as a constant:
+\[
+\int_{-2}^{2} (x^2 + xy - y)\,dy
+=
+\left[x^2y + \frac{x}{2}y^2 - \frac{1}{2}y^2\right]_{-2}^{2}.
+\]
+
+Evaluate term by term:
+
+- \(x^2y\): \(x^2(2 - (-2)) = 4x^2\)
+- \(\frac{x}{2}y^2\): same at \(y=2\) and \(y=-2\), so it cancels
+- \(-\frac{1}{2}y^2\): same at \(y=2\) and \(y=-2\), so it cancels
+
+So the result of the inner integral is:
+\[
+4x^2.
+\]
+
+---
+
+**Step 3: Integrate with respect to \(x\)**
 
 Now integrate with respect to \(x\):
 \[
-\int_{0}^{10} \left(12.9 + 0.6x\right)\, dx
+\int_{-5}^{5} 4x^2\,dx
 =
-12.9(10) + 0.6\frac{10^2}{2}
+4\int_{-5}^{5} x^2\,dx
 =
-129 + 30
-=
-159.
+4\left[ \frac{x^3}{3} \right]_{-5}^{5}.
+\]
+
+Evaluate:
+\[
+= 4\left(\frac{125}{3} - \left(-\frac{125}{3}\right)\right)
+= 4\cdot\frac{250}{3}
+= \frac{1000}{3}.
 \]
 
 ---
 
-#### Interpretation
+**Final Answer**
 
-The integral estimates that approximately **159 individual plants** of this species are present in the plot. The calculation works because the integral converts a spatial density (plants per square meter) into a total count by summing contributions across the entire area.
+\[
+\boxed{\iint_R \big(x^2 + xy - y\big)\,dA = \frac{1000}{3}}.
+\]
 
-This same reasoning underlies many environmental calculations, including estimating biomass, carbon storage, or pollutant load from spatially varying density data.
+---
+
+**Key Takeaways**
+
+- Symmetric bounds can cause terms to cancel automatically.
+- Odd functions in a symmetric interval integrate to zero.
+- The mechanics of double integration follow the same rules as single-variable integration—applied one variable at a time.
+
+
+**Graphically**
+
+```{r, echo=FALSE, message=FALSE, error=FALSE}
+# Double integral example visualization
+# f(x, y) = x^2 + x*y - y
+# Plot over a larger window, with dashed bounds for the integration region
+# Integration bounds: -5 <= x <= 5, -2 <= y <= 2
+
+# Create a grid of x and y values (expanded plotting window)
+x <- seq(-10, 10, length.out = 400)
+y <- seq(-10, 10, length.out = 400)
+
+grid <- expand.grid(x = x, y = y)
+
+# Define the function
+f <- function(x, y) {
+  x^2 + x * y - y
+}
+
+# Evaluate the function on the grid
+z <- matrix(f(grid$x, grid$y), nrow = length(x), ncol = length(y))
+
+# Create a filled contour plot
+filled.contour(
+  x, y, z,
+  color.palette = terrain.colors,
+  xlab = "x",
+  ylab = "y",
+  main = expression(f(x, y) == x^2 + x*y - y),
+  plot.axes = {
+    axis(1)
+    axis(2)
+
+    # Dashed rectangle for the integration bounds: -5 <= x <= 5, -2 <= y <= 2
+    rect(
+      xleft = -5, ybottom = -2,
+      xright =  5, ytop =  2,
+      lwd = 2,
+      lty = 2,
+      border = "black"
+    )
+  }
+)
+
+# ---- Optional: numerical approximation over the integration region ----
+# Restrict grid to the integration bounds
+inside <- grid$x >= -5 & grid$x <= 5 & grid$y >= -2 & grid$y <= 2
+
+# Turn z back into a vector aligned with grid rows
+z_vec <- as.vector(z)
+
+dx <- diff(x)[1]
+dy <- diff(y)[1]
+
+approx_integral <- sum(z_vec[inside]) * dx * dy
+approx_integral
+
+
+```
+
+:::
+
+::: promptbox
+
+**Example: Integrating \(f(x,y)=x^2+xy-y\) Without Bounds**
+
+**What happens if we don’t apply bounds?**  
+Without bounds, you are not computing a total over a region. Instead, you are finding an **antiderivative**. In multivariable settings, the “constant of integration” becomes an **arbitrary function of the other variable**, because that other variable is treated as a constant during the integration.
+
+Let
+\[
+f(x,y)=x^2+xy-y.
+\]
+
+---
+
+**Integrate with respect to \(y\) (treat \(x\) as constant)**
+
+\[
+\int \big(x^2+xy-y\big)\,dy
+\]
+
+Integrate term-by-term:
+
+\[
+\int x^2\,dy = x^2y,
+\qquad
+\int xy\,dy = x\cdot\frac{y^2}{2},
+\qquad
+\int (-y)\,dy = -\frac{y^2}{2}.
+\]
+
+So,
+\[
+\int \big(x^2+xy-y\big)\,dy
+=
+x^2y+\frac{x}{2}y^2-\frac{y^2}{2}+C(x).
+\]
+
+Here \(C(x)\) is an arbitrary function of \(x\), because differentiating with respect to \(y\) makes any \(C(x)\) disappear.
+
+---
+
+**Integrate with respect to \(x\) (treat \(y\) as constant)**
+
+\[
+\int \big(x^2+xy-y\big)\,dx
+\]
+
+Again term-by-term:
+
+\[
+\int x^2\,dx = \frac{x^3}{3},
+\qquad
+\int xy\,dx = y\cdot\frac{x^2}{2},
+\qquad
+\int (-y)\,dx = -yx.
+\]
+
+So,
+\[
+\int \big(x^2+xy-y\big)\,dx
+=
+\frac{x^3}{3}+\frac{y}{2}x^2-yx+K(y).
+\]
+
+Here \(K(y)\) is an arbitrary function of \(y\), because differentiating with respect to \(x\) makes any \(K(y)\) disappear.
+
+---
+
+**Takeaway**
+
+Integrating without bounds produces an antiderivative, not a number:
+
+- \(\int f(x,y)\,dy\) gives a family of functions \(F(x,y)+C(x)\).
+- \(\int f(x,y)\,dx\) gives a family of functions \(G(x,y)+K(y)\).
+
+To get a single numerical value, you must specify bounds (a region) and compute a definite integral.
+
+
+```{r, echo=FALSE, message=FALSE, error=FALSE}
+# Visualization of the antiderivative (no bounds, C = 0)
+# Starting from f(x, y) = x^2 + x*y - y
+# Integrated with respect to y:
+# F(x, y) = x^2*y + (x/2)*y^2 - (1/2)*y^2
+
+# Plot window (same as previous plot)
+x <- seq(-10, 10, length.out = 400)
+y <- seq(-10, 10, length.out = 400)
+
+grid <- expand.grid(x = x, y = y)
+
+# Antiderivative with respect to y (C = 0)
+F <- function(x, y) {
+  x^2 * y + (x / 2) * y^2 - (1 / 2) * y^2
+}
+
+# Evaluate on grid
+z <- matrix(F(grid$x, grid$y), nrow = length(x), ncol = length(y))
+
+# Filled contour plot of the antiderivative
+filled.contour(
+  x, y, z,
+  color.palette = terrain.colors,
+  xlab = "x",
+  ylab = "y",
+  main = expression(
+    x^2*y + (x/2)*y^2 - (1/2)*y^2
+  ),
+  plot.axes = {
+    axis(1)
+    axis(2)
+    
+    # Dashed rectangle showing the region used previously:
+    # -5 <= x <= 5, -2 <= y <= 2
+    rect(
+      xleft = -5, ybottom = -2,
+      xright =  5, ytop =  2,
+      lwd = 2,
+      lty = 2,
+      border = "black"
+    )
+  }
+)
+
+
+```
+
+:::
+
+## Triple Integrals: Accumulation Over Volume
+
+Double integrals extend accumulation from a line to an area. **Triple integrals** take the next step: they accumulate quantities throughout a **three-dimensional region**.
+
+If a quantity varies in three spatial directions—such as with depth, height, and horizontal position—we model it with a function
+\[
+f(x,y,z),
+\]
+and integrate over a volume \(V\).
+
+The total amount is written as
+\[
+\iiint_V f(x,y,z)\,dV.
+\]
+
+Here:
+- \(f(x,y,z)\) represents an amount *per unit volume*,
+- \(dV\) represents a tiny volume element,
+- the triple integral adds contributions from every small volume inside \(V\).
+
+### Iterated Form
+
+If the region is rectangular,
+\[
+V = \{(x,y,z)\mid a \le x \le b,\; c \le y \le d,\; e \le z \le f\},
+\]
+the triple integral can be computed as an iterated integral:
+\[
+\iiint_V f(x,y,z)\,dV
+=
+\int_a^b \int_c^d \int_e^f f(x,y,z)\,dz\,dy\,dx.
+\]
+
+As before, you integrate one variable at a time, treating the others as constants.
+
+---
+
+## Quadruple Integrals: When Time Enters the Picture
+
+A **quadruple integral** arises when a quantity varies over **three dimensions of space and time**.
+
+For example, suppose
+\[
+f(x,y,z,t)
+\]
+represents a density or rate that varies in space *and* time. To compute the total accumulated amount over a time interval and a spatial volume, we integrate over all four variables:
+\[
+\iiiint f(x,y,z,t)\,dV\,dt.
+\]
+
+Conceptually:
+- The triple integral over \(x,y,z\) gives a total at a fixed time,
+- The outer integral over \(t\) accumulates that total over time.
+
+### Iterated Form
+
+For a rectangular space–time region,
+\[
+a \le x \le b,\quad c \le y \le d,\quad e \le z \le f,\quad t_0 \le t \le t_1,
+\]
+the integral becomes
+\[
+\int_{t_0}^{t_1}
+\int_a^b \int_c^d \int_e^f
+f(x,y,z,t)\,dz\,dy\,dx\,dt.
+\]
+
+---
+
+## Big Picture
+
+Each increase in dimension follows the same logic:
+
+- **Single integral** → accumulation along a line  
+- **Double integral** → accumulation over an area  
+- **Triple integral** → accumulation over a volume  
+- **Quadruple integral** → accumulation over volume *and* time  
+
+The mechanics never fundamentally change. What grows is the scope of what you’re adding up—and the kinds of systems you can describe with precision.
+
+
+## Numerical Integration: When No Nice Formula Exists
+
+Much of the integration you’ve seen so far assumes that we have a **clean mathematical function** to work with. In practice, that’s often not how data arrive.
+
+Typically, we collect **measurements**:
+- observations at discrete times,
+- samples at specific locations,
+- values recorded at irregular intervals.
+
+A common first step is to **fit a curve** to those data. If the fitted curve is reasonably smooth and well behaved, we can then integrate that function analytically and interpret the result exactly.
+
+But this approach has limits.
+
+### When Analytic Integration Breaks Down
+
+Sometimes:
+- the data are noisy,
+- the underlying process is complex,
+- no simple function fits well,
+- or the fitted function is too complicated to integrate by hand.
+
+In these cases, forcing a “nice” curve can introduce more error than it removes.
+
+When there is no reliable analytic function to integrate, **numerical integration** provides a direct alternative.
+
+### The Core Idea
+
+Numerical integration returns to the original intuition behind integrals:
+> *Add up many small contributions.*
+
+Instead of integrating a formula, we:
+1. Break the interval into small pieces,
+2. Approximate the function on each piece,
+3. Add the contributions together.
+
+This is exactly the logic of Riemann sums—implemented using actual data values.
+
+### Common Numerical Methods
+
+Several standard numerical methods are built around this idea:
+
+- **Left and right Riemann sums**  
+  Use function values at the ends of each subinterval.
+
+- **Midpoint rule**  
+  Uses the value at the center of each subinterval for better accuracy.
+
+- **Trapezoidal rule**  
+  Approximates the region under the curve with trapezoids instead of rectangles.
+
+- **Simpson’s rule**  
+  Uses parabolic fits over pairs of intervals for even higher accuracy.
+
+Each method balances simplicity and accuracy differently, but all share the same goal: approximate an integral using finite data.
+
+
+
+## Comparing Analytic and Numerical Integration from Data
+
+In this example below, we computed the total accumulated streamflow over a year using **two different approaches**:
+
+1. **Integrating a fitted function**  
+   We first fit a smooth, sinusoidal model to the daily streamflow data and then integrated that function over time.
+
+2. **Numerical integration of the data directly**  
+   We treated each daily measurement as the height of a rectangle one day wide and summed the areas of those rectangles.
+   
+```{r, echo=FALSE, message=FALSE, error=FALSE}
+# Fit a sinusoidal function of the form:
+# Q(day) = 40 + 20 * sin(2*pi*day/365)
+# Plot data + fitted curve on the same axes, and shade area under the fitted curve.
+
+set.seed(42)
+
+# Data
+day <- 1:365
+streamflow <- 40 +
+  20 * sin(2 * pi * day / 365) +
+  rnorm(365, mean = 0, sd = 5)
+
+streamflow_data <- data.frame(day = day, streamflow = streamflow)
+
+# ---- Fit a sinusoid with known period (365 days) ----
+# Use the identity:
+# a + b*sin(w t) + c*cos(w t)  <=>  a + A*sin(w t + phi)
+w <- 2 * pi / 365
+
+fit <- lm(streamflow ~ sin(w * day) + cos(w * day), data = streamflow_data)
+
+a <- coef(fit)[1]
+b <- coef(fit)[2]
+c <- coef(fit)[3]
+
+# Convert (b, c) to amplitude/phase if you want them
+A <- sqrt(b^2 + c^2)
+phi <- atan2(c, b)
+
+# Fitted curve on a dense grid
+day_dense <- seq(1, 365, length.out = 1000)
+flow_fit <- a + b * sin(w * day_dense) + c * cos(w * day_dense)
+
+# ---- Plot raw data + fitted curve, shade under fitted curve ----
+plot(
+  streamflow_data$day,
+  streamflow_data$streamflow,
+  type = "p",
+  pch = 16,
+  cex = 0.6,
+  xlab = "Day of year",
+  ylab = expression(Streamflow~(m^3/s)),
+  main = "Daily Streamflow with Sinusoidal Fit"
+)
+
+# Shade the area under the fitted curve in blue (down to y = 0)
+polygon(
+  c(day_dense, rev(day_dense)),
+  c(flow_fit, rep(0, length(flow_fit))),
+  col = rgb(0, 0, 1, 0.2),
+  border = NA
+)
+
+# Draw the fitted curve on top
+lines(day_dense, flow_fit, lwd = 2)
+
+# Re-draw points on top so they remain visible
+points(streamflow_data$day, streamflow_data$streamflow, pch = 16, cex = 0.6)
+
+# Optional: annotate the fitted model parameters
+mtext(
+  paste0("Fit: a = ", round(a, 2), ",  A = ", round(A, 2), "  (period = 365 days)"),
+  side = 3, line = 0.2, cex = 0.85
+)
+
+# If you want the fit explicitly in a + A*sin(w t + phi) form:
+# a, A, phi (radians)
+# print(c(a = a, A = A, phi = phi))
+
+
+```
+
+```{r, echo=FALSE, message=FALSE, error=FALSE}
+# Numerical integration visualization:
+# Rectangular (Riemann sum) approximation using daily streamflow data
+
+set.seed(42)
+
+# Data
+day <- 1:365
+streamflow <- 40 +
+  20 * sin(2 * pi * day / 365) +
+  rnorm(365, mean = 0, sd = 5)
+
+streamflow_data <- data.frame(day = day, streamflow = streamflow)
+
+# ---- Set up two-panel plot ----
+par(mfrow = c(2, 1), mar = c(4, 4, 2, 1))
+
+# -------------------------------
+# Top panel: data + fitted curve
+# -------------------------------
+
+w <- 2 * pi / 365
+fit <- lm(streamflow ~ sin(w * day) + cos(w * day), data = streamflow_data)
+
+a <- coef(fit)[1]
+b <- coef(fit)[2]
+c <- coef(fit)[3]
+
+day_dense <- seq(1, 365, length.out = 1000)
+flow_fit <- a + b * sin(w * day_dense) + c * cos(w * day_dense)
+
+plot(
+  streamflow_data$day,
+  streamflow_data$streamflow,
+  type = "p",
+  pch = 16,
+  cex = 0.6,
+  xlab = "Day of year",
+  ylab = expression(Streamflow~(m^3/s)),
+  main = "Streamflow Data with Sinusoidal Fit"
+)
+
+polygon(
+  c(day_dense, rev(day_dense)),
+  c(flow_fit, rep(0, length(flow_fit))),
+  col = rgb(0, 0, 1, 0.2),
+  border = NA
+)
+
+lines(day_dense, flow_fit, lwd = 2)
+points(streamflow_data$day, streamflow_data$streamflow, pch = 16, cex = 0.6)
+
+# ----------------------------------------
+# Bottom panel: rectangular approximation
+# ----------------------------------------
+
+plot(
+  streamflow_data$day,
+  streamflow_data$streamflow,
+  type = "n",
+  xlab = "Day of year",
+  ylab = expression(Streamflow~(m^3/s)),
+  main = "Rectangular Approximation (Daily Riemann Sum)"
+)
+
+# Width of each rectangle (1 day)
+dx <- 1
+
+# Draw rectangles (left-endpoint rule)
+for (i in 1:length(day)) {
+  rect(
+    xleft  = day[i] - dx,
+    ybottom = 0,
+    xright = day[i],
+    ytop   = streamflow[i],
+    col = rgb(0.2, 0.6, 0.8, 0.4),
+    border = NA
+  )
+}
+
+# Overlay the fitted curve for reference
+lines(day_dense, flow_fit, lwd = 2)
+
+# Reset plotting layout
+par(mfrow = c(1, 1))
+
+
+```
+
+The results were:
+
+- Total from fitted curve integration: **1,252,203,685**
+- Total from rectangular (Riemann sum) integration: **1,255,666,364**
+- Difference between the two methods: **3,462,679**
+
+### What These Numbers Mean
+
+Both methods produce totals of the same order of magnitude and are **very close relative to the size of the total**. The difference arises from several sources:
+
+- The fitted curve smooths over short-term variability in the data.
+- The rectangular method uses discrete daily values and approximates the curve with flat steps.
+- Random noise in the data affects the rectangle method more directly than the fitted model.
+
+Importantly, the discrepancy is not an error—it reflects **modeling choices**.
+
+### Why This Matters
+
+This comparison highlights a key idea in applied integration:
+
+- If you can justify a smooth functional model, integrating that model provides a clean, interpretable result.
+- If no trustworthy model exists, numerical integration allows you to compute totals **directly from observations**.
+
+In practice, both approaches are valuable. Comparing them helps assess sensitivity to assumptions and builds confidence in the resulting totals.
+
+At its core, numerical integration keeps the original meaning of an integral intact:  
+**adding up many small contributions to understand accumulation**, even when exact formulas are out of reach.
+
+
+### Why Numerical Integration Matters
+
+Numerical integration is essential when:
+
+- data are discrete rather than continuous,
+- models are too complex to integrate symbolically,
+- results must be computed directly from observations.
+
+In applied work, it is often the **default**, not the exception.
+
+The key idea is this:
+
+> Even when we cannot write down a function we can integrate, we can still compute meaningful totals.
+
+Numerical integration bridges the gap between real-world data and the mathematical concept of accumulation—allowing integrals to remain useful even when exact formulas are out of reach.
 

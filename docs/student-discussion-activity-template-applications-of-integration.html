@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Environmental Calculus 2 - Active Learning with Case Studies</title>
+  <title>Chapter 13 Student Discussion + Activity Template: Applications of Integration | Environmental Calculus 2 - Active Learning with Case Studies</title>
   <meta name="description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
   <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Environmental Calculus 2 - Active Learning with Case Studies" />
+  <meta property="og:title" content="Chapter 13 Student Discussion + Activity Template: Applications of Integration | Environmental Calculus 2 - Active Learning with Case Studies" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Environmental Calculus 2 - Active Learning with Case Studies" />
+  <meta name="twitter:title" content="Chapter 13 Student Discussion + Activity Template: Applications of Integration | Environmental Calculus 2 - Active Learning with Case Studies" />
   
   <meta name="twitter:description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="week-45-in-class-integration-techniques.html"/>
 
-<link rel="next" href="introduction-to-calculus-ii.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -813,91 +813,391 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Environmental Calculus 2 - Active Learning with Case Studies</h1>
-<p class="author"><em>Gaj Sivandran</em></p>
-<p class="date"><em>2026-02-09</em></p>
-</div>
-<div id="why-calculus" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Why Calculus?<a href="index.html#why-calculus" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Welcome to <em>Calculus for Environmental Science</em>. 🌱</p>
-<p>This book is your companion for exploring the natural world through the lens of calculus—especially the powerful ideas of <strong>change</strong> and <strong>accumulation</strong>. You’ll find that calculus is not just about symbols on a page—it’s about asking meaningful questions, interpreting patterns, and making sense of complex environmental systems. And along the way, you’ll see that you are absolutely capable of mastering these ideas.</p>
+<div id="student-discussion-activity-template-applications-of-integration" class="section level1 hasAnchor" number="13">
+<h1><span class="header-section-number">Chapter 13</span> Student Discussion + Activity Template: Applications of Integration<a href="student-discussion-activity-template-applications-of-integration.html#student-discussion-activity-template-applications-of-integration" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><strong>Goal for this section</strong><br />
+Build the habit of asking: <em>What is accumulating? Over what variable? What do the units imply?</em><br />
+Then practice translating that story into an integral, and interpreting the result.</p>
 <hr />
-<div id="why-this-book" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Why This Book?<a href="index.html#why-this-book" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Most calculus textbooks lean heavily on physics examples—motion, velocity, and acceleration—because calculus was originally developed to solve physics problems. Those examples are powerful, and we’ll use them from time to time because they give us an intuitive “feel” for how change works.</p>
-<p>But today, calculus is a tool used across many disciplines: biology, ecology, environmental science, economics, engineering, and beyond. In this book, we’ll focus on examples that resonate with your studies and your interests as an environmental scientist.</p>
-<p>Environmental scientists face some of the most urgent and complex challenges of our time—climate change, biodiversity loss, resource management, and pollution. Calculus gives us tools to:</p>
+<div id="discussion-prompts-use-as-thinkpairshare" class="section level2 hasAnchor" number="13.1">
+<h2><span class="header-section-number">13.1</span> Discussion Prompts (use as think–pair–share)<a href="student-discussion-activity-template-applications-of-integration.html#discussion-prompts-use-as-thinkpairshare" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Prompt Set A: What is an integral doing? (meaning first)</strong></p>
+<ol style="list-style-type: decimal">
+<li>In your own words, what does “accumulation” mean? Give one real-world example that is <em>not</em> about area.</li>
+<li>What’s the difference between a <strong>rate</strong> and a <strong>total</strong>? Give an example of each.</li>
+<li>Why does “small pieces add up” naturally lead to an integral?</li>
+<li>What does the <span class="math inline">\(dx\)</span> or <span class="math inline">\(dt\)</span> tell you about what you are adding up?</li>
+<li>What would it mean if an integral gave a negative answer in a real system?</li>
+</ol>
+<p><strong>Prompt Set B: Units as a reality check</strong></p>
+<ol start="6" style="list-style-type: decimal">
+<li>Suppose <span class="math inline">\(r(t)\)</span> has units of mm/hr and you integrate <span class="math inline">\(r(t)\,dt\)</span>. What are the units of the result? Does that match what you want to measure?</li>
+<li>Suppose <span class="math inline">\(\rho(x,y)\)</span> has units of kg/m<span class="math inline">\(^2\)</span>. What does <span class="math inline">\(\iint_R \rho(x,y)\,dA\)</span> represent?</li>
+<li>If your units don’t cancel cleanly into something meaningful, what are two possible reasons?</li>
+</ol>
+<p><strong>Prompt Set C: Total vs net vs “area between curves”</strong></p>
+<ol start="9" style="list-style-type: decimal">
+<li>Compare these three questions. Which one matches each integral, and why?
 <ul>
-<li>Predict how systems evolve over time<br />
-</li>
-<li>Estimate impacts and risks<br />
-</li>
-<li>Model natural and human systems with differential equations<br />
-</li>
-<li>Analyze rates of change and long-term accumulation</li>
-</ul>
-<p>Throughout this book, you’ll work with <strong>real environmental data</strong>, use <strong>visual and conceptual approaches</strong>, and practice skills that matter for sustainability. Our goal is not just to “get through calculus,” but to see how these mathematical ideas open doors for discovery and problem-solving in the real world.</p>
+<li><ol style="list-style-type: lower-roman">
+<li>“How much was produced?”</li>
+</ol></li>
+<li><ol start="2" style="list-style-type: lower-roman">
+<li>“What was the net change?”</li>
+</ol></li>
+<li><ol start="3" style="list-style-type: lower-roman">
+<li>“How different are these two curves overall?”
+<span class="math display">\[
+\int_0^T P(t)\,dt,\qquad \int_0^T (P(t)-L(t))\,dt,\qquad \int_0^T |P(t)-L(t)|\,dt
+\]</span></li>
+</ol></li>
+</ul></li>
+<li>If two curves cross, what changes about the setup for <strong>geometric area</strong>? What doesn’t change for <strong>net accumulation</strong>?</li>
+</ol>
+<p><strong>Prompt Set D: When data are messy (numerical integration)</strong></p>
+<ol start="11" style="list-style-type: decimal">
+<li>When you measure something daily, why isn’t the “true integral” immediately available?</li>
+<li>What do you gain by fitting a smooth function to data? What might you lose?</li>
+<li>In your streamflow example, why were the “fit” total and the “rectangles” total close but not identical?</li>
+<li>If you were writing a report, when would you trust the fitted model more than the data rectangles? When would you do the opposite?</li>
+</ol>
 <hr />
 </div>
-<div id="what-is-calculus" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> What Is Calculus?<a href="index.html#what-is-calculus" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>At its heart, calculus is the mathematics of <strong>change</strong> and <strong>accumulation</strong>. These two ideas are everywhere in science:</p>
+<div id="in-class-mini-workflow" class="section level2 hasAnchor" number="13.2">
+<h2><span class="header-section-number">13.2</span> In-Class Mini-Workflow<a href="student-discussion-activity-template-applications-of-integration.html#in-class-mini-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Step 1: Story</strong>
+- What is changing?<br />
+- What is being added up?<br />
+- Over what variable?</p>
+<p><strong>Step 2: Units</strong>
+- Write the units of the integrand.
+- Write the units of the differential (<span class="math inline">\(dx\)</span>, <span class="math inline">\(dt\)</span>, <span class="math inline">\(dA\)</span>, <span class="math inline">\(dV\)</span>).
+- Multiply them to predict the units of the result.</p>
+<p><strong>Step 3: Setup</strong>
+- Total? Net? Area between curves? Average?
+- Write the correct integral.</p>
+<p><strong>Step 4: Compute or approximate</strong>
+- If there’s a clean function, integrate.
+- If data are discrete or messy, approximate numerically.</p>
+<p><strong>Step 5: Interpret</strong>
+- What does the number mean in context?
+- Sense check: Is the sign reasonable? Is the magnitude plausible?</p>
+<hr />
+</div>
+<div id="worked-example-1-average-value" class="section level2 hasAnchor" number="13.3">
+<h2><span class="header-section-number">13.3</span> Worked Example 1: Average Value<a href="student-discussion-activity-template-applications-of-integration.html#worked-example-1-average-value" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Task</strong><br />
+Compute the average value of
+<span class="math display">\[
+f(x)=x^2
+\]</span>
+on <span class="math inline">\([2,4]\)</span>, and interpret it as an “equal-area rectangle.”</p>
+<p><strong>Prompts during the solution</strong></p>
 <ul>
-<li>The <strong>rate of CO₂ increase</strong> in the atmosphere is a derivative.<br />
-</li>
-<li>The <strong>total added CO₂</strong> over a year is an integral.</li>
+<li>What does “average value” mean for a function?</li>
+<li>Why are we dividing by <span class="math inline">\(b-a\)</span>?</li>
+<li>What does the rectangle represent geometrically?</li>
 </ul>
-<p>Traditionally, calculus is first introduced through physics examples like velocity (rate of change of position) and acceleration (rate of change of velocity). These are helpful because most of us can <em>feel</em> what it means to move faster or slower. We’ll use those examples when they make ideas clearer.</p>
-<p>But throughout this book, our main goal is to connect calculus directly to the environment you are studying. You’ll see derivatives and integrals applied to population growth, forest carbon storage, water flow in rivers, and other natural systems.</p>
-<p>We’ll build your understanding of these concepts step by step, supported by graphs, data, and hands-on examples. And if it’s been a while since your last math class, that’s completely okay—you’ll find plenty of support here. We’ll meet you where you are and grow your skills together.</p>
-<hr />
-</div>
-<div id="how-this-book-works" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> How This Book Works<a href="index.html#how-this-book-works" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Each chapter is designed to support you as a learner. You’ll find:</p>
+<p><strong>Solution skeleton</strong>
+General form of the average equation</p>
+<p><span class="math display">\[
+f_{\text{avg}}=\frac{1}{b-a}\int_a^b f(x)\,dx
+\]</span></p>
+<p>So in this example:</p>
+<p><span class="math display">\[
+f_{\text{avg}}=\frac{1}{4-2}\int_2^4 x^2\,dx
+\]</span>
+<span class="math display">\[
+\int_2^4 x^2\,dx = \left.\frac{x^3}{3}\right|_2^4
+\]</span>
+<span class="math display">\[
+f_{\text{avg}}=\frac{1}{2}\cdot \frac{56}{3}=\frac{28}{3}
+\]</span></p>
+<p><strong>Follow-up prompt</strong></p>
 <ul>
-<li>Clear explanations of key concepts<br />
-</li>
-<li>Environmental examples to connect math with meaning<br />
-</li>
-<li>Practice problems to strengthen your skills<br />
-</li>
-<li>Reflection prompts to help you think about what you’re learning</li>
+<li>If <span class="math inline">\(f(x)\)</span> were sometimes negative, how would that affect the “average”?</li>
 </ul>
 <hr />
 </div>
-<div id="success-in-this-class" class="section level2 hasAnchor" number="1.4">
-<h2><span class="header-section-number">1.4</span> Success in This Class<a href="index.html#success-in-this-class" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><img src="images/Growth%20Mindset.png" style="float:right; width:250px; margin:10px;" fig.alt="Image of person thinking, decorative" /></p>
-<p>First and foremost, know this: <strong>we believe in your ability to learn and grow.</strong> You bring unique strengths and perspectives, and your effort matters here.</p>
-<p>Mistakes are not a setback—they are the very heart of learning. When you get something wrong, you uncover where your thinking needs refinement, and that creates the space for real growth. Struggle is not a sign you don’t belong; it’s proof that your brain is stretching and building new connections.</p>
-<p>Just like in science, learning calculus is about <strong>iteration</strong>—trying, testing, revising, and improving. That process is what makes your understanding deeper and more durable.</p>
-<p>Assessments in this class are snapshots of your thinking at a particular moment in time. They are not final judgments about your intelligence, your worth, or your potential. You will have chances to revisit concepts, refine your understanding, and demonstrate what you’ve learned. Growth comes from re-engaging with the material, not from perfection on the first try.</p>
-<p>So give yourself permission to be imperfect. Keep engaging, reflecting, and asking questions. We’ll be here to support you every step of the way.</p>
-<hr />
-</div>
-<div id="looking-ahead" class="section level2 hasAnchor" number="1.5">
-<h2><span class="header-section-number">1.5</span> Looking Ahead<a href="index.html#looking-ahead" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>By the end of this course, you will be able to:</p>
+<div id="worked-example-2-area-between-curves-with-a-crossing" class="section level2 hasAnchor" number="13.4">
+<h2><span class="header-section-number">13.4</span> Worked Example 2: Area Between Curves with a Crossing<a href="student-discussion-activity-template-applications-of-integration.html#worked-example-2-area-between-curves-with-a-crossing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Task</strong><br />
+Find the geometric area between
+<span class="math display">\[
+f(x)=x,\qquad g(x)=x^3
+\]</span>
+on <span class="math inline">\([-1,1]\)</span>.</p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-55-1.png" width="672" /></p>
+<p><strong>Student prompts</strong></p>
+<ol style="list-style-type: decimal">
+<li>Where do the curves intersect?</li>
+<li>On <span class="math inline">\([-1,0]\)</span>, which is on top?</li>
+<li>On <span class="math inline">\([0,1]\)</span>, which is on top?</li>
+<li>Why can’t we just do <span class="math inline">\(\int_{-1}^{1} (f-g)\,dx\)</span> and call that “area”?</li>
+</ol>
+<p><strong>Solution skeleton</strong></p>
 <ul>
-<li>Apply calculus concepts to natural systems<br />
-</li>
-<li>Analyze environmental data with confidence<br />
-</li>
-<li>Interpret and communicate your results to others</li>
+<li>Intersections: <span class="math inline">\(x=-1,0,1\)</span></li>
+<li>Set up:
+<span class="math display">\[
+\text{Area}=\int_{-1}^{0} (g-f)\,dx + \int_{0}^{1} (f-g)\,dx
+\]</span></li>
+<li>Compute and add.</li>
 </ul>
-<p>But even more important than any specific skill, you’ll leave this course with a stronger belief in your ability to <em>learn mathematics</em>.</p>
-<p>Calculus is not just a hurdle to clear—it’s a tool that expands how you see and understand the world. Our hope is that by connecting it to the environment you care about, you’ll discover both its usefulness and its beauty.</p>
-<p>Most importantly, you’ll leave with the confidence to keep growing—using mathematics as a tool to explore, protect, and better understand the natural world around you.</p>
+<p><strong>Extension</strong></p>
+<ul>
+<li>Replace “area” with “net difference.” What changes in the setup?</li>
+</ul>
 <hr />
 </div>
-<div id="a-big-disclaimer" class="section level2 hasAnchor" number="1.6">
-<h2><span class="header-section-number">1.6</span> ⚠️ A Big Disclaimer ⚠️<a href="index.html#a-big-disclaimer" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>I started writing this textbook to create a calculus resource that speaks directly to your interests as environmental scientists. My goal is to make calculus feel relevant, supportive, and connected to the systems you care about.</p>
-<p>That said, this is very much a <strong>work in progress</strong>. This draft will have typos, rough edges, and the occasional mistake. But here’s the good news: it’s also <strong>free</strong>. 🎉</p>
-<p>If you come across an error—big or small—please let me know so I can fix it for you and for future students. Your feedback is not just welcome, it’s essential to making this a better resource.</p>
-<p>Thanks for your patience, your sharp eyes, and your willingness to learn from (and with) an evolving text. Together, we’ll keep improving it.</p>
+<div id="worked-example-3-numerical-integration-from-data-no-curve-fitting" class="section level2 hasAnchor" number="13.5">
+<h2><span class="header-section-number">13.5</span> Worked Example 3: Numerical Integration from Data (no curve fitting)<a href="student-discussion-activity-template-applications-of-integration.html#worked-example-3-numerical-integration-from-data-no-curve-fitting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Task</strong><br />
+You measured daily streamflow <span class="math inline">\(Q_i\)</span> (m<span class="math inline">\(^3\)</span>/s) for 7 days. Estimate the total volume of water that passed the gauge in that week.</p>
+<p><strong>Give students a small dataset</strong></p>
+<p>Day: 1 2 3 4 5 6 7<br />
+<span class="math inline">\(Q\)</span>: 42 55 61 58 49 45 40 (m<span class="math inline">\(^3\)</span>/s)</p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-56-1.png" width="672" /></p>
+<p><strong>Prompts</strong></p>
+<ol style="list-style-type: decimal">
+<li>If each value is “m<span class="math inline">\(^3\)</span>/s,” what does multiplying by one day do to the units?</li>
+<li>Why do we need to convert days to seconds?</li>
+<li>Use rectangles to estimate weekly volume:
+<span class="math display">\[
+V \approx \sum_{i=1}^{7} Q_i \,\Delta t
+\]</span></li>
+<li>If you used trapezoids instead, would the estimate increase or decrease? Why?</li>
+</ol>
+<p><strong>Solution skeleton</strong></p>
+<ul>
+<li><span class="math inline">\(\Delta t = 86400\)</span> s per day</li>
+<li>Rectangles:
+<span class="math display">\[
+V \approx 86400\sum_{i=1}^{7} Q_i
+\]</span></li>
+<li>(Optional) trapezoids for comparison:
+<span class="math display">\[
+V \approx \frac{86400}{2}\left(Q_1+2Q_2+\cdots+2Q_6+Q_7\right)
+\]</span></li>
+</ul>
+<p><strong>Reflection prompt</strong></p>
+<ul>
+<li>Which method (rectangles or trapezoids) seems more defensible here, and why?</li>
+</ul>
+<hr />
+</div>
+<div id="counting-species" class="section level2 hasAnchor" number="13.6">
+<h2><span class="header-section-number">13.6</span> Counting Species<a href="student-discussion-activity-template-applications-of-integration.html#counting-species" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>How would you work out how many trees there are in a forest?
+Or how many whales in the ocean?</p>
+<p>Come up with a method for working out how many trees there are on this campus?</p>
+<p><br><br><br><br><br><br><br><br><br><br></p>
+<p>How would I work out how many Kangaroos there are in Australia?</p>
+<p><img src="images/KangarooDistrib.jpg" style="float=center; width:450px; margin:10px;" fig.cap="" fig.alt="" /></p>
+<p><br><br><br><br><br><br><br><br><br><br></p>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="thinking-with-double-integrals" class="section level2 hasAnchor" number="13.7">
+<h2><span class="header-section-number">13.7</span> Thinking with Double Integrals<a href="student-discussion-activity-template-applications-of-integration.html#thinking-with-double-integrals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Purpose of this activity</strong><br />
+Practice translating <em>spatial accumulation stories</em> into double integrals, before worrying about heavy computation. The focus is on:</p>
+<ul>
+<li>identifying what is accumulating,</li>
+<li>understanding the region of integration,</li>
+<li>interpreting the result using units.</li>
+</ul>
+<hr />
+</div>
+<div id="part-a-conceptual-warm-up-think-pair-share" class="section level2 hasAnchor" number="13.8">
+<h2><span class="header-section-number">13.8</span> Part A: Conceptual Warm-Up (Think → Pair → Share)<a href="student-discussion-activity-template-applications-of-integration.html#part-a-conceptual-warm-up-think-pair-share" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Prompt 1: What is being accumulated?</strong><br />
+For each statement below, decide whether a <strong>double integral</strong> is appropriate and explain why.</p>
+<ol style="list-style-type: decimal">
+<li>Total rainfall over a rectangular field during a storm.<br />
+</li>
+<li>Average air temperature along a hiking trail.<br />
+</li>
+<li>Total mass of algae in a shallow lake, where concentration varies by location.<br />
+</li>
+<li>Total distance traveled by a migrating animal.</li>
+</ol>
+<hr />
+<p><strong>Prompt 2: Units check</strong></p>
+<p>Suppose <span class="math inline">\(f(x,y)\)</span> has units of <strong>kg/m²</strong>.</p>
+<ol style="list-style-type: decimal">
+<li>What are the units of <span class="math inline">\(f(x,y)\,dA\)</span>?<br />
+</li>
+<li>What are the units of <span class="math inline">\(\iint_R f(x,y)\,dA\)</span>?<br />
+</li>
+<li>What real-world quantity might this integral represent?</li>
+</ol>
+<hr />
+</div>
+<div id="part-b-from-single-to-double-integrals" class="section level2 hasAnchor" number="13.9">
+<h2><span class="header-section-number">13.9</span> Part B: From Single to Double Integrals<a href="student-discussion-activity-template-applications-of-integration.html#part-b-from-single-to-double-integrals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Prompt 3: Extending what you know</strong></p>
+<p>Recall:
+<span class="math display">\[
+\int_a^b f(x)\,dx
+\]</span></p>
+<ol style="list-style-type: decimal">
+<li>What does this accumulate?</li>
+<li>What does the “small piece” look like?</li>
+</ol>
+<p>Now compare with:
+<span class="math display">\[
+\iint_R f(x,y)\,dA
+\]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li>What is the small piece now?</li>
+<li>How is the logic the same? How is it different?</li>
+</ol>
+<hr />
+</div>
+<div id="part-c-setting-up-not-solving-double-integrals" class="section level2 hasAnchor" number="13.10">
+<h2><span class="header-section-number">13.10</span> Part C: Setting Up (Not Solving) Double Integrals<a href="student-discussion-activity-template-applications-of-integration.html#part-c-setting-up-not-solving-double-integrals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="example-1-constant-density-over-a-region" class="section level3 hasAnchor" number="13.10.1">
+<h3><span class="header-section-number">13.10.1</span> Example 1: Constant Density Over a Region<a href="student-discussion-activity-template-applications-of-integration.html#example-1-constant-density-over-a-region" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Suppose pollution is distributed uniformly over a rectangular area.</p>
+<ul>
+<li>Density: <span class="math inline">\(\rho(x,y) = 5\)</span> kg/m²<br />
+</li>
+<li>Region:<br />
+<span class="math display">\[
+R = \{(x,y)\mid 0 \le x \le 4,\; 0 \le y \le 3\}
+\]</span></li>
+</ul>
+<p><strong>Student tasks</strong></p>
+<ol style="list-style-type: decimal">
+<li>Write a double integral that represents the <strong>total pollutant mass</strong>.</li>
+<li>Before computing anything, predict whether the answer should be:
+<ul>
+<li>small or large?</li>
+<li>positive or zero?</li>
+</ul></li>
+</ol>
+<p><strong>Setup</strong>
+<span class="math display">\[
+\iint_R 5\,dA
+=
+\int_0^4 \int_0^3 5\,dy\,dx
+\]</span></p>
+<p><strong>Discussion prompt</strong><br />
+Why does this integral reduce to “density × area”?</p>
+<hr />
+</div>
+<div id="example-2-variable-density-over-a-rectangle" class="section level3 hasAnchor" number="13.10.2">
+<h3><span class="header-section-number">13.10.2</span> Example 2: Variable Density Over a Rectangle<a href="student-discussion-activity-template-applications-of-integration.html#example-2-variable-density-over-a-rectangle" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now suppose density varies with position:
+<span class="math display">\[
+\rho(x,y) = x + y
+\]</span></p>
+<p>on the same region
+<span class="math display">\[
+R = \{(x,y)\mid 0 \le x \le 4,\; 0 \le y \le 3\}.
+\]</span></p>
+<p><strong>Student tasks</strong></p>
+<ol style="list-style-type: decimal">
+<li>Write the double integral for total mass.</li>
+<li>Decide whether it makes more sense to integrate with respect to <span class="math inline">\(x\)</span> or <span class="math inline">\(y\)</span> first.</li>
+<li>What does “holding one variable constant” mean physically?</li>
+</ol>
+<p><strong>Setup</strong>
+<span class="math display">\[
+\iint_R (x+y)\,dA
+=
+\int_0^4 \int_0^3 (x+y)\,dy\,dx
+\]</span></p>
+<p><em>(Do not compute yet — focus on interpretation.)</em></p>
+<hr />
+</div>
+</div>
+<div id="part-d-interpreting-inner-integrals" class="section level2 hasAnchor" number="13.11">
+<h2><span class="header-section-number">13.11</span> Part D: Interpreting Inner Integrals<a href="student-discussion-activity-template-applications-of-integration.html#part-d-interpreting-inner-integrals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Prompt 4: What does the inner integral represent?</strong></p>
+<p>Given:
+<span class="math display">\[
+\int_0^4 \left[\int_0^3 (x+y)\,dy\right] dx
+\]</span></p>
+<ol style="list-style-type: decimal">
+<li>What does the inner integral compute when <span class="math inline">\(x\)</span> is fixed?</li>
+<li>What does the outer integral add up?</li>
+<li>How is this like “stacking” single integrals?</li>
+</ol>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
+<hr />
+</div>
+<div id="part-e-symmetry-and-cancellation" class="section level2 hasAnchor" number="13.12">
+<h2><span class="header-section-number">13.12</span> Part E: Symmetry and Cancellation<a href="student-discussion-activity-template-applications-of-integration.html#part-e-symmetry-and-cancellation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="example-3-when-things-cancel" class="section level3 hasAnchor" number="13.12.1">
+<h3><span class="header-section-number">13.12.1</span> Example 3: When Things Cancel<a href="student-discussion-activity-template-applications-of-integration.html#example-3-when-things-cancel" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let
+<span class="math display">\[
+f(x,y) = y
+\]</span>
+over the symmetric region
+<span class="math display">\[
+R = \{(x,y)\mid -2 \le x \le 2,\; -3 \le y \le 3\}.
+\]</span></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
+<p><strong>Student tasks</strong></p>
+<ol style="list-style-type: decimal">
+<li>Sketch the region.</li>
+<li>Predict the value of
+<span class="math display">\[
+\iint_R y\,dA
+\]</span>
+before computing.</li>
+<li>Explain your reasoning using symmetry.</li>
+</ol>
+<p><strong>Key idea prompt</strong><br />
+What does it mean for a function to be “odd” in one variable over symmetric bounds?</p>
+<hr />
+</div>
+</div>
+<div id="part-f-average-value-over-a-region" class="section level2 hasAnchor" number="13.13">
+<h2><span class="header-section-number">13.13</span> Part F: Average Value Over a Region<a href="student-discussion-activity-template-applications-of-integration.html#part-f-average-value-over-a-region" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Prompt 5: Average vs total</strong></p>
+<p>For a function <span class="math inline">\(f(x,y)\)</span> over a region <span class="math inline">\(R\)</span>:</p>
+<ol style="list-style-type: decimal">
+<li>What does <span class="math inline">\(\iint_R f(x,y)\,dA\)</span> represent?</li>
+<li>How would you turn that into an <strong>average value</strong> over the region?</li>
+</ol>
+<p><strong>Definition</strong>
+<span class="math display">\[
+f_{\text{avg}} = \frac{1}{\text{Area}(R)} \iint_R f(x,y)\,dA
+\]</span></p>
+<p><strong>Think-pair-share</strong></p>
+<ul>
+<li>What would the units of <span class="math inline">\(f_{\text{avg}}\)</span> be?</li>
+<li>How does this mirror the 1D average value formula?</li>
+</ul>
+<hr />
+</div>
+<div id="part-g-quick-practice-small-groups" class="section level2 hasAnchor" number="13.14">
+<h2><span class="header-section-number">13.14</span> Part G: Quick Practice (Small Groups)<a href="student-discussion-activity-template-applications-of-integration.html#part-g-quick-practice-small-groups" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For each situation below, answer <strong>without computing</strong>:</p>
+<ol style="list-style-type: decimal">
+<li>Write the correct double integral.</li>
+<li>State what the result represents.</li>
+<li>Identify the units of the result.</li>
+</ol>
+<p><strong>Scenario A</strong><br />
+Rainfall rate (mm/hr) varies over a rectangular watershed.</p>
+<p><strong>Scenario B</strong><br />
+Soil carbon density (kg/m²) varies across a field.</p>
+<p><strong>Scenario C</strong><br />
+Surface heat flux (W/m²) varies across a rooftop.</p>
+<hr />
+</div>
+<div id="exit-reflection-23-minutes" class="section level2 hasAnchor" number="13.15">
+<h2><span class="header-section-number">13.15</span> Exit Reflection (2–3 minutes)<a href="student-discussion-activity-template-applications-of-integration.html#exit-reflection-23-minutes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>In one sentence: what does a double integral <em>do</em>?</li>
+<li>What is the most common mistake you think people make when setting one up?</li>
+<li>How does checking units help you avoid that mistake?</li>
+</ol>
+<hr />
 
 </div>
 </div>
@@ -906,8 +1206,8 @@
           </div>
         </div>
       </div>
+<a href="week-45-in-class-integration-techniques.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="introduction-to-calculus-ii.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -938,7 +1238,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+    "link": "https://github.com/rstudio/bookdown-demo/edit/master/107_applications.Rmd",
     "text": "Edit"
   },
   "history": {

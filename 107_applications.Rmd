@@ -1,0 +1,599 @@
+# Student Discussion + Activity Template: Applications of Integration
+
+**Goal for this section**  
+Build the habit of asking: *What is accumulating? Over what variable? What do the units imply?*  
+Then practice translating that story into an integral, and interpreting the result.
+
+---
+
+## Discussion Prompts (use as think–pair–share)
+
+**Prompt Set A: What is an integral doing? (meaning first)**
+
+1. In your own words, what does “accumulation” mean? Give one real-world example that is *not* about area.
+2. What’s the difference between a **rate** and a **total**? Give an example of each.
+3. Why does “small pieces add up” naturally lead to an integral?
+4. What does the \(dx\) or \(dt\) tell you about what you are adding up?
+5. What would it mean if an integral gave a negative answer in a real system?
+
+**Prompt Set B: Units as a reality check**
+
+6. Suppose \(r(t)\) has units of mm/hr and you integrate \(r(t)\,dt\). What are the units of the result? Does that match what you want to measure?
+7. Suppose \(\rho(x,y)\) has units of kg/m\(^2\). What does \(\iint_R \rho(x,y)\,dA\) represent?
+8. If your units don’t cancel cleanly into something meaningful, what are two possible reasons?
+
+**Prompt Set C: Total vs net vs “area between curves”**
+
+9. Compare these three questions. Which one matches each integral, and why?
+   - (i) “How much was produced?”
+   - (ii) “What was the net change?”
+   - (iii) “How different are these two curves overall?”
+   \[
+   \int_0^T P(t)\,dt,\qquad \int_0^T (P(t)-L(t))\,dt,\qquad \int_0^T |P(t)-L(t)|\,dt
+   \]
+10. If two curves cross, what changes about the setup for **geometric area**? What doesn’t change for **net accumulation**?
+
+**Prompt Set D: When data are messy (numerical integration)**
+
+11. When you measure something daily, why isn’t the “true integral” immediately available?
+12. What do you gain by fitting a smooth function to data? What might you lose?
+13. In your streamflow example, why were the “fit” total and the “rectangles” total close but not identical?
+14. If you were writing a report, when would you trust the fitted model more than the data rectangles? When would you do the opposite?
+
+---
+
+## In-Class Mini-Workflow 
+
+**Step 1: Story**
+- What is changing?  
+- What is being added up?  
+- Over what variable?
+
+**Step 2: Units**
+- Write the units of the integrand.
+- Write the units of the differential (\(dx\), \(dt\), \(dA\), \(dV\)).
+- Multiply them to predict the units of the result.
+
+**Step 3: Setup**
+- Total? Net? Area between curves? Average?
+- Write the correct integral.
+
+**Step 4: Compute or approximate**
+- If there’s a clean function, integrate.
+- If data are discrete or messy, approximate numerically.
+
+**Step 5: Interpret**
+- What does the number mean in context?
+- Sense check: Is the sign reasonable? Is the magnitude plausible?
+
+---
+
+## Worked Example 1: Average Value
+
+**Task**  
+Compute the average value of
+\[
+f(x)=x^2
+\]
+on \([2,4]\), and interpret it as an “equal-area rectangle.”
+
+**Prompts during the solution**
+
+- What does “average value” mean for a function?
+- Why are we dividing by \(b-a\)?
+- What does the rectangle represent geometrically?
+
+**Solution skeleton**
+General form of the average equation
+
+\[
+f_{\text{avg}}=\frac{1}{b-a}\int_a^b f(x)\,dx
+\]
+
+So in this example:
+
+\[
+f_{\text{avg}}=\frac{1}{4-2}\int_2^4 x^2\,dx
+\]
+\[
+\int_2^4 x^2\,dx = \left.\frac{x^3}{3}\right|_2^4
+\]
+\[
+f_{\text{avg}}=\frac{1}{2}\cdot \frac{56}{3}=\frac{28}{3}
+\]
+
+**Follow-up prompt**
+
+- If \(f(x)\) were sometimes negative, how would that affect the “average”?
+
+---
+
+## Worked Example 2: Area Between Curves with a Crossing
+
+**Task**  
+Find the geometric area between
+\[
+f(x)=x,\qquad g(x)=x^3
+\]
+on \([-1,1]\).
+
+```{r, echo=FALSE, message=FALSE, error=FALSE}
+# Plot the geometric area between f(x) = x and g(x) = x^3 on [-1, 1]
+
+# Define the functions
+f <- function(x) x
+g <- function(x) x^3
+
+# Create x values
+x <- seq(-1, 1, length.out = 500)
+
+# Evaluate functions
+f_vals <- f(x)
+g_vals <- g(x)
+
+# Set up the plot
+plot(
+  x, f_vals,
+  type = "l",
+  lwd = 2,
+  ylim = range(c(f_vals, g_vals)),
+  xlab = "x",
+  ylab = "y",
+  main = expression("Geometric Area Between " ~ f(x) == x ~ " and " ~ g(x) == x^3)
+)
+
+# Add the second curve
+lines(x, g_vals, lwd = 2, lty = 2)
+
+# Shade area on [-1, 0]: g(x) is above f(x)
+x_left <- seq(-1, 0, length.out = 250)
+polygon(
+  c(x_left, rev(x_left)),
+  c(g(x_left), rev(f(x_left))),
+  col = rgb(0.2, 0.6, 0.8, 0.3),
+  border = NA
+)
+
+# Shade area on [0, 1]: f(x) is above g(x)
+x_right <- seq(0, 1, length.out = 250)
+polygon(
+  c(x_right, rev(x_right)),
+  c(f(x_right), rev(g(x_right))),
+  col = rgb(0.2, 0.6, 0.8, 0.3),
+  border = NA
+)
+
+# Add reference lines
+abline(h = 0, lty = 3)
+abline(v = 0, lty = 3)
+
+# Add legend
+legend(
+  "topleft",
+  legend = c("f(x) = x", "g(x) = x^3", "Geometric area"),
+  lwd = c(2, 2, NA),
+  lty = c(1, 2, NA),
+  pch = c(NA, NA, 15),
+  pt.cex = 2,
+  col = c("black", "black", rgb(0.2, 0.6, 0.8, 0.3)),
+  bty = "n"
+)
+
+
+```
+
+**Student prompts**
+
+1. Where do the curves intersect?
+2. On \([-1,0]\), which is on top?
+3. On \([0,1]\), which is on top?
+4. Why can’t we just do \(\int_{-1}^{1} (f-g)\,dx\) and call that “area”?
+
+**Solution skeleton**
+
+- Intersections: \(x=-1,0,1\)
+- Set up:
+\[
+\text{Area}=\int_{-1}^{0} (g-f)\,dx + \int_{0}^{1} (f-g)\,dx
+\]
+- Compute and add.
+
+**Extension**
+
+- Replace “area” with “net difference.” What changes in the setup?
+
+---
+
+## Worked Example 3: Numerical Integration from Data (no curve fitting)
+
+**Task**  
+You measured daily streamflow \(Q_i\) (m\(^3\)/s) for 7 days. Estimate the total volume of water that passed the gauge in that week.
+
+**Give students a small dataset**
+
+Day: 1  2  3  4  5  6  7  
+\(Q\): 42  55  61  58  49  45  40  (m\(^3\)/s)
+
+```{r, echo=FALSE, message=FALSE, error=FALSE}
+# Small dataset: Daily streamflow over one week
+# Points only, days labeled 1 through 7, x-axis starting at 0
+
+# Data
+day <- 1:7
+Q <- c(42, 55, 61, 58, 49, 45, 40)  # m^3/s
+
+streamflow_week <- data.frame(day = day, Q = Q)
+
+# ---- Plot the data (points only) ----
+plot(
+  streamflow_week$day,
+  streamflow_week$Q,
+  type = "p",          # points only
+  pch = 16,
+  cex = 1.2,
+  xlim = c(0, 7.5),    # start x-axis at 0
+  xlab = "Time (days)",
+  ylab = expression(Streamflow~(m^3/s)),
+  main = "Daily Streamflow Measurements (One Week)"
+)
+
+# Add a light grid for readability
+grid()
+
+# Reference line at zero
+abline(h = 0, lty = 3)
+
+
+```
+
+**Prompts**
+
+1. If each value is “m\(^3\)/s,” what does multiplying by one day do to the units?
+2. Why do we need to convert days to seconds?
+3. Use rectangles to estimate weekly volume:
+\[
+V \approx \sum_{i=1}^{7} Q_i \,\Delta t
+\]
+4. If you used trapezoids instead, would the estimate increase or decrease? Why?
+
+**Solution skeleton**
+
+- \(\Delta t = 86400\) s per day
+- Rectangles:
+\[
+V \approx 86400\sum_{i=1}^{7} Q_i
+\]
+- (Optional) trapezoids for comparison:
+\[
+V \approx \frac{86400}{2}\left(Q_1+2Q_2+\cdots+2Q_6+Q_7\right)
+\]
+
+**Reflection prompt**
+
+- Which method (rectangles or trapezoids) seems more defensible here, and why?
+
+---
+
+## Counting Species
+
+How would you work out how many trees there are in a forest?
+Or how many whales in the ocean?
+
+Come up with a method for working out how many trees there are on this campus?
+
+<br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+
+
+How would I work out how many Kangaroos there are in Australia?
+
+![](images/KangarooDistrib.jpg){fig.cap="" fig.alt="" style="float=center; width:450px; margin:10px;"}
+
+<br><br><br><br><br><br><br><br><br><br>
+
+
+
+\newpage
+
+## Thinking with Double Integrals
+
+**Purpose of this activity**  
+Practice translating *spatial accumulation stories* into double integrals, before worrying about heavy computation. The focus is on:
+
+- identifying what is accumulating,
+- understanding the region of integration,
+- interpreting the result using units.
+
+---
+
+## Part A: Conceptual Warm-Up (Think → Pair → Share)
+
+**Prompt 1: What is being accumulated?**  
+For each statement below, decide whether a **double integral** is appropriate and explain why.
+
+1. Total rainfall over a rectangular field during a storm.  
+2. Average air temperature along a hiking trail.  
+3. Total mass of algae in a shallow lake, where concentration varies by location.  
+4. Total distance traveled by a migrating animal.
+
+
+---
+
+**Prompt 2: Units check**
+
+Suppose \(f(x,y)\) has units of **kg/m²**.
+
+1. What are the units of \(f(x,y)\,dA\)?  
+2. What are the units of \(\iint_R f(x,y)\,dA\)?  
+3. What real-world quantity might this integral represent?
+
+---
+
+## Part B: From Single to Double Integrals
+
+**Prompt 3: Extending what you know**
+
+Recall:
+\[
+\int_a^b f(x)\,dx
+\]
+
+1. What does this accumulate?
+2. What does the “small piece” look like?
+
+Now compare with:
+\[
+\iint_R f(x,y)\,dA
+\]
+
+3. What is the small piece now?
+4. How is the logic the same? How is it different?
+
+---
+
+## Part C: Setting Up (Not Solving) Double Integrals
+
+### Example 1: Constant Density Over a Region
+
+Suppose pollution is distributed uniformly over a rectangular area.
+
+- Density: \( \rho(x,y) = 5 \) kg/m²  
+- Region:  
+  \[
+  R = \{(x,y)\mid 0 \le x \le 4,\; 0 \le y \le 3\}
+  \]
+
+**Student tasks**
+
+1. Write a double integral that represents the **total pollutant mass**.
+2. Before computing anything, predict whether the answer should be:
+   - small or large?
+   - positive or zero?
+
+**Setup**
+\[
+\iint_R 5\,dA
+=
+\int_0^4 \int_0^3 5\,dy\,dx
+\]
+
+**Discussion prompt**  
+Why does this integral reduce to “density × area”?
+
+---
+
+### Example 2: Variable Density Over a Rectangle
+
+Now suppose density varies with position:
+\[
+\rho(x,y) = x + y
+\]
+
+on the same region
+\[
+R = \{(x,y)\mid 0 \le x \le 4,\; 0 \le y \le 3\}.
+\]
+
+**Student tasks**
+
+1. Write the double integral for total mass.
+2. Decide whether it makes more sense to integrate with respect to \(x\) or \(y\) first.
+3. What does “holding one variable constant” mean physically?
+
+**Setup**
+\[
+\iint_R (x+y)\,dA
+=
+\int_0^4 \int_0^3 (x+y)\,dy\,dx
+\]
+
+*(Do not compute yet — focus on interpretation.)*
+
+---
+
+## Part D: Interpreting Inner Integrals
+
+**Prompt 4: What does the inner integral represent?**
+
+Given:
+\[
+\int_0^4 \left[\int_0^3 (x+y)\,dy\right] dx
+\]
+
+1. What does the inner integral compute when \(x\) is fixed?
+2. What does the outer integral add up?
+3. How is this like “stacking” single integrals?
+
+```{r, echo=FALSE, message=FALSE, error=FALSE}
+# Plot for the iterated integral
+# ∫_0^4 [ ∫_0^3 (x + y) dy ] dx
+# Visualizing f(x, y) = x + y over the rectangular region
+
+# Define the region
+x <- seq(-1, 5, length.out = 200)
+y <- seq(-1, 4, length.out = 200)
+
+grid <- expand.grid(x = x, y = y)
+
+# Define the function
+f <- function(x, y) {
+  x + y
+}
+
+# Evaluate on the grid
+z <- matrix(f(grid$x, grid$y), nrow = length(x), ncol = length(y))
+
+# Filled contour plot
+filled.contour(
+  x, y, z,
+  color.palette = colorRampPalette(c("blue", "white", "red")),
+  xlab = "x",
+  ylab = "y",
+  main = expression(f(x, y) == x + y),
+  plot.axes = {
+    axis(1)
+    axis(2)
+    
+    # Draw the integration region: 0 ≤ x ≤ 4, 0 ≤ y ≤ 3
+    rect(
+      xleft = 0, ybottom = 0,
+      xright = 4, ytop = 3,
+      lwd = 2,
+      lty = 2,
+      border = "black"
+    )
+  }
+)
+
+```
+
+
+---
+
+## Part E: Symmetry and Cancellation
+
+### Example 3: When Things Cancel
+
+Let
+\[
+f(x,y) = y
+\]
+over the symmetric region
+\[
+R = \{(x,y)\mid -2 \le x \le 2,\; -3 \le y \le 3\}.
+\]
+
+```{r, echo=FALSE, message=FALSE, error=FALSE}
+# Plot for f(x, y) = y over the symmetric region
+# R = { (x, y) | -2 <= x <= 2, -3 <= y <= 3 }
+
+# Create grid
+x <- seq(-2, 2, length.out = 200)
+y <- seq(-3, 3, length.out = 200)
+
+grid <- expand.grid(x = x, y = y)
+
+# Define the function
+f <- function(x, y) {
+  y
+}
+
+# Evaluate the function on the grid
+z <- matrix(f(grid$x, grid$y), nrow = length(x), ncol = length(y))
+
+# Filled contour plot
+filled.contour(
+  x, y, z,
+  color.palette = colorRampPalette(c("blue", "white", "red")),
+  xlab = "x",
+  ylab = "y",
+  main = expression(f(x, y) == y),
+  plot.axes = {
+    axis(1)
+    axis(2)
+    
+    # Draw the boundary of the region R
+    rect(
+      xleft = -2, ybottom = -3,
+      xright =  2, ytop =  3,
+      lwd = 2,
+      lty = 2,
+      border = "black"
+    )
+    
+    # Reference lines for symmetry
+    abline(h = 0, v = 0, lty = 3)
+  }
+)
+
+```
+
+
+**Student tasks**
+
+1. Sketch the region.
+2. Predict the value of
+   \[
+   \iint_R y\,dA
+   \]
+   before computing.
+3. Explain your reasoning using symmetry.
+
+**Key idea prompt**  
+What does it mean for a function to be “odd” in one variable over symmetric bounds?
+
+---
+
+## Part F: Average Value Over a Region
+
+**Prompt 5: Average vs total**
+
+For a function \(f(x,y)\) over a region \(R\):
+
+1. What does \(\iint_R f(x,y)\,dA\) represent?
+2. How would you turn that into an **average value** over the region?
+
+**Definition**
+\[
+f_{\text{avg}} = \frac{1}{\text{Area}(R)} \iint_R f(x,y)\,dA
+\]
+
+**Think-pair-share**
+
+- What would the units of \(f_{\text{avg}}\) be?
+- How does this mirror the 1D average value formula?
+
+---
+
+## Part G: Quick Practice (Small Groups)
+
+For each situation below, answer **without computing**:
+
+1. Write the correct double integral.
+2. State what the result represents.
+3. Identify the units of the result.
+
+**Scenario A**  
+Rainfall rate (mm/hr) varies over a rectangular watershed.
+
+**Scenario B**  
+Soil carbon density (kg/m²) varies across a field.
+
+**Scenario C**  
+Surface heat flux (W/m²) varies across a rooftop.
+
+---
+
+## Exit Reflection (2–3 minutes)
+
+1. In one sentence: what does a double integral *do*?
+2. What is the most common mistake you think people make when setting one up?
+3. How does checking units help you avoid that mistake?
+
+---
+
+
+

@@ -1,0 +1,243 @@
+# Applications of Integration: Interpreting Environmental and Biological Systems
+
+The previous chapter focused on learning *how* to compute integrals.  
+In this sequence of activities, we focus on *what integrals mean*.
+
+Across biological and environmental systems, integrals allow us to:
+- Convert **rates or concentrations into totals**
+- Compare **different process models**
+- Understand **competing and interacting mechanisms**
+- Interpret mathematics as a description of real systems
+
+Each activity below highlights a **different structural role** played by integration.
+
+---
+
+## Activity 1: Drug Absorption and Metabolism  
+*(Integrating concentration over time)*
+
+### Objective
+Use integration to calculate **total drug exposure** and compare how different absorption models influence how long a drug affects the body.
+
+---
+
+### Scenario
+Pharmacologists study how drugs enter the bloodstream and are metabolized over time. The concentration of a drug in the blood determines its effectiveness and potential side effects.
+
+---
+
+### Models
+
+Let \( t \) be time in **hours**.
+
+#### Model 1: Immediate Absorption with Decay
+\[
+C_1(t) = C_0 e^{-kt}
+\]
+where:
+- \(C_0 = 2\) (initial concentration),
+- \(k = 0.2\) hr\(^{-1}\) represents metabolic removal.
+
+#### Model 2: Gradual Absorption with Decay
+\[
+C_2(t) = t e^{-kt}
+\]
+where:
+- \(k = 0.2\).
+
+---
+
+### Task 1: Total Drug Exposure
+\[
+\text{Total Exposure} = \int_0^{24} C(t)\,dt
+\]
+
+1. Evaluate the integral for Model 1.
+2. Evaluate the integral for Model 2.
+3. Compare the total exposure over 24 hours.
+
+---
+
+### Task 2: Interpretation
+1. Which model keeps the drug in the bloodstream longer?
+2. How does the timing of peak concentration differ?
+3. What are the benefits and risks of each absorption profile?
+
+---
+
+## Activity 2: Nutrient Loading in a Coastal Estuary  
+*(Integrating concentration over time)*
+
+### Objective
+Use integration to calculate **total nutrient exposure** and compare how different nutrient input mechanisms affect ecosystem risk.
+
+---
+
+### Scenario
+Excess nutrients entering coastal estuaries can drive algal blooms and hypoxia. Ecologists often model nutrient concentration over time to estimate cumulative ecosystem exposure.
+
+---
+
+### Models
+
+Let \( t \) be time in **hours**.
+
+#### Model 1: Immediate Pulse with Decay
+\[
+N_1(t) = N_0 e^{-kt}
+\]
+where:
+- \(N_0 = 3\) mg/L  
+- \(k = 0.15\) hr\(^{-1}\)
+
+#### Model 2: Delayed Input with Decay
+\[
+N_2(t) = t e^{-kt}
+\]
+
+---
+
+### Task 1: Total Nutrient Exposure
+\[
+\text{Total Exposure} = \int_0^{24} N(t)\,dt
+\]
+
+1. Evaluate the integral for each model.
+2. Compare total nutrient loading over 24 hours.
+
+---
+
+### Task 2: Environmental Interpretation
+1. Which model better represents storm runoff?
+2. Which better represents agricultural drainage?
+3. Which poses greater long-term ecological risk?
+
+---
+
+## Activity 3: Carbon Sequestration in a Restored Wetland  
+*(Integrating the difference of competing rates)*
+
+### Objective
+Use integration to calculate **net carbon storage** by combining carbon uptake and carbon loss.
+
+---
+
+### Scenario
+Wetlands remove carbon through plant growth but release carbon through respiration and decomposition. Net carbon storage depends on the balance of these processes.
+
+---
+
+### Models
+
+Let \( t \) be time in **months**.
+
+#### Carbon Uptake
+\[
+U(t) = A\left(1 - e^{-kt}\right)
+\]
+where:
+- \(A = 5\) kg C/month  
+- \(k = 0.4\)
+
+#### Carbon Loss
+\[
+L(t) = B e^{-mt}
+\]
+where:
+- \(B = 3\) kg C/month  
+- \(m = 0.2\)
+
+---
+
+### Task 1: Net Carbon Stored
+\[
+\text{Net Carbon} = \int_0^{12} \left[ U(t) - L(t) \right] dt
+\]
+
+1. Evaluate the integral.
+2. Interpret the sign and magnitude of the result.
+
+---
+
+### Task 2: Threshold Question
+1. Solve for the time \( t^* \) when \( U(t^*) = L(t^*) \).
+2. Explain what this time represents ecologically.
+
+---
+
+## Activity 4: Fish Larval Recruitment  
+*(Integrating the product of interacting processes)*
+
+### Objective
+Use integration to calculate **total recruitment** by combining larval production with survival probability.
+
+---
+
+### Scenario
+Fish larvae are produced over a spawning season, but survival probability declines due to predation and environmental stress. Recruitment depends on both production and survival.
+
+---
+
+### Models
+
+Let \( t \) be time in **weeks**.
+
+#### Larval Production Rate
+\[
+P(t) = P_0 t
+\]
+where:
+- \(P_0 = 1000\) larvae/week\(^2\)
+
+#### Survival Probability
+\[
+S(t) = e^{-kt}
+\]
+where:
+- \(k = 0.5\)
+
+---
+
+### Task 1: Total Recruitment
+\[
+R = \int_0^{8} P(t) S(t)\,dt
+\]
+
+1. Write the integrand explicitly.
+2. Evaluate the integral.
+3. Interpret the result biologically.
+
+---
+
+### Task 2: Interpretation
+1. Why must production and survival be multiplied?
+2. When does recruitment contribute most strongly?
+3. Why might late-season spawning be less effective?
+
+---
+
+## Big Picture: What These Integrals Mean
+
+Across these activities, we see four core structures:
+
+1. **Accumulation**
+\[
+\text{Total} = \int (\text{concentration or rate})\,dt
+\]
+
+2. **Model Comparison**
+\[
+\int f(t)\,dt \quad \text{vs.} \quad \int g(t)\,dt
+\]
+
+3. **Competing Processes**
+\[
+\text{Net Change} = \int (\text{gain} - \text{loss})\,dt
+\]
+
+4. **Interacting Processes**
+\[
+\text{Effective Total} = \int (\text{rate}) \times (\text{effectiveness})\,dt
+\]
+
+Together, these examples show that integrals are not just computational tools — they are a language for reasoning about how real biological and environmental systems accumulate, balance, and interact over time.

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Environmental Calculus 2 - Active Learning with Case Studies</title>
+  <title>Chapter 6 Applications of Integration | Environmental Calculus 2 - Active Learning with Case Studies</title>
   <meta name="description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
   <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Environmental Calculus 2 - Active Learning with Case Studies" />
+  <meta property="og:title" content="Chapter 6 Applications of Integration | Environmental Calculus 2 - Active Learning with Case Studies" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Environmental Calculus 2 - Active Learning with Case Studies" />
+  <meta name="twitter:title" content="Chapter 6 Applications of Integration | Environmental Calculus 2 - Active Learning with Case Studies" />
   
   <meta name="twitter:description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="introduction-to-calculus-ii.html"/>
+<link rel="prev" href="techniques-of-integration-indefinite-integrals.html"/>
+<link rel="next" href="calculus-ii-equation-sheet.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -813,92 +813,912 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Environmental Calculus 2 - Active Learning with Case Studies</h1>
-<p class="author"><em>Gaj Sivandran</em></p>
-<p class="date"><em>2026-02-09</em></p>
-</div>
-<div id="why-calculus" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Why Calculus?<a href="index.html#why-calculus" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Welcome to <em>Calculus for Environmental Science</em>. 🌱</p>
-<p>This book is your companion for exploring the natural world through the lens of calculus—especially the powerful ideas of <strong>change</strong> and <strong>accumulation</strong>. You’ll find that calculus is not just about symbols on a page—it’s about asking meaningful questions, interpreting patterns, and making sense of complex environmental systems. And along the way, you’ll see that you are absolutely capable of mastering these ideas.</p>
-<hr />
-<div id="why-this-book" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Why This Book?<a href="index.html#why-this-book" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Most calculus textbooks lean heavily on physics examples—motion, velocity, and acceleration—because calculus was originally developed to solve physics problems. Those examples are powerful, and we’ll use them from time to time because they give us an intuitive “feel” for how change works.</p>
-<p>But today, calculus is a tool used across many disciplines: biology, ecology, environmental science, economics, engineering, and beyond. In this book, we’ll focus on examples that resonate with your studies and your interests as an environmental scientist.</p>
-<p>Environmental scientists face some of the most urgent and complex challenges of our time—climate change, biodiversity loss, resource management, and pollution. Calculus gives us tools to:</p>
+<div id="applications-of-integration" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Applications of Integration<a href="applications-of-integration.html#applications-of-integration" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The previous chapter focused heavily on learning the mechanics of integration—notation, rules, and techniques. That work matters, but mathematics becomes most useful when we put it to work.</p>
+<p>In this chapter, we shift from <em>how to compute integrals</em> to <em>how to use them</em>. Integrals help us understand how quantities accumulate: how small contributions add up over space or time, how totals emerge from rates or densities, and how gains and losses combine to produce net change. Rather than treating integration as a collection of formulas, we use it as a tool for interpreting and analyzing real systems.</p>
+<p>The goal here is meaning first. Each application connects the mathematics back to what an integral represents and why it matters, turning computation into insight.</p>
+<div id="from-rates-and-densities-to-totals" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> From Rates and Densities to Totals<a href="applications-of-integration.html#from-rates-and-densities-to-totals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Many quantities we measure in environmental and natural systems are <strong>not totals</strong>. Instead, they describe how something varies <em>per unit</em> of space or time.</p>
+<p>Examples include:</p>
 <ul>
-<li>Predict how systems evolve over time<br />
-</li>
-<li>Estimate impacts and risks<br />
-</li>
-<li>Model natural and human systems with differential equations<br />
-</li>
-<li>Analyze rates of change and long-term accumulation</li>
+<li>rainfall rate (mm per hour),</li>
+<li>population density (individuals per square kilometer),</li>
+<li>carbon flux (kg of carbon per square meter per year),</li>
+<li>streamflow rate (cubic meters per second),</li>
+<li>plankton concentration in seawater (cells per cubic meter),</li>
+<li>leaf-area density in a forest canopy (square meters of leaf area per cubic meter of air).</li>
 </ul>
-<p>Throughout this book, you’ll work with <strong>real environmental data</strong>, use <strong>visual and conceptual approaches</strong>, and practice skills that matter for sustainability. Our goal is not just to “get through calculus,” but to see how these mathematical ideas open doors for discovery and problem-solving in the real world.</p>
-<hr />
-</div>
-<div id="what-is-calculus" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> What Is Calculus?<a href="index.html#what-is-calculus" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>At its heart, calculus is the mathematics of <strong>change</strong> and <strong>accumulation</strong>. These two ideas are everywhere in science:</p>
+<p>Each of these tells us <em>how much is happening locally</em>—at a moment in time or at a specific location—but not the total amount by itself.</p>
+<div id="small-pieces-add-up" class="section level3 hasAnchor" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Small Pieces Add Up<a href="applications-of-integration.html#small-pieces-add-up" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To move from a rate or density to a total, we imagine breaking the system into many small pieces.</p>
 <ul>
-<li>The <strong>rate of CO₂ increase</strong> in the atmosphere is a derivative.<br />
-</li>
-<li>The <strong>total added CO₂</strong> over a year is an integral.</li>
+<li>Over a short time interval <span class="math inline">\(\Delta t\)</span>, a rain rate <span class="math inline">\(r(t)\)</span> produces approximately<br />
+<span class="math display">\[
+r(t)\,\Delta t
+\]</span>
+units of rainfall.</li>
+<li>Over a small area <span class="math inline">\(\Delta A\)</span>, a density <span class="math inline">\(\rho(x,y)\)</span> contains approximately<br />
+<span class="math display">\[
+\rho(x,y)\,\Delta A
+\]</span>
+units of mass or population.</li>
 </ul>
-<p>Traditionally, calculus is first introduced through physics examples like velocity (rate of change of position) and acceleration (rate of change of velocity). These are helpful because most of us can <em>feel</em> what it means to move faster or slower. We’ll use those examples when they make ideas clearer.</p>
-<p>But throughout this book, our main goal is to connect calculus directly to the environment you are studying. You’ll see derivatives and integrals applied to population growth, forest carbon storage, water flow in rivers, and other natural systems.</p>
-<p>We’ll build your understanding of these concepts step by step, supported by graphs, data, and hands-on examples. And if it’s been a while since your last math class, that’s completely okay—you’ll find plenty of support here. We’ll meet you where you are and grow your skills together.</p>
-<hr />
+<p>Each piece contributes a little. The total comes from <strong>adding all of those small contributions together</strong>.</p>
+<p>This idea that the <em>total = sum of many small pieces</em> is the core intuition behind integration.</p>
 </div>
-<div id="how-this-book-works" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> How This Book Works<a href="index.html#how-this-book-works" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Each chapter is designed to support you as a learner. You’ll find:</p>
+<div id="from-sums-to-integrals" class="section level3 hasAnchor" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> From Sums to Integrals<a href="applications-of-integration.html#from-sums-to-integrals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If we divide an interval into many small pieces and add the contributions,
+<span class="math display">\[
+\text{total} \approx \sum (\text{rate or density}) \times (\text{size of piece}),
+\]</span>
+we get an approximation. As those pieces become smaller and more numerous, the approximation improves.</p>
+<p>This representation links back to the goal of a Riemann sum, to represent the area under the curve with simple geometric shapes so that we can sum them up to get a total.</p>
+<p>An <strong>integral</strong> represents the limit of this process:
+<span class="math display">\[
+\text{total} = \int (\text{rate or density}) \, (\text{unit of accumulation}).
+\]</span></p>
 <ul>
-<li>Clear explanations of key concepts<br />
-</li>
-<li>Environmental examples to connect math with meaning<br />
-</li>
-<li>Practice problems to strengthen your skills<br />
-</li>
-<li>Reflection prompts to help you think about what you’re learning</li>
+<li>Integrating a <strong>rate over time</strong> gives a total amount.</li>
+<li>Integrating a <strong>density over space</strong> gives a total mass or population.</li>
+<li>Integrating a <strong>flux over area and time</strong> gives total transfer.</li>
 </ul>
-<hr />
+<p>The integral formalizes what we already expect: adding up infinitely many infinitesimal contributions.</p>
 </div>
-<div id="success-in-this-class" class="section level2 hasAnchor" number="1.4">
-<h2><span class="header-section-number">1.4</span> Success in This Class<a href="index.html#success-in-this-class" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><img src="images/Growth%20Mindset.png" style="float:right; width:250px; margin:10px;" fig.alt="Image of person thinking, decorative" /></p>
-<p>First and foremost, know this: <strong>we believe in your ability to learn and grow.</strong> You bring unique strengths and perspectives, and your effort matters here.</p>
-<p>Mistakes are not a setback—they are the very heart of learning. When you get something wrong, you uncover where your thinking needs refinement, and that creates the space for real growth. Struggle is not a sign you don’t belong; it’s proof that your brain is stretching and building new connections.</p>
-<p>Just like in science, learning calculus is about <strong>iteration</strong>—trying, testing, revising, and improving. That process is what makes your understanding deeper and more durable.</p>
-<p>Assessments in this class are snapshots of your thinking at a particular moment in time. They are not final judgments about your intelligence, your worth, or your potential. You will have chances to revisit concepts, refine your understanding, and demonstrate what you’ve learned. Growth comes from re-engaging with the material, not from perfection on the first try.</p>
-<p>So give yourself permission to be imperfect. Keep engaging, reflecting, and asking questions. We’ll be here to support you every step of the way.</p>
-<hr />
-</div>
-<div id="looking-ahead" class="section level2 hasAnchor" number="1.5">
-<h2><span class="header-section-number">1.5</span> Looking Ahead<a href="index.html#looking-ahead" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>By the end of this course, you will be able to:</p>
+<div id="units-tell-the-story" class="section level3 hasAnchor" number="6.1.3">
+<h3><span class="header-section-number">6.1.3</span> Units Tell the Story<a href="applications-of-integration.html#units-tell-the-story" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>One of the most powerful ways to interpret an integral is through units.</p>
 <ul>
-<li>Apply calculus concepts to natural systems<br />
-</li>
-<li>Analyze environmental data with confidence<br />
-</li>
-<li>Interpret and communicate your results to others</li>
+<li>Rainfall rate: mm/hour<br />
+Multiply by time (hours) → mm of rainfall</li>
+<li>Population density: individuals/km²<br />
+Multiply by area (km²) → number of individuals</li>
+<li>Carbon flux: kg/m²/year<br />
+Multiply by area and time → kg of carbon</li>
+<li>Plankton concentration: cells/m³<br />
+Multiply by volume (m³) → number of cells</li>
+<li>Leaf-area density: m² of leaf area/m³<br />
+Multiply by volume (m³) → total leaf area</li>
 </ul>
-<p>But even more important than any specific skill, you’ll leave this course with a stronger belief in your ability to <em>learn mathematics</em>.</p>
-<p>Calculus is not just a hurdle to clear—it’s a tool that expands how you see and understand the world. Our hope is that by connecting it to the environment you care about, you’ll discover both its usefulness and its beauty.</p>
-<p>Most importantly, you’ll leave with the confidence to keep growing—using mathematics as a tool to explore, protect, and better understand the natural world around you.</p>
+<p>The integral works because the units of the integrand and the differential combine to produce a meaningful total. When the units make sense, the model usually does too.</p>
+</div>
+<div id="accumulation-not-just-area" class="section level3 hasAnchor" number="6.1.4">
+<h3><span class="header-section-number">6.1.4</span> Accumulation, Not Just Area<a href="applications-of-integration.html#accumulation-not-just-area" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Although integrals are often introduced geometrically as “area under a curve,” the more important idea is <strong>accumulation</strong>.</p>
+<p>An integral answers questions like:
+- How much has accumulated over this time period?
+- What is the total amount contained in this region?
+- How do gains and losses combine to produce net change?</p>
+<p>In the sections that follow, we will apply this same accumulation idea to many different contexts. The mathematics will look familiar, but the meaning will always come first.</p>
+</div>
+</div>
+<div id="accumulation-when-totals-are-always-positive" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Accumulation When Totals Are Always Positive<a href="applications-of-integration.html#accumulation-when-totals-are-always-positive" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In many real-world situations, accumulation only moves in one direction. Each small contribution adds to the total, and nothing is ever taken away. In these cases, the accumulated quantity is <strong>always nonnegative</strong>, and the interpretation of an integral is especially direct.</p>
+<p>These are often the first—and most intuitive—contexts in which integrals arise.</p>
+<div id="examples-of-always-positive-accumulation" class="section level3 hasAnchor" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Examples of Always-Positive Accumulation<a href="applications-of-integration.html#examples-of-always-positive-accumulation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p><strong>Total rainfall over time</strong><br />
+Rainfall rate may vary, but rain only adds water. Integrating a rain rate over time gives total precipitation, which cannot decrease.</p></li>
+<li><p><strong>Total distance traveled</strong><br />
+When speed is nonnegative, integrating speed over time gives total distance traveled. Even if speed changes, the total distance only increases.</p></li>
+<li><p><strong>Total water volume collected</strong><br />
+Integrating an inflow rate into a reservoir gives total volume added, assuming no outflow is included in the model.</p></li>
+<li><p><strong>Total biomass produced</strong><br />
+Integrating a production rate (such as plant growth or primary productivity) gives cumulative biomass generated over a season.</p></li>
+<li><p><strong>Total plankton abundance in a water column</strong><br />
+Integrating plankton concentration over depth gives total abundance per unit area. Concentration varies with depth, but the total count is always positive.</p></li>
+</ul>
+<p>In each case, the integral represents <strong>how much has accumulated</strong>, not a balance between competing processes.</p>
+</div>
+<div id="why-these-examples-matter" class="section level3 hasAnchor" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Why These Examples Matter<a href="applications-of-integration.html#why-these-examples-matter" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>These examples highlight two important ideas:</p>
+<ol style="list-style-type: decimal">
+<li>The quantity being integrated represents <strong>something that cannot be negative</strong> in context.</li>
+<li>The integral answers a question about <strong>total amount</strong>, not change relative to a baseline.</li>
+</ol>
+<p>Because all contributions are positive, the integral behaves like an ever-increasing sum. This makes these situations ideal for building intuition about how integrals work before introducing more complex cases.</p>
+</div>
+</div>
+<div id="net-accumulation-when-gains-and-losses-compete" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Net Accumulation: When Gains and Losses Compete<a href="applications-of-integration.html#net-accumulation-when-gains-and-losses-compete" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In many environmental and natural systems, accumulation does <strong>not</strong> move in just one direction. Instead, quantities are constantly being added <em>and</em> removed. Growth competes with decay, inflow with outflow, uptake with release. In these situations, an integral represents <strong>net accumulation</strong>.</p>
+<p>The mathematics looks the same—but the interpretation deepens.</p>
+<div id="signed-contributions-matter" class="section level3 hasAnchor" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> Signed Contributions Matter<a href="applications-of-integration.html#signed-contributions-matter" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When a rate can be positive or negative, each small contribution carries a <strong>sign</strong>:</p>
+<ul>
+<li>Positive values add to the total.</li>
+<li>Negative values subtract from the total.</li>
+</ul>
+<p>Over a short interval <span class="math inline">\(\Delta t\)</span>, a rate <span class="math inline">\(r(t)\)</span> contributes approximately<br />
+<span class="math display">\[
+r(t)\,\Delta t,
+\]</span>
+which may increase or decrease the accumulated amount depending on the sign of <span class="math inline">\(r(t)\)</span>.</p>
+<p>The integral adds <em>all</em> of these signed contributions:
+<span class="math display">\[
+\text{net change} = \int r(t)\,dt.
+\]</span></p>
+<p>Rather than answering “How much was added?”, the integral now answers<br />
+<strong>“What was the overall balance after gains and losses were combined?”</strong></p>
+</div>
+<div id="common-examples-of-net-accumulation" class="section level3 hasAnchor" number="6.3.2">
+<h3><span class="header-section-number">6.3.2</span> Common Examples of Net Accumulation<a href="applications-of-integration.html#common-examples-of-net-accumulation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p><strong>Streamflow with inflow and outflow</strong><br />
+A river reach may receive water from upstream and lose water to evaporation or groundwater. Integrating the <em>net flow rate</em> gives the change in stored water.</p></li>
+<li><p><strong>Carbon balance in an ecosystem</strong><br />
+Photosynthesis adds carbon; respiration releases it. Integrating net carbon flux over time gives the net carbon gain or loss.</p></li>
+<li><p><strong>Drug concentration in the bloodstream</strong><br />
+Absorption adds drug; metabolism and excretion remove it. The integral tracks net drug accumulation over time.</p></li>
+<li><p><strong>Population change</strong><br />
+Births increase population; deaths decrease it. Integrating the difference between birth and death rates gives net population change.</p></li>
+<li><p><strong>Heat transfer</strong><br />
+Heat may enter and leave a system simultaneously. The integral captures the net energy transferred.</p></li>
+</ul>
+<p>In each case, the total is not guaranteed to increase—it depends on which processes dominate.</p>
+</div>
+<div id="geometry-still-helpsbut-carefully" class="section level3 hasAnchor" number="6.3.3">
+<h3><span class="header-section-number">6.3.3</span> Geometry Still Helps—But Carefully<a href="applications-of-integration.html#geometry-still-helpsbut-carefully" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Geometrically, net accumulation corresponds to <strong>signed area</strong>:</p>
+<ul>
+<li>Area above the axis contributes positively.</li>
+<li>Area below the axis contributes negatively.</li>
+</ul>
+<p>Two regions of equal size but opposite sign can cancel, producing a net change of zero—even though substantial activity occurred. This reinforces an important idea:</p>
+<blockquote>
+<p>A net integral of zero does <strong>not</strong> mean “nothing happened.”<br />
+It means gains and losses balanced perfectly.</p>
+</blockquote>
+</div>
+<div id="why-net-accumulation-is-powerful" class="section level3 hasAnchor" number="6.3.4">
+<h3><span class="header-section-number">6.3.4</span> Why Net Accumulation Is Powerful<a href="applications-of-integration.html#why-net-accumulation-is-powerful" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Net accumulation allows integrals to model <strong>balance laws</strong>—the fundamental bookkeeping equations of science. These models track what comes in, what goes out, and what remains.</p>
+<p>As you move forward, keep this distinction in mind:</p>
+<ul>
+<li><strong>Always-positive accumulation</strong> measures <em>how much</em>.</li>
+<li><strong>Net accumulation</strong> measures <em>what remains after everything is accounted for</em>.</li>
+</ul>
+<p>Both rely on the same mathematical machinery. What changes is the story the integral is telling—and learning to read that story is the real goal of this chapter.</p>
+</div>
+</div>
+<div id="using-integrals-to-compute-the-average-value-of-a-function" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Using Integrals to Compute the Average Value of a Function<a href="applications-of-integration.html#using-integrals-to-compute-the-average-value-of-a-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In everyday life, an <em>average</em> represents a typical or representative value. We average temperatures over a day, rainfall over a season, or pollution levels over a region. When a quantity varies continuously, integrals provide a natural and precise way to compute that average.</p>
+<div id="the-idea-average-as-total-divided-by-size" class="section level3 hasAnchor" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> The Idea: Average as “Total Divided by Size”<a href="applications-of-integration.html#the-idea-average-as-total-divided-by-size" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For a list of discrete values,
+<span class="math display">\[
+\text{average} = \frac{\text{sum of values}}{\text{number of values}}.
+\]</span></p>
+<p>The same idea carries over to continuous functions:</p>
+<ul>
+<li>The <strong>integral</strong> gives the <em>total accumulated amount</em>.</li>
+<li>Dividing by the <strong>length of the interval</strong> spreads that total evenly.</li>
+</ul>
+<p>This leads directly to the definition of the average value of a function.</p>
+</div>
+<div id="definition-average-value-of-a-function" class="section level3 hasAnchor" number="6.4.2">
+<h3><span class="header-section-number">6.4.2</span> Definition: Average Value of a Function<a href="applications-of-integration.html#definition-average-value-of-a-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If <span class="math inline">\(f(x)\)</span> is continuous on the interval <span class="math inline">\([a,b]\)</span>, its <strong>average value</strong> on that interval is
+<span class="math display">\[
+f_{\text{avg}} = \frac{1}{b-a}\int_a^b f(x)\,dx.
+\]</span></p>
+<p>Conceptually:
+- <span class="math inline">\(\int_a^b f(x)\,dx\)</span> computes the total accumulation.
+- Dividing by <span class="math inline">\(b-a\)</span> converts that total into an average per unit of <span class="math inline">\(x\)</span>.</p>
+</div>
+<div id="a-physical-interpretation" class="section level3 hasAnchor" number="6.4.3">
+<h3><span class="header-section-number">6.4.3</span> A Physical Interpretation<a href="applications-of-integration.html#a-physical-interpretation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Imagine replacing the variable function <span class="math inline">\(f(x)\)</span> with a constant height <span class="math inline">\(f_{\text{avg}}\)</span> over the interval <span class="math inline">\([a,b]\)</span>.</p>
+<p>The rectangle with height <span class="math inline">\(f_{\text{avg}}\)</span> and width <span class="math inline">\(b-a\)</span> has the <strong>same area</strong> as the area under the curve:
+<span class="math display">\[
+(b-a)\,f_{\text{avg}} = \int_a^b f(x)\,dx.
+\]</span></p>
+<p>So the average value is the height of a rectangle that represents the same total accumulation as the original function.</p>
+<div class="promptbox">
+<p><strong>Example: Average Value of <span class="math inline">\(x^2\)</span> on <span class="math inline">\([2,4]\)</span></strong></p>
+<p>Let<br />
+<span class="math display">\[
+f(x) = x^2.
+\]</span></p>
+<p>We want to find the <strong>average value</strong> of <span class="math inline">\(f(x)\)</span> on the interval <span class="math inline">\([2,4]\)</span>.</p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
+<hr />
+<p><strong>Step 1: Write the Average Value Formula</strong></p>
+<p>The average value of a function on <span class="math inline">\([a,b]\)</span> is
+<span class="math display">\[
+f_{\text{avg}} = \frac{1}{b-a}\int_a^b f(x)\,dx.
+\]</span></p>
+<p>Here, <span class="math inline">\(a = 2\)</span> and <span class="math inline">\(b = 4\)</span>, so
+<span class="math display">\[
+f_{\text{avg}} = \frac{1}{4-2}\int_2^4 x^2\,dx.
+\]</span></p>
+<hr />
+<p><strong>Step 2: Compute the Integral</strong></p>
+<p>An antiderivative of <span class="math inline">\(x^2\)</span> is
+<span class="math display">\[
+\int x^2\,dx = \frac{x^3}{3}.
+\]</span></p>
+<p>Evaluate from 2 to 4:
+<span class="math display">\[
+\int_2^4 x^2\,dx
+= \left.\frac{x^3}{3}\right|_2^4
+= \frac{4^3}{3} - \frac{2^3}{3}
+= \frac{64 - 8}{3}
+= \frac{56}{3}.
+\]</span></p>
+<hr />
+<p><strong>Step 3: Divide by the Interval Length</strong></p>
+<p>The interval length is <span class="math inline">\(4 - 2 = 2\)</span>, so
+<span class="math display">\[
+f_{\text{avg}} = \frac{1}{2}\cdot\frac{56}{3} = \frac{28}{3}.
+\]</span></p>
+<hr />
+<p><strong>Final Answer</strong></p>
+<p>The average value of <span class="math inline">\(x^2\)</span> on the interval <span class="math inline">\([2,4]\)</span> is
+<span class="math display">\[
+\boxed{\frac{28}{3}}.
+\]</span></p>
+<hr />
+<p><strong>Interpretation</strong></p>
+<p>This means that the constant function
+<span class="math display">\[
+y = \frac{28}{3}
+\]</span>
+has the same total area over <span class="math inline">\([2,4]\)</span> as the curve <span class="math inline">\(y = x^2\)</span>. In other words, a rectangle of height <span class="math inline">\(\tfrac{28}{3}\)</span> and width 2 represents the same total accumulation as the original function over this interval.</p>
+</div>
+</div>
+<div id="environmental-examples" class="section level3 hasAnchor" number="6.4.4">
+<h3><span class="header-section-number">6.4.4</span> Environmental Examples<a href="applications-of-integration.html#environmental-examples" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p><strong>Average temperature over a day</strong><br />
+Integrate temperature over time and divide by the length of the day.</p></li>
+<li><p><strong>Average rainfall rate during a storm</strong><br />
+Total rainfall divided by storm duration.</p></li>
+<li><p><strong>Average plankton concentration with depth</strong><br />
+Integrate concentration over depth and divide by total depth.</p></li>
+<li><p><strong>Average pollutant concentration along a river reach</strong><br />
+Integrate concentration over distance and divide by the length of the reach.</p></li>
+</ul>
+<p>In each case, the integral finds the total, and the division converts it into a meaningful average.</p>
+</div>
+<div id="signed-functions-and-averages" class="section level3 hasAnchor" number="6.4.5">
+<h3><span class="header-section-number">6.4.5</span> Signed Functions and Averages<a href="applications-of-integration.html#signed-functions-and-averages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If <span class="math inline">\(f(x)\)</span> takes both positive and negative values, the average value reflects <strong>net behavior</strong>.</p>
+<ul>
+<li>Positive regions increase the average.</li>
+<li>Negative regions decrease it.</li>
+<li>Large positive and negative regions can cancel.</li>
+</ul>
+<p>As with net accumulation, an average of zero does not necessarily mean “nothing happened”—it means gains and losses balanced.</p>
+</div>
+<div id="why-this-matters" class="section level3 hasAnchor" number="6.4.6">
+<h3><span class="header-section-number">6.4.6</span> Why This Matters<a href="applications-of-integration.html#why-this-matters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The average value formula shows that integrals do more than measure totals. They allow us to define representative values for quantities that vary continuously in space or time.</p>
+<p>This idea appears repeatedly in science and engineering, from climate averages to mean concentrations and long-term rates. Once again, the mathematics is simple—but the interpretation is powerful.</p>
+</div>
+</div>
+<div id="area-between-two-curves" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> Area Between Two Curves<a href="applications-of-integration.html#area-between-two-curves" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Sometimes we are interested not in accumulation relative to an axis, but in the <strong>space between two functions</strong>. This arises naturally when comparing two quantities that vary over the same interval—such as upper and lower bounds, competing models, or maximum and minimum possible values.</p>
+<p>In these situations, integration allows us to compute the <strong>area between curves</strong>.</p>
+<div id="the-core-idea" class="section level3 hasAnchor" number="6.5.1">
+<h3><span class="header-section-number">6.5.1</span> The Core Idea<a href="applications-of-integration.html#the-core-idea" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Suppose we have two functions:</p>
+<ul>
+<li><span class="math inline">\(f(x)\)</span>: the <strong>upper</strong> curve<br />
+</li>
+<li><span class="math inline">\(g(x)\)</span>: the <strong>lower</strong> curve</li>
+</ul>
+<p>on an interval <span class="math inline">\([a,b]\)</span>.</p>
+<p>At each value of <span class="math inline">\(x\)</span>, the vertical distance between the curves is
+<span class="math display">\[
+f(x) - g(x).
+\]</span></p>
+<p>If we break the interval into small pieces of width <span class="math inline">\(\Delta x\)</span>, each thin vertical strip has approximate area
+<span class="math display">\[
+\big(f(x) - g(x)\big)\Delta x.
+\]</span></p>
+<p>Adding up all of these strips leads to the integral:
+<span class="math display">\[
+\text{Area} = \int_a^b \big[f(x) - g(x)\big]\,dx.
+\]</span></p>
+</div>
+<div id="why-this-always-produces-a-positive-area" class="section level3 hasAnchor" number="6.5.2">
+<h3><span class="header-section-number">6.5.2</span> Why This Always Produces a Positive Area<a href="applications-of-integration.html#why-this-always-produces-a-positive-area" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Area is a <strong>geometric quantity</strong>, not a signed one. By subtracting the lower curve from the upper curve, we ensure that the integrand represents a nonnegative height at every point.</p>
+<p>This is different from net accumulation:
+- Net accumulation can cancel positive and negative contributions.
+- Area between curves measures <em>separation</em>, not balance.</p>
+</div>
+<div id="environmental-and-scientific-examples" class="section level3 hasAnchor" number="6.5.3">
+<h3><span class="header-section-number">6.5.3</span> Environmental and Scientific Examples<a href="applications-of-integration.html#environmental-and-scientific-examples" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p><strong>Temperature envelopes</strong><br />
+The area between daily maximum and minimum temperature curves represents total thermal variability over time.</p></li>
+<li><p><strong>Uncertainty bands in models</strong><br />
+The area between upper and lower prediction curves measures total uncertainty across a domain.</p></li>
+<li><p><strong>Water table and bedrock profiles</strong><br />
+The area between elevation curves can represent stored groundwater volume per unit width.</p></li>
+<li><p><strong>Canopy structure</strong><br />
+The area between top-of-canopy and ground-height curves reflects available vertical space for biomass or light penetration.</p></li>
+</ul>
+<div class="promptbox">
+<p><strong>Example: Extra Water Stored Above a “Minimum Flow” Target</strong></p>
+<p>Suppose a river manager wants to maintain a <strong>minimum ecological flow</strong> of 30 m³/s to support fish habitat. During spring snowmelt, the actual streamflow exceeds that target. The <em>extra</em> water above the target represents potential storage, recharge, or managed releases.</p>
+<p>Let <span class="math inline">\(t\)</span> be time in <strong>days</strong> over a 10-day period, and let streamflow be measured in <strong>m³/s</strong>.</p>
+<p>Define:</p>
+<ul>
+<li>Actual flow (a simple “spring pulse” model):
+<span class="math display">\[
+Q(t) = 30 + 10\sin\!\left(\frac{\pi t}{10}\right)
+\quad \text{m}^3/\text{s}
+\]</span></li>
+<li>Target minimum flow:
+<span class="math display">\[
+Q_{\min}(t) = 30
+\quad \text{m}^3/\text{s}
+\]</span></li>
+</ul>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-43-1.png" width="672" />
+<strong>What does the area between curves represent?</strong></p>
+<p>The difference
+<span class="math display">\[
+Q(t) - Q_{\min}(t) = 10\sin\!\left(\frac{\pi t}{10}\right)
+\]</span>
+is the <strong>extra discharge</strong> above the minimum flow (m³/s).</p>
+<p>If we integrate this over time, we get <strong>extra volume of water</strong>:
+<span class="math display">\[
+\int_0^{10} \big(Q(t) - Q_{\min}(t)\big)\,dt
+\quad \Rightarrow \quad
+(\text{m}^3/\text{s})\cdot(\text{time})
+\]</span></p>
+<p>To make units intuitive, convert days to seconds:
+<span class="math display">\[
+1\ \text{day} = 86400\ \text{s}.
+\]</span></p>
+<p>So the extra volume (in m³) is:
+<span class="math display">\[
+V_{\text{extra}} = 86400\int_0^{10} 10\sin\!\left(\frac{\pi t}{10}\right)\,dt.
+\]</span></p>
+<p><strong>Compute the integral</strong></p>
+<p><span class="math display">\[
+\int 10\sin\!\left(\frac{\pi t}{10}\right)\,dt
+= 10\left(-\frac{10}{\pi}\right)\cos\!\left(\frac{\pi t}{10}\right)
+= -\frac{100}{\pi}\cos\!\left(\frac{\pi t}{10}\right).
+\]</span></p>
+<p>Evaluate from 0 to 10:
+<span class="math display">\[
+\int_0^{10} 10\sin\!\left(\frac{\pi t}{10}\right)\,dt
+= \left[-\frac{100}{\pi}\cos\!\left(\frac{\pi t}{10}\right)\right]_0^{10}
+\]</span>
+<span class="math display">\[
+= -\frac{100}{\pi}\cos(\pi) - \left(-\frac{100}{\pi}\cos(0)\right)
+= -\frac{100}{\pi}(-1) + \frac{100}{\pi}(1)
+= \frac{200}{\pi}.
+\]</span></p>
+<p>Now convert to volume:
+<span class="math display">\[
+V_{\text{extra}} = 86400\cdot \frac{200}{\pi}
+= \frac{17,\!280,\!000}{\pi}
+\approx 5,\!501,\!000\ \text{m}^3.
+\]</span></p>
+<p><strong>Result and Interpretation</strong></p>
+<p><span class="math display">\[
+\boxed{V_{\text{extra}} \approx 5.50\times 10^6\ \text{m}^3}
+\]</span></p>
+<p>That’s the <strong>extra water volume</strong> delivered above the ecological minimum over the 10-day snowmelt pulse.</p>
+</div>
+<div class="promptbox">
+<p><strong>Example: Population Change from Birth and Death Rates</strong></p>
+<p>Many populations change because individuals are <strong>born</strong> and <strong>die</strong> continuously over time. Rather than counting individuals one by one, we often model these processes using <strong>rates</strong>.</p>
+<p>In this example, we use integration to measure the <strong>area between two rate curves</strong>—birth rate and death rate—and interpret that area as net population change.</p>
+<hr />
+<p><strong>Model setup</strong></p>
+<p>Let <span class="math inline">\(t\)</span> represent time in <strong>years</strong>, with <span class="math inline">\(0 \le t \le 10\)</span>.</p>
+<p>Define:
+- Birth rate:
+<span class="math display">\[
+  B(t) = 120 + 20\sin\!\left(\frac{\pi t}{5}\right)
+  \quad \text{individuals/year}
+  \]</span>
+- Death rate:
+<span class="math display">\[
+  D(t) = 100 + 10\cos\!\left(\frac{\pi t}{5}\right)
+  \quad \text{individuals/year}
+  \]</span></p>
+<p>These functions capture a simple idea:
+- Births fluctuate more strongly (e.g., seasonal reproduction).
+- Deaths fluctuate less and around a lower baseline.</p>
+<hr />
+<p><strong>What does the area between the curves represent?</strong></p>
+<p>At any time <span class="math inline">\(t\)</span>, the vertical difference
+<span class="math display">\[
+B(t) - D(t)
+\]</span>
+represents the <strong>net rate of population change</strong> (individuals per year).</p>
+<ul>
+<li>If <span class="math inline">\(B(t) &gt; D(t)\)</span>, the population is increasing.</li>
+<li>If <span class="math inline">\(B(t) &lt; D(t)\)</span>, the population is decreasing.</li>
+</ul>
+<p>The <strong>area between the curves</strong> over a time interval is
+<span class="math display">\[
+\int_0^{10} \big[B(t) - D(t)\big]\,dt,
+\]</span>
+which gives the <strong>net change in population size</strong> over 10 years.</p>
+<hr />
+<p><strong>Compute the net population change</strong></p>
+<p>First compute the difference:
+<span class="math display">\[
+B(t) - D(t)
+= (120 - 100)
++ 20\sin\!\left(\frac{\pi t}{5}\right)
+- 10\cos\!\left(\frac{\pi t}{5}\right).
+\]</span></p>
+<p>Integrate term by term:
+<span class="math display">\[
+\int_0^{10} 20\,dt = 200,
+\]</span></p>
+<p><span class="math display">\[
+\int_0^{10} 20\sin\!\left(\frac{\pi t}{5}\right)\,dt
+= 20\left[-\frac{5}{\pi}\cos\!\left(\frac{\pi t}{5}\right)\right]_0^{10}
+= 0,
+\]</span></p>
+<p><span class="math display">\[
+\int_0^{10} 10\cos\!\left(\frac{\pi t}{5}\right)\,dt
+= 10\left[\frac{5}{\pi}\sin\!\left(\frac{\pi t}{5}\right)\right]_0^{10}
+= 0.
+\]</span></p>
+<p>So the oscillating terms cancel over the full interval, leaving:
+<span class="math display">\[
+\int_0^{10} \big[B(t) - D(t)\big]\,dt = 200.
+\]</span></p>
+<hr />
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
+<p><strong>Result and interpretation</strong></p>
+<p><span class="math display">\[
+\boxed{\text{Net population change over 10 years} = 200\ \text{individuals}}
+\]</span></p>
+<ul>
+<li>The population gains 200 individuals overall.</li>
+<li>Even though births and deaths fluctuate, the <strong>area between the curves</strong> captures the long-term balance.</li>
+<li>Large seasonal swings can occur, but what matters for long-term size is the total area between the rates.</li>
+</ul>
+<hr />
+<p><strong>Big picture</strong></p>
+<p>This example mirrors many real systems:</p>
+<ul>
+<li>Carbon uptake vs. release</li>
+<li>Inflow vs. outflow</li>
+<li>Growth vs. decay</li>
+</ul>
+<p>The integral does not track individuals—it tracks <strong>imbalance</strong>. The area between curves turns competing processes into a single, interpretable number.</p>
+</div>
+</div>
+<div id="when-curves-cross--and-the-crossing" class="section level3 hasAnchor" number="6.5.4">
+<h3><span class="header-section-number">6.5.4</span> When Curves Cross -and the crossing<a href="applications-of-integration.html#when-curves-cross--and-the-crossing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If the curves cross within the interval, the “upper” and “lower” roles may switch. In practice, this means:</p>
+<ol style="list-style-type: decimal">
+<li>Find the intersection points.</li>
+<li>Break the interval into subintervals where one function stays above the other.</li>
+<li>Compute the area on each subinterval and add the results.</li>
+</ol>
+<p>This step reinforces an important habit: <strong>sketching the curves first</strong> is often essential for setting up the correct integral.</p>
+</div>
+<div id="big-picture" class="section level3 hasAnchor" number="6.5.5">
+<h3><span class="header-section-number">6.5.5</span> Big Picture<a href="applications-of-integration.html#big-picture" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Area between curves extends the idea of integration beyond accumulation relative to an axis. It allows us to quantify differences, gaps, and separations—turning visual comparisons into precise numerical measures.</p>
+<p>Once again, the formula is simple. The insight comes from understanding <em>what is being measured</em> and <em>why that measurement matters</em>.</p>
+</div>
+</div>
+<div id="double-integrals-accumulation-over-two-dimensions" class="section level2 hasAnchor" number="6.6">
+<h2><span class="header-section-number">6.6</span> Double Integrals: Accumulation Over Two Dimensions<a href="applications-of-integration.html#double-integrals-accumulation-over-two-dimensions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>So far, we’ve used integrals to accumulate quantities over <strong>one variable</strong>—time, distance, or depth. Many environmental quantities, however, vary over <strong>two spatial dimensions</strong> at once. In those cases, we need a way to accumulate contributions across an entire region, not just along a line.</p>
+<p>That is the role of <strong>double integrals</strong>.</p>
+<div id="from-length-to-area" class="section level3 hasAnchor" number="6.6.1">
+<h3><span class="header-section-number">6.6.1</span> From Length to Area<a href="applications-of-integration.html#from-length-to-area" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Recall the basic idea of integration:</p>
+<ul>
+<li>A function value gives “amount per unit.”</li>
+<li>Multiplying by a small piece gives a contribution.</li>
+<li>Adding up all contributions gives a total.</li>
+</ul>
+<p>With double integrals, the only change is the shape of the small piece.</p>
+<p>Instead of thin intervals of width <span class="math inline">\(dx\)</span>, we break a region into many small <strong>area elements</strong> of size
+<span class="math display">\[
+\Delta A \approx \Delta x\,\Delta y.
+\]</span></p>
+<p>Each small rectangle contributes approximately
+<span class="math display">\[
+f(x,y)\,\Delta A.
+\]</span></p>
+<p>Adding up all such contributions leads to a double integral.</p>
+</div>
+<div id="definition-double-integral-over-a-region" class="section level3 hasAnchor" number="6.6.2">
+<h3><span class="header-section-number">6.6.2</span> Definition: Double Integral Over a Region<a href="applications-of-integration.html#definition-double-integral-over-a-region" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If <span class="math inline">\(f(x,y)\)</span> represents a density, rate, or intensity over a region <span class="math inline">\(R\)</span>, then the total amount is
+<span class="math display">\[
+\iint_R f(x,y)\,dA.
+\]</span></p>
+<p>Conceptually:</p>
+<ul>
+<li><span class="math inline">\(f(x,y)\)</span> tells us how much exists <em>per unit area</em> at location <span class="math inline">\((x,y)\)</span>,</li>
+<li><span class="math inline">\(dA\)</span> represents a tiny patch of area,</li>
+<li>the double integral adds contributions from <strong>everywhere in the region</strong>.</li>
+</ul>
+</div>
+<div id="units-still-tell-the-story" class="section level3 hasAnchor" number="6.6.3">
+<h3><span class="header-section-number">6.6.3</span> Units Still Tell the Story<a href="applications-of-integration.html#units-still-tell-the-story" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Units are especially helpful with double integrals.</p>
+<p>Examples:</p>
+<ul>
+<li>Population density (individuals/km²)<br />
+<span class="math inline">\(\times\)</span> area (km²) → total population</li>
+<li>Rainfall rate (mm/hour) over a landscape<br />
+<span class="math inline">\(\times\)</span> area <span class="math inline">\(\times\)</span> time → total rainfall volume</li>
+<li>Pollutant mass per unit area (kg/m²)<br />
+<span class="math inline">\(\times\)</span> area → total pollutant mass</li>
+<li>Heat flux per unit area (W/m²)<br />
+<span class="math inline">\(\times\)</span> area → total heat transfer rate</li>
+</ul>
+<p>If the units multiply cleanly into a meaningful total, the integral is doing the right job.</p>
+</div>
+<div id="rectangular-regions-and-iterated-integrals" class="section level3 hasAnchor" number="6.6.4">
+<h3><span class="header-section-number">6.6.4</span> Rectangular Regions and Iterated Integrals<a href="applications-of-integration.html#rectangular-regions-and-iterated-integrals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When the region <span class="math inline">\(R\)</span> is rectangular,
+<span class="math display">\[
+R = \{(x,y)\mid a \le x \le b,\; c \le y \le d\},
+\]</span>
+the double integral can be computed as an <strong>iterated integral</strong>:
+<span class="math display">\[
+\iint_R f(x,y)\,dA
+=
+\int_a^b \int_c^d f(x,y)\,dy\,dx
+=
+\int_c^d \int_a^b f(x,y)\,dx\,dy.
+\]</span></p>
+<p>This means:</p>
+<ul>
+<li>Integrate with respect to one variable first,</li>
+<li>Treat the other variable as a constant,</li>
+<li>Then integrate the result again.</li>
+</ul>
+<p>Both orders give the same total (as long as <span class="math inline">\(f\)</span> behaves nicely).</p>
+</div>
+<div id="interpretation-stacking-integrals" class="section level3 hasAnchor" number="6.6.5">
+<h3><span class="header-section-number">6.6.5</span> Interpretation: Stacking Integrals<a href="applications-of-integration.html#interpretation-stacking-integrals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>One useful way to think about a double integral is as a “stack” of single integrals.</p>
+<p>For example:</p>
+<ul>
+<li>Fix <span class="math inline">\(x\)</span>, integrate <span class="math inline">\(f(x,y)\)</span> over <span class="math inline">\(y\)</span>: this gives the total contribution along a vertical slice.</li>
+<li>Then integrate those slice totals over <span class="math inline">\(x\)</span>: this adds up all slices across the region.</li>
+</ul>
+<p>Geometrically, this mirrors how we built Riemann sums—just in two directions instead of one.</p>
+</div>
+<div id="why-double-integrals-matter" class="section level3 hasAnchor" number="6.6.6">
+<h3><span class="header-section-number">6.6.6</span> Why Double Integrals Matter<a href="applications-of-integration.html#why-double-integrals-matter" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Double integrals allow us to:</p>
+<ul>
+<li>Compute totals over landscapes, surfaces, and regions,</li>
+<li>Move from local measurements to regional summaries,</li>
+<li>Model spatially distributed systems in a mathematically precise way.</li>
+</ul>
+<p>The mathematics extends ideas you already know. The key shift is conceptual: we are no longer accumulating along a line, but across an area.</p>
+<p>In the sections that follow, we’ll use double integrals to compute masses, totals, and averages over regions—and to see how spatial variation shapes environmental outcomes.</p>
+<div class="promptbox">
+<p><strong>Example: Evaluating a Double Integral Over a Rectangle</strong></p>
+<p>We will compute a double integral step by step, focusing only on the mechanics.</p>
+<p>Let
+<span class="math display">\[
+f(x,y) = x^2 + xy - y,
+\]</span>
+and consider the rectangular region
+<span class="math display">\[
+R = \{(x,y)\mid -5 \le x \le 5,\; -2 \le y \le 2\}.
+\]</span></p>
+<p>We want to evaluate
+<span class="math display">\[
+\iint_R \big(x^2 + xy - y\big)\,dA.
+\]</span></p>
+<hr />
+<p><strong>Step 1: Write as an iterated integral</strong></p>
+<p>Because <span class="math inline">\(R\)</span> is rectangular, we can integrate with respect to either variable first. We’ll integrate with respect to <span class="math inline">\(y\)</span> first:
+<span class="math display">\[
+\iint_R \big(x^2 + xy - y\big)\,dA
+=
+\int_{-5}^{5} \int_{-2}^{2} \big(x^2 + xy - y\big)\,dy\,dx.
+\]</span></p>
+<hr />
+<p><strong>Step 2: Integrate with respect to <span class="math inline">\(y\)</span></strong></p>
+<p>Treat <span class="math inline">\(x\)</span> as a constant:
+<span class="math display">\[
+\int_{-2}^{2} (x^2 + xy - y)\,dy
+=
+\left[x^2y + \frac{x}{2}y^2 - \frac{1}{2}y^2\right]_{-2}^{2}.
+\]</span></p>
+<p>Evaluate term by term:</p>
+<ul>
+<li><span class="math inline">\(x^2y\)</span>: <span class="math inline">\(x^2(2 - (-2)) = 4x^2\)</span></li>
+<li><span class="math inline">\(\frac{x}{2}y^2\)</span>: same at <span class="math inline">\(y=2\)</span> and <span class="math inline">\(y=-2\)</span>, so it cancels</li>
+<li><span class="math inline">\(-\frac{1}{2}y^2\)</span>: same at <span class="math inline">\(y=2\)</span> and <span class="math inline">\(y=-2\)</span>, so it cancels</li>
+</ul>
+<p>So the result of the inner integral is:
+<span class="math display">\[
+4x^2.
+\]</span></p>
+<hr />
+<p><strong>Step 3: Integrate with respect to <span class="math inline">\(x\)</span></strong></p>
+<p>Now integrate with respect to <span class="math inline">\(x\)</span>:
+<span class="math display">\[
+\int_{-5}^{5} 4x^2\,dx
+=
+4\int_{-5}^{5} x^2\,dx
+=
+4\left[ \frac{x^3}{3} \right]_{-5}^{5}.
+\]</span></p>
+<p>Evaluate:
+<span class="math display">\[
+= 4\left(\frac{125}{3} - \left(-\frac{125}{3}\right)\right)
+= 4\cdot\frac{250}{3}
+= \frac{1000}{3}.
+\]</span></p>
+<hr />
+<p><strong>Final Answer</strong></p>
+<p><span class="math display">\[
+\boxed{\iint_R \big(x^2 + xy - y\big)\,dA = \frac{1000}{3}}.
+\]</span></p>
+<hr />
+<p><strong>Key Takeaways</strong></p>
+<ul>
+<li>Symmetric bounds can cause terms to cancel automatically.</li>
+<li>Odd functions in a symmetric interval integrate to zero.</li>
+<li>The mechanics of double integration follow the same rules as single-variable integration—applied one variable at a time.</li>
+</ul>
+<p><strong>Graphically</strong></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
+<pre><code>## [1] 336.6792</code></pre>
+</div>
+<div class="promptbox">
+<p><strong>Example: Integrating <span class="math inline">\(f(x,y)=x^2+xy-y\)</span> Without Bounds</strong></p>
+<p><strong>What happens if we don’t apply bounds?</strong><br />
+Without bounds, you are not computing a total over a region. Instead, you are finding an <strong>antiderivative</strong>. In multivariable settings, the “constant of integration” becomes an <strong>arbitrary function of the other variable</strong>, because that other variable is treated as a constant during the integration.</p>
+<p>Let
+<span class="math display">\[
+f(x,y)=x^2+xy-y.
+\]</span></p>
+<hr />
+<p><strong>Integrate with respect to <span class="math inline">\(y\)</span> (treat <span class="math inline">\(x\)</span> as constant)</strong></p>
+<p><span class="math display">\[
+\int \big(x^2+xy-y\big)\,dy
+\]</span></p>
+<p>Integrate term-by-term:</p>
+<p><span class="math display">\[
+\int x^2\,dy = x^2y,
+\qquad
+\int xy\,dy = x\cdot\frac{y^2}{2},
+\qquad
+\int (-y)\,dy = -\frac{y^2}{2}.
+\]</span></p>
+<p>So,
+<span class="math display">\[
+\int \big(x^2+xy-y\big)\,dy
+=
+x^2y+\frac{x}{2}y^2-\frac{y^2}{2}+C(x).
+\]</span></p>
+<p>Here <span class="math inline">\(C(x)\)</span> is an arbitrary function of <span class="math inline">\(x\)</span>, because differentiating with respect to <span class="math inline">\(y\)</span> makes any <span class="math inline">\(C(x)\)</span> disappear.</p>
+<hr />
+<p><strong>Integrate with respect to <span class="math inline">\(x\)</span> (treat <span class="math inline">\(y\)</span> as constant)</strong></p>
+<p><span class="math display">\[
+\int \big(x^2+xy-y\big)\,dx
+\]</span></p>
+<p>Again term-by-term:</p>
+<p><span class="math display">\[
+\int x^2\,dx = \frac{x^3}{3},
+\qquad
+\int xy\,dx = y\cdot\frac{x^2}{2},
+\qquad
+\int (-y)\,dx = -yx.
+\]</span></p>
+<p>So,
+<span class="math display">\[
+\int \big(x^2+xy-y\big)\,dx
+=
+\frac{x^3}{3}+\frac{y}{2}x^2-yx+K(y).
+\]</span></p>
+<p>Here <span class="math inline">\(K(y)\)</span> is an arbitrary function of <span class="math inline">\(y\)</span>, because differentiating with respect to <span class="math inline">\(x\)</span> makes any <span class="math inline">\(K(y)\)</span> disappear.</p>
+<hr />
+<p><strong>Takeaway</strong></p>
+<p>Integrating without bounds produces an antiderivative, not a number:</p>
+<ul>
+<li><span class="math inline">\(\int f(x,y)\,dy\)</span> gives a family of functions <span class="math inline">\(F(x,y)+C(x)\)</span>.</li>
+<li><span class="math inline">\(\int f(x,y)\,dx\)</span> gives a family of functions <span class="math inline">\(G(x,y)+K(y)\)</span>.</li>
+</ul>
+<p>To get a single numerical value, you must specify bounds (a region) and compute a definite integral.</p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
+</div>
+</div>
+</div>
+<div id="triple-integrals-accumulation-over-volume" class="section level2 hasAnchor" number="6.7">
+<h2><span class="header-section-number">6.7</span> Triple Integrals: Accumulation Over Volume<a href="applications-of-integration.html#triple-integrals-accumulation-over-volume" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Double integrals extend accumulation from a line to an area. <strong>Triple integrals</strong> take the next step: they accumulate quantities throughout a <strong>three-dimensional region</strong>.</p>
+<p>If a quantity varies in three spatial directions—such as with depth, height, and horizontal position—we model it with a function
+<span class="math display">\[
+f(x,y,z),
+\]</span>
+and integrate over a volume <span class="math inline">\(V\)</span>.</p>
+<p>The total amount is written as
+<span class="math display">\[
+\iiint_V f(x,y,z)\,dV.
+\]</span></p>
+<p>Here:
+- <span class="math inline">\(f(x,y,z)\)</span> represents an amount <em>per unit volume</em>,
+- <span class="math inline">\(dV\)</span> represents a tiny volume element,
+- the triple integral adds contributions from every small volume inside <span class="math inline">\(V\)</span>.</p>
+<div id="iterated-form" class="section level3 hasAnchor" number="6.7.1">
+<h3><span class="header-section-number">6.7.1</span> Iterated Form<a href="applications-of-integration.html#iterated-form" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If the region is rectangular,
+<span class="math display">\[
+V = \{(x,y,z)\mid a \le x \le b,\; c \le y \le d,\; e \le z \le f\},
+\]</span>
+the triple integral can be computed as an iterated integral:
+<span class="math display">\[
+\iiint_V f(x,y,z)\,dV
+=
+\int_a^b \int_c^d \int_e^f f(x,y,z)\,dz\,dy\,dx.
+\]</span></p>
+<p>As before, you integrate one variable at a time, treating the others as constants.</p>
 <hr />
 </div>
-<div id="a-big-disclaimer" class="section level2 hasAnchor" number="1.6">
-<h2><span class="header-section-number">1.6</span> ⚠️ A Big Disclaimer ⚠️<a href="index.html#a-big-disclaimer" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>I started writing this textbook to create a calculus resource that speaks directly to your interests as environmental scientists. My goal is to make calculus feel relevant, supportive, and connected to the systems you care about.</p>
-<p>That said, this is very much a <strong>work in progress</strong>. This draft will have typos, rough edges, and the occasional mistake. But here’s the good news: it’s also <strong>free</strong>. 🎉</p>
-<p>If you come across an error—big or small—please let me know so I can fix it for you and for future students. Your feedback is not just welcome, it’s essential to making this a better resource.</p>
-<p>Thanks for your patience, your sharp eyes, and your willingness to learn from (and with) an evolving text. Together, we’ll keep improving it.</p>
+</div>
+<div id="quadruple-integrals-when-time-enters-the-picture" class="section level2 hasAnchor" number="6.8">
+<h2><span class="header-section-number">6.8</span> Quadruple Integrals: When Time Enters the Picture<a href="applications-of-integration.html#quadruple-integrals-when-time-enters-the-picture" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A <strong>quadruple integral</strong> arises when a quantity varies over <strong>three dimensions of space and time</strong>.</p>
+<p>For example, suppose
+<span class="math display">\[
+f(x,y,z,t)
+\]</span>
+represents a density or rate that varies in space <em>and</em> time. To compute the total accumulated amount over a time interval and a spatial volume, we integrate over all four variables:
+<span class="math display">\[
+\iiiint f(x,y,z,t)\,dV\,dt.
+\]</span></p>
+<p>Conceptually:
+- The triple integral over <span class="math inline">\(x,y,z\)</span> gives a total at a fixed time,
+- The outer integral over <span class="math inline">\(t\)</span> accumulates that total over time.</p>
+<div id="iterated-form-1" class="section level3 hasAnchor" number="6.8.1">
+<h3><span class="header-section-number">6.8.1</span> Iterated Form<a href="applications-of-integration.html#iterated-form-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For a rectangular space–time region,
+<span class="math display">\[
+a \le x \le b,\quad c \le y \le d,\quad e \le z \le f,\quad t_0 \le t \le t_1,
+\]</span>
+the integral becomes
+<span class="math display">\[
+\int_{t_0}^{t_1}
+\int_a^b \int_c^d \int_e^f
+f(x,y,z,t)\,dz\,dy\,dx\,dt.
+\]</span></p>
+<hr />
+</div>
+</div>
+<div id="big-picture-1" class="section level2 hasAnchor" number="6.9">
+<h2><span class="header-section-number">6.9</span> Big Picture<a href="applications-of-integration.html#big-picture-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Each increase in dimension follows the same logic:</p>
+<ul>
+<li><strong>Single integral</strong> → accumulation along a line<br />
+</li>
+<li><strong>Double integral</strong> → accumulation over an area<br />
+</li>
+<li><strong>Triple integral</strong> → accumulation over a volume<br />
+</li>
+<li><strong>Quadruple integral</strong> → accumulation over volume <em>and</em> time</li>
+</ul>
+<p>The mechanics never fundamentally change. What grows is the scope of what you’re adding up—and the kinds of systems you can describe with precision.</p>
+</div>
+<div id="numerical-integration-when-no-nice-formula-exists" class="section level2 hasAnchor" number="6.10">
+<h2><span class="header-section-number">6.10</span> Numerical Integration: When No Nice Formula Exists<a href="applications-of-integration.html#numerical-integration-when-no-nice-formula-exists" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Much of the integration you’ve seen so far assumes that we have a <strong>clean mathematical function</strong> to work with. In practice, that’s often not how data arrive.</p>
+<p>Typically, we collect <strong>measurements</strong>:
+- observations at discrete times,
+- samples at specific locations,
+- values recorded at irregular intervals.</p>
+<p>A common first step is to <strong>fit a curve</strong> to those data. If the fitted curve is reasonably smooth and well behaved, we can then integrate that function analytically and interpret the result exactly.</p>
+<p>But this approach has limits.</p>
+<div id="when-analytic-integration-breaks-down" class="section level3 hasAnchor" number="6.10.1">
+<h3><span class="header-section-number">6.10.1</span> When Analytic Integration Breaks Down<a href="applications-of-integration.html#when-analytic-integration-breaks-down" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sometimes:
+- the data are noisy,
+- the underlying process is complex,
+- no simple function fits well,
+- or the fitted function is too complicated to integrate by hand.</p>
+<p>In these cases, forcing a “nice” curve can introduce more error than it removes.</p>
+<p>When there is no reliable analytic function to integrate, <strong>numerical integration</strong> provides a direct alternative.</p>
+</div>
+<div id="the-core-idea-1" class="section level3 hasAnchor" number="6.10.2">
+<h3><span class="header-section-number">6.10.2</span> The Core Idea<a href="applications-of-integration.html#the-core-idea-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Numerical integration returns to the original intuition behind integrals:
+&gt; <em>Add up many small contributions.</em></p>
+<p>Instead of integrating a formula, we:
+1. Break the interval into small pieces,
+2. Approximate the function on each piece,
+3. Add the contributions together.</p>
+<p>This is exactly the logic of Riemann sums—implemented using actual data values.</p>
+</div>
+<div id="common-numerical-methods" class="section level3 hasAnchor" number="6.10.3">
+<h3><span class="header-section-number">6.10.3</span> Common Numerical Methods<a href="applications-of-integration.html#common-numerical-methods" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Several standard numerical methods are built around this idea:</p>
+<ul>
+<li><p><strong>Left and right Riemann sums</strong><br />
+Use function values at the ends of each subinterval.</p></li>
+<li><p><strong>Midpoint rule</strong><br />
+Uses the value at the center of each subinterval for better accuracy.</p></li>
+<li><p><strong>Trapezoidal rule</strong><br />
+Approximates the region under the curve with trapezoids instead of rectangles.</p></li>
+<li><p><strong>Simpson’s rule</strong><br />
+Uses parabolic fits over pairs of intervals for even higher accuracy.</p></li>
+</ul>
+<p>Each method balances simplicity and accuracy differently, but all share the same goal: approximate an integral using finite data.</p>
+</div>
+</div>
+<div id="comparing-analytic-and-numerical-integration-from-data" class="section level2 hasAnchor" number="6.11">
+<h2><span class="header-section-number">6.11</span> Comparing Analytic and Numerical Integration from Data<a href="applications-of-integration.html#comparing-analytic-and-numerical-integration-from-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this example below, we computed the total accumulated streamflow over a year using <strong>two different approaches</strong>:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Integrating a fitted function</strong><br />
+We first fit a smooth, sinusoidal model to the daily streamflow data and then integrated that function over time.</p></li>
+<li><p><strong>Numerical integration of the data directly</strong><br />
+We treated each daily measurement as the height of a rectangle one day wide and summed the areas of those rectangles.</p></li>
+</ol>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-48-1.png" width="672" /></p>
+<p>The results were:</p>
+<ul>
+<li>Total from fitted curve integration: <strong>1,252,203,685</strong></li>
+<li>Total from rectangular (Riemann sum) integration: <strong>1,255,666,364</strong></li>
+<li>Difference between the two methods: <strong>3,462,679</strong></li>
+</ul>
+<div id="what-these-numbers-mean" class="section level3 hasAnchor" number="6.11.1">
+<h3><span class="header-section-number">6.11.1</span> What These Numbers Mean<a href="applications-of-integration.html#what-these-numbers-mean" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Both methods produce totals of the same order of magnitude and are <strong>very close relative to the size of the total</strong>. The difference arises from several sources:</p>
+<ul>
+<li>The fitted curve smooths over short-term variability in the data.</li>
+<li>The rectangular method uses discrete daily values and approximates the curve with flat steps.</li>
+<li>Random noise in the data affects the rectangle method more directly than the fitted model.</li>
+</ul>
+<p>Importantly, the discrepancy is not an error—it reflects <strong>modeling choices</strong>.</p>
+</div>
+<div id="why-this-matters-1" class="section level3 hasAnchor" number="6.11.2">
+<h3><span class="header-section-number">6.11.2</span> Why This Matters<a href="applications-of-integration.html#why-this-matters-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This comparison highlights a key idea in applied integration:</p>
+<ul>
+<li>If you can justify a smooth functional model, integrating that model provides a clean, interpretable result.</li>
+<li>If no trustworthy model exists, numerical integration allows you to compute totals <strong>directly from observations</strong>.</li>
+</ul>
+<p>In practice, both approaches are valuable. Comparing them helps assess sensitivity to assumptions and builds confidence in the resulting totals.</p>
+<p>At its core, numerical integration keeps the original meaning of an integral intact:<br />
+<strong>adding up many small contributions to understand accumulation</strong>, even when exact formulas are out of reach.</p>
+</div>
+<div id="why-numerical-integration-matters" class="section level3 hasAnchor" number="6.11.3">
+<h3><span class="header-section-number">6.11.3</span> Why Numerical Integration Matters<a href="applications-of-integration.html#why-numerical-integration-matters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Numerical integration is essential when:</p>
+<ul>
+<li>data are discrete rather than continuous,</li>
+<li>models are too complex to integrate symbolically,</li>
+<li>results must be computed directly from observations.</li>
+</ul>
+<p>In applied work, it is often the <strong>default</strong>, not the exception.</p>
+<p>The key idea is this:</p>
+<blockquote>
+<p>Even when we cannot write down a function we can integrate, we can still compute meaningful totals.</p>
+</blockquote>
+<p>Numerical integration bridges the gap between real-world data and the mathematical concept of accumulation—allowing integrals to remain useful even when exact formulas are out of reach.</p>
 
+</div>
 </div>
 </div>
             </section>
@@ -906,8 +1726,8 @@
           </div>
         </div>
       </div>
-
-<a href="introduction-to-calculus-ii.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="techniques-of-integration-indefinite-integrals.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="calculus-ii-equation-sheet.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -938,7 +1758,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+    "link": "https://github.com/rstudio/bookdown-demo/edit/master/06-application.Rmd",
     "text": "Edit"
   },
   "history": {
