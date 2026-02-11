@@ -96,10 +96,10 @@ Why does “rate × time” produce a total?
 
 **Individual Prompt: Reading a Graph**
 
-``` {r, echo=FALSE, warning = FALSE, message=FALSE}
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
 library(tidyverse)
 library(lubridate)
-
 
 txt <- "
 5\t9:53\t0.05
@@ -175,9 +175,8 @@ txt <- "
 2\t11:53\t
 "
 
-# Read safely
-df <- read_tsv(
-  I(txt),
+df <- readr::read_tsv(
+  base::I(txt),
   col_names = c("day", "time", "rain_cm"),
   col_types = cols(
     day = col_integer(),
@@ -186,50 +185,31 @@ df <- read_tsv(
   )
 ) %>%
   mutate(
-    rain_cm = replace_na(rain_cm, 0),
-    hour = parse_number(time) # "9:53" -> 9
+    rain_cm = tidyr::replace_na(rain_cm, 0),
+    hour = readr::parse_number(time)
   )
 
-# Build an ordered time index WITHOUT real dates:
-# larger day = later; within day, larger hour = later.
 df <- df %>%
   mutate(order_key = day * 24 + hour) %>%
   arrange(order_key)
 
-# Make a complete hourly sequence in that order_key space
 full <- tibble(order_key = seq(min(df$order_key), max(df$order_key), by = 1)) %>%
   left_join(df %>% select(order_key, rain_cm), by = "order_key") %>%
-  mutate(rain_cm = replace_na(rain_cm, 0))
+  mutate(rain_cm = tidyr::replace_na(rain_cm, 0),
+         hours_since_start = order_key - min(order_key))
 
-# Create a pseudo-time for plotting (hours since start)
-full <- full %>%
-  mutate(hours_since_start = order_key - min(order_key))
-
-# --------------------
-# Plot 1: bar plot
-# --------------------
 ggplot(full, aes(x = hours_since_start, y = rain_cm)) +
   geom_col() +
-  labs(
-    x = "Hours since start",
-    y = "Hourly rainfall (cm)",
-    title = "Hourly Rainfall (zeros included)"
-  ) +
+  labs(x = "Hours since start", y = "Hourly rainfall (cm)",
+       title = "Hourly Rainfall (zeros included)") +
   theme_minimal()
 
-# --------------------
-# Plot 2: fitted curve
-# --------------------
 ggplot(full, aes(x = hours_since_start, y = rain_cm)) +
   geom_line(linewidth = 1) +
   geom_point(size = 2) +
-  labs(
-    x = "Hours since start",
-    y = "Hourly rainfall (cm)",
-    title = "Hourly Rainfall Time Series (Zeros Included)"
-  ) +
+  labs(x = "Hours since start", y = "Hourly rainfall (cm)",
+       title = "Hourly Rainfall Time Series (Zeros Included)") +
   theme_minimal()
-
 
 ```
 

@@ -550,5 +550,6 @@ part-d-interpreting-inner-integrals
 part-e-symmetry-and-cancellation
 example-3-when-things-cancel
 part-f-average-value-over-a-region
-part-g-quick-practice-small-groups
-exit-reflection-23-minutes
+area-between-two-curves-conceptual-and-computational-practice
+double-and-triple-integrals-conceptual-and-computational-practice
+core-ideas-across-these-problems
