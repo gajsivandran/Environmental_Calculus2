@@ -1,5 +1,411 @@
----
-title: "109_diffeq"
-output: html_document
+# An Introduction to Differential Equations
+
+## 🧟 Modeling a Zombie Outbreak in This Lecture Room  
+
+
+## Objective
+
+By the end of this activity, you should be able to:
+
+- Translate a real-world situation into a rate equation  
+- Explain what a differential equation represents  
+- Solve a simple differential equation using separation  
+- Interpret a logistic-type solution  
+- Understand why we start simple and then layer complexity  
+
 ---
 
+## Part 1 — Start With the Messy Problem
+
+There are **149 people in this lecture room**.
+
+At time \( t = 0 \), one person becomes a zombie.
+
+No further information is given.
+
+---
+
+### Brainstorm Reality (Small Groups)
+
+List at least **6 factors** that might influence what happens next.
+<br><br><br><br><br><br><br><br><br><br><br>
+
+\newpage
+
+### Reflection
+
+If we tried to include *all* of these in a mathematical model:
+
+- Would it be solvable?
+- Would it be understandable?
+- Would we know how to measure everything?
+
+Discuss briefly.
+
+---
+
+\newpage
+
+## Part 2 — The Art of Simplifying
+
+Modeling requires simplifying assumptions.
+
+---
+
+### Create Simplifying Assumptions
+
+In your group, create assumptions that make the problem as simple as possible while keeping the core mechanism.
+
+Write your final list.
+
+<br><br><br><br><br><br><br><br><br>
+
+---
+
+### Identify the Core Mechanism
+
+Complete:
+
+> Zombies increase because __________________________________________.
+
+Focus on the single most important driver of change.
+
+---
+
+\newpage
+
+## Part 3 — Translating Into Mathematics
+
+Let:
+
+- \(S(t)\) = number of susceptible humans  
+- \(Z(t)\) = number of zombies  
+
+We want to describe:
+
+\[
+\frac{dZ}{dt}
+\]
+
+<br><br><br><br><br>
+
+This means:
+
+> The rate at which zombies increase.
+
+---
+
+### What Determines the Rate?
+
+Discuss:
+
+- If there are very few zombies, what happens?
+- If there are very few humans, what happens?
+- Does growth depend on one group, or both?
+
+Complete:
+
+> The rate of increase of zombies is proportional to ________________________.
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+\[
+\frac{dZ}{dt} = \beta ZS
+\]
+
+where \( \beta > 0 \).
+
+---
+
+### Interpret the Structure
+
+- What does multiplying \(Z\) and \(S\) assume?
+- What real-world behavior does this encode?
+- What are the units of \( \beta \)?
+
+
+<br><br><br><br><br><br><br><br><br><br>
+
+---
+
+\newpage
+
+## Part 4 — Reducing the Model
+
+Since no one enters or leaves:
+
+\[
+S + Z = 149
+\]
+
+---
+
+## Substitute
+
+Solve for \(S\):
+
+\[
+S = 149 - Z
+\]
+
+Substitute into the differential equation:
+
+\[
+\frac{dZ}{dt}
+=
+\beta Z(149 - Z)
+\]
+
+Now we have one equation involving only \(Z\).
+
+---
+
+\newpage
+
+## Part 5 — From Rate Rule to Function \(Z(t)\)
+
+We now want to understand how \(Z\) changes over time.
+
+---
+
+### Separate Variables
+
+\[
+\frac{dZ}{dt} = \beta Z(149 - Z)
+\]
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+Separate:
+
+\[
+\frac{1}{Z(149 - Z)}\, dZ
+=
+\beta\, dt
+\]
+
+---
+
+### Integrate Both Sides
+
+\[
+\int \frac{1}{Z(149 - Z)}\, dZ
+=
+\int \beta\, dt
+\]
+
+Right side:
+
+\[
+\beta t + C
+\]
+
+Left side (after partial fractions):
+
+\[
+\ln\!\left(\frac{Z}{149 - Z}\right)
+=
+149\beta t + C
+\]
+
+---
+
+\newpage
+
+## Part 6 — Isolate \(Z\)
+
+We now solve for \(Z(t)\).
+
+---
+
+### Step 1 — Exponentiate
+
+\[
+\frac{Z}{149 - Z}
+=
+Ce^{149\beta t}
+\]
+
+---
+
+### Step 2 — Multiply Both Sides
+
+\[
+Z
+=
+Ce^{149\beta t}(149 - Z)
+\]
+
+---
+
+### Step 3 — Distribute
+
+\[
+Z
+=
+149Ce^{149\beta t}
+-
+Ce^{149\beta t}Z
+\]
+
+---
+
+### Step 4 — Gather Terms
+
+\[
+Z(1 + Ce^{149\beta t})
+=
+149Ce^{149\beta t}
+\]
+
+---
+
+### Step 5 — Solve
+
+\[
+Z(t)
+=
+\frac{149Ce^{149\beta t}}
+{1 + Ce^{149\beta t}}
+\]
+
+Rewrite in standard logistic form:
+
+\[
+Z(t)
+=
+\frac{149}
+{1 + Ae^{-149\beta t}}
+\]
+
+---
+
+\newpage
+
+## Part 7 — Interpret the Solution
+
+Discuss:
+
+- What happens as \(t \to \infty\)?
+- What happens as \(t \to 0\)?
+- When is growth fastest?
+- What determines steepness?
+- How does the initial number of zombies affect the curve?
+
+Sketch the curve and label:
+
+- Early slow growth  
+- Rapid middle growth  
+- Saturation near 149  
+
+---
+
+
+\newpage
+
+## Part 8 — Layering Complexity Back In
+
+Our model assumed:
+
+- No one fights back.
+- Zombies never die.
+- Infection is instant.
+- The room is perfectly mixed.
+
+Now we relax those assumptions.
+
+---
+
+### Layer 1 — Humans Fight Back
+
+\[
+\frac{dZ}{dt}
+=
+\beta ZS - \delta Z
+\]
+
+Rewrite:
+
+\[
+\frac{dZ}{dt}
+=
+Z(\beta S - \delta)
+\]
+
+Zombies grow if:
+
+\[
+S > \frac{\delta}{\beta}
+\]
+
+Discuss:
+
+- What does this threshold mean?
+- Could zombies fail to spread?
+
+---
+
+### Layer 2 — Zombie Decay
+
+\[
+\frac{dZ}{dt}
+=
+\beta ZS - \delta Z - \mu Z
+\]
+
+What happens if \( \mu \) increases?
+
+---
+
+### Layer 3 — Human Reproduction
+
+\[
+\frac{dS}{dt}
+=
+rS - \beta ZS
+\]
+
+\[
+\frac{dZ}{dt}
+=
+\beta ZS - \delta Z
+\]
+
+Before solving, predict:
+
+- Could coexistence occur?
+- Could oscillations occur?
+- What determines long-term behavior?
+
+---
+
+## Final Reflection
+
+Answer individually:
+
+1. Why did we start with an oversimplified model?
+2. What insight did the simple model give us?
+3. What changed when we added realism?
+4. What is a differential equation?
+
+Complete:
+
+> A differential equation is a mathematical statement that describes __________________________________________.
+
+---
+
+## The Modeling Workflow
+
+You just followed the core structure of applied mathematics:
+
+1. Observe complexity.  
+2. Strip to the core mechanism.  
+3. Write a rate rule.  
+4. Integrate to understand behavior.  
+5. Add complexity deliberately.  
+6. Reanalyze.  
+
+Differential equations are structured expressions of assumptions about change.

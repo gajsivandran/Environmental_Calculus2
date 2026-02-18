@@ -1,7 +1,7 @@
 book_filename: "bookdown-demo"
 rmd_files: ["index.Rmd", "02-intro.Rmd","03-reimann.Rmd","04-def_int.Rmd", "05-integrals.Rmd","06-application.Rmd", "07-diffeq.Rmd", "20-Equation_sheet.Rmd","21-test_review.Rmd","22-test_review.Rmd","101-index_wB.Rmd",
             "102-intro-workbook.Rmd", "103-riemann.Rmd","104-Riemann_prac.Rmd","105_Trap_Int.Rmd",
-            "106_int.Rmd", "107_applications.Rmd"]
+            "106_int.Rmd", "107_applications.Rmd", "109_diffeq.Rmd"]
 
 output_dir: "docs"
 clean: [packages.bib, bookdown.bbl]
