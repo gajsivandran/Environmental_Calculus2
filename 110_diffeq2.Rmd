@@ -1,0 +1,1025 @@
+# Differential Equations
+
+
+
+
+
+#### Graph 1 {-}
+
+For each of these sketches imagine you are floating on a paddleboard. 
+
+- Make an 'x' anywhere on the graph
+
+Now imagine the grey lines are the current below you
+
+- Sketch the path you would take 
+  - Go forwards until you leave the bounds of the graph
+  - Go backwards until you leave the bounds of the graph
+  
+You should now have a single trajectory.
+
+Now repeat this process 2 more times, each time putting your 'x' at a different starting point.
+
+
+
+```{r,echo=FALSE, warning=FALSE, message=FALSE}
+library(ggplot2)
+
+# ---- Differential equation: define dy/dx = f(x,y) here ----
+f <- function(x, y) { 1 }   # change as needed
+
+# ---- Build slope-field grid (for segments) ----
+x_vals <- seq(-3, 3, by = 0.5)
+y_vals <- seq(-3, 3, by = 0.5)
+grid <- expand.grid(x = x_vals, y = y_vals)
+
+grid$slope <- f(grid$x, grid$y)
+
+# Segment length normalization so all dashes are the same length
+L <- 0.45
+grid$dx <- L / sqrt(1 + grid$slope^2)
+grid$dy <- grid$slope * grid$dx
+
+# ---- Axis tick labels placed ON the axes (x-axis at y=0, y-axis at x=0) ----
+ticks <- -3:3
+tick_df_x <- data.frame(x = ticks, y = 0, lab = as.character(ticks))
+tick_df_y <- data.frame(x = 0, y = ticks, lab = as.character(ticks))
+
+# Small offset so labels don't sit exactly on the bold lines
+x_label_nudge <- -0.18  # move x-axis numbers slightly below y=0
+y_label_nudge <- -0.18  # move y-axis numbers slightly left of x=0
+
+ggplot() +
+  # Integer grid
+  geom_vline(xintercept = -3:3, color = "grey85", linewidth = 0.4) +
+  geom_hline(yintercept = -3:3, color = "grey85", linewidth = 0.4) +
+
+  # Slope field (light grey)
+  geom_segment(
+    data = grid,
+    aes(x = x - dx/2, y = y - dy/2, xend = x + dx/2, yend = y + dy/2),
+    color = "grey70",
+    linewidth = 0.5
+  ) +
+
+  # Bold coordinate axes
+  geom_hline(yintercept = 0, color = "black", linewidth = 1.2) +
+  geom_vline(xintercept = 0, color = "black", linewidth = 1.2) +
+
+  # Tick labels ON the axes
+  geom_text(data = tick_df_x, aes(x = x, y = y + x_label_nudge, label = lab),
+            size = 3.5, color = "black") +
+  geom_text(data = tick_df_y, aes(x = x + y_label_nudge, y = y, label = lab),
+            size = 3.5, color = "black") +
+
+  # Axis labels "x" and "y"
+  annotate("text", x = 3.15, y = 0.18, label = "x", size = 4) +
+  annotate("text", x = 0.18, y = 3.15, label = "y", size = 4) +
+
+  coord_fixed(xlim = c(-4, 4), ylim = c(-4, 4), expand = FALSE) +
+  theme_void()
+
+
+```
+
+::: promptbox
+
+- What happens to your trajectories?
+
+:::
+
+#### Graph 2 {-}
+
+For this graph place 4 *x's* on the left edge of the page.
+Sketch the trajectories you create as you move to the right.
+
+```{r,echo=FALSE, warning=FALSE, message=FALSE}
+library(ggplot2)
+
+# ---- Differential equation: define dy/dx = f(x,y) here ----
+f <- function(x, y) { r * y * (1 - y / K) }
+r <- 2      # growth rate
+K <- 2.5      # carrying capacity
+# ---- Build slope-field grid (for segments) ----
+x_vals <- seq(-3, 3, by = 0.25)
+y_vals <- seq(-3, 3, by = 0.25)
+grid <- expand.grid(x = x_vals, y = y_vals)
+
+grid$slope <- f(grid$x, grid$y)
+
+# Segment length normalization so all dashes are the same length
+L <- 0.45
+grid$dx <- L / sqrt(1 + grid$slope^2)
+grid$dy <- grid$slope * grid$dx
+
+# ---- Axis tick labels placed ON the axes (x-axis at y=0, y-axis at x=0) ----
+ticks <- -3:3
+tick_df_x <- data.frame(x = ticks, y = 0, lab = as.character(ticks))
+tick_df_y <- data.frame(x = 0, y = ticks, lab = as.character(ticks))
+
+# Small offset so labels don't sit exactly on the bold lines
+x_label_nudge <- -0.18  # move x-axis numbers slightly below y=0
+y_label_nudge <- -0.18  # move y-axis numbers slightly left of x=0
+
+ggplot() +
+  # Integer grid
+  geom_vline(xintercept = -3:3, color = "grey85", linewidth = 0.4) +
+  geom_hline(yintercept = -3:3, color = "grey85", linewidth = 0.4) +
+
+  # Slope field (light grey)
+  geom_segment(
+    data = grid,
+    aes(x = x - dx/2, y = y - dy/2, xend = x + dx/2, yend = y + dy/2),
+    color = "grey70",
+    linewidth = 0.5
+  ) +
+
+  # Bold coordinate axes
+  geom_hline(yintercept = 0, color = "black", linewidth = 1.2) +
+  geom_vline(xintercept = 0, color = "black", linewidth = 1.2) +
+
+  # Tick labels ON the axes
+  geom_text(data = tick_df_x, aes(x = x, y = y + x_label_nudge, label = lab),
+            size = 3.5, color = "black") +
+  geom_text(data = tick_df_y, aes(x = x + y_label_nudge, y = y, label = lab),
+            size = 3.5, color = "black") +
+
+  # Axis labels "x" and "y"
+  annotate("text", x = 3.15, y = 0.18, label = "x", size = 4) +
+  annotate("text", x = 0.18, y = 3.15, label = "y", size = 4) +
+
+  coord_fixed(xlim = c(-1, 4), ylim = c(-1, 4), expand = FALSE) +
+  theme_void()
+
+
+```
+
+::: promptbox
+
+- What happens if you start below the x axis?
+- What happens if you start between y=0 and y=2.5?
+- What happens if you state above y=2.5?
+
+- How would describe the y=0 line?
+- What about the y= 2.5 line?
+
+:::
+
+
+#### Graph 3 {-}
+
+For this graph place 4 *x's* on the left edge of the page.
+Sketch the trajectories you create as you move to the right.
+
+```{r,echo=FALSE, warning=FALSE, message=FALSE}
+library(ggplot2)
+
+# ---- Differential equation: define dy/dx = f(x,y) here ----
+f <- function(x, y) { r * y * (1 - y / K) - H}
+r <- 2      # growth rate
+K <- 3     # carrying capacity
+H <- 0.6      # carrying capacity
+
+# ---- Build slope-field grid (for segments) ----
+x_vals <- seq(-3, 3, by = 0.3)
+y_vals <- seq(-3, 3, by = 0.3)
+grid <- expand.grid(x = x_vals, y = y_vals)
+
+grid$slope <- f(grid$x, grid$y)
+
+# Segment length normalization so all dashes are the same length
+L <- 0.45
+grid$dx <- L / sqrt(1 + grid$slope^2)
+grid$dy <- grid$slope * grid$dx
+
+# ---- Axis tick labels placed ON the axes (x-axis at y=0, y-axis at x=0) ----
+ticks <- -3:3
+tick_df_x <- data.frame(x = ticks, y = 0, lab = as.character(ticks))
+tick_df_y <- data.frame(x = 0, y = ticks, lab = as.character(ticks))
+
+# Small offset so labels don't sit exactly on the bold lines
+x_label_nudge <- -0.18  # move x-axis numbers slightly below y=0
+y_label_nudge <- -0.18  # move y-axis numbers slightly left of x=0
+
+ggplot() +
+  # Integer grid
+  geom_vline(xintercept = -3:3, color = "grey85", linewidth = 0.4) +
+  geom_hline(yintercept = -3:3, color = "grey85", linewidth = 0.4) +
+
+  # Slope field (light grey)
+  geom_segment(
+    data = grid,
+    aes(x = x - dx/2, y = y - dy/2, xend = x + dx/2, yend = y + dy/2),
+    color = "grey70",
+    linewidth = 0.5
+  ) +
+
+  # Bold coordinate axes
+  geom_hline(yintercept = 0, color = "black", linewidth = 1.2) +
+  geom_vline(xintercept = 0, color = "black", linewidth = 1.2) +
+
+  # Tick labels ON the axes
+  geom_text(data = tick_df_x, aes(x = x, y = y + x_label_nudge, label = lab),
+            size = 3.5, color = "black") +
+  geom_text(data = tick_df_y, aes(x = x + y_label_nudge, y = y, label = lab),
+            size = 3.5, color = "black") +
+
+  # Axis labels "x" and "y"
+  annotate("text", x = 3.15, y = 0.18, label = "x", size = 4) +
+  annotate("text", x = 0.18, y = 3.15, label = "y", size = 4) +
+
+  coord_fixed(xlim = c(-1, 4), ylim = c(-1, 4), expand = FALSE) +
+  theme_void()
+
+
+```
+
+::: promptbox
+
+- There was a slight change between Graph 2 and Graph 3. Can you describe what happened?
+
+:::
+
+#### Graph 4 {-}
+
+For this graph place 4 *x's* on the left edge of the page.
+Sketch the trajectories you create as you move to the right.
+
+```{r,echo=FALSE, warning=FALSE, message=FALSE}
+library(ggplot2)
+
+# ---- Differential equation: define dy/dx = f(x,y) here ----
+f <- function(x, y) { sin(x) - y}
+r <- 2      # growth rate
+K <- 2.5      # carrying capacity
+# ---- Build slope-field grid (for segments) ----
+x_vals <- seq(-6, 6, by = 0.4)
+y_vals <- seq(-6, 6, by = 0.4)
+grid <- expand.grid(x = x_vals, y = y_vals)
+
+grid$slope <- f(grid$x, grid$y)
+
+# Segment length normalization so all dashes are the same length
+L <- 0.45
+grid$dx <- L / sqrt(1 + grid$slope^2)
+grid$dy <- grid$slope * grid$dx
+
+# ---- Axis tick labels placed ON the axes (x-axis at y=0, y-axis at x=0) ----
+ticks <- -5:5
+tick_df_x <- data.frame(x = ticks, y = 0, lab = as.character(ticks))
+tick_df_y <- data.frame(x = 0, y = ticks, lab = as.character(ticks))
+
+# Small offset so labels don't sit exactly on the bold lines
+x_label_nudge <- -0.18  # move x-axis numbers slightly below y=0
+y_label_nudge <- -0.18  # move y-axis numbers slightly left of x=0
+
+ggplot() +
+  # Integer grid
+  geom_vline(xintercept = -5:5, color = "grey85", linewidth = 0.4) +
+  geom_hline(yintercept = -5:5, color = "grey85", linewidth = 0.4) +
+
+  # Slope field (light grey)
+  geom_segment(
+    data = grid,
+    aes(x = x - dx/2, y = y - dy/2, xend = x + dx/2, yend = y + dy/2),
+    color = "grey70",
+    linewidth = 0.5
+  ) +
+
+  # Bold coordinate axes
+  geom_hline(yintercept = 0, color = "black", linewidth = 1.2) +
+  geom_vline(xintercept = 0, color = "black", linewidth = 1.2) +
+
+  # Tick labels ON the axes
+  geom_text(data = tick_df_x, aes(x = x, y = y + x_label_nudge, label = lab),
+            size = 3.5, color = "black") +
+  geom_text(data = tick_df_y, aes(x = x + y_label_nudge, y = y, label = lab),
+            size = 3.5, color = "black") +
+
+  # Axis labels "x" and "y"
+  annotate("text", x = 3.15, y = 0.18, label = "x", size = 4) +
+  annotate("text", x = 0.18, y = 3.15, label = "y", size = 4) +
+
+  coord_fixed(xlim = c(-6, 6), ylim = c(-3.5, 3.5), expand = FALSE) +
+  theme_void()
+
+
+```
+
+::: promptbox
+
+- what happens to all the trajectories by the time to get to the right?
+- try and plot a line through the field were the grey lines have slope of zero (you may need to interpolate a little)
+
+:::
+
+#### Graph 5 {-}
+For this graph place 4 *x's* on the left edge of the page.
+Sketch the trajectories you create as you move to the right.
+
+```{r,echo=FALSE, warning=FALSE, message=FALSE}
+library(ggplot2)
+
+# ---- Differential equation: define dy/dx = f(x,y) here ----
+f <- function(x, y) { x-y^3}
+r <- 2      # growth rate
+K <- 2.5      # carrying capacity
+# ---- Build slope-field grid (for segments) ----
+x_vals <- seq(-6, 6, by = 0.4)
+y_vals <- seq(-6, 6, by = 0.4)
+grid <- expand.grid(x = x_vals, y = y_vals)
+
+grid$slope <- f(grid$x, grid$y)
+
+# Segment length normalization so all dashes are the same length
+L <- 0.45
+grid$dx <- L / sqrt(1 + grid$slope^2)
+grid$dy <- grid$slope * grid$dx
+
+# ---- Axis tick labels placed ON the axes (x-axis at y=0, y-axis at x=0) ----
+ticks <- -5:5
+tick_df_x <- data.frame(x = ticks, y = 0, lab = as.character(ticks))
+tick_df_y <- data.frame(x = 0, y = ticks, lab = as.character(ticks))
+
+# Small offset so labels don't sit exactly on the bold lines
+x_label_nudge <- -0.18  # move x-axis numbers slightly below y=0
+y_label_nudge <- -0.18  # move y-axis numbers slightly left of x=0
+
+ggplot() +
+  # Integer grid
+  geom_vline(xintercept = -5:5, color = "grey85", linewidth = 0.4) +
+  geom_hline(yintercept = -5:5, color = "grey85", linewidth = 0.4) +
+
+  # Slope field (light grey)
+  geom_segment(
+    data = grid,
+    aes(x = x - dx/2, y = y - dy/2, xend = x + dx/2, yend = y + dy/2),
+    color = "grey70",
+    linewidth = 0.5
+  ) +
+
+  # Bold coordinate axes
+  geom_hline(yintercept = 0, color = "black", linewidth = 1.2) +
+  geom_vline(xintercept = 0, color = "black", linewidth = 1.2) +
+
+  # Tick labels ON the axes
+  geom_text(data = tick_df_x, aes(x = x, y = y + x_label_nudge, label = lab),
+            size = 3.5, color = "black") +
+  geom_text(data = tick_df_y, aes(x = x + y_label_nudge, y = y, label = lab),
+            size = 3.5, color = "black") +
+
+  # Axis labels "x" and "y"
+  annotate("text", x = 3.15, y = 0.18, label = "x", size = 4) +
+  annotate("text", x = 0.18, y = 3.15, label = "y", size = 4) +
+
+  coord_fixed(xlim = c(-6, 6), ylim = c(-3.5, 3.5), expand = FALSE) +
+  theme_void()
+
+
+```
+
+::: promptbox
+
+- what happens to all the trajectories by the time to get to the right?
+- try and plot a line through the field were the grey lines have slope of zero (you may need to interpolate a little)
+
+:::
+
+#### Graph 6 {-}
+For this graph place 4 *x's* on the top edge of the page.
+Sketch the trajectories you create as you move to the right.
+
+
+```{r,echo=FALSE, warning=FALSE, message=FALSE}
+library(ggplot2)
+
+# ---- Differential equation: define dy/dx = f(x,y) here ----
+f <- function(x, y) { 1 - x^2 -y^2}
+r <- 2      # growth rate
+K <- 2.5      # carrying capacity
+# ---- Build slope-field grid (for segments) ----
+x_vals <- seq(-6, 6, by = 0.2)
+y_vals <- seq(-6, 6, by = 0.2)
+grid <- expand.grid(x = x_vals, y = y_vals)
+
+grid$slope <- f(grid$x, grid$y)
+
+# Segment length normalization so all dashes are the same length
+L <- 0.45
+grid$dx <- L / sqrt(1 + grid$slope^2)
+grid$dy <- grid$slope * grid$dx
+
+# ---- Axis tick labels placed ON the axes (x-axis at y=0, y-axis at x=0) ----
+ticks <- -5:5
+tick_df_x <- data.frame(x = ticks, y = 0, lab = as.character(ticks))
+tick_df_y <- data.frame(x = 0, y = ticks, lab = as.character(ticks))
+
+# Small offset so labels don't sit exactly on the bold lines
+x_label_nudge <- -0.18  # move x-axis numbers slightly below y=0
+y_label_nudge <- -0.18  # move y-axis numbers slightly left of x=0
+
+ggplot() +
+  # Integer grid
+  geom_vline(xintercept = -5:5, color = "grey85", linewidth = 0.4) +
+  geom_hline(yintercept = -5:5, color = "grey85", linewidth = 0.4) +
+
+  # Slope field (light grey)
+  geom_segment(
+    data = grid,
+    aes(x = x - dx/2, y = y - dy/2, xend = x + dx/2, yend = y + dy/2),
+    color = "grey70",
+    linewidth = 0.5
+  ) +
+
+  # Bold coordinate axes
+  geom_hline(yintercept = 0, color = "black", linewidth = 1.2) +
+  geom_vline(xintercept = 0, color = "black", linewidth = 1.2) +
+
+  # Tick labels ON the axes
+  geom_text(data = tick_df_x, aes(x = x, y = y + x_label_nudge, label = lab),
+            size = 3.5, color = "black") +
+  geom_text(data = tick_df_y, aes(x = x + y_label_nudge, y = y, label = lab),
+            size = 3.5, color = "black") +
+
+  # Axis labels "x" and "y"
+  annotate("text", x = 3.15, y = 0.18, label = "x", size = 4) +
+  annotate("text", x = 0.18, y = 3.15, label = "y", size = 4) +
+
+  coord_fixed(xlim = c(-3, 3), ylim = c(-3, 3), expand = FALSE) +
+  theme_void()
+
+
+```
+
+::: promptbox
+
+- what happens to all the trajectories as you move in this field?
+- try and plot a line through the field were the grey lines have slope of zero (you may need to interpolate a little)
+
+:::
+
+#### Graph 7 {-}
+For this graph place 4 *x's* on the top edge of the page and 4 *x's* on the left edge.
+Sketch the trajectories you create as you move to the right.
+
+```{r,echo=FALSE, warning=FALSE, message=FALSE}
+library(ggplot2)
+
+# ------------------------------------------------------------
+# Spiral-in system (phase-plane direction field)
+#   x' = -y - a x
+#   y' =  x - a y
+# This produces trajectories spiraling INTO the origin for a > 0.
+# We plot the direction field using dy/dx = (y')/(x').
+# ------------------------------------------------------------
+a <- 0.4  # damping (increase for faster spiral-in)
+
+dxdt <- function(x, y) { -y - a*x +x^2}
+dydt <- function(x, y) {  x - a*y }
+
+# dy/dx for drawing short slope segments in the x-y plane
+f <- function(x, y) { dydt(x, y) / dxdt(x, y) }
+
+# ---- Build slope-field grid (for segments) ----
+x_vals <- seq(-3, 3, by = 0.2)
+y_vals <- seq(-3, 3, by = 0.2)
+grid <- expand.grid(x = x_vals, y = y_vals)
+
+# Avoid division-by-zero / near-vertical issues where dx/dt ~ 0
+eps <- 0.08
+grid$den <- dxdt(grid$x, grid$y)
+grid$slope <- ifelse(abs(grid$den) < eps, NA, f(grid$x, grid$y))
+
+# Segment length normalization so all dashes are the same length
+L <- 0.45
+grid$dx <- L / sqrt(1 + grid$slope^2)
+grid$dy <- grid$slope * grid$dx
+
+# ---- Axis tick labels placed ON the axes (x-axis at y=0, y-axis at x=0) ----
+ticks <- -3:3
+tick_df_x <- data.frame(x = ticks, y = 0, lab = as.character(ticks))
+tick_df_y <- data.frame(x = 0, y = ticks, lab = as.character(ticks))
+
+# Small offset so labels don't sit exactly on the bold lines
+x_label_nudge <- -0.18  # move x-axis numbers slightly below y=0
+y_label_nudge <- -0.18  # move y-axis numbers slightly left of x=0
+
+ggplot() +
+  # Integer grid
+  geom_vline(xintercept = -3:3, color = "grey85", linewidth = 0.4) +
+  geom_hline(yintercept = -3:3, color = "grey85", linewidth = 0.4) +
+
+  # Direction field (light grey) — omit NAs (near dx/dt = 0)
+  geom_segment(
+    data = subset(grid, !is.na(slope)),
+    aes(x = x - dx/2, y = y - dy/2, xend = x + dx/2, yend = y + dy/2),
+    color = "grey70",
+    linewidth = 0.5
+  ) +
+
+  # Bold coordinate axes
+  geom_hline(yintercept = 0, color = "black", linewidth = 1.2) +
+  geom_vline(xintercept = 0, color = "black", linewidth = 1.2) +
+
+  # Tick labels ON the axes
+  geom_text(data = tick_df_x, aes(x = x, y = y + x_label_nudge, label = lab),
+            size = 3.5, color = "black") +
+  geom_text(data = tick_df_y, aes(x = x + y_label_nudge, y = y, label = lab),
+            size = 3.5, color = "black") +
+
+  # Axis labels "x" and "y"
+  annotate("text", x = 3.15, y = 0.18, label = "x", size = 4) +
+  annotate("text", x = 0.18, y = 3.15, label = "y", size = 4) +
+
+  coord_fixed(xlim = c(-3, 3), ylim = c(-3, 3), expand = FALSE) +
+  theme_void()
+```
+
+::: promptbox
+
+- what happens to all the trajectories by the time to get to the right?
+- try and plot a line through the field were the grey lines have slope of zero (you may need to interpolate a little)
+- how would you describe (0,0)?
+
+:::
+
+
+::: promptbox
+
+**SUMMARY**
+
+- What do the grey lines represent?
+<br><br>
+- What does one of the trajectories represent?
+<br><br>
+- Why does trajectory vary?
+<br><br>
+- What do the different *x's* represent?
+<br><br>
+- What are zero slope grey lines present?
+<br><br>
+- What does convergence indicate?
+<br><br>
+- What does divergence indicate?
+<br><br>
+
+:::
+
+## Building our own slope field
+
+### Example 2 {-}
+
+The slope field is a way to represent how a point is changing instantaneously.
+We can create a 'field' by calculating the value of the derivative on a grid.
+
+
+Let's consider 
+\[ 
+f'(x) = 2
+\]
+
+If I know the derivative of the function is 2 everywhere I can create a slope field 
+
+
+```{r,echo=FALSE, warning=FALSE, message=FALSE}
+library(ggplot2)
+
+# ---- Differential equation: define dy/dx = f(x,y) here ----
+f <- function(x, y) { 0 }   # change as needed
+
+# ---- Build slope-field grid (for segments) ----
+x_vals <- seq(-3, 3, by = 0.5)
+y_vals <- seq(-3, 3, by = 0.5)
+grid <- expand.grid(x = x_vals, y = y_vals)
+
+grid$slope <- f(grid$x, grid$y)
+
+# Segment length normalization so all dashes are the same length
+L <- 0.45
+grid$dx <- L / sqrt(1 + grid$slope^2)
+grid$dy <- grid$slope * grid$dx
+
+# ---- Axis tick labels placed ON the axes (x-axis at y=0, y-axis at x=0) ----
+ticks <- -3:3
+tick_df_x <- data.frame(x = ticks, y = 0, lab = as.character(ticks))
+tick_df_y <- data.frame(x = 0, y = ticks, lab = as.character(ticks))
+
+# Small offset so labels don't sit exactly on the bold lines
+x_label_nudge <- -0.18  # move x-axis numbers slightly below y=0
+y_label_nudge <- -0.18  # move y-axis numbers slightly left of x=0
+
+ggplot() +
+  # Integer grid
+  geom_vline(xintercept = -3:3, color = "grey85", linewidth = 0.4) +
+  geom_hline(yintercept = -3:3, color = "grey85", linewidth = 0.4) +
+
+  # Slope field (light grey)
+  
+
+  # Bold coordinate axes
+  geom_hline(yintercept = 0, color = "black", linewidth = 1.2) +
+  geom_vline(xintercept = 0, color = "black", linewidth = 1.2) +
+
+  # Tick labels ON the axes
+  geom_text(data = tick_df_x, aes(x = x, y = y + x_label_nudge, label = lab),
+            size = 3.5, color = "black") +
+  geom_text(data = tick_df_y, aes(x = x + y_label_nudge, y = y, label = lab),
+            size = 3.5, color = "black") +
+
+  # Axis labels "x" and "y"
+  annotate("text", x = 3.15, y = 0.18, label = "x", size = 4) +
+  annotate("text", x = 0.18, y = 3.15, label = "y", size = 4) +
+
+  coord_fixed(xlim = c(-4, 4), ylim = c(-4, 4), expand = FALSE) +
+  theme_void()
+
+
+```
+
+
+If we take the integration of f'(x)
+
+\[ 
+\int f'(x) dx
+\]
+
+\[ 
+\int 2 dx = 2x+c
+\]
+
+So we have a family of functions that solve the differential equation.
+
+Now this differential equation wasn't that interesting as it was just a constant
+
+### Example 2 {-}
+
+Now let's consider 
+\[ 
+f'(x) = x 
+\]
+
+If I know the derivative of the function is *x* everywhere I can create a slope field 
+
+
+```{r,echo=FALSE, warning=FALSE, message=FALSE}
+library(ggplot2)
+
+# ---- Differential equation: define dy/dx = f(x,y) here ----
+f <- function(x, y) { 0 }   # change as needed
+
+# ---- Build slope-field grid (for segments) ----
+x_vals <- seq(-3, 3, by = 0.5)
+y_vals <- seq(-3, 3, by = 0.5)
+grid <- expand.grid(x = x_vals, y = y_vals)
+
+grid$slope <- f(grid$x, grid$y)
+
+# Segment length normalization so all dashes are the same length
+L <- 0.45
+grid$dx <- L / sqrt(1 + grid$slope^2)
+grid$dy <- grid$slope * grid$dx
+
+# ---- Axis tick labels placed ON the axes (x-axis at y=0, y-axis at x=0) ----
+ticks <- -3:3
+tick_df_x <- data.frame(x = ticks, y = 0, lab = as.character(ticks))
+tick_df_y <- data.frame(x = 0, y = ticks, lab = as.character(ticks))
+
+# Small offset so labels don't sit exactly on the bold lines
+x_label_nudge <- -0.18  # move x-axis numbers slightly below y=0
+y_label_nudge <- -0.18  # move y-axis numbers slightly left of x=0
+
+ggplot() +
+  # Integer grid
+  geom_vline(xintercept = -3:3, color = "grey85", linewidth = 0.4) +
+  geom_hline(yintercept = -3:3, color = "grey85", linewidth = 0.4) +
+
+  # Slope field (light grey)
+  
+
+  # Bold coordinate axes
+  geom_hline(yintercept = 0, color = "black", linewidth = 1.2) +
+  geom_vline(xintercept = 0, color = "black", linewidth = 1.2) +
+
+  # Tick labels ON the axes
+  geom_text(data = tick_df_x, aes(x = x, y = y + x_label_nudge, label = lab),
+            size = 3.5, color = "black") +
+  geom_text(data = tick_df_y, aes(x = x + y_label_nudge, y = y, label = lab),
+            size = 3.5, color = "black") +
+
+  # Axis labels "x" and "y"
+  annotate("text", x = 3.15, y = 0.18, label = "x", size = 4) +
+  annotate("text", x = 0.18, y = 3.15, label = "y", size = 4) +
+
+  coord_fixed(xlim = c(-4, 4), ylim = c(-4, 4), expand = FALSE) +
+  theme_void()
+
+
+```
+
+If we take the integration of f'(x)
+
+\[ 
+\int f'(x) dx
+\]
+
+\[ 
+\int x dx = \frac{x^2}{2}+c
+\]
+
+So we have a family of functions that solve the differential equation.
+
+You know how to take that antiderivative without too much trouble. Another way to do it is by using **Separation of Variables**.
+\[ 
+\frac{dy}{dx}=x  
+\]
+Now separate the variables by grouping all terms with *x's* on one side and *y's* on the other. Keep the *dx* and *dy* in the numerators.
+
+\[ 
+dy=x . dx  
+\]
+
+Now we are saying a small amount of y *dy* is equal to x times a small about of x *dx*.
+So lets accumulate these small amounts by taking the integration of both sides.
+
+\[ 
+\int dy= \int x . dx  
+\]
+
+\[ 
+y= \frac{x^2}{2} +c  
+\]
+
+We get the same solution but using a slightly different methodology - this methodology know as the **Separation of Variables** becomes very useful when differential equations are functions of themselves.
+
+
+Now this differential equation is a little more interesting but is still only a function of x.
+
+
+### Example 3 {-}
+
+Now let's consider introducing y into our derivative. What does this mean - it means our derivative is a function of both x and y
+\[ 
+f'(x,y) = y 
+\]
+
+If I know the derivative of the function is *y* everywhere I can create a slope field 
+
+
+```{r,echo=FALSE, warning=FALSE, message=FALSE}
+library(ggplot2)
+
+# ---- Differential equation: define dy/dx = f(x,y) here ----
+f <- function(x, y) { 0 }   # change as needed
+
+# ---- Build slope-field grid (for segments) ----
+x_vals <- seq(-3, 3, by = 0.5)
+y_vals <- seq(-3, 3, by = 0.5)
+grid <- expand.grid(x = x_vals, y = y_vals)
+
+grid$slope <- f(grid$x, grid$y)
+
+# Segment length normalization so all dashes are the same length
+L <- 0.45
+grid$dx <- L / sqrt(1 + grid$slope^2)
+grid$dy <- grid$slope * grid$dx
+
+# ---- Axis tick labels placed ON the axes (x-axis at y=0, y-axis at x=0) ----
+ticks <- -3:3
+tick_df_x <- data.frame(x = ticks, y = 0, lab = as.character(ticks))
+tick_df_y <- data.frame(x = 0, y = ticks, lab = as.character(ticks))
+
+# Small offset so labels don't sit exactly on the bold lines
+x_label_nudge <- -0.18  # move x-axis numbers slightly below y=0
+y_label_nudge <- -0.18  # move y-axis numbers slightly left of x=0
+
+ggplot() +
+  # Integer grid
+  geom_vline(xintercept = -3:3, color = "grey85", linewidth = 0.4) +
+  geom_hline(yintercept = -3:3, color = "grey85", linewidth = 0.4) +
+
+  # Slope field (light grey)
+  
+
+  # Bold coordinate axes
+  geom_hline(yintercept = 0, color = "black", linewidth = 1.2) +
+  geom_vline(xintercept = 0, color = "black", linewidth = 1.2) +
+
+  # Tick labels ON the axes
+  geom_text(data = tick_df_x, aes(x = x, y = y + x_label_nudge, label = lab),
+            size = 3.5, color = "black") +
+  geom_text(data = tick_df_y, aes(x = x + y_label_nudge, y = y, label = lab),
+            size = 3.5, color = "black") +
+
+  # Axis labels "x" and "y"
+  annotate("text", x = 3.15, y = 0.18, label = "x", size = 4) +
+  annotate("text", x = 0.18, y = 3.15, label = "y", size = 4) +
+
+  coord_fixed(xlim = c(-4, 4), ylim = c(-4, 4), expand = FALSE) +
+  theme_void()
+
+
+```
+
+If we take the integration of f'(x,y)
+
+\[ 
+\int f'(x,y) dx
+\]
+
+This is a case where separation of variables will be needed.
+
+
+\[ 
+\frac{dy}{dx}=y
+\]
+
+### Example 4 {-}
+
+Let's see if we can
+
+- plot the slope field
+- sketch a couple of potential solutions
+- use separation of variables to solve the differential equations
+
+
+\[ 
+1. f'(x,y) = y/x 
+\]
+
+\[ 
+2. f'(x,y) = x/y 
+\]
+
+
+\[ 
+3. f'(x,y) = -x/y 
+\]
+
+
+```{r,echo=FALSE, warning=FALSE, message=FALSE}
+library(ggplot2)
+
+# ---- Differential equation: define dy/dx = f(x,y) here ----
+f <- function(x, y) { 0 }   # change as needed
+
+# ---- Build slope-field grid (for segments) ----
+x_vals <- seq(-3, 3, by = 0.5)
+y_vals <- seq(-3, 3, by = 0.5)
+grid <- expand.grid(x = x_vals, y = y_vals)
+
+grid$slope <- f(grid$x, grid$y)
+
+# Segment length normalization so all dashes are the same length
+L <- 0.45
+grid$dx <- L / sqrt(1 + grid$slope^2)
+grid$dy <- grid$slope * grid$dx
+
+# ---- Axis tick labels placed ON the axes (x-axis at y=0, y-axis at x=0) ----
+ticks <- -3:3
+tick_df_x <- data.frame(x = ticks, y = 0, lab = as.character(ticks))
+tick_df_y <- data.frame(x = 0, y = ticks, lab = as.character(ticks))
+
+# Small offset so labels don't sit exactly on the bold lines
+x_label_nudge <- -0.18  # move x-axis numbers slightly below y=0
+y_label_nudge <- -0.18  # move y-axis numbers slightly left of x=0
+
+ggplot() +
+  # Integer grid
+  geom_vline(xintercept = -3:3, color = "grey85", linewidth = 0.4) +
+  geom_hline(yintercept = -3:3, color = "grey85", linewidth = 0.4) +
+
+  # Slope field (light grey)
+  
+
+  # Bold coordinate axes
+  geom_hline(yintercept = 0, color = "black", linewidth = 1.2) +
+  geom_vline(xintercept = 0, color = "black", linewidth = 1.2) +
+
+  # Tick labels ON the axes
+  geom_text(data = tick_df_x, aes(x = x, y = y + x_label_nudge, label = lab),
+            size = 3.5, color = "black") +
+  geom_text(data = tick_df_y, aes(x = x + y_label_nudge, y = y, label = lab),
+            size = 3.5, color = "black") +
+
+  # Axis labels "x" and "y"
+  annotate("text", x = 3.15, y = 0.18, label = "x", size = 4) +
+  annotate("text", x = 0.18, y = 3.15, label = "y", size = 4) +
+
+  coord_fixed(xlim = c(-4, 4), ylim = c(-4, 4), expand = FALSE) +
+  theme_void()
+
+
+```
+
+```{r,echo=FALSE, warning=FALSE, message=FALSE}
+library(ggplot2)
+
+# ---- Differential equation: define dy/dx = f(x,y) here ----
+f <- function(x, y) { 0 }   # change as needed
+
+# ---- Build slope-field grid (for segments) ----
+x_vals <- seq(-3, 3, by = 0.5)
+y_vals <- seq(-3, 3, by = 0.5)
+grid <- expand.grid(x = x_vals, y = y_vals)
+
+grid$slope <- f(grid$x, grid$y)
+
+# Segment length normalization so all dashes are the same length
+L <- 0.45
+grid$dx <- L / sqrt(1 + grid$slope^2)
+grid$dy <- grid$slope * grid$dx
+
+# ---- Axis tick labels placed ON the axes (x-axis at y=0, y-axis at x=0) ----
+ticks <- -3:3
+tick_df_x <- data.frame(x = ticks, y = 0, lab = as.character(ticks))
+tick_df_y <- data.frame(x = 0, y = ticks, lab = as.character(ticks))
+
+# Small offset so labels don't sit exactly on the bold lines
+x_label_nudge <- -0.18  # move x-axis numbers slightly below y=0
+y_label_nudge <- -0.18  # move y-axis numbers slightly left of x=0
+
+ggplot() +
+  # Integer grid
+  geom_vline(xintercept = -3:3, color = "grey85", linewidth = 0.4) +
+  geom_hline(yintercept = -3:3, color = "grey85", linewidth = 0.4) +
+
+  # Slope field (light grey)
+  
+
+  # Bold coordinate axes
+  geom_hline(yintercept = 0, color = "black", linewidth = 1.2) +
+  geom_vline(xintercept = 0, color = "black", linewidth = 1.2) +
+
+  # Tick labels ON the axes
+  geom_text(data = tick_df_x, aes(x = x, y = y + x_label_nudge, label = lab),
+            size = 3.5, color = "black") +
+  geom_text(data = tick_df_y, aes(x = x + y_label_nudge, y = y, label = lab),
+            size = 3.5, color = "black") +
+
+  # Axis labels "x" and "y"
+  annotate("text", x = 3.15, y = 0.18, label = "x", size = 4) +
+  annotate("text", x = 0.18, y = 3.15, label = "y", size = 4) +
+
+  coord_fixed(xlim = c(-4, 4), ylim = c(-4, 4), expand = FALSE) +
+  theme_void()
+
+
+```
+
+```{r,echo=FALSE, warning=FALSE, message=FALSE}
+library(ggplot2)
+
+# ---- Differential equation: define dy/dx = f(x,y) here ----
+f <- function(x, y) { 0 }   # change as needed
+
+# ---- Build slope-field grid (for segments) ----
+x_vals <- seq(-3, 3, by = 0.5)
+y_vals <- seq(-3, 3, by = 0.5)
+grid <- expand.grid(x = x_vals, y = y_vals)
+
+grid$slope <- f(grid$x, grid$y)
+
+# Segment length normalization so all dashes are the same length
+L <- 0.45
+grid$dx <- L / sqrt(1 + grid$slope^2)
+grid$dy <- grid$slope * grid$dx
+
+# ---- Axis tick labels placed ON the axes (x-axis at y=0, y-axis at x=0) ----
+ticks <- -3:3
+tick_df_x <- data.frame(x = ticks, y = 0, lab = as.character(ticks))
+tick_df_y <- data.frame(x = 0, y = ticks, lab = as.character(ticks))
+
+# Small offset so labels don't sit exactly on the bold lines
+x_label_nudge <- -0.18  # move x-axis numbers slightly below y=0
+y_label_nudge <- -0.18  # move y-axis numbers slightly left of x=0
+
+ggplot() +
+  # Integer grid
+  geom_vline(xintercept = -3:3, color = "grey85", linewidth = 0.4) +
+  geom_hline(yintercept = -3:3, color = "grey85", linewidth = 0.4) +
+
+  # Slope field (light grey)
+  
+
+  # Bold coordinate axes
+  geom_hline(yintercept = 0, color = "black", linewidth = 1.2) +
+  geom_vline(xintercept = 0, color = "black", linewidth = 1.2) +
+
+  # Tick labels ON the axes
+  geom_text(data = tick_df_x, aes(x = x, y = y + x_label_nudge, label = lab),
+            size = 3.5, color = "black") +
+  geom_text(data = tick_df_y, aes(x = x + y_label_nudge, y = y, label = lab),
+            size = 3.5, color = "black") +
+
+  # Axis labels "x" and "y"
+  annotate("text", x = 3.15, y = 0.18, label = "x", size = 4) +
+  annotate("text", x = 0.18, y = 3.15, label = "y", size = 4) +
+
+  coord_fixed(xlim = c(-4, 4), ylim = c(-4, 4), expand = FALSE) +
+  theme_void()
+
+
+```
+
+
+

@@ -409,3 +409,7 @@ You just followed the core structure of applied mathematics:
 6. Reanalyze.  
 
 Differential equations are structured expressions of assumptions about change.
+
+
+
+

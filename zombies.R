@@ -48,7 +48,7 @@ ui <- fluidPage(
       sidebarLayout(
         sidebarPanel(
           sliderInput("beta1", "Beta (transmission/interaction rate)", min = 0, max = 0.01,
-                      value = 0.002, step = 0.000001),
+                      value = 0.002, step = 0.0001),
           numericInput("N1", "Starting population (total people, N)", value = 149, min = 2, step = 1),
           numericInput("Z01", "Initial zombies (Z(0))", value = 1, min = 1, step = 1),
           sliderInput("tend1", "Time horizon", min = 10, max = 500, value = 200, step = 10),

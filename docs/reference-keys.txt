@@ -654,3 +654,5 @@ layer-2-zombie-decay
 layer-3-human-reproduction
 final-reflection-1
 the-modeling-workflow
+differential-equations
+building-our-own-slope-field
