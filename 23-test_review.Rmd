@@ -9,15 +9,6 @@ Below are the general instructions for all tests
 - **One page (two sides)** of handwritten (or font size 8) notes are allowed.
 - The equation sheet from the textbook is included as part of the test pack (it doesn't count as note pages)
 
-## Test Format {-}
-The Format of the test will include:
-
-- 10 pick the best technique (do not solve)  [10pts]
-- 2 Substitution [2 x 5pts]
-- 2 Integration by Parts [2 x 5pts]
-- 1 Partial Fraction [5pts]
-- 3 Choose your method and solve [3 x 5pts]
-
 
 ## Part A — Short Answer (Concepts) {-}
 
