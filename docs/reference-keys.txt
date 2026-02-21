@@ -424,6 +424,7 @@ problem-3-indefinite-integrals-6-pts
 a-polynomial
 b-exponential
 c-trigonometric
+test-format-1
 intro-calculus-workbook
 teaching-team-introductions
 gaj-sivandran

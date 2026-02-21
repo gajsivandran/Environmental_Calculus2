@@ -9,10 +9,22 @@ Below are the general instructions for all tests
 - **One page (two sides)** of handwritten (or font size 8) notes are allowed.
 - The equation sheet from the textbook is included as part of the test pack (it doesn't count as note pages)
 
+## Test Format
+You should be able to do the following for this test
+
+- Evaluate Signed/NET integrals
+- Calculate the average of a function using an integral
+- Calculate the total/geometric area between two curves
+- Evaluate double integrals
+- Evaluate triple integrals
+- Be able to explain what the applications above are doing and interpret them
+  - Short answer / Multiple Test
+  - Interpret / Sketch 
+
 
 ## Part A — Short Answer (Concepts) {-}
 
-There will not be a short answer section - but there might be short answer intepretations at the end of calculations. 
+There will not be a short answer section - but there might be short answer interpretations at the end of calculations. 
 
 ---
 
