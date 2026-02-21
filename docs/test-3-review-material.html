@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 What Is an Integral? | Environmental Calculus 2 - Active Learning with Case Studies</title>
+  <title>Test 3 Review Material | Environmental Calculus 2 - Active Learning with Case Studies</title>
   <meta name="description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
   <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 What Is an Integral? | Environmental Calculus 2 - Active Learning with Case Studies" />
+  <meta property="og:title" content="Test 3 Review Material | Environmental Calculus 2 - Active Learning with Case Studies" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 What Is an Integral? | Environmental Calculus 2 - Active Learning with Case Studies" />
+  <meta name="twitter:title" content="Test 3 Review Material | Environmental Calculus 2 - Active Learning with Case Studies" />
   
   <meta name="twitter:description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="introduction-to-calculus-ii.html"/>
-<link rel="next" href="definite-integrals-and-the-fundamental-theorem-of-calculus.html"/>
+<link rel="prev" href="test-2-review-material.html"/>
+<link rel="next" href="intro-calculus-workbook.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -1029,2082 +1029,806 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="what-is-an-integral" class="section level1 hasAnchor" number="3">
-<h1><span class="header-section-number">Chapter 3</span> What Is an Integral?<a href="what-is-an-integral.html#what-is-an-integral" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Understanding Accumulation in Natural Systems</p>
-<p>Integrals help us understand how quantities <strong>accumulate</strong> over time or space. In environmental science, accumulation is everywhere: rivers accumulate runoff, forests accumulate carbon, lakes accumulate pollutants, and organisms accumulate energy. This chapter introduces the integral as a tool for describing total change when the <strong>rate of change</strong> is known. We begin with intuitive, visual ideas before moving into formal notation.</p>
-<hr />
-<div id="chapter-objectives" class="section level2 hasAnchor" number="3.1">
-<h2><span class="header-section-number">3.1</span> Chapter Objectives<a href="what-is-an-integral.html#chapter-objectives" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>By the end of this chapter, you will be able to:</p>
+<div id="test-3-review-material" class="section level1 unnumbered hasAnchor">
+<h1>Test 3 Review Material<a href="test-3-review-material.html#test-3-review-material" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="test-instructions-2" class="section level2 unnumbered hasAnchor">
+<h2>Test Instructions<a href="test-3-review-material.html#test-instructions-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Below are the general instructions for all tests</p>
 <ul>
-<li><strong>Explain</strong> how integrals model total accumulation in environmental systems and describe real-world examples such as streamflow, photosynthesis, and pollutant load.<br />
+<li>You will get a chance to <strong>retake</strong> this. Your <strong>highest</strong> score counts toward your final grade.<br />
 </li>
-<li><strong>Interpret</strong> the area under a rate curve as a measure of total change, including situations with gains, losses, and mixed-sign behavior.<br />
+<li>Follow the guidance for each part and <strong>show all work</strong> for full credit.<br />
 </li>
-<li><strong>Construct and evaluate</strong> Riemann sums (left, right, and midpoint) to approximate accumulation from graphical or numerical data.<br />
+<li><strong>Non-graphical calculators</strong> are allowed.<br />
 </li>
-<li><strong>Use</strong> antiderivatives and the Fundamental Theorem of Calculus (informal version) to compute definite integrals representing environmental totals.<br />
-</li>
-<li><strong>Analyze and interpret</strong> accumulation functions to understand how totals build up over time in ecological and physical processes.</li>
+<li><strong>One page (two sides)</strong> of handwritten (or font size 8) notes are allowed.</li>
+<li>The equation sheet from the textbook is included as part of the test pack (it doesn’t count as note pages)</li>
 </ul>
+</div>
+<div id="test-format-1" class="section level2 unnumbered hasAnchor">
+<h2>Test Format<a href="test-3-review-material.html#test-format-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The Format of the test will include:</p>
+<ul>
+<li>10 pick the best technique (do not solve) [10pts]</li>
+<li>2 Substitution [2 x 5pts]</li>
+<li>2 Integration by Parts [2 x 5pts]</li>
+<li>1 Partial Fraction [5pts]</li>
+<li>3 Choose your method and solve [3 x 5pts]</li>
+</ul>
+</div>
+<div id="part-a-short-answer-concepts" class="section level2 unnumbered hasAnchor">
+<h2>Part A — Short Answer (Concepts)<a href="test-3-review-material.html#part-a-short-answer-concepts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There will not be a short answer section - but there might be short answer intepretations at the end of calculations.</p>
+<hr />
+<div id="what-does-a-definite-integral-represent" class="section level3 unnumbered hasAnchor">
+<h3>1. What does a definite integral represent?<a href="test-3-review-material.html#what-does-a-definite-integral-represent" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details>
+<summary>
+<em>Hint</em>
+</summary>
+<p>Think about accumulation. What are we adding up? What does the sign of the function matter?</p>
+</details>
+<details>
+<summary>
+<em>Suggested Answer</em>
+</summary>
+<p>A definite integral represents the net accumulation of a quantity over an interval. Geometrically, it is the signed area between the curve and the <span class="math inline">\(x\)</span>-axis from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span>.</p>
+</details>
 <hr />
 </div>
-<div id="accumulation-in-environmental-systems" class="section level2 hasAnchor" number="3.2">
-<h2><span class="header-section-number">3.2</span> Accumulation in Environmental Systems<a href="what-is-an-integral.html#accumulation-in-environmental-systems" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Many natural processes are described not by totals but by <em>rates</em> — how fast something is happening. Integrals allow us to turn a rate into a total amount.</p>
-<p>Common environmental examples include:</p>
-<ul>
-<li><strong>Streamflow → total river discharge</strong> over a day<br />
-</li>
-<li><strong>Photosynthesis rate → total daily carbon uptake</strong><br />
-</li>
-<li><strong>Pollutant concentration × flow → total pollutant load</strong> entering a lake<br />
-</li>
-<li><strong>Evapotranspiration → total water loss</strong> during a heatwave<br />
-</li>
-<li><strong>Recruitment rate → total new individuals added to a population</strong></li>
-</ul>
-<blockquote>
-<p><strong>Key idea:</strong> If you know the rate at which something changes, the integral gives you the <em>total change</em> over a chosen interval.</p>
-</blockquote>
-<div id="walking-on-a-treadmill" class="section level3 unnumbered hasAnchor promptbox">
-<h3>Walking on a Treadmill<a href="what-is-an-integral.html#walking-on-a-treadmill" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Imagine you’re walking on a treadmill at a steady speed of <strong>5 miles per hour</strong>. This speed is a <strong>rate</strong> — it tells you how fast distance is being added as you move.</p>
-<p>If you walk at 5 mph for <strong>1 hour</strong>, your total distance is:</p>
+<div id="difference-between-signed-integral-and-total-accumulation" class="section level3 unnumbered hasAnchor">
+<h3>2. Difference between signed integral and total accumulation?<a href="test-3-review-material.html#difference-between-signed-integral-and-total-accumulation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details>
+<summary>
+<em>Hint</em>
+</summary>
+<p>What happens when the function is below the <span class="math inline">\(x\)</span>-axis? Does it subtract or still add?</p>
+</details>
+<details>
+<summary>
+<em>Suggested Answer</em>
+</summary>
+<p>A signed integral allows areas below the axis to subtract from areas above. Total accumulation uses absolute value so all contributions are counted positively.</p>
+</details>
+<hr />
+</div>
+<div id="why-do-we-use-absolute-value-for-geometric-area" class="section level3 unnumbered hasAnchor">
+<h3>3. Why do we use absolute value for geometric area?<a href="test-3-review-material.html#why-do-we-use-absolute-value-for-geometric-area" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details>
+<summary>
+<em>Hint</em>
+</summary>
+<p>Area is always positive in geometry.</p>
+</details>
+<details>
+<summary>
+<em>Suggested Answer</em>
+</summary>
+<p>Because geometric area measures size, not direction, and must always be positive, we use absolute value to prevent cancellation.</p>
+</details>
+<hr />
+</div>
+<div id="what-must-be-true-about-top-minus-bottom" class="section level3 unnumbered hasAnchor">
+<h3>4. What must be true about top minus bottom?<a href="test-3-review-material.html#what-must-be-true-about-top-minus-bottom" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details>
+<summary>
+<em>Hint</em>
+</summary>
+<p>What ensures the integrand stays positive?</p>
+</details>
+<details>
+<summary>
+<em>Suggested Answer</em>
+</summary>
+<p>The function labeled “top” must be greater than or equal to the bottom function across the entire interval.</p>
+</details>
+<hr />
+</div>
+<div id="what-goes-wrong-if-curves-cross-and-you-dont-split" class="section level3 unnumbered hasAnchor">
+<h3>5. What goes wrong if curves cross and you don’t split?<a href="test-3-review-material.html#what-goes-wrong-if-curves-cross-and-you-dont-split" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details>
+<summary>
+<em>Hint</em>
+</summary>
+<p>Think about sign changes in <span class="math inline">\(f(x)-g(x)\)</span>.</p>
+</details>
+<details>
+<summary>
+<em>Suggested Answer</em>
+</summary>
+<p>If the curves cross, the integrand changes sign, leading to cancellation and an incorrect area value.</p>
+</details>
+<hr />
+</div>
+<div id="why-find-intersection-points" class="section level3 unnumbered hasAnchor">
+<h3>6. Why find intersection points?<a href="test-3-review-material.html#why-find-intersection-points" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details>
+<summary>
+<em>Hint</em>
+</summary>
+<p>What happens at those points?</p>
+</details>
+<details>
+<summary>
+<em>Suggested Answer</em>
+</summary>
+<p>Intersection points mark where the top and bottom functions switch roles, allowing us to correctly split the integral.</p>
+</details>
+<hr />
+</div>
+<div id="how-do-we-split-if-they-intersect-at-xc" class="section level3 unnumbered hasAnchor">
+<h3>7. How do we split if they intersect at <span class="math inline">\(x=c\)</span>?<a href="test-3-review-material.html#how-do-we-split-if-they-intersect-at-xc" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details>
+<summary>
+<em>Hint</em>
+</summary>
+<p>Write two integrals.</p>
+</details>
+<details>
+<summary>
+<em>Suggested Answer</em>
+</summary>
 <p><span class="math display">\[
-\text{distance} = \text{rate} \times \text{time} = 5 \times 1 = 5 \text{ miles}.
+\text{Area} = \int_a^c (f-g)\,dx + \int_c^b (g-f)\,dx
 \]</span></p>
-<p>But even if the speed changes during the workout — maybe 4 mph during the warm-up, 5 mph in the middle, and 6 mph at the end — you can still find the <strong>total distance</strong> by adding up all the little pieces:</p>
-<ul>
-<li>each minute at 4 mph contributes a small amount of distance,<br />
-</li>
-<li>each minute at 5 mph contributes a bit more,<br />
-</li>
-<li>each minute at 6 mph contributes even more.</li>
-</ul>
-<p>When we add all these tiny contributions together, we get the <strong>total distance walked</strong>.</p>
-<p>This is exactly what an integral does: it adds up the accumulation of a changing rate over time.</p>
-</div>
+</details>
 <hr />
 </div>
-<div id="from-rate-curves-to-areas-under-curves" class="section level2 hasAnchor" number="3.3">
-<h2><span class="header-section-number">3.3</span> From Rate Curves to Areas Under Curves<a href="what-is-an-integral.html#from-rate-curves-to-areas-under-curves" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>When we graph a rate <span class="math inline">\(f(t)\)</span>, the <strong>height of the curve</strong> represents how fast the system is changing at each moment.</p>
-<p>The <strong>total accumulation</strong> from time <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span> is the <strong>area under the rate curve</strong>:</p>
-<ul>
-<li>Height (rate) × width (time) = accumulated amount<br />
-</li>
-<li>Units multiply:
-<ul>
-<li><span class="math inline">\(\text{m}^3/\text{s} \times \text{s} = \text{m}^3\)</span><br />
-</li>
-<li><span class="math inline">\(\mu\text{mol}/(\text{m}^2\cdot\text{s}) \times \text{s} = \mu\text{mol}/\text{m}^2\)</span></li>
-</ul></li>
-</ul>
-<p><img src="bookdown-demo_files/figure-html/rate-curve-accumulation-illustration-1.png" width="672" /></p>
-<p>Environmental examples:</p>
-<ul>
-<li>Total river discharge from a storm hydrograph<br />
-</li>
-<li>Total CO₂ absorbed during a sunny day<br />
-</li>
-<li>Total nitrogen mineralized over a growing season</li>
-</ul>
-<div id="filling-a-water-bottle" class="section level3 unnumbered hasAnchor promptbox">
-<h3>Filling a Water Bottle<a href="what-is-an-integral.html#filling-a-water-bottle" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Suppose you are filling a water bottle from a faucet, and the <strong>flow rate</strong> changes over time.</p>
-<ul>
-<li>At first, you turn the faucet on gently, and water flows at <strong>50 mL/s</strong>.<br />
-</li>
-<li>A few seconds later, you open it more, and the flow increases to <strong>90 mL/s</strong>.<br />
-</li>
-<li>Near the end, you partially close it, slowing the flow to <strong>30 mL/s</strong>.</li>
-</ul>
-<p>If you graph this changing flow rate over time, the <strong>height of the curve</strong> at any moment shows how quickly water is entering the bottle.</p>
-<p>To find out <strong>how much water</strong> ends up in the bottle, you do <strong>not</strong> multiply a single rate by a single time. Instead, you add up:</p>
-<ul>
-<li>a small amount of water from the low initial rate,<br />
-</li>
-<li>a larger amount from the high middle rate,<br />
-</li>
-<li>a small amount again when the flow slows down.</li>
-</ul>
-<p>On the graph, these “small amounts” correspond to <strong>thin rectangles under the curve</strong>.<br />
-Adding them all together gives the <strong>area under the rate curve</strong>, which equals the <strong>total volume of water</strong> in the bottle.</p>
-<p>This is exactly what an integral measures:</p>
-<blockquote>
-<p>the total accumulation obtained by adding up tiny contributions from a changing rate.</p>
-</blockquote>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-</div>
+<div id="how-can-you-quickly-determine-which-function-is-on-top" class="section level3 unnumbered hasAnchor">
+<h3>8. How can you quickly determine which function is on top?<a href="test-3-review-material.html#how-can-you-quickly-determine-which-function-is-on-top" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details>
+<summary>
+<em>Hint</em>
+</summary>
+<p>Test a value in the interval.</p>
+</details>
+<details>
+<summary>
+<em>Suggested Answer</em>
+</summary>
+<p>Evaluate both functions at a convenient test point within the interval and compare their values.</p>
+</details>
 <hr />
 </div>
-<div id="riemann-sums-adding-up-small-pieces" class="section level2 hasAnchor" number="3.4">
-<h2><span class="header-section-number">3.4</span> Riemann Sums: Adding Up Small Pieces<a href="what-is-an-integral.html#riemann-sums-adding-up-small-pieces" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In most real situations, rates are <strong>not constant</strong>. Streamflow rises and falls during a storm, photosynthesis changes throughout the day, and pollutant inputs vary with human activity. Because of this, we cannot usually find total accumulation by multiplying a single rate by a single time.</p>
-<p>Instead, we approximate accumulation by <strong>breaking the interval into many small pieces</strong> and adding up their individual contributions.</p>
-<p>The basic idea works as follows:</p>
-<ol style="list-style-type: decimal">
-<li><strong>Divide the interval</strong> into smaller subintervals of equal width.<br />
-</li>
-<li><strong>Approximate the rate</strong> as constant over each subinterval.<br />
-</li>
-<li><strong>Compute each slice’s contribution</strong> using<br />
-<span class="math display">\[
-\text{(height)} \times \text{(width)}.
-\]</span></li>
-<li><strong>Add all slices together</strong> to estimate the total accumulation.</li>
-</ol>
-<p>Each slice represents a small amount of accumulated quantity over a short period of time. When we add them all together, we get an approximation of the total.</p>
-<p><img src="bookdown-demo_files/figure-html/riemann-conceptual-many-slices-1.png" width="672" /></p>
-<hr />
-<div id="choosing-a-riemann-sum-method" class="section level3 hasAnchor" number="3.4.1">
-<h3><span class="header-section-number">3.4.1</span> Choosing a Riemann Sum Method<a href="what-is-an-integral.html#choosing-a-riemann-sum-method" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The difference between left, right, and midpoint Riemann sums is not just mathematical—it reflects <strong>assumptions about how a system behaves within each subinterval</strong>. Choosing a method means deciding <em>when</em> you think the rate best represents the entire slice.</p>
-<p><img src="bookdown-demo_files/figure-html/riemann-left-right-midpoint-colored-titles-1.png" width="960" /></p>
-<hr />
-<ul>
-<li><p><strong>Left Riemann sum:</strong><br />
-Uses the rate at the <strong>left endpoint</strong> of each subinterval.</p>
-<p>This method assumes the rate remains approximately constant at its <strong>initial value</strong> over the slice. It is most appropriate when:</p>
-<ul>
-<li>the rate is <strong>slowly changing</strong>, or<br />
-</li>
-<li>you want a <strong>conservative or early estimate</strong>, or<br />
-</li>
-<li>measurements are taken at the <em>start</em> of each interval.</li>
-</ul>
-<p><strong>Common outcomes:</strong></p>
-<ul>
-<li>Tends to <strong>underestimate</strong> accumulation when the rate is increasing.<br />
-</li>
-<li>Tends to <strong>overestimate</strong> accumulation when the rate is decreasing.</li>
-</ul>
-<p><strong>Environmental examples:</strong></p>
-<ul>
-<li>Estimating pollutant inflow immediately after a spill<br />
-</li>
-<li>Using early-morning evapotranspiration rates to estimate daily loss</li>
-</ul></li>
-</ul>
-<hr />
-<ul>
-<li><p><strong>Right Riemann sum:</strong><br />
-Uses the rate at the <strong>right endpoint</strong> of each subinterval.</p>
-<p>This method assumes the rate has already changed to its <strong>later value</strong> by the start of the slice. It is most appropriate when:</p>
-<ul>
-<li>the process intensifies over time, or<br />
-</li>
-<li>data are collected at the <em>end</em> of each interval, or<br />
-</li>
-<li>you want a <strong>precautionary upper estimate</strong>.</li>
-</ul>
-<p><strong>Common outcomes:</strong></p>
-<ul>
-<li>Tends to <strong>overestimate</strong> accumulation when the rate is increasing.<br />
-</li>
-<li>Tends to <strong>underestimate</strong> accumulation when the rate is decreasing.</li>
-</ul>
-<p><strong>Environmental examples:</strong></p>
-<ul>
-<li>Estimating peak streamflow during the rising limb of a storm<br />
-</li>
-<li>Modeling afternoon photosynthesis after sunlight has increased</li>
-</ul></li>
-</ul>
-<hr />
-<ul>
-<li><p><strong>Midpoint Riemann sum:</strong><br />
-Uses the rate at the <strong>midpoint</strong> of each subinterval.</p>
-<p>This method assumes the midpoint rate best represents the <strong>average behavior</strong> of the system over the slice. It is often preferred when:</p>
-<ul>
-<li>the rate changes smoothly, and<br />
-</li>
-<li>no strong justification exists for early or late sampling, or<br />
-</li>
-<li>higher accuracy is desired without increasing the number of slices.</li>
-</ul>
-<p><strong>Common outcomes:</strong></p>
-<ul>
-<li>Usually provides a <strong>better balance</strong> between over- and underestimation.<br />
-</li>
-<li>Often converges to the true value <strong>faster</strong> than left or right sums.</li>
-</ul>
-<p><strong>Environmental examples:</strong></p>
-<ul>
-<li>Estimating daily carbon uptake from smoothly varying light levels<br />
-</li>
-<li>Approximating total nitrogen mineralization over a growing season</li>
-</ul></li>
-</ul>
+<div id="what-does-average-value-mean-conceptually" class="section level3 unnumbered hasAnchor">
+<h3>9. What does average value mean conceptually?<a href="test-3-review-material.html#what-does-average-value-mean-conceptually" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details>
+<summary>
+<em>Hint</em>
+</summary>
+<p>Imagine flattening the function into a constant height.</p>
+</details>
+<details>
+<summary>
+<em>Suggested Answer</em>
+</summary>
+<p>The average value is the constant height that would produce the same total area over the interval.</p>
+</details>
 <hr />
 </div>
-<div id="a-practical-guideline" class="section level3 hasAnchor" number="3.4.2">
-<h3><span class="header-section-number">3.4.2</span> A Practical Guideline<a href="what-is-an-integral.html#a-practical-guideline" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>When in doubt:</p>
-<ul>
-<li>Use <strong>left or right sums</strong> to reflect <em>specific assumptions</em> about timing or uncertainty.</li>
-<li>Use the <strong>midpoint sum</strong> as a reliable default for smooth, continuous processes.</li>
-<li>Increase the <strong>number of subintervals</strong> when accuracy matters more than simplicity.</li>
-</ul>
-<p>These choices highlight that Riemann sums are not just numerical tools—they are <strong>models of how we believe the system behaves</strong> between measurements.</p>
+<div id="why-divide-by-b-a" class="section level3 unnumbered hasAnchor">
+<h3>10. Why divide by <span class="math inline">\(b-a\)</span>?<a href="test-3-review-material.html#why-divide-by-b-a" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details>
+<summary>
+<em>Hint</em>
+</summary>
+<p>Think “total divided by length.”</p>
+</details>
+<details>
+<summary>
+<em>Suggested Answer</em>
+</summary>
+<p>We divide by the interval length to convert total accumulation into a per-unit average.</p>
+</details>
 <hr />
 </div>
-</div>
-<div id="approximation-and-error-in-riemann-sums" class="section level2 hasAnchor" number="3.5">
-<h2><span class="header-section-number">3.5</span> Approximation and Error in Riemann Sums<a href="what-is-an-integral.html#approximation-and-error-in-riemann-sums" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>It is important to be clear about what Riemann sums are — and what they are not.</p>
-<p>A Riemann sum is an <strong>approximation</strong>, not an exact calculation. By replacing a continuously changing rate with a set of constant rectangles, we introduce <strong>error</strong>. Each rectangle is only an estimate of what the curve is doing over that interval.</p>
-<p>The error comes from a simple source:</p>
-<blockquote>
-<p><strong>The rectangles do not perfectly match the shape of the curve.</strong></p>
-</blockquote>
-<p>Some rectangles extend above the curve, while others fall below it. The difference between the total area of the rectangles and the true area under the curve is called the <strong>approximation error</strong>.</p>
-<hr />
-<div id="why-error-occurs" class="section level3 hasAnchor" number="3.5.1">
-<h3><span class="header-section-number">3.5.1</span> Why Error Occurs<a href="what-is-an-integral.html#why-error-occurs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Error arises because we make two simplifying assumptions:</p>
-<ol style="list-style-type: decimal">
-<li>The rate is treated as <strong>constant</strong> within each subinterval.<br />
-</li>
-<li>The true rate may be <strong>increasing, decreasing, or curved</strong> within that interval.</li>
-</ol>
-<p>If the curve bends significantly, wide rectangles can miss important changes. This is why Riemann sums improve when:</p>
-<ul>
-<li>subintervals are <strong>narrower</strong>, and<br />
-</li>
-<li>more rectangles are used.</li>
-</ul>
-<p>In the limit, as the width of each subinterval approaches zero, the Riemann sum approaches the <strong>definite integral</strong>, which represents the exact accumulation.</p>
+<div id="geometric-interpretation-of-average-value" class="section level3 unnumbered hasAnchor">
+<h3>11. Geometric interpretation of average value?<a href="test-3-review-material.html#geometric-interpretation-of-average-value" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details>
+<summary>
+<em>Hint</em>
+</summary>
+<p>Picture a rectangle.</p>
+</details>
+<details>
+<summary>
+<em>Suggested Answer</em>
+</summary>
+<p>It is the height of a rectangle with base <span class="math inline">\(b-a\)</span> that has the same area as the region under <span class="math inline">\(f(x)\)</span>.</p>
+</details>
 <hr />
 </div>
-<div id="overestimates-and-underestimates" class="section level3 hasAnchor" number="3.5.2">
-<h3><span class="header-section-number">3.5.2</span> Overestimates and Underestimates<a href="what-is-an-integral.html#overestimates-and-underestimates" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Whether a Riemann sum <strong>overestimates</strong> or <strong>underestimates</strong> the true accumulation depends on both:</p>
-<ul>
-<li>the <strong>shape of the rate curve</strong>, and<br />
-</li>
-<li>the <strong>method used</strong> to choose rectangle heights.</li>
-</ul>
-<div id="increasing-rate-functions" class="section level4 hasAnchor" number="3.5.2.1">
-<h4><span class="header-section-number">3.5.2.1</span> Increasing Rate Functions<a href="what-is-an-integral.html#increasing-rate-functions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>When the rate is increasing over an interval:</p>
-<ul>
-<li><strong>Left Riemann sums</strong> tend to <strong>underestimate</strong> the total accumulation, because each rectangle uses a rate that is smaller than most of the values in the interval.</li>
-<li><strong>Right Riemann sums</strong> tend to <strong>overestimate</strong> the total accumulation, because they use a larger rate that occurs later in the interval.</li>
-<li><strong>Midpoint Riemann sums</strong> usually balance these effects and provide a closer estimate.</li>
-</ul>
-<p><img src="bookdown-demo_files/figure-html/riemann-under-over-triangles-1.png" width="960" /></p>
-</div>
-<div id="decreasing-rate-functions" class="section level4 hasAnchor" number="3.5.2.2">
-<h4><span class="header-section-number">3.5.2.2</span> Decreasing Rate Functions<a href="what-is-an-integral.html#decreasing-rate-functions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>When the rate is decreasing over an interval:</p>
-<ul>
-<li><strong>Left Riemann sums</strong> tend to <strong>overestimate</strong> the total accumulation.</li>
-<li><strong>Right Riemann sums</strong> tend to <strong>underestimate</strong> the total accumulation.</li>
-<li><strong>Midpoint Riemann sums</strong> again often provide a more accurate estimate.</li>
-</ul>
-<p><img src="bookdown-demo_files/figure-html/riemann-under-over-triangles-decreasing-1.png" width="960" /></p>
+<div id="what-does-da-represent" class="section level3 unnumbered hasAnchor">
+<h3>12. What does <span class="math inline">\(dA\)</span> represent?<a href="test-3-review-material.html#what-does-da-represent" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details>
+<summary>
+<em>Hint</em>
+</summary>
+<p>Tiny what?</p>
+</details>
+<details>
+<summary>
+<em>Suggested Answer</em>
+</summary>
+<p><span class="math inline">\(dA\)</span> represents a tiny piece of area, typically a small rectangle in the plane.</p>
+</details>
 <hr />
 </div>
-</div>
-<div id="interpreting-error-in-environmental-contexts" class="section level3 hasAnchor" number="3.5.3">
-<h3><span class="header-section-number">3.5.3</span> Interpreting Error in Environmental Contexts<a href="what-is-an-integral.html#interpreting-error-in-environmental-contexts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>In environmental science, these distinctions are not just mathematical—they have real consequences.</p>
-<p>An <strong>underestimate</strong> of pollutant load may delay mitigation or regulatory action, while an <strong>overestimate</strong> of available water can lead to management plans that are unsustainable in practice. Each choice reflects assumptions about <strong>timing, uncertainty, and acceptable risk</strong>.</p>
-<p>For this reason, understanding <em>how</em> and <em>why</em> Riemann sums approximate accumulation is just as important as knowing how to compute them.</p>
-<p>In many real-world settings, the objective is not to find a perfectly exact value, but to make a <strong>safe, informed, and defensible decision</strong>. Under these conditions, deliberately choosing an overestimate or an underestimate is not an error—it is a purposeful modeling choice.</p>
-<p>Riemann sums make this choice explicit by allowing us to decide <strong>how the rate is sampled within each interval</strong>, and therefore how conservative our estimate will be.</p>
-<hr />
-<div id="conservativeness-and-decision-making" class="section level4 hasAnchor" number="3.5.3.1">
-<h4><span class="header-section-number">3.5.3.1</span> Conservativeness and Decision-Making<a href="what-is-an-integral.html#conservativeness-and-decision-making" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>A <strong>conservative estimate</strong> is one that reduces risk by erring on the side of caution. Whether this means overestimating or underestimating depends entirely on the context and the consequences of being wrong.</p>
-<p>The key question is:</p>
-<blockquote>
-<p><em>What is worse: overestimating or underestimating the true accumulation?</em></p>
-</blockquote>
+<div id="what-does-a-double-integral-do-that-a-single-integral-cannot" class="section level3 unnumbered hasAnchor">
+<h3>13. What does a double integral do that a single integral cannot?<a href="test-3-review-material.html#what-does-a-double-integral-do-that-a-single-integral-cannot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details>
+<summary>
+<em>Hint</em>
+</summary>
+<p>Think dimension.</p>
+</details>
+<details>
+<summary>
+<em>Suggested Answer</em>
+</summary>
+<p>A double integral accumulates values over a two-dimensional region, not just along a line.</p>
+</details>
 <hr />
 </div>
-<div id="when-an-underestimate-is-conservative" class="section level4 hasAnchor" number="3.5.3.2">
-<h4><span class="header-section-number">3.5.3.2</span> When an Underestimate Is Conservative<a href="what-is-an-integral.html#when-an-underestimate-is-conservative" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>An <strong>underestimate</strong> is conservative when overstating the quantity could lead to harm, wasted resources, or unrealistic expectations.</p>
-<p>Examples include:</p>
-<ul>
-<li><strong>Water supply planning:</strong><br />
-Underestimating total available water avoids promising more water than can reliably be delivered.</li>
-<li><strong>Carbon sequestration estimates:</strong><br />
-Underestimating carbon uptake prevents overstating climate mitigation benefits.</li>
-<li><strong>Wildlife population growth:</strong><br />
-Underestimating recruitment avoids overconfidence in population recovery.</li>
-</ul>
-<p>In these cases, a left or right Riemann sum may be chosen specifically because it produces a <strong>lower bound</strong> on the true value.</p>
+<div id="why-treat-outer-variable-as-constant" class="section level3 unnumbered hasAnchor">
+<h3>14. Why treat outer variable as constant?<a href="test-3-review-material.html#why-treat-outer-variable-as-constant" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details>
+<summary>
+<em>Hint</em>
+</summary>
+<p>Integration rules.</p>
+</details>
+<details>
+<summary>
+<em>Suggested Answer</em>
+</summary>
+<p>Because when integrating with respect to one variable, all other variables are treated as constants by definition of partial integration.</p>
+</details>
 <hr />
 </div>
-<div id="when-an-overestimate-is-conservative" class="section level4 hasAnchor" number="3.5.3.3">
-<h4><span class="header-section-number">3.5.3.3</span> When an Overestimate Is Conservative<a href="what-is-an-integral.html#when-an-overestimate-is-conservative" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>An <strong>overestimate</strong> is conservative when underestimating the quantity could lead to insufficient protection or preparedness.</p>
-<p>Examples include:</p>
-<ul>
-<li><strong>Pollutant load calculations:</strong><br />
-Overestimating pollutant input ensures regulations are strict enough to protect ecosystems.</li>
-<li><strong>Flood risk assessment:</strong><br />
-Overestimating peak discharge supports safer infrastructure design.</li>
-<li><strong>Resource demand forecasting:</strong><br />
-Overestimating energy or water demand helps prevent shortages.</li>
-</ul>
-<p>Here, an overestimate functions as a <strong>precautionary upper bound</strong>, prioritizing safety over efficiency.</p>
+<div id="what-does-dv-represent" class="section level3 unnumbered hasAnchor">
+<h3>15. What does <span class="math inline">\(dV\)</span> represent?<a href="test-3-review-material.html#what-does-dv-represent" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details>
+<summary>
+<em>Hint</em>
+</summary>
+<p>Tiny 3D piece.</p>
+</details>
+<details>
+<summary>
+<em>Suggested Answer</em>
+</summary>
+<p><span class="math inline">\(dV\)</span> represents a tiny volume element, such as a small rectangular box.</p>
+</details>
 <hr />
 </div>
-<div id="choosing-a-method-intentionally" class="section level4 hasAnchor" number="3.5.3.4">
-<h4><span class="header-section-number">3.5.3.4</span> Choosing a Method Intentionally<a href="what-is-an-integral.html#choosing-a-method-intentionally" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Riemann sums make the assumptions behind these choices transparent:</p>
-<ul>
-<li><strong>Left Riemann sums</strong> may provide conservative lower or upper bounds depending on whether the rate is increasing or decreasing.</li>
-<li><strong>Right Riemann sums</strong> provide the opposite bound.</li>
-<li><strong>Midpoint Riemann sums</strong> aim for accuracy rather than conservativeness.</li>
-</ul>
-<p>Choosing a method is therefore not just a mathematical step — it is a <strong>modeling decision</strong> that reflects values, priorities, and acceptable risk.</p>
+<div id="what-does-a-triple-integral-measure-with-density" class="section level3 unnumbered hasAnchor">
+<h3>16. What does a triple integral measure with density?<a href="test-3-review-material.html#what-does-a-triple-integral-measure-with-density" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details>
+<summary>
+<em>Hint</em>
+</summary>
+<p>Density times volume.</p>
+</details>
+<details>
+<summary>
+<em>Suggested Answer</em>
+</summary>
+<p>It measures total quantity (like mass or population) by accumulating density over a three-dimensional region.</p>
+</details>
 <hr />
 </div>
-<div id="key-takeaway" class="section level4 hasAnchor" number="3.5.3.5">
-<h4><span class="header-section-number">3.5.3.5</span> Key Takeaway<a href="what-is-an-integral.html#key-takeaway" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Overestimates and underestimates are not mistakes.<br />
-They are <strong>tools</strong>.</p>
-<p>By understanding how and why approximation error occurs, we can choose methods that align with the <strong>ethical, environmental, and practical consequences</strong> of our decisions.</p>
-<hr />
+<div id="what-does-changing-order-of-integration-mean-geometrically" class="section level3 unnumbered hasAnchor">
+<h3>17. What does changing order of integration mean geometrically?<a href="test-3-review-material.html#what-does-changing-order-of-integration-mean-geometrically" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<details>
+<summary>
+<em>Hint</em>
+</summary>
+<p>Different slicing direction.</p>
+</details>
+<details>
+<summary>
+<em>Suggested Answer</em>
+</summary>
+<p>It represents slicing the same region in a different direction; the total accumulation remains the same if the region and function are unchanged.</p>
+</details>
 </div>
 </div>
-</div>
-<div id="riemann-sums-as-a-calculus-expression" class="section level2 hasAnchor" number="3.6">
-<h2><span class="header-section-number">3.6</span> Riemann Sums as a Calculus Expression<a href="what-is-an-integral.html#riemann-sums-as-a-calculus-expression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Up to this point, we have described Riemann sums using words, pictures, and rectangles. These visual and intuitive ideas help us understand <em>what</em> is being added and <em>why</em> accumulation works the way it does. However, intuition alone is not enough when we want to reason precisely, generalize to any function, or prepare for formal definitions.</p>
-<p>Calculus provides a <strong>compact and precise mathematical language</strong> for expressing the idea of “add up many small pieces.” This language allows us to describe accumulation without relying on a specific picture or numerical example, and it works for any rate function and any interval.</p>
-<p>That language is called <strong>summation notation</strong>.</p>
+<div id="part-b-signed-integrals" class="section level2 unnumbered hasAnchor">
+<h2>Part B — Signed Integrals<a href="test-3-review-material.html#part-b-signed-integrals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="compute" class="section level3 unnumbered hasAnchor">
+<h3>1. Compute<a href="test-3-review-material.html#compute" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><span class="math display">\[
-\sum_{i=1}^{n}
+\int_{-2}^{4} (2x-5)\,dx.
 \]</span></p>
-<p>Summation notation gives us a way to write, in a single expression, the process of:</p>
-<ul>
-<li>breaking an interval into many small pieces,</li>
-<li>approximating the contribution from each piece, and</li>
-<li>adding all of those contributions together.</li>
-</ul>
+<details>
+<summary>
+<em>Hint</em>
+</summary>
+<p>Find an antiderivative <span class="math inline">\(F(x)\)</span> and evaluate <span class="math inline">\(F(4)-F(-2)\)</span>.</p>
+</details>
+<details>
+<summary>
+<em>Worked Solution</em>
+</summary>
+<p><span class="math display">\[
+\int (2x-5)\,dx=x^2-5x
+\]</span></p>
+<p><span class="math display">\[
+\left[x^2-5x\right]_{-2}^{4}
+=(16-20)-\left(4+10\right)
+=-4-14=-18
+\]</span></p>
+<p><span class="math display">\[
+\boxed{-18}
+\]</span></p>
+</details>
 <hr />
-<div id="rectangle-contributions-in-notation" class="section level3 hasAnchor" number="3.6.1">
-<h3><span class="header-section-number">3.6.1</span> Rectangle Contributions in Notation<a href="what-is-an-integral.html#rectangle-contributions-in-notation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>To build a Riemann sum, we first divide the interval <span class="math inline">\([a,b]\)</span> into <span class="math inline">\(n\)</span> subintervals of equal width <span class="math inline">\(\Delta x\)</span>.</p>
-<p>In each subinterval, we choose a sample point <span class="math inline">\(x_i^*\)</span>.<br />
-The rectangle over that subinterval has:</p>
-<ul>
-<li><strong>height:</strong> <span class="math inline">\(f(x_i^*)\)</span><br />
-</li>
-<li><strong>width:</strong> <span class="math inline">\(\Delta x\)</span></li>
-</ul>
-<p>Each rectangle therefore contributes approximately
-<span class="math display">\[
-f(x_i^*)\,\Delta x
+</div>
+<div id="compute-1" class="section level3 unnumbered hasAnchor">
+<h3>2. Compute<a href="test-3-review-material.html#compute-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+\int_{1}^{e} \frac{1}{x}\,dx.
+\]</span></p>
+<details>
+<summary>
+<em>Hint</em>
+</summary>
+<p>What is the antiderivative of <span class="math inline">\(1/x\)</span>?</p>
+</details>
+<details>
+<summary>
+<em>Worked Solution</em>
+</summary>
+<p><span class="math display">\[
+\int \frac{1}{x}\,dx=\ln x
+\]</span></p>
+<p><span class="math display">\[
+\left[\ln x\right]_{1}^{e}=1-0=1
+\]</span></p>
+<p><span class="math display">\[
+\boxed{1}
+\]</span></p>
+</details>
+<hr />
+</div>
+<div id="compute-2" class="section level3 unnumbered hasAnchor">
+<h3>3. Compute<a href="test-3-review-material.html#compute-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+\int_{0}^{3} (x^2-4x+1)\,dx.
+\]</span></p>
+<details>
+<summary>
+<em>Hint</em>
+</summary>
+<p>Integrate term by term.</p>
+</details>
+<details>
+<summary>
+<em>Worked Solution</em>
+</summary>
+<p><span class="math display">\[
+\int (x^2-4x+1)\,dx=\frac{x^3}{3}-2x^2+x
+\]</span></p>
+<p><span class="math display">\[
+\left[\frac{x^3}{3}-2x^2+x\right]_0^3
+=9-18+3=-6
+\]</span></p>
+<p><span class="math display">\[
+\boxed{-6}
+\]</span></p>
+</details>
+<hr />
+</div>
+<div id="compute-3" class="section level3 unnumbered hasAnchor">
+<h3>4. Compute<a href="test-3-review-material.html#compute-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+\int_{-1}^{2} (3e^x-2)\,dx.
+\]</span></p>
+<details>
+<summary>
+<em>Hint</em>
+</summary>
+<p>Integrate <span class="math inline">\(e^x\)</span> and constants separately.</p>
+</details>
+<details>
+<summary>
+<em>Worked Solution</em>
+</summary>
+<p><span class="math display">\[
+\int (3e^x-2)\,dx=3e^x-2x
+\]</span></p>
+<p><span class="math display">\[
+\left[3e^x-2x\right]_{-1}^{2}
+=(3e^2-4)-\left(\frac{3}{e}+2\right)
+=3e^2-6-\frac{3}{e}
+\]</span></p>
+<p><span class="math display">\[
+\boxed{3e^2-6-\frac{3}{e}}
+\]</span></p>
+</details>
+<hr />
+</div>
+</div>
+<div id="part-c-average-value" class="section level2 unnumbered hasAnchor">
+<h2>Part C — Average Value<a href="test-3-review-material.html#part-c-average-value" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="find-the-average-value-of" class="section level3 unnumbered hasAnchor">
+<h3>5. Find the average value of<a href="test-3-review-material.html#find-the-average-value-of" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+f(x)=x^2+4x
+\]</span><br />
+on <span class="math inline">\([-1,2]\)</span>.</p>
+<details>
+<summary>
+<em>Hint</em>
+</summary>
+<p>Use <span class="math inline">\(f_{\text{avg}}=\frac{1}{b-a}\int_a^b f(x)\,dx\)</span>.</p>
+</details>
+<details>
+<summary>
+<em>Worked Solution</em>
+</summary>
+<p><span class="math display">\[
+f_{\text{avg}}=\frac{1}{3}\int_{-1}^{2}(x^2+4x)\,dx
+\]</span></p>
+<p><span class="math display">\[
+\int (x^2+4x)\,dx=\frac{x^3}{3}+2x^2
+\]</span></p>
+<p>Integral value <span class="math inline">\(=9\)</span>.</p>
+<p><span class="math display">\[
+f_{\text{avg}}=\frac{9}{3}=3
+\]</span></p>
+<p><span class="math display">\[
+\boxed{3}
+\]</span></p>
+</details>
+<hr />
+</div>
+<div id="find-the-average-value-of-1" class="section level3 unnumbered hasAnchor">
+<h3>6. Find the average value of<a href="test-3-review-material.html#find-the-average-value-of-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+f(x)=e^{2x}
+\]</span><br />
+on <span class="math inline">\([0,1]\)</span>.</p>
+<details>
+<summary>
+<em>Hint</em>
+</summary>
+<p>Remember the interval length is 1.</p>
+</details>
+<details>
+<summary>
+<em>Worked Solution</em>
+</summary>
+<p><span class="math display">\[
+f_{\text{avg}}=\int_0^1 e^{2x}\,dx
+\]</span></p>
+<p><span class="math display">\[
+=\left[\frac12 e^{2x}\right]_0^1
+=\frac12(e^2-1)
+\]</span></p>
+<p><span class="math display">\[
+\boxed{\frac{e^2-1}{2}}
+\]</span></p>
+</details>
+<hr />
+</div>
+</div>
+<div id="part-d-area-between-curves" class="section level2 unnumbered hasAnchor">
+<h2>Part D — Area Between Curves<a href="test-3-review-material.html#part-d-area-between-curves" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="find-the-area-between" class="section level3 unnumbered hasAnchor">
+<h3>7. Find the area between<a href="test-3-review-material.html#find-the-area-between" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+f(x)=2x+1
+\quad\text{and}\quad
+g(x)=x^2
+\]</span><br />
+on <span class="math inline">\([0,2]\)</span>.</p>
+<details>
+<summary>
+<em>Hint</em>
+</summary>
+<p>Determine which function is on top.</p>
+</details>
+<details>
+<summary>
+<em>Worked Solution</em>
+</summary>
+<p>Since <span class="math inline">\(2x+1 &gt; x^2\)</span> on <span class="math inline">\([0,2]\)</span>,</p>
+<p><span class="math display">\[
+\text{Area}=\int_0^2((2x+1)-x^2)\,dx
+\]</span></p>
+<p><span class="math display">\[
+\int(-x^2+2x+1)\,dx=-\frac{x^3}{3}+x^2+x
+\]</span></p>
+<p><span class="math display">\[
+\left[-\frac{x^3}{3}+x^2+x\right]_0^2
+=-\frac{8}{3}+4+2=\frac{10}{3}
+\]</span></p>
+<p><span class="math display">\[
+\boxed{\frac{10}{3}}
+\]</span></p>
+</details>
+<hr />
+</div>
+<div id="find-the-total-area-between" class="section level3 unnumbered hasAnchor">
+<h3>8. Find the total area between<a href="test-3-review-material.html#find-the-total-area-between" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+f(x)=x^2-1
+\quad\text{and}\quad
+g(x)=0
 \]</span>
-to the total accumulation.</p>
-<div id="width-of-the-rectangle" class="section level4 hasAnchor" number="3.6.1.1">
-<h4><span class="header-section-number">3.6.1.1</span> Width of the Rectangle<a href="what-is-an-integral.html#width-of-the-rectangle" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<p>Because the interval from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span> has been divided into <span class="math inline">\(n\)</span> equal subintervals, each slice has the same width.</p>
-<p>The total length of the interval is:
-<span class="math display">\[
-b - a.
+on <span class="math inline">\([-2,2]\)</span>.</p>
+<details>
+<summary>
+<em>Hint</em>
+</summary>
+<p>Find where <span class="math inline">\(x^2-1=0\)</span>. Split the integral and use symmetry.</p>
+</details>
+<details>
+<summary>
+<em>Worked Solution</em>
+</summary>
+<p>Zeros at <span class="math inline">\(x=\pm1\)</span>.</p>
+<p><span class="math display">\[
+\text{Area}=\int_{-2}^{2}|x^2-1|\,dx
+=2\left(\int_0^1(1-x^2)\,dx+\int_1^2(x^2-1)\,dx\right)
 \]</span></p>
-<p>As illustrated above, dividing the interval into <span class="math inline">\(n\)</span> equal parts gives a common width:
-<span class="math display">\[
-\Delta x = \frac{b - a}{n}.
+<p><span class="math display">\[
+\int_0^1(1-x^2)\,dx=\frac{2}{3},
+\quad
+\int_1^2(x^2-1)\,dx=\frac{4}{3}
 \]</span></p>
-<p>This value, <span class="math inline">\(\Delta x\)</span>, represents the <strong>width of each rectangle</strong> in a Riemann sum. As <span class="math inline">\(n\)</span> increases, <span class="math inline">\(\Delta x\)</span> becomes smaller, and the rectangles provide a more accurate approximation of the accumulation.</p>
+<p><span class="math display">\[
+2\left(\frac{2}{3}+\frac{4}{3}\right)=4
+\]</span></p>
+<p><span class="math display">\[
+\boxed{4}
+\]</span></p>
+</details>
 <hr />
 </div>
-<div id="determining-the-height-of-each-rectangle" class="section level4 hasAnchor" number="3.6.1.2">
-<h4><span class="header-section-number">3.6.1.2</span> Determining the Height of Each Rectangle<a href="what-is-an-integral.html#determining-the-height-of-each-rectangle" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>The height of each rectangle in a Riemann sum is determined by evaluating the rate function at a chosen <strong>sample point</strong> within each subinterval.</p>
-<p>For the <span class="math inline">\(i\)</span>-th subinterval, we select a point <span class="math inline">\(x_i^*\)</span>. The height of the corresponding rectangle is then
-<span class="math display">\[
-f(x_i^*).
-\]</span></p>
-<p>Different choices of the sample point lead to different Riemann sum methods:</p>
-<ul>
-<li><strong>Left endpoint:</strong> <span class="math inline">\(x_i^*\)</span> is chosen at the left end of the subinterval.<br />
-</li>
-<li><strong>Right endpoint:</strong> <span class="math inline">\(x_i^*\)</span> is chosen at the right end of the subinterval.<br />
-</li>
-<li><strong>Midpoint:</strong> <span class="math inline">\(x_i^*\)</span> is chosen at the center of the subinterval.</li>
-</ul>
-<p>Each choice reflects an assumption about how the rate behaves within the subinterval and results in a different approximation of the total accumulation.</p>
-<p><img src="bookdown-demo_files/figure-html/riemann-sum-notation-visual-1.png" width="672" /></p>
-<hr />
-</div>
-<div id="combining-width-and-height" class="section level4 hasAnchor" number="3.6.1.3">
-<h4><span class="header-section-number">3.6.1.3</span> Combining Width and Height<a href="what-is-an-integral.html#combining-width-and-height" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Once the width and height of each rectangle have been determined, we combine them to approximate how much accumulation occurs over that subinterval.</p>
-<ul>
-<li>The <strong>height</strong> of the rectangle, <span class="math inline">\(f(x_i^*)\)</span>, represents the value of the rate.<br />
-</li>
-<li>The <strong>width</strong>, <span class="math inline">\(\Delta x\)</span>, represents the length of the subinterval.</li>
-</ul>
-<p>Multiplying these together gives the area of a single rectangle:
-<span class="math display">\[
-\text{area of one rectangle} \;\approx\; f(x_i^*)\,\Delta x.
-\]</span></p>
-<p>This area represents a <strong>small contribution</strong> to the total accumulation over the interval. By computing this product for each subinterval and then adding all of the results together, we build an approximation of the total accumulation.</p>
-<p>This step—multiplying rate by width—is the core idea behind Riemann sums and mirrors the familiar calculation<br />
-<span class="math display">\[
-\text{amount} = \text{rate} \times \text{time}.
-\]</span></p>
-<p>The only difference is that, instead of using one rate over the entire interval, we use many small rates over many small widths and add their contributions together.</p>
-<hr />
-</div>
-</div>
-<div id="the-riemann-sum---adding-the-rectangles" class="section level3 hasAnchor" number="3.6.2">
-<h3><span class="header-section-number">3.6.2</span> The Riemann Sum - Adding the Rectangles<a href="what-is-an-integral.html#the-riemann-sum---adding-the-rectangles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>After dividing the interval into subintervals, choosing sample points, and combining the width and height of each rectangle, we can describe the entire approximation in a single mathematical expression.</p>
-<p>A <strong>Riemann sum</strong> is written as
-<span class="math display">\[
-\sum_{i=1}^{n} f(x_i^*)\,\Delta x.
-\]</span></p>
-<p>This notation compactly represents the process of adding up the areas of all <span class="math inline">\(n\)</span> rectangles:</p>
-<ul>
-<li><span class="math inline">\(i = 1\)</span> to <span class="math inline">\(n\)</span> indicates that we are summing over all subintervals,<br />
-</li>
-<li><span class="math inline">\(f(x_i^*)\)</span> gives the height of the rectangle in the <span class="math inline">\(i\)</span>-th subinterval,<br />
-</li>
-<li><span class="math inline">\(\Delta x\)</span> gives the common width of each rectangle.</li>
-</ul>
-<p>Each term <span class="math inline">\(f(x_i^*)\,\Delta x\)</span> approximates the accumulation over a single subinterval. The entire sum approximates the total accumulation of the rate <span class="math inline">\(f(x)\)</span> over the interval <span class="math inline">\([a,b]\)</span>.</p>
-<p>Although the Riemann sum depends on the choice of sample points and the number of subintervals, it provides a systematic way to approximate accumulation. As the number of subintervals increases and <span class="math inline">\(\Delta x\)</span> becomes smaller, the Riemann sum becomes a better approximation of the true total accumulation.</p>
-<hr />
-</div>
-<div id="left-right-and-midpoint-riemann-sums-in-notation" class="section level3 hasAnchor" number="3.6.3">
-<h3><span class="header-section-number">3.6.3</span> Left, Right, and Midpoint Riemann Sums in Notation<a href="what-is-an-integral.html#left-right-and-midpoint-riemann-sums-in-notation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The choice of sample point <span class="math inline">\(x_i^*\)</span> determines the type of Riemann sum:</p>
-<ul>
-<li><p><strong>Left Riemann sum:</strong><br />
-<span class="math display">\[
-x_i^* = a + (i - 1)\Delta x
-\]</span></p></li>
-<li><p><strong>Right Riemann sum:</strong><br />
-<span class="math display">\[
-x_i^* = a + i\Delta x
-\]</span></p></li>
-<li><p><strong>Midpoint Riemann sum:</strong><br />
-<span class="math display">\[
-x_i^* = a + \left(i - \tfrac{1}{2}\right)\Delta x
-\]</span></p></li>
-</ul>
-<p>Each choice corresponds exactly to the graphical constructions explored earlier — the notation simply makes the process compact and precise.</p>
-<hr />
-</div>
-<div id="example-1-approximating-accumulation-with-a-left-riemann-sum" class="section level3 hasAnchor" number="3.6.4">
-<h3><span class="header-section-number">3.6.4</span> Example 1: Approximating Accumulation with a Left Riemann Sum<a href="what-is-an-integral.html#example-1-approximating-accumulation-with-a-left-riemann-sum" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Let
-<span class="math display">\[
-f(x) = x^2
+<div id="find-the-area-between-1" class="section level3 unnumbered hasAnchor">
+<h3>9. Find the area between<a href="test-3-review-material.html#find-the-area-between-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+f(x)=e^x
+\quad\text{and}\quad
+g(x)=x+1
 \]</span>
-and consider the interval <span class="math inline">\([1,7]\)</span>.</p>
-<p>We will approximate the area under <span class="math inline">\(f(x)\)</span> from <span class="math inline">\(x=1\)</span> to <span class="math inline">\(x=7\)</span> using a <strong>left-hand Riemann sum</strong> with <span class="math inline">\(n = 3\)</span> subintervals.</p>
-<p><img src="bookdown-demo_files/figure-html/left-riemann-x-squared-n3-1.png" width="672" /></p>
-<hr />
-<div id="step-1-compute-the-width-delta-x" class="section level4 hasAnchor" number="3.6.4.1">
-<h4><span class="header-section-number">3.6.4.1</span> Step 1: Compute the Width <span class="math inline">\(\Delta x\)</span><a href="what-is-an-integral.html#step-1-compute-the-width-delta-x" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>The width of each subinterval is
-<span class="math display">\[
-\Delta x = \frac{b-a}{n} = \frac{7 - 1}{3} = 2.
-\]</span></p>
-<hr />
-</div>
-<div id="step-2-identify-the-left-endpoints" class="section level4 hasAnchor" number="3.6.4.2">
-<h4><span class="header-section-number">3.6.4.2</span> Step 2: Identify the Left Endpoints<a href="what-is-an-integral.html#step-2-identify-the-left-endpoints" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>For a <strong>left Riemann sum</strong>, the sample points are given by
-<span class="math display">\[
-x_i^* = a + (i - 1)\Delta x.
-\]</span></p>
-<p>In this example, <span class="math inline">\(a = 1\)</span> and <span class="math inline">\(\Delta x = 2\)</span>. Using the formula:</p>
-<p><span class="math display">\[
-\begin{aligned}
-x_1^* &amp;= 1 + (1 - 1)(2) = 1, \\
-x_2^* &amp;= 1 + (2 - 1)(2) = 3, \\
-x_3^* &amp;= 1 + (3 - 1)(2) = 5.
-\end{aligned}
-\]</span></p>
-<p>These values are the <strong>left endpoints</strong> of the subintervals
-<span class="math display">\[
-[1,3],\quad [3,5],\quad [5,7].
-\]</span></p>
-<hr />
-</div>
-<div id="step-3-evaluate-the-function-at-each-left-endpoint" class="section level4 hasAnchor" number="3.6.4.3">
-<h4><span class="header-section-number">3.6.4.3</span> Step 3: Evaluate the Function at Each Left Endpoint<a href="what-is-an-integral.html#step-3-evaluate-the-function-at-each-left-endpoint" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><span class="math display">\[
-f(1) = 1^2 = 1,\quad
-f(3) = 3^2 = 9,\quad
-f(5) = 5^2 = 25.
-\]</span></p>
-<hr />
-</div>
-<div id="step-4-continued-factoring-out-delta-x" class="section level4 hasAnchor" number="3.6.4.4">
-<h4><span class="header-section-number">3.6.4.4</span> Step 4 (continued): Factoring Out <span class="math inline">\(\Delta x\)</span><a href="what-is-an-integral.html#step-4-continued-factoring-out-delta-x" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Notice that each term in the Riemann sum includes the same factor <span class="math inline">\(\Delta x\)</span>. Because this width is <strong>constant</strong> for all rectangles, we can factor it out of the sum.</p>
-<p>Starting from
-<span class="math display">\[
-\sum_{i=1}^{3} f(x_i^*)\,\Delta x,
-\]</span>
-we rewrite this as
-<span class="math display">\[
-\Delta x \sum_{i=1}^{3} f(x_i^*).
-\]</span></p>
-<p>In this example, <span class="math inline">\(\Delta x = 2\)</span>, so the expression becomes
-<span class="math display">\[
-2 \sum_{i=1}^{3} f(x_i^*).
-\]</span></p>
-<p>Substituting the function values at the left endpoints:
-<span class="math display">\[
-2(1 + 9 + 25).
-\]</span></p>
-<p>Factoring out <span class="math inline">\(\Delta x\)</span> highlights an important idea:</p>
-<ul>
-<li>the <strong>sum</strong> <span class="math inline">\(\sum f(x_i^*)\)</span> adds up the rectangle heights, and<br />
-</li>
-<li>the factor <span class="math inline">\(\Delta x\)</span> scales that total by the common width of each rectangle.</li>
-</ul>
-<p>This separation makes the structure of a Riemann sum clearer:<br />
-we first combine the heights, then multiply by the width to convert those heights into areas.</p>
-<p>Computing the final value,
-<span class="math display">\[
-2(35) = 70,
-\]</span>
-which matches the left-hand Riemann sum estimate found earlier.</p>
-</div>
-<div id="interpretation" class="section level4 hasAnchor" number="3.6.4.5">
-<h4><span class="header-section-number">3.6.4.5</span> Interpretation<a href="what-is-an-integral.html#interpretation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>The left-hand Riemann sum estimates the area under <span class="math inline">\(f(x)=x^2\)</span> on <span class="math inline">\([1,7]\)</span> as <strong>70 square units</strong>.</p>
-<p>Because <span class="math inline">\(f(x)=x^2\)</span> is increasing on this interval, this left-hand estimate <strong>underestimates</strong> the true area.</p>
-</div>
-</div>
-<div id="example-2-right-hand-riemann-sum" class="section level3 hasAnchor" number="3.6.5">
-<h3><span class="header-section-number">3.6.5</span> Example 2: Right-Hand Riemann Sum<a href="what-is-an-integral.html#example-2-right-hand-riemann-sum" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Let
-<span class="math display">\[
-f(x) = x^2
-\]</span>
-on the interval <span class="math inline">\([1,7]\)</span>, with <span class="math inline">\(n = 3\)</span>.</p>
-<hr />
-<div id="step-1-compute-the-width-delta-x-1" class="section level4 hasAnchor" number="3.6.5.1">
-<h4><span class="header-section-number">3.6.5.1</span> Step 1: Compute the Width <span class="math inline">\(\Delta x\)</span><a href="what-is-an-integral.html#step-1-compute-the-width-delta-x-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><span class="math display">\[
-\Delta x = \frac{7 - 1}{3} = 2.
-\]</span></p>
-<hr />
-</div>
-<div id="step-2-identify-the-right-endpoints" class="section level4 hasAnchor" number="3.6.5.2">
-<h4><span class="header-section-number">3.6.5.2</span> Step 2: Identify the Right Endpoints<a href="what-is-an-integral.html#step-2-identify-the-right-endpoints" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>For a <strong>right Riemann sum</strong>, the sample points are
-<span class="math display">\[
-x_i^* = a + i\Delta x.
-\]</span></p>
-<p>With <span class="math inline">\(a=1\)</span> and <span class="math inline">\(\Delta x=2\)</span>:
-<span class="math display">\[
-\begin{aligned}
-x_1^* &amp;= 1 + 1(2) = 3,\\
-x_2^* &amp;= 1 + 2(2) = 5,\\
-x_3^* &amp;= 1 + 3(2) = 7.
-\end{aligned}
-\]</span></p>
-<hr />
-</div>
-<div id="step-3-evaluate-the-function" class="section level4 hasAnchor" number="3.6.5.3">
-<h4><span class="header-section-number">3.6.5.3</span> Step 3: Evaluate the Function<a href="what-is-an-integral.html#step-3-evaluate-the-function" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><span class="math display">\[
-f(3)=9,\quad f(5)=25,\quad f(7)=49.
-\]</span></p>
-<hr />
-</div>
-<div id="step-4-form-the-riemann-sum" class="section level4 hasAnchor" number="3.6.5.4">
-<h4><span class="header-section-number">3.6.5.4</span> Step 4: Form the Riemann Sum<a href="what-is-an-integral.html#step-4-form-the-riemann-sum" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><span class="math display">\[
-\sum_{i=1}^{3} f(x_i^*)\,\Delta x
-= (9 + 25 + 49)(2)
-= 83 \times 2
-= 166.
-\]</span></p>
-<hr />
-</div>
-<div id="interpretation-1" class="section level4 hasAnchor" number="3.6.5.5">
-<h4><span class="header-section-number">3.6.5.5</span> Interpretation<a href="what-is-an-integral.html#interpretation-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>The right-hand Riemann sum estimates the area as <strong>166</strong>.<br />
-Because <span class="math inline">\(f(x)=x^2\)</span> is increasing, this is an <strong>overestimate</strong>.</p>
-</div>
-</div>
-<div id="example-3-midpoint-riemann-sum" class="section level3 hasAnchor" number="3.6.6">
-<h3><span class="header-section-number">3.6.6</span> Example 3: Midpoint Riemann Sum<a href="what-is-an-integral.html#example-3-midpoint-riemann-sum" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>We now repeat the calculation using <strong>midpoints</strong>.</p>
-<hr />
-<div id="step-1-width-delta-x" class="section level4 hasAnchor" number="3.6.6.1">
-<h4><span class="header-section-number">3.6.6.1</span> Step 1: Width <span class="math inline">\(\Delta x\)</span><a href="what-is-an-integral.html#step-1-width-delta-x" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><span class="math display">\[
-\Delta x = 2.
-\]</span></p>
-<hr />
-</div>
-<div id="step-2-identify-the-midpoints" class="section level4 hasAnchor" number="3.6.6.2">
-<h4><span class="header-section-number">3.6.6.2</span> Step 2: Identify the Midpoints<a href="what-is-an-integral.html#step-2-identify-the-midpoints" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>For a <strong>midpoint Riemann sum</strong>, the sample points are
-<span class="math display">\[
-x_i^* = a + \left(i - \tfrac{1}{2}\right)\Delta x.
-\]</span></p>
-<p>With <span class="math inline">\(a=1\)</span> and <span class="math inline">\(\Delta x=2\)</span>:
-<span class="math display">\[
-\begin{aligned}
-x_1^* &amp;= 1 + \tfrac{1}{2}(2) = 2,\\
-x_2^* &amp;= 1 + \tfrac{3}{2}(2) = 4,\\
-x_3^* &amp;= 1 + \tfrac{5}{2}(2) = 6.
-\end{aligned}
-\]</span></p>
-<hr />
-</div>
-<div id="step-3-evaluate-the-function-1" class="section level4 hasAnchor" number="3.6.6.3">
-<h4><span class="header-section-number">3.6.6.3</span> Step 3: Evaluate the Function<a href="what-is-an-integral.html#step-3-evaluate-the-function-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><span class="math display">\[
-f(2)=4,\quad f(4)=16,\quad f(6)=36.
-\]</span></p>
-<hr />
-</div>
-<div id="step-4-form-the-riemann-sum-1" class="section level4 hasAnchor" number="3.6.6.4">
-<h4><span class="header-section-number">3.6.6.4</span> Step 4: Form the Riemann Sum<a href="what-is-an-integral.html#step-4-form-the-riemann-sum-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><span class="math display">\[
-\sum_{i=1}^{3} f(x_i^*)\,\Delta x
-= (4 + 16 + 36)(2)
-= 56 \times 2
-= 112.
-\]</span></p>
-<hr />
-</div>
-<div id="interpretation-2" class="section level4 hasAnchor" number="3.6.6.5">
-<h4><span class="header-section-number">3.6.6.5</span> Interpretation<a href="what-is-an-integral.html#interpretation-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>The midpoint Riemann sum estimates the area as <strong>112</strong>.<br />
-This value typically provides a <strong>better balance</strong> between over- and underestimation.</p>
-</div>
-</div>
-<div id="comparison" class="section level3 hasAnchor" number="3.6.7">
-<h3><span class="header-section-number">3.6.7</span> Comparison<a href="what-is-an-integral.html#comparison" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="bookdown-demo_files/figure-html/riemann-three-methods-x-squared-1.png" width="960" /></p>
-<p>The figure above compares left, midpoint, and right Riemann sums for the function<br />
-<span class="math display">\[
-f(x) = x^2
-\]</span>
-on the interval <span class="math inline">\([1,7]\)</span>, using the same partition with <span class="math inline">\(n=3\)</span> subintervals. Each panel shows the <em>same curve</em> and <em>same interval</em>—the only difference is how the height of each rectangle is chosen.</p>
-<p>Because <span class="math inline">\(f(x)=x^2\)</span> is <strong>increasing</strong> on <span class="math inline">\([1,7]\)</span>, the choice of sample point has a predictable effect on the estimate:</p>
-<ul>
-<li><p><strong>Left Riemann sum (left panel):</strong><br />
-Each rectangle uses the function value at the left endpoint of its subinterval. Since the function increases as <span class="math inline">\(x\)</span> increases, these heights are smaller than most of the values in each slice. As a result, the rectangles lie mostly <em>below</em> the curve, producing an <strong>underestimate</strong> of the true area.</p></li>
-<li><p><strong>Right Riemann sum (right panel):</strong><br />
-Each rectangle uses the function value at the right endpoint. These heights are larger than most of the values in each subinterval, so the rectangles extend <em>above</em> the curve, producing an <strong>overestimate</strong> of the true area.</p></li>
-<li><p><strong>Midpoint Riemann sum (middle panel):</strong><br />
-Each rectangle uses the function value at the midpoint of the subinterval. For a smooth, steadily increasing function like <span class="math inline">\(x^2\)</span>, this choice tends to balance the regions where rectangles fall above and below the curve. The result is typically a <strong>closer approximation</strong> to the true area.</p></li>
-</ul>
-<p>This comparison highlights an important idea:</p>
-<blockquote>
-<p><strong>Riemann sums are not just numerical tools—they encode assumptions about how a function behaves within each subinterval.</strong></p>
-</blockquote>
-<p>Understanding how these assumptions affect overestimation and underestimation prepares us to think more carefully about approximation error and motivates the transition to the definite integral, which captures the exact accumulated area as the number of subintervals becomes arbitrarily large.</p>
-</div>
-</div>
-<div id="refining-the-approximation" class="section level2 hasAnchor" number="3.7">
-<h2><span class="header-section-number">3.7</span> Refining the Approximation<a href="what-is-an-integral.html#refining-the-approximation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Riemann sums provide a structured way to estimate accumulation, but their accuracy depends on how finely we divide the interval. Because each rectangle assumes the rate is constant over its width, any variation in the rate within a slice contributes to approximation error.</p>
-<p>Riemann sums become more accurate as:</p>
-<ul>
-<li>the <strong>number of subintervals increases</strong>, and<br />
-</li>
-<li>the <strong>width of each slice decreases</strong>.</li>
-</ul>
-<p>When slices are wide, rectangles may either miss important changes in the rate or exaggerate them, leading to noticeable overestimates or underestimates. As the slices become narrower, each rectangle captures a smaller portion of the curve, and the assumption of a nearly constant rate within each slice becomes more reasonable.</p>
-<p>Graphically, thinner rectangles conform more closely to the shape of the rate curve. The gaps between the curve and the tops of the rectangles—whether above or below—shrink, and the total approximation error decreases.</p>
-<p>In the <strong>limit</strong>, as the width of each subinterval approaches zero and the number of slices grows without bound, the Riemann sum converges to a single, well-defined value. This limiting value is the <strong>definite integral</strong>, which represents the exact total accumulation of the quantity over the interval.</p>
-<p>This process formalizes the intuitive idea of “adding up many tiny contributions” and provides the conceptual bridge between graphical accumulation and the precise mathematical definition of the integral introduced in the next section.</p>
-<p><img src="bookdown-demo_files/figure-html/refining-approximation-left-sums-1.png" width="960" /></p>
-<div id="increasing-n" class="section level3 hasAnchor" number="3.7.1">
-<h3><span class="header-section-number">3.7.1</span> Increasing <span class="math inline">\(n\)</span><a href="what-is-an-integral.html#increasing-n" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>So far, we have compared different Riemann sum <em>methods</em> while holding the number of rectangles fixed. We now explore a different question:</p>
-<blockquote>
-<p><strong>What happens if we keep the method the same, but increase the number of rectangles?</strong></p>
-</blockquote>
-<p>Using the same function
-<span class="math display">\[
-f(x) = x^2
-\]</span>
-on the interval <span class="math inline">\([1,7]\)</span>, we construct <strong>left-hand Riemann sums</strong> with increasing numbers of subintervals:
-<span class="math display">\[
-n = 3,\quad n = 8,\quad n = 200.
-\]</span></p>
-<p>In all three cases, the rectangles use <strong>left endpoints</strong>, so any changes in the estimate are due entirely to changing the width <span class="math inline">\(\Delta x\)</span>, not the sampling method.</p>
-<p><img src="bookdown-demo_files/figure-html/left-riemann-increasing-n-1.png" width="960" /></p>
-<p>All three panels show <strong>left-hand Riemann sums</strong> for the same function,
-<span class="math display">\[
-f(x) = x^2,
-\]</span>
-on the same interval <span class="math inline">\([1,7]\)</span>. The only difference between the panels is the number of subintervals used.</p>
-<p>Because <span class="math inline">\(f(x)=x^2\)</span> is <strong>increasing</strong> on <span class="math inline">\([1,7]\)</span>, every left-hand Riemann sum produces an <strong>underestimate</strong> of the true area. However, the <em>size of that underestimate</em> depends strongly on the number of rectangles.</p>
-<hr />
-<div id="case-1-n-3" class="section level4 hasAnchor" number="3.7.1.1">
-<h4><span class="header-section-number">3.7.1.1</span> Case 1: <span class="math inline">\(n = 3\)</span><a href="what-is-an-integral.html#case-1-n-3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>The width of each subinterval is
-<span class="math display">\[
-\Delta x = \frac{7 - 1}{3} = 2.
-\]</span></p>
-<p>The left endpoints are
-<span class="math display">\[
-x_1^* = 1,\quad x_2^* = 3,\quad x_3^* = 5.
-\]</span></p>
-<p>The left-hand Riemann sum is
-<span class="math display">\[
-\sum_{i=1}^{3} f(x_i^*)\,\Delta x
-= 2\,[1^2 + 3^2 + 5^2]
-= 2(1 + 9 + 25)
-= 70.
-\]</span></p>
-<p>This estimate is quite low because the rectangles are wide and the function increases rapidly over each subinterval.</p>
-<hr />
-</div>
-<div id="case-2-n-8" class="section level4 hasAnchor" number="3.7.1.2">
-<h4><span class="header-section-number">3.7.1.2</span> Case 2: <span class="math inline">\(n = 8\)</span><a href="what-is-an-integral.html#case-2-n-8" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>The width of each subinterval is
-<span class="math display">\[
-\Delta x = \frac{7 - 1}{8} = \frac{6}{8} = 0.75.
-\]</span></p>
-<p>The left endpoints are
-<span class="math display">\[
-x_i^* = 1 + (i-1)(0.75), \quad i = 1,\dots,8.
-\]</span></p>
-<p>The left-hand Riemann sum is
-<span class="math display">\[
-\sum_{i=1}^{8} f(x_i^*)\,\Delta x
-= 0.75 \sum_{i=1}^{8} \bigl(1 + (i-1)(0.75)\bigr)^2.
-\]</span></p>
-<p>Evaluating this sum gives
-<span class="math display">\[
-\sum_{i=1}^{8} f(x_i^*)\,\Delta x \approx 96.56.
-\]</span></p>
-<p>This estimate is still an underestimate, but the rectangles are narrower and track the curve more closely, significantly reducing the error.</p>
-<hr />
-</div>
-<div id="case-3-n-20" class="section level4 hasAnchor" number="3.7.1.3">
-<h4><span class="header-section-number">3.7.1.3</span> Case 3: <span class="math inline">\(n = 20\)</span><a href="what-is-an-integral.html#case-3-n-20" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>The width of each subinterval is
-<span class="math display">\[
-\Delta x = \frac{7 - 1}{20} = 0.3.
-\]</span></p>
-<p>The left endpoints are
-<span class="math display">\[
-x_i^* = 1 + (i-1)(0.3), \quad i = 1,\dots,20.
-\]</span></p>
-<p>The left-hand Riemann sum is
-<span class="math display">\[
-\sum_{i=1}^{20} f(x_i^*)\,\Delta x
-= 0.3 \sum_{i=1}^{20} \bigl(1 + (i-1)(0.3)\bigr)^2.
-\]</span></p>
-<p>Evaluating this sum gives
-<span class="math display">\[
-\sum_{i=1}^{20} f(x_i^*)\,\Delta x \approx 106.89.
-\]</span></p>
-<p>With many narrow rectangles, the assumption that the function is nearly constant over each subinterval becomes much more reasonable, and the approximation is now quite close to the true area.</p>
-<hr />
-</div>
-<div id="comparison-with-the-true-value" class="section level4 hasAnchor" number="3.7.1.4">
-<h4><span class="header-section-number">3.7.1.4</span> Comparison with the True Value<a href="what-is-an-integral.html#comparison-with-the-true-value" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>The exact area under the curve is given by the definite integral:
-<span class="math display">\[
-\int_1^7 x^2\,dx
-= \left[\frac{x^3}{3}\right]_1^7
-= \frac{343 - 1}{3}
-= 114.
-\]</span></p>
-<p>Comparing all four values:</p>
-<ul>
-<li>Left Riemann sum with <span class="math inline">\(n=3\)</span>:  <span class="math inline">\(70\)</span><br />
-</li>
-<li>Left Riemann sum with <span class="math inline">\(n=8\)</span>:  <span class="math inline">\(\approx 96.56\)</span><br />
-</li>
-<li>Left Riemann sum with <span class="math inline">\(n=20\)</span>:  <span class="math inline">\(\approx 106.89\)</span><br />
-</li>
-<li>Exact area:         <span class="math inline">\(114\)</span></li>
-</ul>
-<p>Each left-hand Riemann sum approaches the true value <strong>from below</strong> as <span class="math inline">\(n\)</span> increases.</p>
-<p>This illustrates a central idea of calculus:</p>
-<blockquote>
-<p><strong>Riemann sums become more accurate as the number of subintervals increases and the width <span class="math inline">\(\Delta x\)</span> decreases.</strong></p>
-</blockquote>
-<p>In the limit, as <span class="math inline">\(n \to \infty\)</span> and <span class="math inline">\(\Delta x \to 0\)</span>, the Riemann sum converges to the definite integral, which represents the exact accumulated area.</p>
-</div>
-</div>
-</div>
-<div id="beyond-rectangles-more-accurate-approximation-methods" class="section level2 hasAnchor" number="3.8">
-<h2><span class="header-section-number">3.8</span> Beyond Rectangles: More Accurate Approximation Methods<a href="what-is-an-integral.html#beyond-rectangles-more-accurate-approximation-methods" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Riemann sums approximate accumulation using <strong>rectangles</strong>, which assume the rate is constant over each subinterval. As we have seen, this assumption becomes more reasonable as the rectangles get narrower. However, when the rate changes smoothly, we can often do better without dramatically increasing the number of subintervals.</p>
-<p>Two widely used methods—the <strong>Trapezoidal Rule</strong> and <strong>Simpson’s Rule</strong>—improve accuracy by using better geometric approximations of the curve within each subinterval.</p>
-<p>Rather than replacing the curve with flat tops, these methods account for how the function changes <em>within</em> each slice.</p>
-<hr />
-</div>
-<div id="the-trapezoidal-rule" class="section level2 hasAnchor" number="3.9">
-<h2><span class="header-section-number">3.9</span> The Trapezoidal Rule<a href="what-is-an-integral.html#the-trapezoidal-rule" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The <strong>Trapezoidal Rule</strong> improves on left and right Riemann sums by approximating the region under the curve with <strong>trapezoids</strong> instead of rectangles.</p>
-<p>Rather than assuming the function is constant over each subinterval, this method assumes the function changes <strong>linearly</strong> between consecutive points.</p>
-<hr />
-<div id="idea" class="section level3 hasAnchor" number="3.9.1">
-<h3><span class="header-section-number">3.9.1</span> Idea<a href="what-is-an-integral.html#idea" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Over each subinterval <span class="math inline">\([x_{i-1}, x_i]\)</span>, we approximate the curve by a <strong>straight line</strong> connecting the points<br />
-<span class="math inline">\((x_{i-1}, f(x_{i-1}))\)</span> and <span class="math inline">\((x_i, f(x_i))\)</span>.</p>
-<p>The area under this line segment is then approximated by the area of a <strong>trapezoid</strong>.</p>
-<p>This approach effectively averages the left- and right-endpoint values, reducing the systematic overestimation or underestimation seen with basic Riemann sums.</p>
-<p><img src="bookdown-demo_files/figure-html/trapezoid-vs-left-riemann-1.png" width="960" /></p>
-<p>Both panels use the same function, the same interval, and the same partition. The only difference is how the function is approximated <em>within</em> each subinterval.</p>
-<p>In the left-hand Riemann sum (left panel), each rectangle assumes the function remains constant at its left endpoint. Because <span class="math inline">\(f(x)=x^2\)</span> is increasing on <span class="math inline">\([1,7]\)</span>, this systematically underestimates the area on every subinterval.</p>
-<p>In contrast, the trapezoidal rule (right panel) connects the endpoint values with a straight line and uses the resulting trapezoid to approximate the area. This effectively averages the left- and right-endpoint values on each subinterval, capturing the upward trend of the function within the slice. As a result, the trapezoidal rule reduces the bias seen in the rectangular approximation and produces a visibly closer estimate to the true area.</p>
-<p>This comparison highlights a key idea:</p>
-<blockquote>
-<p><strong>Improving an approximation is not only about using more subintervals, but also about using a better model of how the function behaves between points.</strong></p>
-</blockquote>
-<p>The trapezoidal rule represents a natural step beyond rectangles by incorporating information from <em>both</em> ends of each subinterval, while still remaining simple and computationally efficient.</p>
-<hr />
-</div>
-<div id="area-of-a-single-trapezoid" class="section level3 hasAnchor" number="3.9.2">
-<h3><span class="header-section-number">3.9.2</span> Area of a Single Trapezoid<a href="what-is-an-integral.html#area-of-a-single-trapezoid" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The area of a trapezoid with:</p>
-<ul>
-<li>base width <span class="math inline">\(\Delta x\)</span>,</li>
-<li>left height <span class="math inline">\(f(x_{i-1})\)</span>,</li>
-<li>right height <span class="math inline">\(f(x_i)\)</span>,</li>
-</ul>
-<p>is given by
-<span class="math display">\[
-\text{Area of trapezoid}
-=
-\frac{1}{2}
-\bigl[f(x_{i-1}) + f(x_i)\bigr]\Delta x.
-\]</span></p>
-<p>This formula reflects a simple geometric idea:
-&gt; the area equals the <strong>average of the two heights</strong> times the width.</p>
-<hr />
-</div>
-<div id="adding-the-trapezoids-together" class="section level3 hasAnchor" number="3.9.3">
-<h3><span class="header-section-number">3.9.3</span> Adding the Trapezoids Together<a href="what-is-an-integral.html#adding-the-trapezoids-together" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>To approximate the total accumulation over the interval <span class="math inline">\([a,b]\)</span>, we divide it into <span class="math inline">\(n\)</span> equal subintervals of width
-<span class="math display">\[
-\Delta x = \frac{b-a}{n}.
-\]</span></p>
-<p>Each subinterval contributes one trapezoid. Adding the areas of all trapezoids gives:
-<span class="math display">\[
-\sum_{i=1}^{n}
-\frac{1}{2}
-\bigl[f(x_{i-1}) + f(x_i)\bigr]\Delta x.
-\]</span></p>
-<p>Factoring out the common constants,
-<span class="math display">\[
-\frac{\Delta x}{2}
-\sum_{i=1}^{n}
-\bigl[f(x_{i-1}) + f(x_i)\bigr].
-\]</span></p>
-<p>Rewriting this sum reveals the familiar trapezoidal pattern:
-<span class="math display">\[
-\frac{\Delta x}{2}
-\left[
-f(x_0)
-+ 2f(x_1)
-+ 2f(x_2)
-+ \cdots
-+ 2f(x_{n-1})
-+ f(x_n)
-\right].
-\]</span></p>
-<hr />
-</div>
-<div id="interpretation-3" class="section level3 hasAnchor" number="3.9.4">
-<h3><span class="header-section-number">3.9.4</span> Interpretation<a href="what-is-an-integral.html#interpretation-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>The first and last function values appear <strong>once</strong>, because they belong to only one trapezoid.<br />
-</li>
-<li>Every interior function value appears <strong>twice</strong>, because it serves as the right endpoint of one trapezoid and the left endpoint of the next.<br />
-</li>
-<li>By averaging endpoint values, the trapezoidal rule often provides a <strong>more accurate approximation</strong> than left- or right-hand Riemann sums, especially for smooth functions.</li>
-</ul>
-<p>The trapezoidal rule can be viewed as a natural bridge between rectangle-based approximations and more advanced methods that model curvature directly.</p>
-<hr />
-</div>
-<div id="example-trapezoidal-rule" class="section level3 hasAnchor" number="3.9.5">
-<h3><span class="header-section-number">3.9.5</span> Example: Trapezoidal Rule<a href="what-is-an-integral.html#example-trapezoidal-rule" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Let
-<span class="math display">\[
-f(x) = x^2
-\]</span>
-on the interval <span class="math inline">\([1,7]\)</span>, with <span class="math inline">\(n = 3\)</span>.</p>
-<hr />
-<div id="step-1-compute-the-width-delta-x-2" class="section level4 hasAnchor" number="3.9.5.1">
-<h4><span class="header-section-number">3.9.5.1</span> Step 1: Compute the Width <span class="math inline">\(\Delta x\)</span><a href="what-is-an-integral.html#step-1-compute-the-width-delta-x-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><span class="math display">\[
-\Delta x = \frac{7 - 1}{3} = 2.
-\]</span></p>
-<hr />
-</div>
-<div id="step-2-identify-the-partition-points" class="section level4 hasAnchor" number="3.9.5.2">
-<h4><span class="header-section-number">3.9.5.2</span> Step 2: Identify the Partition Points<a href="what-is-an-integral.html#step-2-identify-the-partition-points" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>For the trapezoidal rule, we use <strong>both endpoints</strong> of each subinterval.</p>
-<p>The partition points are:
-<span class="math display">\[
-\begin{aligned}
-x_0 &amp;= 1,\\
-x_1 &amp;= 3,\\
-x_2 &amp;= 5,\\
-x_3 &amp;= 7.
-\end{aligned}
-\]</span></p>
-<hr />
-</div>
-<div id="step-3-evaluate-the-function-at-each-partition-point" class="section level4 hasAnchor" number="3.9.5.3">
-<h4><span class="header-section-number">3.9.5.3</span> Step 3: Evaluate the Function at Each Partition Point<a href="what-is-an-integral.html#step-3-evaluate-the-function-at-each-partition-point" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><span class="math display">\[
-\begin{aligned}
-f(1) &amp;= 1,\\
-f(3) &amp;= 9,\\
-f(5) &amp;= 25,\\
-f(7) &amp;= 49.
-\end{aligned}
-\]</span></p>
-<hr />
-</div>
-<div id="step-4-apply-the-trapezoidal-rule-formula" class="section level4 hasAnchor" number="3.9.5.4">
-<h4><span class="header-section-number">3.9.5.4</span> Step 4: Apply the Trapezoidal Rule Formula<a href="what-is-an-integral.html#step-4-apply-the-trapezoidal-rule-formula" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>The trapezoidal rule combines adjacent endpoint values using:
-<span class="math display">\[
-\text{Area} \approx \frac{\Delta x}{2}
-\left[
-f(x_0) + 2f(x_1) + 2f(x_2) + f(x_3)
-\right].
-\]</span></p>
-<p>Substitute the values:
-<span class="math display">\[
-\frac{2}{2}
-\left[
-1 + 2(9) + 2(25) + 49
-\right].
-\]</span></p>
-<p>Simplify:
-<span class="math display">\[
-1 \left(1 + 18 + 50 + 49\right)
-= 118.
-\]</span></p>
-<hr />
-</div>
-<div id="final-estimate" class="section level4 hasAnchor" number="3.9.5.5">
-<h4><span class="header-section-number">3.9.5.5</span> Final Estimate<a href="what-is-an-integral.html#final-estimate" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>The trapezoidal rule estimates the area as
-<span class="math display">\[
-\boxed{118}.
-\]</span></p>
-<hr />
-</div>
-<div id="interpretation-4" class="section level4 hasAnchor" number="3.9.5.6">
-<h4><span class="header-section-number">3.9.5.6</span> Interpretation<a href="what-is-an-integral.html#interpretation-4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>The trapezoidal rule improves on basic Riemann sums by accounting for how the function changes <strong>between</strong> subinterval endpoints. Because it averages left- and right-endpoint values, it reduces systematic over- or underestimation.</p>
-<p>We summarize the different numerical approximations for the area under<br />
-<span class="math display">\[
-f(x) = x^2
-\]</span>
-on the interval <span class="math inline">\([1,7]\)</span>, using <span class="math inline">\(n = 3\)</span> subintervals.</p>
-<p>The <strong>true area</strong> is given by the exact value:
-<span class="math display">\[
-\int_1^7 x^2\,dx = \frac{1}{3}\left(7^3 - 1^3\right) = \frac{342}{3} = 114.
-\]</span></p>
-<table>
-<colgroup>
-<col width="32%" />
-<col width="18%" />
-<col width="29%" />
-<col width="19%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Method</th>
-<th>Approximation</th>
-<th>Error (Approx − True)</th>
-<th>Interpretation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Left-hand Riemann sum</td>
-<td><span class="math inline">\(70\)</span></td>
-<td><span class="math inline">\(-44\)</span></td>
-<td>Strong underestimate</td>
-</tr>
-<tr class="even">
-<td>Right-hand Riemann sum</td>
-<td><span class="math inline">\(166\)</span></td>
-<td><span class="math inline">\(+52\)</span></td>
-<td>Strong overestimate</td>
-</tr>
-<tr class="odd">
-<td>Midpoint Riemann sum</td>
-<td><span class="math inline">\(112\)</span></td>
-<td><span class="math inline">\(-2\)</span></td>
-<td>Very close underestimate</td>
-</tr>
-<tr class="even">
-<td>Trapezoidal rule</td>
-<td><span class="math inline">\(118\)</span></td>
-<td><span class="math inline">\(+4\)</span></td>
-<td>Moderate overestimate</td>
-</tr>
-<tr class="odd">
-<td><strong>Exact value</strong></td>
-<td><strong>114</strong></td>
-<td><span class="math inline">\(0\)</span></td>
-<td>True area</td>
-</tr>
-</tbody>
-</table>
-<hr />
-</div>
-</div>
-<div id="key-takeaways" class="section level3 hasAnchor" number="3.9.6">
-<h3><span class="header-section-number">3.9.6</span> Key Takeaways<a href="what-is-an-integral.html#key-takeaways" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>The <strong>left-hand sum</strong> severely underestimates because <span class="math inline">\(f(x)=x^2\)</span> is increasing.</li>
-<li>The <strong>right-hand sum</strong> severely overestimates for the same reason.</li>
-<li>The <strong>midpoint rule</strong> performs exceptionally well, even with a small number of rectangles.</li>
-<li>The <strong>trapezoidal rule</strong> balances left and right information and improves accuracy compared to basic Riemann sums.</li>
-<li>Increasing <span class="math inline">\(n\)</span> would reduce the error for <em>all</em> methods, but midpoint and trapezoidal rules converge faster.</li>
-</ul>
-<p>This comparison highlights why more sophisticated methods are often preferred when accuracy matters.</p>
-<hr />
-</div>
-</div>
-<div id="accuracy-trade-offs-shape-vs.-number-of-subintervals" class="section level2 hasAnchor" number="3.10">
-<h2><span class="header-section-number">3.10</span> Accuracy Trade-Offs: Shape vs. Number of Subintervals<a href="what-is-an-integral.html#accuracy-trade-offs-shape-vs.-number-of-subintervals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>When approximating accumulation, there are two fundamentally different ways to improve accuracy:</p>
-<ol style="list-style-type: decimal">
-<li><strong>Use a better-shaped approximation over each subinterval</strong>, or<br />
-</li>
-<li><strong>Use more subintervals</strong>, making each piece smaller.</li>
-</ol>
-<p>Both strategies reduce error, but they do so in different ways and come with different trade-offs.</p>
-<hr />
-<div id="improving-accuracy-by-changing-the-shape" class="section level3 hasAnchor" number="3.10.1">
-<h3><span class="header-section-number">3.10.1</span> Improving Accuracy by Changing the Shape<a href="what-is-an-integral.html#improving-accuracy-by-changing-the-shape" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Methods like the <strong>trapezoidal rule</strong> and <strong>midpoint rule</strong> improve accuracy by better matching the <em>shape</em> of the function over each subinterval.</p>
-<ul>
-<li>Rectangular methods (left and right sums) assume the rate is <strong>constant</strong> over each slice.</li>
-<li>The trapezoidal rule assumes the rate changes <strong>linearly</strong> between endpoints.</li>
-<li>The midpoint rule samples where the function is often most representative of the average value.</li>
-</ul>
-<p>Because these methods capture more of the function’s behavior within each subinterval, they often produce <strong>much better results with the same <span class="math inline">\(n\)</span></strong>.</p>
-<p>In our example with <span class="math inline">\(n = 3\)</span>:</p>
-<ul>
-<li>The left and right Riemann sums produced large errors.</li>
-<li>The midpoint and trapezoidal rules were already quite close to the true value.</li>
-</ul>
-<p>This shows that <strong>choosing a better approximation shape can dramatically improve accuracy without increasing computational effort</strong>.</p>
-<hr />
-</div>
-<div id="improving-accuracy-by-increasing-n" class="section level3 hasAnchor" number="3.10.2">
-<h3><span class="header-section-number">3.10.2</span> Improving Accuracy by Increasing <span class="math inline">\(n\)</span><a href="what-is-an-integral.html#improving-accuracy-by-increasing-n" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>An alternative strategy is to keep the approximation method fixed and instead increase the number of subintervals.</p>
-<ul>
-<li>As <span class="math inline">\(n\)</span> increases, each subinterval becomes narrower.</li>
-<li>Over smaller intervals, even a crude approximation (like a rectangle) becomes more accurate.</li>
-<li>In the limit as <span class="math inline">\(n \to \infty\)</span>, all reasonable methods converge to the true value.</li>
-</ul>
-<p>This approach is conceptually simple and works for any method, but it comes at a cost:</p>
-<ul>
-<li>More subintervals mean <strong>more calculations</strong>.</li>
-<li>For hand computations, large <span class="math inline">\(n\)</span> quickly becomes impractical.</li>
-<li>For real data, increasing <span class="math inline">\(n\)</span> may require finer measurements or higher sampling rates.</li>
-</ul>
-<hr />
-</div>
-<div id="comparing-the-two-strategies" class="section level3 hasAnchor" number="3.10.3">
-<h3><span class="header-section-number">3.10.3</span> Comparing the Two Strategies<a href="what-is-an-integral.html#comparing-the-two-strategies" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<table>
-<colgroup>
-<col width="25%" />
-<col width="35%" />
-<col width="38%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Strategy</th>
-<th>Advantage</th>
-<th>Limitation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Better shape (midpoint, trapezoid)</td>
-<td>High accuracy with small <span class="math inline">\(n\)</span></td>
-<td>More complex formulas</td>
-</tr>
-<tr class="even">
-<td>Larger <span class="math inline">\(n\)</span></td>
-<td>Conceptually simple, universally applicable</td>
-<td>More computation and data</td>
-</tr>
-</tbody>
-</table>
-<p>In practice, these strategies are often combined: a <strong>moderate <span class="math inline">\(n\)</span></strong> paired with a <strong>more accurate method</strong> yields reliable results with reasonable effort.</p>
-<hr />
-</div>
-<div id="a-modeling-perspective" class="section level3 hasAnchor" number="3.10.4">
-<h3><span class="header-section-number">3.10.4</span> A Modeling Perspective<a href="what-is-an-integral.html#a-modeling-perspective" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>From a modeling standpoint, this trade-off reflects an important question:</p>
-<blockquote>
-<p><em>Do we trust a simple model applied many times, or a more realistic model applied fewer times?</em></p>
-</blockquote>
-<p>The answer depends on context:</p>
-<ul>
-<li>When data are sparse, better-shaped approximations are often preferable.</li>
-<li>When data are abundant or computation is automated, increasing <span class="math inline">\(n\)</span> may be easier.</li>
-<li>When risk matters, conservative methods may still be chosen deliberately.</li>
-</ul>
-<p>Understanding this trade-off prepares us for the next step in calculus, where the <strong>definite integral</strong> emerges as the ideal limit—combining infinitely thin subintervals with perfect accuracy.</p>
-<hr />
-</div>
-</div>
-<div id="negative-area-and-signed-accumulation" class="section level2 hasAnchor" number="3.11">
-<h2><span class="header-section-number">3.11</span> Negative Area and Signed Accumulation<a href="what-is-an-integral.html#negative-area-and-signed-accumulation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>So far, we have focused on situations where the rate function is <strong>positive</strong>, meaning the accumulated quantity increases over time or space. However, many real systems involve <strong>losses</strong>, <strong>outflows</strong>, or <strong>decreases</strong>. Calculus handles these naturally through the idea of <strong>signed area</strong>.</p>
-<hr />
-<div id="what-is-a-negative-area" class="section level3 hasAnchor" number="3.11.1">
-<h3><span class="header-section-number">3.11.1</span> What Is a Negative Area?<a href="what-is-an-integral.html#what-is-a-negative-area" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>When a function lies <strong>below the horizontal axis</strong>, its values are negative. In this case:</p>
-<ul>
-<li>The area between the curve and the axis is counted as <strong>negative</strong>.</li>
-<li>This does <em>not</em> represent a physical area in the usual geometric sense.</li>
-<li>Instead, it represents a <strong>decrease</strong> or <strong>loss</strong> in the accumulated quantity.</li>
-</ul>
-<p>In calculus, accumulation is <strong>signed</strong>:
-- Area <strong>above</strong> the axis contributes positively.
-- Area <strong>below</strong> the axis contributes negatively.</p>
-<hr />
-</div>
-<div id="why-this-makes-sense-conceptually" class="section level3 hasAnchor" number="3.11.2">
-<h3><span class="header-section-number">3.11.2</span> Why This Makes Sense Conceptually<a href="what-is-an-integral.html#why-this-makes-sense-conceptually" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Think of a rate as describing <strong>change</strong>:</p>
-<ul>
-<li>Positive rate → quantity increases<br />
-</li>
-<li>Negative rate → quantity decreases</li>
-</ul>
-<p>The integral (or Riemann sum) adds up <em>all</em> changes, including losses. The result represents the <strong>net change</strong> over the interval.</p>
-<p>Environmental examples include:</p>
-<ul>
-<li><strong>Evaporation exceeding precipitation</strong> (net water loss)</li>
-<li><strong>Respiration exceeding photosynthesis</strong> (net carbon loss)</li>
-<li><strong>Pollutant removal or decay</strong> (negative loading)</li>
-<li><strong>Population decline</strong> (negative growth rate)</li>
-</ul>
-<hr />
-</div>
-<div id="a-simple-example" class="section level3 hasAnchor" number="3.11.3">
-<h3><span class="header-section-number">3.11.3</span> A Simple Example<a href="what-is-an-integral.html#a-simple-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Consider the rate function
-<span class="math display">\[
-f(x) = x - 2
-\]</span>
-on the interval <span class="math inline">\([0,4]\)</span>.</p>
-<ul>
-<li>For <span class="math inline">\(x &lt; 2\)</span>, the rate is <strong>negative</strong>.</li>
-<li>For <span class="math inline">\(x &gt; 2\)</span>, the rate is <strong>positive</strong>.</li>
-</ul>
-<p>The total accumulation depends on <em>both</em> regions.</p>
-<p><img src="bookdown-demo_files/figure-html/negative-area-example-1.png" width="672" /></p>
-</div>
-<div id="interpretation-of-the-result" class="section level3 hasAnchor" number="3.11.4">
-<h3><span class="header-section-number">3.11.4</span> Interpretation of the Result<a href="what-is-an-integral.html#interpretation-of-the-result" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>From <span class="math inline">\(x = 0\)</span> to <span class="math inline">\(x = 2\)</span>, the rate <span class="math inline">\(f(x)\)</span> is <strong>negative</strong>, producing a negative contribution to accumulation.</li>
-<li>From <span class="math inline">\(x = 2\)</span> to <span class="math inline">\(x = 4\)</span>, the rate <span class="math inline">\(f(x)\)</span> is <strong>positive</strong>, producing a positive contribution.</li>
-<li>These two contributions have equal magnitude but opposite signs, so they <strong>cancel exactly</strong>.</li>
-</ul>
-<p>A net accumulation of zero does <strong>not</strong> mean that nothing happened. Instead, it means that the total gain over part of the interval exactly balanced the total loss over another part.</p>
-<hr />
-</div>
-<div id="why-signed-accumulation-matters" class="section level3 hasAnchor" number="3.11.5">
-<h3><span class="header-section-number">3.11.5</span> Why Signed Accumulation Matters<a href="what-is-an-integral.html#why-signed-accumulation-matters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>In real systems, gains and losses often occur simultaneously or sequentially:</p>
-<ul>
-<li>A lake may gain water during storms and lose water through evaporation.</li>
-<li>An ecosystem may fix carbon during the day and respire carbon at night.</li>
-<li>A population may grow during favorable seasons and decline during unfavorable ones.</li>
-</ul>
-<p>Integrals and Riemann sums account for all of these effects by treating accumulation as <strong>signed</strong> rather than purely positive.</p>
-<hr />
-</div>
-<div id="key-takeaway-1" class="section level3 hasAnchor" number="3.11.6">
-<h3><span class="header-section-number">3.11.6</span> Key Takeaway<a href="what-is-an-integral.html#key-takeaway-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Area below the axis represents <strong>negative accumulation</strong>, not a mistake or anomaly.</p>
-<blockquote>
-<p><strong>Integrals measure net change over an interval, capturing both increases and decreases in a system.</strong></p>
-</blockquote>
-<p>This idea is essential for interpreting accumulation correctly in environmental, biological, and physical contexts.</p>
-<hr />
-</div>
-</div>
-<div id="conceptual-questions-how-to-use-these" class="section level2 hasAnchor" number="3.12">
-<h2><span class="header-section-number">3.12</span> Conceptual Questions — How to Use These<a href="what-is-an-integral.html#conceptual-questions-how-to-use-these" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The questions below are designed to help you check your <strong>conceptual understanding</strong> of integrals before focusing on computation. Rather than asking you to calculate values, these questions emphasize interpretation, reasoning, and connection to real environmental systems.</p>
-<p>As you work through them, focus on <em>why</em> each idea makes sense, not just <em>what</em> the answer is. Try answering each question on your own before revealing the solution, and use the explanations to reflect on how accumulation, approximation, and modeling choices interact in real scientific contexts.</p>
-<p>These questions are excellent preparation for class discussion, problem-solving, and applying calculus thoughtfully in environmental decision-making.</p>
-<div id="question-1" class="section level3 unnumbered hasAnchor">
-<h3>Question 1<a href="what-is-an-integral.html#question-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>In your own words, what does an integral represent in environmental science?</p>
+on <span class="math inline">\([0,1]\)</span>.</p>
 <details>
 <summary>
-<strong>Click to reveal solution</strong>
+<em>Hint</em>
 </summary>
-<p>An integral represents the <strong>total accumulation</strong> of a quantity over time or space when the <strong>rate of change</strong> is known. It adds up many small contributions to determine a total amount.</p>
+<p>Check where they intersect and determine which is on top.</p>
+</details>
+<details>
+<summary>
+<em>Worked Solution</em>
+</summary>
+<p>They meet at <span class="math inline">\(x=0\)</span>. For <span class="math inline">\(x&gt;0\)</span>, <span class="math inline">\(e^x &gt; x+1\)</span>.</p>
+<p><span class="math display">\[
+\text{Area}=\int_0^1\left(e^x-(x+1)\right)\,dx
+\]</span></p>
+<p><span class="math display">\[
+=e^x-\frac{x^2}{2}-x\Big|_0^1
+=\left(e-\frac12-1\right)-1
+=e-\frac{5}{2}
+\]</span></p>
+<p><span class="math display">\[
+\boxed{e-\frac{5}{2}}
+\]</span></p>
 </details>
 <hr />
 </div>
-<div id="question-2" class="section level3 unnumbered hasAnchor">
-<h3>Question 2<a href="what-is-an-integral.html#question-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Why are rates often easier to measure directly than total accumulated quantities?</p>
-<details>
-<summary>
-<strong>Click to reveal solution</strong>
-</summary>
-<p>Rates can be measured instantaneously or over short intervals (for example, streamflow or photosynthesis), while totals require tracking accumulation continuously over time or space.</p>
-</details>
-<hr />
 </div>
-<div id="question-3" class="section level3 unnumbered hasAnchor">
-<h3>Question 3<a href="what-is-an-integral.html#question-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>What does the area under a rate curve represent?</p>
-<details>
-<summary>
-<strong>Click to reveal solution</strong>
-</summary>
-<p>The area under a rate curve represents the <strong>total accumulated change</strong> of the quantity over the interval shown.</p>
-</details>
-<hr />
-</div>
-<div id="question-4" class="section level3 unnumbered hasAnchor">
-<h3>Question 4<a href="what-is-an-integral.html#question-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Why do the units of an integral make sense physically?</p>
-<details>
-<summary>
-<strong>Click to reveal solution</strong>
-</summary>
-<p>Because the integral multiplies a rate by a width (time or distance), the units simplify to a total quantity (for example, m³/hr × hr = m³).</p>
-</details>
-<hr />
-</div>
-<div id="question-5" class="section level3 unnumbered hasAnchor">
-<h3>Question 5<a href="what-is-an-integral.html#question-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Why is multiplying a single rate by total time often a poor approximation in environmental systems?</p>
-<details>
-<summary>
-<strong>Click to reveal solution</strong>
-</summary>
-<p>Because rates in environmental systems usually <strong>change over time</strong>, so a single rate does not accurately represent the entire interval.</p>
-</details>
-<hr />
-</div>
-<div id="question-6" class="section level3 unnumbered hasAnchor">
-<h3>Question 6<a href="what-is-an-integral.html#question-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>What does each rectangle in a Riemann sum represent?</p>
-<details>
-<summary>
-<strong>Click to reveal solution</strong>
-</summary>
-<p>Each rectangle represents a <strong>small contribution</strong> to the total accumulation over a short subinterval.</p>
-</details>
-<hr />
-</div>
-<div id="question-7" class="section level3 unnumbered hasAnchor">
-<h3>Question 7<a href="what-is-an-integral.html#question-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Why do Riemann sums become more accurate as the number of rectangles increases?</p>
-<details>
-<summary>
-<strong>Click to reveal solution</strong>
-</summary>
-<p>Because smaller subintervals reduce how much the rate can change within each rectangle, making the constant-rate assumption more reasonable.</p>
-</details>
-<hr />
-</div>
-<div id="question-8" class="section level3 unnumbered hasAnchor">
-<h3>Question 8<a href="what-is-an-integral.html#question-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>What assumption is made when using rectangular approximations?</p>
-<details>
-<summary>
-<strong>Click to reveal solution</strong>
-</summary>
-<p>That the rate remains approximately <strong>constant</strong> within each subinterval.</p>
-</details>
-<hr />
-</div>
-<div id="question-9" class="section level3 unnumbered hasAnchor">
-<h3>Question 9<a href="what-is-an-integral.html#question-9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Why does a left Riemann sum tend to underestimate accumulation for an increasing function?</p>
-<details>
-<summary>
-<strong>Click to reveal solution</strong>
-</summary>
-<p>Because it uses the rate at the beginning of each interval, which is smaller than most values of the rate over that interval.</p>
-</details>
-<hr />
-</div>
-<div id="question-10" class="section level3 unnumbered hasAnchor">
-<h3>Question 10<a href="what-is-an-integral.html#question-10" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Why does a right Riemann sum tend to overestimate accumulation for an increasing function?</p>
-<details>
-<summary>
-<strong>Click to reveal solution</strong>
-</summary>
-<p>Because it uses the rate at the end of each interval, which is larger than most values of the rate over that interval.</p>
-</details>
-<hr />
-</div>
-<div id="question-11" class="section level3 unnumbered hasAnchor">
-<h3>Question 11<a href="what-is-an-integral.html#question-11" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Why is the midpoint Riemann sum often more accurate than left or right sums?</p>
-<details>
-<summary>
-<strong>Click to reveal solution</strong>
-</summary>
-<p>Because the midpoint value often better represents the <strong>average behavior</strong> of the rate over the subinterval.</p>
-</details>
-<hr />
-</div>
-<div id="question-12" class="section level3 unnumbered hasAnchor">
-<h3>Question 12<a href="what-is-an-integral.html#question-12" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>What does it mean for accumulation to be “signed”?</p>
-<details>
-<summary>
-<strong>Click to reveal solution</strong>
-</summary>
-<p>It means that positive rates contribute positively to the total, while negative rates contribute negatively, allowing gains and losses to be combined.</p>
-</details>
-<hr />
-</div>
-<div id="question-13" class="section level3 unnumbered hasAnchor">
-<h3>Question 13<a href="what-is-an-integral.html#question-13" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>What does a negative area under a rate curve represent?</p>
-<details>
-<summary>
-<strong>Click to reveal solution</strong>
-</summary>
-<p>A <strong>loss or decrease</strong> in the accumulated quantity over that interval.</p>
-</details>
-<hr />
-</div>
-<div id="question-14" class="section level3 unnumbered hasAnchor">
-<h3>Question 14<a href="what-is-an-integral.html#question-14" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Why does a net accumulation of zero not mean “nothing happened”?</p>
-<details>
-<summary>
-<strong>Click to reveal solution</strong>
-</summary>
-<p>Because gains and losses may have occurred but <strong>canceled each other out</strong> over the interval.</p>
-</details>
-<hr />
-</div>
-<div id="question-15" class="section level3 unnumbered hasAnchor">
-<h3>Question 15<a href="what-is-an-integral.html#question-15" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>What is the main source of error in a Riemann sum approximation?</p>
-<details>
-<summary>
-<strong>Click to reveal solution</strong>
-</summary>
-<p>The rectangles do not perfectly match the shape of the curve, especially when the rate changes within a subinterval.</p>
-</details>
-<hr />
-</div>
-<div id="question-16" class="section level3 unnumbered hasAnchor">
-<h3>Question 16<a href="what-is-an-integral.html#question-16" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>What tradeoff is involved in increasing the number of rectangles?</p>
-<details>
-<summary>
-<strong>Click to reveal solution</strong>
-</summary>
-<p>Increasing accuracy comes at the cost of <strong>more computation or more data</strong>.</p>
-</details>
-<hr />
-</div>
-<div id="question-17" class="section level3 unnumbered hasAnchor">
-<h3>Question 17<a href="what-is-an-integral.html#question-17" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>How does the trapezoidal rule improve upon rectangular methods?</p>
-<details>
-<summary>
-<strong>Click to reveal solution</strong>
-</summary>
-<p>It accounts for changes in the rate within each subinterval by approximating the curve with straight lines rather than flat rectangles.</p>
-</details>
-<hr />
-</div>
-<div id="question-18" class="section level3 unnumbered hasAnchor">
-<h3>Question 18<a href="what-is-an-integral.html#question-18" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Why can changing the shape of the approximation be more effective than increasing <span class="math inline">\(n\)</span>?</p>
-<details>
-<summary>
-<strong>Click to reveal solution</strong>
-</summary>
-<p>Because better-shaped approximations capture more of the function’s behavior without requiring many more subintervals.</p>
-</details>
-<hr />
-</div>
-<div id="question-19" class="section level3 unnumbered hasAnchor">
-<h3>Question 19<a href="what-is-an-integral.html#question-19" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>What makes an estimate “conservative” in environmental modeling?</p>
-<details>
-<summary>
-<strong>Click to reveal solution</strong>
-</summary>
-<p>A conservative estimate reduces risk by erring on the side that avoids harmful consequences if the estimate is wrong.</p>
-</details>
-<hr />
-</div>
-<div id="question-20" class="section level3 unnumbered hasAnchor">
-<h3>Question 20<a href="what-is-an-integral.html#question-20" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Why is choosing a Riemann sum method considered a modeling decision rather than a purely mathematical one?</p>
-<details>
-<summary>
-<strong>Click to reveal solution</strong>
-</summary>
-<p>Because the choice reflects assumptions about timing, uncertainty, and acceptable risk, which depend on real-world consequences.</p>
-</details>
-</div>
-</div>
-<div id="practice-problems-accumulation-and-approximation" class="section level2 hasAnchor" number="3.13">
-<h2><span class="header-section-number">3.13</span> Practice Problems: Accumulation and Approximation<a href="what-is-an-integral.html#practice-problems-accumulation-and-approximation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>These problems emphasize <strong>calculation first</strong>, followed by <strong>reflection on meaning, assumptions, and environmental context</strong>. After computing each result, reflect on what the number represents physically and what assumptions were required.</p>
-<hr />
-<div id="problem-1-total-streamflow-from-constant-measurements" class="section level3 unnumbered hasAnchor">
-<h3>Problem 1: Total Streamflow from Constant Measurements<a href="what-is-an-integral.html#problem-1-total-streamflow-from-constant-measurements" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>A stream has a constant discharge of<br />
-<span class="math display">\[
-Q = 8 \;\text{m}^3/\text{hr}
-\]</span>
-for a period of 6 hours.</p>
-<p><strong>Calculate the total volume of water</strong> that flows past the station during this time.</p>
-<p><strong>Reflection prompts:</strong></p>
-<ul>
-<li>What does this total volume physically represent in the stream?</li>
-<li>Under what real environmental conditions might assuming a constant discharge be reasonable?</li>
-<li>How would this calculation change if discharge varied over time?</li>
-</ul>
-<details>
-<summary>
-<strong>Click to reveal solution</strong>
-</summary>
-<p>Because the rate is constant, total volume is:
-<span class="math display">\[
-8 \times 6 = 48 \;\text{m}^3.
+<div id="part-e-double-integrals" class="section level2 unnumbered hasAnchor">
+<h2>Part E — Double Integrals<a href="test-3-review-material.html#part-e-double-integrals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="evaluate" class="section level3 unnumbered hasAnchor">
+<h3>10. Evaluate<a href="test-3-review-material.html#evaluate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+\int_{0}^{1}\int_{-1}^{2}(3x-y)\,dy\,dx.
 \]</span></p>
-<p><strong>Reflection responses:</strong></p>
-<ul>
-<li>This volume represents the total amount of water that physically passed the monitoring point during the 6-hour window.</li>
-<li>Assuming constant discharge is reasonable during dry weather, regulated releases, or over short time spans without storms.</li>
-<li>If discharge varied, the calculation would require summing many smaller contributions or using an integral instead of simple multiplication.</li>
-</ul>
-</details>
-<hr />
-</div>
-<div id="problem-2-piecewise-streamflow-accumulation" class="section level3 unnumbered hasAnchor">
-<h3>Problem 2: Piecewise Streamflow Accumulation<a href="what-is-an-integral.html#problem-2-piecewise-streamflow-accumulation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Streamflow during a storm is measured hourly:</p>
-<table>
-<thead>
-<tr class="header">
-<th align="right">Hour</th>
-<th align="right">Flow (m³/hr)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">1</td>
-<td align="right">4</td>
-</tr>
-<tr class="even">
-<td align="right">2</td>
-<td align="right">9</td>
-</tr>
-<tr class="odd">
-<td align="right">3</td>
-<td align="right">6</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Calculate the total volume of water</strong> that passed the station during the storm.</p>
-<p><strong>Reflection prompts:</strong></p>
-<ul>
-<li>Why is it reasonable to treat flow as constant within each hour?</li>
-<li>What environmental processes might cause the flow to increase and then decrease?</li>
-<li>How does this calculation resemble a Riemann sum?</li>
-</ul>
 <details>
 <summary>
-<strong>Click to reveal solution</strong>
+<em>Hint</em>
+</summary>
+<p>Do the inner integral first.</p>
+</details>
+<details>
+<summary>
+<em>Worked Solution</em>
 </summary>
 <p><span class="math display">\[
-4(1) + 9(1) + 6(1) = 19 \;\text{m}^3.
+\int_{-1}^{2}(3x-y)\,dy
+=\left[3xy-\frac{y^2}{2}\right]_{-1}^{2}
+=9x-\frac{3}{2}
 \]</span></p>
-<p><strong>Reflection responses:</strong></p>
-<ul>
-<li>Hourly measurements assume that changes within each hour are small compared to the hour itself.</li>
-<li>Rainfall intensity, soil saturation, and watershed response can cause flow to rise and then fall.</li>
-<li>Each hour acts as a rectangle, making this a basic Riemann sum approximation.</li>
-</ul>
+<p><span class="math display">\[
+\int_0^1\left(9x-\frac{3}{2}\right)\,dx
+=3
+\]</span></p>
+<p><span class="math display">\[
+\boxed{3}
+\]</span></p>
 </details>
 <hr />
 </div>
-<div id="problem-3-left-riemann-sum-from-data" class="section level3 unnumbered hasAnchor">
-<h3>Problem 3: Left Riemann Sum from Data<a href="what-is-an-integral.html#problem-3-left-riemann-sum-from-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Pollutant loading rate (kg/hr):</p>
-<table>
-<thead>
-<tr class="header">
-<th align="right">Time (hr)</th>
-<th align="right">Rate (kg/hr)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">0</td>
-<td align="right">2</td>
-</tr>
-<tr class="even">
-<td align="right">1</td>
-<td align="right">5</td>
-</tr>
-<tr class="odd">
-<td align="right">2</td>
-<td align="right">9</td>
-</tr>
-<tr class="even">
-<td align="right">3</td>
-<td align="right">14</td>
-</tr>
-</tbody>
-</table>
-<p>Use a <strong>left Riemann sum</strong> with <span class="math inline">\(\Delta t = 1\)</span> hr.</p>
-<p><strong>Reflection prompts:</strong>
-- What assumption does a left Riemann sum make?
-- Why might this underestimate pollutant load?
-- When is underestimation problematic?</p>
+<div id="evaluate-1" class="section level3 unnumbered hasAnchor">
+<h3>11. Evaluate<a href="test-3-review-material.html#evaluate-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+\int_{0}^{2}\int_{0}^{2}(x+2y)\,dy\,dx.
+\]</span></p>
 <details>
 <summary>
-<strong>Click to reveal solution</strong>
+<em>Hint</em>
 </summary>
+<p>Integrate with respect to <span class="math inline">\(y\)</span> first.</p>
+</details>
+<details>
+<summary>
+<em>Worked Solution</em>
+</summary>
+<p>Inner:</p>
 <p><span class="math display">\[
-(2 + 5 + 9)(1) = 16 \;\text{kg}.
+\int_0^2(x+2y)\,dy
+=\left[xy+y^2\right]_0^2
+=2x+4
 \]</span></p>
-<p><strong>Reflection responses:</strong></p>
-<ul>
-<li>It assumes the rate at the start of each hour applies throughout that hour.</li>
-<li>Since the rate is increasing within each interval, early values are smaller than later values.</li>
-<li>Underestimation is problematic when setting safety thresholds or regulatory limits.</li>
-</ul>
+<p>Outer:</p>
+<p><span class="math display">\[
+\int_0^2(2x+4)\,dx
+=\left[x^2+4x\right]_0^2
+=12
+\]</span></p>
+<p><span class="math display">\[
+\boxed{12}
+\]</span></p>
 </details>
 <hr />
 </div>
-<div id="problem-4-right-riemann-sum" class="section level3 unnumbered hasAnchor">
-<h3>Problem 4: Right Riemann Sum<a href="what-is-an-integral.html#problem-4-right-riemann-sum" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Compute a <strong>right Riemann sum</strong> for the same data.</p>
-<p><strong>Reflection prompts:</strong></p>
-<ul>
-<li>How does this change the assumption?</li>
-<li>Why does it overestimate?</li>
-<li>When is overestimation conservative?</li>
-</ul>
+<div id="evaluate-2" class="section level3 unnumbered hasAnchor">
+<h3>12. Evaluate<a href="test-3-review-material.html#evaluate-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+\int_{-1}^{1}\int_{0}^{1}(x^2+y)\,dx\,dy.
+\]</span></p>
 <details>
 <summary>
-<strong>Click to reveal solution</strong>
+<em>Hint</em>
 </summary>
+<p>Integrate with respect to <span class="math inline">\(x\)</span> first.</p>
+</details>
+<details>
+<summary>
+<em>Worked Solution</em>
+</summary>
+<p>Inner:</p>
 <p><span class="math display">\[
-(5 + 9 + 14)(1) = 28 \;\text{kg}.
+\int_0^1(x^2+y)\,dx
+=\left[\frac{x^3}{3}+yx\right]_0^1
+=\frac{1}{3}+y
 \]</span></p>
-<p><strong>Reflection responses:</strong></p>
-<ul>
-<li>It assumes the rate at the end of each hour applies throughout the hour.</li>
-<li>Later values are larger, so the method overshoots the true accumulation.</li>
-<li>Overestimation is conservative when protecting ecosystems or human safety.</li>
-</ul>
+<p>Outer:</p>
+<p><span class="math display">\[
+\int_{-1}^{1}\left(\frac{1}{3}+y\right)\,dy
+=\frac{2}{3}
+\]</span></p>
+<p><span class="math display">\[
+\boxed{\frac{2}{3}}
+\]</span></p>
 </details>
 <hr />
 </div>
-<div id="problem-5-midpoint-riemann-sum" class="section level3 unnumbered hasAnchor">
-<h3>Problem 5: Midpoint Riemann Sum<a href="what-is-an-integral.html#problem-5-midpoint-riemann-sum" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Using the same pollutant loading data as in Problems 3 and 4:</p>
-<table>
-<thead>
-<tr class="header">
-<th align="right">Time (hr)</th>
-<th align="right">Rate (kg/hr)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">0</td>
-<td align="right">2</td>
-</tr>
-<tr class="even">
-<td align="right">1</td>
-<td align="right">5</td>
-</tr>
-<tr class="odd">
-<td align="right">2</td>
-<td align="right">9</td>
-</tr>
-<tr class="even">
-<td align="right">3</td>
-<td align="right">14</td>
-</tr>
-</tbody>
-</table>
-<p><strong>(a)</strong> Identify the <strong>midpoints</strong> of each time interval from <span class="math inline">\(t=0\)</span> to <span class="math inline">\(t=3\)</span>.<br />
-<strong>(b)</strong> Estimate the pollutant loading rate at each midpoint using the table below.<br />
-<strong>(c)</strong> Use a <strong>midpoint Riemann sum</strong> with <span class="math inline">\(\Delta t = 1\)</span> hr to approximate the total pollutant load.</p>
-<table>
-<thead>
-<tr class="header">
-<th align="right">Interval</th>
-<th align="right">Midpoint (hr)</th>
-<th align="right">Estimated rate (kg/hr)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">0–1</td>
-<td align="right"></td>
-<td align="right"></td>
-</tr>
-<tr class="even">
-<td align="right">1–2</td>
-<td align="right"></td>
-<td align="right"></td>
-</tr>
-<tr class="odd">
-<td align="right">2–3</td>
-<td align="right"></td>
-<td align="right"></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Reflection prompts:</strong></p>
-<ul>
-<li>Why do midpoint values often better represent average behavior over an interval?</li>
-<li>Why should the midpoint estimate fall between the left and right sums?</li>
-<li>When might midpoint assumptions break down in environmental datasets?</li>
-</ul>
+</div>
+<div id="part-f-triple-integrals" class="section level2 unnumbered hasAnchor">
+<h2>Part F — Triple Integrals<a href="test-3-review-material.html#part-f-triple-integrals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="evaluate-3" class="section level3 unnumbered hasAnchor">
+<h3>13. Evaluate<a href="test-3-review-material.html#evaluate-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+\int_{0}^{1}
+\int_{0}^{1}
+\int_{0}^{2}
+(2x+y+z)\,dz\,dy\,dx.
+\]</span></p>
 <details>
 <summary>
-<strong>Click to reveal solution</strong>
+<em>Hint</em>
 </summary>
-<p><strong>(a) Midpoints</strong></p>
-<p>Each interval has width <span class="math inline">\(\Delta t = 1\)</span> hr:</p>
-<ul>
-<li>Interval <span class="math inline">\(0\text{–}1:\; t = 0.5\)</span></li>
-<li>Interval <span class="math inline">\(1\text{–}2:\; t = 1.5\)</span></li>
-<li>Interval <span class="math inline">\(2\text{–}3:\; t = 2.5\)</span></li>
-</ul>
-<p><strong>(b) Estimated midpoint rates</strong></p>
-<p>Using the provided data and assuming smooth change between measurements:</p>
-<ul>
-<li><span class="math inline">\(f(0.5) \approx 3.5\ \text{kg/hr}\)</span></li>
-<li><span class="math inline">\(f(1.5) \approx 7\ \text{kg/hr}\)</span></li>
-<li><span class="math inline">\(f(2.5) \approx 11.5\ \text{kg/hr}\)</span></li>
-</ul>
-<p><strong>(c) Midpoint Riemann sum</strong></p>
+<p>Integrate in order: <span class="math inline">\(z\)</span>, then <span class="math inline">\(y\)</span>, then <span class="math inline">\(x\)</span>.</p>
+</details>
+<details>
+<summary>
+<em>Worked Solution</em>
+</summary>
+<p>After integrating step-by-step:</p>
 <p><span class="math display">\[
-(3.5 + 7 + 11.5)(1) = 22\ \text{kg}.
+\boxed{5}
 \]</span></p>
-<p><strong>Reflection responses:</strong></p>
-<ul>
-<li>Midpoints often capture the average rate when the process changes smoothly over time.</li>
-<li>For an increasing rate, left sums underestimate and right sums overestimate, so midpoint values naturally fall between them.</li>
-<li>Midpoint assumptions can fail when rates change abruptly, such as during flash floods or sudden pollutant releases.</li>
-</ul>
 </details>
 <hr />
 </div>
-<div id="problem-6-signed-accumulation" class="section level3 unnumbered hasAnchor">
-<h3>Problem 6: Signed Accumulation<a href="what-is-an-integral.html#problem-6-signed-accumulation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="evaluate-4" class="section level3 unnumbered hasAnchor">
+<h3>14. Evaluate<a href="test-3-review-material.html#evaluate-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><span class="math display">\[
-f(t) = t - 2, \quad 0 \le t \le 4
+\int_{0}^{1}
+\int_{-1}^{1}
+\int_{0}^{3}
+xy\,dz\,dx\,dy.
 \]</span></p>
-<p><strong>Reflection prompts:</strong></p>
-<ul>
-<li>What does a negative rate mean?</li>
-<li>Does zero net accumulation mean nothing happened?</li>
-<li>How does this relate to day–night cycling?</li>
-</ul>
 <details>
 <summary>
-<strong>Click to reveal solution</strong>
+<em>Hint</em>
 </summary>
+<p>Look for symmetry in <span class="math inline">\(x\)</span>.</p>
+</details>
+<details>
+<summary>
+<em>Worked Solution</em>
+</summary>
+<p>Inner:</p>
 <p><span class="math display">\[
-\int_0^4 (t - 2)\,dt = 0.
+\int_0^3 xy\,dz=3xy
 \]</span></p>
-<p><strong>Reflection responses:</strong></p>
-<ul>
-<li>A negative rate represents net carbon release.</li>
-<li>Zero net accumulation still allows substantial uptake and release.</li>
-<li>Daytime photosynthesis and nighttime respiration can cancel over 24 hours.</li>
-</ul>
+<p>Next:</p>
+<p><span class="math display">\[
+\int_{-1}^{1}3xy\,dx=3y\int_{-1}^{1}x\,dx=0
+\]</span></p>
+<p><span class="math display">\[
+\boxed{0}
+\]</span></p>
 </details>
 <hr />
 </div>
-<div id="problem-7-trapezoidal-rule" class="section level3 unnumbered hasAnchor">
-<h3>Problem 7: Trapezoidal Rule<a href="what-is-an-integral.html#problem-7-trapezoidal-rule" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="evaluate-5" class="section level3 unnumbered hasAnchor">
+<h3>15. Evaluate<a href="test-3-review-material.html#evaluate-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><span class="math display">\[
-f(x) = x^2 \quad \text{on } [1,7], \; n=3
+\int_{0}^{2}
+\int_{0}^{1}
+\int_{0}^{1}
+(x+y+z)\,dz\,dx\,dy.
 \]</span></p>
-<p><strong>Reflection prompts:</strong></p>
-<ul>
-<li>What assumption does the trapezoidal rule make?</li>
-<li>Why is it often better than rectangles?</li>
-<li>When is linear change unrealistic?</li>
-</ul>
 <details>
 <summary>
-<strong>Click to reveal solution</strong>
+<em>Hint</em>
 </summary>
-<p><span class="math display">\[
-\Delta x = 2,\quad \text{Area} = 118.
-\]</span></p>
-<p><strong>Reflection responses:</strong></p>
-<ul>
-<li>It assumes the rate changes linearly within each interval.</li>
-<li>Many environmental processes change smoothly rather than abruptly.</li>
-<li>Rapid nonlinear events (e.g., threshold collapse) violate this assumption.</li>
-</ul>
+<p>Work from inside outward.</p>
 </details>
-<hr />
-</div>
-<div id="problem-8-comparing-methods" class="section level3 unnumbered hasAnchor">
-<h3>Problem 8: Comparing Methods<a href="what-is-an-integral.html#problem-8-comparing-methods" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>For the function
-<span class="math display">\[
-f(x) = x^2
-\]</span>
-on the interval <span class="math inline">\([1,7]\)</span> with <span class="math inline">\(n = 3\)</span>, the following approximations were computed:</p>
-<ul>
-<li>Left Riemann sum: <span class="math inline">\(70\)</span><br />
-</li>
-<li>Right Riemann sum: <span class="math inline">\(166\)</span><br />
-</li>
-<li>Midpoint Riemann sum: <span class="math inline">\(112\)</span><br />
-</li>
-<li>Trapezoidal rule: <span class="math inline">\(118\)</span></li>
-</ul>
-<p>The <strong>exact value</strong> of the integral is
-<span class="math display">\[
-\int_1^7 x^2\,dx = 114.
-\]</span></p>
-<p><strong>Reflection prompts:</strong></p>
-<ul>
-<li>Why is midpoint accurate?</li>
-<li>Is accuracy always the best criterion?</li>
-<li>When is conservativeness preferred?</li>
-</ul>
 <details>
 <summary>
-<strong>Click to reveal solution</strong>
+<em>Worked Solution</em>
 </summary>
-<p>Midpoint sum <span class="math inline">\(=112\)</span> is closest.</p>
-<p><strong>Reflection responses:</strong></p>
-<ul>
-<li>It captures average behavior over each interval.</li>
-<li>Best choice depends on goals, not just numerical closeness.</li>
-<li>Conservative estimates matter in regulation and risk management.</li>
-</ul>
-</details>
-<hr />
-</div>
-<div id="problem-9-effect-of-increasing-the-number-of-rectangles" class="section level3 unnumbered hasAnchor">
-<h3>Problem 9: Effect of Increasing the Number of Rectangles<a href="what-is-an-integral.html#problem-9-effect-of-increasing-the-number-of-rectangles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Consider the function
-<span class="math display">\[
-f(x) = \frac{1}{x}
-\]</span>
-on the interval <span class="math inline">\([1,7]\)</span>.</p>
-<p><img src="bookdown-demo_files/figure-html/left-riemann-1-over-x-1.png" width="960" /></p>
-<p>You will use <strong>left Riemann sums</strong> to approximate the total accumulation for different numbers of subintervals.</p>
-<p><strong>(a)</strong> Compute a <strong>left Riemann sum</strong> with <span class="math inline">\(n = 3\)</span>.<br />
-<strong>(b)</strong> Compute a <strong>left Riemann sum</strong> with <span class="math inline">\(n = 6\)</span>.<br />
-<strong>(c)</strong> Compute a <strong>left Riemann sum</strong> with <span class="math inline">\(n = 12\)</span>.<br />
-<strong>(d)</strong> Compare your results and describe how the approximation changes as <span class="math inline">\(n\)</span> increases.</p>
-<p><strong>Reflection prompts:</strong></p>
-<ul>
-<li>How does increasing <span class="math inline">\(n\)</span> change the width <span class="math inline">\(\Delta x\)</span> of each rectangle?</li>
-<li>Why does a left Riemann sum behave differently for decreasing functions?</li>
-<li>What does increasing <span class="math inline">\(n\)</span> represent in terms of environmental data collection?</li>
-<li>Why might overestimation be conservative in some environmental contexts?</li>
-</ul>
-<details>
-<summary>
-<strong>Click to reveal solution</strong>
-</summary>
-<p>We use <strong>left endpoints</strong> throughout.</p>
-<p>The exact value for comparison is:
-<span class="math display">\[
-\int_1^7 \frac{1}{x}\,dx = \ln(7) \approx 1.946.
-\]</span></p>
-<hr />
-<p><strong>(a) <span class="math inline">\(n = 3\)</span></strong></p>
+<p>Inner:</p>
 <p><span class="math display">\[
-\Delta x = \frac{7 - 1}{3} = 2
+\int_0^1(x+y+z)\,dz=(x+y)+\frac{1}{2}
 \]</span></p>
-<p>Left endpoints: <span class="math inline">\(x = 1, 3, 5\)</span></p>
+<p>Next:</p>
 <p><span class="math display">\[
-\text{Sum}
-= 2\left(\frac{1}{1} + \frac{1}{3} + \frac{1}{5}\right)
-= 2(1 + 0.3333 + 0.2)
-\approx 3.07
+\int_0^1\left(x+y+\frac{1}{2}\right)\,dx
+=y+1
 \]</span></p>
-<hr />
-<p><strong>(b) <span class="math inline">\(n = 6\)</span></strong></p>
+<p>Outer:</p>
 <p><span class="math display">\[
-\Delta x = \frac{7 - 1}{6} = 1
-\]</span></p>
-<p>Left endpoints: <span class="math inline">\(x = 1, 2, 3, 4, 5, 6\)</span></p>
-<p><span class="math display">\[
-\text{Sum}
-= 1\left(1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \frac{1}{5} + \frac{1}{6}\right)
-\approx 2.45
-\]</span></p>
-<hr />
-<p><strong>(c) <span class="math inline">\(n = 12\)</span></strong></p>
-<p><span class="math display">\[
-\Delta x = \frac{7 - 1}{12} = 0.5
-\]</span></p>
-<p>Left endpoints:
-<span class="math display">\[
-x = 1,\;1.5,\;2,\;2.5,\;3,\;3.5,\;4,\;4.5,\;5,\;5.5,\;6,\;6.5
+\int_0^2(y+1)\,dy
+=4
 \]</span></p>
 <p><span class="math display">\[
-\text{Sum}
-= 0.5\left(
-1 + 0.6667 + 0.5 + 0.4 + 0.3333 + 0.2857
-+ 0.25 + 0.2222 + 0.2 + 0.1818 + 0.1667 + 0.1538
-\right)
-\approx 2.18
+\boxed{4}
 \]</span></p>
-<hr />
-<p><strong>(d) Comparison</strong></p>
-<table>
-<thead>
-<tr class="header">
-<th align="right"><span class="math inline">\(n\)</span></th>
-<th>Left Riemann Sum</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">3</td>
-<td><span class="math inline">\(3.07\)</span></td>
-</tr>
-<tr class="even">
-<td align="right">6</td>
-<td><span class="math inline">\(2.45\)</span></td>
-</tr>
-<tr class="odd">
-<td align="right">12</td>
-<td><span class="math inline">\(2.18\)</span></td>
-</tr>
-<tr class="even">
-<td align="right">Exact</td>
-<td><span class="math inline">\(\ln(7) \approx 1.95\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>Because <span class="math inline">\(f(x) = 1/x\)</span> is <strong>decreasing</strong>, the left Riemann sum <strong>overestimates</strong> the true value. As <span class="math inline">\(n\)</span> increases and <span class="math inline">\(\Delta x\)</span> decreases, the approximation improves and approaches the exact value from above.</p>
-<hr />
-<p><strong>Reflection responses</strong></p>
-<ul>
-<li>Increasing <span class="math inline">\(n\)</span> decreases <span class="math inline">\(\Delta x\)</span>, making rectangles narrower.</li>
-<li>For decreasing functions, left endpoints use values larger than most of the interval, causing overestimation.</li>
-<li>Increasing <span class="math inline">\(n\)</span> corresponds to taking measurements more frequently in time or space.</li>
-<li>Overestimation may be conservative when estimating risks such as pollutant loads, water demand, or exposure thresholds.</li>
-</ul>
-</details>
-<hr />
-</div>
-<div id="problem-10-signed-accumulation-using-riemann-sums" class="section level3 unnumbered hasAnchor">
-<h3>Problem 10: Signed Accumulation Using Riemann Sums<a href="what-is-an-integral.html#problem-10-signed-accumulation-using-riemann-sums" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>A simplified model of a <strong>cyclic environmental process</strong> (such as net ecosystem carbon exchange over a day) is given by the rate function</p>
-<p><span class="math display">\[
-f(t) = \sin(t),
-\]</span></p>
-<p>where:</p>
-<ul>
-<li><span class="math inline">\(t\)</span> is time (hours), and<br />
-</li>
-<li><span class="math inline">\(f(t)\)</span> has units of kg/hr.</li>
-</ul>
-<p>You will approximate accumulation using <strong>midpoint Riemann sums</strong>.</p>
-<hr />
-<p><img src="bookdown-demo_files/figure-html/midpoint-riemann-sine-1.png" width="768" /></p>
-<div id="part-a-accumulation-from-t-0-to-t-pi" class="section level4 unnumbered hasAnchor">
-<h4><strong>Part A: Accumulation from <span class="math inline">\(t = 0\)</span> to <span class="math inline">\(t = \pi\)</span></strong><a href="what-is-an-integral.html#part-a-accumulation-from-t-0-to-t-pi" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div id="a1-divide-the-interval-0pi-into-n-4-equal-subintervals." class="section level5 unnumbered hasAnchor">
-<h5><strong>(a1)</strong> Divide the interval <span class="math inline">\([0,\pi]\)</span> into <span class="math inline">\(n = 4\)</span> equal subintervals.<a href="what-is-an-integral.html#a1-divide-the-interval-0pi-into-n-4-equal-subintervals." class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<p>Compute the width <span class="math inline">\(\Delta t\)</span>.</p>
-</div>
-<div id="a2-list-the-midpoints-of-the-four-subintervals." class="section level5 unnumbered hasAnchor">
-<h5><strong>(a2)</strong> List the <strong>midpoints</strong> of the four subintervals.<a href="what-is-an-integral.html#a2-list-the-midpoints-of-the-four-subintervals." class="anchor-section" aria-label="Anchor link to header"></a></h5>
-</div>
-<div id="a3-evaluate-ft-sint-at-each-midpoint." class="section level5 unnumbered hasAnchor">
-<h5><strong>(a3)</strong> Evaluate <span class="math inline">\(f(t) = \sin(t)\)</span> at each midpoint.<a href="what-is-an-integral.html#a3-evaluate-ft-sint-at-each-midpoint." class="anchor-section" aria-label="Anchor link to header"></a></h5>
-</div>
-<div id="a4-use-a-midpoint-riemann-sum-to-approximate-the---total-accumulation-on-0pi." class="section level5 hasAnchor" number="3.13.0.0.1">
-<h5><span class="header-section-number">3.13.0.0.1</span> <strong>(a4)</strong> Use a midpoint Riemann sum to approximate the {-} total accumulation on <span class="math inline">\([0,\pi]\)</span>.<a href="what-is-an-integral.html#a4-use-a-midpoint-riemann-sum-to-approximate-the---total-accumulation-on-0pi." class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<hr />
-</div>
-</div>
-<div id="part-b-accumulation-from-t-pi-to-t-2pi" class="section level4 unnumbered hasAnchor">
-<h4><strong>Part B: Accumulation from <span class="math inline">\(t = \pi\)</span> to <span class="math inline">\(t = 2\pi\)</span></strong><a href="what-is-an-integral.html#part-b-accumulation-from-t-pi-to-t-2pi" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div id="b1-using-the-same-number-of-subintervals-compute-the-width-delta-t." class="section level5 unnumbered hasAnchor">
-<h5><strong>(b1)</strong> Using the same number of subintervals, compute the width <span class="math inline">\(\Delta t\)</span>.<a href="what-is-an-integral.html#b1-using-the-same-number-of-subintervals-compute-the-width-delta-t." class="anchor-section" aria-label="Anchor link to header"></a></h5>
-</div>
-<div id="b2-list-the-midpoints-of-the-four-subintervals-on-pi-2pi." class="section level5 unnumbered hasAnchor">
-<h5><strong>(b2)</strong> List the <strong>midpoints</strong> of the four subintervals on <span class="math inline">\([\pi, 2\pi]\)</span>.<a href="what-is-an-integral.html#b2-list-the-midpoints-of-the-four-subintervals-on-pi-2pi." class="anchor-section" aria-label="Anchor link to header"></a></h5>
-</div>
-<div id="b3-evaluate-ft-sint-at-each-midpoint." class="section level5 unnumbered hasAnchor">
-<h5><strong>(b3)</strong> Evaluate <span class="math inline">\(f(t) = \sin(t)\)</span> at each midpoint.<a href="what-is-an-integral.html#b3-evaluate-ft-sint-at-each-midpoint." class="anchor-section" aria-label="Anchor link to header"></a></h5>
-</div>
-<div id="b4-use-a-midpoint-riemann-sum-to-approximate-the-total-accumulation-on-pi2pi." class="section level5 unnumbered hasAnchor">
-<h5><strong>(b4)</strong> Use a midpoint Riemann sum to approximate the total accumulation on <span class="math inline">\([\pi,2\pi]\)</span>.<a href="what-is-an-integral.html#b4-use-a-midpoint-riemann-sum-to-approximate-the-total-accumulation-on-pi2pi." class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<hr />
-</div>
-</div>
-<div id="part-c-accumulation-over-a-full-cycle" class="section level4 unnumbered hasAnchor">
-<h4><strong>Part C: Accumulation over a Full Cycle</strong><a href="what-is-an-integral.html#part-c-accumulation-over-a-full-cycle" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div id="c1-combine-your-results-from-parts-a-and-b-to-approximate-the-total-accumulation-on-02pi." class="section level5 unnumbered hasAnchor">
-<h5><strong>(c1)</strong> Combine your results from Parts A and B to approximate the total accumulation on <span class="math inline">\([0,2\pi]\)</span>.<a href="what-is-an-integral.html#c1-combine-your-results-from-parts-a-and-b-to-approximate-the-total-accumulation-on-02pi." class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<hr />
-</div>
-</div>
-<div id="reflection-prompts" class="section level4 unnumbered hasAnchor">
-<h4><strong>Reflection prompts</strong><a href="what-is-an-integral.html#reflection-prompts" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<ul>
-<li>Over which interval is the accumulation positive? Over which is it negative?</li>
-<li>Why do the magnitudes of the two accumulations look similar?</li>
-<li>What does the combined result suggest about net change over a full cycle?</li>
-<li>What real environmental systems show this kind of oscillatory behavior?</li>
-</ul>
-<details>
-<summary>
-<strong>Click to reveal solution</strong>
-</summary>
-<p><strong>Part A Solution: <span class="math inline">\(0 \le t \le \pi\)</span> </strong></p>
-<p><strong>(a1) Width of each subinterval </strong></p>
-<p><span class="math display">\[
-\Delta t = \frac{\pi - 0}{4} = \frac{\pi}{4}
-\]</span></p>
-<hr />
-<p><strong>(a2) Midpoints </strong></p>
-<p>The subintervals are:
-<span class="math display">\[
-[0,\tfrac{\pi}{4}],\;
-[\tfrac{\pi}{4},\tfrac{\pi}{2}],\;
-[\tfrac{\pi}{2},\tfrac{3\pi}{4}],\;
-[\tfrac{3\pi}{4},\pi]
-\]</span></p>
-<p>Midpoints:
-<span class="math display">\[
-\frac{\pi}{8},\;
-\frac{3\pi}{8},\;
-\frac{5\pi}{8},\;
-\frac{7\pi}{8}
-\]</span></p>
-<hr />
-<p><strong>(a3) Evaluate the rate </strong></p>
-<p><span class="math display">\[
-\sin\!\left(\tfrac{\pi}{8}\right) \approx 0.383
-\]</span>
-<span class="math display">\[
-\sin\!\left(\tfrac{3\pi}{8}\right) \approx 0.924
-\]</span>
-<span class="math display">\[
-\sin\!\left(\tfrac{5\pi}{8}\right) \approx 0.924
-\]</span>
-<span class="math display">\[
-\sin\!\left(\tfrac{7\pi}{8}\right) \approx 0.383
-\]</span></p>
-<hr />
-<p><strong>(a4) Midpoint Riemann sum </strong></p>
-<p><span class="math display">\[
-\left(0.383 + 0.924 + 0.924 + 0.383\right)\frac{\pi}{4}
-\approx 2.614 \cdot \frac{\pi}{4}
-\approx \boxed{2.05\ \text{kg}}
-\]</span></p>
-<hr />
-<p><strong>Part B Solution: <span class="math inline">\(\pi \le t \le 2\pi\)</span> </strong></p>
-<p><strong>(b1) Width of each subinterval </strong></p>
-<p><span class="math display">\[
-\Delta t = \frac{2\pi - \pi}{4} = \frac{\pi}{4}
-\]</span></p>
-<hr />
-<p><strong>(b2) Midpoints </strong></p>
-<p><span class="math display">\[
-\frac{9\pi}{8},\;
-\frac{11\pi}{8},\;
-\frac{13\pi}{8},\;
-\frac{15\pi}{8}
-\]</span></p>
-<hr />
-<p><strong>(b3) Evaluate the rate </strong></p>
-<p><span class="math display">\[
-\sin\!\left(\tfrac{9\pi}{8}\right) \approx -0.383
-\]</span>
-<span class="math display">\[
-\sin\!\left(\tfrac{11\pi}{8}\right) \approx -0.924
-\]</span>
-<span class="math display">\[
-\sin\!\left(\tfrac{13\pi}{8}\right) \approx -0.924
-\]</span>
-<span class="math display">\[
-\sin\!\left(\tfrac{15\pi}{8}\right) \approx -0.383
-\]</span></p>
-<hr />
-<p><strong>(b4) Midpoint Riemann sum </strong></p>
-<p><span class="math display">\[
-(-2.614)\frac{\pi}{4}
-\approx \boxed{-2.05\ \text{kg}}
-\]</span></p>
-<hr />
-<p><strong>Part C Solution: Full Cycle </strong></p>
-<p><span class="math display">\[
-2.05 + (-2.05) = \boxed{0}
-\]</span></p>
-<hr />
-<p><strong>Interpretation </strong></p>
-<ul>
-<li>Positive accumulation from <span class="math inline">\(0\)</span> to <span class="math inline">\(\pi\)</span>: net uptake.<br />
-</li>
-<li>Negative accumulation from <span class="math inline">\(\pi\)</span> to <span class="math inline">\(2\pi\)</span>: net release.<br />
-</li>
-<li>Over a full cycle, gains and losses cancel.</li>
-</ul>
-<p>This models diurnal carbon exchange, tides, seasonal growth cycles, and other oscillatory environmental processes. Net accumulation alone hides substantial internal dynamics.</p>
 </details>
 
 </div>
 </div>
 </div>
-</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="introduction-to-calculus-ii.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="test-2-review-material.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="intro-calculus-workbook.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -3135,7 +1859,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/rstudio/bookdown-demo/edit/master/03-reimann.Rmd",
+    "link": "https://github.com/rstudio/bookdown-demo/edit/master/23-test_review.Rmd",
     "text": "Edit"
   },
   "history": {

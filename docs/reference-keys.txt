@@ -477,7 +477,7 @@ from-finite-sums-to-a-limit-1
 defining-the-definite-integral-1
 conceptual-meaning
 evaluating-a-definite-integral-step-by-step
-what-does-a-definite-integral-represent
+what-does-a-definite-integral-represent-1
 step-1-identify-the-function-being-accumulated
 step-2-find-an-antiderivative
 step-3-evaluate-the-antiderivative-at-the-bounds

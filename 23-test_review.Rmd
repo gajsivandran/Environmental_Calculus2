@@ -1,0 +1,886 @@
+# Test 3 Review Material {-}
+
+## Test Instructions {-}
+Below are the general instructions for all tests
+
+- You will get a chance to **retake** this. Your **highest** score counts toward your final grade.  
+- Follow the guidance for each part and **show all work** for full credit.  
+- **Non-graphical calculators** are allowed.  
+- **One page (two sides)** of handwritten (or font size 8) notes are allowed.
+- The equation sheet from the textbook is included as part of the test pack (it doesn't count as note pages)
+
+## Test Format {-}
+The Format of the test will include:
+
+- 10 pick the best technique (do not solve)  [10pts]
+- 2 Substitution [2 x 5pts]
+- 2 Integration by Parts [2 x 5pts]
+- 1 Partial Fraction [5pts]
+- 3 Choose your method and solve [3 x 5pts]
+
+
+## Part A — Short Answer (Concepts) {-}
+
+There will not be a short answer section - but there might be short answer intepretations at the end of calculations. 
+
+---
+
+### 1. What does a definite integral represent? {-}
+
+<details>
+<summary><em>Hint</em></summary>
+
+Think about accumulation. What are we adding up? What does the sign of the function matter?
+
+</details>
+
+<details>
+<summary><em>Suggested Answer</em></summary>
+
+A definite integral represents the net accumulation of a quantity over an interval. Geometrically, it is the signed area between the curve and the \(x\)-axis from \(a\) to \(b\).
+
+</details>
+
+---
+
+### 2. Difference between signed integral and total accumulation? {-}
+
+<details>
+<summary><em>Hint</em></summary>
+
+What happens when the function is below the \(x\)-axis? Does it subtract or still add?
+
+</details>
+
+<details>
+<summary><em>Suggested Answer</em></summary>
+
+A signed integral allows areas below the axis to subtract from areas above. Total accumulation uses absolute value so all contributions are counted positively.
+
+</details>
+
+---
+
+### 3. Why do we use absolute value for geometric area? {-}
+
+<details>
+<summary><em>Hint</em></summary>
+
+Area is always positive in geometry.
+
+</details>
+
+<details>
+<summary><em>Suggested Answer</em></summary>
+
+Because geometric area measures size, not direction, and must always be positive, we use absolute value to prevent cancellation.
+
+</details>
+
+---
+
+### 4. What must be true about top minus bottom? {-}
+
+<details>
+<summary><em>Hint</em></summary>
+
+What ensures the integrand stays positive?
+
+</details>
+
+<details>
+<summary><em>Suggested Answer</em></summary>
+
+The function labeled “top” must be greater than or equal to the bottom function across the entire interval.
+
+</details>
+
+---
+
+### 5. What goes wrong if curves cross and you don’t split? {-}
+
+<details>
+<summary><em>Hint</em></summary>
+
+Think about sign changes in \(f(x)-g(x)\).
+
+</details>
+
+<details>
+<summary><em>Suggested Answer</em></summary>
+
+If the curves cross, the integrand changes sign, leading to cancellation and an incorrect area value.
+
+</details>
+
+---
+
+### 6. Why find intersection points? {-}
+
+<details>
+<summary><em>Hint</em></summary>
+
+What happens at those points?
+
+</details>
+
+<details>
+<summary><em>Suggested Answer</em></summary>
+
+Intersection points mark where the top and bottom functions switch roles, allowing us to correctly split the integral.
+
+</details>
+
+---
+
+### 7. How do we split if they intersect at \(x=c\)? {-}
+
+<details>
+<summary><em>Hint</em></summary>
+
+Write two integrals.
+
+</details>
+
+<details>
+<summary><em>Suggested Answer</em></summary>
+
+\[
+\text{Area} = \int_a^c (f-g)\,dx + \int_c^b (g-f)\,dx
+\]
+
+</details>
+
+---
+
+### 8. How can you quickly determine which function is on top? {-}
+
+<details>
+<summary><em>Hint</em></summary>
+
+Test a value in the interval.
+
+</details>
+
+<details>
+<summary><em>Suggested Answer</em></summary>
+
+Evaluate both functions at a convenient test point within the interval and compare their values.
+
+</details>
+
+---
+
+### 9. What does average value mean conceptually? {-}
+
+<details>
+<summary><em>Hint</em></summary>
+
+Imagine flattening the function into a constant height.
+
+</details>
+
+<details>
+<summary><em>Suggested Answer</em></summary>
+
+The average value is the constant height that would produce the same total area over the interval.
+
+</details>
+
+---
+
+### 10. Why divide by \(b-a\)? {-}
+
+<details>
+<summary><em>Hint</em></summary>
+
+Think “total divided by length.”
+
+</details>
+
+<details>
+<summary><em>Suggested Answer</em></summary>
+
+We divide by the interval length to convert total accumulation into a per-unit average.
+
+</details>
+
+---
+
+### 11. Geometric interpretation of average value? {-}
+
+<details>
+<summary><em>Hint</em></summary>
+
+Picture a rectangle.
+
+</details>
+
+<details>
+<summary><em>Suggested Answer</em></summary>
+
+It is the height of a rectangle with base \(b-a\) that has the same area as the region under \(f(x)\).
+
+</details>
+
+---
+
+### 12. What does \(dA\) represent? {-}
+
+<details>
+<summary><em>Hint</em></summary>
+
+Tiny what?
+
+</details>
+
+<details>
+<summary><em>Suggested Answer</em></summary>
+
+\(dA\) represents a tiny piece of area, typically a small rectangle in the plane.
+
+</details>
+
+---
+
+### 13. What does a double integral do that a single integral cannot? {-}
+
+<details>
+<summary><em>Hint</em></summary>
+
+Think dimension.
+
+</details>
+
+<details>
+<summary><em>Suggested Answer</em></summary>
+
+A double integral accumulates values over a two-dimensional region, not just along a line.
+
+</details>
+
+---
+
+### 14. Why treat outer variable as constant? {-}
+
+<details>
+<summary><em>Hint</em></summary>
+
+Integration rules.
+
+</details>
+
+<details>
+<summary><em>Suggested Answer</em></summary>
+
+Because when integrating with respect to one variable, all other variables are treated as constants by definition of partial integration.
+
+</details>
+
+---
+
+### 15. What does \(dV\) represent? {-}
+
+<details>
+<summary><em>Hint</em></summary>
+
+Tiny 3D piece.
+
+</details>
+
+<details>
+<summary><em>Suggested Answer</em></summary>
+
+\(dV\) represents a tiny volume element, such as a small rectangular box.
+
+</details>
+
+---
+
+### 16. What does a triple integral measure with density? {-}
+
+<details>
+<summary><em>Hint</em></summary>
+
+Density times volume.
+
+</details>
+
+<details>
+<summary><em>Suggested Answer</em></summary>
+
+It measures total quantity (like mass or population) by accumulating density over a three-dimensional region.
+
+</details>
+
+---
+
+### 17. What does changing order of integration mean geometrically? {-}
+
+<details>
+<summary><em>Hint</em></summary>
+
+Different slicing direction.
+
+</details>
+
+<details>
+<summary><em>Suggested Answer</em></summary>
+
+It represents slicing the same region in a different direction; the total accumulation remains the same if the region and function are unchanged.
+
+</details>
+
+
+## Part B — Signed Integrals {-}
+
+### 1. Compute  {-}
+\[
+\int_{-2}^{4} (2x-5)\,dx.
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+
+Find an antiderivative \(F(x)\) and evaluate \(F(4)-F(-2)\).
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+\[
+\int (2x-5)\,dx=x^2-5x
+\]
+
+\[
+\left[x^2-5x\right]_{-2}^{4}
+=(16-20)-\left(4+10\right)
+=-4-14=-18
+\]
+
+\[
+\boxed{-18}
+\]
+
+</details>
+
+---
+
+### 2. Compute  {-}
+\[
+\int_{1}^{e} \frac{1}{x}\,dx.
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+
+What is the antiderivative of \(1/x\)?
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+\[
+\int \frac{1}{x}\,dx=\ln x
+\]
+
+\[
+\left[\ln x\right]_{1}^{e}=1-0=1
+\]
+
+\[
+\boxed{1}
+\]
+
+</details>
+
+---
+
+### 3. Compute  {-}
+\[
+\int_{0}^{3} (x^2-4x+1)\,dx.
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+
+Integrate term by term.
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+\[
+\int (x^2-4x+1)\,dx=\frac{x^3}{3}-2x^2+x
+\]
+
+\[
+\left[\frac{x^3}{3}-2x^2+x\right]_0^3
+=9-18+3=-6
+\]
+
+\[
+\boxed{-6}
+\]
+
+</details>
+
+---
+
+### 4. Compute  {-}
+\[
+\int_{-1}^{2} (3e^x-2)\,dx.
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+
+Integrate \(e^x\) and constants separately.
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+\[
+\int (3e^x-2)\,dx=3e^x-2x
+\]
+
+\[
+\left[3e^x-2x\right]_{-1}^{2}
+=(3e^2-4)-\left(\frac{3}{e}+2\right)
+=3e^2-6-\frac{3}{e}
+\]
+
+\[
+\boxed{3e^2-6-\frac{3}{e}}
+\]
+
+</details>
+
+---
+
+## Part C — Average Value {-}
+
+### 5. Find the average value of  {-}
+\[
+f(x)=x^2+4x
+\]  
+on \([-1,2]\).
+
+<details>
+<summary><em>Hint</em></summary>
+
+Use \(f_{\text{avg}}=\frac{1}{b-a}\int_a^b f(x)\,dx\).
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+\[
+f_{\text{avg}}=\frac{1}{3}\int_{-1}^{2}(x^2+4x)\,dx
+\]
+
+\[
+\int (x^2+4x)\,dx=\frac{x^3}{3}+2x^2
+\]
+
+Integral value \(=9\).
+
+\[
+f_{\text{avg}}=\frac{9}{3}=3
+\]
+
+\[
+\boxed{3}
+\]
+
+</details>
+
+---
+
+### 6. Find the average value of  {-}
+\[
+f(x)=e^{2x}
+\]  
+on \([0,1]\).
+
+<details>
+<summary><em>Hint</em></summary>
+
+Remember the interval length is 1.
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+\[
+f_{\text{avg}}=\int_0^1 e^{2x}\,dx
+\]
+
+\[
+=\left[\frac12 e^{2x}\right]_0^1
+=\frac12(e^2-1)
+\]
+
+\[
+\boxed{\frac{e^2-1}{2}}
+\]
+
+</details>
+
+---
+
+## Part D — Area Between Curves {-}
+
+### 7. Find the area between  {-}
+\[
+f(x)=2x+1
+\quad\text{and}\quad
+g(x)=x^2
+\]  
+on \([0,2]\).
+
+<details>
+<summary><em>Hint</em></summary>
+
+Determine which function is on top.
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+Since \(2x+1 > x^2\) on \([0,2]\),
+
+\[
+\text{Area}=\int_0^2((2x+1)-x^2)\,dx
+\]
+
+\[
+\int(-x^2+2x+1)\,dx=-\frac{x^3}{3}+x^2+x
+\]
+
+\[
+\left[-\frac{x^3}{3}+x^2+x\right]_0^2
+=-\frac{8}{3}+4+2=\frac{10}{3}
+\]
+
+\[
+\boxed{\frac{10}{3}}
+\]
+
+</details>
+
+---
+
+### 8. Find the total area between {-}
+\[
+f(x)=x^2-1
+\quad\text{and}\quad
+g(x)=0
+\]
+on \([-2,2]\).
+
+<details>
+<summary><em>Hint</em></summary>
+
+Find where \(x^2-1=0\). Split the integral and use symmetry.
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+Zeros at \(x=\pm1\).
+
+\[
+\text{Area}=\int_{-2}^{2}|x^2-1|\,dx
+=2\left(\int_0^1(1-x^2)\,dx+\int_1^2(x^2-1)\,dx\right)
+\]
+
+\[
+\int_0^1(1-x^2)\,dx=\frac{2}{3},
+\quad
+\int_1^2(x^2-1)\,dx=\frac{4}{3}
+\]
+
+\[
+2\left(\frac{2}{3}+\frac{4}{3}\right)=4
+\]
+
+\[
+\boxed{4}
+\]
+
+</details>
+
+---
+
+### 9. Find the area between {-}
+\[
+f(x)=e^x
+\quad\text{and}\quad
+g(x)=x+1
+\]
+on \([0,1]\).
+
+<details>
+<summary><em>Hint</em></summary>
+
+Check where they intersect and determine which is on top.
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+They meet at \(x=0\). For \(x>0\), \(e^x > x+1\).
+
+\[
+\text{Area}=\int_0^1\left(e^x-(x+1)\right)\,dx
+\]
+
+\[
+=e^x-\frac{x^2}{2}-x\Big|_0^1
+=\left(e-\frac12-1\right)-1
+=e-\frac{5}{2}
+\]
+
+\[
+\boxed{e-\frac{5}{2}}
+\]
+
+</details>
+
+---
+
+## Part E — Double Integrals {-}
+
+### 10. Evaluate  {-}
+\[
+\int_{0}^{1}\int_{-1}^{2}(3x-y)\,dy\,dx.
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+
+Do the inner integral first.
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+\[
+\int_{-1}^{2}(3x-y)\,dy
+=\left[3xy-\frac{y^2}{2}\right]_{-1}^{2}
+=9x-\frac{3}{2}
+\]
+
+\[
+\int_0^1\left(9x-\frac{3}{2}\right)\,dx
+=3
+\]
+
+\[
+\boxed{3}
+\]
+
+</details>
+
+---
+
+### 11. Evaluate  {-}
+\[
+\int_{0}^{2}\int_{0}^{2}(x+2y)\,dy\,dx.
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+
+Integrate with respect to \(y\) first.
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+Inner:
+
+\[
+\int_0^2(x+2y)\,dy
+=\left[xy+y^2\right]_0^2
+=2x+4
+\]
+
+Outer:
+
+\[
+\int_0^2(2x+4)\,dx
+=\left[x^2+4x\right]_0^2
+=12
+\]
+
+\[
+\boxed{12}
+\]
+
+</details>
+
+---
+
+### 12. Evaluate  {-}
+\[
+\int_{-1}^{1}\int_{0}^{1}(x^2+y)\,dx\,dy.
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+
+Integrate with respect to \(x\) first.
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+Inner:
+
+\[
+\int_0^1(x^2+y)\,dx
+=\left[\frac{x^3}{3}+yx\right]_0^1
+=\frac{1}{3}+y
+\]
+
+Outer:
+
+\[
+\int_{-1}^{1}\left(\frac{1}{3}+y\right)\,dy
+=\frac{2}{3}
+\]
+
+\[
+\boxed{\frac{2}{3}}
+\]
+
+</details>
+
+---
+
+## Part F — Triple Integrals {-}
+
+### 13. Evaluate  {-}
+\[
+\int_{0}^{1}
+\int_{0}^{1}
+\int_{0}^{2}
+(2x+y+z)\,dz\,dy\,dx.
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+
+Integrate in order: \(z\), then \(y\), then \(x\).
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+After integrating step-by-step:
+
+\[
+\boxed{5}
+\]
+
+</details>
+
+---
+
+### 14. Evaluate  {-}
+\[
+\int_{0}^{1}
+\int_{-1}^{1}
+\int_{0}^{3}
+xy\,dz\,dx\,dy.
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+
+Look for symmetry in \(x\).
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+Inner:
+
+\[
+\int_0^3 xy\,dz=3xy
+\]
+
+Next:
+
+\[
+\int_{-1}^{1}3xy\,dx=3y\int_{-1}^{1}x\,dx=0
+\]
+
+\[
+\boxed{0}
+\]
+
+</details>
+
+---
+
+### 15. Evaluate  {-}
+\[
+\int_{0}^{2}
+\int_{0}^{1}
+\int_{0}^{1}
+(x+y+z)\,dz\,dx\,dy.
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+
+Work from inside outward.
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+Inner:
+
+\[
+\int_0^1(x+y+z)\,dz=(x+y)+\frac{1}{2}
+\]
+
+Next:
+
+\[
+\int_0^1\left(x+y+\frac{1}{2}\right)\,dx
+=y+1
+\]
+
+Outer:
+
+\[
+\int_0^2(y+1)\,dy
+=4
+\]
+
+\[
+\boxed{4}
+\]
+
+</details>
