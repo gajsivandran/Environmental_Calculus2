@@ -657,3 +657,16 @@ final-reflection-1
 the-modeling-workflow
 differential-equations
 building-our-own-slope-field
+differential-equations-modeling-change
+from-rate-to-rule
+proportional-growth
+doubling-time-1
+proportional-decay
+understanding-without-solving-slope-fields
+predicting-behavior
+equilibrium-and-stability
+logistic-growth
+growth-as-a-function-of-population
+adding-harvesting
+structural-thinking
+big-picture-2

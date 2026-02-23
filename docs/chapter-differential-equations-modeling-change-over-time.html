@@ -23,7 +23,7 @@
 <meta name="author" content="Gaj Sivandran" />
 
 
-<meta name="date" content="2026-02-21" />
+<meta name="date" content="2026-02-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1008,6 +1008,25 @@
 <li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#example-3"><i class="fa fa-check"></i>Example 3</a></li>
 <li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#example-4"><i class="fa fa-check"></i>Example 4</a></li>
 </ul></li>
+<li class="chapter" data-level="16.2" data-path="differential-equations.html"><a href="differential-equations.html#differential-equations-modeling-change"><i class="fa fa-check"></i><b>16.2</b> Differential Equations — Modeling Change</a></li>
+<li class="chapter" data-level="16.3" data-path="differential-equations.html"><a href="differential-equations.html#from-rate-to-rule"><i class="fa fa-check"></i><b>16.3</b> From Rate to Rule</a></li>
+<li class="chapter" data-level="16.4" data-path="differential-equations.html"><a href="differential-equations.html#proportional-growth"><i class="fa fa-check"></i><b>16.4</b> Proportional Growth</a>
+<ul>
+<li class="chapter" data-level="16.4.1" data-path="differential-equations.html"><a href="differential-equations.html#doubling-time-1"><i class="fa fa-check"></i><b>16.4.1</b> Doubling Time</a></li>
+</ul></li>
+<li class="chapter" data-level="16.5" data-path="differential-equations.html"><a href="differential-equations.html#proportional-decay"><i class="fa fa-check"></i><b>16.5</b> Proportional Decay</a></li>
+<li class="chapter" data-level="16.6" data-path="differential-equations.html"><a href="differential-equations.html#understanding-without-solving-slope-fields"><i class="fa fa-check"></i><b>16.6</b> Understanding Without Solving: Slope Fields</a>
+<ul>
+<li class="chapter" data-level="16.6.1" data-path="differential-equations.html"><a href="differential-equations.html#predicting-behavior"><i class="fa fa-check"></i><b>16.6.1</b> Predicting Behavior</a></li>
+</ul></li>
+<li class="chapter" data-level="16.7" data-path="differential-equations.html"><a href="differential-equations.html#equilibrium-and-stability"><i class="fa fa-check"></i><b>16.7</b> Equilibrium and Stability</a></li>
+<li class="chapter" data-level="16.8" data-path="differential-equations.html"><a href="differential-equations.html#logistic-growth"><i class="fa fa-check"></i><b>16.8</b> Logistic Growth</a>
+<ul>
+<li class="chapter" data-level="16.8.1" data-path="differential-equations.html"><a href="differential-equations.html#growth-as-a-function-of-population"><i class="fa fa-check"></i><b>16.8.1</b> Growth as a Function of Population</a></li>
+</ul></li>
+<li class="chapter" data-level="16.9" data-path="differential-equations.html"><a href="differential-equations.html#adding-harvesting"><i class="fa fa-check"></i><b>16.9</b> Adding Harvesting</a></li>
+<li class="chapter" data-level="16.10" data-path="differential-equations.html"><a href="differential-equations.html#structural-thinking"><i class="fa fa-check"></i><b>16.10</b> Structural Thinking</a></li>
+<li class="chapter" data-level="16.11" data-path="differential-equations.html"><a href="differential-equations.html#big-picture-2"><i class="fa fa-check"></i><b>16.11</b> Big Picture</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -1084,7 +1103,7 @@ Instead of being given a function and asked to differentiate or integrate it, we
 <blockquote>
 <p>Instead of analyzing change, we now <strong>build models of change</strong>.</p>
 </blockquote>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 </div>
 <div id="what-is-a-differential-equation" class="section level2 hasAnchor" number="7.2">
 <h2><span class="header-section-number">7.2</span> What Is a Differential Equation?<a href="chapter-differential-equations-modeling-change-over-time.html#what-is-a-differential-equation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -1623,11 +1642,11 @@ f(3, 4) = \frac{dP}{dt} = -0.5(4) + 2 = 0.
 <p><span class="math display">\[
 f(4, 6) = \frac{dP}{dt} = -0.5(6) + 2 = -1.
 \]</span></p>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 <p>We can fill the whole domain with these slope field indicators. These will become guidelines for possible solution functions. A solution plotted on in this field will be a solution to the original differential equation - it will be one of the family of solutions.</p>
 <p>What drives the array of possible solutions is the fact that indefinte integration generates a constant. Therefore there are an infinite number of potential solutions. If we know the initial condition we can create a unique solution.</p>
 <p>In this example, filling out the entire slope field does not require plugging every point into the differential equation. But rather recognizing that the differential equation does not have a <span class="math inline">\(t\)</span> in it. So we know the slope will be constant in the horizontal.</p>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 </div>
 <div id="step-2-interpret-the-behavior" class="section level4 unnumbered hasAnchor">
 <h4>Step 2: Interpret the Behavior<a href="chapter-differential-equations-modeling-change-over-time.html#step-2-interpret-the-behavior" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1646,7 +1665,7 @@ f(4, 6) = \frac{dP}{dt} = -0.5(6) + 2 = -1.
 </ul>
 <p>This equilibrium is <strong>stable</strong>: solutions move toward it from both sides.</p>
 <p>The slope field makes this visually clear — arrows point upward below 4 and downward above 4, guiding trajectories toward the equilibrium line.</p>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
 <p>When we select an initial condition (which can be any point in this field), we then let the slope field guide our trajectory. Think of the slope field as the currents on a large lake. Now imagine sitting on a paddleboard anywhere in that lake. The slope field (currents) with dictate where you go.</p>
 </div>
 <div id="the-big-idea-1" class="section level4 hasAnchor" number="7.4.6.1">
@@ -1750,7 +1769,7 @@ This is a <strong>stable equilibrium</strong>.</p></li>
 </ul>
 <p>This analogy emphasizes an important idea: Stability is about <strong>response to disturbance</strong>. In environmental systems, disturbances are inevitable — storms, droughts, harvesting, climate variation. Whether a system returns to its prior state or shifts dramatically depends on the stability of its equilibria.</p>
 <p>Understanding stability helps us predict resilience, collapse, and tipping behavior.</p>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
 <hr />
 </div>
 </div>
@@ -2292,7 +2311,7 @@ P(3) = 200e^{1.2} \approx 200(3.32) \approx 664
 <p><span class="math display">\[
 P(6) = 200e^{2.4} \approx 200(11.02) \approx 2204
 \]</span></p>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
 <div id="interpretation-5" class="section level4 unnumbered hasAnchor">
 <h4>Interpretation<a href="chapter-differential-equations-modeling-change-over-time.html#interpretation-5" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
@@ -2326,7 +2345,7 @@ t = \frac{\ln 2}{r}
 <p><span class="math display">\[
 t = \frac{0.693}{0.4} \approx 1.73 \text{ years}
 \]</span></p>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
 <div id="interpretation-6" class="section level4 unnumbered hasAnchor">
 <h4>Interpretation<a href="chapter-differential-equations-modeling-change-over-time.html#interpretation-6" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The population doubles every 1.73 years, regardless of starting size.</p>
@@ -2357,7 +2376,7 @@ P(4) = 50e^{-1} \approx 50(0.368) \approx 18.4
 <p><span class="math display">\[
 P(8) = 50e^{-2} \approx 50(0.135) \approx 6.75
 \]</span></p>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 <hr />
 </div>
 <div id="half-life" class="section level3 hasAnchor" number="7.7.5">
@@ -2382,7 +2401,7 @@ t = \frac{\ln 2}{k}
 <p><span class="math display">\[
 t = \frac{0.693}{0.25} \approx 2.77 \text{ years}
 \]</span></p>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 <div id="interpretation-7" class="section level4 unnumbered hasAnchor">
 <h4>Interpretation<a href="chapter-differential-equations-modeling-change-over-time.html#interpretation-7" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The pollutant decreases by half every 2.77 years, regardless of how much is present.</p>
@@ -2404,7 +2423,7 @@ C(t) = 420e^{0.015t}
 C(20) = 420e^{0.3} \approx 420(1.35) \approx 567 \text{ ppm}
 \]</span></p>
 <p>Even a small proportional growth rate compounds dramatically over time.</p>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
 <hr />
 </div>
 <div id="what-exponential-models-capture" class="section level3 hasAnchor" number="7.7.7">
@@ -2630,7 +2649,7 @@ rP\left(1 - \frac{P}{K}\right)
 <p>Interpretation: at <span class="math inline">\(P=4{,}000\)</span>, growth exceeds harvest, so the population increases.</p>
 <p>This suggests the population will move toward a stable level where growth balances harvest.</p>
 <p>If we generate a slope field diagram and plot various initial conditions we can see that we have a stable equilibrium at approximately 8000, and an unstable equilibrium near 2500.</p>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
 </div>
 <div id="maximum-sustainable-harvest" class="section level3 hasAnchor" number="7.8.2">
 <h3><span class="header-section-number">7.8.2</span> Maximum Sustainable Harvest<a href="chapter-differential-equations-modeling-change-over-time.html#maximum-sustainable-harvest" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -2656,7 +2675,7 @@ r\left(\frac{K}{2}\right)\left(1 - \frac{1}{2}\right)
 <p><span class="math display">\[
 H_{\max} \approx 1500 \ \text{fish/year}.
 \]</span></p>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
 <p>We now create a semi-stable equilibrium. If The population is above 5000 it tends towards 5000. But, if the population drops below 5000, it will go to extinction.</p>
 </div>
 </div>
@@ -2678,7 +2697,7 @@ H = 1800 \ \text{fish/year},
 <blockquote>
 <p>If harvest exceeds maximum reproductive capacity, collapse becomes inevitable.</p>
 </blockquote>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
 <hr />
 </div>
 <div id="what-this-example-shows" class="section level3 hasAnchor" number="7.9.2">

@@ -23,7 +23,7 @@
 <meta name="author" content="Gaj Sivandran" />
 
 
-<meta name="date" content="2026-02-21" />
+<meta name="date" content="2026-02-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1008,6 +1008,25 @@
 <li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#example-3"><i class="fa fa-check"></i>Example 3</a></li>
 <li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#example-4"><i class="fa fa-check"></i>Example 4</a></li>
 </ul></li>
+<li class="chapter" data-level="16.2" data-path="differential-equations.html"><a href="differential-equations.html#differential-equations-modeling-change"><i class="fa fa-check"></i><b>16.2</b> Differential Equations — Modeling Change</a></li>
+<li class="chapter" data-level="16.3" data-path="differential-equations.html"><a href="differential-equations.html#from-rate-to-rule"><i class="fa fa-check"></i><b>16.3</b> From Rate to Rule</a></li>
+<li class="chapter" data-level="16.4" data-path="differential-equations.html"><a href="differential-equations.html#proportional-growth"><i class="fa fa-check"></i><b>16.4</b> Proportional Growth</a>
+<ul>
+<li class="chapter" data-level="16.4.1" data-path="differential-equations.html"><a href="differential-equations.html#doubling-time-1"><i class="fa fa-check"></i><b>16.4.1</b> Doubling Time</a></li>
+</ul></li>
+<li class="chapter" data-level="16.5" data-path="differential-equations.html"><a href="differential-equations.html#proportional-decay"><i class="fa fa-check"></i><b>16.5</b> Proportional Decay</a></li>
+<li class="chapter" data-level="16.6" data-path="differential-equations.html"><a href="differential-equations.html#understanding-without-solving-slope-fields"><i class="fa fa-check"></i><b>16.6</b> Understanding Without Solving: Slope Fields</a>
+<ul>
+<li class="chapter" data-level="16.6.1" data-path="differential-equations.html"><a href="differential-equations.html#predicting-behavior"><i class="fa fa-check"></i><b>16.6.1</b> Predicting Behavior</a></li>
+</ul></li>
+<li class="chapter" data-level="16.7" data-path="differential-equations.html"><a href="differential-equations.html#equilibrium-and-stability"><i class="fa fa-check"></i><b>16.7</b> Equilibrium and Stability</a></li>
+<li class="chapter" data-level="16.8" data-path="differential-equations.html"><a href="differential-equations.html#logistic-growth"><i class="fa fa-check"></i><b>16.8</b> Logistic Growth</a>
+<ul>
+<li class="chapter" data-level="16.8.1" data-path="differential-equations.html"><a href="differential-equations.html#growth-as-a-function-of-population"><i class="fa fa-check"></i><b>16.8.1</b> Growth as a Function of Population</a></li>
+</ul></li>
+<li class="chapter" data-level="16.9" data-path="differential-equations.html"><a href="differential-equations.html#adding-harvesting"><i class="fa fa-check"></i><b>16.9</b> Adding Harvesting</a></li>
+<li class="chapter" data-level="16.10" data-path="differential-equations.html"><a href="differential-equations.html#structural-thinking"><i class="fa fa-check"></i><b>16.10</b> Structural Thinking</a></li>
+<li class="chapter" data-level="16.11" data-path="differential-equations.html"><a href="differential-equations.html#big-picture-2"><i class="fa fa-check"></i><b>16.11</b> Big Picture</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -1047,7 +1066,7 @@
 </ul>
 <p>You should now have a single trajectory.</p>
 <p>Now repeat this process 2 more times, each time putting your ‘x’ at a different starting point.</p>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
 <div class="promptbox">
 <ul>
 <li>What happens to your trajectories?</li>
@@ -1058,7 +1077,7 @@
 <h4>Graph 2<a href="differential-equations.html#graph-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>For this graph place 4 <em>x’s</em> on the left edge of the page.
 Sketch the trajectories you create as you move to the right.</p>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-52-1.png" width="672" /></p>
 <div class="promptbox">
 <ul>
 <li><p>What happens if you start below the x axis?</p></li>
@@ -1073,7 +1092,7 @@ Sketch the trajectories you create as you move to the right.</p>
 <h4>Graph 3<a href="differential-equations.html#graph-3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>For this graph place 4 <em>x’s</em> on the left edge of the page.
 Sketch the trajectories you create as you move to the right.</p>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
 <div class="promptbox">
 <ul>
 <li>There was a slight change between Graph 2 and Graph 3. Can you describe what happened?</li>
@@ -1084,7 +1103,7 @@ Sketch the trajectories you create as you move to the right.</p>
 <h4>Graph 4<a href="differential-equations.html#graph-4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>For this graph place 4 <em>x’s</em> on the left edge of the page.
 Sketch the trajectories you create as you move to the right.</p>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-64-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-54-1.png" width="672" /></p>
 <div class="promptbox">
 <ul>
 <li>what happens to all the trajectories by the time to get to the right?</li>
@@ -1096,7 +1115,7 @@ Sketch the trajectories you create as you move to the right.</p>
 <h4>Graph 5<a href="differential-equations.html#graph-5" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>For this graph place 4 <em>x’s</em> on the left edge of the page.
 Sketch the trajectories you create as you move to the right.</p>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-65-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-55-1.png" width="672" /></p>
 <div class="promptbox">
 <ul>
 <li>what happens to all the trajectories by the time to get to the right?</li>
@@ -1108,7 +1127,7 @@ Sketch the trajectories you create as you move to the right.</p>
 <h4>Graph 6<a href="differential-equations.html#graph-6" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>For this graph place 4 <em>x’s</em> on the top edge of the page.
 Sketch the trajectories you create as you move to the right.</p>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-66-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-56-1.png" width="672" /></p>
 <div class="promptbox">
 <ul>
 <li>what happens to all the trajectories as you move in this field?</li>
@@ -1120,7 +1139,7 @@ Sketch the trajectories you create as you move to the right.</p>
 <h4>Graph 7<a href="differential-equations.html#graph-7" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>For this graph place 4 <em>x’s</em> on the top edge of the page and 4 <em>x’s</em> on the left edge.
 Sketch the trajectories you create as you move to the right.</p>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-67-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
 <div class="promptbox">
 <ul>
 <li>what happens to all the trajectories by the time to get to the right?</li>
@@ -1159,7 +1178,7 @@ We can create a ‘field’ by calculating the value of the derivative on a grid
 f&#39;(x) = 2
 \]</span></p>
 <p>If I know the derivative of the function is 2 everywhere I can create a slope field</p>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-68-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
 <p>If we take the integration of f’(x)</p>
 <p><span class="math display">\[
 \int f&#39;(x) dx
@@ -1177,7 +1196,7 @@ f&#39;(x) = 2
 f&#39;(x) = x
 \]</span></p>
 <p>If I know the derivative of the function is <em>x</em> everywhere I can create a slope field</p>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-69-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
 <p>If we take the integration of f’(x)</p>
 <p><span class="math display">\[
 \int f&#39;(x) dx
@@ -1212,7 +1231,7 @@ y= \frac{x^2}{2} +c
 f&#39;(x,y) = y
 \]</span></p>
 <p>If I know the derivative of the function is <em>y</em> everywhere I can create a slope field</p>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-70-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
 <p>If we take the integration of f’(x,y)</p>
 <p><span class="math display">\[
 \int f&#39;(x,y) dx
@@ -1239,11 +1258,276 @@ f&#39;(x,y) = y
 <p><span class="math display">\[
 3. f&#39;(x,y) = -x/y
 \]</span></p>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-72-1.png" width="672" /></p>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-73-1.png" width="672" /></p>
-
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
+<div style="page-break-after: always;"></div>
 </div>
+</div>
+<div id="differential-equations-modeling-change" class="section level2 hasAnchor" number="16.2">
+<h2><span class="header-section-number">16.2</span> Differential Equations — Modeling Change<a href="differential-equations.html#differential-equations-modeling-change" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>How fast is a population growing <em>right now</em>?</li>
+<li>How much carbon accumulated over a decade?</li>
+<li>How does a system evolve over time if we only know how it changes?</li>
+</ul>
+<p><strong>Think-Pair-Share</strong></p>
+<ol style="list-style-type: decimal">
+<li>Which of these is a derivative question?</li>
+<li>Which is an integral question?</li>
+<li>What would the third one require?</li>
+</ol>
+<hr />
+</div>
+<div id="from-rate-to-rule" class="section level2 hasAnchor" number="16.3">
+<h2><span class="header-section-number">16.3</span> From Rate to Rule<a href="differential-equations.html#from-rate-to-rule" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Consider:</p>
+<p><span class="math display">\[
+\frac{dy}{dt} = 4
+\]</span></p>
+<p><strong>Questions</strong></p>
+<ul>
+<li>If the rate is always 4, what must the function look like?</li>
+<li>What kind of graph would this produce?</li>
+</ul>
+<p>Integrate:</p>
+<p><span class="math display">\[
+y = 4t + C
+\]</span></p>
+<ul>
+<li>Why is there a <span class="math inline">\(+C\)</span>?</li>
+<li>What does <span class="math inline">\(C\)</span> represent physically?</li>
+</ul>
+<blockquote>
+<p>A differential equation gives us a rule for change.<br />
+The solution is a <em>family of functions.</em></p>
+</blockquote>
+<hr />
+</div>
+<div id="proportional-growth" class="section level2 hasAnchor" number="16.4">
+<h2><span class="header-section-number">16.4</span> Proportional Growth<a href="differential-equations.html#proportional-growth" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Consider:</p>
+<p><span class="math display">\[
+\frac{dP}{dt} = 0.4P
+\]</span></p>
+<p><strong>Questions Before Solving</strong></p>
+<ul>
+<li>If <span class="math inline">\(P\)</span> is large, what happens to the rate?</li>
+<li>If <span class="math inline">\(P\)</span> is small?</li>
+<li>Is this constant growth or accelerating growth?</li>
+</ul>
+<p>Separate variables:</p>
+<p><span class="math display">\[
+\frac{1}{P} dP = 0.4 dt
+\]</span></p>
+<p>Integrate:</p>
+<p><span class="math display">\[
+\ln |P| = 0.4t + C
+\]</span></p>
+<p><span class="math display">\[
+P = Ce^{0.4t}
+\]</span></p>
+<p><strong>Discussion Questions</strong></p>
+<ul>
+<li>Why is this exponential?</li>
+<li>What does the <span class="math inline">\(0.4\)</span> mean in plain language?</li>
+<li>What are the units of <span class="math inline">\(0.4\)</span>?</li>
+<li>How is
+<span class="math display">\[
+\frac{dP}{dt} = 0.4P
+\]</span>
+different to
+<span class="math display">\[
+\frac{dP}{dt} = 0.4t
+\]</span></li>
+</ul>
+<hr />
+<div id="doubling-time-1" class="section level3 hasAnchor" number="16.4.1">
+<h3><span class="header-section-number">16.4.1</span> Doubling Time<a href="differential-equations.html#doubling-time-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Set:</p>
+<p><span class="math display">\[
+2P_0 = P_0 e^{0.4t}
+\]</span></p>
+<p>Cancel <span class="math inline">\(P_0\)</span>:</p>
+<p><span class="math display">\[
+2 = e^{0.4t}
+\]</span></p>
+<p><span class="math display">\[
+t = \frac{\ln 2}{0.4}
+\]</span></p>
+<p><strong>Pause and Discuss</strong></p>
+<ul>
+<li>Does doubling time depend on the initial population?</li>
+<li>Why not?</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="proportional-decay" class="section level2 hasAnchor" number="16.5">
+<h2><span class="header-section-number">16.5</span> Proportional Decay<a href="differential-equations.html#proportional-decay" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><span class="math display">\[
+\frac{dP}{dt} = -0.3P
+\]</span></p>
+<p><strong>Questions</strong></p>
+<ul>
+<li>What changes if we flip the sign?</li>
+<li>What happens as <span class="math inline">\(t \to \infty\)</span>?</li>
+</ul>
+<p>Exponential growth and decay share the same structure — only the sign changes the long-term behavior.</p>
+<hr />
+</div>
+<div id="understanding-without-solving-slope-fields" class="section level2 hasAnchor" number="16.6">
+<h2><span class="header-section-number">16.6</span> Understanding Without Solving: Slope Fields<a href="differential-equations.html#understanding-without-solving-slope-fields" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Consider:</p>
+<p><span class="math display">\[
+\frac{dP}{dt} = -0.5P + 2
+\]</span></p>
+<p><strong>Evaluate the Sign of the Slope</strong></p>
+<ul>
+<li>At <span class="math inline">\(P = 0\)</span></li>
+<li>At <span class="math inline">\(P = 4\)</span></li>
+<li>At <span class="math inline">\(P = 6\)</span></li>
+</ul>
+<p>Create a sign table:</p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(P\)</span></th>
+<th>Sign of <span class="math inline">\(dP/dt\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Discussion</strong></p>
+<ul>
+<li>If slope is positive below 4 and negative above 4, what happens over time?</li>
+<li>Is <span class="math inline">\(P = 4\)</span> stable or unstable?</li>
+</ul>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-64-1.png" width="672" /></p>
+<hr />
+<div id="predicting-behavior" class="section level3 hasAnchor" number="16.6.1">
+<h3><span class="header-section-number">16.6.1</span> Predicting Behavior<a href="differential-equations.html#predicting-behavior" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>If <span class="math inline">\(P(0) = 1\)</span>, what happens?</li>
+<li>If <span class="math inline">\(P(0) = 8\)</span>, what happens?</li>
+</ul>
+<p>We can predict long-term behavior without solving explicitly.</p>
+<hr />
+</div>
+</div>
+<div id="equilibrium-and-stability" class="section level2 hasAnchor" number="16.7">
+<h2><span class="header-section-number">16.7</span> Equilibrium and Stability<a href="differential-equations.html#equilibrium-and-stability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>An equilibrium occurs when:</p>
+<p><span class="math display">\[
+\frac{dP}{dt} = 0
+\]</span></p>
+<p><strong>Questions</strong></p>
+<ul>
+<li>What does this mean physically?</li>
+<li>What does a solution look like if slope is zero everywhere?</li>
+</ul>
+<hr />
+</div>
+<div id="logistic-growth" class="section level2 hasAnchor" number="16.8">
+<h2><span class="header-section-number">16.8</span> Logistic Growth<a href="differential-equations.html#logistic-growth" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><span class="math display">\[
+\frac{dP}{dt} = rP\left(1 - \frac{P}{K}\right)
+\]</span></p>
+<p><strong>Find Equilibria</strong></p>
+<ul>
+<li>When is this equal to zero?</li>
+<li>How many equilibria exist?</li>
+</ul>
+<p><strong>Stability Questions</strong></p>
+<ul>
+<li>If <span class="math inline">\(P\)</span> is slightly above 0, what happens?</li>
+<li>If <span class="math inline">\(P\)</span> is slightly above <span class="math inline">\(K\)</span>, what happens?</li>
+</ul>
+<hr />
+<div id="growth-as-a-function-of-population" class="section level3 hasAnchor" number="16.8.1">
+<h3><span class="header-section-number">16.8.1</span> Growth as a Function of Population<a href="differential-equations.html#growth-as-a-function-of-population" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Rewrite the growth term:</p>
+<p><span class="math display">\[
+G(P) = rP - \frac{r}{K}P^2
+\]</span></p>
+<p><strong>Questions</strong></p>
+<ul>
+<li>What type of function is this in <span class="math inline">\(P\)</span>?</li>
+<li>Where does this function reach its maximum?</li>
+</ul>
+<p>The maximum occurs at:</p>
+<p><span class="math display">\[
+P = \frac{K}{2}
+\]</span></p>
+<p><strong>Discussion</strong></p>
+<ul>
+<li>Why is growth fastest at half capacity?</li>
+<li>Why not at maximum population?</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="adding-harvesting" class="section level2 hasAnchor" number="16.9">
+<h2><span class="header-section-number">16.9</span> Adding Harvesting<a href="differential-equations.html#adding-harvesting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><span class="math display">\[
+\frac{dP}{dt} = rP\left(1 - \frac{P}{K}\right) - H
+\]</span></p>
+<p><strong>Questions</strong></p>
+<ul>
+<li>What does the <span class="math inline">\(-H\)</span> term represent?</li>
+<li>Is it proportional or constant?</li>
+</ul>
+<p>Maximum natural growth occurs at:</p>
+<p><span class="math display">\[
+\frac{rK}{4}
+\]</span></p>
+<p><strong>Discussion</strong></p>
+<ul>
+<li>If <span class="math inline">\(H\)</span> is larger than this value, what must happen?</li>
+<li>Can the system recover?</li>
+<li>If <span class="math inline">\(H\)</span> is slightly less, what changes?</li>
+<li>Is there a threshold population?</li>
+</ul>
+<hr />
+</div>
+<div id="structural-thinking" class="section level2 hasAnchor" number="16.10">
+<h2><span class="header-section-number">16.10</span> Structural Thinking<a href="differential-equations.html#structural-thinking" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Discuss in pairs:</p>
+<ol style="list-style-type: decimal">
+<li>What is the difference between solving a differential equation and analyzing its structure?</li>
+<li>What can slope fields tell you without solving?</li>
+<li>Why are nonlinear models often more realistic?</li>
+</ol>
+<hr />
+</div>
+<div id="big-picture-2" class="section level2 hasAnchor" number="16.11">
+<h2><span class="header-section-number">16.11</span> Big Picture<a href="differential-equations.html#big-picture-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Derivative → rate</li>
+<li>Integral → accumulation</li>
+<li>Differential equation → rule for change</li>
+</ul>
+<p>We move from computing change to modeling entire systems.</p>
+<p><strong>Final Reflection</strong></p>
+<p>If you were modeling climate, fisheries, disease, or carbon cycles — what matters more:</p>
+<ul>
+<li>The exact formula?</li>
+<li>Or the structure of the system?</li>
+</ul>
+
 </div>
 </div>
             </section>

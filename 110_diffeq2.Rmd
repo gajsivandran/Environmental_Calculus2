@@ -1022,4 +1022,342 @@ ggplot() +
 ```
 
 
+\newpage
 
+## Differential Equations — Modeling Change
+
+
+- How fast is a population growing *right now*?
+- How much carbon accumulated over a decade?
+- How does a system evolve over time if we only know how it changes?
+
+**Think-Pair-Share**
+
+1. Which of these is a derivative question?
+2. Which is an integral question?
+3. What would the third one require?
+
+---
+
+## From Rate to Rule
+
+Consider:
+
+\[
+\frac{dy}{dt} = 4
+\]
+
+**Questions**
+
+- If the rate is always 4, what must the function look like?
+- What kind of graph would this produce?
+
+Integrate:
+
+\[
+y = 4t + C
+\]
+
+
+- Why is there a \(+C\)?
+- What does \(C\) represent physically?
+
+> A differential equation gives us a rule for change.  
+> The solution is a *family of functions.*
+
+---
+
+## Proportional Growth
+
+Consider:
+
+\[
+\frac{dP}{dt} = 0.4P
+\]
+
+**Questions Before Solving**
+
+- If \(P\) is large, what happens to the rate?
+- If \(P\) is small?
+- Is this constant growth or accelerating growth?
+
+Separate variables:
+
+\[
+\frac{1}{P} dP = 0.4 dt
+\]
+
+Integrate:
+
+\[
+\ln |P| = 0.4t + C
+\]
+
+\[
+P = Ce^{0.4t}
+\]
+
+**Discussion Questions**
+
+- Why is this exponential?
+- What does the \(0.4\) mean in plain language?
+- What are the units of \(0.4\)?
+- How is 
+\[
+\frac{dP}{dt} = 0.4P
+\]
+different to
+\[
+\frac{dP}{dt} = 0.4t
+\]
+
+---
+
+### Doubling Time
+
+Set:
+
+\[
+2P_0 = P_0 e^{0.4t}
+\]
+
+Cancel \(P_0\):
+
+\[
+2 = e^{0.4t}
+\]
+
+\[
+t = \frac{\ln 2}{0.4}
+\]
+
+**Pause and Discuss**
+
+- Does doubling time depend on the initial population?
+- Why not?
+
+---
+
+## Proportional Decay
+
+\[
+\frac{dP}{dt} = -0.3P
+\]
+
+**Questions**
+
+- What changes if we flip the sign?
+- What happens as \(t \to \infty\)?
+
+Exponential growth and decay share the same structure — only the sign changes the long-term behavior.
+
+---
+
+## Understanding Without Solving: Slope Fields
+
+Consider:
+
+\[
+\frac{dP}{dt} = -0.5P + 2
+\]
+
+**Evaluate the Sign of the Slope**
+
+- At \(P = 0\)
+- At \(P = 4\)
+- At \(P = 6\)
+
+Create a sign table:
+
+| \(P\) | Sign of \(dP/dt\) |
+|-------|------------------|
+| 0     |                  |
+| 4     |                  |
+| 6     |                  |
+
+**Discussion**
+
+- If slope is positive below 4 and negative above 4, what happens over time?
+- Is \(P = 4\) stable or unstable?
+
+
+```{r,echo=FALSE, warning=FALSE, message=FALSE}
+library(ggplot2)
+
+# ---- Differential equation: define dy/dx = f(x,y) here ----
+f <- function(x, y) { -0.5*y +2 }   # change as needed
+
+# ---- Build slope-field grid (for segments) ----
+x_vals <- seq(-1, 8, by = 0.5)
+y_vals <- seq(-1, 8, by = 0.5)
+grid <- expand.grid(x = x_vals, y = y_vals)
+
+grid$slope <- f(grid$x, grid$y)
+
+# Segment length normalization so all dashes are the same length
+L <- 0.45
+grid$dx <- L / sqrt(1 + grid$slope^2)
+grid$dy <- grid$slope * grid$dx
+
+# ---- Axis tick labels placed ON the axes (x-axis at y=0, y-axis at x=0) ----
+ticks <- --1:8
+tick_df_x <- data.frame(x = ticks, y = 0, lab = as.character(ticks))
+tick_df_y <- data.frame(x = 0, y = ticks, lab = as.character(ticks))
+
+# Small offset so labels don't sit exactly on the bold lines
+x_label_nudge <- -0.18  # move x-axis numbers slightly below y=0
+y_label_nudge <- -0.18  # move y-axis numbers slightly left of x=0
+
+ggplot() +
+  # Integer grid
+  geom_vline(xintercept = -3:3, color = "grey85", linewidth = 0.4) +
+  geom_hline(yintercept = -3:3, color = "grey85", linewidth = 0.4) +
+
+  # Slope field (light grey)
+  geom_segment(
+    data = grid,
+    aes(x = x - dx/2, y = y - dy/2, xend = x + dx/2, yend = y + dy/2),
+    color = "grey70",
+    linewidth = 0.5
+  ) +
+
+  # Bold coordinate axes
+  geom_hline(yintercept = 0, color = "black", linewidth = 1.2) +
+  geom_vline(xintercept = 0, color = "black", linewidth = 1.2) +
+
+  # Tick labels ON the axes
+  geom_text(data = tick_df_x, aes(x = x, y = y + x_label_nudge, label = lab),
+            size = 3.5, color = "black") +
+  geom_text(data = tick_df_y, aes(x = x + y_label_nudge, y = y, label = lab),
+            size = 3.5, color = "black") +
+
+  # Axis labels "x" and "y"
+  annotate("text", x = 3.15, y = 0.18, label = "x", size = 4) +
+  annotate("text", x = 0.18, y = 3.15, label = "y", size = 4) +
+
+  coord_fixed(xlim = c(-1, 8), ylim = c(-1, 8), expand = FALSE) +
+  theme_void()
+
+
+```
+
+---
+
+### Predicting Behavior
+
+- If \(P(0) = 1\), what happens?
+- If \(P(0) = 8\), what happens?
+
+We can predict long-term behavior without solving explicitly.
+
+---
+
+## Equilibrium and Stability
+
+An equilibrium occurs when:
+
+\[
+\frac{dP}{dt} = 0
+\]
+
+**Questions**
+
+- What does this mean physically?
+- What does a solution look like if slope is zero everywhere?
+
+---
+
+## Logistic Growth
+
+\[
+\frac{dP}{dt} = rP\left(1 - \frac{P}{K}\right)
+\]
+
+**Find Equilibria**
+
+- When is this equal to zero?
+- How many equilibria exist?
+
+**Stability Questions**
+
+- If \(P\) is slightly above 0, what happens?
+- If \(P\) is slightly above \(K\), what happens?
+
+---
+
+### Growth as a Function of Population
+
+Rewrite the growth term:
+
+\[
+G(P) = rP - \frac{r}{K}P^2
+\]
+
+**Questions**
+
+- What type of function is this in \(P\)?
+- Where does this function reach its maximum?
+
+The maximum occurs at:
+
+\[
+P = \frac{K}{2}
+\]
+
+**Discussion**
+
+- Why is growth fastest at half capacity?
+- Why not at maximum population?
+
+---
+
+## Adding Harvesting
+
+\[
+\frac{dP}{dt} = rP\left(1 - \frac{P}{K}\right) - H
+\]
+
+**Questions**
+
+- What does the \(-H\) term represent?
+- Is it proportional or constant?
+
+Maximum natural growth occurs at:
+
+\[
+\frac{rK}{4}
+\]
+
+**Discussion**
+
+- If \(H\) is larger than this value, what must happen?
+- Can the system recover?
+- If \(H\) is slightly less, what changes?
+- Is there a threshold population?
+
+---
+
+## Structural Thinking
+
+Discuss in pairs:
+
+1. What is the difference between solving a differential equation and analyzing its structure?
+2. What can slope fields tell you without solving?
+3. Why are nonlinear models often more realistic?
+
+---
+
+## Big Picture
+
+- Derivative → rate
+- Integral → accumulation
+- Differential equation → rule for change
+
+We move from computing change to modeling entire systems.
+
+**Final Reflection**
+
+If you were modeling climate, fisheries, disease, or carbon cycles — what matters more:
+
+- The exact formula?
+- Or the structure of the system?
