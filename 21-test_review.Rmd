@@ -10,19 +10,19 @@ Below are the general instructions for all tests
 - The equation sheet from the textbook is included as part of the test pack (it doesn't count as note pages)
 
 
-## Practice Test 1 — Accumulation & Integrals  
+## Practice Test 1 — Accumulation & Integrals  {-}
 *(Practice Only — No Solutions Included - Will Discuss on Wed)*
 
 ---
 
-## Multiple Choice with Justification
+## Multiple Choice with Justification {-}
 
 **Instructions:**  
 Select the best answer **and** write one clear sentence justifying your choice.
 
 ---
 
-### Q1. Units and Interpretation
+### Q1. Units and Interpretation {-}
 
 A sensor records a **pollutant concentration change rate** \( p(t) \) in mg/L per hour.
 
@@ -35,7 +35,7 @@ D. \( p(5) - p(0) \)
 
 ---
 
-### Q2. Net Change vs. Instantaneous Value
+### Q2. Net Change vs. Instantaneous Value {-}
 
 Let \( r(t) \) be a rate function.
 
@@ -48,7 +48,7 @@ D. Negative values of \( r(t) \) cancel out and do not affect totals
 
 ---
 
-### Q3. Riemann Sums and Function Shape
+### Q3. Riemann Sums and Function Shape {-}
 
 Suppose \( f(x) \) is **increasing and concave down** on \([a,b]\).
 
@@ -62,7 +62,7 @@ E. None of the above
 
 ---
 
-### Q4. What Improves with More Subintervals?
+### Q4. What Improves with More Subintervals? {-}
 
 When increasing the number of subintervals in a Riemann sum approximation, what improves **directly**?
 
@@ -73,7 +73,7 @@ D. The function becomes linear on each subinterval
 
 ---
 
-### Q5. Midpoint Rule Reasoning
+### Q5. Midpoint Rule Reasoning {-}
 
 Why can the midpoint rule outperform left- or right-hand sums for many functions?
 
@@ -84,7 +84,7 @@ D. It eliminates the need for limits
 
 ---
 
-### Q6. Linearity and Constants
+### Q6. Linearity and Constants {-}
 
 Which expression is equivalent to  
 \[
@@ -98,7 +98,7 @@ D. \( 5\int_0^2 x^2\,dx \)
 
 ---
 
-### Q7. Zero Accumulation
+### Q7. Zero Accumulation {-}
 
 Which situation guarantees  
 \[
@@ -112,7 +112,7 @@ D. \( f(x) \) is decreasing on \([a,b]\)
 
 ---
 
-### Q8. Average Value of a Function
+### Q8. Average Value of a Function {-}
 
 Which expression represents the **average value** of \( f(x) \) on \([a,b]\)?
 
@@ -123,7 +123,7 @@ D. \( \displaystyle \frac{f(a)+f(b)}{2} \)
 
 ---
 
-### Q9. Interpreting a Given Value
+### Q9. Interpreting a Given Value {-}
 
 Suppose  
 \[
@@ -139,7 +139,7 @@ D. \( f(5) = 12 \)
 
 ---
 
-### Q10. Reversing Perspective
+### Q10. Reversing Perspective {-}
 
 If an integral represents **total accumulation**, what does changing the limits from \([a,b]\) to \([b,a]\) do?
 
@@ -150,7 +150,7 @@ D. Sets the value to zero
 
 ---
 
-## Problem 1: Comparing Approximation Methods  \([15 pts]\)
+## Problem 1: Comparing Approximation Methods  \([15 pts]\) {-}
 
 A rate function is given by  
 \[
@@ -160,7 +160,7 @@ on the interval \([0,4]\).
 
 ---
 
-### (a) Left-Hand Riemann Sum
+### (a) Left-Hand Riemann Sum {-}
 
 Compute the **left-hand Riemann sum** for \( f(x) \) on \([0,4]\) using  
 \[
@@ -180,7 +180,7 @@ equal subintervals.
 
 ---
 
-### (c) Comparison
+### (c) Comparison {-}
 
 Compare your two results:
 
@@ -189,7 +189,7 @@ Compare your two results:
 
 ---
 
-### (d) Trapezoidal Rule (Conceptual)
+### (d) Trapezoidal Rule (Conceptual) {-}
 
 Without performing calculations:
 
@@ -198,7 +198,7 @@ Without performing calculations:
 
 ---
 
-## Problem 2: Definite Integral Using the FTC  \([9 pts]\)
+## Problem 2: Definite Integral Using the FTC  \([9 pts]\) {-}
 
 Evaluate:
 \[
@@ -214,14 +214,14 @@ Leave your answer in exact form.
 
 ---
 
-## Problem 3: Indefinite Integrals  \([6 pts]\)
+## Problem 3: Indefinite Integrals  \([6 pts]\) {-}
 
 Find the most general antiderivative for each.  
 Include a constant of integration in **each** answer.
 
 ---
 
-### (a) Polynomial
+### (a) Polynomial {-}
 
 \[
 \int (5x^3 - 2x)\,dx
@@ -229,7 +229,7 @@ Include a constant of integration in **each** answer.
 
 ---
 
-### (b) Exponential
+### (b) Exponential {-}
 
 \[
 \int 4e^{2x}\,dx
@@ -237,7 +237,7 @@ Include a constant of integration in **each** answer.
 
 ---
 
-### (c) Trigonometric
+### (c) Trigonometric {-}
 
 \[
 \int \sin(x)\,dx
