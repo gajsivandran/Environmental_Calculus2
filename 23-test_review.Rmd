@@ -9,7 +9,7 @@ Below are the general instructions for all tests
 - **One page (two sides)** of handwritten (or font size 8) notes are allowed.
 - The equation sheet from the textbook is included as part of the test pack (it doesn't count as note pages)
 
-## Test Format
+## Test Format {-}
 You should be able to do the following for this test
 
 - Evaluate Signed/NET integrals
@@ -885,5 +885,1053 @@ Outer:
 \[
 \boxed{4}
 \]
+
+</details>
+
+
+## Review Sheet: Evaluating Definite Integrals (Net / Signed Accumulation) {-}
+
+---
+
+### What Is a Definite Integral — and Why Do We Care? {-}
+
+A **definite integral**
+
+\[
+\int_a^b f(x)\,dx
+\]
+
+measures **net accumulation**.
+
+It answers:
+
+- How much total change occurred?
+- How much accumulated over time or space?
+- What is the *net* effect of gains and losses?
+
+The key idea:
+
+> A definite integral does **not** measure geometric area unless the function is always positive.  
+> It measures **signed area**.
+
+Positive values add.  
+Negative values subtract.
+
+---
+
+### Big Idea: The Fundamental Theorem of Calculus {-}
+
+If \(F'(x) = f(x)\), then
+
+\[
+\int_a^b f(x)\,dx = F(b) - F(a)
+\]
+
+So evaluating a definite integral means:
+
+1. Find an antiderivative.
+2. Apply bounds (evaluate at top minus bottom).
+3. Simplify.
+
+Always subtract:
+
+\[
+F(b) - F(a)
+\]
+
+---
+
+#### Worked Example 1 {-}
+
+\[
+\int_0^4 (x - 2)\,dx
+\]
+
+**Step 1: Antiderivative**
+
+\[
+\int (x-2)\,dx=\frac{x^2}{2}-2x
+\]
+
+**Step 2: Apply the bounds**
+
+\[
+\left[\frac{x^2}{2}-2x\right]_0^4
+\]
+
+**Step 3: Plug in the top bound \(x=4\)**
+
+\[
+\frac{4^2}{2}-2(4)=\frac{16}{2}-8=8-8=0
+\]
+
+**Step 4: Plug in the bottom bound \(x=0\)**
+
+\[
+\frac{0^2}{2}-2(0)=0
+\]
+
+**Step 5: Subtract (top minus bottom)**
+
+\[
+0-0=0
+\]
+
+\[
+\boxed{0}
+\]
+
+✔ Net accumulation: **0**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+f1 <- function(x) x - 2
+a <- 0
+b <- 4
+
+x_all <- seq(a, b, length.out = 600)
+y_all <- f1(x_all)
+
+plot(x_all, y_all,
+     type = "l", lwd = 2,
+     xlab = "x", ylab = "f(x)",
+     main = "Worked Example 1: Signed (Net) Accumulation")
+abline(h = 0, lty = 2)
+
+# Shade signed area: below axis (negative) and above axis (positive)
+x_neg <- seq(a, 2, length.out = 300)
+x_pos <- seq(2, b, length.out = 300)
+
+polygon(c(x_neg, rev(x_neg)),
+        c(f1(x_neg), rep(0, length(x_neg))),
+        density = 20)
+
+polygon(c(x_pos, rev(x_pos)),
+        c(f1(x_pos), rep(0, length(x_pos))),
+        density = 20)
+
+abline(v = a, lty = 3)
+abline(v = b, lty = 3)
+```
+
+---
+
+#### Worked Example 2 (Always Positive Function) {-}
+
+\[
+\int_1^3 x^2\,dx
+\]
+
+**Step 1: Antiderivative**
+
+\[
+\int x^2\,dx=\frac{x^3}{3}
+\]
+
+**Step 2: Apply the bounds**
+
+\[
+\left[\frac{x^3}{3}\right]_1^3
+\]
+
+**Step 3: Plug in the top bound \(x=3\)**
+
+\[
+\frac{3^3}{3}=\frac{27}{3}=9
+\]
+
+**Step 4: Plug in the bottom bound \(x=1\)**
+
+\[
+\frac{1^3}{3}=\frac{1}{3}
+\]
+
+**Step 5: Subtract (top minus bottom)**
+
+\[
+9-\frac{1}{3}=\frac{27}{3}-\frac{1}{3}=\frac{26}{3}
+\]
+
+\[
+\boxed{\frac{26}{3}}
+\]
+
+✔ Net accumulation (and total area): \(\displaystyle \frac{26}{3}\)
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+f2 <- function(x) x^2
+a <- 1
+b <- 3
+
+x_all <- seq(a, b, length.out = 600)
+y_all <- f2(x_all)
+
+plot(x_all, y_all,
+     type = "l", lwd = 2,
+     xlab = "x", ylab = "f(x)",
+     main = "Worked Example 2: Area Under a Positive Function")
+abline(h = 0, lty = 2)
+
+polygon(c(x_all, rev(x_all)),
+        c(y_all, rep(0, length(x_all))),
+        density = 20)
+
+abline(v = a, lty = 3)
+abline(v = b, lty = 3)
+```
+
+---
+
+#### Worked Example 3 (Rate Interpretation) {-}
+
+Suppose \(R(t)=5-t\) is a rate. Find total change from \(t=0\) to \(t=6\):
+
+\[
+\int_0^6 (5-t)\,dt
+\]
+
+**Step 1: Antiderivative**
+
+\[
+\int (5-t)\,dt = 5t-\frac{t^2}{2}
+\]
+
+**Step 2: Apply the bounds**
+
+\[
+\left[5t-\frac{t^2}{2}\right]_0^6
+\]
+
+**Step 3: Plug in the top bound \(t=6\)**
+
+\[
+5(6)-\frac{6^2}{2}=30-\frac{36}{2}=30-18=12
+\]
+
+**Step 4: Plug in the bottom bound \(t=0\)**
+
+\[
+5(0)-\frac{0^2}{2}=0
+\]
+
+**Step 5: Subtract (top minus bottom)**
+
+\[
+12-0=12
+\]
+
+\[
+\boxed{12}
+\]
+
+✔ Total change: **12**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+R <- function(t) 5 - t
+a <- 0
+b <- 6
+
+t_all <- seq(a, b, length.out = 600)
+y_all <- R(t_all)
+
+plot(t_all, y_all,
+     type = "l", lwd = 2,
+     xlab = "t", ylab = "R(t)",
+     main = "Worked Example 3: Net Accumulation from a Rate")
+abline(h = 0, lty = 2)
+
+# Shade signed area: positive from 0 to 5, negative from 5 to 6
+t_pos <- seq(a, 5, length.out = 500)
+t_neg <- seq(5, b, length.out = 200)
+
+polygon(c(t_pos, rev(t_pos)),
+        c(R(t_pos), rep(0, length(t_pos))),
+        density = 20)
+
+polygon(c(t_neg, rev(t_neg)),
+        c(R(t_neg), rep(0, length(t_neg))),
+        density = 20)
+
+abline(v = a, lty = 3)
+abline(v = b, lty = 3)
+abline(v = 5, lty = 2)  # where the rate crosses 0
+```
+
+---
+
+### Practice Problems {-}
+
+#### Part A — Compute the Net Accumulation {-}
+
+1. \[
+\int_0^5 (x - 3)\,dx
+\]
+
+2. \[
+\int_1^4 (2x)\,dx
+\]
+
+3. \[
+\int_0^2 (4 - x^2)\,dx
+\]
+
+4. \[
+\int_0^3 (x^2 - 4)\,dx
+\]
+
+---
+
+#### Part B — Think Carefully {-}
+
+5. If a function is below the x-axis on an interval, is the definite integral positive or negative? Why?
+
+6. What is the difference between:
+   - total geometric area  
+   - net (signed) accumulation  
+
+7. If \(\displaystyle \int_2^6 f(x)\,dx=-8\), what does that tell you about the function’s overall behavior on that interval?
+
+---
+
+<details>
+<summary><strong>Answer Key</strong></summary>
+
+**Part A Solutions**
+
+**1.** \(\displaystyle -\frac{5}{2}\)
+
+**2.** \(\displaystyle 15\)
+
+**3.** \(\displaystyle \frac{16}{3}\)
+
+**4.** \(\displaystyle -3\)
+
+**Part B Solutions**
+
+**5.** Negative, because signed area below the axis subtracts from net accumulation.
+
+**6.** Total area ignores sign; net accumulation keeps sign and represents overall change.
+
+**7.** Net accumulation is negative; values below the axis dominate overall.
+
+</details>
+
+
+
+## Review Sheet: Area Between Two Curves (Total / Geometric Area) {-}
+
+---
+
+### What Does “Area Between Curves” Mean — and Why Do We Care? {-}
+
+When we compute **area between curves**, we are finding **geometric area** — the size of a region in the plane.
+
+Geometric area is always **positive**.
+
+That means:
+
+> We do **not** allow parts of the region to cancel out.
+
+Unlike signed integrals, it does **not** matter whether the curves are above or below the x-axis. The axis is irrelevant. What matters is how the two functions relate to each other — specifically, the **vertical distance between them**. We are measuring the thickness of the region from the top curve down to the bottom curve, wherever that region sits.
+
+This comes up constantly in applications:
+
+- Total difference between two competing growth rates  
+- Total “advantage” of one strategy over another  
+- Total deviation of a measured signal from a baseline  
+- Total habitat area between two boundary curves  
+
+---
+
+### Big Idea {-}
+
+If you integrate **top minus bottom** over an interval, you get:
+
+- **Area**, *only if* the top curve stays on top the whole time.
+- **Net signed area**, if the curves switch order and you don’t split.
+
+So the key skill is knowing **when to split** and how to set the **correct bounds**.
+
+---
+
+### Step-by-Step Checklist {-}
+
+1. **Sketch or compare the functions** (even a rough sketch helps).
+2. **Find intersection points** (solve \(f(x)=g(x)\)).
+3. Use those intersection points to define **interior bounds**.
+4. On each sub-interval, determine which curve is **top** and which is **bottom**.
+5. Compute area using one of these safe methods:
+   - **Method A:** split into pieces where the top curve stays on top  
+   - **Method B:** integrate \(|f-g|\) by taking absolute value piece-by-piece  
+
+---
+
+### Technique 1: “Top Function − Bottom Function” (Split at Intersections) {-}
+
+If \(f\) and \(g\) cross at \(x=c\), then you must split:
+
+\[
+\text{Area}=\int_a^c \big(\text{top}-\text{bottom}\big)\,dx
++\int_c^b \big(\text{top}-\text{bottom}\big)\,dx
+\]
+
+But the “top” might switch after \(c\).
+
+A quick way to determine the top function on an interval:
+
+- Pick a test point \(x^*\) in the interval and compare \(f(x^*)\) and \(g(x^*)\).
+
+---
+
+### Technique 2: Absolute Value Piece-by-Piece {-}
+
+A very safe method is:
+
+\[
+\text{Area}=\int_a^b |f(x)-g(x)|\,dx
+\]
+
+But **do not** treat \(|f-g|\) as one algebraic expression unless you know where it changes sign.
+
+In practice, this becomes:
+
+\[
+\text{Area}
+=
+\int_a^c |f-g|\,dx+\int_c^b |f-g|\,dx
+\]
+
+On each piece, \(|f-g|\) becomes either \((f-g)\) or \((g-f)\).
+
+---
+
+### Worked Example 1: Curves Do Not Cross Inside the Interval {-}
+
+Find the total area between:
+
+\[
+f(x)=2x+1
+\qquad
+g(x)=x^2
+\]
+
+on \([0,2]\).
+
+#### Step 1: Find intersection points {-}
+
+Solve:
+
+\[
+2x+1=x^2
+\Rightarrow x^2-2x-1=0
+\]
+
+\[
+x=1\pm \sqrt{2}
+\]
+
+Neither solution lies in \([0,2]\), so there are **no interior crossings**.
+
+#### Step 2: Determine top vs bottom {-}
+
+Pick \(x=1\):
+
+\[
+f(1)=3,\quad g(1)=1
+\Rightarrow f \text{ is on top}
+\]
+
+#### Step 3: Set up the area integral (top − bottom) {-}
+
+\[
+\text{Area}=\int_0^2 \big((2x+1)-x^2\big)\,dx
+\]
+
+#### Step 4: Integrate {-}
+
+\[
+\int (-x^2+2x+1)\,dx
+=
+-\frac{x^3}{3}+x^2+x
+\]
+
+#### Step 5: Apply bounds {-}
+
+\[
+\left[-\frac{x^3}{3}+x^2+x\right]_0^2
+\]
+
+Top bound \(x=2\):
+
+\[
+-\frac{8}{3}+4+2=\frac{10}{3}
+\]
+
+Bottom bound \(x=0\):
+
+\[
+0
+\]
+
+Subtract:
+
+\[
+\frac{10}{3}-0=\frac{10}{3}
+\]
+
+\[
+\boxed{\frac{10}{3}}
+\]
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+f <- function(x) 2*x + 1
+g <- function(x) x^2
+a <- 0
+b <- 2
+
+x <- seq(a, b, length.out = 600)
+
+plot(x, f(x), type="l", lwd=2,
+     xlab="x", ylab="y",
+     main="Worked Example 1: Area Between Curves",
+      xlim = c(-0.2, 2.2),
+     ylim = c(-0.5, 5.5))
+
+lines(x, g(x), lwd=2, lty=2)
+
+polygon(c(x, rev(x)),
+        c(f(x), rev(g(x))),
+        density=20)
+
+abline(v=a, lty=3)
+abline(v=b, lty=3)
+legend("topleft",
+       legend=c("f(x)=2x+1","g(x)=x^2"),
+       lty=c(1,2), bty="n")
+```
+
+---
+
+### Worked Example 2: Curves Cross Inside the Interval (Must Split) {-}
+
+Find the total area between:
+
+\[
+f(x)=x
+\qquad
+g(x)=x^3
+\]
+
+on \([-1,1]\).
+
+#### Step 1: Find intersection points (interior bounds) {-}
+
+Solve:
+
+\[
+x=x^3
+\Rightarrow x(x^2-1)=0
+\Rightarrow x=-1,0,1
+\]
+
+So split at:
+
+\[
+x=-1,\;0,\;1
+\]
+
+#### Step 2: Determine top function on each piece {-}
+
+- On \([-1,0]\): test \(x=-0.5\)
+
+\[
+f(-0.5)=-0.5,\quad g(-0.5)=-0.125
+\Rightarrow g \text{ is on top}
+\]
+
+- On \([0,1]\): test \(x=0.5\)
+
+\[
+f(0.5)=0.5,\quad g(0.5)=0.125
+\Rightarrow f \text{ is on top}
+\]
+
+---
+
+#### Method A: Split and Use Top − Bottom {-}
+
+\[
+\text{Area}
+=
+\int_{-1}^{0} (x^3-x)\,dx
++
+\int_{0}^{1} (x-x^3)\,dx
+\]
+
+Antiderivative:
+
+\[
+\int (x-x^3)\,dx=\frac{x^2}{2}-\frac{x^4}{4}
+\]
+
+First piece:
+
+\[
+\left[\frac{x^4}{4}-\frac{x^2}{2}\right]_{-1}^{0}
+\]
+
+Second piece:
+
+\[
+\left[\frac{x^2}{2}-\frac{x^4}{4}\right]_{0}^{1}
+\]
+
+Each evaluates to \(\frac14\).
+
+Total area:
+
+\[
+\frac14+\frac14=\frac12
+\]
+
+\[
+\boxed{\frac12}
+\]
+
+---
+
+#### Method B: Absolute Value Piece-by-Piece {-}
+
+\[
+\text{Area}=\int_{-1}^{1} |x-x^3|\,dx
+\]
+
+Split where sign changes:
+
+\[
+=
+\int_{-1}^{0} |x-x^3|\,dx
++
+\int_{0}^{1} |x-x^3|\,dx
+\]
+
+On \([-1,0]\), \(x-x^3\le0\), so:
+
+\[
+|x-x^3|=x^3-x
+\]
+
+On \([0,1]\), \(x-x^3\ge0\), so:
+
+\[
+|x-x^3|=x-x^3
+\]
+
+This produces the exact same two integrals as Method A.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+f <- function(x) x
+g <- function(x) x^3
+a <- -1
+b <- 1
+c <- 0
+
+x_left <- seq(a, c, length.out = 400)
+x_right <- seq(c, b, length.out = 400)
+
+plot(seq(a, b, length.out=800), f(seq(a, b, length.out=800)),
+     type="l", lwd=2,
+     xlab="x", ylab="y",
+     main="Worked Example 2: Split Where Curves Cross")
+lines(seq(a, b, length.out=800), g(seq(a, b, length.out=800)),
+      lwd=2, lty=2)
+
+polygon(c(x_left, rev(x_left)),
+        c(g(x_left), rev(f(x_left))),
+        density=20)
+
+polygon(c(x_right, rev(x_right)),
+        c(f(x_right), rev(g(x_right))),
+        density=20)
+
+abline(v=c, lty=3)
+abline(v=a, lty=3)
+abline(v=b, lty=3)
+
+legend("topleft",
+       legend=c("f(x)=x","g(x)=x^3"),
+       lty=c(1,2), bty="n")
+```
+
+---
+
+### Common Mistakes to Avoid {-}
+
+- Forgetting to find intersection points before integrating  
+- Assuming the same function stays on top across the whole interval  
+- Forgetting to split when the integrand changes sign  
+- Using absolute value without identifying where the sign changes  
+
+---
+
+### Practice Problems {-}
+
+1. Find the total area between:
+\[
+f(x)=x^2,\quad g(x)=2x
+\quad \text{on } [0,2]
+\]
+
+2. Find the total area between:
+\[
+f(x)=x^3,\quad g(x)=x
+\quad \text{on } [-1,1]
+\]
+
+---
+
+<details>
+<summary><strong>Answer Key</strong></summary>
+
+**1.**
+\[
+\text{Area}=\int_0^2(2x-x^2)\,dx=\frac{4}{3}
+\]
+
+**2.**
+\[
+\text{Area}=\frac12
+\]
+
+</details>
+
+## Review Sheet: Double and Triple Integrals {-}
+
+---
+
+### What Do Double and Triple Integrals Represent — and Why Do We Care? {-}
+
+A single integral accumulates along a **line**.
+
+A double integral accumulates over a **region in the plane**.
+
+A triple integral accumulates throughout a **volume in space**.
+
+The idea is the same as with single integrals:
+
+> We are adding up tiny pieces.
+
+But now the tiny pieces are not just little line segments — they are:
+
+- Tiny rectangles (area elements)
+- Tiny boxes (volume elements)
+
+---
+
+### Double Integrals — Big Idea {-}
+
+A double integral
+
+
+\[
+\iint_R f(x,y)\, dA
+\]
+
+
+means:
+
+- Break region \(R\) into tiny rectangles \(dA\).
+- Evaluate the function at each small rectangle.
+- Add everything together.
+
+If \(f(x,y)=1\), then the double integral simply gives **area of the region**.
+
+If \(f(x,y)\) is a density, it gives **total mass**.
+
+If \(f(x,y)\) is height, it gives **volume under a surface**.
+
+---
+
+### How to Evaluate a Double Integral {-}
+
+Most problems are written as **iterated integrals**:
+
+\[
+\int_a^b \int_{c(x)}^{d(x)} f(x,y)\,dy\,dx
+\]
+
+This means:
+
+1. Integrate the inner integral first (with respect to \(y\)).
+2. Treat the outer variable \(x\) as constant.
+3. Then integrate the result with respect to \(x\).
+
+Important:
+
+- The inner bounds belong to the inner variable.
+- The outer bounds belong to the outer variable.
+
+---
+
+### Worked Example 1 (Rectangular Region) {-}
+
+Evaluate:
+
+\[
+\int_0^2 \int_0^1 (3x + 2y)\,dy\,dx
+\]
+
+#### Step 1: Integrate with respect to \(y\) {-}
+
+Treat \(x\) as constant.
+
+\[
+\int (3x + 2y)\,dy
+=
+3xy + y^2
+\]
+
+Apply bounds:
+
+\[
+\left[3xy + y^2\right]_0^1
+\]
+
+Top bound \(y=1\):
+
+\[
+3x(1) + 1^2 = 3x + 1
+\]
+
+Bottom bound \(y=0\):
+
+\[
+0
+\]
+
+So the inner integral becomes:
+
+\[
+3x + 1
+\]
+
+---
+
+#### Step 2: Integrate with respect to \(x\) {-}
+
+\[
+\int_0^2 (3x + 1)\,dx
+=
+\left[\frac{3}{2}x^2 + x\right]_0^2
+\]
+
+Top bound \(x=2\):
+
+\[
+\frac{3}{2}(4) + 2 = 6 + 2 = 8
+\]
+
+Bottom bound \(x=0\):
+
+\[
+0
+\]
+
+Final answer:
+
+\[
+\boxed{8}
+\]
+
+---
+
+#### Common Mistake (Double Integrals) {-}
+
+Students often forget:
+
+- When integrating with respect to \(y\), \(x\) is treated as constant.
+- Bounds must match the variable of integration.
+
+---
+
+### Triple Integrals — Big Idea {-}
+
+A triple integral
+
+
+\[
+\iiint_E f(x,y,z)\, dV
+\]
+
+
+means:
+
+- Break a 3D region into tiny boxes \(dV\).
+- Evaluate the function at each box.
+- Add them all together.
+
+If \(f(x,y,z)=1\), the result is **volume**.
+
+If \(f\) is density, the result is **total mass**.
+
+---
+
+### How to Evaluate a Triple Integral {-}
+
+Typical form:
+
+\[
+\int_a^b
+\int_{c(x)}^{d(x)}
+\int_{e(x,y)}^{f(x,y)}
+f(x,y,z)\,dz\,dy\,dx
+\]
+
+You integrate:
+
+1. Inside first.
+2. Work outward step-by-step.
+3. Treat outer variables as constants each time.
+
+---
+
+### Worked Example 2 (Rectangular Box) {-}
+
+Evaluate:
+
+\[
+\int_0^1
+\int_0^1
+\int_0^2
+(2x + y + z)
+\,dz\,dy\,dx
+\]
+
+#### Step 1: Integrate with respect to \(z\) {-}
+
+Treat \(x\) and \(y\) as constants.
+
+\[
+\int (2x + y + z)\,dz
+=
+(2x + y)z + \frac{z^2}{2}
+\]
+
+Apply bounds:
+
+\[
+\left[(2x + y)z + \frac{z^2}{2}\right]_0^2
+\]
+
+Top bound \(z=2\):
+
+\[
+2(2x + y) + 2
+=
+4x + 2y + 2
+\]
+
+Bottom bound \(z=0\):
+
+\[
+0
+\]
+
+So the expression becomes:
+
+\[
+4x + 2y + 2
+\]
+
+---
+
+#### Step 2: Integrate with respect to \(y\) {-}
+
+\[
+\int_0^1 (4x + 2y + 2)\,dy
+=
+4xy + y^2 + 2y
+\]
+
+Apply bounds:
+
+\[
+\left[4xy + y^2 + 2y\right]_0^1
+=
+4x + 1 + 2
+=
+4x + 3
+\]
+
+---
+
+#### Step 3: Integrate with respect to \(x\) {-}
+
+\[
+\int_0^1 (4x + 3)\,dx
+=
+\left[2x^2 + 3x\right]_0^1
+=
+2 + 3
+=
+\boxed{5}
+\]
+
+---
+
+### Conceptual Reminders {-}
+
+- A double integral adds over **area**.
+- A triple integral adds over **volume**.
+- Order of integration can change, but the total remains the same if the region is unchanged.
+- Always match bounds to the variable being integrated.
+- Always treat outer variables as constants when integrating inside.
+
+---
+
+### Practice Problems {-}
+
+1. Evaluate:
+\[
+\int_0^1 \int_0^2 (x + y)\,dy\,dx
+\]
+
+2. Evaluate:
+\[
+\int_0^1 \int_0^1 \int_0^1 xyz\,dz\,dy\,dx
+\]
+
+3. Evaluate:
+\[
+\int_{0}^{1}\int_{0}^{1-x}\int_{0}^{1-x-y} (x+2y+3z)\,dz\,dy\,dx
+\]
+
+4. What does a double integral compute if \(f(x,y)=1\)?
+
+5. What does a triple integral compute if \(f(x,y,z)=\rho(x,y,z)\)?
+
+---
+
+<details>
+<summary><strong>Answer Key</strong></summary>
+
+**1.**  
+Inner: \(xy + \frac{y^2}{2}\big|_0^2 = 2x + 2\)  
+Outer: \(\int_0^1 (2x+2)\,dx = 3\)
+
+**2.**  
+Separate variables:
+\[
+\frac18
+\]
+
+**3.**
+\[
+\int_{0}^{1}\int_{0}^{1-x}\int_{0}^{1-x-y} (x+2y+3z)\,dz\,dy\,dx
+= \frac{1}{4}
+\]
+
+**4.** Area of the region.
+
+**5.** Total mass (density integrated over volume).
 
 </details>

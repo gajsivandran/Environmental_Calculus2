@@ -424,7 +424,6 @@ problem-3-indefinite-integrals-6-pts
 a-polynomial
 b-exponential
 c-trigonometric
-test-format-1
 intro-calculus-workbook
 teaching-team-introductions
 gaj-sivandran
@@ -495,7 +494,7 @@ constant-functions
 the-fundamental-theorem-of-calculus-part-i-1
 the-fundamental-theorem-of-calculus-part-ii-1
 conceptual-questions
-practice-problems-1
+practice-problems-4
 key-takeaway-13
 practice-properties-of-definite-integrals-the-fundamental-theorem-of-calculus
 practice-set-a-linearity-and-constants
