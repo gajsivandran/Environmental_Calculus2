@@ -23,7 +23,7 @@
 <meta name="author" content="Gaj Sivandran" />
 
 
-<meta name="date" content="2026-02-25" />
+<meta name="date" content="2026-03-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1057,6 +1057,26 @@
 <li class="chapter" data-level="16.9" data-path="differential-equations.html"><a href="differential-equations.html#adding-harvesting"><i class="fa fa-check"></i><b>16.9</b> Adding Harvesting</a></li>
 <li class="chapter" data-level="16.10" data-path="differential-equations.html"><a href="differential-equations.html#structural-thinking"><i class="fa fa-check"></i><b>16.10</b> Structural Thinking</a></li>
 <li class="chapter" data-level="16.11" data-path="differential-equations.html"><a href="differential-equations.html#big-picture-2"><i class="fa fa-check"></i><b>16.11</b> Big Picture</a></li>
+<li class="chapter" data-level="16.12" data-path="differential-equations.html"><a href="differential-equations.html#modeling-heat-transfer-with-differential-equations"><i class="fa fa-check"></i><b>16.12</b> Modeling Heat Transfer with Differential Equations</a>
+<ul>
+<li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#part-1-brainstorming-the-rate-law"><i class="fa fa-check"></i>Part 1 — Brainstorming the Rate Law</a></li>
+<li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#part-2-three-possible-models"><i class="fa fa-check"></i>Part 2 — Three Possible Models</a></li>
+<li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#part-3-compare-the-assumptions"><i class="fa fa-check"></i>Part 3 — Compare the Assumptions</a></li>
+<li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#part-4-from-differential-equation-to-temperature-model-tt"><i class="fa fa-check"></i>Part 4 — From Differential Equation to Temperature Model <span class="math inline">\(T(t)\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="16.13" data-path="differential-equations.html"><a href="differential-equations.html#real-world-application-how-fast-does-permafrost-respond-to-warming"><i class="fa fa-check"></i><b>16.13</b> Real-World Application: How Fast Does Permafrost Respond to Warming?</a>
+<ul>
+<li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#step-1-define-the-variables"><i class="fa fa-check"></i>Step 1 — Define the Variables</a></li>
+<li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#step-2-what-does-this-model-mean"><i class="fa fa-check"></i>Step 2 — What Does This Model Mean?</a></li>
+<li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#step-3-solve-the-differential-equation"><i class="fa fa-check"></i>Step 3 — Solve the Differential Equation</a></li>
+<li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#step-4-apply-a-climate-change-scenario"><i class="fa fa-check"></i>Step 4 — Apply a Climate Change Scenario</a></li>
+<li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#write-the-model-with-numbers"><i class="fa fa-check"></i>Write the Model with Numbers</a></li>
+<li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#step-5-how-long-until-significant-warming"><i class="fa fa-check"></i>Step 5 — How Long Until Significant Warming?</a></li>
+<li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#question-1-2"><i class="fa fa-check"></i>Question 1</a></li>
+<li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#step-6-interpret-the-result"><i class="fa fa-check"></i>Step 6 — Interpret the Result</a></li>
+<li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#step-7-thinking-bigger"><i class="fa fa-check"></i>Step 7 — Thinking Bigger</a></li>
+<li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#final-reflection-2"><i class="fa fa-check"></i>Final Reflection</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -1557,7 +1577,518 @@ P = \frac{K}{2}
 <li>The exact formula?</li>
 <li>Or the structure of the system?</li>
 </ul>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="modeling-heat-transfer-with-differential-equations" class="section level2 hasAnchor" number="16.12">
+<h2><span class="header-section-number">16.12</span> Modeling Heat Transfer with Differential Equations<a href="differential-equations.html#modeling-heat-transfer-with-differential-equations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Today we are going to build a differential equation from physical reasoning.</p>
+<p>We will observe how hot water cools and ask:</p>
+<blockquote>
+<p>What determines the rate at which temperature changes?</p>
+</blockquote>
+<hr />
+<div id="part-1-brainstorming-the-rate-law" class="section level3 unnumbered hasAnchor">
+<h3>Part 1 — Brainstorming the Rate Law<a href="differential-equations.html#part-1-brainstorming-the-rate-law" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let:
+<span class="math display">\[
+T(t) = \text{temperature of the water}
+\]</span></p>
+<p>We are trying to model:</p>
+<p><span class="math display">\[
+\frac{dT}{dt}
+\]</span></p>
+<div id="prompt-1-what-might-control-the-rate" class="section level4 unnumbered hasAnchor">
+<h4>Prompt 1 — What Might Control the Rate?<a href="differential-equations.html#prompt-1-what-might-control-the-rate" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Discuss:</p>
+<ol style="list-style-type: decimal">
+<li>What physical factors influence how quickly the water cools?</li>
+<li>Should the rate depend on the current temperature?</li>
+<li>Should it depend on room temperature?</li>
+<li>Should it depend on time directly?</li>
+</ol>
+<p>Write down at least two possible ideas.</p>
+<hr />
+</div>
+</div>
+<div id="part-2-three-possible-models" class="section level3 unnumbered hasAnchor">
+<h3>Part 2 — Three Possible Models<a href="differential-equations.html#part-2-three-possible-models" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Based on our discussion, we will test three candidate differential equations.</p>
+<hr />
+<div id="model-a-constant-cooling-rate" class="section level4 unnumbered hasAnchor">
+<h4>Model A — Constant Cooling Rate<a href="differential-equations.html#model-a-constant-cooling-rate" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Assumption:</p>
+<blockquote>
+<p>The temperature decreases at a constant rate.</p>
+</blockquote>
+<p><span class="math display">\[
+\frac{dT}{dt} = -c
+\]</span></p>
+<p>Questions:</p>
+<ul>
+<li>What does this assume about the physics?</li>
+<li>What kind of graph does this produce?</li>
+</ul>
+</div>
+<div id="model-b-proportional-to-temperature" class="section level4 unnumbered hasAnchor">
+<h4>Model B — Proportional to Temperature<a href="differential-equations.html#model-b-proportional-to-temperature" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Assumption:</p>
+<blockquote>
+<p>The rate of cooling is proportional to the current temperature.</p>
+</blockquote>
+<p><span class="math display">\[
+\frac{dT}{dt} = -rT
+\]</span></p>
+<p>Questions:</p>
+<ul>
+<li>What physical situation would make this reasonable?</li>
+<li>What does this assume about the environment?</li>
+</ul>
+<hr />
+</div>
+<div id="model-c-proportional-to-temperature-difference" class="section level4 unnumbered hasAnchor">
+<h4>Model C — Proportional to Temperature Difference<a href="differential-equations.html#model-c-proportional-to-temperature-difference" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Assumption:</p>
+<blockquote>
+<p>The cooling rate depends on how different the water is from the surrounding room.</p>
+</blockquote>
+<p>Let:
+<span class="math display">\[
+T_s = \text{room temperature}
+\]</span></p>
+<p><span class="math display">\[
+\frac{dT}{dt} = -k(T - T_s)
+\]</span></p>
+<p>Questions:</p>
+<ul>
+<li>Why subtract <span class="math inline">\(T_s\)</span>?</li>
+<li>Why does this make more physical sense than Model B?</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="part-3-compare-the-assumptions" class="section level3 unnumbered hasAnchor">
+<h3>Part 3 — Compare the Assumptions<a href="differential-equations.html#part-3-compare-the-assumptions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Fill in this table:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Long-Term Behavior</th>
+<th>Physical Issue</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Discuss:</p>
+<ol style="list-style-type: decimal">
+<li>Which model predicts temperature going below room temperature?</li>
+<li>Which model predicts temperature approaching zero?</li>
+<li>Which model predicts temperature approaching room temperature?</li>
+</ol>
+<hr />
+</div>
+<div id="part-4-from-differential-equation-to-temperature-model-tt" class="section level3 unnumbered hasAnchor">
+<h3>Part 4 — From Differential Equation to Temperature Model <span class="math inline">\(T(t)\)</span><a href="differential-equations.html#part-4-from-differential-equation-to-temperature-model-tt" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We now have three proposed differential equations.</p>
+<p>Our goal is to turn each one into a usable formula for:</p>
+<p><span class="math display">\[
+T(t)
+\]</span></p>
+<p>Before we start solving, let’s be clear about the steps.</p>
+<hr />
+<div id="what-are-we-trying-to-do" class="section level4 unnumbered hasAnchor">
+<h4>What Are We Trying to Do?<a href="differential-equations.html#what-are-we-trying-to-do" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>For each model, we want to:</p>
+<ol style="list-style-type: decimal">
+<li>Solve the differential equation.</li>
+<li>Use any information we know at the start.</li>
+<li>Identify what constants remain unknown.</li>
+<li>Think about how we could determine those constants from data.</li>
+</ol>
+<hr />
+</div>
+<div id="what-do-we-already-know" class="section level4 unnumbered hasAnchor">
+<h4>What Do We Already Know?<a href="differential-equations.html#what-do-we-already-know" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We know:</p>
+<p><span class="math display">\[
+T(0) = T_0
+\]</span></p>
+<p>So at time zero, the temperature equals the initial temperature.</p>
+<p>This is called an <strong>initial condition</strong>.</p>
+<p>That piece of information will allow us to determine one constant in each solution.</p>
+<hr />
+</div>
+<div id="how-do-we-solve-these-equations" class="section level4 unnumbered hasAnchor">
+<h4>How Do We Solve These Equations?<a href="differential-equations.html#how-do-we-solve-these-equations" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>All three equations are first-order differential equations.</p>
+<p>For Models B and C, we will:</p>
+<ol style="list-style-type: decimal">
+<li>Separate variables.</li>
+<li>Integrate both sides.</li>
+<li>Solve for <span class="math inline">\(T(t)\)</span>.</li>
+<li>Use the initial condition to determine the constant.</li>
+</ol>
+<p>For Model A, the equation is already easy to integrate directly.</p>
+<p>As we work, ask yourself:</p>
+<ul>
+<li>What constant appears after integrating?</li>
+<li>What does it represent physically?</li>
+<li>What information do we still need to determine it?</li>
+</ul>
+<hr />
+</div>
+<div id="model-a-constant-cooling-rate-1" class="section level4 unnumbered hasAnchor">
+<h4>Model A: Constant Cooling Rate<a href="differential-equations.html#model-a-constant-cooling-rate-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Differential equation:</p>
+<p><span class="math display">\[
+\frac{dT}{dt} = -c
+\]</span></p>
+<div id="step-1-integrate" class="section level5 unnumbered hasAnchor">
+<h5>Step 1 — Integrate<a href="differential-equations.html#step-1-integrate" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p><span class="math display">\[
+T(t) = -ct + C
+\]</span></p>
+</div>
+<div id="step-2-use-the-initial-condition" class="section level5 unnumbered hasAnchor">
+<h5>Step 2 — Use the Initial Condition<a href="differential-equations.html#step-2-use-the-initial-condition" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>We know:</p>
+<p><span class="math display">\[
+T(0) = T_0
+\]</span></p>
+<p>So:</p>
+<p><span class="math display">\[
+T_0 = -c(0) + C
+\]</span></p>
+<p><span class="math display">\[
+C = T_0
+\]</span></p>
+</div>
+<div id="final-model" class="section level5 unnumbered hasAnchor">
+<h5>Final Model<a href="differential-equations.html#final-model" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p><span class="math display">\[
+\boxed{T(t) = T_0 - ct}
+\]</span></p>
+</div>
+</div>
+<div id="what-is-still-unknown" class="section level4 unnumbered hasAnchor">
+<h4>What Is Still Unknown?<a href="differential-equations.html#what-is-still-unknown" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The constant <span class="math inline">\(c\)</span>.</p>
+<p>Questions:</p>
+<ul>
+<li>What does <span class="math inline">\(c\)</span> represent physically?</li>
+<li>How could we determine <span class="math inline">\(c\)</span> using measurements?</li>
+</ul>
+<hr />
+</div>
+<div id="model-b-rate-proportional-to-temperature" class="section level4 unnumbered hasAnchor">
+<h4>Model B: Rate Proportional to Temperature<a href="differential-equations.html#model-b-rate-proportional-to-temperature" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Differential equation:</p>
+<p><span class="math display">\[
+\frac{dT}{dt} = -rT
+\]</span></p>
+</div>
+<div id="step-1-separate-variables" class="section level4 unnumbered hasAnchor">
+<h4>Step 1 — Separate Variables<a href="differential-equations.html#step-1-separate-variables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math display">\[
+\frac{1}{T} \, dT = -r \, dt
+\]</span></p>
+<div id="step-2-integrate" class="section level5 unnumbered hasAnchor">
+<h5>Step 2 — Integrate<a href="differential-equations.html#step-2-integrate" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p><span class="math display">\[
+\ln|T| = -rt + C
+\]</span></p>
+</div>
+<div id="step-3-solve-for-t" class="section level5 unnumbered hasAnchor">
+<h5>Step 3 — Solve for <span class="math inline">\(T\)</span><a href="differential-equations.html#step-3-solve-for-t" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p><span class="math display">\[
+T = Ce^{-rt}
+\]</span></p>
+</div>
+<div id="step-4-use-the-initial-condition" class="section level5 unnumbered hasAnchor">
+<h5>Step 4 — Use the Initial Condition<a href="differential-equations.html#step-4-use-the-initial-condition" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p><span class="math display">\[
+T(0) = T_0
+\]</span></p>
+<p><span class="math display">\[
+T_0 = Ce^{0}
+\]</span></p>
+<p><span class="math display">\[
+C = T_0
+\]</span></p>
+</div>
+<div id="final-model-1" class="section level5 unnumbered hasAnchor">
+<h5>Final Model<a href="differential-equations.html#final-model-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p><span class="math display">\[
+\boxed{T(t) = T_0 e^{-rt}}
+\]</span></p>
+</div>
+</div>
+<div id="what-is-still-unknown-1" class="section level4 unnumbered hasAnchor">
+<h4>What Is Still Unknown?<a href="differential-equations.html#what-is-still-unknown-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The constant <span class="math inline">\(r\)</span>.</p>
+<p>Questions:</p>
+<ul>
+<li>What does <span class="math inline">\(r\)</span> control in this model?</li>
+<li>If we measure temperature after 5 minutes, could we solve for <span class="math inline">\(r\)</span>?</li>
+<li>How?</li>
+</ul>
+<hr />
+</div>
+<div id="model-c-rate-proportional-to-temperature-difference" class="section level4 unnumbered hasAnchor">
+<h4>Model C: Rate Proportional to Temperature Difference<a href="differential-equations.html#model-c-rate-proportional-to-temperature-difference" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Differential equation:</p>
+<p><span class="math display">\[
+\frac{dT}{dt} = -k(T - T_s)
+\]</span></p>
+</div>
+<div id="step-1-separate-variables-1" class="section level4 unnumbered hasAnchor">
+<h4>Step 1 — Separate Variables<a href="differential-equations.html#step-1-separate-variables-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math display">\[
+\frac{1}{T - T_s} \, dT = -k \, dt
+\]</span></p>
+</div>
+<div id="step-2-integrate-1" class="section level4 unnumbered hasAnchor">
+<h4>Step 2 — Integrate<a href="differential-equations.html#step-2-integrate-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math display">\[
+\ln|T - T_s| = -kt + C
+\]</span></p>
+</div>
+<div id="step-3-solve-for-t-1" class="section level4 unnumbered hasAnchor">
+<h4>Step 3 — Solve for <span class="math inline">\(T\)</span><a href="differential-equations.html#step-3-solve-for-t-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math display">\[
+T - T_s = Ce^{-kt}
+\]</span></p>
+<p><span class="math display">\[
+T = T_s + Ce^{-kt}
+\]</span></p>
+</div>
+<div id="step-4-use-the-initial-condition-1" class="section level4 unnumbered hasAnchor">
+<h4>Step 4 — Use the Initial Condition<a href="differential-equations.html#step-4-use-the-initial-condition-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math display">\[
+T(0) = T_0
+\]</span></p>
+<p><span class="math display">\[
+T_0 = T_s + C
+\]</span></p>
+<p><span class="math display">\[
+C = T_0 - T_s
+\]</span></p>
+</div>
+<div id="final-model-2" class="section level4 unnumbered hasAnchor">
+<h4>Final Model<a href="differential-equations.html#final-model-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math display">\[
+\boxed{T(t) = T_s + (T_0 - T_s)e^{-kt}}
+\]</span></p>
+</div>
+<div id="what-is-still-unknown-2" class="section level4 unnumbered hasAnchor">
+<h4>What Is Still Unknown?<a href="differential-equations.html#what-is-still-unknown-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The constant <span class="math inline">\(k\)</span>.</p>
+<p>Questions:</p>
+<ul>
+<li>What physical property might affect <span class="math inline">\(k\)</span>?</li>
+<li>How could we use our 5-minute measurement to determine <span class="math inline">\(k\)</span>?</li>
+<li>Why does this model behave differently from Model B in the long term?</li>
+</ul>
+<hr />
+</div>
+<div id="big-picture-3" class="section level4 unnumbered hasAnchor">
+<h4>Big Picture<a href="differential-equations.html#big-picture-3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>After solving each equation:</p>
+<ul>
+<li>We used the initial condition to determine one constant.</li>
+<li>One parameter remains unknown in each model.</li>
+<li>That remaining parameter must be determined from data.</li>
+</ul>
+<p>So the next question becomes:</p>
+<p>How can we use our measurements to estimate the rate constants?</p>
+<p>That is where modeling meets experiment.</p>
+</div>
+<div id="how-could-we-find-c-r-and-k" class="section level4 unnumbered hasAnchor">
+<h4>How could we find c, r and k?<a href="differential-equations.html#how-could-we-find-c-r-and-k" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>DATA! If we had another measurement at known time we would have only one unknown in each of those equations.</p>
+</div>
+<div id="demo-data" class="section level4 unnumbered hasAnchor">
+<h4>Demo Data<a href="differential-equations.html#demo-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>From the demo</p>
+<p><strong>Paper Cup</strong></p>
+<ul>
+<li>Starting Temperature =</li>
+<li>1st Measurement =</li>
+<li>Time of Measurement =</li>
+</ul>
+<p><strong>Metal Mug</strong></p>
+<ul>
+<li>Starting Temperature =</li>
+<li>1st Measurement =</li>
+<li>Time of Measurement =</li>
+</ul>
+<p><strong>Polystyrene</strong></p>
+<ul>
+<li>Starting Temperature =</li>
+<li>1st Measurement =</li>
+<li>Time of Measurement =</li>
+</ul>
+<div class="promptbox">
+<p>Can you predict the temperature of the three cups at</p>
+<p><strong>t=60mins</strong></p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div id="real-world-application-how-fast-does-permafrost-respond-to-warming" class="section level2 hasAnchor" number="16.13">
+<h2><span class="header-section-number">16.13</span> Real-World Application: How Fast Does Permafrost Respond to Warming?<a href="differential-equations.html#real-world-application-how-fast-does-permafrost-respond-to-warming" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We just modeled how hot water cools toward room temperature.</p>
+<p>Now we will apply the <strong>same mathematical structure</strong> to a real environmental system: <strong>permafrost</strong>.</p>
+<p>Permafrost is ground that remains frozen (below 0°C) for at least two consecutive years.<br />
+As Arctic air temperatures rise, the ground begins to warm.</p>
+<p>But does it warm instantly?</p>
+<hr />
+<div id="step-1-define-the-variables" class="section level3 unnumbered hasAnchor">
+<h3>Step 1 — Define the Variables<a href="differential-equations.html#step-1-define-the-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let:</p>
+<p><span class="math display">\[
+T_g(t) = \text{ground temperature (°C)}
+\]</span></p>
+<p><span class="math display">\[
+T_a = \text{air temperature (°C)}
+\]</span></p>
+<p>Assume the rate at which ground temperature changes depends on how different it is from the air temperature.</p>
+<p>Write the model:</p>
+<p><span class="math display">\[
+\frac{dT_g}{dt} = -k(T_g - T_a)
+\]</span></p>
+<hr />
+</div>
+<div id="step-2-what-does-this-model-mean" class="section level3 unnumbered hasAnchor">
+<h3>Step 2 — What Does This Model Mean?<a href="differential-equations.html#step-2-what-does-this-model-mean" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Discuss:</p>
+<ol style="list-style-type: decimal">
+<li>What does the parameter <span class="math inline">\(k\)</span> represent physically?</li>
+<li>What would make <span class="math inline">\(k\)</span> larger?</li>
+<li>What would make <span class="math inline">\(k\)</span> smaller?</li>
+<li>If <span class="math inline">\(T_g = T_a\)</span>, what happens?</li>
+</ol>
+<hr />
+</div>
+<div id="step-3-solve-the-differential-equation" class="section level3 unnumbered hasAnchor">
+<h3>Step 3 — Solve the Differential Equation<a href="differential-equations.html#step-3-solve-the-differential-equation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We already know how to solve this type of equation.</p>
+<p>The solution is:</p>
+<p><span class="math display">\[
+T_g(t) = T_a + (T_{g0} - T_a)e^{-kt}
+\]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(T_{g0}\)</span> is the initial ground temperature.</li>
+<li><span class="math inline">\(k\)</span> controls how fast the ground adjusts.</li>
+</ul>
+<hr />
+</div>
+<div id="step-4-apply-a-climate-change-scenario" class="section level3 unnumbered hasAnchor">
+<h3>Step 4 — Apply a Climate Change Scenario<a href="differential-equations.html#step-4-apply-a-climate-change-scenario" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Suppose:</p>
+<p>Initial ground temperature:
+<span class="math display">\[
+T_g(0) = -4^\circ C
+\]</span></p>
+<p>New average air temperature after warming:
+<span class="math display">\[
+T_a = 0^\circ C
+\]</span></p>
+<p>Estimated thermal coupling constant:
+<span class="math display">\[
+k = 0.15 \text{ per year}
+\]</span></p>
+<hr />
+</div>
+<div id="write-the-model-with-numbers" class="section level3 unnumbered hasAnchor">
+<h3>Write the Model with Numbers<a href="differential-equations.html#write-the-model-with-numbers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+T_g(t) = 0 + (-4 - 0)e^{-0.15t}
+\]</span></p>
+<p><span class="math display">\[
+T_g(t) = -4e^{-0.15t}
+\]</span></p>
+<hr />
+</div>
+<div id="step-5-how-long-until-significant-warming" class="section level3 unnumbered hasAnchor">
+<h3>Step 5 — How Long Until Significant Warming?<a href="differential-equations.html#step-5-how-long-until-significant-warming" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="question-1-2" class="section level3 unnumbered hasAnchor">
+<h3>Question 1<a href="differential-equations.html#question-1-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>How long until the ground warms to <span class="math inline">\(-1^\circ C\)</span>?</p>
+<p>Set:</p>
+<p><span class="math display">\[
+-1 = -4e^{-0.15t}
+\]</span></p>
+<p>Solve for <span class="math inline">\(t\)</span>.</p>
+<p>Steps:</p>
+<p><span class="math display">\[
+\frac{1}{4} = e^{-0.15t}
+\]</span></p>
+<p><span class="math display">\[
+\ln\left(\frac{1}{4}\right) = -0.15t
+\]</span></p>
+<p><span class="math display">\[
+t = \frac{\ln(4)}{0.15}
+\]</span></p>
+<p>Compute this value.</p>
+<hr />
+</div>
+<div id="step-6-interpret-the-result" class="section level3 unnumbered hasAnchor">
+<h3>Step 6 — Interpret the Result<a href="differential-equations.html#step-6-interpret-the-result" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Does the ground instantly warm when air warms?</li>
+<li>What determines how quickly it responds?</li>
+<li>If <span class="math inline">\(k\)</span> were smaller, what would happen to the response time?</li>
+<li>If <span class="math inline">\(k\)</span> were larger, what would happen?</li>
+</ol>
+<hr />
+</div>
+<div id="step-7-thinking-bigger" class="section level3 unnumbered hasAnchor">
+<h3>Step 7 — Thinking Bigger<a href="differential-equations.html#step-7-thinking-bigger" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Permafrost stores large amounts of carbon.</p>
+<p>If warming causes ground temperature to approach 0°C more quickly:</p>
+<ul>
+<li>What might happen to stored carbon?</li>
+<li>What feedbacks might occur?</li>
+</ul>
+<hr />
+</div>
+<div id="final-reflection-2" class="section level3 unnumbered hasAnchor">
+<h3>Final Reflection<a href="differential-equations.html#final-reflection-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We used the same differential equation structure as the hot water in a cup.</p>
+<p>In the cup:</p>
+<ul>
+<li>The system relaxed toward room temperature.</li>
+</ul>
+<p>In permafrost:</p>
+<ul>
+<li>The ground relaxes toward air temperature.</li>
+</ul>
+<p>The mathematics is identical.</p>
+<p>Only the context changed.</p>
+<p>This is the power of differential equations:
+they describe structure that appears across very different systems.</p>
 
+</div>
 </div>
 </div>
             </section>

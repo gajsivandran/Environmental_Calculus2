@@ -1361,3 +1361,579 @@ If you were modeling climate, fisheries, disease, or carbon cycles — what matt
 
 - The exact formula?
 - Or the structure of the system?
+
+
+\newpage
+
+
+## Modeling Heat Transfer with Differential Equations 
+
+Today we are going to build a differential equation from physical reasoning.
+
+We will observe how hot water cools and ask:
+
+> What determines the rate at which temperature changes?
+
+---
+
+### Part 1 — Brainstorming the Rate Law {-}
+
+Let:
+\[
+T(t) = \text{temperature of the water}
+\]
+
+We are trying to model:
+
+\[
+\frac{dT}{dt}
+\]
+
+#### Prompt 1 — What Might Control the Rate? {-}
+
+Discuss:
+
+1. What physical factors influence how quickly the water cools?
+2. Should the rate depend on the current temperature?
+3. Should it depend on room temperature?
+4. Should it depend on time directly?
+
+Write down at least two possible ideas.
+
+---
+
+### Part 2 — Three Possible Models {-}
+
+Based on our discussion, we will test three candidate differential equations.
+
+---
+
+#### Model A — Constant Cooling Rate {-}
+
+Assumption:
+
+> The temperature decreases at a constant rate.
+
+\[
+\frac{dT}{dt} = -c
+\]
+
+Questions:
+
+- What does this assume about the physics?
+- What kind of graph does this produce?
+
+
+
+#### Model B — Proportional to Temperature {-}
+
+Assumption:
+
+> The rate of cooling is proportional to the current temperature.
+
+\[
+\frac{dT}{dt} = -rT
+\]
+
+Questions:
+
+- What physical situation would make this reasonable?
+- What does this assume about the environment?
+
+
+---
+
+#### Model C — Proportional to Temperature Difference {-}
+
+Assumption:
+
+> The cooling rate depends on how different the water is from the surrounding room.
+
+Let:
+\[
+T_s = \text{room temperature}
+\]
+
+\[
+\frac{dT}{dt} = -k(T - T_s)
+\]
+
+Questions:
+
+- Why subtract \(T_s\)?
+- Why does this make more physical sense than Model B?
+
+---
+
+### Part 3 — Compare the Assumptions {-}
+
+Fill in this table:
+
+| Model | Long-Term Behavior | Physical Issue |
+|-------|-------------------|----------------|
+| A     |                   |                |
+| B     |                   |                |
+| C     |                   |                |
+
+Discuss:
+
+1. Which model predicts temperature going below room temperature?
+2. Which model predicts temperature approaching zero?
+3. Which model predicts temperature approaching room temperature?
+
+---
+
+### Part 4 — From Differential Equation to Temperature Model \(T(t)\) {-}
+
+We now have three proposed differential equations.
+
+Our goal is to turn each one into a usable formula for:
+
+\[
+T(t)
+\]
+
+Before we start solving, let’s be clear about the steps.
+
+---
+
+#### What Are We Trying to Do? {-}
+
+For each model, we want to:
+
+1. Solve the differential equation.
+2. Use any information we know at the start.
+3. Identify what constants remain unknown.
+4. Think about how we could determine those constants from data.
+
+---
+
+#### What Do We Already Know? {-}
+
+We know:
+
+\[
+T(0) = T_0
+\]
+
+So at time zero, the temperature equals the initial temperature.
+
+This is called an **initial condition**.
+
+That piece of information will allow us to determine one constant in each solution.
+
+---
+
+#### How Do We Solve These Equations? {-}
+
+All three equations are first-order differential equations.
+
+For Models B and C, we will:
+
+1. Separate variables.
+2. Integrate both sides.
+3. Solve for \(T(t)\).
+4. Use the initial condition to determine the constant.
+
+For Model A, the equation is already easy to integrate directly.
+
+As we work, ask yourself:
+
+- What constant appears after integrating?
+- What does it represent physically?
+- What information do we still need to determine it?
+
+---
+
+#### Model A: Constant Cooling Rate {-}
+
+Differential equation:
+
+\[
+\frac{dT}{dt} = -c
+\]
+
+##### Step 1 — Integrate {-}
+
+\[
+T(t) = -ct + C
+\]
+
+##### Step 2 — Use the Initial Condition {-}
+
+We know:
+
+\[
+T(0) = T_0
+\]
+
+So:
+
+\[
+T_0 = -c(0) + C
+\]
+
+\[
+C = T_0
+\]
+
+##### Final Model {-}
+
+\[
+\boxed{T(t) = T_0 - ct}
+\]
+
+#### What Is Still Unknown? {-}
+
+The constant \(c\).
+
+Questions:
+
+- What does \(c\) represent physically?
+- How could we determine \(c\) using measurements?
+
+---
+
+#### Model B: Rate Proportional to Temperature {-}
+
+Differential equation:
+
+\[
+\frac{dT}{dt} = -rT
+\]
+
+#### Step 1 — Separate Variables {-}
+
+\[
+\frac{1}{T} \, dT = -r \, dt
+\]
+
+##### Step 2 — Integrate {-}
+
+\[
+\ln|T| = -rt + C
+\]
+
+##### Step 3 — Solve for \(T\) {-}
+
+\[
+T = Ce^{-rt}
+\]
+
+##### Step 4 — Use the Initial Condition {-}
+
+\[
+T(0) = T_0
+\]
+
+\[
+T_0 = Ce^{0}
+\]
+
+\[
+C = T_0
+\]
+
+##### Final Model {-}
+
+\[
+\boxed{T(t) = T_0 e^{-rt}}
+\]
+
+#### What Is Still Unknown? {-}
+
+The constant \(r\).
+
+Questions:
+
+- What does \(r\) control in this model?
+- If we measure temperature after 5 minutes, could we solve for \(r\)?
+- How?
+
+---
+
+#### Model C: Rate Proportional to Temperature Difference {-}
+
+Differential equation:
+
+\[
+\frac{dT}{dt} = -k(T - T_s)
+\]
+
+#### Step 1 — Separate Variables {-}
+
+\[
+\frac{1}{T - T_s} \, dT = -k \, dt
+\]
+
+#### Step 2 — Integrate {-}
+
+\[
+\ln|T - T_s| = -kt + C
+\]
+
+#### Step 3 — Solve for \(T\) {-}
+
+\[
+T - T_s = Ce^{-kt}
+\]
+
+\[
+T = T_s + Ce^{-kt}
+\]
+
+#### Step 4 — Use the Initial Condition {-}
+
+\[
+T(0) = T_0
+\]
+
+\[
+T_0 = T_s + C
+\]
+
+\[
+C = T_0 - T_s
+\]
+
+#### Final Model {-}
+
+\[
+\boxed{T(t) = T_s + (T_0 - T_s)e^{-kt}}
+\]
+
+#### What Is Still Unknown? {-}
+
+The constant \(k\).
+
+Questions:
+
+- What physical property might affect \(k\)?
+- How could we use our 5-minute measurement to determine \(k\)?
+- Why does this model behave differently from Model B in the long term?
+
+---
+
+#### Big Picture {-}
+
+After solving each equation:
+
+- We used the initial condition to determine one constant.
+- One parameter remains unknown in each model.
+- That remaining parameter must be determined from data.
+
+So the next question becomes:
+
+How can we use our measurements to estimate the rate constants?
+
+That is where modeling meets experiment.
+
+
+#### How could we find c, r and k? {-}
+
+DATA! If we had another measurement at known time we would have only one unknown in each of those equations.
+
+#### Demo Data {-}
+
+From the demo
+
+**Paper Cup**
+
+- Starting Temperature = 
+- 1st Measurement = 
+- Time of Measurement = 
+
+**Metal Mug**
+
+- Starting Temperature = 
+- 1st Measurement = 
+- Time of Measurement = 
+
+**Polystyrene**
+
+- Starting Temperature = 
+- 1st Measurement = 
+- Time of Measurement =  
+
+
+::: promptbox
+
+Can you predict the temperature of the three cups at 
+
+
+**t=60mins**
+
+:::
+
+
+
+
+
+\newpage
+
+## Real-World Application: How Fast Does Permafrost Respond to Warming?
+
+We just modeled how hot water cools toward room temperature.
+
+Now we will apply the **same mathematical structure** to a real environmental system: **permafrost**.
+
+Permafrost is ground that remains frozen (below 0°C) for at least two consecutive years.  
+As Arctic air temperatures rise, the ground begins to warm.
+
+But does it warm instantly?
+
+---
+
+### Step 1 — Define the Variables {-}
+
+Let:
+
+\[
+T_g(t) = \text{ground temperature (°C)}
+\]
+
+\[
+T_a = \text{air temperature (°C)}
+\]
+
+Assume the rate at which ground temperature changes depends on how different it is from the air temperature.
+
+Write the model:
+
+\[
+\frac{dT_g}{dt} = -k(T_g - T_a)
+\]
+
+---
+
+### Step 2 — What Does This Model Mean? {-}
+
+Discuss:
+
+1. What does the parameter \(k\) represent physically?
+2. What would make \(k\) larger?
+3. What would make \(k\) smaller?
+4. If \(T_g = T_a\), what happens?
+
+---
+
+### Step 3 — Solve the Differential Equation {-}
+
+We already know how to solve this type of equation.
+
+The solution is:
+
+\[
+T_g(t) = T_a + (T_{g0} - T_a)e^{-kt}
+\]
+
+Where:
+
+- \(T_{g0}\) is the initial ground temperature.
+- \(k\) controls how fast the ground adjusts.
+
+---
+
+### Step 4 — Apply a Climate Change Scenario {-}
+
+Suppose:
+
+Initial ground temperature:
+\[
+T_g(0) = -4^\circ C
+\]
+
+New average air temperature after warming:
+\[
+T_a = 0^\circ C
+\]
+
+Estimated thermal coupling constant:
+\[
+k = 0.15 \text{ per year}
+\]
+
+---
+
+### Write the Model with Numbers {-}
+
+\[
+T_g(t) = 0 + (-4 - 0)e^{-0.15t}
+\]
+
+\[
+T_g(t) = -4e^{-0.15t}
+\]
+
+---
+
+### Step 5 — How Long Until Significant Warming? {-}
+
+### Question 1   {-}
+How long until the ground warms to \(-1^\circ C\)?
+
+Set:
+
+\[
+-1 = -4e^{-0.15t}
+\]
+
+Solve for \(t\).
+
+Steps:
+
+\[
+\frac{1}{4} = e^{-0.15t}
+\]
+
+\[
+\ln\left(\frac{1}{4}\right) = -0.15t
+\]
+
+\[
+t = \frac{\ln(4)}{0.15}
+\]
+
+Compute this value.
+
+---
+
+### Step 6 — Interpret the Result {-}
+
+1. Does the ground instantly warm when air warms?
+2. What determines how quickly it responds?
+3. If \(k\) were smaller, what would happen to the response time?
+4. If \(k\) were larger, what would happen?
+
+---
+
+### Step 7 — Thinking Bigger {-}
+
+Permafrost stores large amounts of carbon.
+
+If warming causes ground temperature to approach 0°C more quickly:
+
+- What might happen to stored carbon?
+- What feedbacks might occur?
+
+---
+
+### Final Reflection {-}
+
+We used the same differential equation structure as the hot water in a cup.
+
+In the cup:
+
+- The system relaxed toward room temperature.
+
+In permafrost:
+
+- The ground relaxes toward air temperature.
+
+The mathematics is identical.
+
+Only the context changed.
+
+This is the power of differential equations:
+they describe structure that appears across very different systems.
+
