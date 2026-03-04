@@ -1937,3 +1937,1790 @@ Only the context changed.
 This is the power of differential equations:
 they describe structure that appears across very different systems.
 
+
+\newpage
+
+## Practice Practice Practice
+
+## Part I - Matching Slope Fields {-}
+Things to think about
+
+ - Identify where the equilibrium points are in the differential equation
+ - Think about symmetry; ask "does the slope change in x, in y, or in x and y"
+ - Calculate the derivative at a few test points
+    - check for sign and magnitude
+ 
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, error=FALSE}
+library(ggplot2)
+library(patchwork)
+
+# -----------------------------
+# Your slopefield plot function
+# -----------------------------
+make_slopefield <- function(f, letter = "A") {
+
+  # ---- Build slope-field grid (for segments) ----
+  x_vals <- seq(-3, 3, by = 0.5)
+  y_vals <- seq(-3, 3, by = 0.5)
+  grid <- expand.grid(x = x_vals, y = y_vals)
+
+  grid$slope <- f(grid$x, grid$y)
+
+  # Segment length normalization so all dashes are the same length
+  L <- 0.45
+  grid$dx <- L / sqrt(1 + grid$slope^2)
+  grid$dy <- grid$slope * grid$dx
+
+  # ---- Axis tick labels placed ON the axes (x-axis at y=0, y-axis at x=0) ----
+  ticks <- -3:3
+  tick_df_x <- data.frame(x = ticks, y = 0, lab = as.character(ticks))
+  tick_df_y <- data.frame(x = 0, y = ticks, lab = as.character(ticks))
+
+  # Small offset so labels don't sit exactly on the bold lines
+  x_label_nudge <- -0.18  # move x-axis numbers slightly below y=0
+  y_label_nudge <- -0.18  # move y-axis numbers slightly left of x=0
+
+  ggplot() +
+    # Integer grid
+    geom_vline(xintercept = -3:3, color = "grey85", linewidth = 0.4) +
+    geom_hline(yintercept = -3:3, color = "grey85", linewidth = 0.4) +
+
+    # Slope field (light grey)
+    geom_segment(
+      data = grid,
+      aes(x = x - dx/2, y = y - dy/2, xend = x + dx/2, yend = y + dy/2),
+      color = "grey70",
+      linewidth = 0.5
+    ) +
+
+    # Bold coordinate axes
+    geom_hline(yintercept = 0, color = "black", linewidth = 0.8) +
+    geom_vline(xintercept = 0, color = "black", linewidth = 0.8) +
+
+    # Tick labels ON the axes
+    geom_text(data = tick_df_x, aes(x = x, y = y + x_label_nudge, label = lab),
+              size = 2.5, color = "black") +
+    geom_text(data = tick_df_y, aes(x = x + y_label_nudge, y = y, label = lab),
+              size = 2.5, color = "black") +
+
+    
+    # Panel label (A–I)
+    annotate("text", x = -3.55, y = 3.55, label = letter,
+             size = 4, fontface = "bold") +
+
+    coord_fixed(xlim = c(-4, 4), ylim = c(-4, 4), expand = FALSE) +
+    theme_void()
+}
+
+# -----------------------------------------
+# 9 NEW differential equations (no repeats)
+# -----------------------------------------
+# Each entry is:
+#   f      = function(x,y) giving dy/dx
+#   text   = how you want it printed in the list
+eqs <- list(
+  list(
+    f = function(x,y) 2*y + 1,
+    text = "$$\\dfrac{dy}{dx} = 2y + 1$$"
+  ),
+  list(
+    f = function(x,y) y*(1 - y),
+    text = "$$\\dfrac{dy}{dx} = y(1-y)$$"
+  ),
+  list(
+    f = function(x,y) x^2,
+    text = "$$\\dfrac{dy}{dx} = x^2$$"
+  ),
+  list(
+    f = function(x,y) x - y,
+    text = "$$\\dfrac{dy}{dx} = x - y$$"
+  ),
+  list(
+    f = function(x,y) x + y,
+    text = "$$\\dfrac{dy}{dx} = x + y$$"
+  ),
+  list(
+    f = function(x,y) cos(x),
+    text = "$$\\dfrac{dy}{dx} = \\cos(x)$$"
+  ),
+  list(
+    f = function(x,y) (y^3 - y),
+    text = "$$\\dfrac{dy}{dx} = y^3 - y$$"
+  ),
+  list(
+    f = function(x,y) exp(-x),
+    text = "$$\\dfrac{dy}{dx} = e^{-x}$$"
+  ),
+  list(
+    f = function(x,y) x^2 - y^2,
+    text = "$$\\dfrac{dy}{dx} = x^2 - y^2$$"
+  )
+)
+
+# ----------------------------------------------------
+# Shuffle equation list for the student matching prompt
+# (Set seed for reproducibility; change/remove if desired)
+# ----------------------------------------------------
+set.seed(291)
+perm <- sample(1:9)
+eqs_shuffled <- eqs[perm]
+
+# -----------------------------
+# Build the 3x3 slopefield grid
+# -----------------------------
+letters <- LETTERS[1:9]  # A–I
+plots <- lapply(1:9, function(i) make_slopefield(eqs[[i]]$f, letters[i]))
+
+wrap_plots(plots, ncol = 3)
+
+
+```
+
+
+**Differential Equations (Match with Slope Fields)**
+
+Write the **letter of the slope field (A–I)** that matches each differential equation.
+
+| Equation | Matching Slope Field |
+|:---:|:---:|
+| $$\dfrac{dy}{dx} = x + y$$ | |
+| $$\dfrac{dy}{dx} = e^{-x}$$ |  |
+| $$\dfrac{dy}{dx} = y(1-y)$$ |  |
+| $$\dfrac{dy}{dx} = x^2 - y^2$$ |  |
+| $$\dfrac{dy}{dx} = 2y + 1$$ | |
+| $$\dfrac{dy}{dx} = \cos(x)$$ | |
+| $$\dfrac{dy}{dx} = x^2$$ |  |
+| $$\dfrac{dy}{dx} = y^3 - y$$ |  |
+| $$\dfrac{dy}{dx} = x - y$$ |  |
+
+
+
+
+
+
+## Part II. Separation of Variables Practice {-}
+
+Solve each differential equation using **separation of variables**.  
+Include the constant of integration. If an initial condition is given, find the specific solution.
+
+Problems are ordered roughly from **easiest to hardest**.
+
+---
+
+1. **Basic exponential growth**
+\[
+\dfrac{dy}{dt}=3y
+\]
+
+2. **Basic exponential decay**
+\[
+\dfrac{dy}{dt}=-0.6y
+\]
+
+3. **Power of \(t\) times \(y\)**
+\[
+\dfrac{dy}{dt}=t\,y
+\]
+
+4. **State dependence with a shift**
+\[
+\dfrac{dy}{dt}=2(y-1)
+\]
+
+5. **Product of \(t\) and a shifted state**
+\[
+\dfrac{dy}{dt}=t(y+2)
+\]
+
+6. **Rational state dependence**
+\[
+\dfrac{dy}{dt}=\frac{y}{1+y}
+\]
+
+7. **Quadratic nonlinearity**
+\[
+\dfrac{dy}{dt}=y^2
+\]
+
+8. **Quadratic with a shift (requires partial fractions)**
+\[
+\dfrac{dy}{dt}=y^2-1
+\]
+
+9. **Logistic-style structure (partial fractions)**
+\[
+\dfrac{dP}{dt}=P(4-P)
+\]
+
+10. **Mixed time and logistic-style state dependence**
+\[
+\dfrac{dP}{dt}=t\,P(3-P)
+\]
+
+---
+
+**11**
+
+When solving a differential equation using **separation of variables**, what is the main goal of the separation step?
+
+A) Rewrite the equation so that **all \(y\) terms are with \(dy\)** and **all \(t\) terms are with \(dt\)**  
+
+B) Eliminate the derivative from the equation  
+
+C) Move all constants to the left side of the equation  
+
+D) Make the equation linear
+
+---
+
+**12**
+
+Consider
+
+\[
+\dfrac{dy}{dt} = ty
+\]
+
+What is the **correct first step** in separating variables?
+
+A) \(y\,dy = t\,dt\)
+
+B) \(\dfrac{1}{y}dy = t\,dt\)
+
+C) \(dy = ty\,dt\)
+
+D) \(\dfrac{1}{t}dy = y\,dt\)
+
+---
+
+**13**
+
+After separating variables, why are we allowed to **integrate both sides** of the equation?
+
+A) Because the derivative has been eliminated  
+
+B) Because both sides now represent **differentials of the same variable**  
+
+C) Because each side now depends on **only one variable**, so each can be integrated independently  
+
+D) Because the equation becomes algebraic
+
+---
+
+**14**
+
+When solving
+
+\[
+\dfrac{dy}{dt} = 2y
+\]
+
+the step
+
+\[
+\frac{1}{y}dy = 2dt
+\]
+
+is useful because it allows us to integrate
+
+A) \(y\) with respect to \(t\)
+
+B) \(y\) with respect to \(y\)
+
+C) each variable with respect to **its own differential**
+
+D) both sides with respect to \(t\)
+
+---
+
+**15**
+
+After integrating both sides of a separated equation we obtain
+
+\[
+\ln|y| = 3t + C
+\]
+
+Why do we usually rewrite the solution as
+
+\[
+y = Ce^{3t}
+\]
+
+A) Because exponential form is easier to differentiate  
+
+B) Because solving for \(y\) gives a clearer expression for the function  
+
+C) Because logarithms cannot contain constants  
+
+D) Because separation of variables requires exponential solutions
+
+---
+
+
+
+## Part III. Separation of Variables with Initial Conditions {-}
+
+Solve each differential equation using **separation of variables**.  
+Then use the **initial condition** to determine the constant and write the **specific solution**.
+
+---
+
+1.  
+\[
+\frac{dy}{dt} = 2y,
+\qquad y(0)=5
+\]
+
+---
+
+2.  
+\[
+\frac{dy}{dt} = -0.5y,
+\qquad y(0)=12
+\]
+
+---
+
+3.  
+\[
+\frac{dy}{dt} = t\,y,
+\qquad y(0)=4
+\]
+
+---
+
+4.  
+\[
+\frac{dy}{dt} = 3(y-2),
+\qquad y(0)=5
+\]
+
+---
+
+5.  
+\[
+\frac{dy}{dt} = t(y+1),
+\qquad y(0)=0
+\]
+
+---
+
+6.  
+\[
+\frac{dy}{dt} = y^2,
+\qquad y(0)=2
+\]
+
+---
+
+7.  
+\[
+\frac{dy}{dt} = y^2-4,
+\qquad y(0)=3
+\]
+
+---
+
+8.  
+\[
+\frac{dP}{dt} = P(5-P),
+\qquad P(0)=1
+\]
+
+---
+
+9.  
+\[
+\frac{dP}{dt} = P(3-P),
+\qquad P(0)=2
+\]
+
+---
+
+10.  
+\[
+\frac{dP}{dt} = t\,P(4-P),
+\qquad P(0)=1
+\]
+
+---
+
+**11. What is the purpose of the initial condition in an initial value problem (IVP)?**
+
+A) It helps separate the variables correctly.  
+
+B) It determines the constant of integration so that the solution matches the starting value.  
+
+C) It changes the differential equation itself.  
+
+D) It makes the solution easier to integrate.
+
+---
+
+**12. Why do we separate variables before integrating in these problems?**
+
+A) It guarantees the solution will be linear.  
+
+B) It allows us to integrate each variable independently on different sides of the equation.  
+
+C) It removes the constant of integration.  
+
+D) It ensures the solution will be exponential.
+
+---
+
+**13. When solving**
+
+\[
+\frac{dy}{dt} = ky
+\]
+
+why does the solution always take the form \(y = Ce^{kt}\)?
+
+A) Because the derivative of \(e^{kt}\) is proportional to itself.  
+
+B) Because exponentials are the only functions we know how to integrate.  
+
+C) Because the constant \(k\) forces the solution to be exponential.  
+
+D) Because all differential equations produce exponential solutions.
+
+---
+
+**14. When solving a differential equation using separation of variables, where does the constant of integration come from?**
+
+A) From the original differential equation.  
+
+B) From the initial condition.  
+
+C) From the integration step.  
+
+D) From rewriting the equation in separated form.
+
+---
+
+**15. Why do we substitute the initial condition *after* integrating rather than before?**
+
+A) Because the equation cannot be separated until after integration.  
+
+B) Because the constant of integration does not appear until after we integrate.  
+
+C) Because the initial condition changes the derivative.  
+
+D) Because the integration rules require a value for the constant first.
+
+---
+
+**16. When separating variables and integrating both sides, it looks like we should get two constants of integration. Why do we usually write only one constant in the final solution?**
+
+A) Because the two constants cancel each other out.  
+
+B) Because constants from both sides can be combined into a single new constant.  
+
+C) Because one constant always equals zero.  
+
+D) Because the initial condition removes one of the constants automatically.
+
+## Part IV. Determining the Rate Constant from Two Points {-}
+
+For each problem below:
+
+1. Solve the differential equation.
+2. Use the **initial condition** to determine the constant of integration.
+3. Use the **second data point** to determine the **rate constant**.
+
+Write the **final function** describing the system.
+
+---
+
+ 1)
+
+\[
+\frac{dy}{dt} = ky
+\]
+
+\[
+y(0) = 4, \qquad y(3) = 20
+\]
+
+---
+
+2)
+
+\[
+\frac{dP}{dt} = kP
+\]
+
+\[
+P(0) = 10, \qquad P(5) = 80
+\]
+
+---
+
+3)
+
+\[
+\frac{dN}{dt} = kN
+\]
+
+\[
+N(0) = 6, \qquad N(4) = 18
+\]
+
+---
+
+ 4)
+
+\[
+\frac{dC}{dt} = kC
+\]
+
+\[
+C(0) = 12, \qquad C(2) = 9
+\]
+
+---
+
+5)
+
+\[
+\frac{dP}{dt} = kP
+\]
+
+\[
+P(0) = 5, \qquad P(6) = 15
+\]
+
+---
+
+6)
+
+After solving
+
+\[
+\frac{dy}{dt}=ky
+\]
+
+we obtain
+
+\[
+y = Ce^{kt}
+\]
+
+Which piece of information determines the constant \(C\)?
+
+A) The differential equation  
+
+B) The initial condition  
+
+C) The second data point  
+
+D) The value of \(k\)
+
+---
+
+7)
+
+Once the constant \(C\) is known, what is the purpose of the **second data point**?
+
+A) It determines the rate constant \(k\)
+
+B) It confirms that the derivative is correct
+
+C) It changes the constant \(C\)
+
+D) It determines the time variable
+
+---
+
+8)
+
+After solving a differential equation and applying the **initial condition**, we obtain a model like
+
+\[
+y = 8e^{kt}
+\]
+
+Why do we still need another data point?
+
+A) To verify the solution method  
+
+B) To determine the value of the rate constant \(k\)  
+
+C) To calculate the derivative  
+
+D) To eliminate the exponential function
+
+---
+
+## Part V. Slope Fields, Equilibria, and Stability   {-}
+*(No explicit solving required. Use sign reasoning and interpretation.)*
+
+In this section, you are not asked to solve the differential equations algebraically. Instead, focus on understanding how the **rate of change depends on the current value of the variable**, and use that to predict behavior.
+
+---
+
+**1) Interpreting the sign of the rate**
+
+Consider the differential equation:
+
+\[
+\dfrac{dN}{dt} = -0.3N + 9.
+\]
+
+For each value of \(N\), determine whether the solution is **increasing**, **decreasing**, or **momentarily constant**. Explain your reasoning using the sign of the derivative.
+
+a) \( N = 0 \)  
+b) \( N = 10 \)  
+c) \( N = 30 \)  
+d) \( N = 40 \)
+
+---
+
+**2) Equilibrium and long-term behavior**
+
+Using
+
+\[
+\dfrac{dN}{dt} = -0.3N + 9,
+\]
+
+a) Find the equilibrium value \( N^* \).  
+b) Classify it as **stable or unstable** using sign reasoning.  
+c) Sketch a **one-dimensional direction diagram** (arrows on the \(N\)-axis).  
+d) Predict the long-term behavior for different initial values of \(N\).
+
+---
+
+**3) Logistic-style equilibrium reasoning**
+
+Consider the differential equation:
+
+\[
+\dfrac{dP}{dt} = P(6 - P).
+\]
+
+a) Find all equilibrium values.  
+b) Use **sign reasoning** to determine whether each equilibrium is **stable or unstable**.  
+c) Draw a **direction diagram** on the \(P\)-axis.  
+d) Describe what happens to the population if:
+
+- \(P(0)=2\)  
+- \(P(0)=5\)  
+- \(P(0)=8\)
+
+---
+
+**4) Multiple equilibria and thresholds**
+
+Consider
+
+\[
+\dfrac{dP}{dt} = P(4 - P)(P - 1).
+\]
+
+a) Find all equilibrium values.  
+b) Determine the sign of \(dP/dt\) in each interval between equilibria.  
+c) Classify each equilibrium as **stable or unstable**.  
+d) Predict the long-term behavior if:
+
+- \(P(0)=0.5\)  
+- \(P(0)=2\)  
+- \(P(0)=5\)
+
+Explain your reasoning using **sign patterns and direction arrows**.
+
+---
+
+
+**Solution Key**
+<details open>
+<summary><strong>Click to Unlock Solutions</strong></summary>
+
+<div id="sol_set4" hidden markdown="1" style="margin-top:0.75rem;">
+
+
+## Part 1  Matching {-}
+
+1. → **E**
+
+2. → **H**
+
+3.  → **B**
+
+4. → **I**
+
+5.  → **A**
+
+6. → **F**
+
+7. → **C**
+
+8.  → **G**
+
+9.  → **D**
+
+
+## Part II (Separation of Variables) {-}
+
+---
+
+1) \(\dfrac{dy}{dt}=3y\)
+
+Separate and integrate:
+\[
+\frac{1}{y}\,dy = 3\,dt
+\]
+\[
+\ln|y| = 3t + C
+\]
+Exponentiate:
+\[
+y = Ce^{3t}
+\]
+
+---
+
+2) \(\dfrac{dy}{dt}=-0.6y\) 
+
+\[
+\frac{1}{y}\,dy = -0.6\,dt
+\]
+\[
+\ln|y| = -0.6t + C
+\]
+\[
+y = Ce^{-0.6t}
+\]
+
+---
+
+3) \(\dfrac{dy}{dt}=t\,y\)
+
+\[
+\frac{1}{y}\,dy = t\,dt
+\]
+\[
+\ln|y| = \frac{t^2}{2} + C
+\]
+\[
+y = Ce^{t^2/2}
+\]
+
+---
+
+4) \(\dfrac{dy}{dt}=2(y-1)\) 
+
+\[
+\frac{1}{y-1}\,dy = 2\,dt
+\]
+\[
+\ln|y-1| = 2t + C
+\]
+\[
+y - 1 = Ce^{2t}
+\]
+\[
+y = 1 + Ce^{2t}
+\]
+
+---
+
+5) \(\dfrac{dy}{dt}=t(y+2)\) 
+
+\[
+\frac{1}{y+2}\,dy = t\,dt
+\]
+\[
+\ln|y+2| = \frac{t^2}{2} + C
+\]
+\[
+y+2 = Ce^{t^2/2}
+\]
+\[
+y = -2 + Ce^{t^2/2}
+\]
+
+---
+
+6) \(\dfrac{dy}{dt}=\dfrac{y}{1+y}\)
+
+Separate:
+\[
+\frac{1+y}{y}\,dy = dt
+\]
+Rewrite:
+\[
+\left(\frac{1}{y}+1\right)dy = dt
+\]
+Integrate:
+\[
+\ln|y| + y = t + C
+\]
+
+So the (implicit) solution is:
+\[
+\boxed{\ln|y| + y = t + C}
+\]
+(An explicit formula for \(y(t)\) is not elementary.)
+
+---
+
+7) \(\dfrac{dy}{dt}=y^2\)
+
+\[
+\frac{1}{y^2}\,dy = dt
+\]
+\[
+\int y^{-2}\,dy = \int 1\,dt
+\]
+\[
+-\,\frac{1}{y} = t + C
+\]
+Solve for \(y\):
+\[
+\frac{1}{y} = -t + C
+\]
+\[
+y = \frac{1}{C - t}
+\]
+
+---
+
+8) \(\dfrac{dy}{dt}=y^2-1\) 
+
+Separate:
+\[
+\frac{dy}{y^2-1}=dt
+\]
+Use partial fractions:
+\[
+\frac{1}{y^2-1}=\frac{1}{(y-1)(y+1)}
+=\frac{1}{2}\left(\frac{1}{y-1}-\frac{1}{y+1}\right)
+\]
+Integrate:
+\[
+\int \frac{dy}{y^2-1}
+= \frac{1}{2}\int\left(\frac{1}{y-1}-\frac{1}{y+1}\right)dy
+= t + C
+\]
+\[
+\frac{1}{2}\left(\ln|y-1|-\ln|y+1|\right)=t+C
+\]
+\[
+\frac{1}{2}\ln\left|\frac{y-1}{y+1}\right|=t+C
+\]
+\[
+\ln\left|\frac{y-1}{y+1}\right|=2t+C
+\]
+Equivalent implicit form:
+\[
+\boxed{\frac{y-1}{y+1}=Ce^{2t}}
+\]
+
+---
+
+9) \(\dfrac{dP}{dt}=P(4-P)\)
+
+Separate:
+\[
+\frac{dP}{P(4-P)}=dt
+\]
+Partial fractions:
+\[
+\frac{1}{P(4-P)}=\frac{1}{4}\left(\frac{1}{P}+\frac{1}{4-P}\right)
+\]
+Integrate:
+\[
+\int \frac{dP}{P(4-P)}
+=\frac{1}{4}\int\left(\frac{1}{P}+\frac{1}{4-P}\right)dP
+= t + C
+\]
+\[
+\frac{1}{4}\left(\ln|P|-\ln|4-P|\right)=t+C
+\]
+\[
+\frac{1}{4}\ln\left|\frac{P}{4-P}\right|=t+C
+\]
+\[
+\ln\left|\frac{P}{4-P}\right|=4t+C
+\]
+Equivalent implicit form:
+\[
+\boxed{\frac{P}{4-P}=Ce^{4t}}
+\]
+(You can solve explicitly if desired.)
+
+---
+
+10) \(\dfrac{dP}{dt}=t\,P(3-P)\)
+
+Separate:
+\[
+\frac{dP}{P(3-P)} = t\,dt
+\]
+Partial fractions:
+\[
+\frac{1}{P(3-P)}=\frac{1}{3}\left(\frac{1}{P}+\frac{1}{3-P}\right)
+\]
+Integrate both sides:
+\[
+\frac{1}{3}\int\left(\frac{1}{P}+\frac{1}{3-P}\right)dP
+= \int t\,dt
+\]
+\[
+\frac{1}{3}\left(\ln|P|-\ln|3-P|\right)=\frac{t^2}{2}+C
+\]
+\[
+\frac{1}{3}\ln\left|\frac{P}{3-P}\right|=\frac{t^2}{2}+C
+\]
+\[
+\ln\left|\frac{P}{3-P}\right|=\frac{3}{2}t^2 + C
+\]
+Equivalent implicit form:
+\[
+\boxed{\frac{P}{3-P}=Ce^{\frac{3}{2}t^2}}
+\]
+
+---
+
+11. **A**  
+12. **B**  
+13. **C**  
+14. **C**  
+15. **B**
+
+
+## Part III (Separation of Variables with IVPs) {-}
+
+---
+
+1)
+\[
+\frac{dy}{dt}=2y, \quad y(0)=5
+\]
+
+Separate:
+\[
+\frac{1}{y}dy = 2dt
+\]
+
+Integrate:
+\[
+\ln|y| = 2t + C
+\]
+
+Exponentiate:
+\[
+y = Ce^{2t}
+\]
+
+Apply initial condition:
+
+\[
+5 = Ce^0
+\]
+
+\[
+C = 5
+\]
+
+Final solution:
+
+\[
+y = 5e^{2t}
+\]
+
+---
+
+2)
+\[
+\frac{dy}{dt}=-0.5y, \quad y(0)=12
+\]
+
+Separate:
+\[
+\frac{1}{y}dy = -0.5dt
+\]
+
+Integrate:
+\[
+\ln|y| = -0.5t + C
+\]
+
+\[
+y = Ce^{-0.5t}
+\]
+
+Initial condition:
+
+\[
+12 = C
+\]
+
+Solution:
+
+\[
+y = 12e^{-0.5t}
+\]
+
+---
+
+3)
+\[
+\frac{dy}{dt}=ty, \quad y(0)=4
+\]
+
+Separate:
+
+\[
+\frac{1}{y}dy = tdt
+\]
+
+Integrate:
+
+\[
+\ln|y| = \frac{t^2}{2} + C
+\]
+
+\[
+y = Ce^{t^2/2}
+\]
+
+Initial condition:
+
+\[
+4 = C
+\]
+
+Solution:
+
+\[
+y = 4e^{t^2/2}
+\]
+
+---
+
+4)
+\[
+\frac{dy}{dt}=3(y-2), \quad y(0)=5
+\]
+
+Separate:
+
+\[
+\frac{1}{y-2}dy = 3dt
+\]
+
+Integrate:
+
+\[
+\ln|y-2| = 3t + C
+\]
+
+\[
+y-2 = Ce^{3t}
+\]
+
+Initial condition:
+
+\[
+3 = C
+\]
+
+Solution:
+
+\[
+y = 2 + 3e^{3t}
+\]
+
+---
+
+5)
+
+\[
+\frac{dy}{dt}=t(y+1), \quad y(0)=0
+\]
+
+Separate:
+
+\[
+\frac{1}{y+1}dy = tdt
+\]
+
+Integrate:
+
+\[
+\ln|y+1| = \frac{t^2}{2} + C
+\]
+
+\[
+y+1 = Ce^{t^2/2}
+\]
+
+Initial condition:
+
+\[
+1 = C
+\]
+
+Solution:
+
+\[
+y = e^{t^2/2} - 1
+\]
+
+---
+
+6)
+
+\[
+\frac{dy}{dt}=y^2, \quad y(0)=2
+\]
+
+Separate:
+
+\[
+\frac{1}{y^2}dy = dt
+\]
+
+Integrate:
+
+\[
+-\frac{1}{y} = t + C
+\]
+
+\[
+\frac{1}{y} = C - t
+\]
+
+Initial condition:
+
+\[
+\frac{1}{2} = C
+\]
+
+Solution:
+
+\[
+y = \frac{1}{\frac{1}{2} - t}
+\]
+
+---
+
+7)
+
+\[
+\frac{dy}{dt}=y^2-4, \quad y(0)=3
+\]
+
+Separate:
+
+\[
+\frac{dy}{y^2-4} = dt
+\]
+
+Factor:
+
+\[
+y^2-4=(y-2)(y+2)
+\]
+
+Partial fractions:
+
+\[
+\frac{1}{y^2-4}
+= \frac{1}{4}\left(\frac{1}{y-2}-\frac{1}{y+2}\right)
+\]
+
+Integrate:
+
+\[
+\frac{1}{4}\ln\left|\frac{y-2}{y+2}\right| = t + C
+\]
+
+Initial condition:
+
+\[
+\frac{1}{4}\ln\left(\frac{1}{5}\right)=C
+\]
+
+Solution (implicit):
+
+\[
+\ln\left|\frac{y-2}{y+2}\right| = 4t + \ln\left(\frac{1}{5}\right)
+\]
+
+---
+
+8)
+
+\[
+\frac{dP}{dt}=P(5-P), \quad P(0)=1
+\]
+
+Separate:
+
+\[
+\frac{dP}{P(5-P)}=dt
+\]
+
+Partial fractions:
+
+\[
+\frac{1}{P(5-P)}=\frac{1}{5}\left(\frac{1}{P}+\frac{1}{5-P}\right)
+\]
+
+Integrate:
+
+\[
+\frac{1}{5}\ln\left|\frac{P}{5-P}\right| = t + C
+\]
+
+Initial condition:
+
+\[
+\frac{1}{5}\ln\left(\frac{1}{4}\right)=C
+\]
+
+Solution (implicit):
+
+\[
+\ln\left|\frac{P}{5-P}\right| = 5t + \ln\left(\frac{1}{4}\right)
+\]
+
+---
+
+9)
+
+\[
+\frac{dP}{dt}=P(3-P), \quad P(0)=2
+\]
+
+Separate:
+
+\[
+\frac{dP}{P(3-P)} = dt
+\]
+
+Partial fractions:
+
+\[
+\frac{1}{3}\left(\frac{1}{P}+\frac{1}{3-P}\right)
+\]
+
+Integrate:
+
+\[
+\frac{1}{3}\ln\left|\frac{P}{3-P}\right| = t + C
+\]
+
+Initial condition:
+
+\[
+\frac{1}{3}\ln(2)=C
+\]
+
+Solution (implicit):
+
+\[
+\ln\left|\frac{P}{3-P}\right| = 3t + \ln(2)
+\]
+
+---
+
+10)
+
+\[
+\frac{dP}{dt}=tP(4-P), \quad P(0)=1
+\]
+
+Separate:
+
+\[
+\frac{dP}{P(4-P)} = tdt
+\]
+
+Partial fractions:
+
+\[
+\frac{1}{4}\left(\frac{1}{P}+\frac{1}{4-P}\right)
+\]
+
+Integrate:
+
+\[
+\frac{1}{4}\ln\left|\frac{P}{4-P}\right| = \frac{t^2}{2} + C
+\]
+
+Initial condition:
+
+\[
+\frac{1}{4}\ln\left(\frac{1}{3}\right)=C
+\]
+
+Solution:
+
+\[
+\ln\left|\frac{P}{4-P}\right|
+= 2t^2 + \ln\left(\frac{1}{3}\right)
+\]
+
+---
+
+
+
+11  
+**Answer:** B  
+The initial condition determines the constant of integration so the solution matches the starting value.
+
+---
+
+12  
+**Answer:** B  
+Separating variables allows us to integrate each variable independently on opposite sides of the equation.
+
+---
+
+13  
+**Answer:** A  
+The exponential function is unique because its derivative is proportional to itself.
+
+---
+
+ 14  
+**Answer:** C  
+The constant appears because indefinite integrals represent a family of antiderivatives.
+
+---
+
+15  
+**Answer:** B  
+The constant of integration only appears after integrating, so the initial condition must be applied afterward.
+
+---
+
+16  
+**Answer:** B  
+When integrating both sides we technically get two constants, but they can be combined into a single new constant.
+
+
+## Part IV
+
+---
+
+1
+
+\[
+\frac{dy}{dt}=ky,\qquad y(0)=4,\qquad y(3)=20
+\]
+
+General solution:
+
+\[
+y = Ce^{kt}
+\]
+
+Initial condition:
+
+\[
+4 = Ce^0
+\]
+
+\[
+C=4
+\]
+
+Model:
+
+\[
+y = 4e^{kt}
+\]
+
+Use second point:
+
+\[
+20 = 4e^{3k}
+\]
+
+\[
+5 = e^{3k}
+\]
+
+\[
+k = \frac{\ln 5}{3}
+\]
+
+Final model:
+
+\[
+y = 4e^{(\ln 5 /3)t}
+\]
+
+---
+
+2
+
+\[
+\frac{dP}{dt}=kP,\qquad P(0)=10,\qquad P(5)=80
+\]
+
+General solution:
+
+\[
+P = Ce^{kt}
+\]
+
+Initial condition:
+
+\[
+10 = C
+\]
+
+\[
+P = 10e^{kt}
+\]
+
+Second point:
+
+\[
+80 = 10e^{5k}
+\]
+
+\[
+8 = e^{5k}
+\]
+
+\[
+k = \frac{\ln 8}{5}
+\]
+
+Final model:
+
+\[
+P = 10e^{(\ln 8/5)t}
+\]
+
+---
+
+ 3
+
+\[
+\frac{dN}{dt}=kN,\qquad N(0)=6,\qquad N(4)=18
+\]
+
+General solution:
+
+\[
+N = Ce^{kt}
+\]
+
+Initial condition:
+
+\[
+C=6
+\]
+
+\[
+N = 6e^{kt}
+\]
+
+Second point:
+
+\[
+18 = 6e^{4k}
+\]
+
+\[
+3 = e^{4k}
+\]
+
+\[
+k = \frac{\ln 3}{4}
+\]
+
+Final model:
+
+\[
+N = 6e^{(\ln 3/4)t}
+\]
+
+---
+
+4
+
+\[
+\frac{dC}{dt}=kC,\qquad C(0)=12,\qquad C(2)=9
+\]
+
+General solution:
+
+\[
+C = Ce^{kt}
+\]
+
+Initial condition:
+
+\[
+C=12
+\]
+
+\[
+C(t) = 12e^{kt}
+\]
+
+Second point:
+
+\[
+9 = 12e^{2k}
+\]
+
+\[
+\frac{3}{4} = e^{2k}
+\]
+
+\[
+k = \frac{\ln(3/4)}{2}
+\]
+
+Final model:
+
+\[
+C(t) = 12e^{(\ln(3/4)/2)t}
+\]
+
+---
+
+5
+
+\[
+\frac{dP}{dt}=kP,\qquad P(0)=5,\qquad P(6)=15
+\]
+
+General solution:
+
+\[
+P = Ce^{kt}
+\]
+
+Initial condition:
+
+\[
+C=5
+\]
+
+\[
+P = 5e^{kt}
+\]
+
+Second point:
+
+\[
+15 = 5e^{6k}
+\]
+
+\[
+3 = e^{6k}
+\]
+
+\[
+k = \frac{\ln 3}{6}
+\]
+
+Final model:
+
+\[
+P = 5e^{(\ln 3/6)t}
+\]
+
+---
+
+6. **B**  
+
+7. **A**  
+
+8. **B**
+
+---
+
+## Part V {-}
+
+**1)**
+
+\[
+\dfrac{dN}{dt} = -0.3N + 9
+\]
+
+a) \(N=0\)
+
+\[
+dN/dt = 9 > 0
+\]
+
+Increasing.
+
+b) \(N=10\)
+
+\[
+dN/dt = -3 + 9 = 6 > 0
+\]
+
+Increasing.
+
+c) \(N=30\)
+
+\[
+dN/dt = -9 + 9 = 0
+\]
+
+Momentarily constant (equilibrium).
+
+d) \(N=40\)
+
+\[
+dN/dt = -12 + 9 = -3
+\]
+
+Decreasing.
+
+---
+
+**2)**
+
+Set \(dN/dt = 0\)
+
+\[
+-0.3N + 9 = 0
+\]
+
+\[
+N^* = 30
+\]
+
+Stability:
+
+- If \(N < 30\): slope is positive → solutions increase.
+- If \(N > 30\): slope is negative → solutions decrease.
+
+Therefore the equilibrium is **stable**.
+
+Direction diagram:
+
+\[
+\rightarrow \quad 30 \quad \leftarrow
+\]
+
+Long-term behavior: all solutions move toward \(N=30\).
+
+---
+
+**3)**
+
+\[
+\dfrac{dP}{dt} = P(6-P)
+\]
+
+Equilibria:
+
+\[
+P = 0, \quad P = 6
+\]
+
+Sign analysis:
+
+- \(0<P<6\): positive → increasing.
+- \(P>6\): negative → decreasing.
+
+Classification:
+
+- \(P=0\): **unstable**
+- \(P=6\): **stable**
+
+Direction diagram:
+
+\[
+0 \rightarrow \quad \rightarrow 6 \leftarrow
+\]
+
+Behavior:
+
+- \(P(0)=2\): increases toward 6  
+- \(P(0)=5\): increases toward 6  
+- \(P(0)=8\): decreases toward 6
+
+---
+
+**4)**
+
+\[
+\dfrac{dP}{dt} = P(4-P)(P-1)
+\]
+
+Equilibria:
+
+\[
+P=0, \quad P=1, \quad P=4
+\]
+
+Sign analysis:
+
+| Interval | Sign |
+|---|---|
+| \(P<0\) | negative |
+| \(0<P<1\) | positive |
+| \(1<P<4\) | negative |
+| \(P>4\) | positive |
+
+Classification:
+
+- \(P=0\): unstable  
+- \(P=1\): stable  
+- \(P=4\): unstable
+
+Direction diagram:
+
+\[
+\leftarrow 0 \rightarrow 1 \leftarrow 4 \rightarrow
+\]
+
+Behavior:
+
+- \(P(0)=0.5\): increases toward \(P=1\)
+- \(P(0)=2\): decreases toward \(P=1\)
+- \(P(0)=5\): increases without bound
+
+
+
+</div>
+
+<form onsubmit="unlock_set4(); return false;" id="gate_set4" style="margin-top:0.75rem;">
+  <input type="password" id="pwd_set4" placeholder="Enter password" aria-label="Answer key password">
+  <button type="submit">Unlock</button>
+  <span id="msg_set4" style="margin-left:0.5rem;" aria-live="polite"></span>
+</form>
+
+<script>
+function unlock_set4() {
+  var input = document.getElementById('pwd_set4');
+  var msg   = document.getElementById('msg_set4');
+  var sol   = document.getElementById('sol_set4');
+  var gate  = document.getElementById('gate_set4');
+  var pw    = (input.value || '').trim();
+  var det   = gate.closest('details'); if (det) det.open = true;
+
+  if (pw === 'footy') {
+    sol.hidden = false;
+    gate.hidden = true;
+    input.value = '';
+    msg.textContent = '';
+  } else {
+    msg.textContent = 'Stop guessing :) Ask a TA';
+    input.value = '';
+    input.focus();
+  }
+}
+</script>
+
+

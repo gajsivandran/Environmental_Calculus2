@@ -23,7 +23,7 @@
 <meta name="author" content="Gaj Sivandran" />
 
 
-<meta name="date" content="2026-03-02" />
+<meta name="date" content="2026-03-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1077,6 +1077,12 @@
 <li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#step-7-thinking-bigger"><i class="fa fa-check"></i>Step 7 — Thinking Bigger</a></li>
 <li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#final-reflection-2"><i class="fa fa-check"></i>Final Reflection</a></li>
 </ul></li>
+<li class="chapter" data-level="16.14" data-path="differential-equations.html"><a href="differential-equations.html#practice-practice-practice"><i class="fa fa-check"></i><b>16.14</b> Practice Practice Practice</a></li>
+<li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#part-i---matching-slope-fields"><i class="fa fa-check"></i>Part I - Matching Slope Fields</a></li>
+<li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#part-ii.-separation-of-variables-practice"><i class="fa fa-check"></i>Part II. Separation of Variables Practice</a></li>
+<li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#part-iii.-separation-of-variables-with-initial-conditions"><i class="fa fa-check"></i>Part III. Separation of Variables with Initial Conditions</a></li>
+<li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#part-iv.-determining-the-rate-constant-from-two-points"><i class="fa fa-check"></i>Part IV. Determining the Rate Constant from Two Points</a></li>
+<li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#part-v.-slope-fields-equilibria-and-stability"><i class="fa fa-check"></i>Part V. Slope Fields, Equilibria, and Stability</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -2087,9 +2093,1374 @@ t = \frac{\ln(4)}{0.15}
 <p>Only the context changed.</p>
 <p>This is the power of differential equations:
 they describe structure that appears across very different systems.</p>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div id="practice-practice-practice" class="section level2 hasAnchor" number="16.14">
+<h2><span class="header-section-number">16.14</span> Practice Practice Practice<a href="differential-equations.html#practice-practice-practice" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="part-i---matching-slope-fields" class="section level2 unnumbered hasAnchor">
+<h2>Part I - Matching Slope Fields<a href="differential-equations.html#part-i---matching-slope-fields" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Things to think about</p>
+<ul>
+<li>Identify where the equilibrium points are in the differential equation</li>
+<li>Think about symmetry; ask “does the slope change in x, in y, or in x and y”</li>
+<li>Calculate the derivative at a few test points
+<ul>
+<li>check for sign and magnitude</li>
+</ul></li>
+</ul>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-65-1.png" width="672" /></p>
+<p><strong>Differential Equations (Match with Slope Fields)</strong></p>
+<p>Write the <strong>letter of the slope field (A–I)</strong> that matches each differential equation.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Equation</th>
+<th align="center">Matching Slope Field</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math display">\[\dfrac{dy}{dx} = x + y\]</span></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math display">\[\dfrac{dy}{dx} = e^{-x}\]</span></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math display">\[\dfrac{dy}{dx} = y(1-y)\]</span></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math display">\[\dfrac{dy}{dx} = x^2 - y^2\]</span></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math display">\[\dfrac{dy}{dx} = 2y + 1\]</span></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math display">\[\dfrac{dy}{dx} = \cos(x)\]</span></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math display">\[\dfrac{dy}{dx} = x^2\]</span></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math display">\[\dfrac{dy}{dx} = y^3 - y\]</span></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math display">\[\dfrac{dy}{dx} = x - y\]</span></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="part-ii.-separation-of-variables-practice" class="section level2 unnumbered hasAnchor">
+<h2>Part II. Separation of Variables Practice<a href="differential-equations.html#part-ii.-separation-of-variables-practice" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Solve each differential equation using <strong>separation of variables</strong>.<br />
+Include the constant of integration. If an initial condition is given, find the specific solution.</p>
+<p>Problems are ordered roughly from <strong>easiest to hardest</strong>.</p>
+<hr />
+<ol style="list-style-type: decimal">
+<li><p><strong>Basic exponential growth</strong>
+<span class="math display">\[
+\dfrac{dy}{dt}=3y
+\]</span></p></li>
+<li><p><strong>Basic exponential decay</strong>
+<span class="math display">\[
+\dfrac{dy}{dt}=-0.6y
+\]</span></p></li>
+<li><p><strong>Power of <span class="math inline">\(t\)</span> times <span class="math inline">\(y\)</span></strong>
+<span class="math display">\[
+\dfrac{dy}{dt}=t\,y
+\]</span></p></li>
+<li><p><strong>State dependence with a shift</strong>
+<span class="math display">\[
+\dfrac{dy}{dt}=2(y-1)
+\]</span></p></li>
+<li><p><strong>Product of <span class="math inline">\(t\)</span> and a shifted state</strong>
+<span class="math display">\[
+\dfrac{dy}{dt}=t(y+2)
+\]</span></p></li>
+<li><p><strong>Rational state dependence</strong>
+<span class="math display">\[
+\dfrac{dy}{dt}=\frac{y}{1+y}
+\]</span></p></li>
+<li><p><strong>Quadratic nonlinearity</strong>
+<span class="math display">\[
+\dfrac{dy}{dt}=y^2
+\]</span></p></li>
+<li><p><strong>Quadratic with a shift (requires partial fractions)</strong>
+<span class="math display">\[
+\dfrac{dy}{dt}=y^2-1
+\]</span></p></li>
+<li><p><strong>Logistic-style structure (partial fractions)</strong>
+<span class="math display">\[
+\dfrac{dP}{dt}=P(4-P)
+\]</span></p></li>
+<li><p><strong>Mixed time and logistic-style state dependence</strong>
+<span class="math display">\[
+\dfrac{dP}{dt}=t\,P(3-P)
+\]</span></p></li>
+</ol>
+<hr />
+<p><strong>11</strong></p>
+<p>When solving a differential equation using <strong>separation of variables</strong>, what is the main goal of the separation step?</p>
+<ol style="list-style-type: upper-alpha">
+<li><p>Rewrite the equation so that <strong>all <span class="math inline">\(y\)</span> terms are with <span class="math inline">\(dy\)</span></strong> and <strong>all <span class="math inline">\(t\)</span> terms are with <span class="math inline">\(dt\)</span></strong></p></li>
+<li><p>Eliminate the derivative from the equation</p></li>
+<li><p>Move all constants to the left side of the equation</p></li>
+<li><p>Make the equation linear</p></li>
+</ol>
+<hr />
+<p><strong>12</strong></p>
+<p>Consider</p>
+<p><span class="math display">\[
+\dfrac{dy}{dt} = ty
+\]</span></p>
+<p>What is the <strong>correct first step</strong> in separating variables?</p>
+<ol style="list-style-type: upper-alpha">
+<li><p><span class="math inline">\(y\,dy = t\,dt\)</span></p></li>
+<li><p><span class="math inline">\(\dfrac{1}{y}dy = t\,dt\)</span></p></li>
+<li><p><span class="math inline">\(dy = ty\,dt\)</span></p></li>
+<li><p><span class="math inline">\(\dfrac{1}{t}dy = y\,dt\)</span></p></li>
+</ol>
+<hr />
+<p><strong>13</strong></p>
+<p>After separating variables, why are we allowed to <strong>integrate both sides</strong> of the equation?</p>
+<ol style="list-style-type: upper-alpha">
+<li><p>Because the derivative has been eliminated</p></li>
+<li><p>Because both sides now represent <strong>differentials of the same variable</strong></p></li>
+<li><p>Because each side now depends on <strong>only one variable</strong>, so each can be integrated independently</p></li>
+<li><p>Because the equation becomes algebraic</p></li>
+</ol>
+<hr />
+<p><strong>14</strong></p>
+<p>When solving</p>
+<p><span class="math display">\[
+\dfrac{dy}{dt} = 2y
+\]</span></p>
+<p>the step</p>
+<p><span class="math display">\[
+\frac{1}{y}dy = 2dt
+\]</span></p>
+<p>is useful because it allows us to integrate</p>
+<ol style="list-style-type: upper-alpha">
+<li><p><span class="math inline">\(y\)</span> with respect to <span class="math inline">\(t\)</span></p></li>
+<li><p><span class="math inline">\(y\)</span> with respect to <span class="math inline">\(y\)</span></p></li>
+<li><p>each variable with respect to <strong>its own differential</strong></p></li>
+<li><p>both sides with respect to <span class="math inline">\(t\)</span></p></li>
+</ol>
+<hr />
+<p><strong>15</strong></p>
+<p>After integrating both sides of a separated equation we obtain</p>
+<p><span class="math display">\[
+\ln|y| = 3t + C
+\]</span></p>
+<p>Why do we usually rewrite the solution as</p>
+<p><span class="math display">\[
+y = Ce^{3t}
+\]</span></p>
+<ol style="list-style-type: upper-alpha">
+<li><p>Because exponential form is easier to differentiate</p></li>
+<li><p>Because solving for <span class="math inline">\(y\)</span> gives a clearer expression for the function</p></li>
+<li><p>Because logarithms cannot contain constants</p></li>
+<li><p>Because separation of variables requires exponential solutions</p></li>
+</ol>
+<hr />
+</div>
+<div id="part-iii.-separation-of-variables-with-initial-conditions" class="section level2 unnumbered hasAnchor">
+<h2>Part III. Separation of Variables with Initial Conditions<a href="differential-equations.html#part-iii.-separation-of-variables-with-initial-conditions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Solve each differential equation using <strong>separation of variables</strong>.<br />
+Then use the <strong>initial condition</strong> to determine the constant and write the <strong>specific solution</strong>.</p>
+<hr />
+<ol style="list-style-type: decimal">
+<li><span class="math display">\[
+\frac{dy}{dt} = 2y,
+\qquad y(0)=5
+\]</span></li>
+</ol>
+<hr />
+<ol start="2" style="list-style-type: decimal">
+<li><span class="math display">\[
+\frac{dy}{dt} = -0.5y,
+\qquad y(0)=12
+\]</span></li>
+</ol>
+<hr />
+<ol start="3" style="list-style-type: decimal">
+<li><span class="math display">\[
+\frac{dy}{dt} = t\,y,
+\qquad y(0)=4
+\]</span></li>
+</ol>
+<hr />
+<ol start="4" style="list-style-type: decimal">
+<li><span class="math display">\[
+\frac{dy}{dt} = 3(y-2),
+\qquad y(0)=5
+\]</span></li>
+</ol>
+<hr />
+<ol start="5" style="list-style-type: decimal">
+<li><span class="math display">\[
+\frac{dy}{dt} = t(y+1),
+\qquad y(0)=0
+\]</span></li>
+</ol>
+<hr />
+<ol start="6" style="list-style-type: decimal">
+<li><span class="math display">\[
+\frac{dy}{dt} = y^2,
+\qquad y(0)=2
+\]</span></li>
+</ol>
+<hr />
+<ol start="7" style="list-style-type: decimal">
+<li><span class="math display">\[
+\frac{dy}{dt} = y^2-4,
+\qquad y(0)=3
+\]</span></li>
+</ol>
+<hr />
+<ol start="8" style="list-style-type: decimal">
+<li><span class="math display">\[
+\frac{dP}{dt} = P(5-P),
+\qquad P(0)=1
+\]</span></li>
+</ol>
+<hr />
+<ol start="9" style="list-style-type: decimal">
+<li><span class="math display">\[
+\frac{dP}{dt} = P(3-P),
+\qquad P(0)=2
+\]</span></li>
+</ol>
+<hr />
+<ol start="10" style="list-style-type: decimal">
+<li><span class="math display">\[
+\frac{dP}{dt} = t\,P(4-P),
+\qquad P(0)=1
+\]</span></li>
+</ol>
+<hr />
+<p><strong>11. What is the purpose of the initial condition in an initial value problem (IVP)?</strong></p>
+<ol style="list-style-type: upper-alpha">
+<li><p>It helps separate the variables correctly.</p></li>
+<li><p>It determines the constant of integration so that the solution matches the starting value.</p></li>
+<li><p>It changes the differential equation itself.</p></li>
+<li><p>It makes the solution easier to integrate.</p></li>
+</ol>
+<hr />
+<p><strong>12. Why do we separate variables before integrating in these problems?</strong></p>
+<ol style="list-style-type: upper-alpha">
+<li><p>It guarantees the solution will be linear.</p></li>
+<li><p>It allows us to integrate each variable independently on different sides of the equation.</p></li>
+<li><p>It removes the constant of integration.</p></li>
+<li><p>It ensures the solution will be exponential.</p></li>
+</ol>
+<hr />
+<p><strong>13. When solving</strong></p>
+<p><span class="math display">\[
+\frac{dy}{dt} = ky
+\]</span></p>
+<p>why does the solution always take the form <span class="math inline">\(y = Ce^{kt}\)</span>?</p>
+<ol style="list-style-type: upper-alpha">
+<li><p>Because the derivative of <span class="math inline">\(e^{kt}\)</span> is proportional to itself.</p></li>
+<li><p>Because exponentials are the only functions we know how to integrate.</p></li>
+<li><p>Because the constant <span class="math inline">\(k\)</span> forces the solution to be exponential.</p></li>
+<li><p>Because all differential equations produce exponential solutions.</p></li>
+</ol>
+<hr />
+<p><strong>14. When solving a differential equation using separation of variables, where does the constant of integration come from?</strong></p>
+<ol style="list-style-type: upper-alpha">
+<li><p>From the original differential equation.</p></li>
+<li><p>From the initial condition.</p></li>
+<li><p>From the integration step.</p></li>
+<li><p>From rewriting the equation in separated form.</p></li>
+</ol>
+<hr />
+<p><strong>15. Why do we substitute the initial condition <em>after</em> integrating rather than before?</strong></p>
+<ol style="list-style-type: upper-alpha">
+<li><p>Because the equation cannot be separated until after integration.</p></li>
+<li><p>Because the constant of integration does not appear until after we integrate.</p></li>
+<li><p>Because the initial condition changes the derivative.</p></li>
+<li><p>Because the integration rules require a value for the constant first.</p></li>
+</ol>
+<hr />
+<p><strong>16. When separating variables and integrating both sides, it looks like we should get two constants of integration. Why do we usually write only one constant in the final solution?</strong></p>
+<ol style="list-style-type: upper-alpha">
+<li><p>Because the two constants cancel each other out.</p></li>
+<li><p>Because constants from both sides can be combined into a single new constant.</p></li>
+<li><p>Because one constant always equals zero.</p></li>
+<li><p>Because the initial condition removes one of the constants automatically.</p></li>
+</ol>
+</div>
+<div id="part-iv.-determining-the-rate-constant-from-two-points" class="section level2 unnumbered hasAnchor">
+<h2>Part IV. Determining the Rate Constant from Two Points<a href="differential-equations.html#part-iv.-determining-the-rate-constant-from-two-points" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For each problem below:</p>
+<ol style="list-style-type: decimal">
+<li>Solve the differential equation.</li>
+<li>Use the <strong>initial condition</strong> to determine the constant of integration.</li>
+<li>Use the <strong>second data point</strong> to determine the <strong>rate constant</strong>.</li>
+</ol>
+<p>Write the <strong>final function</strong> describing the system.</p>
+<hr />
+<ol style="list-style-type: decimal">
+<li></li>
+</ol>
+<p><span class="math display">\[
+\frac{dy}{dt} = ky
+\]</span></p>
+<p><span class="math display">\[
+y(0) = 4, \qquad y(3) = 20
+\]</span></p>
+<hr />
+<ol start="2" style="list-style-type: decimal">
+<li></li>
+</ol>
+<p><span class="math display">\[
+\frac{dP}{dt} = kP
+\]</span></p>
+<p><span class="math display">\[
+P(0) = 10, \qquad P(5) = 80
+\]</span></p>
+<hr />
+<ol start="3" style="list-style-type: decimal">
+<li></li>
+</ol>
+<p><span class="math display">\[
+\frac{dN}{dt} = kN
+\]</span></p>
+<p><span class="math display">\[
+N(0) = 6, \qquad N(4) = 18
+\]</span></p>
+<hr />
+<ol start="4" style="list-style-type: decimal">
+<li></li>
+</ol>
+<p><span class="math display">\[
+\frac{dC}{dt} = kC
+\]</span></p>
+<p><span class="math display">\[
+C(0) = 12, \qquad C(2) = 9
+\]</span></p>
+<hr />
+<ol start="5" style="list-style-type: decimal">
+<li></li>
+</ol>
+<p><span class="math display">\[
+\frac{dP}{dt} = kP
+\]</span></p>
+<p><span class="math display">\[
+P(0) = 5, \qquad P(6) = 15
+\]</span></p>
+<hr />
+<ol start="6" style="list-style-type: decimal">
+<li></li>
+</ol>
+<p>After solving</p>
+<p><span class="math display">\[
+\frac{dy}{dt}=ky
+\]</span></p>
+<p>we obtain</p>
+<p><span class="math display">\[
+y = Ce^{kt}
+\]</span></p>
+<p>Which piece of information determines the constant <span class="math inline">\(C\)</span>?</p>
+<ol style="list-style-type: upper-alpha">
+<li><p>The differential equation</p></li>
+<li><p>The initial condition</p></li>
+<li><p>The second data point</p></li>
+<li><p>The value of <span class="math inline">\(k\)</span></p></li>
+</ol>
+<hr />
+<ol start="7" style="list-style-type: decimal">
+<li></li>
+</ol>
+<p>Once the constant <span class="math inline">\(C\)</span> is known, what is the purpose of the <strong>second data point</strong>?</p>
+<ol style="list-style-type: upper-alpha">
+<li><p>It determines the rate constant <span class="math inline">\(k\)</span></p></li>
+<li><p>It confirms that the derivative is correct</p></li>
+<li><p>It changes the constant <span class="math inline">\(C\)</span></p></li>
+<li><p>It determines the time variable</p></li>
+</ol>
+<hr />
+<ol start="8" style="list-style-type: decimal">
+<li></li>
+</ol>
+<p>After solving a differential equation and applying the <strong>initial condition</strong>, we obtain a model like</p>
+<p><span class="math display">\[
+y = 8e^{kt}
+\]</span></p>
+<p>Why do we still need another data point?</p>
+<ol style="list-style-type: upper-alpha">
+<li><p>To verify the solution method</p></li>
+<li><p>To determine the value of the rate constant <span class="math inline">\(k\)</span></p></li>
+<li><p>To calculate the derivative</p></li>
+<li><p>To eliminate the exponential function</p></li>
+</ol>
+<hr />
+</div>
+<div id="part-v.-slope-fields-equilibria-and-stability" class="section level2 unnumbered hasAnchor">
+<h2>Part V. Slope Fields, Equilibria, and Stability<a href="differential-equations.html#part-v.-slope-fields-equilibria-and-stability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><em>(No explicit solving required. Use sign reasoning and interpretation.)</em></p>
+<p>In this section, you are not asked to solve the differential equations algebraically. Instead, focus on understanding how the <strong>rate of change depends on the current value of the variable</strong>, and use that to predict behavior.</p>
+<hr />
+<p><strong>1) Interpreting the sign of the rate</strong></p>
+<p>Consider the differential equation:</p>
+<p><span class="math display">\[
+\dfrac{dN}{dt} = -0.3N + 9.
+\]</span></p>
+<p>For each value of <span class="math inline">\(N\)</span>, determine whether the solution is <strong>increasing</strong>, <strong>decreasing</strong>, or <strong>momentarily constant</strong>. Explain your reasoning using the sign of the derivative.</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(N = 0\)</span><br />
+</li>
+<li><span class="math inline">\(N = 10\)</span><br />
+</li>
+<li><span class="math inline">\(N = 30\)</span><br />
+</li>
+<li><span class="math inline">\(N = 40\)</span></li>
+</ol>
+<hr />
+<p><strong>2) Equilibrium and long-term behavior</strong></p>
+<p>Using</p>
+<p><span class="math display">\[
+\dfrac{dN}{dt} = -0.3N + 9,
+\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li>Find the equilibrium value <span class="math inline">\(N^*\)</span>.<br />
+</li>
+<li>Classify it as <strong>stable or unstable</strong> using sign reasoning.<br />
+</li>
+<li>Sketch a <strong>one-dimensional direction diagram</strong> (arrows on the <span class="math inline">\(N\)</span>-axis).<br />
+</li>
+<li>Predict the long-term behavior for different initial values of <span class="math inline">\(N\)</span>.</li>
+</ol>
+<hr />
+<p><strong>3) Logistic-style equilibrium reasoning</strong></p>
+<p>Consider the differential equation:</p>
+<p><span class="math display">\[
+\dfrac{dP}{dt} = P(6 - P).
+\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li>Find all equilibrium values.<br />
+</li>
+<li>Use <strong>sign reasoning</strong> to determine whether each equilibrium is <strong>stable or unstable</strong>.<br />
+</li>
+<li>Draw a <strong>direction diagram</strong> on the <span class="math inline">\(P\)</span>-axis.<br />
+</li>
+<li>Describe what happens to the population if:</li>
+</ol>
+<ul>
+<li><span class="math inline">\(P(0)=2\)</span><br />
+</li>
+<li><span class="math inline">\(P(0)=5\)</span><br />
+</li>
+<li><span class="math inline">\(P(0)=8\)</span></li>
+</ul>
+<hr />
+<p><strong>4) Multiple equilibria and thresholds</strong></p>
+<p>Consider</p>
+<p><span class="math display">\[
+\dfrac{dP}{dt} = P(4 - P)(P - 1).
+\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li>Find all equilibrium values.<br />
+</li>
+<li>Determine the sign of <span class="math inline">\(dP/dt\)</span> in each interval between equilibria.<br />
+</li>
+<li>Classify each equilibrium as <strong>stable or unstable</strong>.<br />
+</li>
+<li>Predict the long-term behavior if:</li>
+</ol>
+<ul>
+<li><span class="math inline">\(P(0)=0.5\)</span><br />
+</li>
+<li><span class="math inline">\(P(0)=2\)</span><br />
+</li>
+<li><span class="math inline">\(P(0)=5\)</span></li>
+</ul>
+<p>Explain your reasoning using <strong>sign patterns and direction arrows</strong>.</p>
+<hr />
+<strong>Solution Key</strong>
+<details open>
+<summary>
+<strong>Click to Unlock Solutions</strong>
+</summary>
+</div>
+<div id="sol_set4" hidden="" markdown="1" style="margin-top:0.75rem;">
+<div id="part-1-matching" class="section level2 unnumbered hasAnchor">
+<h2>Part 1 Matching<a href="differential-equations.html#part-1-matching" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li><p>→ <strong>E</strong></p></li>
+<li><p>→ <strong>H</strong></p></li>
+<li><p>→ <strong>B</strong></p></li>
+<li><p>→ <strong>I</strong></p></li>
+<li><p>→ <strong>A</strong></p></li>
+<li><p>→ <strong>F</strong></p></li>
+<li><p>→ <strong>C</strong></p></li>
+<li><p>→ <strong>G</strong></p></li>
+<li><p>→ <strong>D</strong></p></li>
+</ol>
+</div>
+<div id="part-ii-separation-of-variables" class="section level2 unnumbered hasAnchor">
+<h2>Part II (Separation of Variables)<a href="differential-equations.html#part-ii-separation-of-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<hr />
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\dfrac{dy}{dt}=3y\)</span></li>
+</ol>
+<p>Separate and integrate:
+<span class="math display">\[
+\frac{1}{y}\,dy = 3\,dt
+\]</span>
+<span class="math display">\[
+\ln|y| = 3t + C
+\]</span>
+Exponentiate:
+<span class="math display">\[
+y = Ce^{3t}
+\]</span></p>
+<hr />
+<ol start="2" style="list-style-type: decimal">
+<li><span class="math inline">\(\dfrac{dy}{dt}=-0.6y\)</span></li>
+</ol>
+<p><span class="math display">\[
+\frac{1}{y}\,dy = -0.6\,dt
+\]</span>
+<span class="math display">\[
+\ln|y| = -0.6t + C
+\]</span>
+<span class="math display">\[
+y = Ce^{-0.6t}
+\]</span></p>
+<hr />
+<ol start="3" style="list-style-type: decimal">
+<li><span class="math inline">\(\dfrac{dy}{dt}=t\,y\)</span></li>
+</ol>
+<p><span class="math display">\[
+\frac{1}{y}\,dy = t\,dt
+\]</span>
+<span class="math display">\[
+\ln|y| = \frac{t^2}{2} + C
+\]</span>
+<span class="math display">\[
+y = Ce^{t^2/2}
+\]</span></p>
+<hr />
+<ol start="4" style="list-style-type: decimal">
+<li><span class="math inline">\(\dfrac{dy}{dt}=2(y-1)\)</span></li>
+</ol>
+<p><span class="math display">\[
+\frac{1}{y-1}\,dy = 2\,dt
+\]</span>
+<span class="math display">\[
+\ln|y-1| = 2t + C
+\]</span>
+<span class="math display">\[
+y - 1 = Ce^{2t}
+\]</span>
+<span class="math display">\[
+y = 1 + Ce^{2t}
+\]</span></p>
+<hr />
+<ol start="5" style="list-style-type: decimal">
+<li><span class="math inline">\(\dfrac{dy}{dt}=t(y+2)\)</span></li>
+</ol>
+<p><span class="math display">\[
+\frac{1}{y+2}\,dy = t\,dt
+\]</span>
+<span class="math display">\[
+\ln|y+2| = \frac{t^2}{2} + C
+\]</span>
+<span class="math display">\[
+y+2 = Ce^{t^2/2}
+\]</span>
+<span class="math display">\[
+y = -2 + Ce^{t^2/2}
+\]</span></p>
+<hr />
+<ol start="6" style="list-style-type: decimal">
+<li><span class="math inline">\(\dfrac{dy}{dt}=\dfrac{y}{1+y}\)</span></li>
+</ol>
+<p>Separate:
+<span class="math display">\[
+\frac{1+y}{y}\,dy = dt
+\]</span>
+Rewrite:
+<span class="math display">\[
+\left(\frac{1}{y}+1\right)dy = dt
+\]</span>
+Integrate:
+<span class="math display">\[
+\ln|y| + y = t + C
+\]</span></p>
+<p>So the (implicit) solution is:
+<span class="math display">\[
+\boxed{\ln|y| + y = t + C}
+\]</span>
+(An explicit formula for <span class="math inline">\(y(t)\)</span> is not elementary.)</p>
+<hr />
+<ol start="7" style="list-style-type: decimal">
+<li><span class="math inline">\(\dfrac{dy}{dt}=y^2\)</span></li>
+</ol>
+<p><span class="math display">\[
+\frac{1}{y^2}\,dy = dt
+\]</span>
+<span class="math display">\[
+\int y^{-2}\,dy = \int 1\,dt
+\]</span>
+<span class="math display">\[
+-\,\frac{1}{y} = t + C
+\]</span>
+Solve for <span class="math inline">\(y\)</span>:
+<span class="math display">\[
+\frac{1}{y} = -t + C
+\]</span>
+<span class="math display">\[
+y = \frac{1}{C - t}
+\]</span></p>
+<hr />
+<ol start="8" style="list-style-type: decimal">
+<li><span class="math inline">\(\dfrac{dy}{dt}=y^2-1\)</span></li>
+</ol>
+<p>Separate:
+<span class="math display">\[
+\frac{dy}{y^2-1}=dt
+\]</span>
+Use partial fractions:
+<span class="math display">\[
+\frac{1}{y^2-1}=\frac{1}{(y-1)(y+1)}
+=\frac{1}{2}\left(\frac{1}{y-1}-\frac{1}{y+1}\right)
+\]</span>
+Integrate:
+<span class="math display">\[
+\int \frac{dy}{y^2-1}
+= \frac{1}{2}\int\left(\frac{1}{y-1}-\frac{1}{y+1}\right)dy
+= t + C
+\]</span>
+<span class="math display">\[
+\frac{1}{2}\left(\ln|y-1|-\ln|y+1|\right)=t+C
+\]</span>
+<span class="math display">\[
+\frac{1}{2}\ln\left|\frac{y-1}{y+1}\right|=t+C
+\]</span>
+<span class="math display">\[
+\ln\left|\frac{y-1}{y+1}\right|=2t+C
+\]</span>
+Equivalent implicit form:
+<span class="math display">\[
+\boxed{\frac{y-1}{y+1}=Ce^{2t}}
+\]</span></p>
+<hr />
+<ol start="9" style="list-style-type: decimal">
+<li><span class="math inline">\(\dfrac{dP}{dt}=P(4-P)\)</span></li>
+</ol>
+<p>Separate:
+<span class="math display">\[
+\frac{dP}{P(4-P)}=dt
+\]</span>
+Partial fractions:
+<span class="math display">\[
+\frac{1}{P(4-P)}=\frac{1}{4}\left(\frac{1}{P}+\frac{1}{4-P}\right)
+\]</span>
+Integrate:
+<span class="math display">\[
+\int \frac{dP}{P(4-P)}
+=\frac{1}{4}\int\left(\frac{1}{P}+\frac{1}{4-P}\right)dP
+= t + C
+\]</span>
+<span class="math display">\[
+\frac{1}{4}\left(\ln|P|-\ln|4-P|\right)=t+C
+\]</span>
+<span class="math display">\[
+\frac{1}{4}\ln\left|\frac{P}{4-P}\right|=t+C
+\]</span>
+<span class="math display">\[
+\ln\left|\frac{P}{4-P}\right|=4t+C
+\]</span>
+Equivalent implicit form:
+<span class="math display">\[
+\boxed{\frac{P}{4-P}=Ce^{4t}}
+\]</span>
+(You can solve explicitly if desired.)</p>
+<hr />
+<ol start="10" style="list-style-type: decimal">
+<li><span class="math inline">\(\dfrac{dP}{dt}=t\,P(3-P)\)</span></li>
+</ol>
+<p>Separate:
+<span class="math display">\[
+\frac{dP}{P(3-P)} = t\,dt
+\]</span>
+Partial fractions:
+<span class="math display">\[
+\frac{1}{P(3-P)}=\frac{1}{3}\left(\frac{1}{P}+\frac{1}{3-P}\right)
+\]</span>
+Integrate both sides:
+<span class="math display">\[
+\frac{1}{3}\int\left(\frac{1}{P}+\frac{1}{3-P}\right)dP
+= \int t\,dt
+\]</span>
+<span class="math display">\[
+\frac{1}{3}\left(\ln|P|-\ln|3-P|\right)=\frac{t^2}{2}+C
+\]</span>
+<span class="math display">\[
+\frac{1}{3}\ln\left|\frac{P}{3-P}\right|=\frac{t^2}{2}+C
+\]</span>
+<span class="math display">\[
+\ln\left|\frac{P}{3-P}\right|=\frac{3}{2}t^2 + C
+\]</span>
+Equivalent implicit form:
+<span class="math display">\[
+\boxed{\frac{P}{3-P}=Ce^{\frac{3}{2}t^2}}
+\]</span></p>
+<hr />
+<ol start="11" style="list-style-type: decimal">
+<li><strong>A</strong><br />
+</li>
+<li><strong>B</strong><br />
+</li>
+<li><strong>C</strong><br />
+</li>
+<li><strong>C</strong><br />
+</li>
+<li><strong>B</strong></li>
+</ol>
+</div>
+<div id="part-iii-separation-of-variables-with-ivps" class="section level2 unnumbered hasAnchor">
+<h2>Part III (Separation of Variables with IVPs)<a href="differential-equations.html#part-iii-separation-of-variables-with-ivps" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<hr />
+<ol style="list-style-type: decimal">
+<li><span class="math display">\[
+\frac{dy}{dt}=2y, \quad y(0)=5
+\]</span></li>
+</ol>
+<p>Separate:
+<span class="math display">\[
+\frac{1}{y}dy = 2dt
+\]</span></p>
+<p>Integrate:
+<span class="math display">\[
+\ln|y| = 2t + C
+\]</span></p>
+<p>Exponentiate:
+<span class="math display">\[
+y = Ce^{2t}
+\]</span></p>
+<p>Apply initial condition:</p>
+<p><span class="math display">\[
+5 = Ce^0
+\]</span></p>
+<p><span class="math display">\[
+C = 5
+\]</span></p>
+<p>Final solution:</p>
+<p><span class="math display">\[
+y = 5e^{2t}
+\]</span></p>
+<hr />
+<ol start="2" style="list-style-type: decimal">
+<li><span class="math display">\[
+\frac{dy}{dt}=-0.5y, \quad y(0)=12
+\]</span></li>
+</ol>
+<p>Separate:
+<span class="math display">\[
+\frac{1}{y}dy = -0.5dt
+\]</span></p>
+<p>Integrate:
+<span class="math display">\[
+\ln|y| = -0.5t + C
+\]</span></p>
+<p><span class="math display">\[
+y = Ce^{-0.5t}
+\]</span></p>
+<p>Initial condition:</p>
+<p><span class="math display">\[
+12 = C
+\]</span></p>
+<p>Solution:</p>
+<p><span class="math display">\[
+y = 12e^{-0.5t}
+\]</span></p>
+<hr />
+<ol start="3" style="list-style-type: decimal">
+<li><span class="math display">\[
+\frac{dy}{dt}=ty, \quad y(0)=4
+\]</span></li>
+</ol>
+<p>Separate:</p>
+<p><span class="math display">\[
+\frac{1}{y}dy = tdt
+\]</span></p>
+<p>Integrate:</p>
+<p><span class="math display">\[
+\ln|y| = \frac{t^2}{2} + C
+\]</span></p>
+<p><span class="math display">\[
+y = Ce^{t^2/2}
+\]</span></p>
+<p>Initial condition:</p>
+<p><span class="math display">\[
+4 = C
+\]</span></p>
+<p>Solution:</p>
+<p><span class="math display">\[
+y = 4e^{t^2/2}
+\]</span></p>
+<hr />
+<ol start="4" style="list-style-type: decimal">
+<li><span class="math display">\[
+\frac{dy}{dt}=3(y-2), \quad y(0)=5
+\]</span></li>
+</ol>
+<p>Separate:</p>
+<p><span class="math display">\[
+\frac{1}{y-2}dy = 3dt
+\]</span></p>
+<p>Integrate:</p>
+<p><span class="math display">\[
+\ln|y-2| = 3t + C
+\]</span></p>
+<p><span class="math display">\[
+y-2 = Ce^{3t}
+\]</span></p>
+<p>Initial condition:</p>
+<p><span class="math display">\[
+3 = C
+\]</span></p>
+<p>Solution:</p>
+<p><span class="math display">\[
+y = 2 + 3e^{3t}
+\]</span></p>
+<hr />
+<ol start="5" style="list-style-type: decimal">
+<li></li>
+</ol>
+<p><span class="math display">\[
+\frac{dy}{dt}=t(y+1), \quad y(0)=0
+\]</span></p>
+<p>Separate:</p>
+<p><span class="math display">\[
+\frac{1}{y+1}dy = tdt
+\]</span></p>
+<p>Integrate:</p>
+<p><span class="math display">\[
+\ln|y+1| = \frac{t^2}{2} + C
+\]</span></p>
+<p><span class="math display">\[
+y+1 = Ce^{t^2/2}
+\]</span></p>
+<p>Initial condition:</p>
+<p><span class="math display">\[
+1 = C
+\]</span></p>
+<p>Solution:</p>
+<p><span class="math display">\[
+y = e^{t^2/2} - 1
+\]</span></p>
+<hr />
+<ol start="6" style="list-style-type: decimal">
+<li></li>
+</ol>
+<p><span class="math display">\[
+\frac{dy}{dt}=y^2, \quad y(0)=2
+\]</span></p>
+<p>Separate:</p>
+<p><span class="math display">\[
+\frac{1}{y^2}dy = dt
+\]</span></p>
+<p>Integrate:</p>
+<p><span class="math display">\[
+-\frac{1}{y} = t + C
+\]</span></p>
+<p><span class="math display">\[
+\frac{1}{y} = C - t
+\]</span></p>
+<p>Initial condition:</p>
+<p><span class="math display">\[
+\frac{1}{2} = C
+\]</span></p>
+<p>Solution:</p>
+<p><span class="math display">\[
+y = \frac{1}{\frac{1}{2} - t}
+\]</span></p>
+<hr />
+<ol start="7" style="list-style-type: decimal">
+<li></li>
+</ol>
+<p><span class="math display">\[
+\frac{dy}{dt}=y^2-4, \quad y(0)=3
+\]</span></p>
+<p>Separate:</p>
+<p><span class="math display">\[
+\frac{dy}{y^2-4} = dt
+\]</span></p>
+<p>Factor:</p>
+<p><span class="math display">\[
+y^2-4=(y-2)(y+2)
+\]</span></p>
+<p>Partial fractions:</p>
+<p><span class="math display">\[
+\frac{1}{y^2-4}
+= \frac{1}{4}\left(\frac{1}{y-2}-\frac{1}{y+2}\right)
+\]</span></p>
+<p>Integrate:</p>
+<p><span class="math display">\[
+\frac{1}{4}\ln\left|\frac{y-2}{y+2}\right| = t + C
+\]</span></p>
+<p>Initial condition:</p>
+<p><span class="math display">\[
+\frac{1}{4}\ln\left(\frac{1}{5}\right)=C
+\]</span></p>
+<p>Solution (implicit):</p>
+<p><span class="math display">\[
+\ln\left|\frac{y-2}{y+2}\right| = 4t + \ln\left(\frac{1}{5}\right)
+\]</span></p>
+<hr />
+<ol start="8" style="list-style-type: decimal">
+<li></li>
+</ol>
+<p><span class="math display">\[
+\frac{dP}{dt}=P(5-P), \quad P(0)=1
+\]</span></p>
+<p>Separate:</p>
+<p><span class="math display">\[
+\frac{dP}{P(5-P)}=dt
+\]</span></p>
+<p>Partial fractions:</p>
+<p><span class="math display">\[
+\frac{1}{P(5-P)}=\frac{1}{5}\left(\frac{1}{P}+\frac{1}{5-P}\right)
+\]</span></p>
+<p>Integrate:</p>
+<p><span class="math display">\[
+\frac{1}{5}\ln\left|\frac{P}{5-P}\right| = t + C
+\]</span></p>
+<p>Initial condition:</p>
+<p><span class="math display">\[
+\frac{1}{5}\ln\left(\frac{1}{4}\right)=C
+\]</span></p>
+<p>Solution (implicit):</p>
+<p><span class="math display">\[
+\ln\left|\frac{P}{5-P}\right| = 5t + \ln\left(\frac{1}{4}\right)
+\]</span></p>
+<hr />
+<ol start="9" style="list-style-type: decimal">
+<li></li>
+</ol>
+<p><span class="math display">\[
+\frac{dP}{dt}=P(3-P), \quad P(0)=2
+\]</span></p>
+<p>Separate:</p>
+<p><span class="math display">\[
+\frac{dP}{P(3-P)} = dt
+\]</span></p>
+<p>Partial fractions:</p>
+<p><span class="math display">\[
+\frac{1}{3}\left(\frac{1}{P}+\frac{1}{3-P}\right)
+\]</span></p>
+<p>Integrate:</p>
+<p><span class="math display">\[
+\frac{1}{3}\ln\left|\frac{P}{3-P}\right| = t + C
+\]</span></p>
+<p>Initial condition:</p>
+<p><span class="math display">\[
+\frac{1}{3}\ln(2)=C
+\]</span></p>
+<p>Solution (implicit):</p>
+<p><span class="math display">\[
+\ln\left|\frac{P}{3-P}\right| = 3t + \ln(2)
+\]</span></p>
+<hr />
+<ol start="10" style="list-style-type: decimal">
+<li></li>
+</ol>
+<p><span class="math display">\[
+\frac{dP}{dt}=tP(4-P), \quad P(0)=1
+\]</span></p>
+<p>Separate:</p>
+<p><span class="math display">\[
+\frac{dP}{P(4-P)} = tdt
+\]</span></p>
+<p>Partial fractions:</p>
+<p><span class="math display">\[
+\frac{1}{4}\left(\frac{1}{P}+\frac{1}{4-P}\right)
+\]</span></p>
+<p>Integrate:</p>
+<p><span class="math display">\[
+\frac{1}{4}\ln\left|\frac{P}{4-P}\right| = \frac{t^2}{2} + C
+\]</span></p>
+<p>Initial condition:</p>
+<p><span class="math display">\[
+\frac{1}{4}\ln\left(\frac{1}{3}\right)=C
+\]</span></p>
+<p>Solution:</p>
+<p><span class="math display">\[
+\ln\left|\frac{P}{4-P}\right|
+= 2t^2 + \ln\left(\frac{1}{3}\right)
+\]</span></p>
+<hr />
+<p>11<br />
+<strong>Answer:</strong> B<br />
+The initial condition determines the constant of integration so the solution matches the starting value.</p>
+<hr />
+<p>12<br />
+<strong>Answer:</strong> B<br />
+Separating variables allows us to integrate each variable independently on opposite sides of the equation.</p>
+<hr />
+<p>13<br />
+<strong>Answer:</strong> A<br />
+The exponential function is unique because its derivative is proportional to itself.</p>
+<hr />
+<p>14<br />
+<strong>Answer:</strong> C<br />
+The constant appears because indefinite integrals represent a family of antiderivatives.</p>
+<hr />
+<p>15<br />
+<strong>Answer:</strong> B<br />
+The constant of integration only appears after integrating, so the initial condition must be applied afterward.</p>
+<hr />
+<p>16<br />
+<strong>Answer:</strong> B<br />
+When integrating both sides we technically get two constants, but they can be combined into a single new constant.</p>
+</div>
+<div id="part-iv" class="section level2 hasAnchor" number="16.15">
+<h2><span class="header-section-number">16.15</span> Part IV<a href="differential-equations.html#part-iv" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<hr />
+<p>1</p>
+<p><span class="math display">\[
+\frac{dy}{dt}=ky,\qquad y(0)=4,\qquad y(3)=20
+\]</span></p>
+<p>General solution:</p>
+<p><span class="math display">\[
+y = Ce^{kt}
+\]</span></p>
+<p>Initial condition:</p>
+<p><span class="math display">\[
+4 = Ce^0
+\]</span></p>
+<p><span class="math display">\[
+C=4
+\]</span></p>
+<p>Model:</p>
+<p><span class="math display">\[
+y = 4e^{kt}
+\]</span></p>
+<p>Use second point:</p>
+<p><span class="math display">\[
+20 = 4e^{3k}
+\]</span></p>
+<p><span class="math display">\[
+5 = e^{3k}
+\]</span></p>
+<p><span class="math display">\[
+k = \frac{\ln 5}{3}
+\]</span></p>
+<p>Final model:</p>
+<p><span class="math display">\[
+y = 4e^{(\ln 5 /3)t}
+\]</span></p>
+<hr />
+<p>2</p>
+<p><span class="math display">\[
+\frac{dP}{dt}=kP,\qquad P(0)=10,\qquad P(5)=80
+\]</span></p>
+<p>General solution:</p>
+<p><span class="math display">\[
+P = Ce^{kt}
+\]</span></p>
+<p>Initial condition:</p>
+<p><span class="math display">\[
+10 = C
+\]</span></p>
+<p><span class="math display">\[
+P = 10e^{kt}
+\]</span></p>
+<p>Second point:</p>
+<p><span class="math display">\[
+80 = 10e^{5k}
+\]</span></p>
+<p><span class="math display">\[
+8 = e^{5k}
+\]</span></p>
+<p><span class="math display">\[
+k = \frac{\ln 8}{5}
+\]</span></p>
+<p>Final model:</p>
+<p><span class="math display">\[
+P = 10e^{(\ln 8/5)t}
+\]</span></p>
+<hr />
+<p>3</p>
+<p><span class="math display">\[
+\frac{dN}{dt}=kN,\qquad N(0)=6,\qquad N(4)=18
+\]</span></p>
+<p>General solution:</p>
+<p><span class="math display">\[
+N = Ce^{kt}
+\]</span></p>
+<p>Initial condition:</p>
+<p><span class="math display">\[
+C=6
+\]</span></p>
+<p><span class="math display">\[
+N = 6e^{kt}
+\]</span></p>
+<p>Second point:</p>
+<p><span class="math display">\[
+18 = 6e^{4k}
+\]</span></p>
+<p><span class="math display">\[
+3 = e^{4k}
+\]</span></p>
+<p><span class="math display">\[
+k = \frac{\ln 3}{4}
+\]</span></p>
+<p>Final model:</p>
+<p><span class="math display">\[
+N = 6e^{(\ln 3/4)t}
+\]</span></p>
+<hr />
+<p>4</p>
+<p><span class="math display">\[
+\frac{dC}{dt}=kC,\qquad C(0)=12,\qquad C(2)=9
+\]</span></p>
+<p>General solution:</p>
+<p><span class="math display">\[
+C = Ce^{kt}
+\]</span></p>
+<p>Initial condition:</p>
+<p><span class="math display">\[
+C=12
+\]</span></p>
+<p><span class="math display">\[
+C(t) = 12e^{kt}
+\]</span></p>
+<p>Second point:</p>
+<p><span class="math display">\[
+9 = 12e^{2k}
+\]</span></p>
+<p><span class="math display">\[
+\frac{3}{4} = e^{2k}
+\]</span></p>
+<p><span class="math display">\[
+k = \frac{\ln(3/4)}{2}
+\]</span></p>
+<p>Final model:</p>
+<p><span class="math display">\[
+C(t) = 12e^{(\ln(3/4)/2)t}
+\]</span></p>
+<hr />
+<p>5</p>
+<p><span class="math display">\[
+\frac{dP}{dt}=kP,\qquad P(0)=5,\qquad P(6)=15
+\]</span></p>
+<p>General solution:</p>
+<p><span class="math display">\[
+P = Ce^{kt}
+\]</span></p>
+<p>Initial condition:</p>
+<p><span class="math display">\[
+C=5
+\]</span></p>
+<p><span class="math display">\[
+P = 5e^{kt}
+\]</span></p>
+<p>Second point:</p>
+<p><span class="math display">\[
+15 = 5e^{6k}
+\]</span></p>
+<p><span class="math display">\[
+3 = e^{6k}
+\]</span></p>
+<p><span class="math display">\[
+k = \frac{\ln 3}{6}
+\]</span></p>
+<p>Final model:</p>
+<p><span class="math display">\[
+P = 5e^{(\ln 3/6)t}
+\]</span></p>
+<hr />
+<ol start="6" style="list-style-type: decimal">
+<li><p><strong>B</strong></p></li>
+<li><p><strong>A</strong></p></li>
+<li><p><strong>B</strong></p></li>
+</ol>
+<hr />
+</div>
+<div id="part-v" class="section level2 unnumbered hasAnchor">
+<h2>Part V<a href="differential-equations.html#part-v" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>1)</strong></p>
+<p><span class="math display">\[
+\dfrac{dN}{dt} = -0.3N + 9
+\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(N=0\)</span></li>
+</ol>
+<p><span class="math display">\[
+dN/dt = 9 &gt; 0
+\]</span></p>
+<p>Increasing.</p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li><span class="math inline">\(N=10\)</span></li>
+</ol>
+<p><span class="math display">\[
+dN/dt = -3 + 9 = 6 &gt; 0
+\]</span></p>
+<p>Increasing.</p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li><span class="math inline">\(N=30\)</span></li>
+</ol>
+<p><span class="math display">\[
+dN/dt = -9 + 9 = 0
+\]</span></p>
+<p>Momentarily constant (equilibrium).</p>
+<ol start="4" style="list-style-type: lower-alpha">
+<li><span class="math inline">\(N=40\)</span></li>
+</ol>
+<p><span class="math display">\[
+dN/dt = -12 + 9 = -3
+\]</span></p>
+<p>Decreasing.</p>
+<hr />
+<p><strong>2)</strong></p>
+<p>Set <span class="math inline">\(dN/dt = 0\)</span></p>
+<p><span class="math display">\[
+-0.3N + 9 = 0
+\]</span></p>
+<p><span class="math display">\[
+N^* = 30
+\]</span></p>
+<p>Stability:</p>
+<ul>
+<li>If <span class="math inline">\(N &lt; 30\)</span>: slope is positive → solutions increase.</li>
+<li>If <span class="math inline">\(N &gt; 30\)</span>: slope is negative → solutions decrease.</li>
+</ul>
+<p>Therefore the equilibrium is <strong>stable</strong>.</p>
+<p>Direction diagram:</p>
+<p><span class="math display">\[
+\rightarrow \quad 30 \quad \leftarrow
+\]</span></p>
+<p>Long-term behavior: all solutions move toward <span class="math inline">\(N=30\)</span>.</p>
+<hr />
+<p><strong>3)</strong></p>
+<p><span class="math display">\[
+\dfrac{dP}{dt} = P(6-P)
+\]</span></p>
+<p>Equilibria:</p>
+<p><span class="math display">\[
+P = 0, \quad P = 6
+\]</span></p>
+<p>Sign analysis:</p>
+<ul>
+<li><span class="math inline">\(0&lt;P&lt;6\)</span>: positive → increasing.</li>
+<li><span class="math inline">\(P&gt;6\)</span>: negative → decreasing.</li>
+</ul>
+<p>Classification:</p>
+<ul>
+<li><span class="math inline">\(P=0\)</span>: <strong>unstable</strong></li>
+<li><span class="math inline">\(P=6\)</span>: <strong>stable</strong></li>
+</ul>
+<p>Direction diagram:</p>
+<p><span class="math display">\[
+0 \rightarrow \quad \rightarrow 6 \leftarrow
+\]</span></p>
+<p>Behavior:</p>
+<ul>
+<li><span class="math inline">\(P(0)=2\)</span>: increases toward 6<br />
+</li>
+<li><span class="math inline">\(P(0)=5\)</span>: increases toward 6<br />
+</li>
+<li><span class="math inline">\(P(0)=8\)</span>: decreases toward 6</li>
+</ul>
+<hr />
+<p><strong>4)</strong></p>
+<p><span class="math display">\[
+\dfrac{dP}{dt} = P(4-P)(P-1)
+\]</span></p>
+<p>Equilibria:</p>
+<p><span class="math display">\[
+P=0, \quad P=1, \quad P=4
+\]</span></p>
+<p>Sign analysis:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Interval</th>
+<th>Sign</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(P&lt;0\)</span></td>
+<td>negative</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(0&lt;P&lt;1\)</span></td>
+<td>positive</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(1&lt;P&lt;4\)</span></td>
+<td>negative</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(P&gt;4\)</span></td>
+<td>positive</td>
+</tr>
+</tbody>
+</table>
+<p>Classification:</p>
+<ul>
+<li><span class="math inline">\(P=0\)</span>: unstable<br />
+</li>
+<li><span class="math inline">\(P=1\)</span>: stable<br />
+</li>
+<li><span class="math inline">\(P=4\)</span>: unstable</li>
+</ul>
+<p>Direction diagram:</p>
+<p><span class="math display">\[
+\leftarrow 0 \rightarrow 1 \leftarrow 4 \rightarrow
+\]</span></p>
+<p>Behavior:</p>
+<ul>
+<li><span class="math inline">\(P(0)=0.5\)</span>: increases toward <span class="math inline">\(P=1\)</span></li>
+<li><span class="math inline">\(P(0)=2\)</span>: decreases toward <span class="math inline">\(P=1\)</span></li>
+<li><span class="math inline">\(P(0)=5\)</span>: increases without bound</li>
+</ul>
+</div>
+</div>
+<form onsubmit="unlock_set4(); return false;" id="gate_set4" style="margin-top:0.75rem;">
+<input type="password" id="pwd_set4" placeholder="Enter password" aria-label="Answer key password">
+<button type="submit">Unlock</button>
+<span id="msg_set4" style="margin-left:0.5rem;" aria-live="polite"></span>
+</form>
+<script>
+function unlock_set4() {
+  var input = document.getElementById('pwd_set4');
+  var msg   = document.getElementById('msg_set4');
+  var sol   = document.getElementById('sol_set4');
+  var gate  = document.getElementById('gate_set4');
+  var pw    = (input.value || '').trim();
+  var det   = gate.closest('details'); if (det) det.open = true;
 
-</div>
-</div>
+  if (pw === 'footy') {
+    sol.hidden = false;
+    gate.hidden = true;
+    input.value = '';
+    msg.textContent = '';
+  } else {
+    msg.textContent = 'Stop guessing :) Ask a TA';
+    input.value = '';
+    input.focus();
+  }
+}
+</script>
+
 </div>
             </section>
 
