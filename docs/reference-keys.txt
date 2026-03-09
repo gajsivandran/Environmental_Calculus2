@@ -473,7 +473,7 @@ constant-functions
 the-fundamental-theorem-of-calculus-part-i-1
 the-fundamental-theorem-of-calculus-part-ii-1
 conceptual-questions
-practice-problems-4
+practice-problems-5
 key-takeaway-13
 practice-properties-of-definite-integrals-the-fundamental-theorem-of-calculus
 practice-set-a-linearity-and-constants
@@ -643,7 +643,7 @@ proportional-decay
 understanding-without-solving-slope-fields
 predicting-behavior
 equilibrium-and-stability
-logistic-growth
+logistic-growth-1
 growth-as-a-function-of-population
 adding-harvesting
 structural-thinking
@@ -652,3 +652,4 @@ modeling-heat-transfer-with-differential-equations
 real-world-application-how-fast-does-permafrost-respond-to-warming
 practice-practice-practice
 part-iv
+polleverywhere-questions

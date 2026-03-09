@@ -176,24 +176,24 @@ library(ggplot2)
 
 # ---- Differential equation: define dy/dx = f(x,y) here ----
 f <- function(x, y) { r * y * (1 - y / K) - H}
-r <- 2      # growth rate
-K <- 3     # carrying capacity
-H <- 0.6      # carrying capacity
+r <- 1      # growth rate
+K <- 5     # carrying capacity
+H <- 4/5      # carrying capacity
 
 # ---- Build slope-field grid (for segments) ----
-x_vals <- seq(-3, 3, by = 0.3)
-y_vals <- seq(-3, 3, by = 0.3)
-grid <- expand.grid(x = x_vals, y = y_vals)
+x_vals <- seq(-3, 5, by = 0.5)
+y_vals <- seq(-3, 5, by = 0.25)
+grid <- expand.grid(x = x_vals, y = y_vals) 
 
 grid$slope <- f(grid$x, grid$y)
 
 # Segment length normalization so all dashes are the same length
-L <- 0.45
+L <- 0.25
 grid$dx <- L / sqrt(1 + grid$slope^2)
 grid$dy <- grid$slope * grid$dx
 
 # ---- Axis tick labels placed ON the axes (x-axis at y=0, y-axis at x=0) ----
-ticks <- -3:3
+ticks <- -2:5
 tick_df_x <- data.frame(x = ticks, y = 0, lab = as.character(ticks))
 tick_df_y <- data.frame(x = 0, y = ticks, lab = as.character(ticks))
 
@@ -225,10 +225,10 @@ ggplot() +
             size = 3.5, color = "black") +
 
   # Axis labels "x" and "y"
-  annotate("text", x = 3.15, y = 0.18, label = "x", size = 4) +
-  annotate("text", x = 0.18, y = 3.15, label = "y", size = 4) +
+  annotate("text", x = 5.15, y = 0.18, label = "x", size = 4) +
+  annotate("text", x = 0.18, y = 5.15, label = "y", size = 4) +
 
-  coord_fixed(xlim = c(-1, 4), ylim = c(-1, 4), expand = FALSE) +
+  coord_fixed(xlim = c(-2.5, 6), ylim = c(-2.5, 6), expand = FALSE) +
   theme_void()
 
 
@@ -3722,5 +3722,214 @@ function unlock_set4() {
   }
 }
 </script>
+
+
+## PolleveryWhere Questions 
+
+**1)** If the slope field for a differential equation looks the same along every horizontal line, what does this suggest?
+
+A) The derivative depends only on \(x\)  
+B) The derivative depends only on \(y\)  
+C) The derivative depends on both \(x\) and \(y\)  
+D) The derivative is constant everywhere  
+
+---
+
+**2)** In a slope field, an equilibrium solution occurs where:
+
+A) The slopes are largest  
+B) The slopes are zero  
+C) The slopes change direction rapidly  
+D) The slopes depend only on time  
+
+---
+
+**3)** If slopes are positive below an equilibrium and negative above it, the equilibrium is:
+
+A) Stable  
+B) Unstable  
+C) Neutral  
+D) Impossible to determine  
+
+---
+
+**4)** If slopes are negative below an equilibrium and positive above it, the equilibrium is:
+
+A) Stable  
+B) Unstable  
+C) Neutral  
+D) Oscillating  
+
+---
+
+**5)** If a slope field has vertical stripes where slopes are the same for all \(y\) values at a given \(x\), the differential equation most likely has the form:
+
+A) \( \dfrac{dy}{dt} = f(y) \)  
+B) \( \dfrac{dy}{dt} = f(x) \)  
+C) \( \dfrac{dy}{dt} = xy \)  
+D) \( \dfrac{dy}{dt} = y^2 \)  
+
+---
+
+**6)** The goal of separating variables is to:
+
+A) Remove constants from the equation  
+B) Place all \(y\) terms with \(dy\) and all \(t\) terms with \(dt\)  
+C) Eliminate derivatives  
+D) Convert the equation to a polynomial  
+
+---
+
+**7)** For \( \dfrac{dy}{dt} = ty \), which step correctly separates the variables?
+
+A) \( y\,dy = t\,dt \)  
+B) \( \frac{1}{y}dy = t\,dt \)  
+C) \( dy = ty\,dt \)  
+D) \( \frac{1}{t}dy = y\,dt \)  
+
+---
+
+**8)** After separating variables, why can we integrate both sides?
+
+A) The derivative disappears  
+B) Each side now depends on only one variable  
+C) Integration is always allowed  
+D) The equation becomes algebraic  
+
+---
+
+**9)** When integrating a separated equation, the constant of integration appears because:
+
+A) Integrals represent families of functions  
+B) The derivative contains constants  
+C) The differential equation requires it  
+D) Exponentials introduce constants  
+
+---
+
+**10)** After integrating \( \ln|y| = 2t + C \), why do we rewrite the solution as \( y = Ce^{2t} \)?
+
+A) It removes logarithms  
+B) It isolates \(y\) as a function of \(t\)  
+C) Exponentials are easier to differentiate  
+D) The constant disappears  
+
+---
+
+**11)** An initial condition is used to:
+
+A) Solve the differential equation  
+B) Determine the constant of integration  
+C) Separate the variables  
+D) Find the derivative  
+
+---
+
+**12)** Why is the initial condition applied after integration?
+
+A) The constant of integration does not appear until after integration  
+B) The derivative must be removed first  
+C) The equation must become exponential  
+D) The variables must be separated first  
+
+---
+
+**13)** Suppose \( y = Ce^{kt} \) and \( y(0)=5 \). What is \(C\)?
+
+A) 0  
+B) 1  
+C) 5  
+D) \(e^5\)  
+
+---
+
+**14)** Why do solutions to differential equations usually contain constants?
+
+A) Because derivatives remove constants  
+B) Because differential equations are incomplete  
+C) Because the solution represents a family of curves  
+D) Because exponentials require constants  
+
+---
+
+**15)** Suppose \( y = Ce^{kt} \) and we know \(y(0)\) and \(y(t_1)\). Why do we need both values?
+
+A) One determines \(C\), the other determines \(k\)  
+B) One verifies the derivative  
+C) Both determine \(C\)  
+D) Both determine \(k\)  
+
+---
+
+**16)** If the model is \( y = 4e^{kt} \) and \( y(3)=20 \), what step helps determine \(k\)?
+
+A) Substitute \(t=0\)  
+B) Substitute \(t=3\) and solve for \(k\)  
+C) Differentiate the equation  
+D) Separate the variables again  
+
+---
+
+**17)** Why does determining \(k\) usually involve taking a logarithm?
+
+A) Exponential equations must be linearized to solve for the exponent  
+B) Logarithms remove constants  
+C) Derivatives require logs  
+D) Exponentials cannot be solved otherwise  
+
+---
+
+**18)** If the solution is \( y = 10e^{0.3t} \), what does the constant 10 represent?
+
+A) The growth rate  
+B) The initial value  
+C) The equilibrium value  
+D) The slope  
+
+---
+
+**19)** If the solution is \( y = 8e^{-0.4t} \), what does the negative exponent indicate?
+
+A) Oscillation  
+B) Growth  
+C) Decay  
+D) Equilibrium  
+
+---
+
+**20)** Why are exponential functions common solutions to differential equations like \( \dfrac{dy}{dt} = ky \)?
+
+A) Exponentials are easy to integrate  
+B) Their derivatives are proportional to themselves  
+C) They eliminate constants  
+D) All equations require exponentials  
+
+---
+
+<details>
+<summary><strong>Answer Key</strong></summary>
+
+1) B  
+2) B  
+3) A  
+4) B  
+5) B  
+6) B  
+7) B  
+8) B  
+9) A  
+10) B  
+11) B  
+12) A  
+13) C  
+14) C  
+15) A  
+16) B  
+17) A  
+18) B  
+19) C  
+20) B  
+
+</details>
 
 
