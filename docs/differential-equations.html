@@ -23,7 +23,7 @@
 <meta name="author" content="Gaj Sivandran" />
 
 
-<meta name="date" content="2026-03-09" />
+<meta name="date" content="2026-03-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1150,6 +1150,11 @@
 <li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#part-iii.-separation-of-variables-with-initial-conditions"><i class="fa fa-check"></i>Part III. Separation of Variables with Initial Conditions</a></li>
 <li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#part-iv.-determining-the-rate-constant-from-two-points"><i class="fa fa-check"></i>Part IV. Determining the Rate Constant from Two Points</a></li>
 <li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#part-v.-slope-fields-equilibria-and-stability"><i class="fa fa-check"></i>Part V. Slope Fields, Equilibria, and Stability</a></li>
+<li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#part-1-matching"><i class="fa fa-check"></i>Part 1 Matching</a></li>
+<li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#part-ii-separation-of-variables"><i class="fa fa-check"></i>Part II (Separation of Variables)</a></li>
+<li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#part-iii-separation-of-variables-with-ivps"><i class="fa fa-check"></i>Part III (Separation of Variables with IVPs)</a></li>
+<li class="chapter" data-level="16.15" data-path="differential-equations.html"><a href="differential-equations.html#part-iv"><i class="fa fa-check"></i><b>16.15</b> Part IV</a></li>
+<li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#part-v"><i class="fa fa-check"></i>Part V</a></li>
 <li class="chapter" data-level="16.16" data-path="differential-equations.html"><a href="differential-equations.html#polleverywhere-questions"><i class="fa fa-check"></i><b>16.16</b> PolleveryWhere Questions</a></li>
 </ul></li>
 <li class="divider"></li>
@@ -2657,12 +2662,11 @@ y = 8e^{kt}
 <p>Explain your reasoning using <strong>sign patterns and direction arrows</strong>.</p>
 <hr />
 <strong>Solution Key</strong>
-<details open>
+<details>
 <summary>
-<strong>Click to Unlock Solutions</strong>
+<strong>Answer Key</strong>
 </summary>
 </div>
-<div id="sol_set4" hidden="" markdown="1" style="margin-top:0.75rem;">
 <div id="part-1-matching" class="section level2 unnumbered hasAnchor">
 <h2>Part 1 Matching<a href="differential-equations.html#part-1-matching" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
@@ -3500,34 +3504,8 @@ P=0, \quad P=1, \quad P=4
 <li><span class="math inline">\(P(0)=2\)</span>: decreases toward <span class="math inline">\(P=1\)</span></li>
 <li><span class="math inline">\(P(0)=5\)</span>: increases without bound</li>
 </ul>
+</details>
 </div>
-</div>
-<form onsubmit="unlock_set4(); return false;" id="gate_set4" style="margin-top:0.75rem;">
-<input type="password" id="pwd_set4" placeholder="Enter password" aria-label="Answer key password">
-<button type="submit">Unlock</button>
-<span id="msg_set4" style="margin-left:0.5rem;" aria-live="polite"></span>
-</form>
-<script>
-function unlock_set4() {
-  var input = document.getElementById('pwd_set4');
-  var msg   = document.getElementById('msg_set4');
-  var sol   = document.getElementById('sol_set4');
-  var gate  = document.getElementById('gate_set4');
-  var pw    = (input.value || '').trim();
-  var det   = gate.closest('details'); if (det) det.open = true;
-
-  if (pw === 'footy') {
-    sol.hidden = false;
-    gate.hidden = true;
-    input.value = '';
-    msg.textContent = '';
-  } else {
-    msg.textContent = 'Stop guessing :) Ask a TA';
-    input.value = '';
-    input.focus();
-  }
-}
-</script>
 <div id="polleverywhere-questions" class="section level2 hasAnchor" number="16.16">
 <h2><span class="header-section-number">16.16</span> PolleveryWhere Questions<a href="differential-equations.html#polleverywhere-questions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>1)</strong> If the slope field for a differential equation looks the same along every horizontal line, what does this suggest?</p>

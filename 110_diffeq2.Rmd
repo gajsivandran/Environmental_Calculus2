@@ -2636,10 +2636,8 @@ Explain your reasoning using **sign patterns and direction arrows**.
 
 
 **Solution Key**
-<details open>
-<summary><strong>Click to Unlock Solutions</strong></summary>
-
-<div id="sol_set4" hidden markdown="1" style="margin-top:0.75rem;">
+<details>
+<summary><strong>Answer Key</strong></summary>
 
 
 ## Part 1  Matching {-}
@@ -3691,37 +3689,7 @@ Behavior:
 - \(P(0)=2\): decreases toward \(P=1\)
 - \(P(0)=5\): increases without bound
 
-
-
-</div>
-
-<form onsubmit="unlock_set4(); return false;" id="gate_set4" style="margin-top:0.75rem;">
-  <input type="password" id="pwd_set4" placeholder="Enter password" aria-label="Answer key password">
-  <button type="submit">Unlock</button>
-  <span id="msg_set4" style="margin-left:0.5rem;" aria-live="polite"></span>
-</form>
-
-<script>
-function unlock_set4() {
-  var input = document.getElementById('pwd_set4');
-  var msg   = document.getElementById('msg_set4');
-  var sol   = document.getElementById('sol_set4');
-  var gate  = document.getElementById('gate_set4');
-  var pw    = (input.value || '').trim();
-  var det   = gate.closest('details'); if (det) det.open = true;
-
-  if (pw === 'footy') {
-    sol.hidden = false;
-    gate.hidden = true;
-    input.value = '';
-    msg.textContent = '';
-  } else {
-    msg.textContent = 'Stop guessing :) Ask a TA';
-    input.value = '';
-    input.focus();
-  }
-}
-</script>
+</details>
 
 
 ## PolleveryWhere Questions 
