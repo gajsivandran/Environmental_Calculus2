@@ -3305,7 +3305,7 @@ The constant of integration only appears after integrating, so the initial condi
 When integrating both sides we technically get two constants, but they can be combined into a single new constant.
 
 
-## Part IV
+## Part IV {-}
 
 ---
 
