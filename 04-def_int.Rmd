@@ -1,5 +1,9 @@
 # Definite Integrals and the Fundamental Theorem of Calculus
 
+A flux tower stands above a stand of Douglas-fir, logging CO₂ exchange between the forest and the atmosphere every half-hour. In the dark of early morning, the forest is a net carbon source — respiration outpaces photosynthesis, and the readings come back negative. By mid-morning the readings have flipped: photosynthesis dominates, and the canopy is pulling carbon down. The numbers on the screen change every thirty minutes for sixteen hours straight.
+
+Somewhere in that ledger is the answer to a question your funder cares about: *did this stand of trees gain or lose carbon today, and by how much?* To get there you need a way to take a whole day's worth of rates — positive and negative, fast and slow, smooth and gusty — and condense them into a single signed total. That number is a **definite integral**. This chapter is about how to define one, how to interpret one, and how to compute one efficiently.
+
 ## Purpose of the Chapter
 
 In the previous chapter, you developed an intuition for **accumulation** by approximating totals from rates using rectangles, tables, and graphs. You saw how adding up many small contributions can represent meaningful environmental quantities such as total rainfall, streamflow, carbon exchange, or pollutant transport. You also encountered the idea of **signed accumulation**, where gains and losses can offset each other over time.
@@ -321,6 +325,104 @@ By refining partitions and shrinking \(\Delta x\), all reasonable approximations
 
 ---
 
+### Concept Check: Riemann Sums as a Process {-}
+
+Why are Riemann sums described as a *process* rather than a final answer?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Riemann sums are a **method** for approximating accumulation using finitely many rectangles — they show how accumulation is *built piece by piece*. The definite integral is the value that emerges when this construction is carried out with infinitely fine resolution. Riemann sums are the recipe; the integral is the dish.
+
+</details>
+
+
+### Concept Check: What Shrinking Δx Really Means {-}
+
+What does shrinking \(\Delta x\) represent conceptually in an environmental context?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Shrinking \(\Delta x\) represents **increasing measurement resolution** — sampling more frequently in time (every 5 minutes instead of every hour) or more densely in space (every meter instead of every kilometer). It reflects a closer approximation of a continuous environmental process using discrete data.
+
+</details>
+
+
+### Concept Check: Why L/R/Mid Converge to the Same Value {-}
+
+Why do left, right, and midpoint Riemann sums converge to the same value for smooth functions?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+For smooth functions, the rate changes very little over sufficiently small intervals. As \(\Delta x \to 0\), the differences between left, right, and midpoint samples *vanish*, so all reasonable sums approach the same accumulated total.
+
+</details>
+
+
+### Concept Check: The Rectangle Assumption {-}
+
+What assumption about the system is made when using rectangles to approximate accumulation?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Each rectangle assumes the rate is approximately **constant** over its subinterval. Smaller rectangles make this assumption more reasonable, which is why refinement (more, narrower rectangles) improves accuracy.
+
+</details>
+
+
+### Concept Check: Formalizing the Riemann Sum {-}
+
+How does a definite integral formalize the idea behind Riemann sums?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+A definite integral is defined as the **limit of Riemann sums as subinterval widths approach zero**. It captures exactly what the sums approximate — the precise accumulated total — without depending on any particular choice of partition or sample point.
+
+</details>
+
+
+### Concept Check: Riemann Sums as Environmental Modeling {-}
+
+In what sense is a Riemann sum an environmental modeling tool?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Riemann sums *mirror how environmental data are actually used*: discrete sensor readings (rainfall every 15 minutes, flow measurements every hour, chamber measurements every half-hour) stand in for continuous behavior between observations, and contributions are summed to estimate totals.
+
+</details>
+
+
+### Concept Check: Why Sampling Choice Doesn't Matter in the Limit {-}
+
+Why does the definite integral not depend on whether you sample with left, right, or midpoint?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+As partitions become finer, the differences between sampling choices disappear. Each sample point is approximating the *same* rate over a *vanishingly small* slice. All reasonable approximations converge to the same value.
+
+</details>
+
+
+### Concept Check: The Role of the Limit {-}
+
+What conceptual role does the limit play in connecting Riemann sums to integrals?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+The limit **removes dependence on arbitrary choices** — rectangle width, sample location, partition style. What remains is an *idealized* accumulated total: the value every reasonable approximation is creeping toward.
+
+</details>
+
+
+---
+
 ## Interpreting the Definite Integral
 
 Up to this point, we have focused on how definite integrals are **defined** and how they arise from increasingly refined approximations. In this section, we shift emphasis from *how integrals are constructed* to *what integrals mean*. The goal is to develop a habit of interpretation so that every computed integral is understood as a statement about a real system, not just a numerical result.
@@ -534,6 +636,68 @@ It tells you how much accumulated, in which direction, and over what interval. I
 
 ---
 
+### Concept Check: Accumulation, Not Just Area {-}
+
+Why is a definite integral better interpreted as *accumulation* rather than *area*?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+A definite integral represents **total accumulated change from a rate**, including sign and units. "Area" is a helpful visualization (it's literally what you see under the curve), but "accumulation" captures the *physical meaning* — kg of carbon exchanged, liters of water passed, individuals added.
+
+</details>
+
+
+### Concept Check: What the Sign of an Integral Tells You {-}
+
+What does the sign of a definite integral tell you about a system?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+The sign indicates the **direction of net change**. Positive means the quantity gained on net (water arrived, carbon was fixed), negative means it lost (water evaporated, carbon was respired), and zero means gains and losses balanced over the interval.
+
+</details>
+
+
+### Concept Check: Zero Net Doesn't Mean Nothing Happened {-}
+
+Why does a zero net integral not imply that "nothing happened"?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+A net value of zero means positive and negative contributions canceled. **Significant gains and losses may still have occurred internally** — a forest that fixed 80 kg C during the day and respired 80 kg C overnight has zero net flux, but a lot happened.
+
+</details>
+
+
+### Concept Check: Units as a Sanity Check {-}
+
+How do units help verify the interpretation of a definite integral?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Units of an integral come from multiplying the rate's units by the variable's units. If the resulting units **don't match the physical quantity you're claiming to compute**, your setup or interpretation is wrong. "mg C / m² / hr × hr = mg C / m²" makes sense; "mg C / m² × hr" doesn't and signals a problem.
+
+</details>
+
+
+### Concept Check: Why 'Area Under the Curve' Falls Short {-}
+
+Why is the phrase "area under the curve" incomplete without the Riemann-sum perspective?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Without Riemann sums, area seems **purely geometric** — disconnected from physical meaning. The Riemann-sum perspective reveals that the area comes from adding **rate × width** contributions, which is why the result has units and a sign, and why it represents something real.
+
+</details>
+
+
+---
+
 ## How to Evaluate a Definite Integral
 
 Before discussing rules that simplify integrals, it is important to understand **what it means to evaluate a definite integral**.
@@ -641,6 +805,56 @@ The rules introduced next (such as linearity) help make this process faster and 
 
 
 
+
+### Concept Check: When Rate × Time Actually Works {-}
+
+Why does integrating a constant rate reduce to "rate × duration"?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+If the rate is constant, every small contribution is the same. Adding them up over the interval is equivalent to multiplying the rate by the interval length — there's no variation to track. The general integral collapses to the elementary-school formula because there's nothing to integrate.
+
+</details>
+
+
+### Concept Check: Why the Constant of Integration Doesn't Matter Here {-}
+
+Why does the constant of integration not affect a definite integral?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+A definite integral measures **change between two points**. When you compute \(F(b) - F(a)\), the same constant \(C\) appears in both terms and cancels — leaving the actual change.
+
+</details>
+
+
+### Concept Check: What F(b) − F(a) Really Means {-}
+
+What does \(F(b) - F(a)\) represent conceptually?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+It represents the **net change in the accumulated quantity between \(a\) and \(b\)** — not the value at either point alone. \(F(a)\) is the cumulative total up to \(a\); \(F(b)\) is the cumulative total up to \(b\); subtracting gives the amount accumulated *between* them.
+
+</details>
+
+
+### Concept Check: Why We Trust Integrals When Data Are Discrete {-}
+
+Why can definite integrals be trusted even when real environmental data come in discrete chunks?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Riemann sums show how discrete measurements approximate continuous accumulation. The definite integral represents the **continuous benchmark** that those approximations approach — so even when you only have data every 15 minutes, the integral gives you a defensible idealized total to aim for.
+
+</details>
+
+
+---
 
 ## Properties of Definite Integrals
 
@@ -999,6 +1213,44 @@ Just as importantly, these properties prepare us for:
 By mastering these behaviors now, you build a toolkit that makes integrals flexible, interpretable, and powerful—far more than just areas under curves.
 
 
+### Concept Check: Why Linearity Matches Physical Intuition {-}
+
+Why is linearity of the integral consistent with physical intuition?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Independent processes contribute additively at every moment — if rainfall is adding water at one rate and groundwater seepage is adding at another, the lake gains the *sum*. Since accumulation adds contributions over time, adding rates adds their accumulated effects.
+
+</details>
+
+
+### Concept Check: Additivity Over Subintervals {-}
+
+What does the additivity property of integrals say about breaking an interval into pieces?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Accumulation over a long interval equals the **sum of accumulations over its subintervals**. The total volume passing through a gauge from 9 AM to 5 PM is the sum of what passed from 9–noon and noon–5 PM. This matches how real-world totals are built from smaller segments.
+
+</details>
+
+
+### Concept Check: Why Reversing Limits Flips the Sign {-}
+
+Why does reversing the limits of integration change the sign of the integral?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Reversing the limits **reverses the direction of accumulation** — instead of asking "how much accumulated *forward* in time", you're asking "how much would *undo* that accumulation going backward". Since integrals track directional change, the sign flips.
+
+</details>
+
+
+---
+
 ## The Fundamental Theorem of Calculus (Part I)
 
 ### Big Idea
@@ -1320,6 +1572,68 @@ Understanding this connection sets the stage for computing integrals efficiently
 
 ---
 
+### Concept Check: The Role of the Accumulation Function A(x) {-}
+
+What conceptual role does the accumulation function \(A(x)\) play?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+It describes how **total accumulated change builds from a fixed starting point up to a variable endpoint**, turning accumulation into a *function* of where you stop. Instead of one number for the whole interval, \(A(x)\) lets you ask: "how much had accumulated by time \(x\)?"
+
+</details>
+
+
+### Concept Check: Why A'(x) = f(x) Makes Sense {-}
+
+According to the Fundamental Theorem of Calculus (Part I), why is \(A'(x) = f(x)\) reasonable?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Over a small change \(\Delta x\), accumulation increases by approximately \(f(x)\,\Delta x\). Dividing by \(\Delta x\) shows the **rate of change of accumulation equals the original rate**. Speeding up accumulation *is* the rate.
+
+</details>
+
+
+### Concept Check: Differentiation and Integration as Inverses {-}
+
+Why are differentiation and integration considered inverse processes?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Integration **builds total change from a rate**; differentiation **recovers the instantaneous rate from accumulated change**. Each undoes the effect of the other — like multiplication and division, or putting on a coat and taking it off.
+
+</details>
+
+
+### Concept Check: How the FTC Unifies Calculus {-}
+
+How does the Fundamental Theorem of Calculus unify the main ideas of calculus?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+It connects **rates and accumulation**, showing that differentiation and integration are two perspectives on the same process of change. The derivative slices the world into instants; the integral glues those instants back into totals.
+
+</details>
+
+
+### Concept Check: How Riemann Sums Keep the FTC Honest {-}
+
+How does understanding Riemann sums prevent misuse of the Fundamental Theorem of Calculus?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+It reinforces that **integrals represent accumulated change** — a definite integral is a *quantity*, with units and a sign, not a magic algebraic shortcut. The FTC is a fast way to compute something already defined through limits of sums.
+
+</details>
+
+
+---
+
 ## The Fundamental Theorem of Calculus (Part II)
 
 Up to this point, we have built integrals from the ground up:
@@ -1396,54 +1710,64 @@ Both perspectives matter.
 
 ---
 
-### Example 1: Rate \(f(x) = x\) {-}
+### Example 1: A Linear Streamflow Rate — \(f(t) = t\) {-}
+
+Consider a small drainage channel where the flow rate rises linearly with time during the rising limb of a storm:
+\[
+f(t) = t \quad \text{(mL/s)},
+\]
+with \(t\) measured in seconds. The **accumulated volume** of water that has passed through the channel from time zero up to time \(t\) is an antiderivative of this rate:
+\[
+F(t) = \tfrac{1}{2}t^2 + C,
+\]
+where the constant \(C\) represents the volume that had already passed before we started timing — different storms (or different starting moments) give different \(C\) values, but the *shape* of the accumulation curve is the same.
 
 ```{r antiderivatives-linear-rate, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4}
 
 library(ggplot2)
 library(patchwork)
 
-# Domain
-x <- seq(-3, 3, length.out = 400)
+# Domain: time in seconds
+t <- seq(0, 4, length.out = 400)
 
-# Rate function
-f <- x
+# Rate function: linear flow rate
+f <- t
 
-# Antiderivatives with different constants
-F0 <- 0.5 * x^2
-F1 <- 0.5 * x^2 + 4
-F2 <- 0.5 * x^2 - 4
+# Antiderivatives (cumulative volume) with different starting volumes
+F0 <- 0.5 * t^2          # started timing at empty
+F1 <- 0.5 * t^2 + 4      # 4 mL already passed before we started
+F2 <- 0.5 * t^2 + 8      # 8 mL already passed before we started
 
 # Data frames
-df_rate <- data.frame(x = x, y = f)
+df_rate <- data.frame(t = t, y = f)
 
 df_anti <- data.frame(
-  x = x,
+  t = t,
   Base = F0,
-  ShiftUp = F1,
-  ShiftDown = F2
+  ShiftUp1 = F1,
+  ShiftUp2 = F2
 )
 
 # Left panel: rate
-p_rate <- ggplot(df_rate, aes(x = x, y = y)) +
+p_rate <- ggplot(df_rate, aes(x = t, y = y)) +
   geom_line(linewidth = 1.2) +
   geom_hline(yintercept = 0, linetype = "dashed", color = "gray50") +
   labs(
-    title = "Rate Function:  f(x) = x",
-    x = "x",
-    y = "Rate"
+    title = "Flow Rate:  f(t) = t",
+    x = "t  (seconds)",
+    y = "f(t)  (mL/s)"
   ) +
   theme_minimal()
 
-# Right panel: antiderivatives
-p_anti <- ggplot(df_anti, aes(x = x)) +
-  geom_line(aes(y = Base), linewidth = 1.2, color = "#0072B2") +
-  geom_line(aes(y = ShiftUp), linewidth = 1.2, color = "#D55E00") +
-  geom_line(aes(y = ShiftDown), linewidth = 1.2, color = "#009E73") +
+# Right panel: antiderivatives (cumulative volume)
+p_anti <- ggplot(df_anti, aes(x = t)) +
+  geom_line(aes(y = Base),     linewidth = 1.2, color = "#0072B2") +
+  geom_line(aes(y = ShiftUp1), linewidth = 1.2, color = "#D55E00") +
+  geom_line(aes(y = ShiftUp2), linewidth = 1.2, color = "#009E73") +
   labs(
-    title = "Multiple Antiderivatives of f(x)",
-    x = "x",
-    y = "Accumulated Value"
+    title = "Possible Cumulative-Volume Curves  F(t) = ½t² + C",
+    x = "t  (seconds)",
+    y = "F(t)  (mL)"
   ) +
   theme_minimal()
 
@@ -1451,100 +1775,111 @@ p_anti <- ggplot(df_anti, aes(x = x)) +
 p_rate | p_anti
 
 ```
+
 In this example:
 
-- The left panel shows the rate function \(f(x) = x\).
-- The right panel shows several curves of the form:
+- The left panel shows the **flow rate** \(f(t) = t\).
+- The right panel shows several **cumulative-volume curves** of the form
   \[
-  F(x) = \tfrac12 x^2 + C.
+  F(t) = \tfrac12 t^2 + C.
   \]
 
-All of the curves on the right have different vertical positions, but they share the same shape.
+All three curves on the right have different vertical positions but the same shape.
 
 Why?
 
-- The **slope** of each curve on the right at any value of \(x\) is exactly \(x\).
-- That slope matches the **height** of the rate function on the left.
+- The **slope** of each curve at any time \(t\) is exactly \(t\) mL/s.
+- That slope matches the **height** of the rate curve on the left.
 
 So:
 
-- If you start with the rate \(f(x) = x\) and *accumulate*, you get a parabola.
-- If you start with any of the parabolas on the right and *differentiate*, you recover the line \(f(x) = x\).
+- If you start with the rate \(f(t) = t\) and *accumulate*, you get a parabola.
+- If you start with any of the parabolas on the right and *differentiate*, you recover the line \(f(t) = t\).
 
-The constant \(C\) only changes where accumulation starts — not how it grows.
+The constant \(C\) only changes *where the cumulative volume started* — it doesn't change how fast volume is accumulating at any moment.
 
 ---
 
-### Example 2: Rate \(f(x) = x^2 - 2\) {-}
+### Example 2: A Net Carbon Flux That Switches Sign — \(f(t) = t^2 - 2\) {-}
+
+Now consider a more realistic environmental rate. A flux tower in a young forest stand records net ecosystem carbon exchange during the first few hours after dawn, modeled as
+\[
+f(t) = t^2 - 2 \quad \text{(mg C / m}^2\text{/hr)},
+\]
+where \(t\) is hours after dawn. For \(t < \sqrt{2} \approx 1.41\) hours the rate is *negative* — respiration is outpacing photosynthesis and the stand is losing carbon. After \(t = \sqrt{2}\), photosynthesis dominates and the stand starts gaining carbon. The **cumulative carbon balance** is an antiderivative of this rate:
+\[
+F(t) = \tfrac{1}{3}t^3 - 2t + C,
+\]
+where \(C\) is the cumulative balance at the moment we started recording.
+
 ```{r antiderivatives-quadratic-shifted, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4}
 
 library(ggplot2)
 library(patchwork)
 
-# Domain
-x <- seq(-3, 3, length.out = 400)
+# Domain: hours after dawn
+t <- seq(0, 3, length.out = 400)
 
-# Rate function
-f <- x^2 - 2
+# Rate function: net carbon flux (mg C/m^2/hr)
+f <- t^2 - 2
 
-# Antiderivatives with different constants
-F0 <- (1/3) * x^3 - 2 * x
-F1 <- (1/3) * x^3 - 2 * x + 5
-F2 <- (1/3) * x^3 - 2 * x - 5
+# Antiderivatives (cumulative carbon balance) with different starting values
+F0 <- (1/3) * t^3 - 2 * t          # started at zero
+F1 <- (1/3) * t^3 - 2 * t + 3      # offset upward
+F2 <- (1/3) * t^3 - 2 * t - 3      # offset downward
 
 # Data frames
-df_rate <- data.frame(x = x, y = f)
+df_rate <- data.frame(t = t, y = f)
 
 df_anti <- data.frame(
-  x = x,
+  t = t,
   Base = F0,
   ShiftUp = F1,
   ShiftDown = F2
 )
 
 # Left panel: rate
-p_rate <- ggplot(df_rate, aes(x = x, y = y)) +
+p_rate <- ggplot(df_rate, aes(x = t, y = y)) +
   geom_line(linewidth = 1.2) +
   geom_hline(yintercept = 0, linetype = "dashed", color = "gray50") +
   labs(
-    title = "Rate Function:  f(x) = x² − 2",
-    x = "x",
-    y = "Rate"
+    title = expression("Net Carbon Flux:  f(t) = t"^2*" - 2"),
+    x = "t  (hours after dawn)",
+    y = expression("f(t)  (mg C / m"^2*" / hr)")
   ) +
   theme_minimal()
 
-# Right panel: antiderivatives
-p_anti <- ggplot(df_anti, aes(x = x)) +
-  geom_line(aes(y = Base), linewidth = 1.2, color = "#0072B2") +
-  geom_line(aes(y = ShiftUp), linewidth = 1.2, color = "#D55E00") +
+# Right panel: antiderivatives (cumulative carbon balance)
+p_anti <- ggplot(df_anti, aes(x = t)) +
+  geom_line(aes(y = Base),      linewidth = 1.2, color = "#0072B2") +
+  geom_line(aes(y = ShiftUp),   linewidth = 1.2, color = "#D55E00") +
   geom_line(aes(y = ShiftDown), linewidth = 1.2, color = "#009E73") +
   labs(
-    title = "Multiple Antiderivatives of f(x)",
-    x = "x",
-    y = "Accumulated Value"
+    title = "Possible Cumulative Carbon Balance Curves  F(t) = ⅓t³ - 2t + C",
+    x = "t  (hours after dawn)",
+    y = expression("F(t)  (mg C / m"^2*")")
   ) +
   theme_minimal()
 
 # Combine panels
 p_rate | p_anti
+
 ```
+
 In this example:
 
-- The left panel shows the rate function \(f(x) = x^2 - 2\).
-- The right panel shows several curves of the form:
+- The left panel shows the **net flux rate** \(f(t) = t^2 - 2\). It is negative early (the stand is a carbon source) and positive later (the stand is a sink).
+- The right panel shows three **cumulative carbon balance** curves of the form
   \[
-  F(x) = \tfrac13 x^3 - 2x + C.
+  F(t) = \tfrac{1}{3} t^3 - 2t + C.
   \]
 
-Again, the curves on the right are vertically shifted versions of one another, but they all share the same overall shape.
+Each cumulative-balance curve *dips* in the early hours (carbon being lost) and *recovers* after \(t = \sqrt{2}\) (carbon being gained back). Different starting balances \(C\) shift the curve up or down — but all three have:
 
-What connects the two panels?
+- the *same* slope at every \(t\), equal to \(f(t)\), and
+- the *same* turning point at \(t = \sqrt{2}\), where the flux flips sign.
 
-- Wherever the rate on the left is **positive**, the antiderivative on the right is **increasing**.
-- Wherever the rate on the left is **negative**, the antiderivative on the right is **decreasing**.
-- Where the rate crosses zero, the antiderivative has a **horizontal tangent**.
-
-This shows that the behavior of the accumulation function is completely determined by the rate.
+The differences between these curves come from different *initial* balances. What they share — the shape, the slopes, the location of the minimum — is exactly what the rate function dictates.
 
 ---
 
@@ -2023,342 +2358,65 @@ Understanding this connection allows you to compute integrals confidently **and*
 
 
 
-## Conceptual Questions: Definite Integrals, Riemann Sums, and the Fundamental Theorem of Calculus
+### Concept Check: Why Antiderivatives Form Families {-}
 
-The questions in this section are designed to help you focus on **meaning rather than mechanics**. Instead of asking you to compute integrals, they ask you to explain what integrals represent, how Riemann sums give rise to them, and why the Fundamental Theorem of Calculus connects accumulation and rate so powerfully.
-
-Use these questions to check your conceptual understanding, clarify common misconceptions, and practice explaining calculus ideas in words. Being able to articulate *why* an integral works is just as important as knowing *how* to compute one.
-
-
----
-
-### Question 1 {-}
-Why are Riemann sums described as a *process* rather than a final answer?
-
-<details>
-<summary><strong>Click to reveal solution</strong></summary>
-
-Riemann sums are a method for approximating accumulation using finitely many rectangles. They show how accumulation is built piece by piece. The definite integral is the value that emerges when this approximation process is carried out with infinitely fine resolution.
-</details>
-
----
-
-### Question 2 {-}
-What does shrinking \(\Delta x\) represent conceptually in an environmental context?
-
-<details>
-<summary><strong>Click to reveal solution</strong></summary>
-
-Shrinking \(\Delta x\) represents increasing measurement resolution, such as sampling more frequently in time or more densely in space. It reflects a closer approximation of a continuous process using discrete data.
-</details>
-
----
-
-### Question 3 {-}
-Why do left, right, and midpoint Riemann sums converge to the same value for smooth functions?
-
-<details>
-<summary><strong>Click to reveal solution</strong></summary>
-
-For smooth functions, the rate changes very little over sufficiently small intervals. As \(\Delta x \to 0\), differences between left, right, and midpoint samples vanish, causing all reasonable sums to approach the same accumulated total.
-</details>
-
----
-
-### Question 4 {-}
-What assumption about the system is made when using rectangles to approximate accumulation?
-
-<details>
-<summary><strong>Click to reveal solution</strong></summary>
-
-Each rectangle assumes the rate is approximately constant over its subinterval. Smaller rectangles make this assumption more reasonable, which is why refinement improves accuracy.
-</details>
-
----
-
-### Question 5 {-}
-Why is a definite integral better interpreted as *accumulation* rather than *area*?
-
-<details>
-<summary><strong>Click to reveal solution</strong></summary>
-
-A definite integral represents total accumulated change from a rate, including sign and units. Area is a helpful visualization, but accumulation captures the physical meaning of the process.
-</details>
-
----
-
-### Question 6 {-}
-What does the sign of a definite integral tell you about a system?
-
-<details>
-<summary><strong>Click to reveal solution</strong></summary>
-
-The sign indicates the direction of net change. Positive means net gain, negative means net loss, and zero means gains and losses balance over the interval.
-</details>
-
----
-
-### Question 7 {-}
-Why does a zero net integral not imply that “nothing happened”?
-
-<details>
-<summary><strong>Click to reveal solution</strong></summary>
-
-A net value of zero means positive and negative contributions canceled. Significant gains and losses may still have occurred internally.
-</details>
-
----
-
-### Question 8 {-}
-How do units help verify the interpretation of a definite integral?
-
-<details>
-<summary><strong>Click to reveal solution</strong></summary>
-
-Units of an integral come from multiplying the rate’s units by the variable’s units. If the resulting units do not match the physical quantity, the setup or interpretation is incorrect.
-</details>
-
----
-
-### Question 9 {-}
-Why is linearity of the integral consistent with physical intuition?
-
-<details>
-<summary><strong>Click to reveal solution</strong></summary>
-
-Independent processes contribute additively at every moment. Since accumulation adds contributions over time or space, adding rates adds their accumulated effects.
-</details>
-
----
-
-### Question 10 {-}
-What does the additivity property of integrals say about breaking an interval into pieces?
-
-<details>
-<summary><strong>Click to reveal solution</strong></summary>
-
-Accumulation over a long interval equals the sum of accumulations over subintervals. This matches how real-world totals are built from smaller segments.
-</details>
-
----
-
-### Question 11 {-}
-Why does reversing the limits of integration change the sign of the integral?
-
-<details>
-<summary><strong>Click to reveal solution</strong></summary>
-
-Reversing the limits reverses the direction of accumulation. Since integrals track directional change, the sign flips.
-</details>
-
----
-
-### Question 12 {-}
-Why does integrating a constant rate reduce to “rate × duration”?
-
-<details>
-<summary><strong>Click to reveal solution</strong></summary>
-
-If the rate is constant, every small contribution is the same. Adding them over the interval is equivalent to multiplying the rate by the interval length.
-</details>
-
----
-
-### Question 13 {-}
-What conceptual role does the accumulation function \(A(x)\) play?
-
-<details>
-<summary><strong>Click to reveal solution</strong></summary>
-
-It describes how total accumulated change builds from a fixed starting point up to a variable endpoint, turning accumulation into a function.
-</details>
-
----
-
-### Question 14 {-}
-According to the Fundamental Theorem of Calculus (Part I), why is \(A'(x) = f(x)\) reasonable?
-
-<details>
-<summary><strong>Click to reveal solution</strong></summary>
-
-Over a small change \(\Delta x\), accumulation increases by approximately \(f(x)\Delta x\). Dividing by \(\Delta x\) shows the rate of change of accumulation equals the original rate.
-</details>
-
----
-
-### Question 15 {-}
-Why are differentiation and integration considered inverse processes?
-
-<details>
-<summary><strong>Click to reveal solution</strong></summary>
-
-Integration builds total change from a rate, while differentiation recovers the instantaneous rate from accumulated change. Each undoes the effect of the other.
-</details>
-
----
-
-### Question 16 {-}
 Why do antiderivatives differ by a constant?
 
 <details>
-<summary><strong>Click to reveal solution</strong></summary>
+<summary><strong>Click to reveal answer</strong></summary>
 
-Adding a constant shifts a function vertically without changing its slope. Since derivatives depend on slope, all such functions share the same derivative.
+Adding a constant **shifts a function vertically without changing its slope**. Since derivatives depend only on slope, all such shifted functions share the same derivative — and so they're all antiderivatives of the same rate.
+
 </details>
 
----
 
-### Question 17 {-}
-Why does the constant of integration not affect a definite integral?
+### Concept Check: Why 'Plug-and-Chug' Is Dangerous {-}
+
+Why is treating the Fundamental Theorem of Calculus as "plug-and-chug" dangerous?
 
 <details>
-<summary><strong>Click to reveal solution</strong></summary>
+<summary><strong>Click to reveal answer</strong></summary>
 
-A definite integral measures change between two points. When computing \(F(b) - F(a)\), any constant cancels.
+Without conceptual understanding, it's easy to **misinterpret signs, units, or meaning**. A negative integral isn't a calculation error — it's information. The formula works because of accumulation logic, not algebraic coincidence; if you don't see the accumulation, you'll misread the result.
+
 </details>
 
----
 
-### Question 18 {-}
-What does \(F(b) - F(a)\) represent conceptually?
+### Concept Check: Riemann Sums and FTC: Same Idea, Two Stages {-}
 
-<details>
-<summary><strong>Click to reveal solution</strong></summary>
-
-It represents the net change in the accumulated quantity between \(a\) and \(b\), not the value at either point alone.
-</details>
-
----
-
-### Question 19 {-}
-Why is treating the Fundamental Theorem of Calculus as “plug-and-chug” dangerous?
-
-<details>
-<summary><strong>Click to reveal solution</strong></summary>
-
-Without conceptual understanding, it is easy to misinterpret signs, units, or meaning. The formula works because of accumulation logic, not algebraic coincidence.
-</details>
-
----
-
-### Question 20 {-}
-How does the Fundamental Theorem of Calculus unify the main ideas of calculus?
-
-<details>
-<summary><strong>Click to reveal solution</strong></summary>
-
-It connects rates and accumulation, showing that differentiation and integration are two perspectives on the same process of change.
-</details>
-
----
-
-### Question 21 {-}
-How does a definite integral formalize the idea behind Riemann sums?
-
-<details>
-<summary><strong>Click to reveal solution</strong></summary>
-
-A definite integral is defined as the limit of Riemann sums as subinterval widths approach zero, capturing exactly what the sums approximate.
-</details>
-
----
-
-### Question 22 {-}
-In what sense is a Riemann sum an environmental modeling tool?
-
-<details>
-<summary><strong>Click to reveal solution</strong></summary>
-
-Riemann sums mirror how environmental data are used: discrete measurements represent behavior between observations, and contributions are summed to estimate totals.
-</details>
-
----
-
-### Question 23 {-}
-Why does the definite integral not depend on left, right, or midpoint sampling?
-
-<details>
-<summary><strong>Click to reveal solution</strong></summary>
-
-As partitions become finer, differences between sampling choices disappear. All reasonable approximations converge to the same value.
-</details>
-
----
-
-### Question 24 {-}
-What conceptual role does the limit play in connecting Riemann sums to integrals?
-
-<details>
-<summary><strong>Click to reveal solution</strong></summary>
-
-The limit removes dependence on arbitrary choices like rectangle width or sample location, producing an idealized accumulated total.
-</details>
-
----
-
-### Question 25 {-}
 Why is it misleading to think of Riemann sums and definite integrals as separate formulas?
 
 <details>
-<summary><strong>Click to reveal solution</strong></summary>
+<summary><strong>Click to reveal answer</strong></summary>
 
-They describe the same idea at different stages. Riemann sums show construction; the definite integral names the limiting result.
+They describe the **same idea at different stages**. Riemann sums show *construction* — how accumulation is assembled. The definite integral *names the limiting result*. Treating them as separate hides the fact that the FTC is just an efficient way to compute the limit.
+
 </details>
 
----
 
-### Question 26 {-}
-How does understanding Riemann sums prevent misuse of the Fundamental Theorem of Calculus?
+### Concept Check: Perfect Measurement and the Integral {-}
+
+How does refining a Riemann sum connect to the idea of "perfect measurement"?
 
 <details>
-<summary><strong>Click to reveal solution</strong></summary>
+<summary><strong>Click to reveal answer</strong></summary>
 
-It reinforces that integrals represent accumulated change. The theorem is a shortcut for computing a quantity already defined through limits of sums.
+Refinement corresponds to **measuring at infinitely fine resolution**. The definite integral represents the *total that would be obtained with no missing detail* — the answer your gauge would give if it sampled continuously.
+
 </details>
 
----
 
-### Question 27 {-}
-Why is the phrase “area under the curve” incomplete without the Riemann-sum perspective?
+### Concept Check: Why Teach Riemann Sums First {-}
 
-<details>
-<summary><strong>Click to reveal solution</strong></summary>
-
-Without Riemann sums, area seems purely geometric. Riemann sums reveal it comes from adding rate × width contributions, giving meaning to sign and units.
-</details>
-
----
-
-### Question 28 {-}
-How does refining a Riemann sum connect to the idea of “perfect measurement”?
-
-<details>
-<summary><strong>Click to reveal solution</strong></summary>
-
-Refinement corresponds to measuring at infinitely fine resolution. The definite integral represents the total that would be obtained with no missing detail.
-</details>
-
----
-
-### Question 29 {-}
-Why can definite integrals be trusted even when real data are discrete?
-
-<details>
-<summary><strong>Click to reveal solution</strong></summary>
-
-Riemann sums explain how discrete measurements approximate continuous accumulation. Integrals represent the continuous benchmark those approximations approach.
-</details>
-
----
-
-### Question 30 {-}
 What is gained conceptually by teaching Riemann sums before antiderivatives?
 
 <details>
-<summary><strong>Click to reveal solution</strong></summary>
+<summary><strong>Click to reveal answer</strong></summary>
 
-Students first understand what an integral represents and why it exists. Antiderivatives then appear as an efficient computational tool, not the definition of integration.
+Students first understand *what an integral represents and why it exists*. Antiderivatives then appear as an **efficient computational tool** — not as the *definition* of integration. This protects against the misconception that an integral is "whatever \(F(b) - F(a)\) gives you".
+
 </details>
+
 
 ---
 
@@ -2880,3 +2938,120 @@ F(1) = 12 - 1.5 = 10.5
 The population increased by **13.5 individuals** over this time period.
 </details>
 
+
+---
+
+### Problem 17: Total Streamflow Volume {-}
+
+A flow gauge in a small drainage channel records the discharge rate
+\[
+Q(t) = 3t^2 \quad \text{(L/min)},
+\]
+where \(t\) is measured in minutes after the gauge began recording. Using the Fundamental Theorem of Calculus, find the **total volume of water** that flowed through the gauge between \(t = 1\) and \(t = 4\) minutes.
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+The total volume is
+\[
+\int_1^4 3t^2\,dt.
+\]
+
+An antiderivative of \(3t^2\) is \(t^3\), so
+\[
+\int_1^4 3t^2\,dt = \bigl[t^3\bigr]_1^4 = 64 - 1 = 63 \text{ L}.
+\]
+
+\[
+\boxed{63 \text{ L of water flowed through the gauge.}}
+\]
+
+</details>
+
+---
+
+### Problem 18: Net Carbon Exchange Over a Morning {-}
+
+A flux tower over a young Douglas-fir stand records the net ecosystem carbon exchange rate during the first three hours after dawn as
+\[
+F(t) = t^2 - 1 \quad \text{(mg C / m}^2\text{ / hr)},
+\]
+with \(t\) measured in hours after dawn. Compute the **net carbon exchange** between \(t = 0\) and \(t = 3\) hours, and interpret the sign.
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Net carbon exchange:
+\[
+\int_0^3 \bigl(t^2 - 1\bigr)\,dt
+= \left[\tfrac{t^3}{3} - t\right]_0^3
+= \left(9 - 3\right) - 0
+= 6 \text{ mg C / m}^2.
+\]
+
+**Interpretation:** The positive sign means the stand was a net **carbon sink** over the three-hour window — net uptake exceeded net release. Note that the rate was *negative* (a source) for the first hour (when \(t < 1\)) and *positive* (a sink) afterward, but the integrated total is positive: the sink phase outweighed the source phase.
+
+\[
+\boxed{+6 \text{ mg C / m}^2\text{ (net uptake)}.}
+\]
+
+</details>
+
+---
+
+### Problem 19: Pollutant Mass Loading to a Lake {-}
+
+A regulator monitors the rate at which a contaminant enters a lake from a stormwater outfall during a four-hour storm:
+\[
+L(t) = 4t \quad \text{(mg / s)},
+\]
+with \(t\) measured in seconds since the start of monitoring. Find the **total mass of contaminant** delivered to the lake between \(t = 0\) and \(t = 60\) seconds.
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Total mass:
+\[
+\int_0^{60} 4t \,dt
+= \bigl[2t^2\bigr]_0^{60}
+= 2(3600) - 0
+= 7200 \text{ mg}
+= 7.2 \text{ g}.
+\]
+
+\[
+\boxed{7.2 \text{ grams of contaminant entered the lake.}}
+\]
+
+For a regulator setting a maximum-daily-load standard, this is the kind of computation that turns a streaming sensor signal into a single defensible number.
+
+</details>
+
+---
+
+### Problem 20: Net Population Change with a Sign-Changing Rate {-}
+
+A fisheries biologist models the *net* daily change in a juvenile salmon population (immigration minus mortality) over a six-day window as
+\[
+N'(t) = 6t - t^2 \quad \text{(fish/day)},
+\]
+where \(t\) is days from the start of monitoring. Compute the **net change in population** between \(t = 0\) and \(t = 6\) days, and describe what the rate function says happens within that window.
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Net change:
+\[
+\int_0^6 \bigl(6t - t^2\bigr)\,dt
+= \left[3t^2 - \tfrac{t^3}{3}\right]_0^6
+= \left(108 - 72\right) - 0
+= 36 \text{ fish}.
+\]
+
+**What the rate says:** \(N'(t) = 6t - t^2 = t(6 - t)\) is zero at \(t = 0\) and \(t = 6\), and positive between them. So the population grows continuously throughout the six-day window — but the *rate* of growth peaks around \(t = 3\) (where \(N'(t) = 9\) fish/day) and tapers back toward zero by day 6. The total net gain is **36 fish**.
+
+\[
+\boxed{+36 \text{ fish (net gain over the six-day window)}.}
+\]
+
+</details>

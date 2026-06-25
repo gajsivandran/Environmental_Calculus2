@@ -1,7 +1,26 @@
 book_filename: "bookdown-demo"
-rmd_files: ["index.Rmd", "02-intro.Rmd","03-reimann.Rmd","04-def_int.Rmd", "05-integrals.Rmd","06-application.Rmd", "07-diffeq.Rmd", "20-Equation_sheet.Rmd","21-test_review.Rmd","22-test_review.Rmd","23-test_review.Rmd","24-test_review.Rmd","101-index_wB.Rmd",
-            "102-intro-workbook.Rmd", "103-riemann.Rmd","104-Riemann_prac.Rmd","105_Trap_Int.Rmd",
-            "106_int.Rmd", "107_applications.Rmd", "109_diffeq.Rmd", "110_diffeq2.Rmd"]
+rmd_files:
+  - index.Rmd
+  - 02-intro.Rmd
+  - 03-reimann.Rmd
+  - 04-def_int.Rmd
+  - 05-integrals.Rmd
+  - 06-application.Rmd
+  - 07-diffeq.Rmd
+  - 20-Equation_sheet.Rmd
+  - 21-test_review.Rmd
+  - 22-test_review.Rmd
+  - 23-test_review.Rmd
+  - 24-test_review.Rmd
+  - 101-index_wB.Rmd
+  - 102-intro-workbook.Rmd
+  - 103-riemann.Rmd
+  - 104-Riemann_prac.Rmd
+  - 105_Trap_Int.Rmd
+  - 106_int.Rmd
+  - 107_applications.Rmd
+  - 109_diffeq.Rmd
+  - 110_diffeq2.Rmd
 
 output_dir: "docs"
 clean: [packages.bib, bookdown.bbl]
@@ -11,20 +30,4 @@ language:
     appendix_name: "Appendix "
 
 delete_merged_file: true
-
-output:
-  bookdown::gitbook:
-    css: style.css
-
 number_sections: true
-
-#rmd_files:
-#  - index.Rmd
-#  - 02-index_wB.Rmd
-#  - 03-intro.Rmd
-#  - 04-intro-workbook.Rmd
-#  - 05-Derivatives.Rmd
-#  - 06-Derivatives_WB.Rmd
-#  - 07-Derivative_Rules.Rmd
-#  - 08-application.Rmd
-#  - 20-Equation_sheet.Rmd

@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html lang="en-US" xml:lang="en-US">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 Applications of Integration | Environmental Calculus 2 - Active Learning with Case Studies</title>
-  <meta name="description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
+  <meta name="description" content="A textbook companion to the University of Washington QSci 292 class" />
   <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 Applications of Integration | Environmental Calculus 2 - Active Learning with Case Studies" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
-  <meta name="github-repo" content="rstudio/bookdown-demo" />
+  <meta property="og:description" content="A textbook companion to the University of Washington QSci 292 class" />
+  <meta name="github-repo" content="gajsivandran/Environmental_Calculus2" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 6 Applications of Integration | Environmental Calculus 2 - Active Learning with Case Studies" />
   
-  <meta name="twitter:description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
+  <meta name="twitter:description" content="A textbook companion to the University of Washington QSci 292 class" />
   
 
 <meta name="author" content="Gaj Sivandran" />
 
 
-<meta name="date" content="2026-03-12" />
+<meta name="date" content="2026-06-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <style type="text/css">
   
@@ -87,20 +151,28 @@
 </ul></li>
 <li class="chapter" data-level="2" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html"><i class="fa fa-check"></i><b>2</b> Introduction to Calculus II</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#what-calculus-ii-is-really-about"><i class="fa fa-check"></i><b>2.1</b> What Calculus II Is Really About</a></li>
-<li class="chapter" data-level="2.2" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#what-you-bring-from-calculus-i"><i class="fa fa-check"></i><b>2.2</b> What You Bring From Calculus I</a></li>
-<li class="chapter" data-level="2.3" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#calc-2"><i class="fa fa-check"></i><b>2.3</b> Calc 2</a></li>
-<li class="chapter" data-level="2.4" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#big-themes-of-the-course"><i class="fa fa-check"></i><b>2.4</b> Big Themes of the Course</a>
+<li class="chapter" data-level="2.1" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#what-calculus-ii-is-really-about"><i class="fa fa-check"></i><b>2.1</b> What Calculus II Is Really About</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#accumulation"><i class="fa fa-check"></i><b>2.4.1</b> Accumulation</a></li>
-<li class="chapter" data-level="2.4.2" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#reversing-derivatives-antiderivatives-and-the-fundamental-idea"><i class="fa fa-check"></i><b>2.4.2</b> Reversing Derivatives: Antiderivatives and the Fundamental Idea</a></li>
-<li class="chapter" data-level="2.4.3" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#why-this-connection-matters"><i class="fa fa-check"></i><b>2.4.3</b> Why This Connection Matters</a></li>
-<li class="chapter" data-level="2.4.4" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#change-over-time-a-first-look-at-differential-equations"><i class="fa fa-check"></i><b>2.4.4</b> Change Over Time: A First Look at Differential Equations</a></li>
-<li class="chapter" data-level="2.4.5" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#skills-that-make-calculus-ii-easier"><i class="fa fa-check"></i><b>2.4.5</b> Skills That Make Calculus II Easier</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#concept-check-rate-vs.-total"><i class="fa fa-check"></i>Concept Check: Rate vs. Total</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#building-an-intuition-for-accumulation"><i class="fa fa-check"></i><b>2.5</b> Building an Intuition for Accumulation</a>
+<li class="chapter" data-level="2.2" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#what-you-bring-from-calculus-i"><i class="fa fa-check"></i><b>2.2</b> What You Bring From Calculus I</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#big-themes-of-the-course"><i class="fa fa-check"></i><b>2.3</b> Big Themes of the Course</a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#units-and-interpretation"><i class="fa fa-check"></i><b>2.5.1</b> Units and Interpretation</a></li>
+<li class="chapter" data-level="2.3.1" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#accumulation"><i class="fa fa-check"></i><b>2.3.1</b> Accumulation</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#concept-check-recognizing-accumulation"><i class="fa fa-check"></i>Concept Check: Recognizing Accumulation</a></li>
+<li class="chapter" data-level="2.3.2" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#reversing-derivatives-antiderivatives-and-the-fundamental-idea"><i class="fa fa-check"></i><b>2.3.2</b> Reversing Derivatives: Antiderivatives and the Fundamental Idea</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#concept-check-from-rate-to-total"><i class="fa fa-check"></i>Concept Check: From Rate to Total</a></li>
+<li class="chapter" data-level="2.3.3" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#change-over-time-a-first-look-at-differential-equations"><i class="fa fa-check"></i><b>2.3.3</b> Change Over Time: A First Look at Differential Equations</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#concept-check-recognizing-a-differential-equation"><i class="fa fa-check"></i>Concept Check: Recognizing a Differential Equation</a></li>
+<li class="chapter" data-level="2.3.4" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#skills-that-make-calculus-ii-easier"><i class="fa fa-check"></i><b>2.3.4</b> Skills That Make Calculus II Easier</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#building-an-intuition-for-accumulation"><i class="fa fa-check"></i><b>2.4</b> Building an Intuition for Accumulation</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#concept-check-slicing-up-an-accumulation"><i class="fa fa-check"></i>Concept Check: Slicing Up an Accumulation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#units-and-interpretation"><i class="fa fa-check"></i><b>2.5</b> Units and Interpretation</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#concept-check-tracking-units-of-an-accumulation"><i class="fa fa-check"></i>Concept Check: Tracking Units of an Accumulation</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#looking-ahead-1"><i class="fa fa-check"></i><b>2.6</b> Looking Ahead</a></li>
 </ul></li>
@@ -110,21 +182,34 @@
 <li class="chapter" data-level="3.2" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#accumulation-in-environmental-systems"><i class="fa fa-check"></i><b>3.2</b> Accumulation in Environmental Systems</a>
 <ul>
 <li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#walking-on-a-treadmill"><i class="fa fa-check"></i>Walking on a Treadmill</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-what-an-integral-represents"><i class="fa fa-check"></i>Concept Check: What an Integral Represents</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-why-rates-are-easier-than-totals"><i class="fa fa-check"></i>Concept Check: Why Rates Are Easier Than Totals</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#from-rate-curves-to-areas-under-curves"><i class="fa fa-check"></i><b>3.3</b> From Rate Curves to Areas Under Curves</a>
 <ul>
 <li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#filling-a-water-bottle"><i class="fa fa-check"></i>Filling a Water Bottle</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-area-under-a-rate-curve"><i class="fa fa-check"></i>Concept Check: Area Under a Rate Curve</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-why-the-units-work-out"><i class="fa fa-check"></i>Concept Check: Why the Units Work Out</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-why-a-single-rate-times-time-falls-short"><i class="fa fa-check"></i>Concept Check: Why a Single Rate Times Time Falls Short</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#riemann-sums-adding-up-small-pieces"><i class="fa fa-check"></i><b>3.4</b> Riemann Sums: Adding Up Small Pieces</a>
 <ul>
 <li class="chapter" data-level="3.4.1" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#choosing-a-riemann-sum-method"><i class="fa fa-check"></i><b>3.4.1</b> Choosing a Riemann Sum Method</a></li>
 <li class="chapter" data-level="3.4.2" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#a-practical-guideline"><i class="fa fa-check"></i><b>3.4.2</b> A Practical Guideline</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-what-a-single-rectangle-represents"><i class="fa fa-check"></i>Concept Check: What a Single Rectangle Represents</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-why-more-rectangles-helps"><i class="fa fa-check"></i>Concept Check: Why More Rectangles Helps</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-the-assumption-inside-each-rectangle"><i class="fa fa-check"></i>Concept Check: The Assumption Inside Each Rectangle</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#approximation-and-error-in-riemann-sums"><i class="fa fa-check"></i><b>3.5</b> Approximation and Error in Riemann Sums</a>
 <ul>
 <li class="chapter" data-level="3.5.1" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#why-error-occurs"><i class="fa fa-check"></i><b>3.5.1</b> Why Error Occurs</a></li>
 <li class="chapter" data-level="3.5.2" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#overestimates-and-underestimates"><i class="fa fa-check"></i><b>3.5.2</b> Overestimates and Underestimates</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-why-left-sums-underestimate-increasing-rates"><i class="fa fa-check"></i>Concept Check: Why Left Sums Underestimate Increasing Rates</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-why-right-sums-overestimate-increasing-rates"><i class="fa fa-check"></i>Concept Check: Why Right Sums Overestimate Increasing Rates</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-why-the-midpoint-tends-to-win"><i class="fa fa-check"></i>Concept Check: Why the Midpoint Tends to Win</a></li>
 <li class="chapter" data-level="3.5.3" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#interpreting-error-in-environmental-contexts"><i class="fa fa-check"></i><b>3.5.3</b> Interpreting Error in Environmental Contexts</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-what-makes-an-estimate-conservative"><i class="fa fa-check"></i>Concept Check: What Makes an Estimate Conservative</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-choosing-a-method-is-a-modeling-decision"><i class="fa fa-check"></i>Concept Check: Choosing a Method Is a Modeling Decision</a></li>
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#riemann-sums-as-a-calculus-expression"><i class="fa fa-check"></i><b>3.6</b> Riemann Sums as a Calculus Expression</a>
 <ul>
@@ -135,10 +220,12 @@
 <li class="chapter" data-level="3.6.5" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#example-2-right-hand-riemann-sum"><i class="fa fa-check"></i><b>3.6.5</b> Example 2: Right-Hand Riemann Sum</a></li>
 <li class="chapter" data-level="3.6.6" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#example-3-midpoint-riemann-sum"><i class="fa fa-check"></i><b>3.6.6</b> Example 3: Midpoint Riemann Sum</a></li>
 <li class="chapter" data-level="3.6.7" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#comparison"><i class="fa fa-check"></i><b>3.6.7</b> Comparison</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-where-riemann-sum-error-really-comes-from"><i class="fa fa-check"></i>Concept Check: Where Riemann-Sum Error Really Comes From</a></li>
 </ul></li>
 <li class="chapter" data-level="3.7" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#refining-the-approximation"><i class="fa fa-check"></i><b>3.7</b> Refining the Approximation</a>
 <ul>
 <li class="chapter" data-level="3.7.1" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#increasing-n"><i class="fa fa-check"></i><b>3.7.1</b> Increasing <span class="math inline">\(n\)</span></a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-the-cost-of-finer-partitions"><i class="fa fa-check"></i>Concept Check: The Cost of Finer Partitions</a></li>
 </ul></li>
 <li class="chapter" data-level="3.8" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#beyond-rectangles-more-accurate-approximation-methods"><i class="fa fa-check"></i><b>3.8</b> Beyond Rectangles: More Accurate Approximation Methods</a></li>
 <li class="chapter" data-level="3.9" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#the-trapezoidal-rule"><i class="fa fa-check"></i><b>3.9</b> The Trapezoidal Rule</a>
@@ -149,6 +236,7 @@
 <li class="chapter" data-level="3.9.4" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#interpretation-3"><i class="fa fa-check"></i><b>3.9.4</b> Interpretation</a></li>
 <li class="chapter" data-level="3.9.5" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#example-trapezoidal-rule"><i class="fa fa-check"></i><b>3.9.5</b> Example: Trapezoidal Rule</a></li>
 <li class="chapter" data-level="3.9.6" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#key-takeaways"><i class="fa fa-check"></i><b>3.9.6</b> Key Takeaways</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-why-trapezoids-beat-rectangles"><i class="fa fa-check"></i>Concept Check: Why Trapezoids Beat Rectangles</a></li>
 </ul></li>
 <li class="chapter" data-level="3.10" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#accuracy-trade-offs-shape-vs.-number-of-subintervals"><i class="fa fa-check"></i><b>3.10</b> Accuracy Trade-Offs: Shape vs. Number of Subintervals</a>
 <ul>
@@ -156,6 +244,7 @@
 <li class="chapter" data-level="3.10.2" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#improving-accuracy-by-increasing-n"><i class="fa fa-check"></i><b>3.10.2</b> Improving Accuracy by Increasing <span class="math inline">\(n\)</span></a></li>
 <li class="chapter" data-level="3.10.3" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#comparing-the-two-strategies"><i class="fa fa-check"></i><b>3.10.3</b> Comparing the Two Strategies</a></li>
 <li class="chapter" data-level="3.10.4" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#a-modeling-perspective"><i class="fa fa-check"></i><b>3.10.4</b> A Modeling Perspective</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-shape-vs.-subdivision"><i class="fa fa-check"></i>Concept Check: Shape vs. Subdivision</a></li>
 </ul></li>
 <li class="chapter" data-level="3.11" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#negative-area-and-signed-accumulation"><i class="fa fa-check"></i><b>3.11</b> Negative Area and Signed Accumulation</a>
 <ul>
@@ -165,31 +254,11 @@
 <li class="chapter" data-level="3.11.4" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#interpretation-of-the-result"><i class="fa fa-check"></i><b>3.11.4</b> Interpretation of the Result</a></li>
 <li class="chapter" data-level="3.11.5" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#why-signed-accumulation-matters"><i class="fa fa-check"></i><b>3.11.5</b> Why Signed Accumulation Matters</a></li>
 <li class="chapter" data-level="3.11.6" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#key-takeaway-1"><i class="fa fa-check"></i><b>3.11.6</b> Key Takeaway</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-what-signed-accumulation-means"><i class="fa fa-check"></i>Concept Check: What “Signed” Accumulation Means</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-what-negative-area-means"><i class="fa fa-check"></i>Concept Check: What Negative Area Means</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-why-net-zero-nothing-happened"><i class="fa fa-check"></i>Concept Check: Why Net Zero ≠ Nothing Happened</a></li>
 </ul></li>
-<li class="chapter" data-level="3.12" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#conceptual-questions-how-to-use-these"><i class="fa fa-check"></i><b>3.12</b> Conceptual Questions — How to Use These</a>
-<ul>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-1"><i class="fa fa-check"></i>Question 1</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-2"><i class="fa fa-check"></i>Question 2</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-3"><i class="fa fa-check"></i>Question 3</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-4"><i class="fa fa-check"></i>Question 4</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-5"><i class="fa fa-check"></i>Question 5</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-6"><i class="fa fa-check"></i>Question 6</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-7"><i class="fa fa-check"></i>Question 7</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-8"><i class="fa fa-check"></i>Question 8</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-9"><i class="fa fa-check"></i>Question 9</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-10"><i class="fa fa-check"></i>Question 10</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-11"><i class="fa fa-check"></i>Question 11</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-12"><i class="fa fa-check"></i>Question 12</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-13"><i class="fa fa-check"></i>Question 13</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-14"><i class="fa fa-check"></i>Question 14</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-15"><i class="fa fa-check"></i>Question 15</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-16"><i class="fa fa-check"></i>Question 16</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-17"><i class="fa fa-check"></i>Question 17</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-18"><i class="fa fa-check"></i>Question 18</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-19"><i class="fa fa-check"></i>Question 19</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-20"><i class="fa fa-check"></i>Question 20</a></li>
-</ul></li>
-<li class="chapter" data-level="3.13" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#practice-problems-accumulation-and-approximation"><i class="fa fa-check"></i><b>3.13</b> Practice Problems: Accumulation and Approximation</a>
+<li class="chapter" data-level="3.12" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#practice-problems-accumulation-and-approximation"><i class="fa fa-check"></i><b>3.12</b> Practice Problems: Accumulation and Approximation</a>
 <ul>
 <li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#problem-1-total-streamflow-from-constant-measurements"><i class="fa fa-check"></i>Problem 1: Total Streamflow from Constant Measurements</a></li>
 <li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#problem-2-piecewise-streamflow-accumulation"><i class="fa fa-check"></i>Problem 2: Piecewise Streamflow Accumulation</a></li>
@@ -219,6 +288,14 @@
 <li class="chapter" data-level="4.2.9" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#environmental-framing-why-resolution-matters"><i class="fa fa-check"></i><b>4.2.9</b> Environmental Framing: Why Resolution Matters</a></li>
 <li class="chapter" data-level="4.2.10" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#continuous-vs.-discrete-data"><i class="fa fa-check"></i><b>4.2.10</b> Continuous vs. Discrete Data</a></li>
 <li class="chapter" data-level="4.2.11" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#key-takeaway-2"><i class="fa fa-check"></i><b>4.2.11</b> Key Takeaway</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-riemann-sums-as-a-process"><i class="fa fa-check"></i>Concept Check: Riemann Sums as a Process</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-what-shrinking-δx-really-means"><i class="fa fa-check"></i>Concept Check: What Shrinking Δx Really Means</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-why-lrmid-converge-to-the-same-value"><i class="fa fa-check"></i>Concept Check: Why L/R/Mid Converge to the Same Value</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-the-rectangle-assumption"><i class="fa fa-check"></i>Concept Check: The Rectangle Assumption</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-formalizing-the-riemann-sum"><i class="fa fa-check"></i>Concept Check: Formalizing the Riemann Sum</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-riemann-sums-as-environmental-modeling"><i class="fa fa-check"></i>Concept Check: Riemann Sums as Environmental Modeling</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-why-sampling-choice-doesnt-matter-in-the-limit"><i class="fa fa-check"></i>Concept Check: Why Sampling Choice Doesn’t Matter in the Limit</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-the-role-of-the-limit"><i class="fa fa-check"></i>Concept Check: The Role of the Limit</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#interpreting-the-definite-integral"><i class="fa fa-check"></i><b>4.3</b> Interpreting the Definite Integral</a>
 <ul>
@@ -231,6 +308,11 @@
 <li class="chapter" data-level="4.3.7" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#common-pitfalls"><i class="fa fa-check"></i><b>4.3.7</b> Common Pitfalls</a></li>
 <li class="chapter" data-level="4.3.8" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#environmental-framing"><i class="fa fa-check"></i><b>4.3.8</b> Environmental Framing</a></li>
 <li class="chapter" data-level="4.3.9" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#key-takeaway-3"><i class="fa fa-check"></i><b>4.3.9</b> Key Takeaway</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-accumulation-not-just-area"><i class="fa fa-check"></i>Concept Check: Accumulation, Not Just Area</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-what-the-sign-of-an-integral-tells-you"><i class="fa fa-check"></i>Concept Check: What the Sign of an Integral Tells You</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-zero-net-doesnt-mean-nothing-happened"><i class="fa fa-check"></i>Concept Check: Zero Net Doesn’t Mean Nothing Happened</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-units-as-a-sanity-check"><i class="fa fa-check"></i>Concept Check: Units as a Sanity Check</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-why-area-under-the-curve-falls-short"><i class="fa fa-check"></i>Concept Check: Why ‘Area Under the Curve’ Falls Short</a></li>
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#how-to-evaluate-a-definite-integral"><i class="fa fa-check"></i><b>4.4</b> How to Evaluate a Definite Integral</a>
 <ul>
@@ -240,6 +322,10 @@
 <li class="chapter" data-level="4.4.4" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#step-4-why-there-is-no-constant-of-integration"><i class="fa fa-check"></i><b>4.4.4</b> Step 4: Why there is no constant of integration</a></li>
 <li class="chapter" data-level="4.4.5" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#a-simple-numerical-example"><i class="fa fa-check"></i><b>4.4.5</b> A simple numerical example</a></li>
 <li class="chapter" data-level="4.4.6" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#key-idea-moving-forward"><i class="fa fa-check"></i><b>4.4.6</b> Key idea moving forward</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-when-rate-time-actually-works"><i class="fa fa-check"></i>Concept Check: When Rate × Time Actually Works</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-why-the-constant-of-integration-doesnt-matter-here"><i class="fa fa-check"></i>Concept Check: Why the Constant of Integration Doesn’t Matter Here</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-what-fb-fa-really-means"><i class="fa fa-check"></i>Concept Check: What F(b) − F(a) Really Means</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-why-we-trust-integrals-when-data-are-discrete"><i class="fa fa-check"></i>Concept Check: Why We Trust Integrals When Data Are Discrete</a></li>
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#properties-of-definite-integrals"><i class="fa fa-check"></i><b>4.5</b> Properties of Definite Integrals</a>
 <ul>
@@ -248,6 +334,9 @@
 <li class="chapter" data-level="4.5.3" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#reversing-the-limits-of-integration"><i class="fa fa-check"></i><b>4.5.3</b> Reversing the Limits of Integration</a></li>
 <li class="chapter" data-level="4.5.4" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#integrals-of-constant-functions"><i class="fa fa-check"></i><b>4.5.4</b> Integrals of Constant Functions</a></li>
 <li class="chapter" data-level="4.5.5" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#why-these-properties-matter"><i class="fa fa-check"></i><b>4.5.5</b> Why These Properties Matter</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-why-linearity-matches-physical-intuition"><i class="fa fa-check"></i>Concept Check: Why Linearity Matches Physical Intuition</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-additivity-over-subintervals"><i class="fa fa-check"></i>Concept Check: Additivity Over Subintervals</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-why-reversing-limits-flips-the-sign"><i class="fa fa-check"></i>Concept Check: Why Reversing Limits Flips the Sign</a></li>
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#the-fundamental-theorem-of-calculus-part-i"><i class="fa fa-check"></i><b>4.6</b> The Fundamental Theorem of Calculus (Part I)</a>
 <ul>
@@ -259,13 +348,18 @@
 <li class="chapter" data-level="4.6.6" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#what-to-avoid-at-this-stage"><i class="fa fa-check"></i><b>4.6.6</b> What to Avoid at This Stage</a></li>
 <li class="chapter" data-level="4.6.7" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#environmental-framing-1"><i class="fa fa-check"></i><b>4.6.7</b> Environmental Framing</a></li>
 <li class="chapter" data-level="4.6.8" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#key-takeaway-4"><i class="fa fa-check"></i><b>4.6.8</b> Key Takeaway</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-the-role-of-the-accumulation-function-ax"><i class="fa fa-check"></i>Concept Check: The Role of the Accumulation Function A(x)</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-why-ax-fx-makes-sense"><i class="fa fa-check"></i>Concept Check: Why A’(x) = f(x) Makes Sense</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-differentiation-and-integration-as-inverses"><i class="fa fa-check"></i>Concept Check: Differentiation and Integration as Inverses</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-how-the-ftc-unifies-calculus"><i class="fa fa-check"></i>Concept Check: How the FTC Unifies Calculus</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-how-riemann-sums-keep-the-ftc-honest"><i class="fa fa-check"></i>Concept Check: How Riemann Sums Keep the FTC Honest</a></li>
 </ul></li>
 <li class="chapter" data-level="4.7" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#the-fundamental-theorem-of-calculus-part-ii"><i class="fa fa-check"></i><b>4.7</b> The Fundamental Theorem of Calculus (Part II)</a>
 <ul>
 <li class="chapter" data-level="4.7.1" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#step-1-accumulation-is-a-function"><i class="fa fa-check"></i><b>4.7.1</b> Step 1: Accumulation Is a Function</a></li>
 <li class="chapter" data-level="4.7.2" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#step-2-antiderivatives-are-not-unique"><i class="fa fa-check"></i><b>4.7.2</b> Step 2: Antiderivatives Are Not Unique</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#example-1-rate-fx-x"><i class="fa fa-check"></i>Example 1: Rate <span class="math inline">\(f(x) = x\)</span></a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#example-2-rate-fx-x2---2"><i class="fa fa-check"></i>Example 2: Rate <span class="math inline">\(f(x) = x^2 - 2\)</span></a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#example-1-a-linear-streamflow-rate-ft-t"><i class="fa fa-check"></i>Example 1: A Linear Streamflow Rate — <span class="math inline">\(f(t) = t\)</span></a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#example-2-a-net-carbon-flux-that-switches-sign-ft-t2---2"><i class="fa fa-check"></i>Example 2: A Net Carbon Flux That Switches Sign — <span class="math inline">\(f(t) = t^2 - 2\)</span></a></li>
 <li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#the-two-way-relationship"><i class="fa fa-check"></i>The Two-Way Relationship</a></li>
 <li class="chapter" data-level="4.7.3" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#step-3-why-the-constant-does-not-matter-for-definite-integrals"><i class="fa fa-check"></i><b>4.7.3</b> Step 3: Why the Constant Does Not Matter for Definite Integrals</a></li>
 <li class="chapter" data-level="4.7.4" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#step-4-what-the-formula-is-really-saying"><i class="fa fa-check"></i><b>4.7.4</b> Step 4: What the Formula Is Really Saying</a></li>
@@ -275,41 +369,13 @@
 <li class="chapter" data-level="4.7.8" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#a-simple-environmental-interpretation"><i class="fa fa-check"></i><b>4.7.8</b> A Simple Environmental Interpretation</a></li>
 <li class="chapter" data-level="4.7.9" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#critical-emphasis-more-than-plug-and-chug"><i class="fa fa-check"></i><b>4.7.9</b> Critical Emphasis: More Than Plug-and-Chug</a></li>
 <li class="chapter" data-level="4.7.10" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#key-takeaway-6"><i class="fa fa-check"></i><b>4.7.10</b> Key Takeaway</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-why-antiderivatives-form-families"><i class="fa fa-check"></i>Concept Check: Why Antiderivatives Form Families</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-why-plug-and-chug-is-dangerous"><i class="fa fa-check"></i>Concept Check: Why ‘Plug-and-Chug’ Is Dangerous</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-riemann-sums-and-ftc-same-idea-two-stages"><i class="fa fa-check"></i>Concept Check: Riemann Sums and FTC: Same Idea, Two Stages</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-perfect-measurement-and-the-integral"><i class="fa fa-check"></i>Concept Check: Perfect Measurement and the Integral</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-why-teach-riemann-sums-first"><i class="fa fa-check"></i>Concept Check: Why Teach Riemann Sums First</a></li>
 </ul></li>
-<li class="chapter" data-level="4.8" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#conceptual-questions-definite-integrals-riemann-sums-and-the-fundamental-theorem-of-calculus"><i class="fa fa-check"></i><b>4.8</b> Conceptual Questions: Definite Integrals, Riemann Sums, and the Fundamental Theorem of Calculus</a>
-<ul>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-1-1"><i class="fa fa-check"></i>Question 1</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-2-1"><i class="fa fa-check"></i>Question 2</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-3-1"><i class="fa fa-check"></i>Question 3</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-4-1"><i class="fa fa-check"></i>Question 4</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-5-1"><i class="fa fa-check"></i>Question 5</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-6-1"><i class="fa fa-check"></i>Question 6</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-7-1"><i class="fa fa-check"></i>Question 7</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-8-1"><i class="fa fa-check"></i>Question 8</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-9-1"><i class="fa fa-check"></i>Question 9</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-10-1"><i class="fa fa-check"></i>Question 10</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-11-1"><i class="fa fa-check"></i>Question 11</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-12-1"><i class="fa fa-check"></i>Question 12</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-13-1"><i class="fa fa-check"></i>Question 13</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-14-1"><i class="fa fa-check"></i>Question 14</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-15-1"><i class="fa fa-check"></i>Question 15</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-16-1"><i class="fa fa-check"></i>Question 16</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-17-1"><i class="fa fa-check"></i>Question 17</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-18-1"><i class="fa fa-check"></i>Question 18</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-19-1"><i class="fa fa-check"></i>Question 19</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-20-1"><i class="fa fa-check"></i>Question 20</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-21"><i class="fa fa-check"></i>Question 21</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-22"><i class="fa fa-check"></i>Question 22</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-23"><i class="fa fa-check"></i>Question 23</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-24"><i class="fa fa-check"></i>Question 24</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-25"><i class="fa fa-check"></i>Question 25</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-26"><i class="fa fa-check"></i>Question 26</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-27"><i class="fa fa-check"></i>Question 27</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-28"><i class="fa fa-check"></i>Question 28</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-29"><i class="fa fa-check"></i>Question 29</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-30"><i class="fa fa-check"></i>Question 30</a></li>
-</ul></li>
-<li class="chapter" data-level="4.9" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#practice-problems"><i class="fa fa-check"></i><b>4.9</b> Practice Problems</a>
+<li class="chapter" data-level="4.8" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#practice-problems"><i class="fa fa-check"></i><b>4.8</b> Practice Problems</a>
 <ul>
 <li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#tips-for-success"><i class="fa fa-check"></i>Tips for Success</a></li>
 <li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#problem-1"><i class="fa fa-check"></i>Problem 1</a></li>
@@ -328,6 +394,10 @@
 <li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#problem-14"><i class="fa fa-check"></i>Problem 14</a></li>
 <li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#problem-15"><i class="fa fa-check"></i>Problem 15</a></li>
 <li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#problem-16"><i class="fa fa-check"></i>Problem 16</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#problem-17-total-streamflow-volume"><i class="fa fa-check"></i>Problem 17: Total Streamflow Volume</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#problem-18-net-carbon-exchange-over-a-morning"><i class="fa fa-check"></i>Problem 18: Net Carbon Exchange Over a Morning</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#problem-19-pollutant-mass-loading-to-a-lake"><i class="fa fa-check"></i>Problem 19: Pollutant Mass Loading to a Lake</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#problem-20-net-population-change-with-a-sign-changing-rate"><i class="fa fa-check"></i>Problem 20: Net Population Change with a Sign-Changing Rate</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html"><i class="fa fa-check"></i><b>5</b> Techniques of Integration (Indefinite Integrals)</a>
@@ -346,6 +416,8 @@
 <li class="chapter" data-level="5.3.1" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#the-antiderivative-dictionary"><i class="fa fa-check"></i><b>5.3.1</b> The “Antiderivative Dictionary”</a></li>
 <li class="chapter" data-level="5.3.2" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#pattern-recognition-over-memorization"><i class="fa fa-check"></i><b>5.3.2</b> Pattern Recognition Over Memorization</a></li>
 <li class="chapter" data-level="5.3.3" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#key-takeaway-8"><i class="fa fa-check"></i><b>5.3.3</b> Key Takeaway</a></li>
+<li class="chapter" data-level="" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#concept-check-why-integration-is-harder-than-differentiation"><i class="fa fa-check"></i>Concept Check: Why Integration Is Harder Than Differentiation</a></li>
+<li class="chapter" data-level="" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#concept-check-reading-an-integrand-as-a-derivative"><i class="fa fa-check"></i>Concept Check: Reading an Integrand as a Derivative</a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#substitution-when-a-function-is-hiding-inside-another"><i class="fa fa-check"></i><b>5.4</b> Substitution: When a Function Is Hiding Inside Another</a>
 <ul>
@@ -358,6 +430,8 @@
 <li class="chapter" data-level="5.4.7" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#key-takeaway-9"><i class="fa fa-check"></i><b>5.4.7</b> Key Takeaway</a></li>
 <li class="chapter" data-level="5.4.8" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#when-the-derivative-is-almost-there-close-enough-can-be-enough"><i class="fa fa-check"></i><b>5.4.8</b> When the Derivative Is <em>Almost</em> There – <em>Close Enough Can Be Enough</em></a></li>
 <li class="chapter" data-level="5.4.9" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#strategy-rule-course-correct"><i class="fa fa-check"></i><b>5.4.9</b> Strategy Rule: <em>Course Correct</em></a></li>
+<li class="chapter" data-level="" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#concept-check-spotting-when-substitution-is-the-right-move"><i class="fa fa-check"></i>Concept Check: Spotting When Substitution Is the Right Move</a></li>
+<li class="chapter" data-level="" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#concept-check-why-dx-must-become-du-not-just-disappear"><i class="fa fa-check"></i>Concept Check: Why dx Must Become du, Not Just Disappear</a></li>
 </ul></li>
 <li class="chapter" data-level="5.5" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#integration-by-parts-when-accumulation-involves-a-product"><i class="fa fa-check"></i><b>5.5</b> Integration by Parts: When Accumulation Involves a Product</a>
 <ul>
@@ -374,6 +448,8 @@
 <li class="chapter" data-level="5.5.11" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#common-pitfalls-2"><i class="fa fa-check"></i><b>5.5.11</b> Common Pitfalls</a></li>
 <li class="chapter" data-level="5.5.12" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#strategy-check-1"><i class="fa fa-check"></i><b>5.5.12</b> Strategy Check</a></li>
 <li class="chapter" data-level="5.5.13" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#key-takeaway-10"><i class="fa fa-check"></i><b>5.5.13</b> Key Takeaway</a></li>
+<li class="chapter" data-level="" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#concept-check-choosing-u-and-dv-in-integration-by-parts"><i class="fa fa-check"></i>Concept Check: Choosing u and dv in Integration by Parts</a></li>
+<li class="chapter" data-level="" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#concept-check-why-integration-by-parts-works"><i class="fa fa-check"></i>Concept Check: Why Integration by Parts Works</a></li>
 </ul></li>
 <li class="chapter" data-level="5.6" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#partial-fractions-when-a-rational-function-can-be-taken-apart"><i class="fa fa-check"></i><b>5.6</b> Partial Fractions: When a Rational Function Can Be Taken Apart</a>
 <ul>
@@ -388,12 +464,16 @@
 <li class="chapter" data-level="5.6.9" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#common-pitfalls-3"><i class="fa fa-check"></i><b>5.6.9</b> Common Pitfalls</a></li>
 <li class="chapter" data-level="5.6.10" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#strategy-check-2"><i class="fa fa-check"></i><b>5.6.10</b> Strategy Check</a></li>
 <li class="chapter" data-level="5.6.11" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#key-takeaway-11"><i class="fa fa-check"></i><b>5.6.11</b> Key Takeaway</a></li>
+<li class="chapter" data-level="" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#concept-check-recognizing-when-partial-fractions-is-the-right-tool"><i class="fa fa-check"></i>Concept Check: Recognizing When Partial Fractions Is the Right Tool</a></li>
+<li class="chapter" data-level="" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#concept-check-why-the-decomposition-depends-on-the-denominators-factors"><i class="fa fa-check"></i>Concept Check: Why the Decomposition Depends on the Denominator’s Factors</a></li>
 </ul></li>
 <li class="chapter" data-level="5.7" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#strategy-how-to-choose-a-method"><i class="fa fa-check"></i><b>5.7</b> Strategy: How to Choose a Method</a>
 <ul>
 <li class="chapter" data-level="5.7.1" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#the-decision-tree"><i class="fa fa-check"></i><b>5.7.1</b> The Decision Tree</a></li>
 <li class="chapter" data-level="5.7.2" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#workflow-habits-that-prevent-mistakes"><i class="fa fa-check"></i><b>5.7.2</b> Workflow Habits That Prevent Mistakes</a></li>
 <li class="chapter" data-level="5.7.3" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#final-strategy-takeaway"><i class="fa fa-check"></i><b>5.7.3</b> Final Strategy Takeaway</a></li>
+<li class="chapter" data-level="" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#concept-check-always-try-to-rewrite-first"><i class="fa fa-check"></i>Concept Check: Always Try to Rewrite First</a></li>
+<li class="chapter" data-level="" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#concept-check-why-differentiation-is-the-strongest-check"><i class="fa fa-check"></i>Concept Check: Why Differentiation Is the Strongest Check</a></li>
 </ul></li>
 <li class="chapter" data-level="5.8" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#practice"><i class="fa fa-check"></i><b>5.8</b> Practice</a>
 <ul>
@@ -402,6 +482,7 @@
 <li class="chapter" data-level="5.8.3" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#practice-integration-by-parts-pattern-recognition-and-application"><i class="fa fa-check"></i><b>5.8.3</b> Practice: Integration by Parts (Pattern Recognition and Application)</a></li>
 <li class="chapter" data-level="5.8.4" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#practice-partial-fractions-structured-practice"><i class="fa fa-check"></i><b>5.8.4</b> Practice: Partial Fractions (Structured Practice)</a></li>
 <li class="chapter" data-level="5.8.5" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#mixed-practice-choosing-and-executing-the-right-method"><i class="fa fa-check"></i><b>5.8.5</b> Mixed Practice: Choosing and Executing the Right Method</a></li>
+<li class="chapter" data-level="" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#applications-choosing-and-applying-a-technique-in-an-environmental-context"><i class="fa fa-check"></i>Applications: Choosing and Applying a Technique in an Environmental Context</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="applications-of-integration.html"><a href="applications-of-integration.html"><i class="fa fa-check"></i><b>6</b> Applications of Integration</a>
@@ -412,11 +493,15 @@
 <li class="chapter" data-level="6.1.2" data-path="applications-of-integration.html"><a href="applications-of-integration.html#from-sums-to-integrals"><i class="fa fa-check"></i><b>6.1.2</b> From Sums to Integrals</a></li>
 <li class="chapter" data-level="6.1.3" data-path="applications-of-integration.html"><a href="applications-of-integration.html#units-tell-the-story"><i class="fa fa-check"></i><b>6.1.3</b> Units Tell the Story</a></li>
 <li class="chapter" data-level="6.1.4" data-path="applications-of-integration.html"><a href="applications-of-integration.html#accumulation-not-just-area"><i class="fa fa-check"></i><b>6.1.4</b> Accumulation, Not Just Area</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-rates-and-densities-vs-totals"><i class="fa fa-check"></i>Concept Check: Rates and Densities vs Totals</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-why-multiplication-isnt-enough"><i class="fa fa-check"></i>Concept Check: Why Multiplication Isn’t Enough</a></li>
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="applications-of-integration.html"><a href="applications-of-integration.html#accumulation-when-totals-are-always-positive"><i class="fa fa-check"></i><b>6.2</b> Accumulation When Totals Are Always Positive</a>
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="applications-of-integration.html"><a href="applications-of-integration.html#examples-of-always-positive-accumulation"><i class="fa fa-check"></i><b>6.2.1</b> Examples of Always-Positive Accumulation</a></li>
 <li class="chapter" data-level="6.2.2" data-path="applications-of-integration.html"><a href="applications-of-integration.html#why-these-examples-matter"><i class="fa fa-check"></i><b>6.2.2</b> Why These Examples Matter</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-what-makes-an-accumulation-always-positive"><i class="fa fa-check"></i>Concept Check: What Makes an Accumulation “Always Positive”</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-reading-units-to-find-the-total"><i class="fa fa-check"></i>Concept Check: Reading Units to Find the Total</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="applications-of-integration.html"><a href="applications-of-integration.html#net-accumulation-when-gains-and-losses-compete"><i class="fa fa-check"></i><b>6.3</b> Net Accumulation: When Gains and Losses Compete</a>
 <ul>
@@ -424,6 +509,8 @@
 <li class="chapter" data-level="6.3.2" data-path="applications-of-integration.html"><a href="applications-of-integration.html#common-examples-of-net-accumulation"><i class="fa fa-check"></i><b>6.3.2</b> Common Examples of Net Accumulation</a></li>
 <li class="chapter" data-level="6.3.3" data-path="applications-of-integration.html"><a href="applications-of-integration.html#geometry-still-helpsbut-carefully"><i class="fa fa-check"></i><b>6.3.3</b> Geometry Still Helps—But Carefully</a></li>
 <li class="chapter" data-level="6.3.4" data-path="applications-of-integration.html"><a href="applications-of-integration.html#why-net-accumulation-is-powerful"><i class="fa fa-check"></i><b>6.3.4</b> Why Net Accumulation Is Powerful</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-when-net-differs-from-total"><i class="fa fa-check"></i>Concept Check: When Net Differs from Total</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-negative-integrands-and-signed-areas"><i class="fa fa-check"></i>Concept Check: Negative Integrands and Signed Areas</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="applications-of-integration.html"><a href="applications-of-integration.html#using-integrals-to-compute-the-average-value-of-a-function"><i class="fa fa-check"></i><b>6.4</b> Using Integrals to Compute the Average Value of a Function</a>
 <ul>
@@ -433,6 +520,8 @@
 <li class="chapter" data-level="6.4.4" data-path="applications-of-integration.html"><a href="applications-of-integration.html#environmental-examples"><i class="fa fa-check"></i><b>6.4.4</b> Environmental Examples</a></li>
 <li class="chapter" data-level="6.4.5" data-path="applications-of-integration.html"><a href="applications-of-integration.html#signed-functions-and-averages"><i class="fa fa-check"></i><b>6.4.5</b> Signed Functions and Averages</a></li>
 <li class="chapter" data-level="6.4.6" data-path="applications-of-integration.html"><a href="applications-of-integration.html#why-this-matters"><i class="fa fa-check"></i><b>6.4.6</b> Why This Matters</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-why-average-1b-a-f-dx-makes-sense"><i class="fa fa-check"></i>Concept Check: Why Average = (1/(b-a)) ∫ f dx Makes Sense</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-average-rate-in-environmental-context"><i class="fa fa-check"></i>Concept Check: Average Rate in Environmental Context</a></li>
 </ul></li>
 <li class="chapter" data-level="6.5" data-path="applications-of-integration.html"><a href="applications-of-integration.html#area-between-two-curves"><i class="fa fa-check"></i><b>6.5</b> Area Between Two Curves</a>
 <ul>
@@ -441,6 +530,8 @@
 <li class="chapter" data-level="6.5.3" data-path="applications-of-integration.html"><a href="applications-of-integration.html#environmental-and-scientific-examples"><i class="fa fa-check"></i><b>6.5.3</b> Environmental and Scientific Examples</a></li>
 <li class="chapter" data-level="6.5.4" data-path="applications-of-integration.html"><a href="applications-of-integration.html#when-curves-cross--and-the-crossing"><i class="fa fa-check"></i><b>6.5.4</b> When Curves Cross -and the crossing</a></li>
 <li class="chapter" data-level="6.5.5" data-path="applications-of-integration.html"><a href="applications-of-integration.html#big-picture"><i class="fa fa-check"></i><b>6.5.5</b> Big Picture</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-top-minus-bottom"><i class="fa fa-check"></i>Concept Check: Top Minus Bottom</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-what-area-between-means-environmentally"><i class="fa fa-check"></i>Concept Check: What ‘Area Between’ Means Environmentally</a></li>
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="applications-of-integration.html"><a href="applications-of-integration.html#double-integrals-accumulation-over-two-dimensions"><i class="fa fa-check"></i><b>6.6</b> Double Integrals: Accumulation Over Two Dimensions</a>
 <ul>
@@ -450,14 +541,20 @@
 <li class="chapter" data-level="6.6.4" data-path="applications-of-integration.html"><a href="applications-of-integration.html#rectangular-regions-and-iterated-integrals"><i class="fa fa-check"></i><b>6.6.4</b> Rectangular Regions and Iterated Integrals</a></li>
 <li class="chapter" data-level="6.6.5" data-path="applications-of-integration.html"><a href="applications-of-integration.html#interpretation-stacking-integrals"><i class="fa fa-check"></i><b>6.6.5</b> Interpretation: Stacking Integrals</a></li>
 <li class="chapter" data-level="6.6.6" data-path="applications-of-integration.html"><a href="applications-of-integration.html#why-double-integrals-matter"><i class="fa fa-check"></i><b>6.6.6</b> Why Double Integrals Matter</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-what-fxy-da-represents-for-a-density"><i class="fa fa-check"></i>Concept Check: What ∫∫f(x,y) dA Represents for a Density</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-why-iterated-integrals-work"><i class="fa fa-check"></i>Concept Check: Why Iterated Integrals Work</a></li>
 </ul></li>
 <li class="chapter" data-level="6.7" data-path="applications-of-integration.html"><a href="applications-of-integration.html#triple-integrals-accumulation-over-volume"><i class="fa fa-check"></i><b>6.7</b> Triple Integrals: Accumulation Over Volume</a>
 <ul>
 <li class="chapter" data-level="6.7.1" data-path="applications-of-integration.html"><a href="applications-of-integration.html#iterated-form"><i class="fa fa-check"></i><b>6.7.1</b> Iterated Form</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-when-youd-need-a-triple-integral-in-environmental-science"><i class="fa fa-check"></i>Concept Check: When You’d Need a Triple Integral in Environmental Science</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-units-when-integrating-over-volume"><i class="fa fa-check"></i>Concept Check: Units When Integrating Over Volume</a></li>
 </ul></li>
 <li class="chapter" data-level="6.8" data-path="applications-of-integration.html"><a href="applications-of-integration.html#quadruple-integrals-when-time-enters-the-picture"><i class="fa fa-check"></i><b>6.8</b> Quadruple Integrals: When Time Enters the Picture</a>
 <ul>
 <li class="chapter" data-level="6.8.1" data-path="applications-of-integration.html"><a href="applications-of-integration.html#iterated-form-1"><i class="fa fa-check"></i><b>6.8.1</b> Iterated Form</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-why-adding-time-turns-3d-into-4d"><i class="fa fa-check"></i>Concept Check: Why Adding Time Turns 3D Into 4D</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-when-youd-actually-use-a-quadruple-integral"><i class="fa fa-check"></i>Concept Check: When You’d Actually Use a Quadruple Integral</a></li>
 </ul></li>
 <li class="chapter" data-level="6.9" data-path="applications-of-integration.html"><a href="applications-of-integration.html#big-picture-1"><i class="fa fa-check"></i><b>6.9</b> Big Picture</a></li>
 <li class="chapter" data-level="6.10" data-path="applications-of-integration.html"><a href="applications-of-integration.html#numerical-integration-when-no-nice-formula-exists"><i class="fa fa-check"></i><b>6.10</b> Numerical Integration: When No Nice Formula Exists</a>
@@ -465,12 +562,29 @@
 <li class="chapter" data-level="6.10.1" data-path="applications-of-integration.html"><a href="applications-of-integration.html#when-analytic-integration-breaks-down"><i class="fa fa-check"></i><b>6.10.1</b> When Analytic Integration Breaks Down</a></li>
 <li class="chapter" data-level="6.10.2" data-path="applications-of-integration.html"><a href="applications-of-integration.html#the-core-idea-1"><i class="fa fa-check"></i><b>6.10.2</b> The Core Idea</a></li>
 <li class="chapter" data-level="6.10.3" data-path="applications-of-integration.html"><a href="applications-of-integration.html#common-numerical-methods"><i class="fa fa-check"></i><b>6.10.3</b> Common Numerical Methods</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-when-numerical-integration-is-needed"><i class="fa fa-check"></i>Concept Check: When Numerical Integration Is Needed</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-choosing-among-numerical-methods"><i class="fa fa-check"></i>Concept Check: Choosing Among Numerical Methods</a></li>
 </ul></li>
 <li class="chapter" data-level="6.11" data-path="applications-of-integration.html"><a href="applications-of-integration.html#comparing-analytic-and-numerical-integration-from-data"><i class="fa fa-check"></i><b>6.11</b> Comparing Analytic and Numerical Integration from Data</a>
 <ul>
 <li class="chapter" data-level="6.11.1" data-path="applications-of-integration.html"><a href="applications-of-integration.html#what-these-numbers-mean"><i class="fa fa-check"></i><b>6.11.1</b> What These Numbers Mean</a></li>
 <li class="chapter" data-level="6.11.2" data-path="applications-of-integration.html"><a href="applications-of-integration.html#why-this-matters-1"><i class="fa fa-check"></i><b>6.11.2</b> Why This Matters</a></li>
 <li class="chapter" data-level="6.11.3" data-path="applications-of-integration.html"><a href="applications-of-integration.html#why-numerical-integration-matters"><i class="fa fa-check"></i><b>6.11.3</b> Why Numerical Integration Matters</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-model-vs-data-when-they-disagree"><i class="fa fa-check"></i>Concept Check: Model vs Data: When They Disagree</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-when-to-trust-analytic-when-to-trust-numerical"><i class="fa fa-check"></i>Concept Check: When to Trust Analytic, When to Trust Numerical</a></li>
+</ul></li>
+<li class="chapter" data-level="6.12" data-path="applications-of-integration.html"><a href="applications-of-integration.html#practice-problems-1"><i class="fa fa-check"></i><b>6.12</b> Practice Problems</a>
+<ul>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#problem-1-total-rainfall-from-a-storm-hyetograph"><i class="fa fa-check"></i>Problem 1: Total Rainfall from a Storm Hyetograph</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#problem-2-net-carbon-exchange-over-24-hours"><i class="fa fa-check"></i>Problem 2: Net Carbon Exchange Over 24 Hours</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#problem-3-average-streamflow-during-a-spawning-window"><i class="fa fa-check"></i>Problem 3: Average Streamflow During a Spawning Window</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#problem-4-water-above-an-ecological-flow-minimum"><i class="fa fa-check"></i>Problem 4: Water Above an Ecological-Flow Minimum</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#problem-5-net-population-change-births-vs-deaths"><i class="fa fa-check"></i>Problem 5: Net Population Change (Births vs Deaths)</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#problem-6-total-biomass-in-a-riparian-strip"><i class="fa fa-check"></i>Problem 6: Total Biomass in a Riparian Strip</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#problem-7-dissolved-oxygen-mass-in-a-lake-subsection"><i class="fa fa-check"></i>Problem 7: Dissolved Oxygen Mass in a Lake Subsection</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#problem-8-numerical-integration-of-hourly-evapotranspiration-data"><i class="fa fa-check"></i>Problem 8: Numerical Integration of Hourly Evapotranspiration Data</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#problem-9-average-pollutant-concentration-in-a-water-column"><i class="fa fa-check"></i>Problem 9: Average Pollutant Concentration in a Water Column</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#problem-10-choose-and-apply-carbon-uptake-over-a-growing-season"><i class="fa fa-check"></i>Problem 10: Choose and Apply — Carbon Uptake Over a Growing Season</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html"><i class="fa fa-check"></i><b>7</b> Chapter: Differential Equations — Modeling Change Over Time</a>
@@ -485,6 +599,8 @@
 <li class="chapter" data-level="7.2.5" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#verifying-a-solution"><i class="fa fa-check"></i><b>7.2.5</b> Verifying a Solution</a></li>
 <li class="chapter" data-level="7.2.6" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#how-do-we-find-the-solution"><i class="fa fa-check"></i><b>7.2.6</b> How Do We Find the Solution?</a></li>
 <li class="chapter" data-level="7.2.7" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#the-big-idea"><i class="fa fa-check"></i><b>7.2.7</b> The Big Idea</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-what-makes-an-equation-differential"><i class="fa fa-check"></i>Concept Check: What Makes an Equation ‘Differential’</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-why-de-solutions-are-functions-not-numbers"><i class="fa fa-check"></i>Concept Check: Why DE Solutions Are Functions, Not Numbers</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#from-real-world-context-to-differential-equation"><i class="fa fa-check"></i><b>7.3</b> From Real-World Context to Differential Equation</a>
 <ul>
@@ -493,6 +609,8 @@
 <li class="chapter" data-level="7.3.3" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#units-analysis-in-differential-equations"><i class="fa fa-check"></i><b>7.3.3</b> Units Analysis in Differential Equations</a></li>
 <li class="chapter" data-level="7.3.4" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#environmental-and-biological-rate-models"><i class="fa fa-check"></i><b>7.3.4</b> Environmental and Biological Rate Models</a></li>
 <li class="chapter" data-level="7.3.5" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#the-big-modeling-insight"><i class="fa fa-check"></i><b>7.3.5</b> The Big Modeling Insight</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-translating-rate-is-proportional-to-into-a-de"><i class="fa fa-check"></i>Concept Check: Translating ‘Rate Is Proportional To’ into a DE</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-why-units-matter-in-a-differential-equation"><i class="fa fa-check"></i>Concept Check: Why Units Matter in a Differential Equation</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#slope-fields-direction-fields"><i class="fa fa-check"></i><b>7.4</b> Slope Fields (Direction Fields)</a>
 <ul>
@@ -502,6 +620,8 @@
 <li class="chapter" data-level="7.4.4" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#stability-and-long-term-behavior"><i class="fa fa-check"></i><b>7.4.4</b> Stability and Long-Term Behavior</a></li>
 <li class="chapter" data-level="7.4.5" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#why-this-matters-2"><i class="fa fa-check"></i><b>7.4.5</b> Why This Matters</a></li>
 <li class="chapter" data-level="7.4.6" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#visualizing-differential-equations-without-solving-them"><i class="fa fa-check"></i><b>7.4.6</b> Visualizing Differential Equations Without Solving Them</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-what-a-slope-field-shows-that-a-formula-doesnt"><i class="fa fa-check"></i>Concept Check: What a Slope Field Shows That a Formula Doesn’t</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-sketching-a-solution-curve-from-a-slope-field"><i class="fa fa-check"></i>Concept Check: Sketching a Solution Curve from a Slope Field</a></li>
 </ul></li>
 <li class="chapter" data-level="7.5" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#equilibrium-solutions-and-stability"><i class="fa fa-check"></i><b>7.5</b> Equilibrium Solutions and Stability</a>
 <ul>
@@ -509,6 +629,8 @@
 <li class="chapter" data-level="7.5.2" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#stable-vs-unstable-equilibria"><i class="fa fa-check"></i><b>7.5.2</b> Stable vs Unstable Equilibria</a></li>
 <li class="chapter" data-level="7.5.3" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#long-term-predictions"><i class="fa fa-check"></i><b>7.5.3</b> Long-Term Predictions</a></li>
 <li class="chapter" data-level="7.5.4" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#why-this-matters-3"><i class="fa fa-check"></i><b>7.5.4</b> Why This Matters</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-finding-equilibrium-solutions-algebraically"><i class="fa fa-check"></i>Concept Check: Finding Equilibrium Solutions Algebraically</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-stable-vs-unstable-equilibria"><i class="fa fa-check"></i>Concept Check: Stable vs Unstable Equilibria</a></li>
 </ul></li>
 <li class="chapter" data-level="7.6" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#separable-differential-equations"><i class="fa fa-check"></i><b>7.6</b> Separable Differential Equations</a>
 <ul>
@@ -521,6 +643,8 @@
 <li class="chapter" data-level="7.6.7" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#integrating-both-sides-1"><i class="fa fa-check"></i><b>7.6.7</b> Integrating Both Sides</a></li>
 <li class="chapter" data-level="7.6.8" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#applications-of-separable-equations"><i class="fa fa-check"></i><b>7.6.8</b> Applications of Separable Equations</a></li>
 <li class="chapter" data-level="7.6.9" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#the-big-structural-insight-1"><i class="fa fa-check"></i><b>7.6.9</b> The Big Structural Insight</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-recognizing-a-separable-differential-equation"><i class="fa fa-check"></i>Concept Check: Recognizing a Separable Differential Equation</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-what-an-initial-value-problem-adds"><i class="fa fa-check"></i>Concept Check: What an Initial Value Problem Adds</a></li>
 </ul></li>
 <li class="chapter" data-level="7.7" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#exponential-growth-and-decay-1"><i class="fa fa-check"></i><b>7.7</b> Exponential Growth and Decay</a>
 <ul>
@@ -531,6 +655,8 @@
 <li class="chapter" data-level="7.7.5" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#half-life"><i class="fa fa-check"></i><b>7.7.5</b> Half-Life</a></li>
 <li class="chapter" data-level="7.7.6" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#continuous-growth-in-co₂-concentration"><i class="fa fa-check"></i><b>7.7.6</b> Continuous Growth in CO₂ Concentration</a></li>
 <li class="chapter" data-level="7.7.7" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#what-exponential-models-capture"><i class="fa fa-check"></i><b>7.7.7</b> What Exponential Models Capture</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-when-exponential-is-the-right-model"><i class="fa fa-check"></i>Concept Check: When Exponential Is the Right Model</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-doubling-time-and-the-rate-constant"><i class="fa fa-check"></i>Concept Check: Doubling Time and the Rate Constant</a></li>
 </ul></li>
 <li class="chapter" data-level="7.8" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#logistic-growth-and-carrying-capacity"><i class="fa fa-check"></i><b>7.8</b> Logistic Growth and Carrying Capacity</a>
 <ul>
@@ -541,6 +667,8 @@
 <ul>
 <li class="chapter" data-level="7.9.1" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#example-overharvesting-unsustainable"><i class="fa fa-check"></i><b>7.9.1</b> Example: Overharvesting (Unsustainable)</a></li>
 <li class="chapter" data-level="7.9.2" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#what-this-example-shows"><i class="fa fa-check"></i><b>7.9.2</b> What This Example Shows</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-why-the-logistic-inflection-point-is-at-k2"><i class="fa fa-check"></i>Concept Check: Why the Logistic Inflection Point Is at K/2</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-stability-of-the-two-logistic-equilibria"><i class="fa fa-check"></i>Concept Check: Stability of the Two Logistic Equilibria</a></li>
 </ul></li>
 <li class="chapter" data-level="7.10" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#additional-logistic-model-applications"><i class="fa fa-check"></i><b>7.10</b> Additional Logistic Model Applications</a>
 <ul>
@@ -548,6 +676,8 @@
 <li class="chapter" data-level="7.10.2" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#disease-spread"><i class="fa fa-check"></i><b>7.10.2</b> Disease Spread</a></li>
 <li class="chapter" data-level="7.10.3" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#resource-limited-ecosystems"><i class="fa fa-check"></i><b>7.10.3</b> Resource-Limited Ecosystems</a></li>
 <li class="chapter" data-level="7.10.4" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#what-changes-in-the-logistic-equation"><i class="fa fa-check"></i><b>7.10.4</b> What Changes in the Logistic Equation?</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-how-the-logistic-equation-adapts-to-harvest"><i class="fa fa-check"></i>Concept Check: How the Logistic Equation Adapts to Harvest</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-why-harvesting-can-cause-sudden-collapse"><i class="fa fa-check"></i>Concept Check: Why Harvesting Can Cause Sudden Collapse</a></li>
 </ul></li>
 <li class="chapter" data-level="7.11" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#end-of-chapter-practice-differential-equations-modeling-change-over-time"><i class="fa fa-check"></i><b>7.11</b> End-of-Chapter Practice: Differential Equations — Modeling Change Over Time</a>
 <ul>
@@ -666,7 +796,7 @@
 <ul>
 <li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#what-is-a-definite-integral-and-why-do-we-care"><i class="fa fa-check"></i>What Is a Definite Integral — and Why Do We Care?</a></li>
 <li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#big-idea-the-fundamental-theorem-of-calculus"><i class="fa fa-check"></i>Big Idea: The Fundamental Theorem of Calculus</a></li>
-<li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#practice-problems-1"><i class="fa fa-check"></i>Practice Problems</a></li>
+<li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#practice-problems-2"><i class="fa fa-check"></i>Practice Problems</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#review-sheet-area-between-two-curves-total-geometric-area"><i class="fa fa-check"></i>Review Sheet: Area Between Two Curves (Total / Geometric Area)</a>
 <ul>
@@ -678,7 +808,7 @@
 <li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#worked-example-1-curves-do-not-cross-inside-the-interval"><i class="fa fa-check"></i>Worked Example 1: Curves Do Not Cross Inside the Interval</a></li>
 <li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#worked-example-2-curves-cross-inside-the-interval-must-split"><i class="fa fa-check"></i>Worked Example 2: Curves Cross Inside the Interval (Must Split)</a></li>
 <li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#common-mistakes-to-avoid"><i class="fa fa-check"></i>Common Mistakes to Avoid</a></li>
-<li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#practice-problems-2"><i class="fa fa-check"></i>Practice Problems</a></li>
+<li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#practice-problems-3"><i class="fa fa-check"></i>Practice Problems</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#review-sheet-double-and-triple-integrals"><i class="fa fa-check"></i>Review Sheet: Double and Triple Integrals</a>
 <ul>
@@ -690,7 +820,7 @@
 <li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#how-to-evaluate-a-triple-integral"><i class="fa fa-check"></i>How to Evaluate a Triple Integral</a></li>
 <li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#worked-example-2-rectangular-box"><i class="fa fa-check"></i>Worked Example 2 (Rectangular Box)</a></li>
 <li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#conceptual-reminders"><i class="fa fa-check"></i>Conceptual Reminders</a></li>
-<li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#practice-problems-3"><i class="fa fa-check"></i>Practice Problems</a></li>
+<li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#practice-problems-4"><i class="fa fa-check"></i>Practice Problems</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="test-4-review-material.html"><a href="test-4-review-material.html"><i class="fa fa-check"></i>Test 4 Review Material</a>
@@ -758,7 +888,7 @@
 <li class="chapter" data-level="" data-path="test-4-review-material.html"><a href="test-4-review-material.html#logistic-growth-with-harvesting"><i class="fa fa-check"></i>Logistic Growth with Harvesting</a></li>
 <li class="chapter" data-level="" data-path="test-4-review-material.html"><a href="test-4-review-material.html#slope-field-thinking"><i class="fa fa-check"></i>Slope Field Thinking</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="test-4-review-material.html"><a href="test-4-review-material.html#practice-problems-4"><i class="fa fa-check"></i>Practice Problems</a></li>
+<li class="chapter" data-level="" data-path="test-4-review-material.html"><a href="test-4-review-material.html#practice-problems-5"><i class="fa fa-check"></i>Practice Problems</a></li>
 </ul></li>
 <li class="part"><span><b>I Workbook Chapters</b></span></li>
 <li class="chapter" data-level="8" data-path="intro-calculus-workbook.html"><a href="intro-calculus-workbook.html"><i class="fa fa-check"></i><b>8</b> Intro Calculus Workbook</a>
@@ -905,7 +1035,7 @@
 <li class="chapter" data-level="" data-path="week-2-in-class-riemann-sums-derivatives-antiderivatives.html"><a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#worked-example"><i class="fa fa-check"></i>Worked Example</a></li>
 </ul></li>
 <li class="chapter" data-level="12.11" data-path="week-2-in-class-riemann-sums-derivatives-antiderivatives.html"><a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#conceptual-questions"><i class="fa fa-check"></i><b>12.11</b> Conceptual Questions</a></li>
-<li class="chapter" data-level="12.12" data-path="week-2-in-class-riemann-sums-derivatives-antiderivatives.html"><a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#practice-problems-5"><i class="fa fa-check"></i><b>12.12</b> Practice Problems</a>
+<li class="chapter" data-level="12.12" data-path="week-2-in-class-riemann-sums-derivatives-antiderivatives.html"><a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#practice-problems-6"><i class="fa fa-check"></i><b>12.12</b> Practice Problems</a>
 <ul>
 <li class="chapter" data-level="12.12.1" data-path="week-2-in-class-riemann-sums-derivatives-antiderivatives.html"><a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#key-takeaway-13"><i class="fa fa-check"></i><b>12.12.1</b> Key Takeaway</a></li>
 </ul></li>
@@ -1139,7 +1269,7 @@
 <li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#step-4-apply-a-climate-change-scenario"><i class="fa fa-check"></i>Step 4 — Apply a Climate Change Scenario</a></li>
 <li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#write-the-model-with-numbers"><i class="fa fa-check"></i>Write the Model with Numbers</a></li>
 <li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#step-5-how-long-until-significant-warming"><i class="fa fa-check"></i>Step 5 — How Long Until Significant Warming?</a></li>
-<li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#question-1-2"><i class="fa fa-check"></i>Question 1</a></li>
+<li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#question-1"><i class="fa fa-check"></i>Question 1</a></li>
 <li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#step-6-interpret-the-result"><i class="fa fa-check"></i>Step 6 — Interpret the Result</a></li>
 <li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#step-7-thinking-bigger"><i class="fa fa-check"></i>Step 7 — Thinking Bigger</a></li>
 <li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#final-reflection-2"><i class="fa fa-check"></i>Final Reflection</a></li>
@@ -1158,7 +1288,7 @@
 <li class="chapter" data-level="16.15" data-path="differential-equations.html"><a href="differential-equations.html#polleverywhere-questions"><i class="fa fa-check"></i><b>16.15</b> PolleveryWhere Questions</a></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+<li><a href="https://github.com/gajsivandran/Environmental_Calculus2" target="_blank">Published with bookdown</a></li>
 
 </ul>
 
@@ -1179,9 +1309,9 @@
             <section class="normal" id="section-">
 <div id="applications-of-integration" class="section level1 hasAnchor" number="6">
 <h1><span class="header-section-number">Chapter 6</span> Applications of Integration<a href="applications-of-integration.html#applications-of-integration" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The previous chapter focused heavily on learning the mechanics of integration—notation, rules, and techniques. That work matters, but mathematics becomes most useful when we put it to work.</p>
-<p>In this chapter, we shift from <em>how to compute integrals</em> to <em>how to use them</em>. Integrals help us understand how quantities accumulate: how small contributions add up over space or time, how totals emerge from rates or densities, and how gains and losses combine to produce net change. Rather than treating integration as a collection of formulas, we use it as a tool for interpreting and analyzing real systems.</p>
-<p>The goal here is meaning first. Each application connects the mathematics back to what an integral represents and why it matters, turning computation into insight.</p>
+<p>A hydrologist’s hard drive holds four datasets from the same Pacific Northwest watershed: streamflow every fifteen minutes for a year, soil-moisture surveys spread across the watershed each week, a biomass density map for the riparian zone, and a daily log of how much the river ran above the minimum ecological flow. None of these is the answer to anything by itself. Each one is a <strong>rate</strong>, a <strong>density</strong>, or a <strong>difference between two curves</strong> — and to get the actual answers an agency cares about (<em>total runoff this year</em>, <em>total biomass in the riparian zone</em>, <em>average flow during the spawning window</em>, <em>cumulative water above the ecological-flow line</em>) someone has to integrate.</p>
+<p>The previous chapter focused heavily on the <em>mechanics</em> of integration — notation, rules, and techniques. That work matters, but mathematics becomes most useful when we put it to work. This chapter shifts from <em>how to compute integrals</em> to <em>how to use them</em>. Integrals let us understand how quantities accumulate: how small contributions add up over space or time, how totals emerge from rates or densities, and how gains and losses combine to produce a net change. Rather than treating integration as a collection of formulas, we use it as a tool for interpreting and analyzing real systems.</p>
+<p>The goal here is <strong>meaning first</strong>. Each application connects the mathematics back to what an integral represents and why it matters, turning computation into insight.</p>
 <div id="from-rates-and-densities-to-totals" class="section level2 hasAnchor" number="6.1">
 <h2><span class="header-section-number">6.1</span> From Rates and Densities to Totals<a href="applications-of-integration.html#from-rates-and-densities-to-totals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Many quantities we measure in environmental and natural systems are <strong>not totals</strong>. Instead, they describe how something varies <em>per unit</em> of space or time.</p>
@@ -1258,6 +1388,27 @@ Multiply by volume (m³) → total leaf area</li>
 - How do gains and losses combine to produce net change?</p>
 <p>In the sections that follow, we will apply this same accumulation idea to many different contexts. The mathematics will look familiar, but the meaning will always come first.</p>
 </div>
+<div id="concept-check-rates-and-densities-vs-totals" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check: Rates and Densities vs Totals<a href="applications-of-integration.html#concept-check-rates-and-densities-vs-totals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>What’s the difference between a <em>rate</em>, a <em>density</em>, and a <em>total</em> — and why can’t most environmental questions be answered by one alone?</p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p>A <strong>rate</strong> tells you how fast something is changing per unit of time (rain falling at 5 mm/hr). A <strong>density</strong> tells you how much of something is packed per unit of space (300 trees per hectare). A <strong>total</strong> tells you how much accumulated overall (47 mm of rain this storm, 12,000 trees in the watershed). Most environmental questions are about totals, but most sensors and surveys measure rates or densities. The integral is the bridge.</p>
+</details>
+</div>
+<div id="concept-check-why-multiplication-isnt-enough" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check: Why Multiplication Isn’t Enough<a href="applications-of-integration.html#concept-check-why-multiplication-isnt-enough" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If a rainfall sensor reports 5 mm/hr, why can’t you just multiply by the duration of the storm to get the total rainfall?</p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p>Because real rates <strong>don’t stay constant</strong>. The 5 mm/hr reading is a <em>snapshot</em> at one moment — the storm intensity will be different ten minutes later. Multiplying a single rate by the whole duration pretends the rate held flat the entire time, which is almost never true. Integration is the formal way to <em>add up many small contributions</em> when the rate changes.</p>
+</details>
+<hr />
+</div>
 </div>
 <div id="accumulation-when-totals-are-always-positive" class="section level2 hasAnchor" number="6.2">
 <h2><span class="header-section-number">6.2</span> Accumulation When Totals Are Always Positive<a href="applications-of-integration.html#accumulation-when-totals-are-always-positive" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -1287,6 +1438,27 @@ Integrating plankton concentration over depth gives total abundance per unit are
 <li>The integral answers a question about <strong>total amount</strong>, not change relative to a baseline.</li>
 </ol>
 <p>Because all contributions are positive, the integral behaves like an ever-increasing sum. This makes these situations ideal for building intuition about how integrals work before introducing more complex cases.</p>
+</div>
+<div id="concept-check-what-makes-an-accumulation-always-positive" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check: What Makes an Accumulation “Always Positive”<a href="applications-of-integration.html#concept-check-what-makes-an-accumulation-always-positive" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Why is total rainfall over a storm an “always-positive” accumulation, but net carbon exchange for a forest over a day is not?</p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p>Rainfall <em>can only increase</em> over time — drops can’t un-fall. So the rate (rainfall intensity) is always nonnegative, and its integral is always nonnegative. Net carbon exchange, by contrast, has a signed rate: photosynthesis pulls carbon <em>in</em> (positive), respiration releases carbon <em>out</em> (negative), and the two run simultaneously. The integrand changes sign, so the integral can be positive, negative, or zero.</p>
+</details>
+</div>
+<div id="concept-check-reading-units-to-find-the-total" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check: Reading Units to Find the Total<a href="applications-of-integration.html#concept-check-reading-units-to-find-the-total" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A leaf-level photosynthesis rate is reported as <strong>μmol CO₂ / m² / s</strong>. You integrate it over time and over the leaf area. What units does the result have?</p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p>Multiplying by seconds cancels the “/s”, leaving μmol CO₂/m². Multiplying by m² then cancels the “/m²”, leaving <strong>μmol CO₂</strong>. Tracking units this way is one of the fastest ways to catch a setup error — if the final units don’t match the physical quantity you’re claiming to compute, the integral is wrong.</p>
+</details>
+<hr />
 </div>
 </div>
 <div id="net-accumulation-when-gains-and-losses-compete" class="section level2 hasAnchor" number="6.3">
@@ -1350,6 +1522,27 @@ It means gains and losses balanced perfectly.</p>
 <li><strong>Net accumulation</strong> measures <em>what remains after everything is accounted for</em>.</li>
 </ul>
 <p>Both rely on the same mathematical machinery. What changes is the story the integral is telling—and learning to read that story is the real goal of this chapter.</p>
+</div>
+<div id="concept-check-when-net-differs-from-total" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check: When Net Differs from Total<a href="applications-of-integration.html#concept-check-when-net-differs-from-total" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Suppose a stream gains 800 m³ of water during a storm and loses 800 m³ in the days following through evaporation and seepage. The <strong>net accumulation</strong> over the period is zero. What is the <strong>total accumulation</strong> — and which one would you report if asked “how much water moved through this system?”</p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p><strong>Net</strong> accumulation is zero because the gains and losses canceled in the signed integral. <strong>Total</strong> accumulation (integrating |rate|, not rate) is 1,600 m³ — the actual volume of water that moved. Which one is the “right” answer depends on the question. “Did the system gain or lose water?” → net. “How much water moved?” → total. The same dataset answers both, but only if you ask the right integral.</p>
+</details>
+</div>
+<div id="concept-check-negative-integrands-and-signed-areas" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check: Negative Integrands and Signed Areas<a href="applications-of-integration.html#concept-check-negative-integrands-and-signed-areas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If the rate of net population change for a fish stock is <em>negative</em> for several months out of a year, what does the integral of that rate over those months contribute to the year-end net change?</p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p>It contributes a <strong>negative number</strong> — a population loss. In a signed integral, a region where the integrand is below the horizontal axis contributes negative “area” to the total. That’s why net accumulation can land on zero or even go negative: positive-rate periods and negative-rate periods compete in the same sum.</p>
+</details>
+<hr />
 </div>
 </div>
 <div id="using-integrals-to-compute-the-average-value-of-a-function" class="section level2 hasAnchor" number="6.4">
@@ -1467,6 +1660,27 @@ Integrate concentration over distance and divide by the length of the reach.</p>
 <h3><span class="header-section-number">6.4.6</span> Why This Matters<a href="applications-of-integration.html#why-this-matters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The average value formula shows that integrals do more than measure totals. They allow us to define representative values for quantities that vary continuously in space or time.</p>
 <p>This idea appears repeatedly in science and engineering, from climate averages to mean concentrations and long-term rates. Once again, the mathematics is simple—but the interpretation is powerful.</p>
+</div>
+<div id="concept-check-why-average-1b-a-f-dx-makes-sense" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check: Why Average = (1/(b-a)) ∫ f dx Makes Sense<a href="applications-of-integration.html#concept-check-why-average-1b-a-f-dx-makes-sense" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The average value of <span class="math inline">\(f\)</span> on <span class="math inline">\([a, b]\)</span> is <span class="math inline">\(\frac{1}{b-a}\int_a^b f(x)\,dx\)</span>. Why does that formula make sense intuitively?</p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p>Think of the integral as the <em>total accumulation</em> of <span class="math inline">\(f\)</span> over the interval. Dividing by the width <span class="math inline">\(b - a\)</span> gives you the <strong>constant value that would produce the same total</strong> over the same interval — i.e., the “flat-line height” with the same area. That’s exactly what an average is: the steady value that’s equivalent to the varying one, on net.</p>
+</details>
+</div>
+<div id="concept-check-average-rate-in-environmental-context" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check: Average Rate in Environmental Context<a href="applications-of-integration.html#concept-check-average-rate-in-environmental-context" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A daily streamflow record for a river over a year gives a function <span class="math inline">\(Q(t)\)</span>. What does <span class="math inline">\(\frac{1}{365}\int_0^{365} Q(t)\,dt\)</span> tell you, and why is it more useful than knowing <span class="math inline">\(Q\)</span> at any single day?</p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p>It’s the <strong>average daily discharge over the year</strong> — the constant flow rate that, if it had run steady for 365 days, would have moved the same total volume of water as the real (variable) flow did. It’s more useful than any single day’s reading because it smooths over storms, droughts, and daily variation to give a single defensible number you can compare across years, between rivers, or against regulatory thresholds.</p>
+</details>
+<hr />
 </div>
 </div>
 <div id="area-between-two-curves" class="section level2 hasAnchor" number="6.5">
@@ -1680,6 +1894,27 @@ B(t) - D(t)
 <h3><span class="header-section-number">6.5.5</span> Big Picture<a href="applications-of-integration.html#big-picture" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Area between curves extends the idea of integration beyond accumulation relative to an axis. It allows us to quantify differences, gaps, and separations—turning visual comparisons into precise numerical measures.</p>
 <p>Once again, the formula is simple. The insight comes from understanding <em>what is being measured</em> and <em>why that measurement matters</em>.</p>
+</div>
+<div id="concept-check-top-minus-bottom" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check: Top Minus Bottom<a href="applications-of-integration.html#concept-check-top-minus-bottom" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For <span class="math inline">\(\int_a^b [f(x) - g(x)]\,dx\)</span> to represent a positive area between two curves, what has to be true about <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> on <span class="math inline">\([a, b]\)</span> — and what happens if the curves cross within the interval?</p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p>You need <span class="math inline">\(f(x) \geq g(x)\)</span> throughout <span class="math inline">\([a, b]\)</span> — <span class="math inline">\(f\)</span> is the <em>top</em> curve, <span class="math inline">\(g\)</span> is the <em>bottom</em>. If the curves cross within the interval, the labels “top” and “bottom” switch at the crossing, and the integrand changes sign. To compute the <em>geometric</em> area you split the interval at each crossing and integrate <span class="math inline">\(|f - g|\)</span> piecewise — otherwise the signed integral will partially cancel.</p>
+</details>
+</div>
+<div id="concept-check-what-area-between-means-environmentally" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check: What ‘Area Between’ Means Environmentally<a href="applications-of-integration.html#concept-check-what-area-between-means-environmentally" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If <span class="math inline">\(Q_{\text{actual}}(t)\)</span> is the actual streamflow on day <span class="math inline">\(t\)</span> and <span class="math inline">\(Q_{\text{min}}\)</span> is a constant minimum ecological flow, what physical quantity does <span class="math inline">\(\int_0^{365} [Q_{\text{actual}}(t) - Q_{\text{min}}]\,dt\)</span> compute when the actual flow exceeds the minimum throughout?</p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p>The <strong>total volume of “extra” water</strong> — water that flowed above the ecological-flow threshold across the year. Each day’s contribution is the <em>excess</em> flow rate times the day, and the integral sums those daily excesses. If the actual flow ever dropped below the minimum, those days would contribute <em>negatively</em> to this integral, signaling an ecological-flow shortfall.</p>
+</details>
+<hr />
 </div>
 </div>
 <div id="double-integrals-accumulation-over-two-dimensions" class="section level2 hasAnchor" number="6.6">
@@ -1908,6 +2143,27 @@ x^2y+\frac{x}{2}y^2-\frac{y^2}{2}+C(x).
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 </div>
 </div>
+<div id="concept-check-what-fxy-da-represents-for-a-density" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check: What ∫∫f(x,y) dA Represents for a Density<a href="applications-of-integration.html#concept-check-what-fxy-da-represents-for-a-density" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Suppose <span class="math inline">\(\rho(x, y)\)</span> gives the <strong>biomass density</strong> (kg per m²) at position <span class="math inline">\((x, y)\)</span> in a riparian zone <span class="math inline">\(R\)</span>. What does <span class="math inline">\(\iint_R \rho(x, y)\,dA\)</span> compute, and what are its units?</p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p>It computes the <strong>total biomass</strong> in the riparian zone. The integrand has units of kg/m²; the differential <span class="math inline">\(dA\)</span> has units of m². Multiplying and integrating: kg/m² × m² = <strong>kg</strong>. Conceptually, you’re slicing the region <span class="math inline">\(R\)</span> into tiny patches of area <span class="math inline">\(dA\)</span>, multiplying each patch’s density by its area to get a tiny mass, then summing all those tiny masses over the region.</p>
+</details>
+</div>
+<div id="concept-check-why-iterated-integrals-work" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check: Why Iterated Integrals Work<a href="applications-of-integration.html#concept-check-why-iterated-integrals-work" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Why can a double integral over a rectangular region be computed as two single integrals — one inside the other — rather than requiring some new “2D” integration technique?</p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p>Because the region can be <strong>sliced into thin strips</strong>, integrated along the strip first (a 1D integral in one variable), and then the strip totals are themselves added up along the other axis (another 1D integral). Each iterated step is just a regular definite integral. Fubini’s theorem guarantees that, for continuous integrands on a nice region, the iterated integrals give the same result regardless of which variable you integrate first.</p>
+</details>
+<hr />
+</div>
 </div>
 <div id="triple-integrals-accumulation-over-volume" class="section level2 hasAnchor" number="6.7">
 <h2><span class="header-section-number">6.7</span> Triple Integrals: Accumulation Over Volume<a href="applications-of-integration.html#triple-integrals-accumulation-over-volume" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -1940,6 +2196,27 @@ the triple integral can be computed as an iterated integral:
 <p>As before, you integrate one variable at a time, treating the others as constants.</p>
 <hr />
 </div>
+<div id="concept-check-when-youd-need-a-triple-integral-in-environmental-science" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check: When You’d Need a Triple Integral in Environmental Science<a href="applications-of-integration.html#concept-check-when-youd-need-a-triple-integral-in-environmental-science" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Give an example of a quantity that would naturally be computed with a triple integral over a volume — and explain why three dimensions are needed.</p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p><strong>Total dissolved oxygen in a lake</strong>. The dissolved oxygen concentration <span class="math inline">\(c(x, y, z)\)</span> typically varies with horizontal position (water temperature, sunlight, wind mixing) <em>and</em> with depth (stratification, photosynthesis layers, sediment oxygen demand). Integrating <span class="math inline">\(c\)</span> over the full 3D lake volume <span class="math inline">\(\iiint c\,dV\)</span> gives total dissolved oxygen mass. You can’t reduce this to a 2D problem because depth matters.</p>
+</details>
+</div>
+<div id="concept-check-units-when-integrating-over-volume" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check: Units When Integrating Over Volume<a href="applications-of-integration.html#concept-check-units-when-integrating-over-volume" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If <span class="math inline">\(\rho(x, y, z)\)</span> has units of <strong>g of pollutant per m³</strong>, what are the units of <span class="math inline">\(\iiint_V \rho\,dV\)</span> and what does the result represent?</p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p>The volume element <span class="math inline">\(dV\)</span> has units of m³, which cancels the “per m³” in the density, leaving units of <strong>grams</strong>. The integral represents the <strong>total mass of pollutant</strong> within the volume <span class="math inline">\(V\)</span>.</p>
+</details>
+<hr />
+</div>
 </div>
 <div id="quadruple-integrals-when-time-enters-the-picture" class="section level2 hasAnchor" number="6.8">
 <h2><span class="header-section-number">6.8</span> Quadruple Integrals: When Time Enters the Picture<a href="applications-of-integration.html#quadruple-integrals-when-time-enters-the-picture" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -1967,6 +2244,28 @@ the integral becomes
 \int_a^b \int_c^d \int_e^f
 f(x,y,z,t)\,dz\,dy\,dx\,dt.
 \]</span></p>
+<hr />
+</div>
+<div id="concept-check-why-adding-time-turns-3d-into-4d" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check: Why Adding Time Turns 3D Into 4D<a href="applications-of-integration.html#concept-check-why-adding-time-turns-3d-into-4d" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If you already know how to compute the total pollutant mass in a lake at one moment using a triple integral over volume, why might a quadruple integral over volume <em>and time</em> be necessary?</p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p>Because the <strong>distribution itself changes over time</strong>. A triple integral at a single moment gives the snapshot mass <em>then</em>. But if you want a quantity like <em>total pollutant-exposure dose</em> (mass-hours) over a week, you need to track how the spatial distribution evolves and accumulate over time as well. Each tiny chunk of volume contributes <span class="math inline">\(\rho(x,y,z,t)\,dV\,dt\)</span> to the total — four dimensions of integration.</p>
+</details>
+</div>
+<div id="concept-check-when-youd-actually-use-a-quadruple-integral" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check: When You’d Actually Use a Quadruple Integral<a href="applications-of-integration.html#concept-check-when-youd-actually-use-a-quadruple-integral" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Give a concrete environmental setting where a quadruple integral (over space + time) is the right tool — and one where it’s overkill.</p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p><strong>Right tool:</strong> Computing the total UV-radiation exposure delivered to the surface waters of a lake over a summer season — radiation intensity varies in (x, y, z, t) and the cumulative dose matters biologically.</p>
+<p><strong>Overkill:</strong> Computing the total volume of a lake. The lake’s geometry doesn’t depend on time (over short windows), so a triple spatial integral suffices — adding a time dimension would just multiply the answer by the time length and tell you something less useful.</p>
+</details>
 <hr />
 </div>
 </div>
@@ -2028,6 +2327,33 @@ Uses parabolic fits over pairs of intervals for even higher accuracy.</p></li>
 </ul>
 <p>Each method balances simplicity and accuracy differently, but all share the same goal: approximate an integral using finite data.</p>
 </div>
+<div id="concept-check-when-numerical-integration-is-needed" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check: When Numerical Integration Is Needed<a href="applications-of-integration.html#concept-check-when-numerical-integration-is-needed" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Give two situations in environmental science where you’d reach for numerical integration instead of trying to find an analytic antiderivative.</p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<ol style="list-style-type: decimal">
+<li><p><strong>The rate is only known as data, not as a formula.</strong> A flux tower spits out half-hourly carbon-exchange readings — there is no symbolic integrand to antidifferentiate. You numerically integrate the data directly.</p></li>
+<li><p><strong>The integrand has no elementary antiderivative.</strong> Functions like <span class="math inline">\(e^{-x^2}\)</span> (Gaussian, common in dispersion modeling) and <span class="math inline">\(\sin(x)/x\)</span> appear naturally in environmental work but have no closed-form antiderivative. Numerical methods (trapezoidal, Simpson’s, Gaussian quadrature) get you a defensible answer anyway.</p></li>
+</ol>
+</details>
+</div>
+<div id="concept-check-choosing-among-numerical-methods" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check: Choosing Among Numerical Methods<a href="applications-of-integration.html#concept-check-choosing-among-numerical-methods" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>What’s the trade-off between using a left-endpoint Riemann sum, the trapezoidal rule, and Simpson’s rule on the same dataset?</p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p><strong>Left-endpoint Riemann sum</strong>: simple, fast, but systematically over- or underestimates whenever the rate is monotonic, and error decreases only linearly as you halve the step size.</p>
+<p><strong>Trapezoidal rule</strong>: fits a straight line across each step; error decreases quadratically with step size; usually a big improvement for smooth rates.</p>
+<p><strong>Simpson’s rule</strong>: fits a parabola across each pair of steps; error decreases like <span class="math inline">\(O(h^4)\)</span>; often the best choice when the underlying rate is smooth and you have evenly spaced data.</p>
+<p>The trade-off: more sophisticated methods give more accuracy per data point but assume more about the function’s smoothness.</p>
+</details>
+<hr />
+</div>
 </div>
 <div id="comparing-analytic-and-numerical-integration-from-data" class="section level2 hasAnchor" number="6.11">
 <h2><span class="header-section-number">6.11</span> Comparing Analytic and Numerical Integration from Data<a href="applications-of-integration.html#comparing-analytic-and-numerical-integration-from-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -2081,6 +2407,313 @@ We treated each daily measurement as the height of a rectangle one day wide and 
 <p>Even when we cannot write down a function we can integrate, we can still compute meaningful totals.</p>
 </blockquote>
 <p>Numerical integration bridges the gap between real-world data and the mathematical concept of accumulation—allowing integrals to remain useful even when exact formulas are out of reach.</p>
+<hr />
+</div>
+<div id="concept-check-model-vs-data-when-they-disagree" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check: Model vs Data: When They Disagree<a href="applications-of-integration.html#concept-check-model-vs-data-when-they-disagree" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If you fit a smooth model to streamflow data and integrate the model, you get one answer for total annual volume. If you instead apply Simpson’s rule directly to the raw daily measurements, you get a slightly different answer. Which one should you trust?</p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p>Neither one is automatically “right.” The fitted-model integral is smoother and reflects your <em>assumed</em> shape (e.g., a sinusoid) — it can extrapolate cleanly but may miss real spikes. The direct numerical integration of data faithfully captures whatever the sensor measured — including any noise or anomalies — but it inherits any gaps or errors in the data. In practice, the discrepancy itself is informative: large disagreement usually means the model is mis-specified or the data have features the model isn’t capturing.</p>
+</details>
+</div>
+<div id="concept-check-when-to-trust-analytic-when-to-trust-numerical" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check: When to Trust Analytic, When to Trust Numerical<a href="applications-of-integration.html#concept-check-when-to-trust-analytic-when-to-trust-numerical" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>What’s the practical guideline for choosing analytic vs numerical integration for a real environmental dataset?</p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p><strong>Use analytic integration</strong> when (a) you have a defensible <em>functional model</em> for the rate (calibrated to data, mechanistic, or theoretically grounded), and (b) the function has a tractable antiderivative. The result is exact and reproducible.</p>
+<p><strong>Use numerical integration</strong> when (a) you only have data, no model, or (b) the model fits but has no analytic antiderivative. Numerical results depend on the method and step size and should be reported with both.</p>
+<p>Reporting <em>both</em> answers (analytic from a model + numerical from raw data) and explaining any difference is often the strongest scientific practice.</p>
+</details>
+<hr />
+</div>
+</div>
+<div id="practice-problems-1" class="section level2 hasAnchor" number="6.12">
+<h2><span class="header-section-number">6.12</span> Practice Problems<a href="applications-of-integration.html#practice-problems-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The problems below pull from every major application type in the chapter: total accumulation from rates and densities, net accumulation, average value, area between curves, double integrals, and numerical methods. Some specify the technique; others ask you to identify which integral applies before computing.</p>
+<hr />
+<div id="problem-1-total-rainfall-from-a-storm-hyetograph" class="section level3 unnumbered hasAnchor">
+<h3>Problem 1: Total Rainfall from a Storm Hyetograph<a href="applications-of-integration.html#problem-1-total-rainfall-from-a-storm-hyetograph" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A storm gauge records rainfall intensity over a 4-hour storm as
+<span class="math display">\[
+r(t) = 3t - \tfrac{1}{2}t^2 \quad \text{(mm/hr)},
+\]</span>
+where <span class="math inline">\(t\)</span> is hours since the storm started. Find the <strong>total rainfall</strong> over the 4-hour storm.</p>
+<details>
+<summary>
+<strong>Click to reveal solution</strong>
+</summary>
+<p>This is an always-positive accumulation (<span class="math inline">\(r(t) \geq 0\)</span> on <span class="math inline">\([0, 4]\)</span>).
+<span class="math display">\[
+\int_0^4 \left(3t - \tfrac{1}{2}t^2\right) dt
+= \left[\tfrac{3}{2}t^2 - \tfrac{1}{6}t^3\right]_0^4
+= 24 - \tfrac{64}{6}
+= 24 - 10.\overline{6}
+\approx 13.33 \text{ mm}.
+\]</span></p>
+<p><strong>Total rainfall ≈ 13.3 mm.</strong></p>
+</details>
+<hr />
+</div>
+<div id="problem-2-net-carbon-exchange-over-24-hours" class="section level3 unnumbered hasAnchor">
+<h3>Problem 2: Net Carbon Exchange Over 24 Hours<a href="applications-of-integration.html#problem-2-net-carbon-exchange-over-24-hours" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A flux tower in a young forest stand records net carbon flux as
+<span class="math display">\[
+F(t) = 4\sin\!\left(\frac{\pi t}{12}\right) - 1 \quad \text{(mg C / m}^2\text{/hr)},
+\]</span>
+where <span class="math inline">\(t\)</span> is hours after midnight. Find the <strong>net carbon exchange</strong> over a full 24-hour day, and interpret the sign.</p>
+<details>
+<summary>
+<strong>Click to reveal solution</strong>
+</summary>
+<p><span class="math display">\[
+\int_0^{24} \left[4\sin\!\left(\tfrac{\pi t}{12}\right) - 1\right] dt
+= \left[-\tfrac{48}{\pi}\cos\!\left(\tfrac{\pi t}{12}\right) - t\right]_0^{24}.
+\]</span></p>
+<p>At <span class="math inline">\(t = 24\)</span>: <span class="math inline">\(-\tfrac{48}{\pi}\cos(2\pi) - 24 = -\tfrac{48}{\pi} - 24\)</span>.
+At <span class="math inline">\(t = 0\)</span>: <span class="math inline">\(-\tfrac{48}{\pi}\cos(0) - 0 = -\tfrac{48}{\pi}\)</span>.</p>
+<p>Difference:
+<span class="math display">\[
+\left(-\tfrac{48}{\pi} - 24\right) - \left(-\tfrac{48}{\pi}\right) = -24 \text{ mg C / m}^2.
+\]</span></p>
+<p><strong>Net flux = −24 mg C/m²</strong> over 24 hours. The stand is a <strong>net carbon source</strong> for the day: the constant background respiration loss of 1 mg/m²/hr outweighed the periodic photosynthesis gains in net terms.</p>
+</details>
+<hr />
+</div>
+<div id="problem-3-average-streamflow-during-a-spawning-window" class="section level3 unnumbered hasAnchor">
+<h3>Problem 3: Average Streamflow During a Spawning Window<a href="applications-of-integration.html#problem-3-average-streamflow-during-a-spawning-window" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Over a 60-day spawning window, the daily mean streamflow in a river is modeled as
+<span class="math display">\[
+Q(t) = 80 + 20\sin\!\left(\frac{\pi t}{30}\right) \quad \text{(m}^3\text{/s)},
+\]</span>
+where <span class="math inline">\(t\)</span> is days into the window. Find the <strong>average streamflow</strong> over the window.</p>
+<details>
+<summary>
+<strong>Click to reveal solution</strong>
+</summary>
+<p><span class="math display">\[
+\bar{Q} = \frac{1}{60}\int_0^{60}\left[80 + 20\sin\!\left(\tfrac{\pi t}{30}\right)\right] dt
+= \frac{1}{60}\left[80 t - \tfrac{600}{\pi}\cos\!\left(\tfrac{\pi t}{30}\right)\right]_0^{60}.
+\]</span></p>
+<p>At <span class="math inline">\(t = 60\)</span>: <span class="math inline">\(4800 - \tfrac{600}{\pi}\cos(2\pi) = 4800 - \tfrac{600}{\pi}\)</span>.
+At <span class="math inline">\(t = 0\)</span>: <span class="math inline">\(0 - \tfrac{600}{\pi}\cos(0) = -\tfrac{600}{\pi}\)</span>.</p>
+<p>Difference: <span class="math inline">\(4800 - \tfrac{600}{\pi} + \tfrac{600}{\pi} = 4800\)</span>.</p>
+<p><span class="math display">\[
+\bar{Q} = \frac{4800}{60} = 80 \text{ m}^3\text{/s}.
+\]</span></p>
+<p><strong>Average streamflow = 80 m³/s.</strong> (The sinusoidal variation averages to zero over a full period, leaving just the baseline.)</p>
+</details>
+<hr />
+</div>
+<div id="problem-4-water-above-an-ecological-flow-minimum" class="section level3 unnumbered hasAnchor">
+<h3>Problem 4: Water Above an Ecological-Flow Minimum<a href="applications-of-integration.html#problem-4-water-above-an-ecological-flow-minimum" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A river has a regulatory minimum ecological flow of <span class="math inline">\(Q_{\text{min}} = 30\)</span> m³/s. Over a 10-day window, the actual flow is
+<span class="math display">\[
+Q(t) = 30 + 12 t - t^2 \quad \text{(m}^3\text{/s)},
+\]</span>
+where <span class="math inline">\(t\)</span> is days. Compute the <strong>total volume of water that flowed above the minimum</strong> during the window. (Note: be careful with units — m³/s × days.)</p>
+<details>
+<summary>
+<strong>Click to reveal solution</strong>
+</summary>
+<p>The excess flow is <span class="math inline">\(Q(t) - Q_{\text{min}} = 12t - t^2\)</span>. Check that this is positive on <span class="math inline">\([0, 10]\)</span>: <span class="math inline">\(12t - t^2 = t(12 - t) \geq 0\)</span> for <span class="math inline">\(0 \leq t \leq 12\)</span>. ✓</p>
+<p><span class="math display">\[
+\int_0^{10} (12 t - t^2)\, dt
+= \left[6 t^2 - \tfrac{t^3}{3}\right]_0^{10}
+= 600 - \tfrac{1000}{3}
+\approx 266.67 \text{ (m}^3\text{/s)} \cdot \text{days}.
+\]</span></p>
+<p>Convert to m³: 1 day = 86,400 s, so
+<span class="math display">\[
+266.67 \times 86{,}400 \approx 2.30 \times 10^7 \text{ m}^3.
+\]</span></p>
+<p><strong>Total volume above the minimum ≈ 23 million m³</strong> over the 10-day window.</p>
+</details>
+<hr />
+</div>
+<div id="problem-5-net-population-change-births-vs-deaths" class="section level3 unnumbered hasAnchor">
+<h3>Problem 5: Net Population Change (Births vs Deaths)<a href="applications-of-integration.html#problem-5-net-population-change-births-vs-deaths" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For a juvenile salmon cohort over a 6-month survey, birth rate (recruitment from upstream) is modeled as <span class="math inline">\(B(t) = 200 - 10t\)</span> (fish/month) and death rate as <span class="math inline">\(D(t) = 50 + 5t\)</span> (fish/month), where <span class="math inline">\(t\)</span> is months from the start. Find the <strong>net population change</strong> over the 6 months.</p>
+<details>
+<summary>
+<strong>Click to reveal solution</strong>
+</summary>
+<p>Net rate of change is <span class="math inline">\(B(t) - D(t) = 150 - 15 t\)</span>.</p>
+<p><span class="math display">\[
+\int_0^6 (150 - 15 t)\, dt
+= \left[150 t - \tfrac{15}{2} t^2\right]_0^6
+= 900 - \tfrac{15}{2}(36)
+= 900 - 270
+= 630 \text{ fish}.
+\]</span></p>
+<p><strong>Net population gain = 630 fish</strong> over the six-month window. (Note: <span class="math inline">\(B = D\)</span> at <span class="math inline">\(t = 10\)</span> months — within this window, recruitment outpaced mortality, but the gap was narrowing.)</p>
+</details>
+<hr />
+</div>
+<div id="problem-6-total-biomass-in-a-riparian-strip" class="section level3 unnumbered hasAnchor">
+<h3>Problem 6: Total Biomass in a Riparian Strip<a href="applications-of-integration.html#problem-6-total-biomass-in-a-riparian-strip" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A riparian strip is modeled as a rectangular region <span class="math inline">\(R = [0, 200] \times [0, 50]\)</span> meters along a river bank. The biomass density is
+<span class="math display">\[
+\rho(x, y) = 5 + 0.01\,x \cdot y \quad \text{(kg/m}^2\text{)},
+\]</span>
+where <span class="math inline">\(x\)</span> is distance along the bank and <span class="math inline">\(y\)</span> is distance perpendicular from the bank. Find the <strong>total biomass</strong> in the strip.</p>
+<details>
+<summary>
+<strong>Click to reveal solution</strong>
+</summary>
+<p><span class="math display">\[
+\iint_R \rho(x, y)\, dA = \int_0^{200}\int_0^{50} (5 + 0.01\, x y)\, dy\, dx.
+\]</span></p>
+<p>Inner integral (over <span class="math inline">\(y\)</span>):
+<span class="math display">\[
+\int_0^{50} (5 + 0.01\, x y)\, dy
+= \left[5 y + 0.005\, x y^2\right]_0^{50}
+= 250 + 0.005\, x (2500)
+= 250 + 12.5\, x.
+\]</span></p>
+<p>Outer integral (over <span class="math inline">\(x\)</span>):
+<span class="math display">\[
+\int_0^{200} (250 + 12.5\, x)\, dx
+= \left[250\, x + 6.25\, x^2\right]_0^{200}
+= 50{,}000 + 6.25(40{,}000)
+= 50{,}000 + 250{,}000
+= 300{,}000 \text{ kg}.
+\]</span></p>
+<p><strong>Total biomass = 300,000 kg = 300 metric tons.</strong></p>
+</details>
+<hr />
+</div>
+<div id="problem-7-dissolved-oxygen-mass-in-a-lake-subsection" class="section level3 unnumbered hasAnchor">
+<h3>Problem 7: Dissolved Oxygen Mass in a Lake Subsection<a href="applications-of-integration.html#problem-7-dissolved-oxygen-mass-in-a-lake-subsection" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A small lake subsection occupies the rectangular region <span class="math inline">\([0, 100] \times [0, 80]\)</span> meters with a uniform depth of 5 meters. Dissolved oxygen concentration is modeled as
+<span class="math display">\[
+c(x, y) = 8 - 0.02\,x \quad \text{(mg/L)},
+\]</span>
+varying only with <span class="math inline">\(x\)</span> (distance from the inflow). Assuming concentration doesn’t vary with depth, find the <strong>total mass of dissolved oxygen</strong> in the subsection. (Hint: 1 L = 0.001 m³.)</p>
+<details>
+<summary>
+<strong>Click to reveal solution</strong>
+</summary>
+<p>Volume of the subsection: <span class="math inline">\(100 \times 80 \times 5 = 40{,}000\)</span> m³ = <span class="math inline">\(4 \times 10^7\)</span> L.</p>
+<p>Concentration averaged over <span class="math inline">\(x\)</span>:
+<span class="math display">\[
+\bar{c} = \frac{1}{100}\int_0^{100}(8 - 0.02\,x)\,dx
+= \frac{1}{100}\left[8\,x - 0.01\,x^2\right]_0^{100}
+= \frac{1}{100}(800 - 100)
+= 7 \text{ mg/L}.
+\]</span></p>
+<p>Total mass: <span class="math inline">\(7 \text{ mg/L} \times 4 \times 10^7 \text{ L} = 2.8 \times 10^8\)</span> mg = <strong>280 kg of dissolved oxygen.</strong></p>
+</details>
+<hr />
+</div>
+<div id="problem-8-numerical-integration-of-hourly-evapotranspiration-data" class="section level3 unnumbered hasAnchor">
+<h3>Problem 8: Numerical Integration of Hourly Evapotranspiration Data<a href="applications-of-integration.html#problem-8-numerical-integration-of-hourly-evapotranspiration-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A weather station reports the following hourly evapotranspiration rates (mm/hr) for an 8-hour midday window:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Hour</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ET (mm/hr)</td>
+<td>0.1</td>
+<td>0.3</td>
+<td>0.6</td>
+<td>0.9</td>
+<td>1.0</td>
+<td>0.9</td>
+<td>0.6</td>
+<td>0.3</td>
+<td>0.1</td>
+</tr>
+</tbody>
+</table>
+<p>Use the <strong>trapezoidal rule</strong> with <span class="math inline">\(\Delta t = 1\)</span> hr to estimate the <strong>total evapotranspiration</strong> over the 8-hour window.</p>
+<details>
+<summary>
+<strong>Click to reveal solution</strong>
+</summary>
+<p>Trapezoidal rule:
+<span class="math display">\[
+\text{Total} \approx \tfrac{\Delta t}{2}\bigl[f_0 + 2f_1 + 2f_2 + \cdots + 2f_7 + f_8\bigr].
+\]</span></p>
+<p><span class="math display">\[
+\tfrac{1}{2}\bigl[0.1 + 2(0.3 + 0.6 + 0.9 + 1.0 + 0.9 + 0.6 + 0.3) + 0.1\bigr]
+= \tfrac{1}{2}\bigl[0.2 + 2(4.6)\bigr]
+= \tfrac{1}{2}(9.4)
+= 4.7 \text{ mm}.
+\]</span></p>
+<p><strong>Total ET ≈ 4.7 mm</strong> over the 8-hour window. (Notice the symmetry: the data are roughly bell-shaped around the midday peak.)</p>
+</details>
+<hr />
+</div>
+<div id="problem-9-average-pollutant-concentration-in-a-water-column" class="section level3 unnumbered hasAnchor">
+<h3>Problem 9: Average Pollutant Concentration in a Water Column<a href="applications-of-integration.html#problem-9-average-pollutant-concentration-in-a-water-column" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A pollutant concentration in a 10-meter water column is modeled as
+<span class="math display">\[
+c(z) = 4 + 0.1\,z^2 \quad \text{(mg/L)},
+\]</span>
+where <span class="math inline">\(z\)</span> is depth in meters from the surface. Find the <strong>average concentration</strong> over the 10-meter column.</p>
+<details>
+<summary>
+<strong>Click to reveal solution</strong>
+</summary>
+<p><span class="math display">\[
+\bar{c} = \frac{1}{10}\int_0^{10}(4 + 0.1\,z^2)\,dz
+= \frac{1}{10}\left[4 z + \tfrac{0.1}{3}\,z^3\right]_0^{10}
+= \frac{1}{10}\left(40 + \tfrac{100}{3}\right)
+= \frac{1}{10}\left(\tfrac{120 + 100}{3}\right)
+= \frac{220}{30}
+\approx 7.33 \text{ mg/L}.
+\]</span></p>
+<p><strong>Average concentration ≈ 7.33 mg/L.</strong> (The bottom waters are richer — <span class="math inline">\(c(10) = 14\)</span> mg/L — but the lighter top half pulls the average down.)</p>
+</details>
+<hr />
+</div>
+<div id="problem-10-choose-and-apply-carbon-uptake-over-a-growing-season" class="section level3 unnumbered hasAnchor">
+<h3>Problem 10: Choose and Apply — Carbon Uptake Over a Growing Season<a href="applications-of-integration.html#problem-10-choose-and-apply-carbon-uptake-over-a-growing-season" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A young Douglas-fir stand has a daily net carbon uptake rate of
+<span class="math display">\[
+U(t) = 12 \sin\!\left(\frac{\pi (t - 30)}{150}\right) \quad \text{(g C / m}^2\text{/day)},
+\]</span>
+where <span class="math inline">\(t\)</span> is days from January 1 and the rate is meaningful (non-negative) only between <span class="math inline">\(t = 30\)</span> and <span class="math inline">\(t = 180\)</span> (roughly Feb 1 through end of June). Find the <strong>total carbon uptake per square meter</strong> over the active growing season.</p>
+<p><strong>Before computing</strong>, decide whether this is an always-positive accumulation, a signed/net accumulation, or an average-value problem. Justify your choice.</p>
+<details>
+<summary>
+<strong>Click to reveal solution</strong>
+</summary>
+<p><strong>Classification:</strong> <em>Always-positive accumulation</em> — the problem restricts to the window where <span class="math inline">\(U(t) \geq 0\)</span>, and we want the total carbon fixed (not the average rate, and not a signed net).</p>
+<p>Compute the integral:
+<span class="math display">\[
+\int_{30}^{180} 12\sin\!\left(\tfrac{\pi(t-30)}{150}\right) dt.
+\]</span></p>
+<p>Let <span class="math inline">\(u = \frac{\pi(t-30)}{150}\)</span>, so <span class="math inline">\(du = \frac{\pi}{150}dt\)</span>, or <span class="math inline">\(dt = \frac{150}{\pi}du\)</span>. When <span class="math inline">\(t = 30\)</span>, <span class="math inline">\(u = 0\)</span>; when <span class="math inline">\(t = 180\)</span>, <span class="math inline">\(u = \pi\)</span>.</p>
+<p><span class="math display">\[
+= 12 \cdot \tfrac{150}{\pi} \int_0^{\pi}\sin(u)\,du
+= \tfrac{1800}{\pi}\bigl[-\cos(u)\bigr]_0^{\pi}
+= \tfrac{1800}{\pi}\bigl(-(-1) - (-1)\bigr)
+= \tfrac{1800}{\pi}(2)
+= \tfrac{3600}{\pi}
+\approx 1146 \text{ g C / m}^2.
+\]</span></p>
+<p><strong>Total carbon uptake ≈ 1146 g C/m² ≈ 1.15 kg C/m²</strong> over the growing season.</p>
+</details>
 
 </div>
 </div>
@@ -2122,8 +2755,8 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/rstudio/bookdown-demo/edit/master/06-application.Rmd",
-    "text": "Edit"
+    "link": null,
+    "text": null
   },
   "history": {
     "link": null,

@@ -1,3 +1,13 @@
+bookdown::bs4_book:
+  css: style.css
+  theme:
+    primary: "#1a5e3a"
+  repo:
+    base: https://github.com/gajsivandran/Environmental_Calculus2
+    branch: main
+    subdir: ""
+  includes:
+    in_header: _accessibility-head.html
 bookdown::gitbook:
   css: style.css
   config:
@@ -5,8 +15,7 @@ bookdown::gitbook:
       before: |
         <li><a href="./">QSCI 292</a></li>
       after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    edit: https://github.com/rstudio/bookdown-demo/edit/master/%s
+        <li><a href="https://github.com/gajsivandran/Environmental_Calculus2" target="_blank">Published with bookdown</a></li>
     download: ["pdf", "epub"]
 bookdown::pdf_book:
   includes:
@@ -15,4 +24,3 @@ bookdown::pdf_book:
   citation_package: natbib
   keep_tex: yes
 bookdown::epub_book: default
-bookdown::bs4_book: default

@@ -1,5 +1,9 @@
 # Techniques of Integration (Indefinite Integrals)
 
+A regulatory scientist is staring at three rate equations on her screen — first-order pollutant decay with a constant source term, photosynthesis rate as a function of light that's itself a function of time, and a logistic-style population dynamic that just got fitted to a salmon counter dataset. Each one needs to be integrated to answer the actual question her agency cares about: *how much, in total, between these two dates?* The Fundamental Theorem of Calculus tells her there's an antiderivative out there for each rate. The hard part is *finding* it.
+
+This chapter is about the toolkit for that hard part. The Fundamental Theorem reduces a definite integral to evaluating an antiderivative — but only if you can produce one. That isn't always obvious, because integration doesn't have a clean step-by-step algorithm the way differentiation does. What you build instead is a set of **pattern-recognition skills**: spotting when an integrand wants substitution, when it wants integration by parts, when it wants partial fractions, and when it really just wants to be rewritten before you do anything fancy at all.
+
 ## Purpose of the Chapter
 
 In the previous chapter, you learned what a definite integral *means* (accumulation) and why it can be computed using antiderivatives (the Fundamental Theorem of Calculus).  
@@ -383,6 +387,9 @@ Understanding this distinction is essential before learning any integration tech
 
 ## Reverse Differentiation as a Skill
 
+In environmental science you usually know a *rate* — how fast a contaminant is decaying, how fast a forest stand is fixing carbon, how fast a population is changing — and you need to recover the *quantity* that produced that rate. That recovery is exactly antidifferentiation. The good news is that most of the rates you'll meet in introductory environmental modeling fall into a short list of recognizable shapes: power-law growth or decay, exponential approach to equilibrium, logarithmic accumulation, and the occasional periodic signal. Building fluency with a small **antiderivative dictionary** covers most of what you'll see.
+
+
 At this stage, integration should not feel like a new topic—it should feel like **recognition**.
 
 Every integration rule you learn already exists somewhere in your derivative toolkit. The challenge is not memorizing formulas, but training yourself to *see* an integrand as the derivative of something familiar.
@@ -557,7 +564,36 @@ Once this skill is in place, integration techniques become tools—not obstacles
 
 ---
 
+### Concept Check: Why Integration Is Harder Than Differentiation {-}
+
+Differentiation has a step-by-step algorithm — power rule, chain rule, product rule, and you can grind through anything. Integration doesn't work that way. Why?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Differentiation is a **constructive** process: every elementary function has a derivative that can be built mechanically from a small set of rules. Integration is the *inverse* — you're trying to find a function whose derivative is given — and there's no general recipe that always works. Many elementary-looking integrands (like \(e^{-x^2}\) or \(\sin(x)/x\)) don't even have elementary antiderivatives at all. So instead of an algorithm, you learn to **recognize patterns** and pick a technique that matches.
+
+</details>
+
+
+### Concept Check: Reading an Integrand as a Derivative {-}
+
+When you spot \(\int 2x\cos(x^2)\,dx\) and immediately think "that's a chain-rule derivative in disguise", what specifically are you noticing?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+You're noticing that one factor (\(2x\)) is **exactly the derivative** of the inner part of the other factor (the \(x^2\) inside the cosine). Differentiating \(\sin(x^2)\) by the chain rule would give \(\cos(x^2)\cdot 2x\) — exactly your integrand. So an antiderivative is \(\sin(x^2) + C\). The pattern that *triggers* this recognition is "inner function and its derivative are both present".
+
+</details>
+
+
+---
+
 ## Substitution: When a Function Is Hiding Inside Another
+
+Substitution is the technique that handles **composite rates** — rates that depend on a quantity that is itself changing. This comes up constantly in environmental work: a chemical reaction rate that depends on concentration which depends on time, an oxygen-uptake rate that depends on temperature which depends on depth, a discharge rate written in one variable that needs to be re-expressed in another. Whenever an integrand contains a function tucked inside another function — and the derivative of that inner function happens to be sitting right there — substitution is your first move.
+
 
 Many integrals fail not because the function is complicated, but because it is **nested**.
 
@@ -1001,7 +1037,39 @@ If the mismatch depends on \(x\), substitution is no longer the right tool.
 
 ---
 
+### Concept Check: Spotting When Substitution Is the Right Move {-}
+
+What two features must an integrand have for substitution to work cleanly?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+1. **An inner function** — some quantity \(g(x)\) that's wrapped inside another function (like the \(x^2\) inside \(\cos(x^2)\), or the \(3x^2 + 1\) inside \((\,\cdot\,)^5\)).
+2. **Its derivative is also present in the integrand** — \(g'(x)\) is sitting there as a factor, possibly up to a constant.
+
+If both features are present, picking \(u = g(x)\) and converting \(dx\) to \(du\) collapses the composite structure into a simple integral. If the derivative is *missing entirely* (not just off by a constant), substitution won't help and you need a different technique.
+
+</details>
+
+
+### Concept Check: Why dx Must Become du, Not Just Disappear {-}
+
+When you do a substitution, why isn't it enough to just rename \(x\) to \(u\) inside the function — why does \(dx\) also have to be converted to \(du\)?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Because \(dx\) and \(du\) measure widths in *different units*. The original integral \(\int f(x)\,dx\) is a limit of Riemann sums \(\sum f(x_i)\,\Delta x\) where \(\Delta x\) is the width of each slice **measured in \(x\)**. When you switch to \(u\), the slice widths are now **measured in \(u\)** — and \(\Delta u \neq \Delta x\) unless you account for the stretching factor \(du/dx = g'(x)\). The conversion \(du = g'(x)\,dx\) is the bookkeeping that keeps the accumulation honest.
+
+</details>
+
+
+---
+
 ## Integration by Parts: When Accumulation Involves a Product
+
+Integration by Parts is the right tool when accumulation involves a **product of two functions**, and at least one of them gets simpler when you differentiate it. In environmental modeling this shows up whenever you're accumulating a quantity that is itself the product of two changing factors — total pollutant load (concentration × flow rate), total respiratory cost (per-capita rate × population size), heat lost over time (temperature difference × cooling rate). Each of these is naturally an integral of the form \(\int u\,dv\).
+
 
 Substitution helps when a function is **nested**.  
 Integration by parts is the complementary idea: it helps when a function is a **product**.
@@ -1425,7 +1493,48 @@ Once this technique is comfortable, you are ready to handle integrals involving 
 
 ---
 
+### Concept Check: Choosing u and dv in Integration by Parts {-}
+
+When you apply integration by parts to \(\int u\,dv = uv - \int v\,du\), how should you decide which factor is \(u\) and which is \(dv\)?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Pick \(u\) to be the factor that **gets simpler when you differentiate it**. Polynomials shrink (\(x^2 \to 2x \to 2 \to 0\)). Logarithms turn into algebraic fractions (\(\ln x \to 1/x\)). Inverse-trig functions turn into algebraic fractions too. These are good \(u\) candidates.
+
+The remaining factor becomes \(dv\), and you need to be able to integrate it cleanly to find \(v\). Exponentials and basic trig functions are good \(dv\) candidates because integrating them doesn't make them worse.
+
+A common mnemonic: **LIATE** (Logarithmic, Inverse trig, Algebraic, Trig, Exponential) — earlier-letter functions are usually your \(u\).
+
+</details>
+
+
+### Concept Check: Why Integration by Parts Works {-}
+
+What's the connection between integration by parts and the product rule for derivatives?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Integration by parts **is the product rule, integrated**. Start with \(\frac{d}{dx}(uv) = u'v + uv'\). Integrate both sides:
+\[
+uv = \int u'v\,dx + \int uv'\,dx.
+\]
+Rearrange:
+\[
+\int uv'\,dx = uv - \int u'v\,dx,
+\]
+which is exactly \(\int u\,dv = uv - \int v\,du\) in differential notation. It's not a separate technique — it's the product rule running backwards, the same way substitution is the chain rule running backwards.
+
+</details>
+
+
+---
+
 ## Partial Fractions: When a Rational Function Can Be Taken Apart
+
+Some of the most important environmental rate equations — **logistic growth**, **Michaelis–Menten enzyme kinetics**, and various **two-compartment mixing models** — produce rational functions (polynomial over polynomial) once you separate variables and try to integrate. Partial fractions is the technique that splits those rational functions into pieces simple enough to integrate using the dictionary entries you already have. It is the workhorse behind a lot of mathematical ecology.
+
 
 Substitution helps when a function is **nested**.  
 Integration by parts helps when a function is a **product**.  
@@ -1930,6 +2039,44 @@ It works because integration is linear and familiar antiderivatives are reusable
 Once mastered, partial fractions becomes a powerful algebraic tool for turning complex ratios into manageable integrals—especially in applied models involving rational rates.
 
 
+### Concept Check: Recognizing When Partial Fractions Is the Right Tool {-}
+
+You see an integral \(\int \frac{P(x)}{Q(x)}\,dx\) where both \(P\) and \(Q\) are polynomials. What signals tell you partial fractions is the right move (versus substitution or something else)?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Partial fractions is the right move when **all three** of the following are true:
+
+1. The integrand is a *ratio* of polynomials.
+2. The degree of the numerator is *less than* the degree of the denominator (if not, do polynomial long division first).
+3. There is **no obvious substitution** — i.e., the derivative of the denominator isn't sitting in the numerator (because if it were, you'd use substitution instead, since \(\int Q'(x)/Q(x)\,dx = \ln|Q(x)| + C\)).
+
+When those line up, factor the denominator, decompose into pieces, and integrate each piece.
+
+</details>
+
+
+### Concept Check: Why the Decomposition Depends on the Denominator's Factors {-}
+
+When you decompose a rational function into partial fractions, why does the form of the decomposition depend on *what kind* of factors are in the denominator (distinct linear, repeated linear, irreducible quadratic)?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Because each type of factor needs a different *kind* of antiderivative-friendly piece to be the inverse of differentiating it.
+
+- A **distinct linear factor** \((x - a)\) corresponds to a piece \(\frac{A}{x-a}\), which integrates to a logarithm.
+- A **repeated linear factor** \((x - a)^2\) needs *both* \(\frac{A}{x-a}\) **and** \(\frac{B}{(x-a)^2}\), because the second piece integrates to \(-1/(x-a)\) — a different shape — and you need both shapes available.
+- An **irreducible quadratic factor** \((x^2 + bx + c)\) needs a numerator of the form \(Ax + B\), because that's what integrates cleanly into a mix of \(\ln\) and \(\arctan\) pieces.
+
+The form of each piece is *engineered* to land on something you can integrate from the dictionary.
+
+</details>
+
+
+---
+
 ## Strategy: How to Choose a Method
 
 By this point, you have seen several integration techniques.  
@@ -2122,6 +2269,32 @@ When in doubt:
 - and let failed attempts guide your next move.
 
 That is how experts integrate—and how you will too.
+
+---
+
+### Concept Check: Always Try to Rewrite First {-}
+
+Before reaching for substitution, IBP, or partial fractions, what should always be your first step on an integral that doesn't look obvious?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+**Rewrite and simplify.** Distribute products, split fractions, separate sums, cancel common factors, use trig identities, pull constants out front. A surprising number of "hard" integrals collapse into trivial dictionary applications once you stop and tidy up the integrand. Reaching for a heavy technique on a not-yet-simplified integrand is one of the most common ways to make a problem worse.
+
+</details>
+
+
+### Concept Check: Why Differentiation Is the Strongest Check {-}
+
+After computing an indefinite integral, why is *differentiating your answer* the strongest way to check it — stronger than re-doing the integration?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Because differentiation has a **deterministic algorithm**. If you differentiate your proposed antiderivative \(F(x)\) and don't get back exactly the integrand \(f(x)\), you know with certainty that something is wrong. Re-doing the integration can repeat the same mistake; differentiating the answer is an *independent* test that uses different machinery. A correct antiderivative differentiates back to the integrand every time, and the check takes about 30 seconds.
+
+</details>
+
 
 ---
 
@@ -3156,3 +3329,225 @@ After finishing, ask yourself:
 
 Being able to **choose well** is the difference between memorizing techniques and actually doing calculus.
 
+
+---
+
+### Applications: Choosing and Applying a Technique in an Environmental Context {-}
+
+The problems below come from environmental modeling contexts. For each one, **identify which integration technique applies**, then carry it out. The point isn't just to compute — it's to practice the *recognition step* that decides everything else.
+
+---
+
+#### Applied 1: Soil Moisture Loss After Irrigation {-}
+
+A field plot has just been irrigated. The instantaneous rate at which water is leaving the topsoil (through a combination of evaporation and drainage) is modeled as
+\[
+\frac{dm}{dt} = -100\,e^{-0.05 t} \quad \text{(g/hr)},
+\]
+where \(t\) is hours since irrigation ended. Find the **total water lost** between \(t = 0\) and \(t = 24\) hours.
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+**Technique:** Substitution (with \(u = -0.05 t\), \(du = -0.05\,dt\)). Equivalently, the antiderivative of \(e^{kt}\) is \(\frac{1}{k}e^{kt}\) from the dictionary.
+
+\[
+\Delta m = \int_0^{24} -100\,e^{-0.05 t}\,dt
+= -100 \cdot \frac{1}{-0.05}\bigl[e^{-0.05 t}\bigr]_0^{24}
+= 2000\bigl(e^{-1.2} - 1\bigr).
+\]
+
+Numerically, \(e^{-1.2} \approx 0.3012\), so
+\[
+\Delta m \approx 2000(0.3012 - 1) \approx -1398 \text{ g}.
+\]
+
+The negative sign means water *left* the plot. About **1.4 kg of water per unit area** was lost over the first 24 hours.
+
+</details>
+
+---
+
+#### Applied 2: Pollutant Decay in a Small Pond {-}
+
+A pulse of pollutant enters a small pond and degrades over time according to the rate
+\[
+\frac{dC}{dt} = -\frac{50}{(0.1 t + 1)^2} \quad \text{(mg/L per day)},
+\]
+where \(t\) is days since the pulse. Find the **net change in concentration** between \(t = 0\) and \(t = 9\) days.
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+**Technique:** Substitution. Let \(u = 0.1 t + 1\), so \(du = 0.1\,dt\), or \(dt = 10\,du\). When \(t = 0\), \(u = 1\); when \(t = 9\), \(u = 1.9\).
+
+\[
+\Delta C = \int_0^9 -\frac{50}{(0.1 t + 1)^2}\,dt
+= -50 \cdot 10 \int_1^{1.9} \frac{du}{u^2}
+= -500\left[-\frac{1}{u}\right]_1^{1.9}
+= -500\left(-\frac{1}{1.9} + 1\right)
+\approx -500(0.4737)
+\approx -236.8 \text{ mg/L}.
+\]
+
+The pond's pollutant concentration *decreased* by about **236.8 mg/L** over the nine-day window.
+
+</details>
+
+---
+
+#### Applied 3: Cumulative Microbial Respiration After a Substrate Pulse {-}
+
+A pulse of glucose is added to a soil microcosm at \(t = 0\). The instantaneous CO₂ respiration rate of the microbial community is modeled as
+\[
+R(t) = t\,e^{-t/2} \quad \text{(μg C per hour)},
+\]
+where \(t\) is hours since the pulse. Find the **total carbon respired** between \(t = 0\) and \(t = 6\) hours.
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+**Technique:** Integration by parts — the integrand is a product where one factor (\(t\)) simplifies under differentiation and the other (\(e^{-t/2}\)) is easy to integrate.
+
+Let \(u = t\), \(dv = e^{-t/2}\,dt\). Then \(du = dt\), \(v = -2 e^{-t/2}\).
+
+\[
+\int t\,e^{-t/2}\,dt = -2 t e^{-t/2} - \int -2 e^{-t/2}\,dt
+= -2 t e^{-t/2} - 4 e^{-t/2} + C
+= -2 e^{-t/2}(t + 2) + C.
+\]
+
+Evaluate on \([0, 6]\):
+\[
+\bigl[-2 e^{-t/2}(t + 2)\bigr]_0^6
+= -2 e^{-3}(8) - \bigl(-2 \cdot 1 \cdot 2\bigr)
+= -16 e^{-3} + 4.
+\]
+
+Numerically, \(e^{-3} \approx 0.0498\), so
+\[
+\text{Total } \approx -16(0.0498) + 4 \approx 3.20 \text{ μg C}.
+\]
+
+About **3.2 μg of carbon** was respired by the community during the six-hour window after the glucose pulse.
+
+</details>
+
+---
+
+#### Applied 4: Heat Lost from a Cooling Storage Tank {-}
+
+A water storage tank cools after being filled with warm water. The instantaneous rate at which heat is lost to the surroundings is
+\[
+H(t) = (10 - t)\,e^{-t/2} \quad \text{(J/s)},
+\]
+where \(t\) is seconds since filling. Find the **total heat lost** between \(t = 0\) and \(t = 10\) seconds.
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+**Technique:** Integration by parts. Let \(u = 10 - t\), \(dv = e^{-t/2}\,dt\). Then \(du = -dt\), \(v = -2 e^{-t/2}\).
+
+\[
+\int (10 - t)\,e^{-t/2}\,dt
+= -2(10 - t) e^{-t/2} - \int -2 e^{-t/2} \cdot (-1)\,dt
+= -2(10 - t) e^{-t/2} - 2 e^{-t/2} + C.
+\]
+
+Simplify:
+\[
+= -2 e^{-t/2}\bigl[(10 - t) + 1\bigr] + C
+= -2 e^{-t/2}(11 - t) + C.
+\]
+
+Evaluate on \([0, 10]\):
+\[
+\bigl[-2 e^{-t/2}(11 - t)\bigr]_0^{10}
+= -2 e^{-5}(1) - (-2 \cdot 1 \cdot 11)
+= -2 e^{-5} + 22.
+\]
+
+Numerically, \(e^{-5} \approx 0.00674\), so
+\[
+\text{Total } \approx -0.013 + 22 \approx 21.99 \text{ J}.
+\]
+
+About **22 J** of heat is lost during the first ten seconds.
+
+</details>
+
+---
+
+#### Applied 5: Two-Compartment Nutrient Transfer {-}
+
+After separating variables in a simple two-compartment nutrient-transfer model (soil ↔ root), the cumulative transfer over an interval is given by
+\[
+T = \int_0^3 \frac{1}{(t+1)(t+3)}\,dt.
+\]
+Evaluate \(T\) using partial fractions.
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+**Technique:** Partial fractions — the denominator has two distinct linear factors and the derivative of the denominator isn't sitting in the numerator.
+
+Decompose:
+\[
+\frac{1}{(t+1)(t+3)} = \frac{A}{t+1} + \frac{B}{t+3}.
+\]
+
+Clear the denominator: \(1 = A(t+3) + B(t+1)\). Plug in \(t = -1\): \(1 = 2A \Rightarrow A = \tfrac{1}{2}\). Plug in \(t = -3\): \(1 = -2B \Rightarrow B = -\tfrac{1}{2}\).
+
+So
+\[
+\int \frac{dt}{(t+1)(t+3)} = \tfrac{1}{2}\ln|t+1| - \tfrac{1}{2}\ln|t+3| + C
+= \tfrac{1}{2}\ln\left|\frac{t+1}{t+3}\right| + C.
+\]
+
+Evaluate on \([0, 3]\):
+\[
+T = \tfrac{1}{2}\left[\ln\left|\tfrac{4}{6}\right| - \ln\left|\tfrac{1}{3}\right|\right]
+= \tfrac{1}{2}\left[\ln\tfrac{2}{3} - \ln\tfrac{1}{3}\right]
+= \tfrac{1}{2}\ln 2
+\approx 0.347.
+\]
+
+Cumulative nutrient transfer over the three-time-unit window is **\(\tfrac{1}{2}\ln 2 \approx 0.347\)** (in whatever units the rate had).
+
+</details>
+
+---
+
+#### Applied 6: Choose and Apply — Leaf Photosynthesis Pulse {-}
+
+The instantaneous photosynthesis rate of a single leaf during a brief light pulse is modeled as
+\[
+P(t) = \frac{6 t}{t^2 + 1} \quad \text{(μmol CO}_2\text{/s)},
+\]
+where \(t\) is seconds since the pulse began. Find the **total CO₂ taken up** between \(t = 0\) and \(t = 4\) seconds.
+
+**Before computing**, identify which technique applies — and why the other techniques are not the right move here.
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+**Technique selection:**
+
+- *Partial fractions?* The integrand is a rational function with denominator \(t^2 + 1\), but the numerator is \(6t\), and the derivative of the denominator is \(2t\) — sitting right there (up to a constant factor of 3). That's a substitution signal, not a partial-fractions signal.
+- *Integration by parts?* No clean product where one factor simplifies on differentiation.
+- *Substitution* with \(u = t^2 + 1\), \(du = 2t\,dt\), so \(6t\,dt = 3\,du\):
+
+\[
+\int_0^4 \frac{6t}{t^2 + 1}\,dt = 3 \int_1^{17} \frac{du}{u} = 3\bigl[\ln u\bigr]_1^{17} = 3\ln 17.
+\]
+
+Numerically, \(\ln 17 \approx 2.833\), so
+\[
+\text{Total uptake } \approx 3(2.833) \approx 8.50 \text{ μmol CO}_2.
+\]
+
+About **8.5 μmol of CO₂** was taken up during the four-second pulse.
+
+The recognition lesson: a rational integrand where \(Q'(x)\) appears (up to a constant) in the numerator is a **substitution** problem, not a partial-fractions problem.
+
+</details>

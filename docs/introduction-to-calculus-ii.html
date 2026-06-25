@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html lang="en-US" xml:lang="en-US">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Introduction to Calculus II | Environmental Calculus 2 - Active Learning with Case Studies</title>
-  <meta name="description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
+  <meta name="description" content="A textbook companion to the University of Washington QSci 292 class" />
   <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Introduction to Calculus II | Environmental Calculus 2 - Active Learning with Case Studies" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
-  <meta name="github-repo" content="rstudio/bookdown-demo" />
+  <meta property="og:description" content="A textbook companion to the University of Washington QSci 292 class" />
+  <meta name="github-repo" content="gajsivandran/Environmental_Calculus2" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 2 Introduction to Calculus II | Environmental Calculus 2 - Active Learning with Case Studies" />
   
-  <meta name="twitter:description" content="A textbook companion to the Univeristy of Washington QSci 292 class" />
+  <meta name="twitter:description" content="A textbook companion to the University of Washington QSci 292 class" />
   
 
 <meta name="author" content="Gaj Sivandran" />
 
 
-<meta name="date" content="2026-03-12" />
+<meta name="date" content="2026-06-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <style type="text/css">
   
@@ -87,20 +151,28 @@
 </ul></li>
 <li class="chapter" data-level="2" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html"><i class="fa fa-check"></i><b>2</b> Introduction to Calculus II</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#what-calculus-ii-is-really-about"><i class="fa fa-check"></i><b>2.1</b> What Calculus II Is Really About</a></li>
-<li class="chapter" data-level="2.2" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#what-you-bring-from-calculus-i"><i class="fa fa-check"></i><b>2.2</b> What You Bring From Calculus I</a></li>
-<li class="chapter" data-level="2.3" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#calc-2"><i class="fa fa-check"></i><b>2.3</b> Calc 2</a></li>
-<li class="chapter" data-level="2.4" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#big-themes-of-the-course"><i class="fa fa-check"></i><b>2.4</b> Big Themes of the Course</a>
+<li class="chapter" data-level="2.1" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#what-calculus-ii-is-really-about"><i class="fa fa-check"></i><b>2.1</b> What Calculus II Is Really About</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#accumulation"><i class="fa fa-check"></i><b>2.4.1</b> Accumulation</a></li>
-<li class="chapter" data-level="2.4.2" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#reversing-derivatives-antiderivatives-and-the-fundamental-idea"><i class="fa fa-check"></i><b>2.4.2</b> Reversing Derivatives: Antiderivatives and the Fundamental Idea</a></li>
-<li class="chapter" data-level="2.4.3" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#why-this-connection-matters"><i class="fa fa-check"></i><b>2.4.3</b> Why This Connection Matters</a></li>
-<li class="chapter" data-level="2.4.4" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#change-over-time-a-first-look-at-differential-equations"><i class="fa fa-check"></i><b>2.4.4</b> Change Over Time: A First Look at Differential Equations</a></li>
-<li class="chapter" data-level="2.4.5" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#skills-that-make-calculus-ii-easier"><i class="fa fa-check"></i><b>2.4.5</b> Skills That Make Calculus II Easier</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#concept-check-rate-vs.-total"><i class="fa fa-check"></i>Concept Check: Rate vs. Total</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#building-an-intuition-for-accumulation"><i class="fa fa-check"></i><b>2.5</b> Building an Intuition for Accumulation</a>
+<li class="chapter" data-level="2.2" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#what-you-bring-from-calculus-i"><i class="fa fa-check"></i><b>2.2</b> What You Bring From Calculus I</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#big-themes-of-the-course"><i class="fa fa-check"></i><b>2.3</b> Big Themes of the Course</a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#units-and-interpretation"><i class="fa fa-check"></i><b>2.5.1</b> Units and Interpretation</a></li>
+<li class="chapter" data-level="2.3.1" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#accumulation"><i class="fa fa-check"></i><b>2.3.1</b> Accumulation</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#concept-check-recognizing-accumulation"><i class="fa fa-check"></i>Concept Check: Recognizing Accumulation</a></li>
+<li class="chapter" data-level="2.3.2" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#reversing-derivatives-antiderivatives-and-the-fundamental-idea"><i class="fa fa-check"></i><b>2.3.2</b> Reversing Derivatives: Antiderivatives and the Fundamental Idea</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#concept-check-from-rate-to-total"><i class="fa fa-check"></i>Concept Check: From Rate to Total</a></li>
+<li class="chapter" data-level="2.3.3" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#change-over-time-a-first-look-at-differential-equations"><i class="fa fa-check"></i><b>2.3.3</b> Change Over Time: A First Look at Differential Equations</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#concept-check-recognizing-a-differential-equation"><i class="fa fa-check"></i>Concept Check: Recognizing a Differential Equation</a></li>
+<li class="chapter" data-level="2.3.4" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#skills-that-make-calculus-ii-easier"><i class="fa fa-check"></i><b>2.3.4</b> Skills That Make Calculus II Easier</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#building-an-intuition-for-accumulation"><i class="fa fa-check"></i><b>2.4</b> Building an Intuition for Accumulation</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#concept-check-slicing-up-an-accumulation"><i class="fa fa-check"></i>Concept Check: Slicing Up an Accumulation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#units-and-interpretation"><i class="fa fa-check"></i><b>2.5</b> Units and Interpretation</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#concept-check-tracking-units-of-an-accumulation"><i class="fa fa-check"></i>Concept Check: Tracking Units of an Accumulation</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="introduction-to-calculus-ii.html"><a href="introduction-to-calculus-ii.html#looking-ahead-1"><i class="fa fa-check"></i><b>2.6</b> Looking Ahead</a></li>
 </ul></li>
@@ -110,21 +182,34 @@
 <li class="chapter" data-level="3.2" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#accumulation-in-environmental-systems"><i class="fa fa-check"></i><b>3.2</b> Accumulation in Environmental Systems</a>
 <ul>
 <li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#walking-on-a-treadmill"><i class="fa fa-check"></i>Walking on a Treadmill</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-what-an-integral-represents"><i class="fa fa-check"></i>Concept Check: What an Integral Represents</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-why-rates-are-easier-than-totals"><i class="fa fa-check"></i>Concept Check: Why Rates Are Easier Than Totals</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#from-rate-curves-to-areas-under-curves"><i class="fa fa-check"></i><b>3.3</b> From Rate Curves to Areas Under Curves</a>
 <ul>
 <li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#filling-a-water-bottle"><i class="fa fa-check"></i>Filling a Water Bottle</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-area-under-a-rate-curve"><i class="fa fa-check"></i>Concept Check: Area Under a Rate Curve</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-why-the-units-work-out"><i class="fa fa-check"></i>Concept Check: Why the Units Work Out</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-why-a-single-rate-times-time-falls-short"><i class="fa fa-check"></i>Concept Check: Why a Single Rate Times Time Falls Short</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#riemann-sums-adding-up-small-pieces"><i class="fa fa-check"></i><b>3.4</b> Riemann Sums: Adding Up Small Pieces</a>
 <ul>
 <li class="chapter" data-level="3.4.1" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#choosing-a-riemann-sum-method"><i class="fa fa-check"></i><b>3.4.1</b> Choosing a Riemann Sum Method</a></li>
 <li class="chapter" data-level="3.4.2" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#a-practical-guideline"><i class="fa fa-check"></i><b>3.4.2</b> A Practical Guideline</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-what-a-single-rectangle-represents"><i class="fa fa-check"></i>Concept Check: What a Single Rectangle Represents</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-why-more-rectangles-helps"><i class="fa fa-check"></i>Concept Check: Why More Rectangles Helps</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-the-assumption-inside-each-rectangle"><i class="fa fa-check"></i>Concept Check: The Assumption Inside Each Rectangle</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#approximation-and-error-in-riemann-sums"><i class="fa fa-check"></i><b>3.5</b> Approximation and Error in Riemann Sums</a>
 <ul>
 <li class="chapter" data-level="3.5.1" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#why-error-occurs"><i class="fa fa-check"></i><b>3.5.1</b> Why Error Occurs</a></li>
 <li class="chapter" data-level="3.5.2" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#overestimates-and-underestimates"><i class="fa fa-check"></i><b>3.5.2</b> Overestimates and Underestimates</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-why-left-sums-underestimate-increasing-rates"><i class="fa fa-check"></i>Concept Check: Why Left Sums Underestimate Increasing Rates</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-why-right-sums-overestimate-increasing-rates"><i class="fa fa-check"></i>Concept Check: Why Right Sums Overestimate Increasing Rates</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-why-the-midpoint-tends-to-win"><i class="fa fa-check"></i>Concept Check: Why the Midpoint Tends to Win</a></li>
 <li class="chapter" data-level="3.5.3" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#interpreting-error-in-environmental-contexts"><i class="fa fa-check"></i><b>3.5.3</b> Interpreting Error in Environmental Contexts</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-what-makes-an-estimate-conservative"><i class="fa fa-check"></i>Concept Check: What Makes an Estimate Conservative</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-choosing-a-method-is-a-modeling-decision"><i class="fa fa-check"></i>Concept Check: Choosing a Method Is a Modeling Decision</a></li>
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#riemann-sums-as-a-calculus-expression"><i class="fa fa-check"></i><b>3.6</b> Riemann Sums as a Calculus Expression</a>
 <ul>
@@ -135,10 +220,12 @@
 <li class="chapter" data-level="3.6.5" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#example-2-right-hand-riemann-sum"><i class="fa fa-check"></i><b>3.6.5</b> Example 2: Right-Hand Riemann Sum</a></li>
 <li class="chapter" data-level="3.6.6" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#example-3-midpoint-riemann-sum"><i class="fa fa-check"></i><b>3.6.6</b> Example 3: Midpoint Riemann Sum</a></li>
 <li class="chapter" data-level="3.6.7" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#comparison"><i class="fa fa-check"></i><b>3.6.7</b> Comparison</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-where-riemann-sum-error-really-comes-from"><i class="fa fa-check"></i>Concept Check: Where Riemann-Sum Error Really Comes From</a></li>
 </ul></li>
 <li class="chapter" data-level="3.7" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#refining-the-approximation"><i class="fa fa-check"></i><b>3.7</b> Refining the Approximation</a>
 <ul>
 <li class="chapter" data-level="3.7.1" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#increasing-n"><i class="fa fa-check"></i><b>3.7.1</b> Increasing <span class="math inline">\(n\)</span></a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-the-cost-of-finer-partitions"><i class="fa fa-check"></i>Concept Check: The Cost of Finer Partitions</a></li>
 </ul></li>
 <li class="chapter" data-level="3.8" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#beyond-rectangles-more-accurate-approximation-methods"><i class="fa fa-check"></i><b>3.8</b> Beyond Rectangles: More Accurate Approximation Methods</a></li>
 <li class="chapter" data-level="3.9" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#the-trapezoidal-rule"><i class="fa fa-check"></i><b>3.9</b> The Trapezoidal Rule</a>
@@ -149,6 +236,7 @@
 <li class="chapter" data-level="3.9.4" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#interpretation-3"><i class="fa fa-check"></i><b>3.9.4</b> Interpretation</a></li>
 <li class="chapter" data-level="3.9.5" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#example-trapezoidal-rule"><i class="fa fa-check"></i><b>3.9.5</b> Example: Trapezoidal Rule</a></li>
 <li class="chapter" data-level="3.9.6" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#key-takeaways"><i class="fa fa-check"></i><b>3.9.6</b> Key Takeaways</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-why-trapezoids-beat-rectangles"><i class="fa fa-check"></i>Concept Check: Why Trapezoids Beat Rectangles</a></li>
 </ul></li>
 <li class="chapter" data-level="3.10" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#accuracy-trade-offs-shape-vs.-number-of-subintervals"><i class="fa fa-check"></i><b>3.10</b> Accuracy Trade-Offs: Shape vs. Number of Subintervals</a>
 <ul>
@@ -156,6 +244,7 @@
 <li class="chapter" data-level="3.10.2" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#improving-accuracy-by-increasing-n"><i class="fa fa-check"></i><b>3.10.2</b> Improving Accuracy by Increasing <span class="math inline">\(n\)</span></a></li>
 <li class="chapter" data-level="3.10.3" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#comparing-the-two-strategies"><i class="fa fa-check"></i><b>3.10.3</b> Comparing the Two Strategies</a></li>
 <li class="chapter" data-level="3.10.4" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#a-modeling-perspective"><i class="fa fa-check"></i><b>3.10.4</b> A Modeling Perspective</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-shape-vs.-subdivision"><i class="fa fa-check"></i>Concept Check: Shape vs. Subdivision</a></li>
 </ul></li>
 <li class="chapter" data-level="3.11" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#negative-area-and-signed-accumulation"><i class="fa fa-check"></i><b>3.11</b> Negative Area and Signed Accumulation</a>
 <ul>
@@ -165,31 +254,11 @@
 <li class="chapter" data-level="3.11.4" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#interpretation-of-the-result"><i class="fa fa-check"></i><b>3.11.4</b> Interpretation of the Result</a></li>
 <li class="chapter" data-level="3.11.5" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#why-signed-accumulation-matters"><i class="fa fa-check"></i><b>3.11.5</b> Why Signed Accumulation Matters</a></li>
 <li class="chapter" data-level="3.11.6" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#key-takeaway-1"><i class="fa fa-check"></i><b>3.11.6</b> Key Takeaway</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-what-signed-accumulation-means"><i class="fa fa-check"></i>Concept Check: What “Signed” Accumulation Means</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-what-negative-area-means"><i class="fa fa-check"></i>Concept Check: What Negative Area Means</a></li>
+<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#concept-check-why-net-zero-nothing-happened"><i class="fa fa-check"></i>Concept Check: Why Net Zero ≠ Nothing Happened</a></li>
 </ul></li>
-<li class="chapter" data-level="3.12" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#conceptual-questions-how-to-use-these"><i class="fa fa-check"></i><b>3.12</b> Conceptual Questions — How to Use These</a>
-<ul>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-1"><i class="fa fa-check"></i>Question 1</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-2"><i class="fa fa-check"></i>Question 2</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-3"><i class="fa fa-check"></i>Question 3</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-4"><i class="fa fa-check"></i>Question 4</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-5"><i class="fa fa-check"></i>Question 5</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-6"><i class="fa fa-check"></i>Question 6</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-7"><i class="fa fa-check"></i>Question 7</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-8"><i class="fa fa-check"></i>Question 8</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-9"><i class="fa fa-check"></i>Question 9</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-10"><i class="fa fa-check"></i>Question 10</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-11"><i class="fa fa-check"></i>Question 11</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-12"><i class="fa fa-check"></i>Question 12</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-13"><i class="fa fa-check"></i>Question 13</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-14"><i class="fa fa-check"></i>Question 14</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-15"><i class="fa fa-check"></i>Question 15</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-16"><i class="fa fa-check"></i>Question 16</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-17"><i class="fa fa-check"></i>Question 17</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-18"><i class="fa fa-check"></i>Question 18</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-19"><i class="fa fa-check"></i>Question 19</a></li>
-<li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#question-20"><i class="fa fa-check"></i>Question 20</a></li>
-</ul></li>
-<li class="chapter" data-level="3.13" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#practice-problems-accumulation-and-approximation"><i class="fa fa-check"></i><b>3.13</b> Practice Problems: Accumulation and Approximation</a>
+<li class="chapter" data-level="3.12" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#practice-problems-accumulation-and-approximation"><i class="fa fa-check"></i><b>3.12</b> Practice Problems: Accumulation and Approximation</a>
 <ul>
 <li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#problem-1-total-streamflow-from-constant-measurements"><i class="fa fa-check"></i>Problem 1: Total Streamflow from Constant Measurements</a></li>
 <li class="chapter" data-level="" data-path="what-is-an-integral.html"><a href="what-is-an-integral.html#problem-2-piecewise-streamflow-accumulation"><i class="fa fa-check"></i>Problem 2: Piecewise Streamflow Accumulation</a></li>
@@ -219,6 +288,14 @@
 <li class="chapter" data-level="4.2.9" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#environmental-framing-why-resolution-matters"><i class="fa fa-check"></i><b>4.2.9</b> Environmental Framing: Why Resolution Matters</a></li>
 <li class="chapter" data-level="4.2.10" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#continuous-vs.-discrete-data"><i class="fa fa-check"></i><b>4.2.10</b> Continuous vs. Discrete Data</a></li>
 <li class="chapter" data-level="4.2.11" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#key-takeaway-2"><i class="fa fa-check"></i><b>4.2.11</b> Key Takeaway</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-riemann-sums-as-a-process"><i class="fa fa-check"></i>Concept Check: Riemann Sums as a Process</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-what-shrinking-δx-really-means"><i class="fa fa-check"></i>Concept Check: What Shrinking Δx Really Means</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-why-lrmid-converge-to-the-same-value"><i class="fa fa-check"></i>Concept Check: Why L/R/Mid Converge to the Same Value</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-the-rectangle-assumption"><i class="fa fa-check"></i>Concept Check: The Rectangle Assumption</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-formalizing-the-riemann-sum"><i class="fa fa-check"></i>Concept Check: Formalizing the Riemann Sum</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-riemann-sums-as-environmental-modeling"><i class="fa fa-check"></i>Concept Check: Riemann Sums as Environmental Modeling</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-why-sampling-choice-doesnt-matter-in-the-limit"><i class="fa fa-check"></i>Concept Check: Why Sampling Choice Doesn’t Matter in the Limit</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-the-role-of-the-limit"><i class="fa fa-check"></i>Concept Check: The Role of the Limit</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#interpreting-the-definite-integral"><i class="fa fa-check"></i><b>4.3</b> Interpreting the Definite Integral</a>
 <ul>
@@ -231,6 +308,11 @@
 <li class="chapter" data-level="4.3.7" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#common-pitfalls"><i class="fa fa-check"></i><b>4.3.7</b> Common Pitfalls</a></li>
 <li class="chapter" data-level="4.3.8" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#environmental-framing"><i class="fa fa-check"></i><b>4.3.8</b> Environmental Framing</a></li>
 <li class="chapter" data-level="4.3.9" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#key-takeaway-3"><i class="fa fa-check"></i><b>4.3.9</b> Key Takeaway</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-accumulation-not-just-area"><i class="fa fa-check"></i>Concept Check: Accumulation, Not Just Area</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-what-the-sign-of-an-integral-tells-you"><i class="fa fa-check"></i>Concept Check: What the Sign of an Integral Tells You</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-zero-net-doesnt-mean-nothing-happened"><i class="fa fa-check"></i>Concept Check: Zero Net Doesn’t Mean Nothing Happened</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-units-as-a-sanity-check"><i class="fa fa-check"></i>Concept Check: Units as a Sanity Check</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-why-area-under-the-curve-falls-short"><i class="fa fa-check"></i>Concept Check: Why ‘Area Under the Curve’ Falls Short</a></li>
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#how-to-evaluate-a-definite-integral"><i class="fa fa-check"></i><b>4.4</b> How to Evaluate a Definite Integral</a>
 <ul>
@@ -240,6 +322,10 @@
 <li class="chapter" data-level="4.4.4" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#step-4-why-there-is-no-constant-of-integration"><i class="fa fa-check"></i><b>4.4.4</b> Step 4: Why there is no constant of integration</a></li>
 <li class="chapter" data-level="4.4.5" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#a-simple-numerical-example"><i class="fa fa-check"></i><b>4.4.5</b> A simple numerical example</a></li>
 <li class="chapter" data-level="4.4.6" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#key-idea-moving-forward"><i class="fa fa-check"></i><b>4.4.6</b> Key idea moving forward</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-when-rate-time-actually-works"><i class="fa fa-check"></i>Concept Check: When Rate × Time Actually Works</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-why-the-constant-of-integration-doesnt-matter-here"><i class="fa fa-check"></i>Concept Check: Why the Constant of Integration Doesn’t Matter Here</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-what-fb-fa-really-means"><i class="fa fa-check"></i>Concept Check: What F(b) − F(a) Really Means</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-why-we-trust-integrals-when-data-are-discrete"><i class="fa fa-check"></i>Concept Check: Why We Trust Integrals When Data Are Discrete</a></li>
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#properties-of-definite-integrals"><i class="fa fa-check"></i><b>4.5</b> Properties of Definite Integrals</a>
 <ul>
@@ -248,6 +334,9 @@
 <li class="chapter" data-level="4.5.3" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#reversing-the-limits-of-integration"><i class="fa fa-check"></i><b>4.5.3</b> Reversing the Limits of Integration</a></li>
 <li class="chapter" data-level="4.5.4" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#integrals-of-constant-functions"><i class="fa fa-check"></i><b>4.5.4</b> Integrals of Constant Functions</a></li>
 <li class="chapter" data-level="4.5.5" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#why-these-properties-matter"><i class="fa fa-check"></i><b>4.5.5</b> Why These Properties Matter</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-why-linearity-matches-physical-intuition"><i class="fa fa-check"></i>Concept Check: Why Linearity Matches Physical Intuition</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-additivity-over-subintervals"><i class="fa fa-check"></i>Concept Check: Additivity Over Subintervals</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-why-reversing-limits-flips-the-sign"><i class="fa fa-check"></i>Concept Check: Why Reversing Limits Flips the Sign</a></li>
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#the-fundamental-theorem-of-calculus-part-i"><i class="fa fa-check"></i><b>4.6</b> The Fundamental Theorem of Calculus (Part I)</a>
 <ul>
@@ -259,13 +348,18 @@
 <li class="chapter" data-level="4.6.6" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#what-to-avoid-at-this-stage"><i class="fa fa-check"></i><b>4.6.6</b> What to Avoid at This Stage</a></li>
 <li class="chapter" data-level="4.6.7" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#environmental-framing-1"><i class="fa fa-check"></i><b>4.6.7</b> Environmental Framing</a></li>
 <li class="chapter" data-level="4.6.8" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#key-takeaway-4"><i class="fa fa-check"></i><b>4.6.8</b> Key Takeaway</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-the-role-of-the-accumulation-function-ax"><i class="fa fa-check"></i>Concept Check: The Role of the Accumulation Function A(x)</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-why-ax-fx-makes-sense"><i class="fa fa-check"></i>Concept Check: Why A’(x) = f(x) Makes Sense</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-differentiation-and-integration-as-inverses"><i class="fa fa-check"></i>Concept Check: Differentiation and Integration as Inverses</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-how-the-ftc-unifies-calculus"><i class="fa fa-check"></i>Concept Check: How the FTC Unifies Calculus</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-how-riemann-sums-keep-the-ftc-honest"><i class="fa fa-check"></i>Concept Check: How Riemann Sums Keep the FTC Honest</a></li>
 </ul></li>
 <li class="chapter" data-level="4.7" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#the-fundamental-theorem-of-calculus-part-ii"><i class="fa fa-check"></i><b>4.7</b> The Fundamental Theorem of Calculus (Part II)</a>
 <ul>
 <li class="chapter" data-level="4.7.1" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#step-1-accumulation-is-a-function"><i class="fa fa-check"></i><b>4.7.1</b> Step 1: Accumulation Is a Function</a></li>
 <li class="chapter" data-level="4.7.2" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#step-2-antiderivatives-are-not-unique"><i class="fa fa-check"></i><b>4.7.2</b> Step 2: Antiderivatives Are Not Unique</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#example-1-rate-fx-x"><i class="fa fa-check"></i>Example 1: Rate <span class="math inline">\(f(x) = x\)</span></a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#example-2-rate-fx-x2---2"><i class="fa fa-check"></i>Example 2: Rate <span class="math inline">\(f(x) = x^2 - 2\)</span></a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#example-1-a-linear-streamflow-rate-ft-t"><i class="fa fa-check"></i>Example 1: A Linear Streamflow Rate — <span class="math inline">\(f(t) = t\)</span></a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#example-2-a-net-carbon-flux-that-switches-sign-ft-t2---2"><i class="fa fa-check"></i>Example 2: A Net Carbon Flux That Switches Sign — <span class="math inline">\(f(t) = t^2 - 2\)</span></a></li>
 <li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#the-two-way-relationship"><i class="fa fa-check"></i>The Two-Way Relationship</a></li>
 <li class="chapter" data-level="4.7.3" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#step-3-why-the-constant-does-not-matter-for-definite-integrals"><i class="fa fa-check"></i><b>4.7.3</b> Step 3: Why the Constant Does Not Matter for Definite Integrals</a></li>
 <li class="chapter" data-level="4.7.4" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#step-4-what-the-formula-is-really-saying"><i class="fa fa-check"></i><b>4.7.4</b> Step 4: What the Formula Is Really Saying</a></li>
@@ -275,41 +369,13 @@
 <li class="chapter" data-level="4.7.8" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#a-simple-environmental-interpretation"><i class="fa fa-check"></i><b>4.7.8</b> A Simple Environmental Interpretation</a></li>
 <li class="chapter" data-level="4.7.9" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#critical-emphasis-more-than-plug-and-chug"><i class="fa fa-check"></i><b>4.7.9</b> Critical Emphasis: More Than Plug-and-Chug</a></li>
 <li class="chapter" data-level="4.7.10" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#key-takeaway-6"><i class="fa fa-check"></i><b>4.7.10</b> Key Takeaway</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-why-antiderivatives-form-families"><i class="fa fa-check"></i>Concept Check: Why Antiderivatives Form Families</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-why-plug-and-chug-is-dangerous"><i class="fa fa-check"></i>Concept Check: Why ‘Plug-and-Chug’ Is Dangerous</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-riemann-sums-and-ftc-same-idea-two-stages"><i class="fa fa-check"></i>Concept Check: Riemann Sums and FTC: Same Idea, Two Stages</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-perfect-measurement-and-the-integral"><i class="fa fa-check"></i>Concept Check: Perfect Measurement and the Integral</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#concept-check-why-teach-riemann-sums-first"><i class="fa fa-check"></i>Concept Check: Why Teach Riemann Sums First</a></li>
 </ul></li>
-<li class="chapter" data-level="4.8" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#conceptual-questions-definite-integrals-riemann-sums-and-the-fundamental-theorem-of-calculus"><i class="fa fa-check"></i><b>4.8</b> Conceptual Questions: Definite Integrals, Riemann Sums, and the Fundamental Theorem of Calculus</a>
-<ul>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-1-1"><i class="fa fa-check"></i>Question 1</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-2-1"><i class="fa fa-check"></i>Question 2</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-3-1"><i class="fa fa-check"></i>Question 3</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-4-1"><i class="fa fa-check"></i>Question 4</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-5-1"><i class="fa fa-check"></i>Question 5</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-6-1"><i class="fa fa-check"></i>Question 6</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-7-1"><i class="fa fa-check"></i>Question 7</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-8-1"><i class="fa fa-check"></i>Question 8</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-9-1"><i class="fa fa-check"></i>Question 9</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-10-1"><i class="fa fa-check"></i>Question 10</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-11-1"><i class="fa fa-check"></i>Question 11</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-12-1"><i class="fa fa-check"></i>Question 12</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-13-1"><i class="fa fa-check"></i>Question 13</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-14-1"><i class="fa fa-check"></i>Question 14</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-15-1"><i class="fa fa-check"></i>Question 15</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-16-1"><i class="fa fa-check"></i>Question 16</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-17-1"><i class="fa fa-check"></i>Question 17</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-18-1"><i class="fa fa-check"></i>Question 18</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-19-1"><i class="fa fa-check"></i>Question 19</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-20-1"><i class="fa fa-check"></i>Question 20</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-21"><i class="fa fa-check"></i>Question 21</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-22"><i class="fa fa-check"></i>Question 22</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-23"><i class="fa fa-check"></i>Question 23</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-24"><i class="fa fa-check"></i>Question 24</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-25"><i class="fa fa-check"></i>Question 25</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-26"><i class="fa fa-check"></i>Question 26</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-27"><i class="fa fa-check"></i>Question 27</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-28"><i class="fa fa-check"></i>Question 28</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-29"><i class="fa fa-check"></i>Question 29</a></li>
-<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#question-30"><i class="fa fa-check"></i>Question 30</a></li>
-</ul></li>
-<li class="chapter" data-level="4.9" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#practice-problems"><i class="fa fa-check"></i><b>4.9</b> Practice Problems</a>
+<li class="chapter" data-level="4.8" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#practice-problems"><i class="fa fa-check"></i><b>4.8</b> Practice Problems</a>
 <ul>
 <li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#tips-for-success"><i class="fa fa-check"></i>Tips for Success</a></li>
 <li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#problem-1"><i class="fa fa-check"></i>Problem 1</a></li>
@@ -328,6 +394,10 @@
 <li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#problem-14"><i class="fa fa-check"></i>Problem 14</a></li>
 <li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#problem-15"><i class="fa fa-check"></i>Problem 15</a></li>
 <li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#problem-16"><i class="fa fa-check"></i>Problem 16</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#problem-17-total-streamflow-volume"><i class="fa fa-check"></i>Problem 17: Total Streamflow Volume</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#problem-18-net-carbon-exchange-over-a-morning"><i class="fa fa-check"></i>Problem 18: Net Carbon Exchange Over a Morning</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#problem-19-pollutant-mass-loading-to-a-lake"><i class="fa fa-check"></i>Problem 19: Pollutant Mass Loading to a Lake</a></li>
+<li class="chapter" data-level="" data-path="definite-integrals-and-the-fundamental-theorem-of-calculus.html"><a href="definite-integrals-and-the-fundamental-theorem-of-calculus.html#problem-20-net-population-change-with-a-sign-changing-rate"><i class="fa fa-check"></i>Problem 20: Net Population Change with a Sign-Changing Rate</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html"><i class="fa fa-check"></i><b>5</b> Techniques of Integration (Indefinite Integrals)</a>
@@ -346,6 +416,8 @@
 <li class="chapter" data-level="5.3.1" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#the-antiderivative-dictionary"><i class="fa fa-check"></i><b>5.3.1</b> The “Antiderivative Dictionary”</a></li>
 <li class="chapter" data-level="5.3.2" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#pattern-recognition-over-memorization"><i class="fa fa-check"></i><b>5.3.2</b> Pattern Recognition Over Memorization</a></li>
 <li class="chapter" data-level="5.3.3" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#key-takeaway-8"><i class="fa fa-check"></i><b>5.3.3</b> Key Takeaway</a></li>
+<li class="chapter" data-level="" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#concept-check-why-integration-is-harder-than-differentiation"><i class="fa fa-check"></i>Concept Check: Why Integration Is Harder Than Differentiation</a></li>
+<li class="chapter" data-level="" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#concept-check-reading-an-integrand-as-a-derivative"><i class="fa fa-check"></i>Concept Check: Reading an Integrand as a Derivative</a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#substitution-when-a-function-is-hiding-inside-another"><i class="fa fa-check"></i><b>5.4</b> Substitution: When a Function Is Hiding Inside Another</a>
 <ul>
@@ -358,6 +430,8 @@
 <li class="chapter" data-level="5.4.7" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#key-takeaway-9"><i class="fa fa-check"></i><b>5.4.7</b> Key Takeaway</a></li>
 <li class="chapter" data-level="5.4.8" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#when-the-derivative-is-almost-there-close-enough-can-be-enough"><i class="fa fa-check"></i><b>5.4.8</b> When the Derivative Is <em>Almost</em> There – <em>Close Enough Can Be Enough</em></a></li>
 <li class="chapter" data-level="5.4.9" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#strategy-rule-course-correct"><i class="fa fa-check"></i><b>5.4.9</b> Strategy Rule: <em>Course Correct</em></a></li>
+<li class="chapter" data-level="" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#concept-check-spotting-when-substitution-is-the-right-move"><i class="fa fa-check"></i>Concept Check: Spotting When Substitution Is the Right Move</a></li>
+<li class="chapter" data-level="" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#concept-check-why-dx-must-become-du-not-just-disappear"><i class="fa fa-check"></i>Concept Check: Why dx Must Become du, Not Just Disappear</a></li>
 </ul></li>
 <li class="chapter" data-level="5.5" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#integration-by-parts-when-accumulation-involves-a-product"><i class="fa fa-check"></i><b>5.5</b> Integration by Parts: When Accumulation Involves a Product</a>
 <ul>
@@ -374,6 +448,8 @@
 <li class="chapter" data-level="5.5.11" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#common-pitfalls-2"><i class="fa fa-check"></i><b>5.5.11</b> Common Pitfalls</a></li>
 <li class="chapter" data-level="5.5.12" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#strategy-check-1"><i class="fa fa-check"></i><b>5.5.12</b> Strategy Check</a></li>
 <li class="chapter" data-level="5.5.13" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#key-takeaway-10"><i class="fa fa-check"></i><b>5.5.13</b> Key Takeaway</a></li>
+<li class="chapter" data-level="" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#concept-check-choosing-u-and-dv-in-integration-by-parts"><i class="fa fa-check"></i>Concept Check: Choosing u and dv in Integration by Parts</a></li>
+<li class="chapter" data-level="" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#concept-check-why-integration-by-parts-works"><i class="fa fa-check"></i>Concept Check: Why Integration by Parts Works</a></li>
 </ul></li>
 <li class="chapter" data-level="5.6" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#partial-fractions-when-a-rational-function-can-be-taken-apart"><i class="fa fa-check"></i><b>5.6</b> Partial Fractions: When a Rational Function Can Be Taken Apart</a>
 <ul>
@@ -388,12 +464,16 @@
 <li class="chapter" data-level="5.6.9" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#common-pitfalls-3"><i class="fa fa-check"></i><b>5.6.9</b> Common Pitfalls</a></li>
 <li class="chapter" data-level="5.6.10" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#strategy-check-2"><i class="fa fa-check"></i><b>5.6.10</b> Strategy Check</a></li>
 <li class="chapter" data-level="5.6.11" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#key-takeaway-11"><i class="fa fa-check"></i><b>5.6.11</b> Key Takeaway</a></li>
+<li class="chapter" data-level="" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#concept-check-recognizing-when-partial-fractions-is-the-right-tool"><i class="fa fa-check"></i>Concept Check: Recognizing When Partial Fractions Is the Right Tool</a></li>
+<li class="chapter" data-level="" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#concept-check-why-the-decomposition-depends-on-the-denominators-factors"><i class="fa fa-check"></i>Concept Check: Why the Decomposition Depends on the Denominator’s Factors</a></li>
 </ul></li>
 <li class="chapter" data-level="5.7" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#strategy-how-to-choose-a-method"><i class="fa fa-check"></i><b>5.7</b> Strategy: How to Choose a Method</a>
 <ul>
 <li class="chapter" data-level="5.7.1" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#the-decision-tree"><i class="fa fa-check"></i><b>5.7.1</b> The Decision Tree</a></li>
 <li class="chapter" data-level="5.7.2" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#workflow-habits-that-prevent-mistakes"><i class="fa fa-check"></i><b>5.7.2</b> Workflow Habits That Prevent Mistakes</a></li>
 <li class="chapter" data-level="5.7.3" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#final-strategy-takeaway"><i class="fa fa-check"></i><b>5.7.3</b> Final Strategy Takeaway</a></li>
+<li class="chapter" data-level="" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#concept-check-always-try-to-rewrite-first"><i class="fa fa-check"></i>Concept Check: Always Try to Rewrite First</a></li>
+<li class="chapter" data-level="" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#concept-check-why-differentiation-is-the-strongest-check"><i class="fa fa-check"></i>Concept Check: Why Differentiation Is the Strongest Check</a></li>
 </ul></li>
 <li class="chapter" data-level="5.8" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#practice"><i class="fa fa-check"></i><b>5.8</b> Practice</a>
 <ul>
@@ -402,6 +482,7 @@
 <li class="chapter" data-level="5.8.3" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#practice-integration-by-parts-pattern-recognition-and-application"><i class="fa fa-check"></i><b>5.8.3</b> Practice: Integration by Parts (Pattern Recognition and Application)</a></li>
 <li class="chapter" data-level="5.8.4" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#practice-partial-fractions-structured-practice"><i class="fa fa-check"></i><b>5.8.4</b> Practice: Partial Fractions (Structured Practice)</a></li>
 <li class="chapter" data-level="5.8.5" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#mixed-practice-choosing-and-executing-the-right-method"><i class="fa fa-check"></i><b>5.8.5</b> Mixed Practice: Choosing and Executing the Right Method</a></li>
+<li class="chapter" data-level="" data-path="techniques-of-integration-indefinite-integrals.html"><a href="techniques-of-integration-indefinite-integrals.html#applications-choosing-and-applying-a-technique-in-an-environmental-context"><i class="fa fa-check"></i>Applications: Choosing and Applying a Technique in an Environmental Context</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="applications-of-integration.html"><a href="applications-of-integration.html"><i class="fa fa-check"></i><b>6</b> Applications of Integration</a>
@@ -412,11 +493,15 @@
 <li class="chapter" data-level="6.1.2" data-path="applications-of-integration.html"><a href="applications-of-integration.html#from-sums-to-integrals"><i class="fa fa-check"></i><b>6.1.2</b> From Sums to Integrals</a></li>
 <li class="chapter" data-level="6.1.3" data-path="applications-of-integration.html"><a href="applications-of-integration.html#units-tell-the-story"><i class="fa fa-check"></i><b>6.1.3</b> Units Tell the Story</a></li>
 <li class="chapter" data-level="6.1.4" data-path="applications-of-integration.html"><a href="applications-of-integration.html#accumulation-not-just-area"><i class="fa fa-check"></i><b>6.1.4</b> Accumulation, Not Just Area</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-rates-and-densities-vs-totals"><i class="fa fa-check"></i>Concept Check: Rates and Densities vs Totals</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-why-multiplication-isnt-enough"><i class="fa fa-check"></i>Concept Check: Why Multiplication Isn’t Enough</a></li>
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="applications-of-integration.html"><a href="applications-of-integration.html#accumulation-when-totals-are-always-positive"><i class="fa fa-check"></i><b>6.2</b> Accumulation When Totals Are Always Positive</a>
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="applications-of-integration.html"><a href="applications-of-integration.html#examples-of-always-positive-accumulation"><i class="fa fa-check"></i><b>6.2.1</b> Examples of Always-Positive Accumulation</a></li>
 <li class="chapter" data-level="6.2.2" data-path="applications-of-integration.html"><a href="applications-of-integration.html#why-these-examples-matter"><i class="fa fa-check"></i><b>6.2.2</b> Why These Examples Matter</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-what-makes-an-accumulation-always-positive"><i class="fa fa-check"></i>Concept Check: What Makes an Accumulation “Always Positive”</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-reading-units-to-find-the-total"><i class="fa fa-check"></i>Concept Check: Reading Units to Find the Total</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="applications-of-integration.html"><a href="applications-of-integration.html#net-accumulation-when-gains-and-losses-compete"><i class="fa fa-check"></i><b>6.3</b> Net Accumulation: When Gains and Losses Compete</a>
 <ul>
@@ -424,6 +509,8 @@
 <li class="chapter" data-level="6.3.2" data-path="applications-of-integration.html"><a href="applications-of-integration.html#common-examples-of-net-accumulation"><i class="fa fa-check"></i><b>6.3.2</b> Common Examples of Net Accumulation</a></li>
 <li class="chapter" data-level="6.3.3" data-path="applications-of-integration.html"><a href="applications-of-integration.html#geometry-still-helpsbut-carefully"><i class="fa fa-check"></i><b>6.3.3</b> Geometry Still Helps—But Carefully</a></li>
 <li class="chapter" data-level="6.3.4" data-path="applications-of-integration.html"><a href="applications-of-integration.html#why-net-accumulation-is-powerful"><i class="fa fa-check"></i><b>6.3.4</b> Why Net Accumulation Is Powerful</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-when-net-differs-from-total"><i class="fa fa-check"></i>Concept Check: When Net Differs from Total</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-negative-integrands-and-signed-areas"><i class="fa fa-check"></i>Concept Check: Negative Integrands and Signed Areas</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="applications-of-integration.html"><a href="applications-of-integration.html#using-integrals-to-compute-the-average-value-of-a-function"><i class="fa fa-check"></i><b>6.4</b> Using Integrals to Compute the Average Value of a Function</a>
 <ul>
@@ -433,6 +520,8 @@
 <li class="chapter" data-level="6.4.4" data-path="applications-of-integration.html"><a href="applications-of-integration.html#environmental-examples"><i class="fa fa-check"></i><b>6.4.4</b> Environmental Examples</a></li>
 <li class="chapter" data-level="6.4.5" data-path="applications-of-integration.html"><a href="applications-of-integration.html#signed-functions-and-averages"><i class="fa fa-check"></i><b>6.4.5</b> Signed Functions and Averages</a></li>
 <li class="chapter" data-level="6.4.6" data-path="applications-of-integration.html"><a href="applications-of-integration.html#why-this-matters"><i class="fa fa-check"></i><b>6.4.6</b> Why This Matters</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-why-average-1b-a-f-dx-makes-sense"><i class="fa fa-check"></i>Concept Check: Why Average = (1/(b-a)) ∫ f dx Makes Sense</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-average-rate-in-environmental-context"><i class="fa fa-check"></i>Concept Check: Average Rate in Environmental Context</a></li>
 </ul></li>
 <li class="chapter" data-level="6.5" data-path="applications-of-integration.html"><a href="applications-of-integration.html#area-between-two-curves"><i class="fa fa-check"></i><b>6.5</b> Area Between Two Curves</a>
 <ul>
@@ -441,6 +530,8 @@
 <li class="chapter" data-level="6.5.3" data-path="applications-of-integration.html"><a href="applications-of-integration.html#environmental-and-scientific-examples"><i class="fa fa-check"></i><b>6.5.3</b> Environmental and Scientific Examples</a></li>
 <li class="chapter" data-level="6.5.4" data-path="applications-of-integration.html"><a href="applications-of-integration.html#when-curves-cross--and-the-crossing"><i class="fa fa-check"></i><b>6.5.4</b> When Curves Cross -and the crossing</a></li>
 <li class="chapter" data-level="6.5.5" data-path="applications-of-integration.html"><a href="applications-of-integration.html#big-picture"><i class="fa fa-check"></i><b>6.5.5</b> Big Picture</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-top-minus-bottom"><i class="fa fa-check"></i>Concept Check: Top Minus Bottom</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-what-area-between-means-environmentally"><i class="fa fa-check"></i>Concept Check: What ‘Area Between’ Means Environmentally</a></li>
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="applications-of-integration.html"><a href="applications-of-integration.html#double-integrals-accumulation-over-two-dimensions"><i class="fa fa-check"></i><b>6.6</b> Double Integrals: Accumulation Over Two Dimensions</a>
 <ul>
@@ -450,14 +541,20 @@
 <li class="chapter" data-level="6.6.4" data-path="applications-of-integration.html"><a href="applications-of-integration.html#rectangular-regions-and-iterated-integrals"><i class="fa fa-check"></i><b>6.6.4</b> Rectangular Regions and Iterated Integrals</a></li>
 <li class="chapter" data-level="6.6.5" data-path="applications-of-integration.html"><a href="applications-of-integration.html#interpretation-stacking-integrals"><i class="fa fa-check"></i><b>6.6.5</b> Interpretation: Stacking Integrals</a></li>
 <li class="chapter" data-level="6.6.6" data-path="applications-of-integration.html"><a href="applications-of-integration.html#why-double-integrals-matter"><i class="fa fa-check"></i><b>6.6.6</b> Why Double Integrals Matter</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-what-fxy-da-represents-for-a-density"><i class="fa fa-check"></i>Concept Check: What ∫∫f(x,y) dA Represents for a Density</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-why-iterated-integrals-work"><i class="fa fa-check"></i>Concept Check: Why Iterated Integrals Work</a></li>
 </ul></li>
 <li class="chapter" data-level="6.7" data-path="applications-of-integration.html"><a href="applications-of-integration.html#triple-integrals-accumulation-over-volume"><i class="fa fa-check"></i><b>6.7</b> Triple Integrals: Accumulation Over Volume</a>
 <ul>
 <li class="chapter" data-level="6.7.1" data-path="applications-of-integration.html"><a href="applications-of-integration.html#iterated-form"><i class="fa fa-check"></i><b>6.7.1</b> Iterated Form</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-when-youd-need-a-triple-integral-in-environmental-science"><i class="fa fa-check"></i>Concept Check: When You’d Need a Triple Integral in Environmental Science</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-units-when-integrating-over-volume"><i class="fa fa-check"></i>Concept Check: Units When Integrating Over Volume</a></li>
 </ul></li>
 <li class="chapter" data-level="6.8" data-path="applications-of-integration.html"><a href="applications-of-integration.html#quadruple-integrals-when-time-enters-the-picture"><i class="fa fa-check"></i><b>6.8</b> Quadruple Integrals: When Time Enters the Picture</a>
 <ul>
 <li class="chapter" data-level="6.8.1" data-path="applications-of-integration.html"><a href="applications-of-integration.html#iterated-form-1"><i class="fa fa-check"></i><b>6.8.1</b> Iterated Form</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-why-adding-time-turns-3d-into-4d"><i class="fa fa-check"></i>Concept Check: Why Adding Time Turns 3D Into 4D</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-when-youd-actually-use-a-quadruple-integral"><i class="fa fa-check"></i>Concept Check: When You’d Actually Use a Quadruple Integral</a></li>
 </ul></li>
 <li class="chapter" data-level="6.9" data-path="applications-of-integration.html"><a href="applications-of-integration.html#big-picture-1"><i class="fa fa-check"></i><b>6.9</b> Big Picture</a></li>
 <li class="chapter" data-level="6.10" data-path="applications-of-integration.html"><a href="applications-of-integration.html#numerical-integration-when-no-nice-formula-exists"><i class="fa fa-check"></i><b>6.10</b> Numerical Integration: When No Nice Formula Exists</a>
@@ -465,12 +562,29 @@
 <li class="chapter" data-level="6.10.1" data-path="applications-of-integration.html"><a href="applications-of-integration.html#when-analytic-integration-breaks-down"><i class="fa fa-check"></i><b>6.10.1</b> When Analytic Integration Breaks Down</a></li>
 <li class="chapter" data-level="6.10.2" data-path="applications-of-integration.html"><a href="applications-of-integration.html#the-core-idea-1"><i class="fa fa-check"></i><b>6.10.2</b> The Core Idea</a></li>
 <li class="chapter" data-level="6.10.3" data-path="applications-of-integration.html"><a href="applications-of-integration.html#common-numerical-methods"><i class="fa fa-check"></i><b>6.10.3</b> Common Numerical Methods</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-when-numerical-integration-is-needed"><i class="fa fa-check"></i>Concept Check: When Numerical Integration Is Needed</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-choosing-among-numerical-methods"><i class="fa fa-check"></i>Concept Check: Choosing Among Numerical Methods</a></li>
 </ul></li>
 <li class="chapter" data-level="6.11" data-path="applications-of-integration.html"><a href="applications-of-integration.html#comparing-analytic-and-numerical-integration-from-data"><i class="fa fa-check"></i><b>6.11</b> Comparing Analytic and Numerical Integration from Data</a>
 <ul>
 <li class="chapter" data-level="6.11.1" data-path="applications-of-integration.html"><a href="applications-of-integration.html#what-these-numbers-mean"><i class="fa fa-check"></i><b>6.11.1</b> What These Numbers Mean</a></li>
 <li class="chapter" data-level="6.11.2" data-path="applications-of-integration.html"><a href="applications-of-integration.html#why-this-matters-1"><i class="fa fa-check"></i><b>6.11.2</b> Why This Matters</a></li>
 <li class="chapter" data-level="6.11.3" data-path="applications-of-integration.html"><a href="applications-of-integration.html#why-numerical-integration-matters"><i class="fa fa-check"></i><b>6.11.3</b> Why Numerical Integration Matters</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-model-vs-data-when-they-disagree"><i class="fa fa-check"></i>Concept Check: Model vs Data: When They Disagree</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#concept-check-when-to-trust-analytic-when-to-trust-numerical"><i class="fa fa-check"></i>Concept Check: When to Trust Analytic, When to Trust Numerical</a></li>
+</ul></li>
+<li class="chapter" data-level="6.12" data-path="applications-of-integration.html"><a href="applications-of-integration.html#practice-problems-1"><i class="fa fa-check"></i><b>6.12</b> Practice Problems</a>
+<ul>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#problem-1-total-rainfall-from-a-storm-hyetograph"><i class="fa fa-check"></i>Problem 1: Total Rainfall from a Storm Hyetograph</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#problem-2-net-carbon-exchange-over-24-hours"><i class="fa fa-check"></i>Problem 2: Net Carbon Exchange Over 24 Hours</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#problem-3-average-streamflow-during-a-spawning-window"><i class="fa fa-check"></i>Problem 3: Average Streamflow During a Spawning Window</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#problem-4-water-above-an-ecological-flow-minimum"><i class="fa fa-check"></i>Problem 4: Water Above an Ecological-Flow Minimum</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#problem-5-net-population-change-births-vs-deaths"><i class="fa fa-check"></i>Problem 5: Net Population Change (Births vs Deaths)</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#problem-6-total-biomass-in-a-riparian-strip"><i class="fa fa-check"></i>Problem 6: Total Biomass in a Riparian Strip</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#problem-7-dissolved-oxygen-mass-in-a-lake-subsection"><i class="fa fa-check"></i>Problem 7: Dissolved Oxygen Mass in a Lake Subsection</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#problem-8-numerical-integration-of-hourly-evapotranspiration-data"><i class="fa fa-check"></i>Problem 8: Numerical Integration of Hourly Evapotranspiration Data</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#problem-9-average-pollutant-concentration-in-a-water-column"><i class="fa fa-check"></i>Problem 9: Average Pollutant Concentration in a Water Column</a></li>
+<li class="chapter" data-level="" data-path="applications-of-integration.html"><a href="applications-of-integration.html#problem-10-choose-and-apply-carbon-uptake-over-a-growing-season"><i class="fa fa-check"></i>Problem 10: Choose and Apply — Carbon Uptake Over a Growing Season</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html"><i class="fa fa-check"></i><b>7</b> Chapter: Differential Equations — Modeling Change Over Time</a>
@@ -485,6 +599,8 @@
 <li class="chapter" data-level="7.2.5" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#verifying-a-solution"><i class="fa fa-check"></i><b>7.2.5</b> Verifying a Solution</a></li>
 <li class="chapter" data-level="7.2.6" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#how-do-we-find-the-solution"><i class="fa fa-check"></i><b>7.2.6</b> How Do We Find the Solution?</a></li>
 <li class="chapter" data-level="7.2.7" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#the-big-idea"><i class="fa fa-check"></i><b>7.2.7</b> The Big Idea</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-what-makes-an-equation-differential"><i class="fa fa-check"></i>Concept Check: What Makes an Equation ‘Differential’</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-why-de-solutions-are-functions-not-numbers"><i class="fa fa-check"></i>Concept Check: Why DE Solutions Are Functions, Not Numbers</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#from-real-world-context-to-differential-equation"><i class="fa fa-check"></i><b>7.3</b> From Real-World Context to Differential Equation</a>
 <ul>
@@ -493,6 +609,8 @@
 <li class="chapter" data-level="7.3.3" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#units-analysis-in-differential-equations"><i class="fa fa-check"></i><b>7.3.3</b> Units Analysis in Differential Equations</a></li>
 <li class="chapter" data-level="7.3.4" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#environmental-and-biological-rate-models"><i class="fa fa-check"></i><b>7.3.4</b> Environmental and Biological Rate Models</a></li>
 <li class="chapter" data-level="7.3.5" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#the-big-modeling-insight"><i class="fa fa-check"></i><b>7.3.5</b> The Big Modeling Insight</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-translating-rate-is-proportional-to-into-a-de"><i class="fa fa-check"></i>Concept Check: Translating ‘Rate Is Proportional To’ into a DE</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-why-units-matter-in-a-differential-equation"><i class="fa fa-check"></i>Concept Check: Why Units Matter in a Differential Equation</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#slope-fields-direction-fields"><i class="fa fa-check"></i><b>7.4</b> Slope Fields (Direction Fields)</a>
 <ul>
@@ -502,6 +620,8 @@
 <li class="chapter" data-level="7.4.4" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#stability-and-long-term-behavior"><i class="fa fa-check"></i><b>7.4.4</b> Stability and Long-Term Behavior</a></li>
 <li class="chapter" data-level="7.4.5" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#why-this-matters-2"><i class="fa fa-check"></i><b>7.4.5</b> Why This Matters</a></li>
 <li class="chapter" data-level="7.4.6" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#visualizing-differential-equations-without-solving-them"><i class="fa fa-check"></i><b>7.4.6</b> Visualizing Differential Equations Without Solving Them</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-what-a-slope-field-shows-that-a-formula-doesnt"><i class="fa fa-check"></i>Concept Check: What a Slope Field Shows That a Formula Doesn’t</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-sketching-a-solution-curve-from-a-slope-field"><i class="fa fa-check"></i>Concept Check: Sketching a Solution Curve from a Slope Field</a></li>
 </ul></li>
 <li class="chapter" data-level="7.5" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#equilibrium-solutions-and-stability"><i class="fa fa-check"></i><b>7.5</b> Equilibrium Solutions and Stability</a>
 <ul>
@@ -509,6 +629,8 @@
 <li class="chapter" data-level="7.5.2" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#stable-vs-unstable-equilibria"><i class="fa fa-check"></i><b>7.5.2</b> Stable vs Unstable Equilibria</a></li>
 <li class="chapter" data-level="7.5.3" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#long-term-predictions"><i class="fa fa-check"></i><b>7.5.3</b> Long-Term Predictions</a></li>
 <li class="chapter" data-level="7.5.4" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#why-this-matters-3"><i class="fa fa-check"></i><b>7.5.4</b> Why This Matters</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-finding-equilibrium-solutions-algebraically"><i class="fa fa-check"></i>Concept Check: Finding Equilibrium Solutions Algebraically</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-stable-vs-unstable-equilibria"><i class="fa fa-check"></i>Concept Check: Stable vs Unstable Equilibria</a></li>
 </ul></li>
 <li class="chapter" data-level="7.6" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#separable-differential-equations"><i class="fa fa-check"></i><b>7.6</b> Separable Differential Equations</a>
 <ul>
@@ -521,6 +643,8 @@
 <li class="chapter" data-level="7.6.7" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#integrating-both-sides-1"><i class="fa fa-check"></i><b>7.6.7</b> Integrating Both Sides</a></li>
 <li class="chapter" data-level="7.6.8" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#applications-of-separable-equations"><i class="fa fa-check"></i><b>7.6.8</b> Applications of Separable Equations</a></li>
 <li class="chapter" data-level="7.6.9" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#the-big-structural-insight-1"><i class="fa fa-check"></i><b>7.6.9</b> The Big Structural Insight</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-recognizing-a-separable-differential-equation"><i class="fa fa-check"></i>Concept Check: Recognizing a Separable Differential Equation</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-what-an-initial-value-problem-adds"><i class="fa fa-check"></i>Concept Check: What an Initial Value Problem Adds</a></li>
 </ul></li>
 <li class="chapter" data-level="7.7" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#exponential-growth-and-decay-1"><i class="fa fa-check"></i><b>7.7</b> Exponential Growth and Decay</a>
 <ul>
@@ -531,6 +655,8 @@
 <li class="chapter" data-level="7.7.5" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#half-life"><i class="fa fa-check"></i><b>7.7.5</b> Half-Life</a></li>
 <li class="chapter" data-level="7.7.6" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#continuous-growth-in-co₂-concentration"><i class="fa fa-check"></i><b>7.7.6</b> Continuous Growth in CO₂ Concentration</a></li>
 <li class="chapter" data-level="7.7.7" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#what-exponential-models-capture"><i class="fa fa-check"></i><b>7.7.7</b> What Exponential Models Capture</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-when-exponential-is-the-right-model"><i class="fa fa-check"></i>Concept Check: When Exponential Is the Right Model</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-doubling-time-and-the-rate-constant"><i class="fa fa-check"></i>Concept Check: Doubling Time and the Rate Constant</a></li>
 </ul></li>
 <li class="chapter" data-level="7.8" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#logistic-growth-and-carrying-capacity"><i class="fa fa-check"></i><b>7.8</b> Logistic Growth and Carrying Capacity</a>
 <ul>
@@ -541,6 +667,8 @@
 <ul>
 <li class="chapter" data-level="7.9.1" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#example-overharvesting-unsustainable"><i class="fa fa-check"></i><b>7.9.1</b> Example: Overharvesting (Unsustainable)</a></li>
 <li class="chapter" data-level="7.9.2" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#what-this-example-shows"><i class="fa fa-check"></i><b>7.9.2</b> What This Example Shows</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-why-the-logistic-inflection-point-is-at-k2"><i class="fa fa-check"></i>Concept Check: Why the Logistic Inflection Point Is at K/2</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-stability-of-the-two-logistic-equilibria"><i class="fa fa-check"></i>Concept Check: Stability of the Two Logistic Equilibria</a></li>
 </ul></li>
 <li class="chapter" data-level="7.10" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#additional-logistic-model-applications"><i class="fa fa-check"></i><b>7.10</b> Additional Logistic Model Applications</a>
 <ul>
@@ -548,6 +676,8 @@
 <li class="chapter" data-level="7.10.2" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#disease-spread"><i class="fa fa-check"></i><b>7.10.2</b> Disease Spread</a></li>
 <li class="chapter" data-level="7.10.3" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#resource-limited-ecosystems"><i class="fa fa-check"></i><b>7.10.3</b> Resource-Limited Ecosystems</a></li>
 <li class="chapter" data-level="7.10.4" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#what-changes-in-the-logistic-equation"><i class="fa fa-check"></i><b>7.10.4</b> What Changes in the Logistic Equation?</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-how-the-logistic-equation-adapts-to-harvest"><i class="fa fa-check"></i>Concept Check: How the Logistic Equation Adapts to Harvest</a></li>
+<li class="chapter" data-level="" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#concept-check-why-harvesting-can-cause-sudden-collapse"><i class="fa fa-check"></i>Concept Check: Why Harvesting Can Cause Sudden Collapse</a></li>
 </ul></li>
 <li class="chapter" data-level="7.11" data-path="chapter-differential-equations-modeling-change-over-time.html"><a href="chapter-differential-equations-modeling-change-over-time.html#end-of-chapter-practice-differential-equations-modeling-change-over-time"><i class="fa fa-check"></i><b>7.11</b> End-of-Chapter Practice: Differential Equations — Modeling Change Over Time</a>
 <ul>
@@ -666,7 +796,7 @@
 <ul>
 <li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#what-is-a-definite-integral-and-why-do-we-care"><i class="fa fa-check"></i>What Is a Definite Integral — and Why Do We Care?</a></li>
 <li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#big-idea-the-fundamental-theorem-of-calculus"><i class="fa fa-check"></i>Big Idea: The Fundamental Theorem of Calculus</a></li>
-<li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#practice-problems-1"><i class="fa fa-check"></i>Practice Problems</a></li>
+<li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#practice-problems-2"><i class="fa fa-check"></i>Practice Problems</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#review-sheet-area-between-two-curves-total-geometric-area"><i class="fa fa-check"></i>Review Sheet: Area Between Two Curves (Total / Geometric Area)</a>
 <ul>
@@ -678,7 +808,7 @@
 <li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#worked-example-1-curves-do-not-cross-inside-the-interval"><i class="fa fa-check"></i>Worked Example 1: Curves Do Not Cross Inside the Interval</a></li>
 <li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#worked-example-2-curves-cross-inside-the-interval-must-split"><i class="fa fa-check"></i>Worked Example 2: Curves Cross Inside the Interval (Must Split)</a></li>
 <li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#common-mistakes-to-avoid"><i class="fa fa-check"></i>Common Mistakes to Avoid</a></li>
-<li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#practice-problems-2"><i class="fa fa-check"></i>Practice Problems</a></li>
+<li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#practice-problems-3"><i class="fa fa-check"></i>Practice Problems</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#review-sheet-double-and-triple-integrals"><i class="fa fa-check"></i>Review Sheet: Double and Triple Integrals</a>
 <ul>
@@ -690,7 +820,7 @@
 <li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#how-to-evaluate-a-triple-integral"><i class="fa fa-check"></i>How to Evaluate a Triple Integral</a></li>
 <li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#worked-example-2-rectangular-box"><i class="fa fa-check"></i>Worked Example 2 (Rectangular Box)</a></li>
 <li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#conceptual-reminders"><i class="fa fa-check"></i>Conceptual Reminders</a></li>
-<li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#practice-problems-3"><i class="fa fa-check"></i>Practice Problems</a></li>
+<li class="chapter" data-level="" data-path="test-3-review-material.html"><a href="test-3-review-material.html#practice-problems-4"><i class="fa fa-check"></i>Practice Problems</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="test-4-review-material.html"><a href="test-4-review-material.html"><i class="fa fa-check"></i>Test 4 Review Material</a>
@@ -758,7 +888,7 @@
 <li class="chapter" data-level="" data-path="test-4-review-material.html"><a href="test-4-review-material.html#logistic-growth-with-harvesting"><i class="fa fa-check"></i>Logistic Growth with Harvesting</a></li>
 <li class="chapter" data-level="" data-path="test-4-review-material.html"><a href="test-4-review-material.html#slope-field-thinking"><i class="fa fa-check"></i>Slope Field Thinking</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="test-4-review-material.html"><a href="test-4-review-material.html#practice-problems-4"><i class="fa fa-check"></i>Practice Problems</a></li>
+<li class="chapter" data-level="" data-path="test-4-review-material.html"><a href="test-4-review-material.html#practice-problems-5"><i class="fa fa-check"></i>Practice Problems</a></li>
 </ul></li>
 <li class="part"><span><b>I Workbook Chapters</b></span></li>
 <li class="chapter" data-level="8" data-path="intro-calculus-workbook.html"><a href="intro-calculus-workbook.html"><i class="fa fa-check"></i><b>8</b> Intro Calculus Workbook</a>
@@ -905,7 +1035,7 @@
 <li class="chapter" data-level="" data-path="week-2-in-class-riemann-sums-derivatives-antiderivatives.html"><a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#worked-example"><i class="fa fa-check"></i>Worked Example</a></li>
 </ul></li>
 <li class="chapter" data-level="12.11" data-path="week-2-in-class-riemann-sums-derivatives-antiderivatives.html"><a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#conceptual-questions"><i class="fa fa-check"></i><b>12.11</b> Conceptual Questions</a></li>
-<li class="chapter" data-level="12.12" data-path="week-2-in-class-riemann-sums-derivatives-antiderivatives.html"><a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#practice-problems-5"><i class="fa fa-check"></i><b>12.12</b> Practice Problems</a>
+<li class="chapter" data-level="12.12" data-path="week-2-in-class-riemann-sums-derivatives-antiderivatives.html"><a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#practice-problems-6"><i class="fa fa-check"></i><b>12.12</b> Practice Problems</a>
 <ul>
 <li class="chapter" data-level="12.12.1" data-path="week-2-in-class-riemann-sums-derivatives-antiderivatives.html"><a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#key-takeaway-13"><i class="fa fa-check"></i><b>12.12.1</b> Key Takeaway</a></li>
 </ul></li>
@@ -1139,7 +1269,7 @@
 <li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#step-4-apply-a-climate-change-scenario"><i class="fa fa-check"></i>Step 4 — Apply a Climate Change Scenario</a></li>
 <li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#write-the-model-with-numbers"><i class="fa fa-check"></i>Write the Model with Numbers</a></li>
 <li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#step-5-how-long-until-significant-warming"><i class="fa fa-check"></i>Step 5 — How Long Until Significant Warming?</a></li>
-<li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#question-1-2"><i class="fa fa-check"></i>Question 1</a></li>
+<li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#question-1"><i class="fa fa-check"></i>Question 1</a></li>
 <li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#step-6-interpret-the-result"><i class="fa fa-check"></i>Step 6 — Interpret the Result</a></li>
 <li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#step-7-thinking-bigger"><i class="fa fa-check"></i>Step 7 — Thinking Bigger</a></li>
 <li class="chapter" data-level="" data-path="differential-equations.html"><a href="differential-equations.html#final-reflection-2"><i class="fa fa-check"></i>Final Reflection</a></li>
@@ -1158,7 +1288,7 @@
 <li class="chapter" data-level="16.15" data-path="differential-equations.html"><a href="differential-equations.html#polleverywhere-questions"><i class="fa fa-check"></i><b>16.15</b> PolleveryWhere Questions</a></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+<li><a href="https://github.com/gajsivandran/Environmental_Calculus2" target="_blank">Published with bookdown</a></li>
 
 </ul>
 
@@ -1179,8 +1309,10 @@
             <section class="normal" id="section-">
 <div id="introduction-to-calculus-ii" class="section level1 hasAnchor" number="2">
 <h1><span class="header-section-number">Chapter 2</span> Introduction to Calculus II<a href="introduction-to-calculus-ii.html#introduction-to-calculus-ii" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Calculus II marks the transition from thinking about <em>instantaneous change</em> to thinking about <em>accumulated change</em>. In Calculus I, your primary tools described how natural systems behave at a given moment, such as how fast a population is growing, how quickly temperature is changing, or how sharply a pollutant concentration shifts at a point in space.</p>
-<p>In this course, we step back and ask a different set of questions:</p>
+<p>A storm parks over a Pacific Northwest watershed. Rain falls — sometimes a drizzle, sometimes a downpour — and at the bottom of the basin, a stream gauge ticks upward. <em>How much</em> water passed the gauge over the storm? Out in the forest, a stand of Douglas-fir is pulling carbon out of the air. The rate of uptake shifts with the sun, the temperature, the time of day. <em>How much</em> carbon did the forest take up this summer?</p>
+<p>These are questions about <em>totals</em>, and in environmental science, totals matter. Calculus I gave you tools to describe how systems change moment by moment. Calculus II gives you tools to add those moments up.</p>
+<p>Welcome to Calculus II — the mathematics of <em>accumulation</em>.</p>
+<p>In Calculus I, you learned to describe how natural systems behave at a given moment: how fast a population is growing, how quickly temperature is changing, or how sharply a pollutant concentration shifts at a point in space. In this course, we shift the question:</p>
 <ul>
 <li>How much water flowed down a stream over the day?<br />
 </li>
@@ -1190,9 +1322,9 @@
 </li>
 <li>How much biomass accumulated in a recovering ecosystem?</li>
 </ul>
-<p>These are questions about <strong>totals</strong>, and in the natural sciences, totals matter. Being able to quantify accumulation helps us understand environmental systems that are dynamic, interconnected, and continuously changing.</p>
+<p>These are questions about <strong>totals</strong>. Being able to quantify accumulation helps us understand environmental systems that are dynamic, interconnected, and continuously changing.</p>
 <p>This course is the second half of the <strong>Q SCI 291–292 sequence</strong>, which builds the mathematical foundation used across biology, ecology, conservation, marine science, and environmental science. Alongside the core mathematical ideas, the course emphasizes learning how to think quantitatively about real systems and developing the reasoning skills needed to communicate scientific results clearly.</p>
-<p>By the end of the course, you will be able to:</p>
+<p>By the end of this course, you will be able to:</p>
 <ul>
 <li><strong>Explain and interpret</strong> definite integrals using Riemann sums, limits, and graphical representations.<br />
 </li>
@@ -1200,16 +1332,53 @@
 </li>
 <li><strong>Analyze and model</strong> natural systems using basic differential equations, including separable and first-order linear forms.<br />
 </li>
-<li><strong>Construct and justify clear mathematical reasoning</strong>, written, numerical, and graphical, so you can communicate solutions effectively and assess their validity.</li>
+<li><strong>Construct and justify clear mathematical reasoning</strong> — written, numerical, and graphical — so you can communicate solutions effectively and assess their validity.</li>
 </ul>
 <hr />
 <div id="what-calculus-ii-is-really-about" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> What Calculus II Is Really About<a href="introduction-to-calculus-ii.html#what-calculus-ii-is-really-about" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>At its core, Calculus II is the study of <strong>accumulation</strong>. Many quantities in the natural world, such as heat, nutrients, biomass, pollutants, water, and individuals, change continuously rather than in neat steps. When a quantity’s rate changes from moment to moment, how do we determine the total amount gained or lost? Integrals give us the language and tools to answer that question.</p>
+<p>At its core, Calculus II is the study of <strong>accumulation</strong>. Many quantities in the natural world — heat, nutrients, biomass, pollutants, water, individuals — change continuously rather than in neat steps. When a quantity’s rate changes from moment to moment, how do we figure out the total amount gained or lost? Integrals give us the language and tools to answer that question.</p>
+<p>Calculus I asked: <em>how fast is something changing?</em> Calculus II asks: <em>how much has accumulated?</em> These two questions are inseparable — they are linked by one of the most beautiful results in mathematics, the Fundamental Theorem of Calculus. We’ll get there.</p>
+<table>
+<colgroup>
+<col width="13%" />
+<col width="41%" />
+<col width="44%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>System</th>
+<th>Calc I Question (rate)</th>
+<th>Calc II Question (total)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Hydrology</strong></td>
+<td>How fast is streamflow rising during a storm?</td>
+<td>How much water flowed past the gauge?</td>
+</tr>
+<tr class="even">
+<td><strong>Forests</strong></td>
+<td>How fast is the canopy taking up CO₂ right now?</td>
+<td>How much carbon did the stand take up this summer?</td>
+</tr>
+<tr class="odd">
+<td><strong>Populations</strong></td>
+<td>What is the salmon population’s growth rate this week?</td>
+<td>How many fish passed the weir over the whole run?</td>
+</tr>
+<tr class="even">
+<td><strong>Toxicology</strong></td>
+<td>How quickly is a contaminant entering a lake?</td>
+<td>How much contaminant has accumulated by year-end?</td>
+</tr>
+</tbody>
+</table>
 <div class="promptbox">
 <div id="example-accumulating-rainfall-in-a-simple-storm" class="section level3 unnumbered hasAnchor">
 <h3>Example: Accumulating Rainfall in a Simple Storm<a href="introduction-to-calculus-ii.html#example-accumulating-rainfall-in-a-simple-storm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>To understand the idea of accumulation, imagine a 3-hour storm where the rainfall intensity stays constant within each hour. Suppose the observed intensities are:</p>
+<p>To anchor the idea of accumulation, imagine a 3-hour storm where the rainfall intensity stays constant within each hour. Suppose the observed intensities are:</p>
 <ul>
 <li>Hour 1: 4 mm/hour<br />
 </li>
@@ -1217,7 +1386,7 @@
 </li>
 <li>Hour 3: 5 mm/hour</li>
 </ul>
-<p>If the rainfall rate is constant within each hour, then the total rainfall is simply:</p>
+<p>If the rainfall rate is constant within each hour, the total rainfall is simply:</p>
 <p><span class="math display">\[
 \text{Total rainfall} = 4 + 7 + 5 = 16 \text{ mm}.
 \]</span></p>
@@ -1228,77 +1397,108 @@
 </div>
 <div id="when-rainfall-intensity-is-not-constant" class="section level3 unnumbered hasAnchor">
 <h3>When Rainfall Intensity Is Not Constant<a href="introduction-to-calculus-ii.html#when-rainfall-intensity-is-not-constant" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Real storms rarely behave this neatly. Rainfall intensity may rise, fall, and fluctuate as storm cells pass overhead. Instead of three flat bars, the intensity becomes a wiggly, continuously changing curve.</p>
+<p>Real storms rarely behave this neatly. Rainfall intensity rises, falls, and fluctuates as storm cells pass overhead. Instead of three flat bars, the intensity becomes a wiggly, continuously changing curve.</p>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<p>This leads us to a central question for this course:</p>
+<p>This leads us to the central question of the course:</p>
 <p><strong>How much total rain falls during a storm like this?</strong></p>
-<p>There are no simple hourly blocks now. The rainfall rate:</p>
-<ul>
-<li>rises<br />
-</li>
-<li>dips<br />
-</li>
-<li>oscillates<br />
-</li>
-<li>never remains constant long enough for a simple calculation</li>
-</ul>
-<p>To find the total rainfall, we need a method that can add up many small and continuously changing contributions.</p>
+<p>There are no neat hourly blocks anymore. The rainfall rate rises, dips, oscillates, and never sits still long enough for a simple calculation. To find the total, we need a method that can add up <em>many small and continuously changing contributions</em>.</p>
 </div>
 </div>
-<p>A key insight is that large totals often come from accumulating many <strong>small pieces</strong>. This idea is intuitive when thinking about rainfall or streamflow. It is also the conceptual foundation of Riemann sums and definite integrals. Although we will not enter the technical details yet, this perspective will guide us throughout the course and will help connect data, graphs, equations, and models.</p>
-<p>Another major theme involves <strong>reversing derivatives</strong>. If a derivative represents how something changes, then an antiderivative recovers the original quantity. The Fundamental Theorem of Calculus ties these ideas together and provides the foundation for the integration techniques you will learn.</p>
-<p>Finally, many environmental and biological systems follow rules of change. Populations grow or decline, chemicals decay, temperatures level out, and nutrients move through ecosystems. These processes can be described using <strong>differential equations</strong>, which act as mathematical stories of how systems evolve. In this course, we will learn simple and powerful forms, especially separable and first-order linear equations, that allow us to model natural processes clearly and effectively.</p>
+<p>A key insight is that large totals often come from accumulating many <strong>small pieces</strong>. This is intuitive when you think about rainfall or streamflow, and it’s the conceptual foundation of Riemann sums and definite integrals. We won’t dive into the technical details yet, but this perspective will guide us throughout the course — it’s the bridge that connects data, graphs, equations, and models.</p>
+<p>Another major theme is <strong>reversing derivatives</strong>. If a derivative tells us how a quantity is changing, an antiderivative recovers the original quantity. The Fundamental Theorem of Calculus ties these ideas together and is the foundation of the integration techniques you’ll learn.</p>
+<p>Finally, many environmental and biological systems follow <em>rules of change</em>. Populations grow or decline, chemicals decay, temperatures level out, and nutrients move through ecosystems. These processes can be described using <strong>differential equations</strong> — mathematical stories of how systems evolve. In this course we’ll work with simple and powerful forms (especially separable and first-order linear equations) that let us model natural processes clearly and effectively.</p>
+<div id="concept-check-rate-vs.-total" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check: Rate vs. Total<a href="introduction-to-calculus-ii.html#concept-check-rate-vs.-total" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For each question below, decide whether the quantity being asked about is a <strong>rate of change</strong> (derivative-flavored) or an <strong>accumulation</strong> (integral-flavored).</p>
+<p><strong>1. A weather station reports that rain is currently falling at 8 mm/hour. Is this a rate or an accumulation?</strong></p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p>This is a <strong>rate</strong> — it tells you how fast water is arriving <em>right now</em>, in mm per hour. A derivative-flavored quantity.</p>
+</details>
+<p><strong>2. A storm has produced 42 mm of rain over the past 6 hours. Is this a rate or an accumulation?</strong></p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p>This is an <strong>accumulation</strong> — it tells you the <em>total</em> rain that has piled up over a period of time. An integral-flavored quantity.</p>
+</details>
+<p><strong>3. A salmon counting station records that fish are passing at 120 fish per day during the peak of the run. Is this a rate or an accumulation?</strong></p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p>This is a <strong>rate</strong> — fish per day is a rate, no matter how many days the run lasts.</p>
+</details>
+<p><strong>4. Over the whole season, 38,000 salmon passed the counting station. Is this a rate or an accumulation?</strong></p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p>This is an <strong>accumulation</strong> — the seasonal total is what you get by adding up the daily counts (an integral of the rate over the season).</p>
+</details>
 <hr />
+</div>
 </div>
 <div id="what-you-bring-from-calculus-i" class="section level2 hasAnchor" number="2.2">
 <h2><span class="header-section-number">2.2</span> What You Bring From Calculus I<a href="introduction-to-calculus-ii.html#what-you-bring-from-calculus-i" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Although this is a new course, much of what you already know will serve as essential groundwork. Key ideas from Calculus I include:</p>
+<p>You already have most of the ingredients you need. Calculus I gave you:</p>
 <ul>
-<li>Understanding how to read and interpret graphs<br />
+<li>A feel for how to read and interpret graphs<br />
 </li>
-<li>Using derivatives as rates of change<br />
+<li>A working understanding of derivatives as rates of change<br />
 </li>
-<li>Recognizing what it means for a quantity to increase, decrease, level off, or turn around<br />
+<li>The ability to recognize when a quantity is increasing, decreasing, leveling off, or turning around<br />
 </li>
-<li>Working with functions and equations in a flexible and confident way</li>
+<li>Practice working with functions and equations flexibly</li>
 </ul>
-<p>You will also find that clear and organized algebra makes a big difference. Rearranging equations, factoring, simplifying expressions, and solving for unknowns are routine steps in almost every meaningful calculation. Strengthening these skills now will make the deeper ideas of Calc 2 much more accessible.</p>
+<p>You’ll also find that clean algebra makes a big difference. Rearranging equations, factoring, simplifying expressions, and solving for unknowns are routine steps in almost every meaningful Calc 2 calculation. Strengthening these skills now will make the deeper ideas of this course much more accessible.</p>
+<p><img src="images/Accumulation.png" style="float:center; width:450px; margin:10px;" fig.cap="" fig.alt="A conceptual illustration of accumulation: small contributions adding up to a total." /></p>
 <hr />
 </div>
-<div id="calc-2" class="section level2 hasAnchor" number="2.3">
-<h2><span class="header-section-number">2.3</span> Calc 2<a href="introduction-to-calculus-ii.html#calc-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Calculus II shifts the focus from understanding how a quantity changes at a single moment to understanding how much of that quantity accumulates over time or space. In Calculus I you learned to work with derivatives and rates of change. In this course, you will explore how to measure totals when the rate is not constant.</p>
-<p>Accumulation is central in the environmental sciences. Many quantities of interest vary continuously, such as total rainfall across a storm, carbon taken up by a forest across a season, pollutant load exported from a watershed, biomass added in a growing ecosystem, or heat absorbed by the ocean surface. Integrals give us the language and tools to quantify these totals.</p>
-<p><img src="images/Accumulation.png" style="float=center; width:450px; margin:10px;" fig.cap="" fig.alt="" /></p>
-<p>This course serves as a bridge between the mechanics of differentiation and the broader world of mathematical modeling and scientific interpretation. Throughout the course you will learn to connect graphs, equations, and context to make sense of complex natural systems.</p>
-<hr />
-</div>
-<div id="big-themes-of-the-course" class="section level2 hasAnchor" number="2.4">
-<h2><span class="header-section-number">2.4</span> Big Themes of the Course<a href="introduction-to-calculus-ii.html#big-themes-of-the-course" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="accumulation" class="section level3 hasAnchor" number="2.4.1">
-<h3><span class="header-section-number">2.4.1</span> Accumulation<a href="introduction-to-calculus-ii.html#accumulation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Many environmental processes unfold gradually rather than in discrete chunks. Rainfall builds up drop by drop, a stream transports nutrients continuously, and forests take up carbon throughout the day as light changes. In all of these situations, the total amount that accumulates is the result of many small contributions happening moment by moment.</p>
-<p>Integrals give us a framework for quantifying these cumulative effects. When a rate varies across time, space, or depth, an integral allows us to add up tiny pieces into a meaningful whole. This perspective is essential in environmental science, where totals often tell us more about system behavior than any single measurement.</p>
-<p>Consider a few examples:</p>
+<div id="big-themes-of-the-course" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Big Themes of the Course<a href="introduction-to-calculus-ii.html#big-themes-of-the-course" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="accumulation" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Accumulation<a href="introduction-to-calculus-ii.html#accumulation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Many environmental processes unfold gradually, not in discrete chunks. Rainfall builds up drop by drop. A stream transports nutrients continuously. Forests take up carbon throughout the day as light changes. In all of these situations, the total amount that accumulates is the result of many small contributions happening moment by moment.</p>
+<p>Integrals give us a framework for quantifying these cumulative effects. When a rate varies across time, space, or depth, an integral lets us add up tiny pieces into a meaningful whole. This perspective is essential in environmental science, where totals often tell us more about system behavior than any single measurement.</p>
+<p>A few examples to keep in mind as you read the rest of the course:</p>
 <ul>
-<li><p><strong>Total nitrogen export from a watershed:</strong><br />
-Streamflow and nutrient concentration both change during storms. The total mass exported is not the peak concentration multiplied by time, but the accumulation of many changing contributions as water moves through the system.</p></li>
-<li><p><strong>Total phytoplankton production over a day:</strong><br />
-Photosynthesis depends on light, which changes continuously with cloud cover and solar angle. The daily production is the sum of many small increments of carbon fixed throughout the day.</p></li>
-<li><p><strong>Energy exchanged in an ocean mixed layer:</strong><br />
-Heat flux varies with wind, sunlight, and water temperature. Understanding how much energy enters or leaves the ocean requires accumulating many small changes over time.</p></li>
+<li><strong>Total nitrogen export from a watershed.</strong> Streamflow and nutrient concentration both change during storms. The total mass exported is <em>not</em> the peak concentration times the storm duration — it’s the accumulation of many changing contributions as water moves through the system.<br />
+</li>
+<li><strong>Total phytoplankton production over a day.</strong> Photosynthesis depends on light, which changes continuously with cloud cover and solar angle. The daily production is the sum of many small increments of carbon fixed throughout the day.<br />
+</li>
+<li><strong>Energy exchanged in an ocean mixed layer.</strong> Heat flux varies with wind, sunlight, and water temperature. Understanding how much energy enters or leaves the ocean requires accumulating many small changes over time.</li>
 </ul>
-<p>Accumulation is one of the central ideas of this course. Integrals appear throughout Calculus II not just as mathematical procedures, but as conceptual tools for interpreting how environmental systems grow, shrink, cycle, and respond to change. Seeing the world in terms of accumulated effects helps build intuition for processes that operate continuously, whether they unfold over seconds, seasons, or decades.</p>
+<p>Accumulation is one of the central ideas of this course. Integrals appear throughout Calc 2 not just as procedures to learn, but as conceptual tools for interpreting how environmental systems grow, shrink, cycle, and respond to change.</p>
 </div>
-<div id="reversing-derivatives-antiderivatives-and-the-fundamental-idea" class="section level3 hasAnchor" number="2.4.2">
-<h3><span class="header-section-number">2.4.2</span> Reversing Derivatives: Antiderivatives and the Fundamental Idea<a href="introduction-to-calculus-ii.html#reversing-derivatives-antiderivatives-and-the-fundamental-idea" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>A derivative describes how something changes at each moment. An integral describes how much has changed in total. These two ideas are connected through antiderivatives, which allow us to reverse the process of differentiation. This relationship is one of the central insights of Calculus II and is the foundation of the Fundamental Theorem of Calculus.</p>
-<p><img src="images/int_conceptual.png" style="float=center; width:450px; margin:10px;" fig.cap="" fig.alt="A simple conceptual diagram showing the relationship between differentiation and integration. On the left is a function f(x) a differentiation arrow points to f&#39;(x). Another arrow goes from right to left, from f&#39;(x) to f(x) with the word integration" /></p>
-<p>Thinking in terms of environmental systems makes this connection clearer. In many natural processes, a rate of change is easier to measure or model than the total amount. Antiderivatives give us a way to move from the rate back to the accumulated quantity.</p>
+<div id="concept-check-recognizing-accumulation" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check: Recognizing Accumulation<a href="introduction-to-calculus-ii.html#concept-check-recognizing-accumulation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For each of the following, ask yourself: <em>am I being told a rate, or a total?</em></p>
+<p><strong>1. A research vessel logs that sea-surface heat flux into the mixed layer was 180 W/m² yesterday at noon. To find the total energy that entered a 1 m² patch of ocean over a 24-hour period, what kind of operation do you need to do?</strong></p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p>You need to <strong>accumulate (integrate)</strong> the heat flux over the 24-hour period. The flux is a rate (W/m² = J/s/m²), and totaling it over time gives you the total energy delivered (J/m²). You couldn’t just multiply 180 × 24 × 3600 unless the flux were constant — which it isn’t, because sunlight varies through the day.</p>
+</details>
+<p><strong>2. A pollutant enters a lake from a single inflow stream. You have continuous measurements of the inflow rate (m³/s) and the pollutant concentration (mg/L) every minute. To compute the total mass of pollutant delivered to the lake over a week, what are you doing conceptually?</strong></p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p>You’re <strong>accumulating many small contributions</strong>. At each minute, the rate of mass entering is roughly (concentration) × (flow rate). Multiplying that by the small time interval gives a small mass increment, and summing all of those increments over the week gives the total mass — exactly the structure of an integral.</p>
+</details>
 <hr />
 </div>
-<div id="why-this-connection-matters" class="section level3 hasAnchor" number="2.4.3">
-<h3><span class="header-section-number">2.4.3</span> Why This Connection Matters<a href="introduction-to-calculus-ii.html#why-this-connection-matters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="reversing-derivatives-antiderivatives-and-the-fundamental-idea" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Reversing Derivatives: Antiderivatives and the Fundamental Idea<a href="introduction-to-calculus-ii.html#reversing-derivatives-antiderivatives-and-the-fundamental-idea" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A derivative describes how something changes at each moment. An integral describes how much has changed in total. These two ideas are connected through <strong>antiderivatives</strong>, which let us reverse the process of differentiation. This relationship is one of the central insights of Calculus II and the foundation of the Fundamental Theorem of Calculus.</p>
+<p><img src="images/int_conceptual.png" style="float:center; width:450px; margin:10px;" fig.cap="" fig.alt="A simple conceptual diagram showing the relationship between differentiation and integration. On the left is a function f(x); a differentiation arrow points to f&#39;(x). Another arrow goes from right to left, from f&#39;(x) to f(x), labeled integration." /></p>
+<p>In environmental terms: a rate of change is often easier to <em>measure</em> or <em>model</em> than the total amount. Antiderivatives give us a way to move from the rate back to the accumulated quantity.</p>
+<div id="why-this-connection-matters" class="section level4 hasAnchor" number="2.3.2.1">
+<h4><span class="header-section-number">2.3.2.1</span> Why This Connection Matters<a href="introduction-to-calculus-ii.html#why-this-connection-matters" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>In environmental science, we often measure or model <strong>rates</strong>:</p>
 <ul>
 <li>the rate at which pollutants decay<br />
@@ -1319,75 +1519,156 @@ Heat flux varies with wind, sunlight, and water temperature. Understanding how m
 </li>
 <li>total oxygen used</li>
 </ul>
-<p>Antiderivatives provide the bridge between “how something changes” and “how much it has changed overall.” This connection is the conceptual heart of the Fundamental Theorem of Calculus, and it explains why derivatives and integrals, though they look different, are deeply linked.</p>
-<p>Understanding this relationship prepares you for the computational techniques that come later in the course, and it builds intuition for interpreting scientific data where change and accumulation interact continuously.</p>
+<p>Antiderivatives are the bridge between <em>how something changes</em> and <em>how much it has changed overall</em>. This connection is the conceptual heart of the Fundamental Theorem of Calculus, and it’s why derivatives and integrals — though they look different — are deeply linked.</p>
 </div>
-<div id="change-over-time-a-first-look-at-differential-equations" class="section level3 hasAnchor" number="2.4.4">
-<h3><span class="header-section-number">2.4.4</span> Change Over Time: A First Look at Differential Equations<a href="introduction-to-calculus-ii.html#change-over-time-a-first-look-at-differential-equations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="concept-check-from-rate-to-total" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check: From Rate to Total<a href="introduction-to-calculus-ii.html#concept-check-from-rate-to-total" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A field crew measures soil respiration (the rate at which microbes release CO₂) every 15 minutes for a full day. They get a function <span class="math inline">\(R(t)\)</span>, in grams of carbon per square meter per hour, that varies through the day with temperature and moisture.</p>
+<p><strong>1. To get the total carbon released over the 24-hour period, what do they do with <span class="math inline">\(R(t)\)</span> conceptually?</strong></p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p>They <strong>integrate</strong> <span class="math inline">\(R(t)\)</span> over the 24-hour interval. Each small time slice <span class="math inline">\(\Delta t\)</span> contributes roughly <span class="math inline">\(R(t)\,\Delta t\)</span> grams of carbon per square meter, and summing all those contributions (in the limit as the slices get small) gives the total accumulated release.</p>
+</details>
+<p><strong>2. Suppose instead they have a function <span class="math inline">\(C(t)\)</span> that tells them the total carbon released <em>up to</em> time <span class="math inline">\(t\)</span>. What does <span class="math inline">\(C&#39;(t)\)</span> represent?</strong></p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p><span class="math inline">\(C&#39;(t)\)</span> is the <strong>instantaneous rate of carbon release at time <span class="math inline">\(t\)</span></strong> — which is exactly <span class="math inline">\(R(t)\)</span>. This is the Fundamental Theorem of Calculus in action: differentiating the accumulation gives back the rate.</p>
+</details>
+<hr />
+</div>
+<div id="change-over-time-a-first-look-at-differential-equations" class="section level3 hasAnchor" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> Change Over Time: A First Look at Differential Equations<a href="introduction-to-calculus-ii.html#change-over-time-a-first-look-at-differential-equations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Many natural systems evolve according to rules that describe <strong>how</strong> things change rather than simply giving their values at any moment. A population grows because new individuals are added. A pollutant decays because chemical reactions reduce its concentration. A lake warms or cools because heat is exchanged with the environment. In each case, the <em>rate</em> at which a quantity changes is often easier to understand, measure, or model than the total amount itself.</p>
-<p>Differential equations provide a mathematical framework for capturing these rules of change. Instead of expressing a relationship between quantities alone, a differential equation expresses a relationship between a quantity and its <strong>rate of change</strong>. This allows us to describe dynamic systems that respond to their own current state. For example:</p>
+<p><strong>Differential equations</strong> provide a mathematical framework for capturing these rules of change. Instead of expressing a relationship between quantities alone, a differential equation expresses a relationship between a quantity and its rate of change. This lets us describe dynamic systems that respond to their own current state:</p>
 <ul>
 <li>Population growth may speed up when populations are small, slow down when resources become limited, or collapse under stress.<br />
 </li>
 <li>Chemical concentrations may decline at a rate that depends on how much of the substance is present.<br />
 </li>
-<li>Heat transfer may proceed more quickly when temperature differences are large, and more slowly as equilibrium is approached.<br />
+<li>Heat transfer may proceed quickly when temperature differences are large, and more slowly as equilibrium is approached.<br />
 </li>
 <li>Nutrients may cycle through ecosystems at rates that depend on biological activity, temperature, or moisture.</li>
 </ul>
-<p>These processes all share a common feature: the present state of the system determines how it will change next. Differential equations make this dependency explicit.</p>
-<p>At this stage, the goal is not to solve differential equations or manipulate them algebraically. Instead, we aim to understand <strong>what they represent</strong>. A differential equation is essentially a rulebook for how a system responds over time. It provides a recipe that tells us:</p>
+<p>These processes share a common feature: <em>the present state of the system determines how it will change next</em>. Differential equations make that dependency explicit.</p>
+<p>At this stage, the goal isn’t to solve differential equations — it’s to recognize what they represent. A differential equation is essentially a rulebook for how a system responds over time. It tells us:</p>
 <ul>
-<li>if the system is increasing or decreasing,<br />
+<li>whether the system is increasing or decreasing,<br />
 </li>
-<li>whether that change is fast or slow,<br />
+<li>whether the change is fast or slow,<br />
 </li>
 <li>how the rate of change varies with context,<br />
 </li>
-<li>and what types of long-term behaviors might emerge.</li>
+<li>and what long-term behaviors might emerge.</li>
 </ul>
-<p>Later in the course, you will learn techniques for solving differential equations and expressing their solutions in closed form. For now, it is enough to recognize that they are powerful tools for modeling real systems. They allow us to translate scientific understanding into mathematical language, and to move from descriptions like “the population grows faster when resources are abundant” to precise statements that can be analyzed, simulated, and interpreted.</p>
-<p>Differential equations are not just mathematical objects. They are a way of thinking about systems that change continuously, and they provide a natural bridge between calculus and the dynamic processes that shape the natural world.</p>
+<p>Later in the course you’ll learn techniques for solving differential equations and writing their solutions in closed form. For now, it’s enough to recognize that they’re a way of translating scientific understanding into mathematical language — moving from descriptions like “the population grows faster when resources are abundant” to precise statements that can be analyzed, simulated, and interpreted.</p>
+</div>
+<div id="concept-check-recognizing-a-differential-equation" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check: Recognizing a Differential Equation<a href="introduction-to-calculus-ii.html#concept-check-recognizing-a-differential-equation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Which of the following statements describe a <em>differential equation</em> — meaning they express a rate of change in terms of the quantity itself (or some other rate)?</p>
+<p><strong>1. “The size of a fish population at year 10 is 4,200 individuals.”</strong></p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p><strong>Not a differential equation</strong> — this is just a snapshot of the population at a single point in time. There’s no rate of change in the statement.</p>
+</details>
+<p><strong>2. “A pollutant decays at a rate proportional to the amount currently present.”</strong></p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p><strong>Yes — this is a differential equation in words.</strong> Mathematically: <span class="math inline">\(\dfrac{dC}{dt} = -kC\)</span>, where <span class="math inline">\(C\)</span> is the concentration. The rate <span class="math inline">\(\dfrac{dC}{dt}\)</span> depends on the current amount <span class="math inline">\(C\)</span>.</p>
+</details>
+<p><strong>3. “The temperature of a small pond changes at a rate proportional to the difference between the pond temperature and the surrounding air temperature.”</strong></p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p><strong>Yes — also a differential equation.</strong> This is Newton’s Law of Cooling: <span class="math inline">\(\dfrac{dT}{dt} = -k(T - T_{\text{air}})\)</span>. The rate of change depends on the current state.</p>
+</details>
 <hr />
 </div>
-<div id="skills-that-make-calculus-ii-easier" class="section level3 hasAnchor" number="2.4.5">
-<h3><span class="header-section-number">2.4.5</span> Skills That Make Calculus II Easier<a href="introduction-to-calculus-ii.html#skills-that-make-calculus-ii-easier" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="skills-that-make-calculus-ii-easier" class="section level3 hasAnchor" number="2.3.4">
+<h3><span class="header-section-number">2.3.4</span> Skills That Make Calculus II Easier<a href="introduction-to-calculus-ii.html#skills-that-make-calculus-ii-easier" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Solving equations and rearranging expressions<br />
 </li>
 <li>Sketching functions and recognizing trends<br />
 </li>
-<li>Keeping track of context, such as what is changing and what the units represent</li>
+<li>Keeping track of context — what’s changing, and what the units represent</li>
 </ul>
-<p>Strengthening these skills will help you focus on the new ideas in this course.</p>
+<p>Strengthening these skills frees up your attention for the new ideas in this course.</p>
 <hr />
 </div>
 </div>
-<div id="building-an-intuition-for-accumulation" class="section level2 hasAnchor" number="2.5">
-<h2><span class="header-section-number">2.5</span> Building an Intuition for Accumulation<a href="introduction-to-calculus-ii.html#building-an-intuition-for-accumulation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Before we compute any integrals, it is helpful to develop a clear intuition for how totals arise from variable rates. Many environmental quantities do not behave uniformly. Streamflow responds to storms, photosynthesis rises and falls with sunlight, pollutant concentration shifts with depth and time, and populations grow quickly under some conditions and slowly under others.</p>
-<p>A useful way to think about accumulation is to imagine that <strong>each small moment in time</strong> or <strong>each small slice of space</strong> contributes a tiny amount to the total. When we add up all these contributions, we get a meaningful quantity such as total rainfall, total biomass added, or total pollutant exported. This perspective explains why the integral has the structure it does and why graphical reasoning plays such an important role in this course.</p>
+<div id="building-an-intuition-for-accumulation" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Building an Intuition for Accumulation<a href="introduction-to-calculus-ii.html#building-an-intuition-for-accumulation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Before we compute any integrals, it helps to develop a clear intuition for how totals arise from variable rates. Many environmental quantities don’t behave uniformly. Streamflow responds to storms. Photosynthesis rises and falls with sunlight. Pollutant concentration shifts with depth and time. Populations grow quickly under some conditions and slowly under others.</p>
+<p>A useful way to think about accumulation is to imagine that <strong>each small moment in time</strong> — or <strong>each small slice of space</strong> — contributes a tiny amount to the total. When we add all those contributions together, we get a meaningful quantity: total rainfall, total biomass added, total pollutant exported. This perspective is why the integral has the structure it does, and why graphical reasoning plays such an important role in this course.</p>
 <div class="promptbox">
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Each colored slice has a tiny width and a height equal to the rate at that location. Multiplying width by height gives the small contribution from that slice. Adding up all the slices — and, eventually, taking the limit as the slices become very thin — is how we’ll build up the idea of an integral.</p>
 </div>
-<p>Graphical reasoning is especially powerful here. Without doing any calculations, a graph can show whether a system is gaining or losing, whether accumulation is happening quickly or slowly, and whether changes are steady or fluctuating. Throughout the course, we will use graphs not only to visualize functions but also to interpret integrals, predict behavior, and communicate reasoning.</p>
-<div id="units-and-interpretation" class="section level3 hasAnchor" number="2.5.1">
-<h3><span class="header-section-number">2.5.1</span> Units and Interpretation<a href="introduction-to-calculus-ii.html#units-and-interpretation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Units play an equally important role. Because integrals always correspond to real physical quantities, understanding them requires careful attention to what is being measured and how the units combine. For example:</p>
+<p>Graphical reasoning is especially powerful here. Without doing any calculations, a graph can show whether a system is gaining or losing, whether accumulation is happening quickly or slowly, and whether changes are steady or fluctuating. Throughout the course, we’ll use graphs not only to visualize functions but to interpret integrals, predict behavior, and communicate reasoning.</p>
+<div id="concept-check-slicing-up-an-accumulation" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check: Slicing Up an Accumulation<a href="introduction-to-calculus-ii.html#concept-check-slicing-up-an-accumulation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Suppose you’re trying to estimate the total volume of water that flowed past a stream gauge during a 6-hour storm. You have flow measurements (in m³/s) recorded every 15 minutes.</p>
+<p><strong>1. To estimate the total volume, what would you do with each measurement?</strong></p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p>For each 15-minute interval, multiply the flow rate (m³/s) by the length of the interval (15 minutes = 900 seconds). That gives an approximate volume in m³ for that interval. Then sum all the small volumes across the 6-hour storm. This is the <em>Riemann sum</em> idea: each slice contributes width × height, and summing gives an estimate of the total.</p>
+</details>
+<p><strong>2. If you instead had measurements every 1 minute, would your total be more or less accurate?</strong></p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p><strong>More accurate.</strong> Smaller time slices capture the variation in flow rate more faithfully — there’s less chance of missing a rapid surge or assuming the rate stayed constant when it didn’t. The limit of this process, as the slice width shrinks toward zero, is the definite integral.</p>
+</details>
+<hr />
+</div>
+</div>
+<div id="units-and-interpretation" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Units and Interpretation<a href="introduction-to-calculus-ii.html#units-and-interpretation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Units play a quietly important role in this course. Because integrals correspond to real physical quantities, understanding them means paying careful attention to what’s being measured and how the units combine. A few patterns worth recognizing now:</p>
 <ul>
-<li>integrating a rate measured in “individuals per year” over time results in “individuals,”<br />
+<li>Integrating a rate measured in “individuals per year” over time gives “individuals.”<br />
 </li>
-<li>integrating “mg/L multiplied by m³/s” gives a pollutant load measured in “mg/s,”<br />
+<li>Integrating “mg/L × m³/s” gives a pollutant load measured in “mg/s,” and integrating <em>that</em> over a time interval gives total mass in milligrams.<br />
 </li>
-<li>integrating “W/m² over time” yields energy in joules.</li>
+<li>Integrating “W/m²” over time yields energy density in joules per square meter.</li>
 </ul>
-<p>Recognizing this structure ensures that results are meaningful and consistent with the scientific context. Thinking about small pieces, graphs, and units builds the intuition that makes the formal definition of the integral feel natural once we introduce it later in the course.</p>
+<p>Recognizing this structure is what makes results meaningful and consistent with the scientific context. Thinking in small pieces, drawing graphs, and tracking units are the three habits that make the formal definition of the integral feel natural once we introduce it.</p>
+<div id="concept-check-tracking-units-of-an-accumulation" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check: Tracking Units of an Accumulation<a href="introduction-to-calculus-ii.html#concept-check-tracking-units-of-an-accumulation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>1. A wind turbine’s instantaneous power output is measured in kilowatts (kW = kJ/s). If you integrate this power over a 24-hour period, what are the units of your result?</strong></p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p>You get <strong>energy</strong>. If you integrate kW over hours, the natural unit is <strong>kilowatt-hours (kWh)</strong>. If you integrate kW (= kJ/s) over seconds, the result is <strong>kilojoules (kJ)</strong>. Either way, the “per time” in the rate cancels with the time you integrate over, leaving you with a total energy.</p>
+</details>
+<p><strong>2. A scientist integrates a function with units of “kg of carbon per hectare per year” over a region measured in hectares, and then over a time interval measured in years. What are the units of the final result?</strong></p>
+<details>
+<summary>
+<strong>Click to reveal answer</strong>
+</summary>
+<p><strong>Kilograms of carbon (kg C).</strong> Integrating over hectares cancels the “per hectare” and leaves kg/year. Integrating <em>that</em> over years cancels the “per year” and leaves just kg.</p>
+</details>
+<hr />
 </div>
 </div>
 <div id="looking-ahead-1" class="section level2 hasAnchor" number="2.6">
 <h2><span class="header-section-number">2.6</span> Looking Ahead<a href="introduction-to-calculus-ii.html#looking-ahead-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>As the course unfolds, you will learn how to compute integrals efficiently, how to solve differential equations that describe natural systems, and how to analyze environmental processes using a combination of mathematics, graphs, and scientific reasoning. More importantly, you will develop the ability to connect mathematical results back to the real-world systems they describe — a skill that is essential in every field of environmental science.</p>
-<p>Calculus II is not simply about mastering techniques. It is about learning to see the world through a quantitative lens: to understand how change accumulates, how systems evolve, and how mathematics can illuminate the patterns and processes that shape the natural environment.</p>
+<p>As the course unfolds, you’ll learn how to compute integrals efficiently, how to solve differential equations that describe natural systems, and how to analyze environmental processes using a combination of mathematics, graphs, and scientific reasoning. More importantly, you’ll develop the ability to connect mathematical results back to the real-world systems they describe — a skill that’s essential in every corner of environmental science.</p>
+<p>Calculus II isn’t just about mastering techniques. It’s about learning to see the world through a quantitative lens: to understand how change accumulates, how systems evolve, and how mathematics can illuminate the patterns and processes that shape the natural environment.</p>
 <p>Welcome to the journey.</p>
 
 </div>
@@ -1429,8 +1710,8 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/rstudio/bookdown-demo/edit/master/02-intro.Rmd",
-    "text": "Edit"
+    "link": null,
+    "text": null
   },
   "history": {
     "link": null,

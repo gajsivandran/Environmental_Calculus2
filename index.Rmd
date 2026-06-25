@@ -3,13 +3,14 @@ title: "Environmental Calculus 2 - Active Learning with Case Studies"
 author: "Gaj Sivandran"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
-output: bookdown::gitbook
+lang: en-US
+output: bookdown::bs4_book
 documentclass: book     
 bibliography: [book.bib]  
 biblio-style: apalike
 link-citations: yes
-github-repo: rstudio/bookdown-demo
-description: "A textbook companion to the Univeristy of Washington QSci 292 class"
+github-repo: gajsivandran/Environmental_Calculus2
+description: "A textbook companion to the University of Washington QSci 292 class"
 ---
 
 # Why Calculus?
@@ -63,7 +64,7 @@ Each chapter is designed to support you as a learner. You’ll find:
 ---
 
 ## Success in This Class
-![](images/Growth Mindset.png){fig.alt='Image of person thinking, decorative' style="float:right; width:250px; margin:10px;"}
+![](images/Growth Mindset.png){fig.alt='Image of person thinking, decorative' style="width:250px; margin:10px;"}
 
 First and foremost, know this: **we believe in your ability to learn and grow.** You bring unique strengths and perspectives, and your effort matters here.  
 

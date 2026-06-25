@@ -1,10 +1,10 @@
 # Applications of Integration
 
-The previous chapter focused heavily on learning the mechanics of integration—notation, rules, and techniques. That work matters, but mathematics becomes most useful when we put it to work.
+A hydrologist's hard drive holds four datasets from the same Pacific Northwest watershed: streamflow every fifteen minutes for a year, soil-moisture surveys spread across the watershed each week, a biomass density map for the riparian zone, and a daily log of how much the river ran above the minimum ecological flow. None of these is the answer to anything by itself. Each one is a **rate**, a **density**, or a **difference between two curves** — and to get the actual answers an agency cares about (*total runoff this year*, *total biomass in the riparian zone*, *average flow during the spawning window*, *cumulative water above the ecological-flow line*) someone has to integrate.
 
-In this chapter, we shift from *how to compute integrals* to *how to use them*. Integrals help us understand how quantities accumulate: how small contributions add up over space or time, how totals emerge from rates or densities, and how gains and losses combine to produce net change. Rather than treating integration as a collection of formulas, we use it as a tool for interpreting and analyzing real systems.
+The previous chapter focused heavily on the *mechanics* of integration — notation, rules, and techniques. That work matters, but mathematics becomes most useful when we put it to work. This chapter shifts from *how to compute integrals* to *how to use them*. Integrals let us understand how quantities accumulate: how small contributions add up over space or time, how totals emerge from rates or densities, and how gains and losses combine to produce a net change. Rather than treating integration as a collection of formulas, we use it as a tool for interpreting and analyzing real systems.
 
-The goal here is meaning first. Each application connects the mathematics back to what an integral represents and why it matters, turning computation into insight.
+The goal here is **meaning first**. Each application connects the mathematics back to what an integral represents and why it matters, turning computation into insight.
 
 ## From Rates and Densities to Totals
 
@@ -90,6 +90,32 @@ An integral answers questions like:
 In the sections that follow, we will apply this same accumulation idea to many different contexts. The mathematics will look familiar, but the meaning will always come first.
 
 
+### Concept Check: Rates and Densities vs Totals {-}
+
+What's the difference between a *rate*, a *density*, and a *total* — and why can't most environmental questions be answered by one alone?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+A **rate** tells you how fast something is changing per unit of time (rain falling at 5 mm/hr). A **density** tells you how much of something is packed per unit of space (300 trees per hectare). A **total** tells you how much accumulated overall (47 mm of rain this storm, 12,000 trees in the watershed). Most environmental questions are about totals, but most sensors and surveys measure rates or densities. The integral is the bridge.
+
+</details>
+
+
+### Concept Check: Why Multiplication Isn't Enough {-}
+
+If a rainfall sensor reports 5 mm/hr, why can't you just multiply by the duration of the storm to get the total rainfall?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Because real rates **don't stay constant**. The 5 mm/hr reading is a *snapshot* at one moment — the storm intensity will be different ten minutes later. Multiplying a single rate by the whole duration pretends the rate held flat the entire time, which is almost never true. Integration is the formal way to *add up many small contributions* when the rate changes.
+
+</details>
+
+
+---
+
 ## Accumulation When Totals Are Always Positive
 
 In many real-world situations, accumulation only moves in one direction. Each small contribution adds to the total, and nothing is ever taken away. In these cases, the accumulated quantity is **always nonnegative**, and the interpretation of an integral is especially direct.
@@ -123,6 +149,32 @@ These examples highlight two important ideas:
 2. The integral answers a question about **total amount**, not change relative to a baseline.
 
 Because all contributions are positive, the integral behaves like an ever-increasing sum. This makes these situations ideal for building intuition about how integrals work before introducing more complex cases.
+
+### Concept Check: What Makes an Accumulation "Always Positive" {-}
+
+Why is total rainfall over a storm an "always-positive" accumulation, but net carbon exchange for a forest over a day is not?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Rainfall *can only increase* over time — drops can't un-fall. So the rate (rainfall intensity) is always nonnegative, and its integral is always nonnegative. Net carbon exchange, by contrast, has a signed rate: photosynthesis pulls carbon *in* (positive), respiration releases carbon *out* (negative), and the two run simultaneously. The integrand changes sign, so the integral can be positive, negative, or zero.
+
+</details>
+
+
+### Concept Check: Reading Units to Find the Total {-}
+
+A leaf-level photosynthesis rate is reported as **μmol CO₂ / m² / s**. You integrate it over time and over the leaf area. What units does the result have?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Multiplying by seconds cancels the "/s", leaving μmol CO₂/m². Multiplying by m² then cancels the "/m²", leaving **μmol CO₂**. Tracking units this way is one of the fastest ways to catch a setup error — if the final units don't match the physical quantity you're claiming to compute, the integral is wrong.
+
+</details>
+
+
+---
 
 ## Net Accumulation: When Gains and Losses Compete
 
@@ -193,6 +245,32 @@ As you move forward, keep this distinction in mind:
 
 Both rely on the same mathematical machinery. What changes is the story the integral is telling—and learning to read that story is the real goal of this chapter.
 
+
+### Concept Check: When Net Differs from Total {-}
+
+Suppose a stream gains 800 m³ of water during a storm and loses 800 m³ in the days following through evaporation and seepage. The **net accumulation** over the period is zero. What is the **total accumulation** — and which one would you report if asked "how much water moved through this system?"
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+**Net** accumulation is zero because the gains and losses canceled in the signed integral. **Total** accumulation (integrating |rate|, not rate) is 1,600 m³ — the actual volume of water that moved. Which one is the "right" answer depends on the question. "Did the system gain or lose water?" → net. "How much water moved?" → total. The same dataset answers both, but only if you ask the right integral.
+
+</details>
+
+
+### Concept Check: Negative Integrands and Signed Areas {-}
+
+If the rate of net population change for a fish stock is *negative* for several months out of a year, what does the integral of that rate over those months contribute to the year-end net change?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+It contributes a **negative number** — a population loss. In a signed integral, a region where the integrand is below the horizontal axis contributes negative "area" to the total. That's why net accumulation can land on zero or even go negative: positive-rate periods and negative-rate periods compete in the same sum.
+
+</details>
+
+
+---
 
 ## Using Integrals to Compute the Average Value of a Function
 
@@ -397,6 +475,32 @@ The average value formula shows that integrals do more than measure totals. They
 
 This idea appears repeatedly in science and engineering, from climate averages to mean concentrations and long-term rates. Once again, the mathematics is simple—but the interpretation is powerful.
 
+
+### Concept Check: Why Average = (1/(b-a)) ∫ f dx Makes Sense {-}
+
+The average value of \(f\) on \([a, b]\) is \(\frac{1}{b-a}\int_a^b f(x)\,dx\). Why does that formula make sense intuitively?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Think of the integral as the *total accumulation* of \(f\) over the interval. Dividing by the width \(b - a\) gives you the **constant value that would produce the same total** over the same interval — i.e., the "flat-line height" with the same area. That's exactly what an average is: the steady value that's equivalent to the varying one, on net.
+
+</details>
+
+
+### Concept Check: Average Rate in Environmental Context {-}
+
+A daily streamflow record for a river over a year gives a function \(Q(t)\). What does \(\frac{1}{365}\int_0^{365} Q(t)\,dt\) tell you, and why is it more useful than knowing \(Q\) at any single day?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+It's the **average daily discharge over the year** — the constant flow rate that, if it had run steady for 365 days, would have moved the same total volume of water as the real (variable) flow did. It's more useful than any single day's reading because it smooths over storms, droughts, and daily variation to give a single defensible number you can compare across years, between rivers, or against regulatory thresholds.
+
+</details>
+
+
+---
 
 ## Area Between Two Curves
 
@@ -793,6 +897,32 @@ Area between curves extends the idea of integration beyond accumulation relative
 Once again, the formula is simple. The insight comes from understanding *what is being measured* and *why that measurement matters*.
 
 
+### Concept Check: Top Minus Bottom {-}
+
+For \(\int_a^b [f(x) - g(x)]\,dx\) to represent a positive area between two curves, what has to be true about \(f\) and \(g\) on \([a, b]\) — and what happens if the curves cross within the interval?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+You need \(f(x) \geq g(x)\) throughout \([a, b]\) — \(f\) is the *top* curve, \(g\) is the *bottom*. If the curves cross within the interval, the labels "top" and "bottom" switch at the crossing, and the integrand changes sign. To compute the *geometric* area you split the interval at each crossing and integrate \(|f - g|\) piecewise — otherwise the signed integral will partially cancel.
+
+</details>
+
+
+### Concept Check: What 'Area Between' Means Environmentally {-}
+
+If \(Q_{\text{actual}}(t)\) is the actual streamflow on day \(t\) and \(Q_{\text{min}}\) is a constant minimum ecological flow, what physical quantity does \(\int_0^{365} [Q_{\text{actual}}(t) - Q_{\text{min}}]\,dt\) compute when the actual flow exceeds the minimum throughout?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+The **total volume of "extra" water** — water that flowed above the ecological-flow threshold across the year. Each day's contribution is the *excess* flow rate times the day, and the integral sums those daily excesses. If the actual flow ever dropped below the minimum, those days would contribute *negatively* to this integral, signaling an ecological-flow shortfall.
+
+</details>
+
+
+---
+
 ## Double Integrals: Accumulation Over Two Dimensions
 
 So far, we’ve used integrals to accumulate quantities over **one variable**—time, distance, or depth. Many environmental quantities, however, vary over **two spatial dimensions** at once. In those cases, we need a way to accumulate contributions across an entire region, not just along a line.
@@ -1176,6 +1306,32 @@ filled.contour(
 
 :::
 
+### Concept Check: What ∫∫f(x,y) dA Represents for a Density {-}
+
+Suppose \(\rho(x, y)\) gives the **biomass density** (kg per m²) at position \((x, y)\) in a riparian zone \(R\). What does \(\iint_R \rho(x, y)\,dA\) compute, and what are its units?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+It computes the **total biomass** in the riparian zone. The integrand has units of kg/m²; the differential \(dA\) has units of m². Multiplying and integrating: kg/m² × m² = **kg**. Conceptually, you're slicing the region \(R\) into tiny patches of area \(dA\), multiplying each patch's density by its area to get a tiny mass, then summing all those tiny masses over the region.
+
+</details>
+
+
+### Concept Check: Why Iterated Integrals Work {-}
+
+Why can a double integral over a rectangular region be computed as two single integrals — one inside the other — rather than requiring some new "2D" integration technique?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Because the region can be **sliced into thin strips**, integrated along the strip first (a 1D integral in one variable), and then the strip totals are themselves added up along the other axis (another 1D integral). Each iterated step is just a regular definite integral. Fubini's theorem guarantees that, for continuous integrands on a nice region, the iterated integrals give the same result regardless of which variable you integrate first.
+
+</details>
+
+
+---
+
 ## Triple Integrals: Accumulation Over Volume
 
 Double integrals extend accumulation from a line to an area. **Triple integrals** take the next step: they accumulate quantities throughout a **three-dimensional region**.
@@ -1213,6 +1369,32 @@ As before, you integrate one variable at a time, treating the others as constant
 
 ---
 
+### Concept Check: When You'd Need a Triple Integral in Environmental Science {-}
+
+Give an example of a quantity that would naturally be computed with a triple integral over a volume — and explain why three dimensions are needed.
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+**Total dissolved oxygen in a lake**. The dissolved oxygen concentration \(c(x, y, z)\) typically varies with horizontal position (water temperature, sunlight, wind mixing) *and* with depth (stratification, photosynthesis layers, sediment oxygen demand). Integrating \(c\) over the full 3D lake volume \(\iiint c\,dV\) gives total dissolved oxygen mass. You can't reduce this to a 2D problem because depth matters.
+
+</details>
+
+
+### Concept Check: Units When Integrating Over Volume {-}
+
+If \(\rho(x, y, z)\) has units of **g of pollutant per m³**, what are the units of \(\iiint_V \rho\,dV\) and what does the result represent?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+The volume element \(dV\) has units of m³, which cancels the "per m³" in the density, leaving units of **grams**. The integral represents the **total mass of pollutant** within the volume \(V\).
+
+</details>
+
+
+---
+
 ## Quadruple Integrals: When Time Enters the Picture
 
 A **quadruple integral** arises when a quantity varies over **three dimensions of space and time**.
@@ -1242,6 +1424,34 @@ the integral becomes
 \int_a^b \int_c^d \int_e^f
 f(x,y,z,t)\,dz\,dy\,dx\,dt.
 \]
+
+---
+
+### Concept Check: Why Adding Time Turns 3D Into 4D {-}
+
+If you already know how to compute the total pollutant mass in a lake at one moment using a triple integral over volume, why might a quadruple integral over volume *and time* be necessary?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Because the **distribution itself changes over time**. A triple integral at a single moment gives the snapshot mass *then*. But if you want a quantity like *total pollutant-exposure dose* (mass-hours) over a week, you need to track how the spatial distribution evolves and accumulate over time as well. Each tiny chunk of volume contributes \(\rho(x,y,z,t)\,dV\,dt\) to the total — four dimensions of integration.
+
+</details>
+
+
+### Concept Check: When You'd Actually Use a Quadruple Integral {-}
+
+Give a concrete environmental setting where a quadruple integral (over space + time) is the right tool — and one where it's overkill.
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+**Right tool:** Computing the total UV-radiation exposure delivered to the surface waters of a lake over a summer season — radiation intensity varies in (x, y, z, t) and the cumulative dose matters biologically.
+
+**Overkill:** Computing the total volume of a lake. The lake's geometry doesn't depend on time (over short windows), so a triple spatial integral suffices — adding a time dimension would just multiply the answer by the time length and tell you something less useful.
+
+</details>
+
 
 ---
 
@@ -1313,6 +1523,40 @@ Several standard numerical methods are built around this idea:
 Each method balances simplicity and accuracy differently, but all share the same goal: approximate an integral using finite data.
 
 
+
+### Concept Check: When Numerical Integration Is Needed {-}
+
+Give two situations in environmental science where you'd reach for numerical integration instead of trying to find an analytic antiderivative.
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+1. **The rate is only known as data, not as a formula.** A flux tower spits out half-hourly carbon-exchange readings — there is no symbolic integrand to antidifferentiate. You numerically integrate the data directly.
+
+2. **The integrand has no elementary antiderivative.** Functions like \(e^{-x^2}\) (Gaussian, common in dispersion modeling) and \(\sin(x)/x\) appear naturally in environmental work but have no closed-form antiderivative. Numerical methods (trapezoidal, Simpson's, Gaussian quadrature) get you a defensible answer anyway.
+
+</details>
+
+
+### Concept Check: Choosing Among Numerical Methods {-}
+
+What's the trade-off between using a left-endpoint Riemann sum, the trapezoidal rule, and Simpson's rule on the same dataset?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+**Left-endpoint Riemann sum**: simple, fast, but systematically over- or underestimates whenever the rate is monotonic, and error decreases only linearly as you halve the step size.
+
+**Trapezoidal rule**: fits a straight line across each step; error decreases quadratically with step size; usually a big improvement for smooth rates.
+
+**Simpson's rule**: fits a parabola across each pair of steps; error decreases like \(O(h^4)\); often the best choice when the underlying rate is smooth and you have evenly spaced data.
+
+The trade-off: more sophisticated methods give more accuracy per data point but assume more about the function's smoothness.
+
+</details>
+
+
+---
 
 ## Comparing Analytic and Numerical Integration from Data
 
@@ -1531,3 +1775,339 @@ The key idea is this:
 
 Numerical integration bridges the gap between real-world data and the mathematical concept of accumulation—allowing integrals to remain useful even when exact formulas are out of reach.
 
+---
+
+### Concept Check: Model vs Data: When They Disagree {-}
+
+If you fit a smooth model to streamflow data and integrate the model, you get one answer for total annual volume. If you instead apply Simpson's rule directly to the raw daily measurements, you get a slightly different answer. Which one should you trust?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Neither one is automatically "right." The fitted-model integral is smoother and reflects your *assumed* shape (e.g., a sinusoid) — it can extrapolate cleanly but may miss real spikes. The direct numerical integration of data faithfully captures whatever the sensor measured — including any noise or anomalies — but it inherits any gaps or errors in the data. In practice, the discrepancy itself is informative: large disagreement usually means the model is mis-specified or the data have features the model isn't capturing.
+
+</details>
+
+
+### Concept Check: When to Trust Analytic, When to Trust Numerical {-}
+
+What's the practical guideline for choosing analytic vs numerical integration for a real environmental dataset?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+**Use analytic integration** when (a) you have a defensible *functional model* for the rate (calibrated to data, mechanistic, or theoretically grounded), and (b) the function has a tractable antiderivative. The result is exact and reproducible.
+
+**Use numerical integration** when (a) you only have data, no model, or (b) the model fits but has no analytic antiderivative. Numerical results depend on the method and step size and should be reported with both.
+
+Reporting *both* answers (analytic from a model + numerical from raw data) and explaining any difference is often the strongest scientific practice.
+
+</details>
+
+
+---
+
+
+## Practice Problems
+
+The problems below pull from every major application type in the chapter: total accumulation from rates and densities, net accumulation, average value, area between curves, double integrals, and numerical methods. Some specify the technique; others ask you to identify which integral applies before computing.
+
+---
+
+### Problem 1: Total Rainfall from a Storm Hyetograph {-}
+
+A storm gauge records rainfall intensity over a 4-hour storm as
+\[
+r(t) = 3t - \tfrac{1}{2}t^2 \quad \text{(mm/hr)},
+\]
+where \(t\) is hours since the storm started. Find the **total rainfall** over the 4-hour storm.
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+This is an always-positive accumulation (\(r(t) \geq 0\) on \([0, 4]\)).
+\[
+\int_0^4 \left(3t - \tfrac{1}{2}t^2\right) dt
+= \left[\tfrac{3}{2}t^2 - \tfrac{1}{6}t^3\right]_0^4
+= 24 - \tfrac{64}{6}
+= 24 - 10.\overline{6}
+\approx 13.33 \text{ mm}.
+\]
+
+**Total rainfall ≈ 13.3 mm.**
+
+</details>
+
+---
+
+### Problem 2: Net Carbon Exchange Over 24 Hours {-}
+
+A flux tower in a young forest stand records net carbon flux as
+\[
+F(t) = 4\sin\!\left(\frac{\pi t}{12}\right) - 1 \quad \text{(mg C / m}^2\text{/hr)},
+\]
+where \(t\) is hours after midnight. Find the **net carbon exchange** over a full 24-hour day, and interpret the sign.
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+\[
+\int_0^{24} \left[4\sin\!\left(\tfrac{\pi t}{12}\right) - 1\right] dt
+= \left[-\tfrac{48}{\pi}\cos\!\left(\tfrac{\pi t}{12}\right) - t\right]_0^{24}.
+\]
+
+At \(t = 24\): \(-\tfrac{48}{\pi}\cos(2\pi) - 24 = -\tfrac{48}{\pi} - 24\).
+At \(t = 0\): \(-\tfrac{48}{\pi}\cos(0) - 0 = -\tfrac{48}{\pi}\).
+
+Difference:
+\[
+\left(-\tfrac{48}{\pi} - 24\right) - \left(-\tfrac{48}{\pi}\right) = -24 \text{ mg C / m}^2.
+\]
+
+**Net flux = −24 mg C/m²** over 24 hours. The stand is a **net carbon source** for the day: the constant background respiration loss of 1 mg/m²/hr outweighed the periodic photosynthesis gains in net terms.
+
+</details>
+
+---
+
+### Problem 3: Average Streamflow During a Spawning Window {-}
+
+Over a 60-day spawning window, the daily mean streamflow in a river is modeled as
+\[
+Q(t) = 80 + 20\sin\!\left(\frac{\pi t}{30}\right) \quad \text{(m}^3\text{/s)},
+\]
+where \(t\) is days into the window. Find the **average streamflow** over the window.
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+\[
+\bar{Q} = \frac{1}{60}\int_0^{60}\left[80 + 20\sin\!\left(\tfrac{\pi t}{30}\right)\right] dt
+= \frac{1}{60}\left[80 t - \tfrac{600}{\pi}\cos\!\left(\tfrac{\pi t}{30}\right)\right]_0^{60}.
+\]
+
+At \(t = 60\): \(4800 - \tfrac{600}{\pi}\cos(2\pi) = 4800 - \tfrac{600}{\pi}\).
+At \(t = 0\): \(0 - \tfrac{600}{\pi}\cos(0) = -\tfrac{600}{\pi}\).
+
+Difference: \(4800 - \tfrac{600}{\pi} + \tfrac{600}{\pi} = 4800\).
+
+\[
+\bar{Q} = \frac{4800}{60} = 80 \text{ m}^3\text{/s}.
+\]
+
+**Average streamflow = 80 m³/s.** (The sinusoidal variation averages to zero over a full period, leaving just the baseline.)
+
+</details>
+
+---
+
+### Problem 4: Water Above an Ecological-Flow Minimum {-}
+
+A river has a regulatory minimum ecological flow of \(Q_{\text{min}} = 30\) m³/s. Over a 10-day window, the actual flow is
+\[
+Q(t) = 30 + 12 t - t^2 \quad \text{(m}^3\text{/s)},
+\]
+where \(t\) is days. Compute the **total volume of water that flowed above the minimum** during the window. (Note: be careful with units — m³/s × days.)
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+The excess flow is \(Q(t) - Q_{\text{min}} = 12t - t^2\). Check that this is positive on \([0, 10]\): \(12t - t^2 = t(12 - t) \geq 0\) for \(0 \leq t \leq 12\). ✓
+
+\[
+\int_0^{10} (12 t - t^2)\, dt
+= \left[6 t^2 - \tfrac{t^3}{3}\right]_0^{10}
+= 600 - \tfrac{1000}{3}
+\approx 266.67 \text{ (m}^3\text{/s)} \cdot \text{days}.
+\]
+
+Convert to m³: 1 day = 86,400 s, so
+\[
+266.67 \times 86{,}400 \approx 2.30 \times 10^7 \text{ m}^3.
+\]
+
+**Total volume above the minimum ≈ 23 million m³** over the 10-day window.
+
+</details>
+
+---
+
+### Problem 5: Net Population Change (Births vs Deaths) {-}
+
+For a juvenile salmon cohort over a 6-month survey, birth rate (recruitment from upstream) is modeled as \(B(t) = 200 - 10t\) (fish/month) and death rate as \(D(t) = 50 + 5t\) (fish/month), where \(t\) is months from the start. Find the **net population change** over the 6 months.
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Net rate of change is \(B(t) - D(t) = 150 - 15 t\).
+
+\[
+\int_0^6 (150 - 15 t)\, dt
+= \left[150 t - \tfrac{15}{2} t^2\right]_0^6
+= 900 - \tfrac{15}{2}(36)
+= 900 - 270
+= 630 \text{ fish}.
+\]
+
+**Net population gain = 630 fish** over the six-month window. (Note: \(B = D\) at \(t = 10\) months — within this window, recruitment outpaced mortality, but the gap was narrowing.)
+
+</details>
+
+---
+
+### Problem 6: Total Biomass in a Riparian Strip {-}
+
+A riparian strip is modeled as a rectangular region \(R = [0, 200] \times [0, 50]\) meters along a river bank. The biomass density is
+\[
+\rho(x, y) = 5 + 0.01\,x \cdot y \quad \text{(kg/m}^2\text{)},
+\]
+where \(x\) is distance along the bank and \(y\) is distance perpendicular from the bank. Find the **total biomass** in the strip.
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+\[
+\iint_R \rho(x, y)\, dA = \int_0^{200}\int_0^{50} (5 + 0.01\, x y)\, dy\, dx.
+\]
+
+Inner integral (over \(y\)):
+\[
+\int_0^{50} (5 + 0.01\, x y)\, dy
+= \left[5 y + 0.005\, x y^2\right]_0^{50}
+= 250 + 0.005\, x (2500)
+= 250 + 12.5\, x.
+\]
+
+Outer integral (over \(x\)):
+\[
+\int_0^{200} (250 + 12.5\, x)\, dx
+= \left[250\, x + 6.25\, x^2\right]_0^{200}
+= 50{,}000 + 6.25(40{,}000)
+= 50{,}000 + 250{,}000
+= 300{,}000 \text{ kg}.
+\]
+
+**Total biomass = 300,000 kg = 300 metric tons.**
+
+</details>
+
+---
+
+### Problem 7: Dissolved Oxygen Mass in a Lake Subsection {-}
+
+A small lake subsection occupies the rectangular region \([0, 100] \times [0, 80]\) meters with a uniform depth of 5 meters. Dissolved oxygen concentration is modeled as
+\[
+c(x, y) = 8 - 0.02\,x \quad \text{(mg/L)},
+\]
+varying only with \(x\) (distance from the inflow). Assuming concentration doesn't vary with depth, find the **total mass of dissolved oxygen** in the subsection. (Hint: 1 L = 0.001 m³.)
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Volume of the subsection: \(100 \times 80 \times 5 = 40{,}000\) m³ = \(4 \times 10^7\) L.
+
+Concentration averaged over \(x\):
+\[
+\bar{c} = \frac{1}{100}\int_0^{100}(8 - 0.02\,x)\,dx
+= \frac{1}{100}\left[8\,x - 0.01\,x^2\right]_0^{100}
+= \frac{1}{100}(800 - 100)
+= 7 \text{ mg/L}.
+\]
+
+Total mass: \(7 \text{ mg/L} \times 4 \times 10^7 \text{ L} = 2.8 \times 10^8\) mg = **280 kg of dissolved oxygen.**
+
+</details>
+
+---
+
+### Problem 8: Numerical Integration of Hourly Evapotranspiration Data {-}
+
+A weather station reports the following hourly evapotranspiration rates (mm/hr) for an 8-hour midday window:
+
+| Hour | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|------|---|---|---|---|---|---|---|---|---|
+| ET (mm/hr) | 0.1 | 0.3 | 0.6 | 0.9 | 1.0 | 0.9 | 0.6 | 0.3 | 0.1 |
+
+Use the **trapezoidal rule** with \(\Delta t = 1\) hr to estimate the **total evapotranspiration** over the 8-hour window.
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Trapezoidal rule:
+\[
+\text{Total} \approx \tfrac{\Delta t}{2}\bigl[f_0 + 2f_1 + 2f_2 + \cdots + 2f_7 + f_8\bigr].
+\]
+
+\[
+\tfrac{1}{2}\bigl[0.1 + 2(0.3 + 0.6 + 0.9 + 1.0 + 0.9 + 0.6 + 0.3) + 0.1\bigr]
+= \tfrac{1}{2}\bigl[0.2 + 2(4.6)\bigr]
+= \tfrac{1}{2}(9.4)
+= 4.7 \text{ mm}.
+\]
+
+**Total ET ≈ 4.7 mm** over the 8-hour window. (Notice the symmetry: the data are roughly bell-shaped around the midday peak.)
+
+</details>
+
+---
+
+### Problem 9: Average Pollutant Concentration in a Water Column {-}
+
+A pollutant concentration in a 10-meter water column is modeled as
+\[
+c(z) = 4 + 0.1\,z^2 \quad \text{(mg/L)},
+\]
+where \(z\) is depth in meters from the surface. Find the **average concentration** over the 10-meter column.
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+\[
+\bar{c} = \frac{1}{10}\int_0^{10}(4 + 0.1\,z^2)\,dz
+= \frac{1}{10}\left[4 z + \tfrac{0.1}{3}\,z^3\right]_0^{10}
+= \frac{1}{10}\left(40 + \tfrac{100}{3}\right)
+= \frac{1}{10}\left(\tfrac{120 + 100}{3}\right)
+= \frac{220}{30}
+\approx 7.33 \text{ mg/L}.
+\]
+
+**Average concentration ≈ 7.33 mg/L.** (The bottom waters are richer — \(c(10) = 14\) mg/L — but the lighter top half pulls the average down.)
+
+</details>
+
+---
+
+### Problem 10: Choose and Apply — Carbon Uptake Over a Growing Season {-}
+
+A young Douglas-fir stand has a daily net carbon uptake rate of
+\[
+U(t) = 12 \sin\!\left(\frac{\pi (t - 30)}{150}\right) \quad \text{(g C / m}^2\text{/day)},
+\]
+where \(t\) is days from January 1 and the rate is meaningful (non-negative) only between \(t = 30\) and \(t = 180\) (roughly Feb 1 through end of June). Find the **total carbon uptake per square meter** over the active growing season.
+
+**Before computing**, decide whether this is an always-positive accumulation, a signed/net accumulation, or an average-value problem. Justify your choice.
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+**Classification:** *Always-positive accumulation* — the problem restricts to the window where \(U(t) \geq 0\), and we want the total carbon fixed (not the average rate, and not a signed net).
+
+Compute the integral:
+\[
+\int_{30}^{180} 12\sin\!\left(\tfrac{\pi(t-30)}{150}\right) dt.
+\]
+
+Let \(u = \frac{\pi(t-30)}{150}\), so \(du = \frac{\pi}{150}dt\), or \(dt = \frac{150}{\pi}du\). When \(t = 30\), \(u = 0\); when \(t = 180\), \(u = \pi\).
+
+\[
+= 12 \cdot \tfrac{150}{\pi} \int_0^{\pi}\sin(u)\,du
+= \tfrac{1800}{\pi}\bigl[-\cos(u)\bigr]_0^{\pi}
+= \tfrac{1800}{\pi}\bigl(-(-1) - (-1)\bigr)
+= \tfrac{1800}{\pi}(2)
+= \tfrac{3600}{\pi}
+\approx 1146 \text{ g C / m}^2.
+\]
+
+**Total carbon uptake ≈ 1146 g C/m² ≈ 1.15 kg C/m²** over the growing season.
+
+</details>
