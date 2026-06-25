@@ -1,0 +1,637 @@
+# Test 1 Review Material {-}
+
+## Test Instructions {-}
+Below are the general instructions for all tests
+
+- You will get a chance to **retake** this. Your **highest** score counts toward your final grade.  
+- Follow the guidance for each part and **show all work** for full credit.  
+- **Non-graphical calculators** are allowed.  
+- **One page (two sides)** of handwritten (or font size 8) notes are allowed.
+- The equation sheet from the textbook is included as part of the test pack (it doesn't count as note pages)
+
+## Test Format {-}
+You should be able to do the following for this test
+
+- Interpret rates, accumulations, and units in environmental contexts
+- Apply Riemann sums (left, right, midpoint) and the trapezoidal rule to approximate definite integrals
+- Reason about over- and underestimation based on function shape
+- Use linearity of the integral and the Fundamental Theorem of Calculus
+- Compute indefinite integrals using basic antiderivative rules
+- Interpret what the value of a definite integral represents
+
+The test will consist of:
+
+- 10 multiple-choice questions with justification
+- 1 Riemann-sum / trapezoidal-rule comparison problem
+- 1 definite-integral evaluation using the Fundamental Theorem of Calculus
+- 3 indefinite-integral computations
+
+---
+
+## Part A — Multiple Choice with Justification {-}
+
+**Instructions:**  
+Select the best answer **and** write one clear sentence justifying your choice.
+
+---
+
+### 1. Units and Interpretation {-}
+
+A sensor records a **pollutant concentration change rate** \( p(t) \) in mg/L per hour.
+
+Which quantity has units of **mg/L**?
+
+A. \( p(t) \)  
+B. \( \displaystyle \int_0^5 p(t)\,dt \)  
+C. \( \displaystyle \frac{1}{5}\int_0^5 p(t)\,dt \)  
+D. \( p(5) - p(0) \)
+
+<details>
+<summary><em>Hint</em></summary>
+
+Track the units: \(p(t)\) is mg/L per hour, and \(dt\) has units of hours. What happens when you multiply?
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+The integral \(\int_0^5 p(t)\,dt\) multiplies a rate (mg/L per hour) by time (hours), giving units of **mg/L**.
+
+- A: \(p(t)\) is mg/L per hour — wrong units.
+- C: Average rate \(\frac{1}{5}\int_0^5 p(t)\,dt\) is mg/L per hour — wrong units.
+- D: \(p(5) - p(0)\) is a difference of rates, still mg/L per hour.
+
+\[
+\boxed{\text{B}}
+\]
+
+</details>
+
+---
+
+### 2. Net Change vs. Instantaneous Value {-}
+
+Let \( r(t) \) be a rate function.
+
+Which statement is always true?
+
+A. If \( r(t) = 0 \) at some time, then the total accumulation is zero  
+B. A positive value of \( r(t) \) guarantees positive total accumulation  
+C. Total accumulation depends on both magnitude and duration of the rate  
+D. Negative values of \( r(t) \) cancel out and do not affect totals  
+
+<details>
+<summary><em>Hint</em></summary>
+
+The total accumulation is \(\int r(t)\,dt\) — what does that integral depend on?
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+The integral \(\int r(t)\,dt\) is built from many small contributions \(r(t)\,\Delta t\). Both the height (the rate) and the width (the duration of each piece) contribute to the total.
+
+- A: Wrong — \(r(t) = 0\) at one moment doesn't determine the integral.
+- B: Wrong — one positive value doesn't determine the sign of the integral.
+- D: Wrong — negative \(r(t)\) values *do* affect totals (they contribute negatively).
+
+\[
+\boxed{\text{C}}
+\]
+
+</details>
+
+---
+
+### 3. Riemann Sums and Function Shape {-}
+
+Suppose \( f(x) \) is **increasing and concave down** on \([a,b]\).
+
+Which statement is most accurate?
+
+A. Left Riemann sums tend to underestimate the integral  
+B. Right Riemann sums tend to underestimate the integral  
+C. Trapezoidal rule will always overestimate the integral  
+D. All Riemann sums give the same result  
+E. None of the above  
+
+<details>
+<summary><em>Hint</em></summary>
+
+For an *increasing* function, where on each subinterval does the function value first hit its minimum? And for a *concave-down* function, do trapezoids lie above or below the curve?
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+For an *increasing* function, the function value at the left endpoint of each subinterval is the smallest value on that subinterval. So left Riemann sums underestimate.
+
+For a *concave-down* function, the straight-line top of each trapezoid lies *below* the curve, so trapezoidal also underestimates (not overestimates). So C is wrong.
+
+\[
+\boxed{\text{A}}
+\]
+
+</details>
+
+---
+
+### 4. What Improves with More Subintervals? {-}
+
+When increasing the number of subintervals in a Riemann sum approximation, what improves **directly**?
+
+A. The algebra becomes simpler  
+B. The approximation more closely reflects local behavior of the function  
+C. The integral becomes exact  
+D. The function becomes linear on each subinterval  
+
+<details>
+<summary><em>Hint</em></summary>
+
+Smaller subintervals → less variation in the rate within each piece. What does that improve about the approximation?
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+Narrower subintervals mean the rate changes less inside each one, so the constant-rate-per-rectangle assumption is more reasonable. The approximation tracks the function more closely.
+
+- A: Wrong — more rectangles means more arithmetic, not less.
+- C: Wrong — only in the *limit* as \(n \to \infty\) is it exact, not at any finite \(n\).
+- D: Wrong — the function isn't being changed; only the sampling resolution is.
+
+\[
+\boxed{\text{B}}
+\]
+
+</details>
+
+---
+
+### 5. Midpoint Rule Reasoning {-}
+
+Why can the midpoint rule outperform left- or right-hand sums for many functions?
+
+A. It uses more subintervals  
+B. It assumes the function is constant  
+C. It samples where over- and under-estimates may balance  
+D. It eliminates the need for limits  
+
+<details>
+<summary><em>Hint</em></summary>
+
+On a smooth function, where would you place a single representative height so that the rectangle's over- and underestimate roughly cancel?
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+For a smooth function, sampling at the midpoint tends to give a rectangle whose top dips below the curve on one side and rises above on the other — the over- and under-shoots partially cancel.
+
+- A: Wrong — it uses the same number of subintervals.
+- B: Wrong — all rectangle methods assume constant within a slice.
+- D: Wrong — it doesn't change the underlying definition.
+
+\[
+\boxed{\text{C}}
+\]
+
+</details>
+
+---
+
+### 6. Linearity and Constants {-}
+
+Which expression is equivalent to  
+\[
+\int_0^2 (x^2 + 5)\,dx ?
+\]
+
+A. \( \int_0^2 x^2\,dx + 5 \)  
+B. \( \int_0^2 x^2\,dx + \int_0^2 5\,dx \)  
+C. \( \int_0^2 (x^2)\,dx \cdot 5 \)  
+D. \( 5\int_0^2 x^2\,dx \)  
+
+<details>
+<summary><em>Hint</em></summary>
+
+Linearity of the integral lets you split a *sum* of functions into separate integrals.
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+Linearity: \(\int(f+g)\,dx = \int f\,dx + \int g\,dx\). Splitting the sum gives \(\int_0^2 x^2\,dx + \int_0^2 5\,dx\).
+
+- A: Wrong — the second term should be the integral of 5 over \([0,2]\), which equals 10, not just \(+5\).
+- C and D: Wrong — \((x^2 + 5)\) is a sum, not a product; you can't pull a 5 out of \(\int (x^2+5)\,dx\).
+
+\[
+\boxed{\text{B}}
+\]
+
+</details>
+
+---
+
+### 7. Zero Accumulation {-}
+
+Which situation guarantees  
+\[
+\int_a^b f(x)\,dx = 0 ?
+\]
+
+A. \( f(x) = 0 \) at one point in \([a,b]\)  
+B. \( f(x) \) is sometimes positive and sometimes negative  
+C. The signed areas above and below the axis cancel exactly  
+D. \( f(x) \) is decreasing on \([a,b]\)  
+
+<details>
+<summary><em>Hint</em></summary>
+
+A definite integral is a *signed* area. What's the geometric condition for the signed area to be exactly zero?
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+A signed integral equals zero exactly when the regions above the axis and the regions below the axis contribute equal magnitudes that cancel.
+
+- A: Wrong — \(f(x) = 0\) at one point gives no information about the integral.
+- B: Wrong — just having both positive and negative values doesn't ensure they cancel.
+- D: Wrong — a decreasing function still has a nonzero signed area in general.
+
+\[
+\boxed{\text{C}}
+\]
+
+</details>
+
+---
+
+### 8. Average Value of a Function {-}
+
+Which expression represents the **average value** of \( f(x) \) on \([a,b]\)?
+
+A. \( f(b) - f(a) \)  
+B. \( \displaystyle \int_a^b f(x)\,dx \)  
+C. \( \displaystyle \frac{1}{b-a}\int_a^b f(x)\,dx \)  
+D. \( \displaystyle \frac{f(a)+f(b)}{2} \)  
+
+<details>
+<summary><em>Hint</em></summary>
+
+The average value is "total divided by width" — total accumulation divided by the length of the interval.
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+The average value of \(f\) on \([a,b]\) is total accumulation divided by interval length:
+\[
+\bar{f} = \frac{1}{b-a}\int_a^b f(x)\,dx.
+\]
+
+- A: A difference of endpoint values; not the average.
+- B: The total accumulation, not the average.
+- D: The midpoint of just the endpoint values — only equals the average if \(f\) is linear.
+
+\[
+\boxed{\text{C}}
+\]
+
+</details>
+
+---
+
+### 9. Interpreting a Given Value {-}
+
+Suppose  
+\[
+\int_1^5 f(x)\,dx = 12.
+\]
+
+Which statement must be true?
+
+A. \( f(x) \) is positive on \([1,5]\)  
+B. The net accumulation from 1 to 5 is 12  
+C. The average value of \( f(x) \) is 12  
+D. \( f(5) = 12 \)  
+
+<details>
+<summary><em>Hint</em></summary>
+
+A definite integral is a *net* signed accumulation, not a value of the function itself.
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+The value of a definite integral *is* the net signed accumulation of \(f\) over the interval.
+
+- A: Wrong — \(f\) could be negative in some places as long as net accumulation is 12.
+- C: Wrong — average value would be \(12 / (5 - 1) = 3\), not 12.
+- D: Wrong — the integral's value isn't the function's value at the upper bound.
+
+\[
+\boxed{\text{B}}
+\]
+
+</details>
+
+---
+
+### 10. Reversing Perspective {-}
+
+If an integral represents **total accumulation**, what does changing the limits from \([a,b]\) to \([b,a]\) do?
+
+A. Leaves the value unchanged  
+B. Makes the value positive  
+C. Reverses the sign of the accumulation  
+D. Sets the value to zero  
+
+<details>
+<summary><em>Hint</em></summary>
+
+Going "backward" through an interval is accumulating in the opposite direction. What does that do to the signed total?
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+By definition, \(\int_b^a f(x)\,dx = -\int_a^b f(x)\,dx\). Swapping the limits flips the sign of the accumulation.
+
+\[
+\boxed{\text{C}}
+\]
+
+</details>
+
+---
+
+## Part B — Riemann Sum Approximations \([15 pts]\) {-}
+
+A rate function is given by  
+\[
+f(x) = 3 - x
+\]
+on the interval \([0,4]\).
+
+---
+
+### (a) Left-Hand Riemann Sum {-}
+
+Compute the **left-hand Riemann sum** for \( f(x) \) on \([0,4]\) using \( n = 4 \) equal subintervals.
+
+<details>
+<summary><em>Hint</em></summary>
+
+\(\Delta x = (b-a)/n = 1\). The left endpoints are \(x = 0, 1, 2, 3\). Evaluate \(f\) at each and multiply by \(\Delta x\).
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+\(\Delta x = \frac{4 - 0}{4} = 1\). Left endpoints: \(x_0 = 0,\ x_1 = 1,\ x_2 = 2,\ x_3 = 3\).
+
+\[
+f(0) = 3,\quad f(1) = 2,\quad f(2) = 1,\quad f(3) = 0.
+\]
+
+Left Riemann sum:
+\[
+\Delta x \sum_{i=0}^{3} f(x_i) = 1 \cdot (3 + 2 + 1 + 0) = \boxed{6}.
+\]
+
+</details>
+
+---
+
+### (b) Right-Hand Riemann Sum {-}
+
+Compute the **right-hand Riemann sum** for the same function and interval using \( n = 4 \) equal subintervals.
+
+<details>
+<summary><em>Hint</em></summary>
+
+Same \(\Delta x = 1\), but now use the *right* endpoints: \(x = 1, 2, 3, 4\).
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+Right endpoints: \(x_1 = 1,\ x_2 = 2,\ x_3 = 3,\ x_4 = 4\).
+
+\[
+f(1) = 2,\quad f(2) = 1,\quad f(3) = 0,\quad f(4) = -1.
+\]
+
+Right Riemann sum:
+\[
+\Delta x \sum_{i=1}^{4} f(x_i) = 1 \cdot (2 + 1 + 0 + (-1)) = \boxed{2}.
+\]
+
+</details>
+
+---
+
+### (c) Comparison {-}
+
+Compare your two results:
+
+- Which approximation is larger?
+- Explain **why** based on the behavior of \( f(x) \).
+
+<details>
+<summary><em>Hint</em></summary>
+
+Is \(f(x) = 3 - x\) increasing or decreasing on \([0, 4]\)? What does that mean for which endpoint of each subinterval has the larger function value?
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+The **left-hand sum (6)** is larger than the **right-hand sum (2)**.
+
+\(f(x) = 3 - x\) is **decreasing** on \([0, 4]\). On any subinterval, the function value at the *left* endpoint is larger than the value at the *right* endpoint. So when the rectangles use left-endpoint heights, every rectangle is at least as tall as its right-endpoint counterpart, making the left sum larger.
+
+(Note: in part (b) the function becomes negative at \(x = 4\), so the right-most rectangle actually contributes \(-1\) — a negative-signed slice — which makes the right sum even smaller.)
+
+</details>
+
+---
+
+### (d) Trapezoidal Rule (Conceptual) {-}
+
+Without performing calculations:
+
+- Would the trapezoidal-rule approximation with \( n = 4 \) be **larger than**, **smaller than**, or **between** the left- and right-hand sums?
+- Briefly explain your reasoning.
+
+<details>
+<summary><em>Hint</em></summary>
+
+The trapezoidal rule averages the heights of the left and right endpoints on each subinterval. What does that say about its result relative to the two Riemann sums?
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+The trapezoidal rule lies **between** the left- and right-hand sums.
+
+Each trapezoid's area equals the average of the corresponding left-rectangle and right-rectangle areas. Summing those averages gives the average of the two Riemann sums:
+\[
+T_4 = \frac{L_4 + R_4}{2} = \frac{6 + 2}{2} = 4.
+\]
+
+For this linear function, this is also the exact answer.
+
+</details>
+
+---
+
+## Part C — Definite Integral Using the FTC \([9 pts]\) {-}
+
+Evaluate:
+\[
+\int_1^3 (4x^2 - 6x + 2)\,dx.
+\]
+
+Show:
+
+1. Use of linearity  
+2. An antiderivative  
+3. Evaluation using the Fundamental Theorem of Calculus  
+
+Leave your answer in exact form.
+
+<details>
+<summary><em>Hint</em></summary>
+
+Linearity lets you integrate term by term. Each term is a polynomial, so apply the power rule for antiderivatives. Then evaluate \(F(3) - F(1)\).
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+**Step 1: Linearity.**
+\[
+\int_1^3 (4x^2 - 6x + 2)\,dx
+= 4\int_1^3 x^2\,dx - 6\int_1^3 x\,dx + 2\int_1^3 1\,dx.
+\]
+
+**Step 2: Antiderivative.** An antiderivative is
+\[
+F(x) = \frac{4 x^3}{3} - 3 x^2 + 2 x.
+\]
+
+**Step 3: Evaluate via FTC.**
+\[
+F(3) = \frac{4(27)}{3} - 3(9) + 2(3) = 36 - 27 + 6 = 15.
+\]
+\[
+F(1) = \frac{4}{3} - 3 + 2 = \frac{4}{3} - 1 = \frac{1}{3}.
+\]
+\[
+F(3) - F(1) = 15 - \frac{1}{3} = \frac{45 - 1}{3} = \boxed{\frac{44}{3}}.
+\]
+
+</details>
+
+---
+
+## Part D — Indefinite Integrals \([6 pts]\) {-}
+
+Find the most general antiderivative for each.  
+Include a constant of integration in **each** answer.
+
+---
+
+### (a) Polynomial {-}
+
+\[
+\int (5x^3 - 2x)\,dx.
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+
+Apply the power rule for antiderivatives: \(\int x^n\,dx = \frac{x^{n+1}}{n+1} + C\) for \(n \neq -1\).
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+\[
+\int (5x^3 - 2x)\,dx
+= 5 \cdot \frac{x^4}{4} - 2 \cdot \frac{x^2}{2} + C
+= \boxed{\frac{5 x^4}{4} - x^2 + C}.
+\]
+
+</details>
+
+---
+
+### (b) Exponential {-}
+
+\[
+\int 4 e^{2x}\,dx.
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+
+\(\int e^{kx}\,dx = \frac{1}{k} e^{kx} + C\). What's \(k\) here?
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+\[
+\int 4 e^{2x}\,dx = 4 \cdot \frac{1}{2} e^{2x} + C = \boxed{2 e^{2x} + C}.
+\]
+
+</details>
+
+---
+
+### (c) Trigonometric {-}
+
+\[
+\int \sin(x)\,dx.
+\]
+
+<details>
+<summary><em>Hint</em></summary>
+
+What function's derivative is \(\sin(x)\)? Watch the sign.
+
+</details>
+
+<details>
+<summary><em>Worked Solution</em></summary>
+
+\[
+\int \sin(x)\,dx = \boxed{-\cos(x) + C}.
+\]
+
+</details>
+
+---

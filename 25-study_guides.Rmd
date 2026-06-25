@@ -1,0 +1,1513 @@
+# (PART) Study Guides {-}
+
+# Study Guides {-}
+
+These study guides are designed to help you prepare for each test. Each guide follows the same structure:
+
+1. **Skills Checklist** — A table of what you need to be able to do on this test
+2. **Prep Worksheet** — Build your own one-page reference sheet before you practice
+3. **Concept Check In** — Quick questions to test readiness before each section
+4. **Practice Problems** — Organized by topic with full solutions
+5. **Answer Key** — Worked solutions, hidden behind reveals so you can check yourself
+
+**Suggested workflow:** Complete the prep worksheet first, then work through each section's Concept Check In → Practice Problems. Use the solution reveals only after attempting the problems yourself.
+
+---
+
+# Module 1: Riemann Sums, the Definite Integral, and the FTC {-}
+
+*Building the integral piece by piece — Riemann sums, the definite integral, its properties, antiderivatives, and the Fundamental Theorem of Calculus.*
+
+## Skills Checklist {-}
+
+| Test Skill | What You Need To Be Able To Do |
+|:-----------|:-------------------------------|
+| Riemann sums (L/R/M) | Compute left, right, and midpoint Riemann sums for a given function on a given interval |
+| Trapezoidal rule | Compute the trapezoidal-rule estimate and explain how it relates to left/right sums |
+| Over/underestimation | Predict whether a method will over- or under-estimate, based on the function's shape (increasing/decreasing) |
+| Riemann sum notation | Read and write \(\sum_{i=1}^{n} f(x_i^*)\,\Delta x\) form, including \(\Delta x\) and sample-point choices |
+| Properties of the definite integral | Apply linearity, additivity over intervals, and limit-reversal |
+| Antiderivatives | Find the most general antiderivative using power, exponential, logarithm, and trig rules |
+| Fundamental Theorem | Evaluate \(\int_a^b f(x)\,dx\) via \(F(b) - F(a)\) |
+| Units and interpretation | Track units through any integral and interpret the result physically |
+
+---
+
+## Prep Worksheet: Build Your Reference Sheet {-}
+
+Fill this in before you practice. The goal is to make your own one-page reference sheet instead of passively reading one.
+
+::: promptbox
+**1. Vocabulary I Need to Know**
+
+A rate is:
+<div class="writein"></div>
+
+An accumulation is:
+<div class="writein"></div>
+
+A *signed* integral is:
+<div class="writein"></div>
+
+An antiderivative of \(f(x)\) is:
+<div class="writein"></div>
+
+The Fundamental Theorem of Calculus says (in your own words):
+<div class="writein tall"></div>
+:::
+
+::: promptbox
+**2. Riemann Sum Sample Points**
+
+The width of each subinterval on \([a,b]\) with \(n\) subintervals is:
+\[\Delta x = \]
+<div class="writein"></div>
+
+| Method | Formula for the \(i\)th sample point \(x_i^*\) |
+|:-------|:----------------------------------------------|
+| Left | |
+| Right | |
+| Midpoint | |
+:::
+
+::: promptbox
+**3. Trapezoidal Rule**
+
+The trapezoidal-rule estimate on \([a,b]\) with \(n\) subintervals is:
+\[\int_a^b f(x)\,dx \approx \]
+<div class="writein"></div>
+
+Equivalent form (the average of left and right sums):
+<div class="writein"></div>
+:::
+
+::: promptbox
+**4. Properties of the Definite Integral**
+
+| Property | Formula |
+|:---------|:--------|
+| Linearity (sum) | \(\int_a^b [f(x) + g(x)]\,dx =\) |
+| Linearity (constant) | \(\int_a^b c\,f(x)\,dx =\) |
+| Additivity | \(\int_a^c f\,dx + \int_c^b f\,dx =\) |
+| Limit reversal | \(\int_b^a f(x)\,dx =\) |
+| Single point | \(\int_a^a f(x)\,dx =\) |
+:::
+
+::: promptbox
+**5. Antiderivative Dictionary**
+
+| Function | Antiderivative \(F(x)\) |
+|:---------|:------------------------|
+| \(x^n\) (for \(n \neq -1\)) | |
+| \(1/x\) | |
+| \(e^{kx}\) | |
+| \(\sin(kx)\) | |
+| \(\cos(kx)\) | |
+| A constant \(c\) | |
+:::
+
+::: promptbox
+**6. Common Pitfalls I Want to Avoid**
+
+1. Forgetting \(+C\) on indefinite integrals.
+2. Mixing up left/right endpoint sums when the function is decreasing.
+3. Forgetting that a definite integral can be **negative** when the function dips below the axis.
+4. Forgetting to multiply by \(\Delta x\) at the end of a Riemann sum.
+5. Ignoring units — the answer should have a physical meaning.
+
+One mistake I personally want to avoid:
+<div class="writein"></div>
+:::
+
+---
+
+## Riemann Sums {-}
+
+**Formula:** \(\displaystyle \sum_{i=1}^{n} f(x_i^*)\,\Delta x\), where \(\Delta x = (b-a)/n\).
+
+- **Left** sample points: \(x_i^* = a + (i-1)\Delta x\)
+- **Right** sample points: \(x_i^* = a + i\,\Delta x\)
+- **Midpoint** sample points: \(x_i^* = a + (i - \tfrac{1}{2})\Delta x\)
+
+For an *increasing* function: left sums underestimate, right sums overestimate.  
+For a *decreasing* function: left sums overestimate, right sums underestimate.  
+Midpoint typically lands closest to the truth for smooth functions.
+
+### Concept Check In {-}
+
+**1.** What does each rectangle in a Riemann sum represent physically?
+
+<details><summary><strong>Answer</strong></summary>
+Each rectangle is a small contribution to the total accumulation: its width is a slice of time (or distance), and its height is the rate during that slice. Multiplying gives the amount accumulated in that little window.
+</details>
+
+**2.** If the rate is *increasing* on \([a,b]\), why does a left Riemann sum underestimate the integral?
+
+<details><summary><strong>Answer</strong></summary>
+The left endpoint of each subinterval gives the smallest value of the rate on that subinterval (because the rate is increasing). Each rectangle is too short, so the sum is below the true value.
+</details>
+
+**3.** What happens to a Riemann sum as \(n \to \infty\)?
+
+<details><summary><strong>Answer</strong></summary>
+As the subintervals get narrower, the constant-rate-per-rectangle assumption becomes more reasonable. In the limit, the Riemann sum equals the definite integral exactly.
+</details>
+
+### Practice Problems {-}
+
+**1.** Compute the **left Riemann sum** for \(f(x) = x^2\) on \([0, 4]\) with \(n = 4\).
+
+<details><summary><strong>Solution</strong></summary>
+\(\Delta x = 1\). Left endpoints: 0, 1, 2, 3. Values: 0, 1, 4, 9. Sum: \(1(0+1+4+9) = 14\).
+</details>
+
+**2.** Compute the **right Riemann sum** for the same function and interval with \(n = 4\).
+
+<details><summary><strong>Solution</strong></summary>
+Right endpoints: 1, 2, 3, 4. Values: 1, 4, 9, 16. Sum: \(1(1+4+9+16) = 30\).
+</details>
+
+**3.** Compute the **midpoint Riemann sum** for the same function and interval with \(n = 4\).
+
+<details><summary><strong>Solution</strong></summary>
+Midpoints: 0.5, 1.5, 2.5, 3.5. Values: 0.25, 2.25, 6.25, 12.25. Sum: \(1(0.25 + 2.25 + 6.25 + 12.25) = 21\).
+</details>
+
+**4.** A stream gauge logs the flow rate \(Q(t)\) in m³/s every hour for 4 hours:
+
+| \(t\) (h) | 0 | 1 | 2 | 3 | 4 |
+|:---:|:--:|:--:|:--:|:--:|:--:|
+| \(Q\) (m³/s) | 5 | 8 | 12 | 9 | 6 |
+
+Estimate the total volume of water that passed the gauge over the 4-hour window using a **left Riemann sum**. (Watch units: m³/s × hours needs conversion.)
+
+<details><summary><strong>Solution</strong></summary>
+\(\Delta t = 1\) hour = 3600 s. Left rectangles use \(Q\) at \(t = 0, 1, 2, 3\): 5, 8, 12, 9. Left sum: \(1 \text{ h} \times (5+8+12+9) \text{ m}^3/\text{s} = 34\) m³/s · h. Converting: \(34 \times 3600 = 122{,}400\) m³.
+</details>
+
+**5.** Without computing, predict whether a left Riemann sum will over- or underestimate \(\int_0^2 e^x\,dx\). Explain.
+
+<details><summary><strong>Solution</strong></summary>
+\(e^x\) is increasing on \([0, 2]\), so left endpoints give the smallest values on each subinterval — the left sum underestimates.
+</details>
+
+---
+
+## The Trapezoidal Rule {-}
+
+**Formula:** \(\displaystyle T_n = \frac{\Delta x}{2}\bigl[f(x_0) + 2 f(x_1) + 2 f(x_2) + \cdots + 2 f(x_{n-1}) + f(x_n)\bigr]\)
+
+Equivalently: \(T_n = \dfrac{L_n + R_n}{2}\) — the average of the left and right Riemann sums.
+
+For a smooth function, the trapezoidal rule is usually more accurate than basic Riemann sums with the same \(n\).
+
+### Concept Check In {-}
+
+**1.** What does each "trapezoid" geometrically replace in this approximation?
+
+<details><summary><strong>Answer</strong></summary>
+A rectangle. Instead of a flat top equal to the function's value at one endpoint, the trapezoid has a sloped top that connects the function's values at both endpoints.
+</details>
+
+**2.** Why is \(T_n = (L_n + R_n)/2\) always true?
+
+<details><summary><strong>Answer</strong></summary>
+Each trapezoid's area equals the average of the corresponding left-rectangle and right-rectangle areas. Summing those averages gives the average of the two Riemann sums.
+</details>
+
+### Practice Problems {-}
+
+**1.** Compute the trapezoidal estimate of \(\int_0^4 x^2\,dx\) with \(n = 4\).
+
+<details><summary><strong>Solution</strong></summary>
+\(\Delta x = 1\). Values at \(x = 0, 1, 2, 3, 4\): 0, 1, 4, 9, 16. \(T_4 = \tfrac{1}{2}[0 + 2(1+4+9) + 16] = \tfrac{1}{2}[0 + 28 + 16] = 22\).
+</details>
+
+**2.** For the stream-gauge table from the Riemann section (problem 4 above), compute the trapezoidal estimate of total volume.
+
+<details><summary><strong>Solution</strong></summary>
+\(T_4 = \tfrac{1}{2}[5 + 2(8 + 12 + 9) + 6] = \tfrac{1}{2}[5 + 58 + 6] = 34.5\) m³/s · h. In m³: \(34.5 \times 3600 = 124{,}200\) m³. (Compare to the left sum's 122,400 — trapezoidal is slightly higher and likely closer to the true value.)
+</details>
+
+**3.** Without computing, will the trapezoidal estimate of \(\int_0^1 \sqrt{x}\,dx\) over- or underestimate? Explain.
+
+<details><summary><strong>Solution</strong></summary>
+\(\sqrt{x}\) is increasing and **concave down** on \([0, 1]\). For concave-down functions, the chord connecting two points lies *below* the curve, so each trapezoid's top lies below the curve — trapezoidal underestimates.
+</details>
+
+**4.** A photosynthesis monitor records the CO₂ uptake rate (μmol/m²/s) every 30 minutes from 6:00 AM to 8:00 AM:
+
+| Time | 6:00 | 6:30 | 7:00 | 7:30 | 8:00 |
+|:-----|:----:|:----:|:----:|:----:|:----:|
+| Rate | 0 | 2 | 5 | 9 | 14 |
+
+Estimate the total CO₂ taken up (μmol/m²) using the trapezoidal rule. (Convert: 30 min = 1800 s.)
+
+<details><summary><strong>Solution</strong></summary>
+\(\Delta t = 1800\) s. \(T_4 = \tfrac{1800}{2}[0 + 2(2 + 5 + 9) + 14] = 900[0 + 32 + 14] = 900 \times 46 = 41{,}400\) μmol/m².
+</details>
+
+---
+
+## Properties of the Definite Integral {-}
+
+| Property | Formula |
+|:---------|:--------|
+| Linearity (sum) | \(\int_a^b [f + g]\,dx = \int_a^b f\,dx + \int_a^b g\,dx\) |
+| Linearity (constant) | \(\int_a^b c\,f\,dx = c \int_a^b f\,dx\) |
+| Additivity | \(\int_a^b f\,dx = \int_a^c f\,dx + \int_c^b f\,dx\) |
+| Limit reversal | \(\int_b^a f\,dx = -\int_a^b f\,dx\) |
+| Single point | \(\int_a^a f\,dx = 0\) |
+
+### Concept Check In {-}
+
+**1.** Why does \(\int_a^b c\,dx = c(b-a)\)? (No calculation — just reasoning.)
+
+<details><summary><strong>Answer</strong></summary>
+The rate is constant \(c\), so accumulation over \([a, b]\) is just (rate)(duration) — a rectangle of width \(b-a\) and height \(c\).
+</details>
+
+**2.** If \(\int_0^5 f(x)\,dx = 12\) and \(\int_5^9 f(x)\,dx = 7\), what is \(\int_0^9 f(x)\,dx\)?
+
+<details><summary><strong>Answer</strong></summary>
+By additivity, \(\int_0^9 f\,dx = 12 + 7 = 19\).
+</details>
+
+**3.** Why does reversing limits flip the sign?
+
+<details><summary><strong>Answer</strong></summary>
+Going from \(b\) to \(a\) means accumulating "in reverse" — every small slice contributes \(-f(x)\,dx\) instead of \(+f(x)\,dx\). The total accumulates with the opposite sign.
+</details>
+
+### Practice Problems {-}
+
+**1.** Given \(\int_0^4 f\,dx = 10\) and \(\int_0^4 g\,dx = -3\), compute \(\int_0^4 [2f - 5g]\,dx\).
+
+<details><summary><strong>Solution</strong></summary>
+\(2(10) - 5(-3) = 20 + 15 = 35\).
+</details>
+
+**2.** If \(\int_1^4 f\,dx = 8\), what is \(\int_4^1 f\,dx\)?
+
+<details><summary><strong>Solution</strong></summary>
+By limit reversal: \(-8\).
+</details>
+
+**3.** If \(\int_0^2 f\,dx = 3\) and \(\int_0^7 f\,dx = 11\), what is \(\int_2^7 f\,dx\)?
+
+<details><summary><strong>Solution</strong></summary>
+By additivity: \(\int_0^7 = \int_0^2 + \int_2^7\), so \(\int_2^7 f\,dx = 11 - 3 = 8\).
+</details>
+
+**4.** Evaluate \(\int_3^3 e^{x^2}\,dx\). (Hint: trap.)
+
+<details><summary><strong>Solution</strong></summary>
+Zero — the bounds are equal, so the integral is zero regardless of the integrand. (You do *not* need to find an antiderivative for \(e^{x^2}\) — which is good, because none exists in closed form.)
+</details>
+
+---
+
+## Antiderivatives and Indefinite Integrals {-}
+
+| Function | Antiderivative |
+|:---------|:---------------|
+| \(x^n\) (\(n \neq -1\)) | \(\dfrac{x^{n+1}}{n+1} + C\) |
+| \(1/x\) | \(\ln|x| + C\) |
+| \(e^{kx}\) | \(\dfrac{1}{k} e^{kx} + C\) |
+| \(\sin(kx)\) | \(-\dfrac{1}{k}\cos(kx) + C\) |
+| \(\cos(kx)\) | \(\dfrac{1}{k}\sin(kx) + C\) |
+
+Indefinite integrals always include \(+C\).
+
+### Concept Check In {-}
+
+**1.** Why do antiderivatives always come with a "+ C"?
+
+<details><summary><strong>Answer</strong></summary>
+Any constant has derivative zero, so adding a constant to any antiderivative still gives a valid antiderivative. The \(+C\) captures the *family* of all antiderivatives.
+</details>
+
+**2.** What's the difference between an indefinite integral and a definite integral?
+
+<details><summary><strong>Answer</strong></summary>
+An indefinite integral \(\int f\,dx\) gives a *family of functions* (with \(+C\)). A definite integral \(\int_a^b f\,dx\) gives a single *number* — the net accumulation between \(a\) and \(b\).
+</details>
+
+**3.** Why doesn't \(+C\) appear in a definite integral's answer?
+
+<details><summary><strong>Answer</strong></summary>
+Because the same constant cancels when you compute \(F(b) - F(a)\): \((F(b) + C) - (F(a) + C) = F(b) - F(a)\).
+</details>
+
+### Practice Problems {-}
+
+**1.** \(\int (5 x^3 - 4 x + 1)\,dx\)
+
+<details><summary><strong>Solution</strong></summary>
+\(\dfrac{5}{4} x^4 - 2 x^2 + x + C\).
+</details>
+
+**2.** \(\int 7 e^{3 x}\,dx\)
+
+<details><summary><strong>Solution</strong></summary>
+\(\dfrac{7}{3} e^{3 x} + C\).
+</details>
+
+**3.** \(\int \cos(2 x)\,dx\)
+
+<details><summary><strong>Solution</strong></summary>
+\(\dfrac{1}{2}\sin(2 x) + C\).
+</details>
+
+**4.** \(\int \dfrac{1}{x}\,dx\)
+
+<details><summary><strong>Solution</strong></summary>
+\(\ln|x| + C\).
+</details>
+
+**5.** \(\int \left(\dfrac{2}{x^3} + 5\sin x\right)\,dx\)
+
+<details><summary><strong>Solution</strong></summary>
+Rewrite: \(2 x^{-3} + 5\sin x\). Antiderivative: \(-x^{-2} - 5\cos x + C = -\dfrac{1}{x^2} - 5\cos x + C\).
+</details>
+
+**6.** Find an antiderivative of \(f(x) = 6 x^2 - 4\) that passes through the point \((1, 5)\).
+
+<details><summary><strong>Solution</strong></summary>
+General antiderivative: \(F(x) = 2 x^3 - 4 x + C\). Plug in \((1, 5)\): \(5 = 2 - 4 + C \Rightarrow C = 7\). So \(F(x) = 2 x^3 - 4 x + 7\).
+</details>
+
+---
+
+## The Fundamental Theorem of Calculus {-}
+
+**Statement:** If \(F\) is any antiderivative of \(f\) on \([a, b]\), then
+\[
+\int_a^b f(x)\,dx = F(b) - F(a).
+\]
+
+The FTC converts the limit-of-Riemann-sums definition into a clean algebraic procedure: find an antiderivative, then subtract.
+
+### Concept Check In {-}
+
+**1.** Why doesn't it matter *which* antiderivative you choose when applying the FTC?
+
+<details><summary><strong>Answer</strong></summary>
+All antiderivatives differ by a constant \(C\), which cancels in \(F(b) - F(a)\). The result is the same.
+</details>
+
+**2.** What does \(F(b) - F(a)\) represent physically when \(f\) is a rate?
+
+<details><summary><strong>Answer</strong></summary>
+The net accumulated change of the quantity over \([a, b]\) — exactly the total that the integral measures.
+</details>
+
+**3.** When can you *not* apply the FTC?
+
+<details><summary><strong>Answer</strong></summary>
+When the integrand has no elementary antiderivative (like \(e^{-x^2}\)), or when \(f\) is discontinuous on the interval. Then you fall back to numerical methods.
+</details>
+
+### Practice Problems {-}
+
+**1.** Compute \(\int_1^3 (4 x^2 - 6 x + 2)\,dx\).
+
+<details><summary><strong>Solution</strong></summary>
+Antiderivative: \(F(x) = \tfrac{4}{3} x^3 - 3 x^2 + 2 x\). \(F(3) = 36 - 27 + 6 = 15\). \(F(1) = \tfrac{4}{3} - 3 + 2 = \tfrac{1}{3}\). Difference: \(15 - \tfrac{1}{3} = \tfrac{44}{3}\).
+</details>
+
+**2.** Compute \(\int_0^2 e^{3 x}\,dx\).
+
+<details><summary><strong>Solution</strong></summary>
+\(F(x) = \tfrac{1}{3} e^{3 x}\). \(F(2) - F(0) = \tfrac{1}{3}(e^6 - 1) \approx 134.14\).
+</details>
+
+**3.** Compute \(\int_1^e \dfrac{1}{x}\,dx\).
+
+<details><summary><strong>Solution</strong></summary>
+\(F(x) = \ln|x|\). \(F(e) - F(1) = 1 - 0 = 1\).
+</details>
+
+**4.** Compute \(\int_0^{\pi} \sin x\,dx\).
+
+<details><summary><strong>Solution</strong></summary>
+\(F(x) = -\cos x\). \(F(\pi) - F(0) = -(-1) - (-1) = 2\).
+</details>
+
+**5.** A stream's flow rate is modeled as \(Q(t) = 4 t + 2\) m³/s for \(t \in [0, 10]\) seconds. Find the total volume of water that passed the gauge.
+
+<details><summary><strong>Solution</strong></summary>
+Total volume \(= \int_0^{10} (4t + 2)\,dt = [2 t^2 + 2 t]_0^{10} = 200 + 20 = 220\) m³.
+</details>
+
+**6.** A pollutant decays at rate \(R(t) = -3 e^{-0.5 t}\) mg/L per day. Find the net change in concentration over the first 4 days.
+
+<details><summary><strong>Solution</strong></summary>
+\(\int_0^4 -3 e^{-0.5 t}\,dt = -3 \cdot \tfrac{1}{-0.5}\bigl[e^{-0.5 t}\bigr]_0^4 = 6(e^{-2} - 1) \approx 6(0.135 - 1) \approx -5.19\) mg/L. The pollutant decreased by about 5.19 mg/L.
+</details>
+
+---
+
+# Module 2: Techniques of Integration {-}
+
+*The toolkit for finding antiderivatives — substitution, integration by parts, partial fractions, and strategy.*
+
+## Skills Checklist {-}
+
+| Test Skill | What You Need To Be Able To Do |
+|:-----------|:-------------------------------|
+| Recognize the right technique | Look at an integral and decide whether it needs basic rules, substitution, integration by parts, or partial fractions |
+| Substitution | Identify an inner function \(u\) whose derivative also appears (up to a constant); convert \(dx\) to \(du\) |
+| Integration by parts | Choose \(u\) and \(dv\) sensibly; apply \(\int u\,dv = uv - \int v\,du\) |
+| Partial fractions | Decompose a rational function with factorable denominator into simpler pieces |
+| Combining techniques | Recognize integrals that need multiple steps or repeated application |
+| Check your work | Differentiate your answer to verify it returns the integrand |
+
+---
+
+## Prep Worksheet: Build Your Reference Sheet {-}
+
+::: promptbox
+**1. The Four Categories — How to Tell Them Apart**
+
+| What I see in the integrand | Which technique it usually needs |
+|:----------------------------|:---------------------------------|
+| A polynomial, a basic exponential, a basic trig | |
+| An inner function with its derivative present | |
+| A product where one factor simplifies on differentiation | |
+| A rational function (polynomial / polynomial), denominator factorable | |
+:::
+
+::: promptbox
+**2. Substitution Recipe**
+
+| Step | What I Do |
+|:----:|:----------|
+| 1 | Choose \(u = g(x)\): the inner function |
+| 2 | Compute \(du = g'(x)\,dx\) |
+| 3 | Solve for what \(g'(x)\,dx\) equals in terms of \(du\) |
+| 4 | Substitute: rewrite the entire integrand in terms of \(u\) and \(du\) |
+| 5 | Integrate in \(u\) |
+| 6 | Substitute back \(u = g(x)\) and add \(+C\) |
+
+For definite integrals, optionally **change the limits** (\(u(a)\) and \(u(b)\)) instead of substituting back.
+:::
+
+::: promptbox
+**3. Integration by Parts Recipe — LIATE**
+
+The formula: \(\int u\,dv = uv - \int v\,du\).
+
+Choose \(u\) by **LIATE** — pick whichever appears earliest:
+
+- **L**ogarithmic (\(\ln x\), \(\log x\))
+- **I**nverse trig (\(\arctan x\), \(\arcsin x\))
+- **A**lgebraic (polynomials)
+- **T**rigonometric (\(\sin\), \(\cos\))
+- **E**xponential (\(e^{kx}\))
+
+Whatever's left becomes \(dv\). Compute \(du\) by differentiation and \(v\) by integration.
+:::
+
+::: promptbox
+**4. Partial Fractions Setup**
+
+| Denominator factor | Decomposition piece |
+|:-------------------|:--------------------|
+| \((x - a)\) distinct | \(\dfrac{A}{x - a}\) |
+| \((x - a)^2\) repeated | \(\dfrac{A}{x - a} + \dfrac{B}{(x - a)^2}\) |
+| \((x - a)^3\) repeated | \(\dfrac{A}{x - a} + \dfrac{B}{(x - a)^2} + \dfrac{C}{(x - a)^3}\) |
+| \((x^2 + bx + c)\) irreducible | \(\dfrac{Ax + B}{x^2 + bx + c}\) |
+
+**Always check first:**
+
+1. Is the numerator degree \(<\) denominator degree? (If not, polynomial-divide.)
+2. Is \(Q'(x)\) sitting in the numerator? (If so, substitution beats partial fractions.)
+:::
+
+::: promptbox
+**5. Strategy: Decision Tree**
+
+When in doubt, ask:
+
+1. Can I rewrite/simplify first? (Distribute, split sums, cancel factors.)
+2. Do basic rules work? Try the dictionary.
+3. Is there an inner function with its derivative in sight? → **Substitution**
+4. Is it a product where one factor simplifies on differentiation? → **Integration by Parts**
+5. Is it rational (poly/poly) with no derivative-of-denominator in the numerator? → **Partial Fractions**
+
+After computing: **differentiate your answer to check it returns the integrand**.
+:::
+
+::: promptbox
+**6. Common Pitfalls**
+
+1. Forgetting to convert \(dx\) → \(du\) in substitution.
+2. Choosing \(u = \) the wrong factor in IBP.
+3. Setting up partial fractions before checking degree of numerator vs denominator.
+4. Forgetting that \(\int 1/x\,dx = \ln|x|\), not \(x^0/0\).
+5. Forgetting \(+C\) on indefinite integrals.
+
+One pitfall I want to avoid:
+<div class="writein"></div>
+:::
+
+---
+
+## Recognizing the Right Technique {-}
+
+The single biggest skill on Test 2 is **identification before execution**. Look at the integrand's structure first.
+
+### Concept Check In {-}
+
+**1.** What's the visual signal that substitution is the right move?
+
+<details><summary><strong>Answer</strong></summary>
+The integrand contains a composite \(f(g(x))\), and the derivative \(g'(x)\) is also present in the integrand (possibly times a constant).
+</details>
+
+**2.** What's the visual signal that integration by parts is the right move?
+
+<details><summary><strong>Answer</strong></summary>
+The integrand is a product of two functions, and at least one of them (a polynomial, log, or inverse trig) simplifies when you differentiate it.
+</details>
+
+**3.** What's the visual signal that partial fractions is the right move?
+
+<details><summary><strong>Answer</strong></summary>
+A rational function (polynomial over polynomial), with the denominator factorable, and the numerator's degree less than the denominator's degree, *and* the derivative of the denominator is NOT in the numerator.
+</details>
+
+### Practice Problems {-}
+
+For each, identify the appropriate technique. Don't evaluate.
+
+**1.** \(\int (3 x + 4)^7\,dx\)
+
+<details><summary><strong>Solution</strong></summary>
+**Substitution**, with \(u = 3 x + 4\).
+</details>
+
+**2.** \(\int x \ln x\,dx\)
+
+<details><summary><strong>Solution</strong></summary>
+**Integration by parts**, with \(u = \ln x\), \(dv = x\,dx\).
+</details>
+
+**3.** \(\int \dfrac{6}{x^2 - 4}\,dx\)
+
+<details><summary><strong>Solution</strong></summary>
+**Partial fractions**: factor \(x^2 - 4 = (x-2)(x+2)\). The derivative of the denominator (\(2x\)) is not in the numerator.
+</details>
+
+**4.** \(\int \dfrac{2 x}{x^2 + 5}\,dx\)
+
+<details><summary><strong>Solution</strong></summary>
+**Substitution** (not partial fractions): \(u = x^2 + 5\), \(du = 2 x\,dx\) — derivative of denominator is sitting in the numerator.
+</details>
+
+**5.** \(\int (5 x^2 - 3 x + 1)\,dx\)
+
+<details><summary><strong>Solution</strong></summary>
+**Basic rules only** — just polynomial term by term.
+</details>
+
+**6.** \(\int x^2 e^{x}\,dx\)
+
+<details><summary><strong>Solution</strong></summary>
+**Integration by parts** (twice). \(u = x^2\) simplifies on differentiation; \(dv = e^x\,dx\) is easy to integrate.
+</details>
+
+---
+
+## Substitution (u-sub) {-}
+
+### Concept Check In {-}
+
+**1.** In \(\int 2 x \cos(x^2)\,dx\), what is \(u\) and why?
+
+<details><summary><strong>Answer</strong></summary>
+\(u = x^2\), because its derivative \(du = 2 x\,dx\) is precisely what's sitting in the integrand alongside the composite \(\cos(x^2)\).
+</details>
+
+**2.** What do you do with the \(dx\) when you substitute?
+
+<details><summary><strong>Answer</strong></summary>
+Replace it with \(du / g'(x)\), or equivalently rearrange \(du = g'(x)\,dx\) to solve for \(dx\). The integrand must be entirely in \(u\) and \(du\) before integrating.
+</details>
+
+**3.** What's the difference between substitution in a definite vs indefinite integral?
+
+<details><summary><strong>Answer</strong></summary>
+For an indefinite integral, substitute back to \(x\) at the end and add \(+C\). For a definite integral, you can either substitute back *or* (more efficient) change the limits from \(x\)-values to the corresponding \(u\)-values and evaluate in \(u\).
+</details>
+
+### Practice Problems {-}
+
+**1.** \(\int 2 x (x^2 + 3)^4\,dx\)
+
+<details><summary><strong>Solution</strong></summary>
+\(u = x^2 + 3\), \(du = 2 x\,dx\). \(\int u^4\,du = \tfrac{u^5}{5} + C = \tfrac{(x^2+3)^5}{5} + C\).
+</details>
+
+**2.** \(\int x\,e^{x^2}\,dx\)
+
+<details><summary><strong>Solution</strong></summary>
+\(u = x^2\), \(du = 2 x\,dx\), so \(x\,dx = \tfrac{1}{2}du\). \(\tfrac{1}{2}\int e^u\,du = \tfrac{1}{2} e^{x^2} + C\).
+</details>
+
+**3.** \(\int \dfrac{6}{(2 x + 1)^3}\,dx\)
+
+<details><summary><strong>Solution</strong></summary>
+\(u = 2 x + 1\), \(du = 2\,dx\). \(\tfrac{6}{2}\int u^{-3}\,du = 3 \cdot \tfrac{u^{-2}}{-2} + C = -\tfrac{3}{2 u^2} + C = -\tfrac{3}{2(2 x + 1)^2} + C\).
+</details>
+
+**4.** \(\int \tan x\,dx\) (Hint: \(\tan x = \sin x / \cos x\).)
+
+<details><summary><strong>Solution</strong></summary>
+\(u = \cos x\), \(du = -\sin x\,dx\). \(\int -\tfrac{1}{u}\,du = -\ln|u| + C = -\ln|\cos x| + C\) (often written as \(\ln|\sec x| + C\)).
+</details>
+
+**5.** \(\int_0^1 2 x (x^2 + 1)^3\,dx\)
+
+<details><summary><strong>Solution</strong></summary>
+\(u = x^2 + 1\), \(du = 2 x\,dx\). Change limits: \(u(0) = 1\), \(u(1) = 2\). \(\int_1^2 u^3\,du = \tfrac{u^4}{4}\Big|_1^2 = 4 - \tfrac{1}{4} = \tfrac{15}{4}\).
+</details>
+
+**6.** \(\int \dfrac{x^2}{x^3 + 5}\,dx\)
+
+<details><summary><strong>Solution</strong></summary>
+\(u = x^3 + 5\), \(du = 3 x^2\,dx\), so \(x^2\,dx = \tfrac{1}{3}du\). \(\tfrac{1}{3}\int \tfrac{1}{u}\,du = \tfrac{1}{3}\ln|x^3 + 5| + C\).
+</details>
+
+---
+
+## Integration by Parts {-}
+
+### Concept Check In {-}
+
+**1.** What's the IBP formula in differential form?
+
+<details><summary><strong>Answer</strong></summary>
+\(\int u\,dv = uv - \int v\,du\).
+</details>
+
+**2.** What does LIATE stand for, and how is it used?
+
+<details><summary><strong>Answer</strong></summary>
+**L**ogarithmic, **I**nverse trig, **A**lgebraic, **T**rigonometric, **E**xponential. Pick \(u\) to be whichever class appears *earliest* in the list — that's typically the factor that simplifies on differentiation.
+</details>
+
+**3.** When do you need to apply IBP more than once?
+
+<details><summary><strong>Answer</strong></summary>
+When the resulting integral \(\int v\,du\) is *also* a product that needs IBP (e.g., \(\int x^2 e^x\,dx\) reduces to \(\int x e^x\,dx\) which still needs IBP), or when the same integral reappears and you can solve for it algebraically.
+</details>
+
+### Practice Problems {-}
+
+**1.** \(\int x e^x\,dx\)
+
+<details><summary><strong>Solution</strong></summary>
+\(u = x\), \(dv = e^x\,dx\), so \(du = dx\), \(v = e^x\). \(\int x e^x\,dx = x e^x - \int e^x\,dx = x e^x - e^x + C\).
+</details>
+
+**2.** \(\int x \sin x\,dx\)
+
+<details><summary><strong>Solution</strong></summary>
+\(u = x\), \(dv = \sin x\,dx\). \(du = dx\), \(v = -\cos x\). \(-x \cos x + \int \cos x\,dx = -x \cos x + \sin x + C\).
+</details>
+
+**3.** \(\int \ln x\,dx\)
+
+<details><summary><strong>Solution</strong></summary>
+Treat as \(\int \ln x \cdot 1\,dx\). \(u = \ln x\), \(dv = dx\). \(du = \tfrac{1}{x}\,dx\), \(v = x\). \(x \ln x - \int x \cdot \tfrac{1}{x}\,dx = x \ln x - x + C\).
+</details>
+
+**4.** \(\int x \ln x\,dx\)
+
+<details><summary><strong>Solution</strong></summary>
+\(u = \ln x\), \(dv = x\,dx\). \(du = \tfrac{1}{x}\,dx\), \(v = \tfrac{x^2}{2}\). \(\tfrac{x^2}{2}\ln x - \int \tfrac{x^2}{2} \cdot \tfrac{1}{x}\,dx = \tfrac{x^2}{2}\ln x - \tfrac{x^2}{4} + C\).
+</details>
+
+**5.** \(\int x^2 e^{-x}\,dx\) (needs IBP twice)
+
+<details><summary><strong>Solution</strong></summary>
+**First pass:** \(u = x^2\), \(dv = e^{-x}\,dx\). \(du = 2 x\,dx\), \(v = -e^{-x}\). \(-x^2 e^{-x} + 2 \int x e^{-x}\,dx\).
+
+**Second pass on the remaining integral:** \(u = x\), \(dv = e^{-x}\,dx\). \(du = dx\), \(v = -e^{-x}\). \(\int x e^{-x}\,dx = -x e^{-x} + \int e^{-x}\,dx = -x e^{-x} - e^{-x} + C_1\).
+
+**Combine:** \(-x^2 e^{-x} + 2(-x e^{-x} - e^{-x}) + C = -e^{-x}(x^2 + 2 x + 2) + C\).
+</details>
+
+---
+
+## Partial Fractions {-}
+
+### Concept Check In {-}
+
+**1.** What's the first thing to check before setting up a partial-fractions decomposition?
+
+<details><summary><strong>Answer</strong></summary>
+That the numerator's degree is *less than* the denominator's degree. If not, do polynomial long division first.
+</details>
+
+**2.** How do distinct linear, repeated linear, and irreducible quadratic factors differ in the decomposition?
+
+<details><summary><strong>Answer</strong></summary>
+Distinct linear \((x-a)\) → one term \(A/(x-a)\). Repeated linear \((x-a)^k\) → terms \(A_1/(x-a) + A_2/(x-a)^2 + \cdots + A_k/(x-a)^k\). Irreducible quadratic \((x^2+bx+c)\) → one term \((Ax+B)/(x^2+bx+c)\).
+</details>
+
+**3.** When is partial fractions the wrong tool for an integral that *looks* rational?
+
+<details><summary><strong>Answer</strong></summary>
+When the derivative of the denominator is already in the numerator (use substitution instead), or when the denominator is irreducible without partial fractions because it's already in simplest form for an arctan-type integral.
+</details>
+
+### Practice Problems {-}
+
+**1.** \(\int \dfrac{6}{x^2 - 9}\,dx\)
+
+<details><summary><strong>Solution</strong></summary>
+Factor: \(x^2 - 9 = (x-3)(x+3)\). Decompose: \(\dfrac{6}{(x-3)(x+3)} = \dfrac{1}{x-3} - \dfrac{1}{x+3}\). Integrate: \(\ln|x-3| - \ln|x+3| + C = \ln\left|\dfrac{x-3}{x+3}\right| + C\).
+</details>
+
+**2.** \(\int \dfrac{5}{(x-1)(x+4)}\,dx\)
+
+<details><summary><strong>Solution</strong></summary>
+Decompose: \(\dfrac{5}{(x-1)(x+4)} = \dfrac{1}{x-1} - \dfrac{1}{x+4}\). Integrate: \(\ln|x-1| - \ln|x+4| + C\).
+</details>
+
+**3.** \(\int \dfrac{2 x + 1}{x^2 - x - 6}\,dx\)
+
+<details><summary><strong>Solution</strong></summary>
+Factor: \(x^2 - x - 6 = (x-3)(x+2)\). Decompose \(\dfrac{2x+1}{(x-3)(x+2)} = \dfrac{A}{x-3} + \dfrac{B}{x+2}\). Solving: \(2x + 1 = A(x+2) + B(x-3)\). At \(x=3\): \(7 = 5A \Rightarrow A = 7/5\). At \(x=-2\): \(-3 = -5B \Rightarrow B = 3/5\). Integrate: \(\tfrac{7}{5}\ln|x-3| + \tfrac{3}{5}\ln|x+2| + C\).
+</details>
+
+**4.** \(\int \dfrac{3}{(x-2)^2}\,dx\)
+
+<details><summary><strong>Solution</strong></summary>
+This is just a power: \(3(x-2)^{-2}\). Integrate: \(-\dfrac{3}{x-2} + C\). (Substitution \(u = x-2\) also works; partial fractions isn't really needed.)
+</details>
+
+**5.** \(\int \dfrac{1}{x(x+1)}\,dx\)
+
+<details><summary><strong>Solution</strong></summary>
+Decompose: \(\dfrac{1}{x(x+1)} = \dfrac{1}{x} - \dfrac{1}{x+1}\). Integrate: \(\ln|x| - \ln|x+1| + C = \ln\left|\dfrac{x}{x+1}\right| + C\).
+</details>
+
+---
+
+# Module 3: Applications of Integration {-}
+
+*Putting integrals to work — signed accumulation, average values, area between curves, and integrating over 2D and 3D regions.*
+
+## Skills Checklist {-}
+
+| Test Skill | What You Need To Be Able To Do |
+|:-----------|:-------------------------------|
+| Signed (net) integrals | Evaluate \(\int_a^b f\,dx\) and interpret positive/negative regions |
+| Total vs net | Tell the difference between net accumulation and total accumulation; use \(|f|\) when needed |
+| Average value | Compute \(\dfrac{1}{b-a}\int_a^b f\,dx\) and interpret it physically |
+| Area between two curves | Identify "top minus bottom", split at intersections when curves cross |
+| Double integrals | Set up and evaluate \(\iint_R f\,dA\) by iterated integration |
+| Triple integrals | Set up and evaluate \(\iiint_V f\,dV\) for a rectangular box or simple region |
+| Interpretation | Read off totals (mass, energy, volume) from density-style integrals |
+| Geometric area | Use \(\int |f - g|\,dx\) when you need the *geometric* (unsigned) area |
+
+---
+
+## Prep Worksheet: Build Your Reference Sheet {-}
+
+::: promptbox
+**1. Vocabulary**
+
+A **signed** integral represents:
+<div class="writein"></div>
+
+The **geometric area** between a curve and the \(x\)-axis is:
+<div class="writein"></div>
+
+The **average value** of \(f\) on \([a,b]\) is:
+\[\bar{f} = \]
+<div class="writein"></div>
+
+\(dA\) represents:
+<div class="writein"></div>
+
+\(dV\) represents:
+<div class="writein"></div>
+:::
+
+::: promptbox
+**2. Net vs Total**
+
+Net accumulation of \(f\) on \([a,b]\) is:
+\[\int_a^b f(x)\,dx\]
+
+Total (geometric) accumulation is:
+\[\int_a^b \]
+<div class="writein"></div>
+
+If the integrand changes sign in \([a, b]\), what do I do to compute the total?
+<div class="writein"></div>
+:::
+
+::: promptbox
+**3. Area Between Two Curves**
+
+Formula for total geometric area between \(f\) and \(g\) on \([a,b]\), assuming \(f \geq g\) throughout:
+\[A = \]
+<div class="writein"></div>
+
+What if \(f\) and \(g\) cross at \(x = c \in (a, b)\)?
+<div class="writein tall"></div>
+:::
+
+::: promptbox
+**4. Average Value (Geometric Picture)**
+
+Picture: the average value of \(f\) is the height of a rectangle with base \(b - a\) that has the same area as the region under \(f(x)\) on \([a, b]\).
+
+If you're told \(\int_0^{12} Q(t)\,dt = 600\) m³, what's the average flow \(\bar{Q}\) over the 12-hour window?
+<div class="writein"></div>
+:::
+
+::: promptbox
+**5. Iterated Integrals**
+
+To evaluate \(\iint_R f(x, y)\,dA\) over rectangular \(R = [a, b] \times [c, d]\):
+
+1. Set up: \(\int_a^b \int_c^d f(x, y)\,dy\,dx\) (or swap order)
+2. Inner integral: integrate with respect to \(y\), treating \(x\) as constant
+3. Outer integral: integrate the result with respect to \(x\)
+
+When can I swap the order of integration?
+<div class="writein"></div>
+:::
+
+::: promptbox
+**6. Common Pitfalls**
+
+1. Treating a *net* integral as a geometric area when the integrand crosses zero.
+2. Forgetting to find intersection points when computing area between curves.
+3. Setting up "top minus bottom" with the wrong function on top.
+4. Forgetting to multiply by \(\Delta\)(something) when computing a Riemann-sum estimate.
+5. Mixing up the order of integration in an iterated integral.
+
+One pitfall I want to avoid:
+<div class="writein"></div>
+:::
+
+---
+
+## Signed (Net) Integrals {-}
+
+A definite integral \(\int_a^b f(x)\,dx\) is a *signed* quantity: regions where \(f\) is positive contribute positively, regions where \(f\) is negative contribute negatively. The result is the *net* accumulation.
+
+### Concept Check In {-}
+
+**1.** If \(f(x) < 0\) on \([a, b]\), what does \(\int_a^b f\,dx\) equal — geometrically?
+
+<details><summary><strong>Answer</strong></summary>
+It equals the **negative** of the geometric area between the curve and the \(x\)-axis. \(\int f\,dx\) is signed, so contributions from below the axis subtract.
+</details>
+
+**2.** What's the difference between net accumulation and total accumulation?
+
+<details><summary><strong>Answer</strong></summary>
+Net: gains and losses combine, signs can cancel — \(\int f\,dx\). Total: every contribution counts in magnitude — \(\int |f|\,dx\). A river that gains 10 m³ then loses 10 m³ has zero net but 20 m³ total throughput.
+</details>
+
+### Practice Problems {-}
+
+**1.** Compute \(\int_0^4 (x - 2)\,dx\).
+
+<details><summary><strong>Solution</strong></summary>
+\(F(x) = \tfrac{x^2}{2} - 2x\). \(F(4) - F(0) = (8 - 8) - 0 = 0\). The integrand is negative on \([0, 2]\) and positive on \([2, 4]\); the two regions cancel.
+</details>
+
+**2.** For the same function on \([0, 4]\), compute the **total geometric area** between the curve and the \(x\)-axis.
+
+<details><summary><strong>Solution</strong></summary>
+Split at \(x = 2\) where \(f = 0\). On \([0, 2]\): \(\int_0^2 (x-2)\,dx = (2 - 4) - 0 = -2\). Magnitude: 2. On \([2, 4]\): \(\int_2^4 (x-2)\,dx = (8 - 8) - (2 - 4) = 2\). Total: \(2 + 2 = 4\).
+</details>
+
+**3.** \(\int_{-2}^{4} (2 x - 5)\,dx\)
+
+<details><summary><strong>Solution</strong></summary>
+\(F(x) = x^2 - 5 x\). \(F(4) = -4\). \(F(-2) = 14\). \(F(4) - F(-2) = -18\).
+</details>
+
+**4.** A river's net flow rate (signed: positive = downstream, negative = backwater) over 8 hours is modeled as \(Q(t) = 4 t - t^2\) m³/s. Find the **net** volume that flowed downstream over the 8-hour window.
+
+<details><summary><strong>Solution</strong></summary>
+\(\int_0^8 (4 t - t^2)\,dt = [2 t^2 - \tfrac{t^3}{3}]_0^8 = 128 - \tfrac{512}{3} = \tfrac{384 - 512}{3} = -\tfrac{128}{3}\) m³/s · h. The net flow was negative — there was more upstream backwater than downstream flow (in this idealized model). Convert: \(\approx -42.67 \times 3600 \approx -153{,}600\) m³.
+</details>
+
+---
+
+## Average Value of a Function {-}
+
+**Formula:** \(\bar{f} = \dfrac{1}{b - a}\int_a^b f(x)\,dx\).
+
+The geometric picture: the constant height of a rectangle with base \(b - a\) that contains the same signed area as the region under \(f(x)\).
+
+### Concept Check In {-}
+
+**1.** What does it physically mean if \(\bar{f}\) on \([a, b]\) is negative?
+
+<details><summary><strong>Answer</strong></summary>
+The function was negative more (in signed area) than it was positive over the interval, so the time-averaged rate was negative.
+</details>
+
+**2.** Why divide the integral by \(b - a\)?
+
+<details><summary><strong>Answer</strong></summary>
+The integral is a *total* (with units of "stuff"); dividing by the interval width converts that total back into a *rate* (per unit width), which is what an average rate is.
+</details>
+
+**3.** Can the average value of \(f\) on \([a, b]\) be greater than \(f(b)\)?
+
+<details><summary><strong>Answer</strong></summary>
+Yes. If \(f\) was high in the middle of the interval and dropped near the end, the average can exceed \(f(b)\).
+</details>
+
+### Practice Problems {-}
+
+**1.** Find the average value of \(f(x) = x^2\) on \([0, 3]\).
+
+<details><summary><strong>Solution</strong></summary>
+\(\bar{f} = \tfrac{1}{3}\int_0^3 x^2\,dx = \tfrac{1}{3}\bigl[\tfrac{x^3}{3}\bigr]_0^3 = \tfrac{1}{3} \cdot 9 = 3\).
+</details>
+
+**2.** Average value of \(g(x) = \sin x\) on \([0, \pi]\).
+
+<details><summary><strong>Solution</strong></summary>
+\(\bar{g} = \tfrac{1}{\pi}\int_0^{\pi}\sin x\,dx = \tfrac{1}{\pi}[-\cos x]_0^{\pi} = \tfrac{1}{\pi}(1 + 1) = \tfrac{2}{\pi} \approx 0.637\).
+</details>
+
+**3.** A reservoir's water level (m) is modeled as \(L(t) = 30 + 5 \sin(2 \pi t / 24)\) over a 24-hour day. Find the **average water level** over the day.
+
+<details><summary><strong>Solution</strong></summary>
+\(\bar{L} = \tfrac{1}{24}\int_0^{24} \bigl[30 + 5 \sin(2 \pi t / 24)\bigr]\,dt\). The sine averages to zero over a full period, leaving \(\bar{L} = 30\) m.
+</details>
+
+**4.** A pollutant concentration is modeled as \(C(z) = 4 + 0.1 z^2\) mg/L in a 10-m water column (z = depth). Find the **average concentration** over the column.
+
+<details><summary><strong>Solution</strong></summary>
+\(\bar{C} = \tfrac{1}{10}\int_0^{10}(4 + 0.1 z^2)\,dz = \tfrac{1}{10}\bigl[4 z + \tfrac{0.1}{3} z^3\bigr]_0^{10} = \tfrac{1}{10}(40 + 33.33) \approx 7.33\) mg/L.
+</details>
+
+---
+
+## Area Between Two Curves {-}
+
+For \(f(x) \geq g(x)\) on \([a, b]\): \(A = \int_a^b [f(x) - g(x)]\,dx\).
+
+If the curves cross at \(x = c\) inside \([a, b]\), split: \(A = \int_a^c |f - g|\,dx + \int_c^b |f - g|\,dx\), using the correct top-bottom labeling on each piece.
+
+### Concept Check In {-}
+
+**1.** Why does the formula use *top minus bottom*?
+
+<details><summary><strong>Answer</strong></summary>
+Because each thin vertical strip has area = (top \(y\)) × (\(dx\)) − (bottom \(y\)) × (\(dx\)) = (top − bottom) \(dx\). Summing all the strips gives the integral.
+</details>
+
+**2.** What goes wrong if you don't split at the crossing point?
+
+<details><summary><strong>Answer</strong></summary>
+If \(f - g\) changes sign in \([a, b]\), the signed integral cancels positive and negative regions instead of summing them in magnitude. You'll get the *net* (signed) area, not the *geometric* (total) area.
+</details>
+
+**3.** Quick check: which is on top of \(g(x) = x\) on \([0, 1]\) — \(f(x) = x^2\) or \(g(x) = x\)?
+
+<details><summary><strong>Answer</strong></summary>
+On \([0, 1]\), \(x \geq x^2\) (since \(x^2 \leq x\) when \(0 \leq x \leq 1\)), so \(g(x) = x\) is on top.
+</details>
+
+### Practice Problems {-}
+
+**1.** Area between \(f(x) = x^2\) and \(g(x) = 2 x\) on \([0, 2]\).
+
+<details><summary><strong>Solution</strong></summary>
+Find intersections: \(x^2 = 2 x \Rightarrow x = 0, 2\). On \([0, 2]\), \(2 x \geq x^2\). \(A = \int_0^2 (2 x - x^2)\,dx = [x^2 - \tfrac{x^3}{3}]_0^2 = 4 - \tfrac{8}{3} = \tfrac{4}{3}\).
+</details>
+
+**2.** Area between \(f(x) = x^3\) and \(g(x) = x\) on \([-1, 1]\).
+
+<details><summary><strong>Solution</strong></summary>
+Intersections: \(x^3 = x \Rightarrow x = 0, \pm 1\). On \([-1, 0]\): \(x^3 \geq x\) (e.g., at \(x = -0.5\), \(x^3 = -0.125 > x = -0.5\)). On \([0, 1]\): \(x \geq x^3\). Split:
+
+\(\int_{-1}^0 (x^3 - x)\,dx = [\tfrac{x^4}{4} - \tfrac{x^2}{2}]_{-1}^0 = 0 - (\tfrac{1}{4} - \tfrac{1}{2}) = \tfrac{1}{4}\).
+
+\(\int_0^1 (x - x^3)\,dx = [\tfrac{x^2}{2} - \tfrac{x^4}{4}]_0^1 = \tfrac{1}{2} - \tfrac{1}{4} = \tfrac{1}{4}\).
+
+Total: \(\tfrac{1}{2}\).
+</details>
+
+**3.** Find the total geometric area between \(y = \sin x\) and \(y = 0\) on \([0, 2\pi]\).
+
+<details><summary><strong>Solution</strong></summary>
+\(\sin x \geq 0\) on \([0, \pi]\) and \(\sin x \leq 0\) on \([\pi, 2\pi]\). Both pieces contribute area \(\int_0^{\pi}\sin x\,dx = 2\). Total: \(2 + 2 = 4\).
+</details>
+
+**4.** A river's actual flow rate is \(Q(t) = 30 + 8 t - t^2\) m³/s; the minimum ecological flow is constant at 30 m³/s. Find the **volume of water that flowed above the minimum** between \(t = 0\) and \(t = 8\) days. (Convert appropriately.)
+
+<details><summary><strong>Solution</strong></summary>
+Excess rate: \(8 t - t^2 = t(8 - t)\), which is \(\geq 0\) on \([0, 8]\). \(\int_0^8 (8 t - t^2)\,dt = [4 t^2 - \tfrac{t^3}{3}]_0^8 = 256 - \tfrac{512}{3} = \tfrac{256}{3} \approx 85.33\) m³/s · days. Convert: \(85.33 \times 86400 \approx 7.37 \times 10^6\) m³ \(\approx 7.4\) million m³.
+</details>
+
+---
+
+## Double Integrals {-}
+
+For a rectangular region \(R = [a, b] \times [c, d]\) and integrand \(f(x, y)\):
+\[
+\iint_R f\,dA = \int_a^b \int_c^d f(x, y)\,dy\,dx = \int_c^d \int_a^b f(x, y)\,dx\,dy.
+\]
+
+If \(f \equiv 1\), the integral computes the *area* of \(R\). If \(f\) is a density, the integral computes the *total quantity*.
+
+### Concept Check In {-}
+
+**1.** What does \(dA\) represent?
+
+<details><summary><strong>Answer</strong></summary>
+A tiny piece of area in the \(xy\)-plane, often visualized as a small rectangle \(dx\,dy\).
+</details>
+
+**2.** If \(\rho(x, y)\) is biomass density (kg/m²) over a region, what does \(\iint \rho\,dA\) compute?
+
+<details><summary><strong>Answer</strong></summary>
+Total biomass (in kg) — density × area, summed over the region.
+</details>
+
+### Practice Problems {-}
+
+**1.** Evaluate \(\int_0^1 \int_0^2 (x + y)\,dy\,dx\).
+
+<details><summary><strong>Solution</strong></summary>
+Inner: \(\int_0^2 (x + y)\,dy = [x y + \tfrac{y^2}{2}]_0^2 = 2 x + 2\). Outer: \(\int_0^1 (2 x + 2)\,dx = [x^2 + 2 x]_0^1 = 3\).
+</details>
+
+**2.** \(\int_0^2 \int_0^3 x y\,dx\,dy\).
+
+<details><summary><strong>Solution</strong></summary>
+Inner: \(\int_0^3 x y\,dx = y \cdot \tfrac{x^2}{2}\Big|_0^3 = \tfrac{9 y}{2}\). Outer: \(\int_0^2 \tfrac{9 y}{2}\,dy = \tfrac{9}{4} y^2\Big|_0^2 = 9\).
+</details>
+
+**3.** A riparian strip is rectangular \(R = [0, 200] \times [0, 50]\) m. Biomass density: \(\rho(x, y) = 5 + 0.01\,x y\) kg/m². Find total biomass.
+
+<details><summary><strong>Solution</strong></summary>
+Inner (\(y\) first): \(\int_0^{50}(5 + 0.01 x y)\,dy = [5 y + 0.005 x y^2]_0^{50} = 250 + 12.5 x\). Outer: \(\int_0^{200}(250 + 12.5 x)\,dx = [250 x + 6.25 x^2]_0^{200} = 50{,}000 + 250{,}000 = 300{,}000\) kg = 300 metric tons.
+</details>
+
+**4.** What does \(\iint_R 1\,dA\) compute if \(R = [0, 4] \times [0, 3]\)?
+
+<details><summary><strong>Solution</strong></summary>
+The area of \(R\) = \(4 \times 3 = 12\).
+</details>
+
+---
+
+## Triple Integrals {-}
+
+For a rectangular box \(V = [a, b] \times [c, d] \times [e, f]\):
+\[
+\iiint_V f\,dV = \int_a^b \int_c^d \int_e^f f(x, y, z)\,dz\,dy\,dx.
+\]
+
+If \(\rho(x, y, z)\) is a density (mass per volume), \(\iiint \rho\,dV\) gives total mass.
+
+### Concept Check In {-}
+
+**1.** What does \(\iiint_V 1\,dV\) compute?
+
+<details><summary><strong>Answer</strong></summary>
+The volume of the region \(V\).
+</details>
+
+**2.** What's the practical difference between a double integral and a triple integral?
+
+<details><summary><strong>Answer</strong></summary>
+A double integral accumulates over a 2D region (area); a triple integral accumulates over a 3D region (volume). One more dimension means one more iterated integral.
+</details>
+
+### Practice Problems {-}
+
+**1.** \(\int_0^1 \int_0^1 \int_0^1 x y z\,dz\,dy\,dx\).
+
+<details><summary><strong>Solution</strong></summary>
+The integrand separates: \(\bigl(\int_0^1 x\,dx\bigr)\bigl(\int_0^1 y\,dy\bigr)\bigl(\int_0^1 z\,dz\bigr) = \tfrac{1}{2} \cdot \tfrac{1}{2} \cdot \tfrac{1}{2} = \tfrac{1}{8}\).
+</details>
+
+**2.** Total mass of a rectangular soil-block \(V = [0, 2] \times [0, 3] \times [0, 1]\) m with density \(\rho(x, y, z) = 1500 + 100 z\) kg/m³ (denser at depth).
+
+<details><summary><strong>Solution</strong></summary>
+\(\int_0^1\int_0^3\int_0^2 (1500 + 100 z)\,dx\,dy\,dz = 6 \int_0^1 (1500 + 100 z)\,dz = 6[1500 z + 50 z^2]_0^1 = 6(1550) = 9300\) kg.
+</details>
+
+**3.** Total dissolved oxygen in a small lake subsection \(V = [0, 100] \times [0, 80] \times [0, 5]\) m with concentration \(c(x) = 8 - 0.02 x\) mg/L (depending only on \(x\)). (Hint: convert L ↔ m³.)
+
+<details><summary><strong>Solution</strong></summary>
+Concentration averaged in \(x\): \(\bar{c} = \tfrac{1}{100}\int_0^{100}(8 - 0.02 x)\,dx = \tfrac{1}{100}[8 x - 0.01 x^2]_0^{100} = \tfrac{1}{100}(800 - 100) = 7\) mg/L. Volume: \(100 \times 80 \times 5 = 40{,}000\) m³ = \(4 \times 10^7\) L. Total mass = \(7 \times 4 \times 10^7 = 2.8 \times 10^8\) mg = 280 kg.
+</details>
+
+---
+
+# Module 4: Differential Equations {-}
+
+*Modeling how systems change — separable equations, initial value problems, slope fields, equilibria, and stability.*
+
+## Skills Checklist {-}
+
+| Test Skill | What You Need To Be Able To Do |
+|:-----------|:-------------------------------|
+| Identify a DE | Recognize an equation involving an unknown function and its derivative(s) |
+| Translate verbal models | Convert "rate is proportional to X" into a DE \(\dfrac{dy}{dt} = k X\) |
+| Slope fields | Read a slope field and sketch solution curves through specified points |
+| Equilibria | Solve \(\dfrac{dy}{dt} = 0\) for the equilibrium values |
+| Stability | Decide whether an equilibrium is stable, unstable, or semi-stable using sign analysis of \(\dfrac{dy}{dt}\) |
+| Separation of variables | Separate \(g(y)\,dy = f(t)\,dt\) and integrate both sides |
+| Initial value problems | Use a given initial condition to solve for the constant of integration |
+| Determine rate constants | Use given data points to solve for unknown \(k\) in a model |
+| Exponential growth/decay | Solve and interpret \(\dfrac{dy}{dt} = k y\) |
+| Logistic models | Find equilibria of \(\dfrac{dP}{dt} = r P(1 - P/K)\) and interpret them |
+
+---
+
+## Prep Worksheet: Build Your Reference Sheet {-}
+
+::: promptbox
+**1. Vocabulary**
+
+A **differential equation** is:
+<div class="writein"></div>
+
+A **solution** to a DE is:
+<div class="writein"></div>
+
+An **initial value problem (IVP)** is:
+<div class="writein"></div>
+
+A **slope field** shows:
+<div class="writein"></div>
+
+An **equilibrium solution** is:
+<div class="writein"></div>
+:::
+
+::: promptbox
+**2. Translating Verbal Models**
+
+| Statement | DE |
+|:----------|:---|
+| "Rate of change is proportional to the amount present" | |
+| "Rate of change is proportional to the difference from a target value \(T\)" | |
+| "Rate of change has a positive growth term and a constant removal" | |
+| "Rate of change is proportional to \(P(K - P)\)" | |
+:::
+
+::: promptbox
+**3. Separation of Variables Recipe**
+
+| Step | What I Do |
+|:----:|:----------|
+| 1 | Move all \(y\)'s and \(dy\) to one side; all \(t\)'s and \(dt\) to the other |
+| 2 | Integrate both sides |
+| 3 | Add \(+C\) on one side |
+| 4 | Solve for \(y\) (or leave implicit if simpler) |
+| 5 | Use the initial condition to find \(C\) |
+:::
+
+::: promptbox
+**4. Standard Models**
+
+| Model | DE | General Solution |
+|:------|:---|:-----------------|
+| Exponential growth/decay | \(\dfrac{dy}{dt} = k y\) | \(y(t) = y_0 e^{k t}\) |
+| Newton's cooling | \(\dfrac{dT}{dt} = -k(T - T_{\text{env}})\) | \(T(t) = T_{\text{env}} + (T_0 - T_{\text{env}}) e^{-k t}\) |
+| Logistic growth | \(\dfrac{dP}{dt} = r P(1 - P/K)\) | (implicit; equilibria are 0 and \(K\)) |
+
+Doubling time for exponential growth (\(k > 0\)): \(t_d = \dfrac{\ln 2}{k}\).
+
+Half-life for exponential decay (\(k < 0\)): \(t_{1/2} = \dfrac{\ln 2}{|k|}\).
+:::
+
+::: promptbox
+**5. Stability Test for Equilibria**
+
+Given autonomous \(\dfrac{dy}{dt} = f(y)\) with equilibrium \(y^*\):
+
+- If just below \(y^*\), \(f(y) > 0\), AND just above \(y^*\), \(f(y) < 0\): \(y^*\) is **stable**.
+- If just below \(y^*\), \(f(y) < 0\), AND just above \(y^*\), \(f(y) > 0\): \(y^*\) is **unstable**.
+- If signs are the same on both sides: **semi-stable**.
+
+A quick algebraic check: \(y^*\) stable if \(f'(y^*) < 0\); unstable if \(f'(y^*) > 0\).
+:::
+
+::: promptbox
+**6. Common Pitfalls**
+
+1. Forgetting \(+C\) before applying the initial condition.
+2. Dividing by a quantity that could be zero (be careful with equilibria!).
+3. Forgetting absolute values when integrating \(1/y\).
+4. Confusing the sign of \(k\) in growth vs decay.
+5. Misreading a slope field — arrows show *slope direction*, not the value of \(y\).
+
+One pitfall I want to avoid:
+<div class="writein"></div>
+:::
+
+---
+
+## Building and Interpreting Differential Equations {-}
+
+### Concept Check In {-}
+
+**1.** What does a differential equation describe that an ordinary equation doesn't?
+
+<details><summary><strong>Answer</strong></summary>
+A *rule for how a quantity changes* — relating an unknown function to its own derivative — rather than a single fixed numerical relationship.
+</details>
+
+**2.** What does \(\dfrac{dP}{dt} = -kP\) describe physically when \(k > 0\)?
+
+<details><summary><strong>Answer</strong></summary>
+Exponential **decay**: the rate of change of \(P\) is negative and proportional to the current amount. Examples: radioactive decay, first-order pollutant decay, drug elimination from the bloodstream.
+</details>
+
+**3.** Why are units important when building a DE?
+
+<details><summary><strong>Answer</strong></summary>
+Every term must have units of "(quantity) per (independent variable)" — e.g., individuals per day, mg per second. If units of two terms in the same equation don't match, the model is wrong.
+</details>
+
+### Practice Problems {-}
+
+**1.** Translate: "A population grows at a per-capita rate of 0.04 per year, minus a constant immigration loss of 100 individuals per year." Write the DE for \(P(t)\).
+
+<details><summary><strong>Solution</strong></summary>
+\(\dfrac{dP}{dt} = 0.04 P - 100\). The "per-capita rate of 0.04" means the growth term is proportional to \(P\) with constant 0.04; the constant loss is just \(-100\).
+</details>
+
+**2.** Translate: "The temperature of a small pond cools at a rate proportional to the difference between the pond temperature and the surrounding air temperature (10°C)." Write the DE.
+
+<details><summary><strong>Solution</strong></summary>
+\(\dfrac{dT}{dt} = -k(T - 10)\), where \(k > 0\) is a cooling constant. The minus sign ensures heat flows from hot to cold.
+</details>
+
+**3.** Is "\(P(3) = 100\)" a differential equation? Why or why not?
+
+<details><summary><strong>Solution</strong></summary>
+No — it's an *initial condition* (a single piece of information about \(P\) at one specific time). A DE involves the *rate* of change of \(P\), like \(\dfrac{dP}{dt}\).
+</details>
+
+**4.** For a logistic-with-harvest model \(\dfrac{dP}{dt} = 0.4 P(1 - P/100) - H\), what are the units of \(H\) if \(P\) is in individuals and \(t\) is in years?
+
+<details><summary><strong>Solution</strong></summary>
+\(H\) must have units of "individuals per year" — same as \(\dfrac{dP}{dt}\) — for the equation to balance.
+</details>
+
+---
+
+## Slope Fields, Equilibria, and Stability {-}
+
+### Concept Check In {-}
+
+**1.** What does a slope field's arrow at \((t, y)\) represent?
+
+<details><summary><strong>Answer</strong></summary>
+The slope \(\dfrac{dy}{dt} = f(t, y)\) of the solution curve passing through that point — i.e., the direction the solution is heading at that instant.
+</details>
+
+**2.** How do you find equilibria of an autonomous DE \(\dfrac{dy}{dt} = f(y)\)?
+
+<details><summary><strong>Answer</strong></summary>
+Set \(f(y) = 0\) and solve for \(y\). The roots are the equilibrium values \(y^*\), where the system would stay put if it ever arrived there.
+</details>
+
+**3.** What's the physical meaning of a *stable* equilibrium vs an *unstable* one?
+
+<details><summary><strong>Answer</strong></summary>
+**Stable:** small perturbations decay; the system returns to the equilibrium (e.g., logistic population at carrying capacity \(K\)).  
+**Unstable:** small perturbations grow; the system runs away from equilibrium (e.g., logistic at \(P = 0\) — any small population grows away from extinction).
+</details>
+
+### Practice Problems {-}
+
+**1.** Find the equilibria of \(\dfrac{dP}{dt} = P(6 - P)\).
+
+<details><summary><strong>Solution</strong></summary>
+Set \(P(6 - P) = 0\). Roots: \(P = 0\) and \(P = 6\).
+</details>
+
+**2.** Classify each equilibrium in problem 1 as stable or unstable.
+
+<details><summary><strong>Solution</strong></summary>
+\(f(P) = P(6 - P)\). For \(P\) just above 0 (say \(P = 1\)): \(f(1) = 5 > 0\), so \(P\) grows away from 0 → **unstable**. For \(P\) just below 6 (say \(P = 5\)): \(f(5) = 5 > 0\), so \(P\) grows toward 6. For \(P\) just above 6: \(f(7) = -7 < 0\), so \(P\) decreases back toward 6 → **stable**.
+</details>
+
+**3.** Find and classify the equilibria of \(\dfrac{dy}{dt} = y^2 - 4\).
+
+<details><summary><strong>Solution</strong></summary>
+\(y^2 - 4 = 0 \Rightarrow y = \pm 2\). At \(y = -2\): \(f(-3) = 5 > 0\), \(f(-1) = -3 < 0\), so arrows point toward \(-2\) on both sides → **stable**. At \(y = 2\): \(f(1) = -3 < 0\), \(f(3) = 5 > 0\), arrows point away from 2 on both sides → **unstable**.
+</details>
+
+**4.** Find the equilibria of the logistic-with-harvest \(\dfrac{dP}{dt} = P(3 - P) - 2\).
+
+<details><summary><strong>Solution</strong></summary>
+\(P(3 - P) - 2 = 0 \Rightarrow -P^2 + 3 P - 2 = 0 \Rightarrow P^2 - 3 P + 2 = 0 \Rightarrow (P - 1)(P - 2) = 0\). Equilibria: \(P = 1\) and \(P = 2\). (Quick check on classification: at \(P = 1.5\), \(\dfrac{dP}{dt} = 1.5(1.5) - 2 = 0.25 > 0\) — population grows from 1 toward 2. So \(P = 1\) is *unstable*, \(P = 2\) is *stable*.)
+</details>
+
+---
+
+## Separation of Variables {-}
+
+### Concept Check In {-}
+
+**1.** What structural feature makes a DE *separable*?
+
+<details><summary><strong>Answer</strong></summary>
+You can write the equation in the form \(g(y)\,dy = f(t)\,dt\) — that is, the right-hand side factors as a function of \(t\) times a function of \(y\).
+</details>
+
+**2.** Why must you add \(+C\) **before** applying the initial condition?
+
+<details><summary><strong>Answer</strong></summary>
+The general solution contains an arbitrary constant. You need \(+C\) to be present so you can solve for the specific value of \(C\) that makes the initial condition true.
+</details>
+
+### Practice Problems {-}
+
+**1.** Solve \(\dfrac{dy}{dx} = 4 y\).
+
+<details><summary><strong>Solution</strong></summary>
+Separate: \(\dfrac{dy}{y} = 4\,dx\). Integrate: \(\ln|y| = 4 x + C\). Exponentiate: \(|y| = e^{4 x + C} = e^C e^{4 x}\). Let \(A = \pm e^C\): \(y = A e^{4 x}\).
+</details>
+
+**2.** Solve \(\dfrac{dP}{dt} = -0.03 P\).
+
+<details><summary><strong>Solution</strong></summary>
+Separate and integrate as above: \(P(t) = A e^{-0.03 t}\). (Exponential decay with rate 0.03 per unit time.)
+</details>
+
+**3.** Solve \(\dfrac{dy}{dx} = x y\).
+
+<details><summary><strong>Solution</strong></summary>
+\(\dfrac{dy}{y} = x\,dx\). Integrate: \(\ln|y| = \tfrac{x^2}{2} + C\). \(y = A e^{x^2/2}\).
+</details>
+
+**4.** Solve \(\dfrac{dy}{dt} = -k(y - 5)\) (Newton's cooling toward ambient = 5).
+
+<details><summary><strong>Solution</strong></summary>
+Let \(u = y - 5\), so \(du/dt = dy/dt = -k u\). Solve: \(u = A e^{-k t}\). Therefore \(y = 5 + A e^{-k t}\).
+</details>
+
+---
+
+## Initial Value Problems and Rate Constants {-}
+
+### Concept Check In {-}
+
+**1.** What does an IVP have that a generic DE doesn't?
+
+<details><summary><strong>Answer</strong></summary>
+An **initial condition** — a specified value of the unknown function at one point (often \(y(0) = y_0\)) — which pins down the constant of integration and gives a *unique* solution.
+</details>
+
+**2.** If you're told \(P(0) = 3\) and \(P(3) = 16\) for a model \(P(t) = 2 e^{k t}\), what do you do?
+
+<details><summary><strong>Answer</strong></summary>
+Wait — \(P(0) = 2 e^0 = 2 \neq 3\). The model already has \(P_0 = 2\) built in. If only \(P(3) = 16\) is given, use it to solve for \(k\): \(16 = 2 e^{3 k} \Rightarrow e^{3 k} = 8 \Rightarrow k = \tfrac{\ln 8}{3}\).
+</details>
+
+### Practice Problems {-}
+
+**1.** Solve the IVP \(\dfrac{dy}{dx} = 4 y\), \(y(0) = 3\).
+
+<details><summary><strong>Solution</strong></summary>
+General solution: \(y = A e^{4 x}\). Apply \(y(0) = 3\): \(A = 3\). So \(y = 3 e^{4 x}\).
+</details>
+
+**2.** Solve the IVP \(\dfrac{dP}{dt} = 0.05 P\), \(P(0) = 100\). Find \(P(10)\).
+
+<details><summary><strong>Solution</strong></summary>
+\(P(t) = 100 e^{0.05 t}\). \(P(10) = 100 e^{0.5} \approx 164.87\).
+</details>
+
+**3.** A radioactive isotope decays with half-life \(t_{1/2} = 5\) years. Find the rate constant \(k\) in \(\dfrac{dN}{dt} = -k N\).
+
+<details><summary><strong>Solution</strong></summary>
+Half-life: \(t_{1/2} = \ln 2 / k\). Solve: \(k = \ln 2 / 5 \approx 0.1386\) per year.
+</details>
+
+**4.** Find the unknown rate constant if \(P(t) = 2 e^{k t}\) and \(P(3) = 16\).
+
+<details><summary><strong>Solution</strong></summary>
+\(16 = 2 e^{3 k} \Rightarrow e^{3 k} = 8 \Rightarrow 3 k = \ln 8 \Rightarrow k = \tfrac{\ln 8}{3} \approx 0.693\).
+</details>
+
+**5.** A pond's pollutant concentration follows \(\dfrac{dC}{dt} = -0.4 C\) (per day), with initial concentration 50 mg/L. Find \(C(t)\) and how long until the concentration is 10 mg/L.
+
+<details><summary><strong>Solution</strong></summary>
+\(C(t) = 50 e^{-0.4 t}\). Solve \(10 = 50 e^{-0.4 t} \Rightarrow e^{-0.4 t} = 0.2 \Rightarrow t = -\tfrac{\ln 0.2}{0.4} = \tfrac{\ln 5}{0.4} \approx 4.02\) days.
+</details>
+
+---
+
+## Exponential and Logistic Models {-}
+
+### Concept Check In {-}
+
+**1.** Why is exponential growth/decay the "natural" solution to \(\dfrac{dy}{dt} = k y\)?
+
+<details><summary><strong>Answer</strong></summary>
+Because \(e^{kt}\) is the unique function whose derivative is \(k\) times itself. Any quantity changing at a rate proportional to its current value follows that family of curves.
+</details>
+
+**2.** In the logistic model \(\dfrac{dP}{dt} = r P(1 - P/K)\), what does \(K\) represent biologically?
+
+<details><summary><strong>Answer</strong></summary>
+The **carrying capacity** — the population size the environment can sustain. When \(P = K\), the per-capita rate of growth is zero, and the population stays at \(K\).
+</details>
+
+**3.** Where does logistic growth grow fastest, and why?
+
+<details><summary><strong>Answer</strong></summary>
+At \(P = K/2\), where the product of "population size" and "available room to grow" \((1 - P/K)\) is maximized. Below \(K/2\), there are fewer individuals reproducing; above \(K/2\), each one's growth rate is constrained by resources.
+</details>
+
+### Practice Problems {-}
+
+**1.** Find the doubling time of a population growing at 4% per year.
+
+<details><summary><strong>Solution</strong></summary>
+\(t_d = \dfrac{\ln 2}{0.04} \approx 17.33\) years.
+</details>
+
+**2.** Carbon-14 has a half-life of about 5730 years. Find its decay constant \(k\).
+
+<details><summary><strong>Solution</strong></summary>
+\(k = \ln 2 / 5730 \approx 1.21 \times 10^{-4}\) per year.
+</details>
+
+**3.** A population follows \(\dfrac{dP}{dt} = 0.2 P (1 - P/500)\). Find the equilibria and classify them.
+
+<details><summary><strong>Solution</strong></summary>
+Equilibria: \(P = 0\) (unstable) and \(P = 500\) (stable). At \(P = 250\), \(\dfrac{dP}{dt} = 0.2(250)(0.5) = 25\) > 0, growing toward 500.
+</details>
+
+**4.** A model: \(\dfrac{dP}{dt} = 0.3 P (1 - P / 1000)\) with \(P(0) = 100\). At what population size is growth fastest?
+
+<details><summary><strong>Solution</strong></summary>
+Fastest growth occurs at \(P = K/2 = 500\). At that point, \(\dfrac{dP}{dt} = 0.3(500)(0.5) = 75\) per unit time.
+</details>
+
+**5.** A pollutant in a stream has a constant input rate of 5 mg/min and decays at rate 0.1 per minute. Set up the DE for the pollutant mass \(M(t)\), find the equilibrium, and classify it.
+
+<details><summary><strong>Solution</strong></summary>
+\(\dfrac{dM}{dt} = 5 - 0.1 M\). Equilibrium: \(M^* = 50\) mg. Stability: \(f'(M) = -0.1 < 0\) at \(M^* = 50\), so it's **stable** — the system approaches 50 mg in the long run.
+</details>

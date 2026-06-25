@@ -431,7 +431,7 @@ conceptual-prompt
 workbook-approximating-an-integral-understanding-area-accumulation-and-riemann-sums
 week-1-in-class-riemann-sums-derivatives-antiderivatives
 area-under-the-curve
-riemann-sums
+riemann-sums-1
 practice-differentiation-rules
 product-rule
 chain-rule
@@ -471,7 +471,7 @@ constant-functions
 the-fundamental-theorem-of-calculus-part-i-1
 the-fundamental-theorem-of-calculus-part-ii-1
 conceptual-questions
-practice-problems-6
+practice-problems-25
 key-takeaway-13
 practice-properties-of-definite-integrals-the-fundamental-theorem-of-calculus
 practice-set-a-linearity-and-constants

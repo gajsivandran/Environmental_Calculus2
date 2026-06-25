@@ -12,6 +12,7 @@ rmd_files:
   - 22-test_review.Rmd
   - 23-test_review.Rmd
   - 24-test_review.Rmd
+  - 25-study_guides.Rmd
   - 101-index_wB.Rmd
   - 102-intro-workbook.Rmd
   - 103-riemann.Rmd

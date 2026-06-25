@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 12 Week 2 In-Class: Riemann Sums → Derivatives → Antiderivatives | Environmental Calculus 2 - Active Learning with Case Studies</title>
+  <title>Module 1: Riemann Sums, the Definite Integral, and the FTC | Environmental Calculus 2 - Active Learning with Case Studies</title>
   <meta name="description" content="A textbook companion to the University of Washington QSci 292 class" />
   <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 12 Week 2 In-Class: Riemann Sums → Derivatives → Antiderivatives | Environmental Calculus 2 - Active Learning with Case Studies" />
+  <meta property="og:title" content="Module 1: Riemann Sums, the Definite Integral, and the FTC | Environmental Calculus 2 - Active Learning with Case Studies" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="A textbook companion to the University of Washington QSci 292 class" />
   <meta name="github-repo" content="gajsivandran/Environmental_Calculus2" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 12 Week 2 In-Class: Riemann Sums → Derivatives → Antiderivatives | Environmental Calculus 2 - Active Learning with Case Studies" />
+  <meta name="twitter:title" content="Module 1: Riemann Sums, the Definite Integral, and the FTC | Environmental Calculus 2 - Active Learning with Case Studies" />
   
   <meta name="twitter:description" content="A textbook companion to the University of Washington QSci 292 class" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html"/>
-<link rel="next" href="week-45-in-class-integration-techniques.html"/>
+<link rel="prev" href="study-guides.html"/>
+<link rel="next" href="module-2-techniques-of-integration.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -1424,1399 +1424,672 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="week-2-in-class-riemann-sums-derivatives-antiderivatives" class="section level1 hasAnchor" number="12">
-<h1><span class="header-section-number">Chapter 12</span> Week 2 In-Class: Riemann Sums → Derivatives → Antiderivatives<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#week-2-in-class-riemann-sums-derivatives-antiderivatives" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="trapezoidal-rule" class="section level2 hasAnchor" number="12.1">
-<h2><span class="header-section-number">12.1</span> Trapezoidal Rule<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#trapezoidal-rule" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The idea here is approximate the area under the curve using the area of a trapezoid.</p>
-<p><img src="bookdown-demo_files/figure-html/trapezoid-vs-left-riemann2-1.png" width="960" /></p>
-<div class="promptox">
-<p><strong>Key Idea</strong></p>
-<p>We are following the same procedure as we did for Riemann Sums. The key differences</p>
+<div id="module-1-riemann-sums-the-definite-integral-and-the-ftc" class="section level1 unnumbered hasAnchor">
+<h1>Module 1: Riemann Sums, the Definite Integral, and the FTC<a href="module-1-riemann-sums-the-definite-integral-and-the-ftc.html#module-1-riemann-sums-the-definite-integral-and-the-ftc" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><em>Building the integral piece by piece — Riemann sums, the definite integral, its properties, antiderivatives, and the Fundamental Theorem of Calculus.</em></p>
+<div id="skills-checklist" class="section level2 unnumbered hasAnchor">
+<h2>Skills Checklist<a href="module-1-riemann-sums-the-definite-integral-and-the-ftc.html#skills-checklist" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<table>
+<colgroup>
+<col width="27%" />
+<col width="72%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Test Skill</th>
+<th align="left">What You Need To Be Able To Do</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Riemann sums (L/R/M)</td>
+<td align="left">Compute left, right, and midpoint Riemann sums for a given function on a given interval</td>
+</tr>
+<tr class="even">
+<td align="left">Trapezoidal rule</td>
+<td align="left">Compute the trapezoidal-rule estimate and explain how it relates to left/right sums</td>
+</tr>
+<tr class="odd">
+<td align="left">Over/underestimation</td>
+<td align="left">Predict whether a method will over- or under-estimate, based on the function’s shape (increasing/decreasing)</td>
+</tr>
+<tr class="even">
+<td align="left">Riemann sum notation</td>
+<td align="left">Read and write <span class="math inline">\(\sum_{i=1}^{n} f(x_i^*)\,\Delta x\)</span> form, including <span class="math inline">\(\Delta x\)</span> and sample-point choices</td>
+</tr>
+<tr class="odd">
+<td align="left">Properties of the definite integral</td>
+<td align="left">Apply linearity, additivity over intervals, and limit-reversal</td>
+</tr>
+<tr class="even">
+<td align="left">Antiderivatives</td>
+<td align="left">Find the most general antiderivative using power, exponential, logarithm, and trig rules</td>
+</tr>
+<tr class="odd">
+<td align="left">Fundamental Theorem</td>
+<td align="left">Evaluate <span class="math inline">\(\int_a^b f(x)\,dx\)</span> via <span class="math inline">\(F(b) - F(a)\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Units and interpretation</td>
+<td align="left">Track units through any integral and interpret the result physically</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+<div id="prep-worksheet-build-your-reference-sheet" class="section level2 unnumbered hasAnchor">
+<h2>Prep Worksheet: Build Your Reference Sheet<a href="module-1-riemann-sums-the-definite-integral-and-the-ftc.html#prep-worksheet-build-your-reference-sheet" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Fill this in before you practice. The goal is to make your own one-page reference sheet instead of passively reading one.</p>
+<div class="promptbox">
+<p><strong>1. Vocabulary I Need to Know</strong></p>
+A rate is:
+<div class="writein">
+
+</div>
+An accumulation is:
+<div class="writein">
+
+</div>
+A <em>signed</em> integral is:
+<div class="writein">
+
+</div>
+An antiderivative of <span class="math inline">\(f(x)\)</span> is:
+<div class="writein">
+
+</div>
+The Fundamental Theorem of Calculus says (in your own words):
+<div class="writein tall">
+
+</div>
+</div>
+<div class="promptbox">
+<p><strong>2. Riemann Sum Sample Points</strong></p>
+The width of each subinterval on <span class="math inline">\([a,b]\)</span> with <span class="math inline">\(n\)</span> subintervals is:
+<span class="math display">\[\Delta x = \]</span>
+<div class="writein">
+
+</div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Method</th>
+<th align="left">Formula for the <span class="math inline">\(i\)</span>th sample point <span class="math inline">\(x_i^*\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Left</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Right</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Midpoint</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="promptbox">
+<p><strong>3. Trapezoidal Rule</strong></p>
+The trapezoidal-rule estimate on <span class="math inline">\([a,b]\)</span> with <span class="math inline">\(n\)</span> subintervals is:
+<span class="math display">\[\int_a^b f(x)\,dx \approx \]</span>
+<div class="writein">
+
+</div>
+Equivalent form (the average of left and right sums):
+<div class="writein">
+
+</div>
+</div>
+<div class="promptbox">
+<p><strong>4. Properties of the Definite Integral</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Property</th>
+<th align="left">Formula</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Linearity (sum)</td>
+<td align="left"><span class="math inline">\(\int_a^b [f(x) + g(x)]\,dx =\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Linearity (constant)</td>
+<td align="left"><span class="math inline">\(\int_a^b c\,f(x)\,dx =\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Additivity</td>
+<td align="left"><span class="math inline">\(\int_a^c f\,dx + \int_c^b f\,dx =\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Limit reversal</td>
+<td align="left"><span class="math inline">\(\int_b^a f(x)\,dx =\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Single point</td>
+<td align="left"><span class="math inline">\(\int_a^a f(x)\,dx =\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="promptbox">
+<p><strong>5. Antiderivative Dictionary</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Function</th>
+<th align="left">Antiderivative <span class="math inline">\(F(x)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(x^n\)</span> (for <span class="math inline">\(n \neq -1\)</span>)</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(1/x\)</span></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(e^{kx}\)</span></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\sin(kx)\)</span></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\cos(kx)\)</span></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">A constant <span class="math inline">\(c\)</span></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="promptbox">
+<p><strong>6. Common Pitfalls I Want to Avoid</strong></p>
+<ol style="list-style-type: decimal">
+<li>Forgetting <span class="math inline">\(+C\)</span> on indefinite integrals.</li>
+<li>Mixing up left/right endpoint sums when the function is decreasing.</li>
+<li>Forgetting that a definite integral can be <strong>negative</strong> when the function dips below the axis.</li>
+<li>Forgetting to multiply by <span class="math inline">\(\Delta x\)</span> at the end of a Riemann sum.</li>
+<li>Ignoring units — the answer should have a physical meaning.</li>
+</ol>
+One mistake I personally want to avoid:
+<div class="writein">
+
+</div>
+</div>
+<hr />
+</div>
+<div id="riemann-sums" class="section level2 unnumbered hasAnchor">
+<h2>Riemann Sums<a href="module-1-riemann-sums-the-definite-integral-and-the-ftc.html#riemann-sums" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Formula:</strong> <span class="math inline">\(\displaystyle \sum_{i=1}^{n} f(x_i^*)\,\Delta x\)</span>, where <span class="math inline">\(\Delta x = (b-a)/n\)</span>.</p>
 <ul>
-<li>Need a new expression for the area</li>
+<li><strong>Left</strong> sample points: <span class="math inline">\(x_i^* = a + (i-1)\Delta x\)</span></li>
+<li><strong>Right</strong> sample points: <span class="math inline">\(x_i^* = a + i\,\Delta x\)</span></li>
+<li><strong>Midpoint</strong> sample points: <span class="math inline">\(x_i^* = a + (i - \tfrac{1}{2})\Delta x\)</span></li>
 </ul>
-<p>The area <span class="math inline">\(A\)</span> of a trapezoid is given by</p>
-<p><span class="math display">\[
-A = \frac{1}{2}(b_1 + b_2)h
-\]</span></p>
-<p>where:</p>
-<ul>
-<li><span class="math inline">\(b_1\)</span> and <span class="math inline">\(b_2\)</span> are the lengths of the two <strong>parallel sides</strong> (the bases),</li>
-<li><span class="math inline">\(h\)</span> is the <strong>height</strong>, the perpendicular distance between the bases.</li>
-</ul>
-<p>What could be replace <span class="math inline">\(b_1\)</span> and <span class="math inline">\(b_2\)</span> with?</p>
-<p><br><br><br></p>
-</div>
-</div>
-<div id="problem-approximating-an-integral-with-the-trapezoid-rule" class="section level2 hasAnchor" number="12.2">
-<h2><span class="header-section-number">12.2</span> Problem: Approximating an Integral with the Trapezoid Rule<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#problem-approximating-an-integral-with-the-trapezoid-rule" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Let<br />
-<span class="math display">\[
-f(x) = x^2
-\]</span>
-on the interval <span class="math inline">\([1,7]\)</span>.</p>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-37-1.png" width="960" /></p>
-<p>Use the <strong>Trapezoid Rule</strong> with <span class="math inline">\(n = 3\)</span> subintervals to approximate
-<span class="math display">\[
-\int_{1}^{7} f(x)\,dx.
-\]</span></p>
-<hr />
-<div id="step-1-set-up-the-riemann-sum-framework" class="section level3 hasAnchor" number="12.2.1">
-<h3><span class="header-section-number">12.2.1</span> Step 1: Set Up the Riemann Sum Framework<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#step-1-set-up-the-riemann-sum-framework" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The trapezoid rule is built from a <strong>Riemann sum</strong>, where the interval <span class="math inline">\([a,b]\)</span> is divided into <span class="math inline">\(n\)</span> equal subintervals of width
-<span class="math display">\[
-\Delta x = \frac{b-a}{n}.
-\]</span></p>
-<p>For this problem:
-<span class="math display">\[
-\Delta x =
-\]</span></p>
-<hr />
-</div>
-<div id="step-2-identify-the-x_i-and-fx_i-values" class="section level3 hasAnchor" number="12.2.2">
-<h3><span class="header-section-number">12.2.2</span> Step 2: Identify the <span class="math inline">\(x_i\)</span> and <span class="math inline">\(f(x_i)\)</span> Values<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#step-2-identify-the-x_i-and-fx_i-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The partition points (also called <strong>nodes</strong>) are defined by
-<span class="math display">\[
-x_i = a + i\Delta x, \quad i = 0,1,2,\dots,n.
-\]</span></p>
-<p>Using <span class="math inline">\(a=1\)</span> and <span class="math inline">\(\Delta x=2\)</span>:
-<span class="math display">\[
-\begin{aligned}
-x_0 &amp;=  \\
-x_1 &amp;=  \\
-x_2 &amp;=  \\
-x_3 &amp;=
-\end{aligned}
-\]</span></p>
-<p>These <span class="math inline">\(x_i\)</span> values mark the endpoints of each trapezoid.</p>
-<hr />
-</div>
-<div id="step-3-trapezoid-rule-as-a-riemann-sum" class="section level3 hasAnchor" number="12.2.3">
-<h3><span class="header-section-number">12.2.3</span> Step 3: Trapezoid Rule as a Riemann Sum<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#step-3-trapezoid-rule-as-a-riemann-sum" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The trapezoid rule can be written as a <strong>weighted Riemann sum</strong>:
-<span class="math display">\[
-T_n = \frac{\Delta x}{2}
-\left[
-f(x_0) + 2f(x_1) + 2f(x_2) + \cdots + 2f(x_{n-1}) + f(x_n)
-\right].
-\]</span></p>
-<p><strong>Important observations:</strong></p>
-<ul>
-<li>The first and last function values are counted <strong>once</strong></li>
-<li>All interior function values are counted <strong>twice</strong></li>
-</ul>
-<hr />
-</div>
-<div id="step-4-why-this-formula-represents-trapezoids" class="section level3 hasAnchor" number="12.2.4">
-<h3><span class="header-section-number">12.2.4</span> Step 4: Why This Formula Represents Trapezoids<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#step-4-why-this-formula-represents-trapezoids" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>On each subinterval <span class="math inline">\([x_{i-1}, x_i]\)</span>, the area is approximated by a trapezoid with:</p>
-<ul>
-<li>Base width: <span class="math inline">\(\Delta x\)</span></li>
-<li>Parallel sides: <span class="math inline">\(f(x_{i-1})\)</span> and <span class="math inline">\(f(x_i)\)</span></li>
-</ul>
-<p>The area of a single trapezoid is
-<span class="math display">\[
-\text{Area}_i
-= \frac{1}{2}\left[f(x_{i-1}) + f(x_i)\right]\Delta x.
-\]</span></p>
-<p>Summing the areas of all trapezoids gives
-<span class="math display">\[
-\sum_{i=1}^{n}
-\frac{1}{2}\left[f(x_{i-1}) + f(x_i)\right]\Delta x,
-\]</span>
-which simplifies to the trapezoid rule formula above.</p>
-<hr />
-</div>
-<div id="numerical-evaluation" class="section level3 hasAnchor" number="12.2.5">
-<h3><span class="header-section-number">12.2.5</span> Numerical Evaluation<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#numerical-evaluation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><br><br><br><br><br><br><br><br><br><br><br><br></p>
-<hr />
-</div>
-<div id="key-takeaway-12" class="section level3 hasAnchor" number="12.2.6">
-<h3><span class="header-section-number">12.2.6</span> Key Takeaway<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#key-takeaway-12" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The trapezoid rule is still a <strong>Riemann sum</strong>, but it improves accuracy by:</p>
-<ul>
-<li>Using both left and right endpoint values</li>
-<li>Approximating the region under the curve with trapezoids instead of rectangles</li>
-</ul>
-<div style="page-break-after: always;"></div>
-</div>
-</div>
-<div id="definite-integrals-and-the-fundamental-theorem-of-calculus-1" class="section level2 hasAnchor" number="12.3">
-<h2><span class="header-section-number">12.3</span> Definite Integrals and the Fundamental Theorem of Calculus<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#definite-integrals-and-the-fundamental-theorem-of-calculus-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In the previous chapter, you developed an intuition for <strong>accumulation</strong> by approximating totals from rates using rectangles, tables, and graphs. You saw how adding up many small contributions can represent meaningful environmental quantities such as total rainfall, streamflow, carbon exchange, or pollutant transport. You also encountered the idea of <strong>signed accumulation</strong>, where gains and losses can offset each other over time.</p>
-<p>This chapter formalizes those ideas.</p>
-<p>Here, we move from <em>“adding rectangles makes sense”</em> to <em>“integrals are well-defined mathematical objects with powerful and reliable properties.”</em> You will learn how mathematicians define accumulation precisely, why different approximation methods converge to the same value, and how integrals connect directly back to derivatives through one of the most important results in calculus.</p>
-<p>Rather than treating integrals as a new collection of formulas, this chapter emphasizes <strong>meaning first</strong>. Computation matters, but it is grounded in interpretation: what a definite integral represents, how it behaves, and why it works.</p>
-<p>By the end of this chapter, you should clearly understand:</p>
-<ul>
-<li>what a definite integral is and how it arises from limits of Riemann sums<br />
-</li>
-<li>why a definite integral represents accumulation, not just area<br />
-</li>
-<li>how integration and differentiation are connected<br />
-</li>
-<li>how to compute definite integrals efficiently <em>without losing meaning</em></li>
-</ul>
-<hr />
-</div>
-<div id="from-riemann-sums-to-definite-integrals-1" class="section level2 hasAnchor" number="12.4">
-<h2><span class="header-section-number">12.4</span> From Riemann Sums to Definite Integrals<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#from-riemann-sums-to-definite-integrals-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In the previous chapter, you learned how to approximate accumulation by <strong>adding up rectangles</strong> under a rate curve. These approximations—left, right, midpoint, and trapezoidal—allowed you to estimate totals from discrete measurements and to reason carefully about overestimates, underestimates, and conservativeness.</p>
-<p>In this section, we take the next conceptual step:</p>
-<blockquote>
-<p><strong>Riemann sums are a process.<br />
-The definite integral is the result of that process.</strong></p>
-</blockquote>
-<hr />
-<div id="riemann-sums-as-structured-approximations-1" class="section level3 hasAnchor" number="12.4.1">
-<h3><span class="header-section-number">12.4.1</span> Riemann Sums as Structured Approximations<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#riemann-sums-as-structured-approximations-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>A Riemann sum is a structured way to approximate accumulation:</p>
-<ol style="list-style-type: decimal">
-<li>Partition an interval <span class="math inline">\([a,b]\)</span></li>
-<li>Choose a representative rate in each slice</li>
-<li>Multiply rate by width</li>
-<li>Add all contributions</li>
-</ol>
-<p>This mirrors how environmental data are handled in practice: discrete measurements represent continuous processes.</p>
-<hr />
-</div>
-<div id="from-finite-sums-to-a-limit-1" class="section level3 hasAnchor" number="12.4.2">
-<h3><span class="header-section-number">12.4.2</span> From Finite Sums to a Limit<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#from-finite-sums-to-a-limit-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>A Riemann sum has the form:
-<span class="math display">\[
-\sum_{i=1}^n f(x_i^*)\Delta x
-\]</span></p>
-<p>As <span class="math inline">\(n \to \infty\)</span>, rectangles become thinner and approximation error shrinks.</p>
-<hr />
-</div>
-<div id="defining-the-definite-integral-1" class="section level3 hasAnchor" number="12.4.3">
-<h3><span class="header-section-number">12.4.3</span> Defining the Definite Integral<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#defining-the-definite-integral-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The <strong>definite integral</strong> is defined as:
-<span class="math display">\[
-\int_a^b f(x)\,dx
-=
-\lim_{n\to\infty}
-\sum_{i=1}^n f(x_i^*)\Delta x
-\]</span></p>
-<p>This definition formalizes accumulation with perfect resolution.</p>
-<hr />
-</div>
-<div id="conceptual-meaning" class="section level3 hasAnchor" number="12.4.4">
-<h3><span class="header-section-number">12.4.4</span> Conceptual Meaning<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#conceptual-meaning" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The expression
-<span class="math display">\[
-\int_a^b f(x)\,dx
-\]</span>
-means:</p>
-<blockquote>
-<p>The total accumulated effect of the rate <span class="math inline">\(f(x)\)</span> as <span class="math inline">\(x\)</span> runs from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span></p>
-</blockquote>
-<hr />
-</div>
-</div>
-<div id="evaluating-a-definite-integral-step-by-step" class="section level2 hasAnchor" number="12.5">
-<h2><span class="header-section-number">12.5</span> Evaluating a Definite Integral (Step by Step)<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#evaluating-a-definite-integral-step-by-step" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Before learning shortcut rules for integrals, it is essential to practice the <strong>core process</strong> used to evaluate a definite integral. This section will guide you through that process one step at a time, with checkpoints to help you reflect on what each step means.</p>
-<hr />
-<div id="what-does-a-definite-integral-represent-1" class="section level3 hasAnchor" number="12.5.1">
-<h3><span class="header-section-number">12.5.1</span> What does a definite integral represent?<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#what-does-a-definite-integral-represent-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>A definite integral,
-<span class="math display">\[
-\int_a^b f(x)\,dx,
-\]</span>
-represents the <strong>net accumulation</strong> of a quantity whose rate or density is given by <span class="math inline">\(f(x)\)</span> over the interval <span class="math inline">\([a,b]\)</span>.</p>
-<hr />
-</div>
-<div id="step-1-identify-the-function-being-accumulated" class="section level3 hasAnchor" number="12.5.2">
-<h3><span class="header-section-number">12.5.2</span> Step 1: Identify the function being accumulated<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#step-1-identify-the-function-being-accumulated" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Consider the integral:
-<span class="math display">\[
-\int_1^4 x^2\,dx.
-\]</span></p>
-<p><strong>Checkpoint 1</strong></p>
-<ul>
-<li><p>What is the function being accumulated?</p></li>
-<li><p>Over what interval does the accumulation occur?</p></li>
-<li><p>Function: __________________________<br />
-</p></li>
-<li><p>Interval: __________________________</p></li>
-</ul>
-<hr />
-</div>
-<div id="step-2-find-an-antiderivative" class="section level3 hasAnchor" number="12.5.3">
-<h3><span class="header-section-number">12.5.3</span> Step 2: Find an antiderivative<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#step-2-find-an-antiderivative" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>To evaluate a definite integral, you first need an <strong>antiderivative</strong>.</p>
-<blockquote>
-<p>An antiderivative of <span class="math inline">\(f(x)\)</span> is a function <span class="math inline">\(F(x)\)</span> such that<br />
-<span class="math display">\[
-F&#39;(x) = f(x).
-\]</span></p>
-</blockquote>
-<p><strong>Practice</strong></p>
-<p>Find an antiderivative of:
-<span class="math display">\[
-f(x) = x^2
-\]</span></p>
-<p><span class="math display">\[
-F(x) = \rule{6cm}{0.15mm}
-\]</span></p>
-<p><em>(Do not include a constant of integration.)</em></p>
-<hr />
-</div>
-<div id="step-3-evaluate-the-antiderivative-at-the-bounds" class="section level3 hasAnchor" number="12.5.4">
-<h3><span class="header-section-number">12.5.4</span> Step 3: Evaluate the antiderivative at the bounds<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#step-3-evaluate-the-antiderivative-at-the-bounds" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Next, evaluate your antiderivative at the <strong>upper bound</strong> and the <strong>lower bound</strong>.</p>
-<p><strong>Upper bound:</strong></p>
-<p><span class="math display">\[
-F(4) = \rule{6cm}{0.15mm}
-\]</span></p>
-<p><strong>Lower bound:</strong></p>
-<p><span class="math display">\[
-F(1) = \rule{6cm}{0.15mm}
-\]</span></p>
-<hr />
-</div>
-<div id="step-4-subtract-to-find-the-net-accumulation" class="section level3 hasAnchor" number="12.5.5">
-<h3><span class="header-section-number">12.5.5</span> Step 4: Subtract to find the net accumulation<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#step-4-subtract-to-find-the-net-accumulation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The value of the definite integral is found by subtracting:
-<span class="math display">\[
-\int_1^4 x^2\,dx = F(4) - F(1).
-\]</span></p>
-<p><strong>Compute the difference:</strong></p>
-<p><span class="math display">\[
-F(4) - F(1) = \rule{6cm}{0.15mm}
-\]</span></p>
-<hr />
-</div>
-<div id="step-5-interpret-the-result" class="section level3 hasAnchor" number="12.5.6">
-<h3><span class="header-section-number">12.5.6</span> Step 5: Interpret the result<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#step-5-interpret-the-result" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Your final answer represents the <strong>total accumulated amount</strong> of <span class="math inline">\(x^2\)</span> from <span class="math inline">\(x=1\)</span> to <span class="math inline">\(x=4\)</span>.</p>
-<p><strong>Reflection questions</strong></p>
-<ul>
-<li>Is your result positive or negative? Why does that make sense?</li>
-<li>Would your answer change if you added a constant <span class="math inline">\(C\)</span> to the antiderivative? Why or why not?</li>
-</ul>
-<p><span class="math display">\[
-\rule{12cm}{0.15mm}
-\]</span></p>
-<hr />
-</div>
-</div>
-<div id="why-there-is-no-constant-of-integration" class="section level2 hasAnchor" number="12.6">
-<h2><span class="header-section-number">12.6</span> Why there is no constant of integration<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#why-there-is-no-constant-of-integration" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Suppose your antiderivative had included a constant <span class="math inline">\(C\)</span>:
-<span class="math display">\[
-F(x) + C.
-\]</span></p>
-<p>When evaluating the definite integral, you would compute:
-<span class="math display">\[
-(F(4) + C) - (F(1) + C).
-\]</span></p>
-<p><strong>Checkpoint 2</strong></p>
-<ul>
-<li>What happens to the constant <span class="math inline">\(C\)</span>?</li>
-<li>What does this tell you about definite integrals?</li>
-</ul>
-<p><span class="math display">\[
-\rule{12cm}{0.15mm}
-\]</span></p>
-<hr />
-</div>
-<div id="summary-the-evaluation-process" class="section level2 hasAnchor" number="12.7">
-<h2><span class="header-section-number">12.7</span> Summary: The Evaluation Process<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#summary-the-evaluation-process" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Every definite integral is evaluated using the same three-step process:</p>
-<ol style="list-style-type: decimal">
-<li><strong>Find an antiderivative</strong></li>
-<li><strong>Evaluate it at the upper and lower bounds</strong></li>
-<li><strong>Subtract to find net accumulation</strong></li>
-</ol>
-<hr />
-<div id="optional-challenge" class="section level3 hasAnchor" number="12.7.1">
-<h3><span class="header-section-number">12.7.1</span> Optional Challenge<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#optional-challenge" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Evaluate the following using the same steps:</p>
-<p><span class="math display">\[
-\int_0^2 (3x^2)\,dx
-\]</span></p>
-<p><br><br><br><br><br><br><br><br><br><br></p>
-</div>
-</div>
-<div id="properties-of-definite-integrals-1" class="section level2 hasAnchor" number="12.8">
-<h2><span class="header-section-number">12.8</span> Properties of Definite Integrals<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#properties-of-definite-integrals-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="linearity" class="section level3 hasAnchor" number="12.8.1">
-<h3><span class="header-section-number">12.8.1</span> Linearity<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#linearity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><span class="math display">\[
-\int_a^b [f(x)+g(x)]dx
-=
-\int_a^b f(x)dx + \int_a^b g(x)dx
-\]</span></p>
-<p><span class="math display">\[
-\int_a^b c f(x)\,dx = c\int_a^b f(x)\,dx
-\]</span></p>
-<p>Linearity reflects additive physical processes.</p>
-<hr />
-</div>
-<div id="additivity-over-intervals-1" class="section level3 hasAnchor" number="12.8.2">
-<h3><span class="header-section-number">12.8.2</span> Additivity Over Intervals<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#additivity-over-intervals-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>If <span class="math inline">\(a&lt;c&lt;b\)</span>,
-<span class="math display">\[
-\int_a^b f(x)dx = \int_a^c f(x)dx + \int_c^b f(x)dx
-\]</span></p>
-<hr />
-</div>
-<div id="reversing-limits" class="section level3 hasAnchor" number="12.8.3">
-<h3><span class="header-section-number">12.8.3</span> Reversing Limits<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#reversing-limits" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><span class="math display">\[
-\int_a^b f(x)dx = -\int_b^a f(x)dx
-\]</span></p>
-<p>Direction matters.</p>
-<hr />
-</div>
-<div id="constant-functions" class="section level3 hasAnchor" number="12.8.4">
-<h3><span class="header-section-number">12.8.4</span> Constant Functions<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#constant-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><span class="math display">\[
-\int_a^b c\,dx = c(b-a)
-\]</span></p>
-<p>This anchors integration to everyday reasoning.</p>
-<hr />
-</div>
-</div>
-<div id="the-fundamental-theorem-of-calculus-part-i-1" class="section level2 hasAnchor" number="12.9">
-<h2><span class="header-section-number">12.9</span> The Fundamental Theorem of Calculus (Part I)<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#the-fundamental-theorem-of-calculus-part-i-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Define an accumulation function:
-<span class="math display">\[
-A(x) = \int_a^x f(t)\,dt
-\]</span></p>
-<p>Then:
-<span class="math display">\[
-A&#39;(x) = f(x)
-\]</span></p>
-<blockquote>
-<p>The rate of change of accumulation equals the original rate.</p>
-</blockquote>
-<hr />
-</div>
-<div id="the-fundamental-theorem-of-calculus-part-ii-1" class="section level2 hasAnchor" number="12.10">
-<h2><span class="header-section-number">12.10</span> The Fundamental Theorem of Calculus (Part II)<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#the-fundamental-theorem-of-calculus-part-ii-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>If <span class="math inline">\(F&#39;(x)=f(x)\)</span>, then:
-<span class="math display">\[
-\int_a^b f(x)\,dx = F(b) - F(a)
-\]</span></p>
-<p>This works because accumulation functions are antiderivatives.</p>
-<hr />
-<div id="worked-example" class="section level3 unnumbered hasAnchor promptbox">
-<h3>Worked Example<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#worked-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Suppose carbon flux is modeled by:
-<span class="math display">\[
-f(t)=3t^2 + 7 \quad \text{(kg/hr)}
-\]</span></p>
-<p>Find net carbon exchange from <span class="math inline">\(t=1\)</span> to <span class="math inline">\(t=4\)</span>.</p>
-<p><strong>Antiderivative:</strong>
-<br><br><br><br></p>
-<p><strong>Evaluate:</strong>
-<br><br><br><br><br><br><br><br><br><br><br><br></p>
-</div>
-<hr />
-</div>
-<div id="conceptual-questions" class="section level2 hasAnchor" number="12.11">
-<h2><span class="header-section-number">12.11</span> Conceptual Questions<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#conceptual-questions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Why are Riemann sums a <em>process</em> rather than a final answer?</p>
-<p><br><br><br><br><br><br><br><br></p>
-<hr />
-</div>
-<div id="practice-problems-25" class="section level2 hasAnchor" number="12.12">
-<h2><span class="header-section-number">12.12</span> Practice Problems<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#practice-problems-25" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Evaluate:
-<span class="math display">\[
-\int_0^2 (3x^2+4x)\,dx
-\]</span></p>
-<p><br><br><br><br><br><br><br><br></p>
-<hr />
-<div id="key-takeaway-13" class="section level3 hasAnchor" number="12.12.1">
-<h3><span class="header-section-number">12.12.1</span> Key Takeaway<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#key-takeaway-13" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Definite integrals describe <strong>accumulated change</strong>.<br />
-Antiderivatives provide an efficient way to compute that change — but meaning always comes first.</p>
-<div style="page-break-after: always;"></div>
-</div>
-</div>
-<div id="practice-properties-of-definite-integrals-the-fundamental-theorem-of-calculus" class="section level2 hasAnchor" number="12.13">
-<h2><span class="header-section-number">12.13</span> Practice: Properties of Definite Integrals &amp; the Fundamental Theorem of Calculus<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#practice-properties-of-definite-integrals-the-fundamental-theorem-of-calculus" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>These problems are designed to help you practice using the <strong>properties of definite integrals</strong> and the <strong>Fundamental Theorem of Calculus</strong> in a purposeful way.</p>
-<p>As you work, ask yourself:
-- Can I simplify this integral <em>before</em> computing?
-- Does the sign of the rate matter?
-- What does the result represent physically?</p>
-<hr />
-</div>
-<div id="practice-set-a-linearity-and-constants" class="section level2 hasAnchor" number="12.14">
-<h2><span class="header-section-number">12.14</span> Practice Set A: Linearity and Constants<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#practice-set-a-linearity-and-constants" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="a1.-using-linearity" class="section level3 hasAnchor" number="12.14.1">
-<h3><span class="header-section-number">12.14.1</span> A1. Using Linearity<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#a1.-using-linearity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Let
-<span class="math display">\[
-f(t) = 5t^2 - 4t + 6.
-\]</span></p>
-<ol style="list-style-type: decimal">
-<li><p>Rewrite the integral using linearity:
-<span class="math display">\[
-\int_0^2 (5t^2 - 4t + 6)\,dt
-\]</span></p></li>
-<li><p>Identify which term you expect to contribute the most to the total accumulation.</p></li>
-<li><p>Evaluate the integral.</p></li>
-</ol>
-<hr />
-</div>
-<div id="a2.-constant-multiple-rule" class="section level3 hasAnchor" number="12.14.2">
-<h3><span class="header-section-number">12.14.2</span> A2. Constant Multiple Rule<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#a2.-constant-multiple-rule" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Suppose nutrient uptake is modeled by
-<span class="math display">\[
-N(t) = 12(0.5t^2 + 1)
-\quad \text{(mg/day)}.
-\]</span></p>
-<ol style="list-style-type: decimal">
-<li>Rewrite the integral by factoring out the constant.</li>
-<li>Evaluate
-<span class="math display">\[
-\int_0^3 N(t)\,dt.
-\]</span></li>
-<li>Interpret your answer, including units.</li>
-</ol>
-<hr />
-</div>
-<div id="a3.-accumulation-with-an-exponential-rate" class="section level3 hasAnchor" number="12.14.3">
-<h3><span class="header-section-number">12.14.3</span> A3. Accumulation with an Exponential Rate<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#a3.-accumulation-with-an-exponential-rate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Suppose the rate of carbon uptake by vegetation is modeled by
-<span class="math display">\[
-C(t) = 4e^{t} + 2
-\quad \text{(kg/day)}.
-\]</span></p>
-<ol style="list-style-type: decimal">
-<li><p>Use linearity to rewrite the integral
-<span class="math display">\[
-\int_0^2 (4e^{t} + 2)\,dt
-\]</span>
-as a sum of two simpler integrals.</p></li>
-<li><p>Evaluate each integral and compute the total carbon uptake over <span class="math inline">\([0,2]\)</span>.</p></li>
-<li><p>Interpret your result, including units.</p></li>
-</ol>
-<hr />
-</div>
-<div id="a4.-comparing-exponential-and-linear-growth" class="section level3 hasAnchor" number="12.14.4">
-<h3><span class="header-section-number">12.14.4</span> A4. Comparing Exponential and Linear Growth<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#a4.-comparing-exponential-and-linear-growth" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Consider two accumulation processes over the interval <span class="math inline">\([0,2]\)</span>:</p>
-<p><span class="math display">\[
-f(t) = 4t + 2
-\qquad
-g(t) = 4e^{t} + 2.
-\]</span></p>
-<ol style="list-style-type: decimal">
-<li><p>Compute
-<span class="math display">\[
-\int_0^2 f(t)\,dt
-\quad \text{and} \quad
-\int_0^2 g(t)\,dt.
-\]</span></p></li>
-<li><p>Which process leads to greater total accumulation?</p></li>
-<li><p>Explain why exponential rates can produce much larger accumulation even over short time intervals.</p></li>
-</ol>
-<hr />
-</div>
-<div id="concept-check-exponential-rates" class="section level3 hasAnchor" number="12.14.5">
-<h3><span class="header-section-number">12.14.5</span> Concept Check (Exponential Rates)<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#concept-check-exponential-rates" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Without computing:</p>
-<ul>
-<li>How does the <em>shape</em> of <span class="math inline">\(e^t\)</span> influence accumulation compared to a linear rate?</li>
-<li>What happens to the accumulation if the interval length increases slightly?</li>
-</ul>
-<hr />
-</div>
-</div>
-<div id="practice-set-b-signed-accumulation-and-additivity" class="section level2 hasAnchor" number="12.15">
-<h2><span class="header-section-number">12.15</span> Practice Set B: Signed Accumulation and Additivity<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#practice-set-b-signed-accumulation-and-additivity" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="b1.-positive-vs.-negative-contributions" class="section level3 hasAnchor" number="12.15.1">
-<h3><span class="header-section-number">12.15.1</span> B1. Positive vs. Negative Contributions<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#b1.-positive-vs.-negative-contributions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>A wetland’s net nutrient flux is modeled by
-<span class="math display">\[
-R(t) = 6 - 2t
-\quad \text{(kg/day)}.
-\]</span></p>
-<ol style="list-style-type: decimal">
-<li>Determine when the rate is positive and when it is negative.</li>
-<li>Sketch a graph of the rate.</li>
-<li>Split the integral at the appropriate time.</li>
-<li>Compute:
-<ul>
-<li>total nutrient input<br />
-</li>
-<li>total nutrient removal<br />
-</li>
-<li>net nutrient change on <span class="math inline">\([0,5]\)</span></li>
-</ul></li>
-</ol>
-<hr />
-</div>
-<div id="b2.-same-net-change-different-behavior" class="section level3 hasAnchor" number="12.15.2">
-<h3><span class="header-section-number">12.15.2</span> B2. Same Net Change, Different Behavior<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#b2.-same-net-change-different-behavior" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Two systems are observed over the interval <span class="math inline">\([0,4]\)</span>.</p>
-<p>System A:
-<span class="math display">\[
-f(t) = 2 - t
-\]</span></p>
-<p>System B:
-<span class="math display">\[
-g(t) = \sin\!\left(\frac{\pi t}{2}\right)
-\]</span></p>
-<ol style="list-style-type: decimal">
-<li>Compute the net change for each system.</li>
-<li>Compare the <em>total</em> amount exchanged in each system.</li>
-<li>Explain how two systems can have the same net change but behave very differently.</li>
-</ol>
-<hr />
-</div>
-</div>
-<div id="practice-set-c-accumulation-functions-ftc-part-i" class="section level2 hasAnchor" number="12.16">
-<h2><span class="header-section-number">12.16</span> Practice Set C: Accumulation Functions (FTC Part I)<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#practice-set-c-accumulation-functions-ftc-part-i" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="c1.-building-an-accumulation-function" class="section level3 hasAnchor" number="12.16.1">
-<h3><span class="header-section-number">12.16.1</span> C1. Building an Accumulation Function<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#c1.-building-an-accumulation-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Let
-<span class="math display">\[
-r(t) = 3t + 2
-\quad \text{(kg/hr)}.
-\]</span></p>
-<p>Define the accumulation function:
-<span class="math display">\[
-A(x) = \int_1^x r(t)\,dt.
-\]</span></p>
-<ol style="list-style-type: decimal">
-<li>Find an explicit formula for <span class="math inline">\(A(x)\)</span>.</li>
-<li>Compute <span class="math inline">\(A(4)\)</span>.</li>
-<li>Explain what <span class="math inline">\(A&#39;(x)\)</span> represents.</li>
-<li>State the units of <span class="math inline">\(A(x)\)</span>.</li>
-</ol>
-<hr />
-</div>
-<div id="c2.-interpreting-accumulation-without-computing" class="section level3 hasAnchor" number="12.16.2">
-<h3><span class="header-section-number">12.16.2</span> C2. Interpreting Accumulation Without Computing<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#c2.-interpreting-accumulation-without-computing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Based on the behavior of the rate function:</p>
-<ul>
-<li>Where would the accumulation function increase most rapidly?</li>
-<li>Where would it be concave up?</li>
-<li>What would a flat section of the accumulation function represent?</li>
-</ul>
-<hr />
-</div>
-</div>
-<div id="practice-set-d-evaluating-definite-integrals-using-ftc-part-ii" class="section level2 hasAnchor" number="12.17">
-<h2><span class="header-section-number">12.17</span> Practice Set D: Evaluating Definite Integrals Using FTC Part II<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#practice-set-d-evaluating-definite-integrals-using-ftc-part-ii" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="d1.-two-approaches-to-net-change" class="section level3 hasAnchor" number="12.17.1">
-<h3><span class="header-section-number">12.17.1</span> D1. Two Approaches to Net Change<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#d1.-two-approaches-to-net-change" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Let
-<span class="math display">\[
-f(t) = t^2 - 4t.
-\]</span></p>
-<ol style="list-style-type: decimal">
-<li>Identify where the rate is positive and where it is negative.</li>
-<li>Compute the net change on <span class="math inline">\([0,5]\)</span> by:
-<ul>
-<li>splitting the interval where the sign changes<br />
-</li>
-<li>using an antiderivative and FTC Part II</li>
-</ul></li>
-<li>Explain why both approaches give the same result.</li>
-</ol>
-<hr />
-</div>
-</div>
-<div id="conceptual-reflection" class="section level2 hasAnchor" number="12.18">
-<h2><span class="header-section-number">12.18</span> Conceptual Reflection<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#conceptual-reflection" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Answer in complete sentences.</p>
-<ol style="list-style-type: decimal">
-<li>Why are Riemann sums considered a <em>process</em> rather than a final result?</li>
-<li>When is it useful to split an integral before computing it?</li>
-<li>Can a system experience large total exchange but small net change? Explain.</li>
-<li>What information does a definite integral <strong>not</strong> provide on its own?</li>
-</ol>
-<hr />
-</div>
-<div id="practice-set-e" class="section level2 hasAnchor" number="12.19">
-<h2><span class="header-section-number">12.19</span> Practice Set E<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#practice-set-e" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="e1.-linearity-sum-and-difference" class="section level3 hasAnchor" number="12.19.1">
-<h3><span class="header-section-number">12.19.1</span> E1. Linearity (Sum and Difference)<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#e1.-linearity-sum-and-difference" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ol style="list-style-type: decimal">
-<li>Suppose<br />
-<span class="math display">\[
-\int_{2}^{6} f(x)\,dx = 5
-\quad \text{and} \quad
-\int_{2}^{6} g(x)\,dx = -3.
-\]</span><br />
-Evaluate:
-<span class="math display">\[
-\int_{2}^{6} [f(x) + g(x)]\,dx
-\]</span></li>
-</ol>
-<hr />
-<ol start="2" style="list-style-type: decimal">
-<li>Given<br />
-<span class="math display">\[
-\int_{-1}^{3} h(x)\,dx = 7,
-\]</span><br />
-find:
-<span class="math display">\[
-\int_{-1}^{3} [h(x) - 4]\,dx
-\]</span></li>
-</ol>
-<hr />
-<ol start="3" style="list-style-type: decimal">
-<li>Let<br />
-<span class="math display">\[
-\int_{0}^{4} p(x)\,dx = 6
-\quad \text{and} \quad
-\int_{0}^{4} q(x)\,dx = 10.
-\]</span><br />
-Compute:
-<span class="math display">\[
-\int_{0}^{4} [3p(x) - 2q(x)]\,dx
-\]</span></li>
-</ol>
-<hr />
-</div>
-<div id="e2.-constant-multiple-rule" class="section level3 hasAnchor" number="12.19.2">
-<h3><span class="header-section-number">12.19.2</span> E2. Constant Multiple Rule<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#e2.-constant-multiple-rule" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ol start="4" style="list-style-type: decimal">
-<li>If<br />
-<span class="math display">\[
-\int_{1}^{5} r(x)\,dx = -2,
-\]</span><br />
-evaluate:
-<span class="math display">\[
-\int_{1}^{5} 6r(x)\,dx
-\]</span></li>
-</ol>
-<hr />
-<ol start="5" style="list-style-type: decimal">
-<li>Given<br />
-<span class="math display">\[
-\int_{-2}^{2} f(x)\,dx = 9,
-\]</span><br />
-find:
-<span class="math display">\[
-\int_{-2}^{2} \tfrac{1}{3} f(x)\,dx
-\]</span></li>
-</ol>
-<hr />
-</div>
-<div id="e3.-additivity-over-intervals" class="section level3 hasAnchor" number="12.19.3">
-<h3><span class="header-section-number">12.19.3</span> E3. Additivity Over Intervals<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#e3.-additivity-over-intervals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ol start="6" style="list-style-type: decimal">
-<li>Suppose<br />
-<span class="math display">\[
-\int_{0}^{3} f(x)\,dx = 4
-\quad \text{and} \quad
-\int_{3}^{7} f(x)\,dx = -1.
-\]</span><br />
-Find:
-<span class="math display">\[
-\int_{0}^{7} f(x)\,dx
-\]</span></li>
-</ol>
-<hr />
-<ol start="7" style="list-style-type: decimal">
-<li>You are told that<br />
-<span class="math display">\[
-\int_{1}^{4} g(x)\,dx = 6
-\quad \text{and} \quad
-\int_{1}^{2} g(x)\,dx = 2.
-\]</span><br />
-Determine:
-<span class="math display">\[
-\int_{2}^{4} g(x)\,dx
-\]</span></li>
-</ol>
-<hr />
-</div>
-<div id="e4.-combining-multiple-properties" class="section level3 hasAnchor" number="12.19.4">
-<h3><span class="header-section-number">12.19.4</span> E4. Combining Multiple Properties<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#e4.-combining-multiple-properties" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ol start="8" style="list-style-type: decimal">
-<li>Let<br />
-<span class="math display">\[
-\int_{0}^{2} f(x)\,dx = 3,
-\quad
-\int_{2}^{5} f(x)\,dx = -1.
-\]</span><br />
-Evaluate:
-<span class="math display">\[
-\int_{0}^{5} [2f(x) + 1]\,dx
-\]</span></li>
-</ol>
-<hr />
-<ol start="9" style="list-style-type: decimal">
-<li>Suppose<br />
-<span class="math display">\[
-\int_{-4}^{0} h(x)\,dx = -5
-\quad \text{and} \quad
-\int_{0}^{4} h(x)\,dx = 7.
-\]</span><br />
-Find:
-<span class="math display">\[
-\int_{-4}^{4} [-h(x)]\,dx
-\]</span></li>
-</ol>
-<hr />
-</div>
-<div id="e5.-conceptual-no-computation-required" class="section level3 hasAnchor" number="12.19.5">
-<h3><span class="header-section-number">12.19.5</span> E5. Conceptual (No Computation Required)<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#e5.-conceptual-no-computation-required" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ol start="10" style="list-style-type: decimal">
-<li>Without evaluating any integrals, explain <strong>why</strong><br />
-<span class="math display">\[
-\int_{a}^{b} [f(x) + c]\,dx
-\]</span><br />
-can always be written as the sum of <strong>two simpler integrals</strong>.</li>
-</ol>
-<p>What does each part represent?</p>
-</div>
-</div>
-<div id="practice-set-f-indefinite-integrals" class="section level2 hasAnchor" number="12.20">
-<h2><span class="header-section-number">12.20</span> Practice Set F: Indefinite Integrals<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#practice-set-f-indefinite-integrals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>For each problem, find the <strong>most general antiderivative</strong>.<br />
-Be sure to include the <strong>constant of integration</strong> <span class="math inline">\(C\)</span>.</p>
-<hr />
-<div id="f1.-polynomial-function" class="section level3 hasAnchor" number="12.20.1">
-<h3><span class="header-section-number">12.20.1</span> F1. Polynomial Function<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#f1.-polynomial-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Evaluate:
-<span class="math display">\[
-\int (4x^3 - 6x + 5)\,dx
-\]</span></p>
-<hr />
-</div>
-<div id="f2.-constant-multiple-and-power-rule" class="section level3 hasAnchor" number="12.20.2">
-<h3><span class="header-section-number">12.20.2</span> F2. Constant Multiple and Power Rule<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#f2.-constant-multiple-and-power-rule" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Evaluate:
-<span class="math display">\[
-\int 7x^{1/2}\,dx
-\]</span></p>
-<hr />
-</div>
-<div id="f3.-exponential-function" class="section level3 hasAnchor" number="12.20.3">
-<h3><span class="header-section-number">12.20.3</span> F3. Exponential Function<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#f3.-exponential-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Evaluate:
-<span class="math display">\[
-\int 3e^{x}\,dx
-\]</span></p>
-<hr />
-</div>
-<div id="f4.-trigonometric-function-sine" class="section level3 hasAnchor" number="12.20.4">
-<h3><span class="header-section-number">12.20.4</span> F4. Trigonometric Function (Sine)<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#f4.-trigonometric-function-sine" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Evaluate:
-<span class="math display">\[
-\int \sin x\,dx
-\]</span></p>
-<hr />
-</div>
-<div id="f5.-trigonometric-function-cosine" class="section level3 hasAnchor" number="12.20.5">
-<h3><span class="header-section-number">12.20.5</span> F5. Trigonometric Function (Cosine)<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#f5.-trigonometric-function-cosine" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Evaluate:
-<span class="math display">\[
-\int 5\cos x\,dx
-\]</span></p>
-<hr />
-<details open>
+<p>For an <em>increasing</em> function: left sums underestimate, right sums overestimate.<br />
+For a <em>decreasing</em> function: left sums overestimate, right sums underestimate.<br />
+Midpoint typically lands closest to the truth for smooth functions.</p>
+<div id="concept-check-in" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check In<a href="module-1-riemann-sums-the-definite-integral-and-the-ftc.html#concept-check-in" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>1.</strong> What does each rectangle in a Riemann sum represent physically?</p>
+<details>
 <summary>
-<strong>Click to Unlock Solutions</strong>
+<strong>Answer</strong>
 </summary>
+Each rectangle is a small contribution to the total accumulation: its width is a slice of time (or distance), and its height is the rate during that slice. Multiplying gives the amount accumulated in that little window.
+</details>
+<p><strong>2.</strong> If the rate is <em>increasing</em> on <span class="math inline">\([a,b]\)</span>, why does a left Riemann sum underestimate the integral?</p>
+<details>
+<summary>
+<strong>Answer</strong>
+</summary>
+The left endpoint of each subinterval gives the smallest value of the rate on that subinterval (because the rate is increasing). Each rectangle is too short, so the sum is below the true value.
+</details>
+<p><strong>3.</strong> What happens to a Riemann sum as <span class="math inline">\(n \to \infty\)</span>?</p>
+<details>
+<summary>
+<strong>Answer</strong>
+</summary>
+As the subintervals get narrower, the constant-rate-per-rectangle assumption becomes more reasonable. In the limit, the Riemann sum equals the definite integral exactly.
+</details>
 </div>
-</div>
-<div id="sol_set1" hidden="" markdown="1" style="margin-top:0.75rem;">
-<div id="answer-key" class="section level2 hasAnchor" number="12.21">
-<h2><span class="header-section-number">12.21</span> Answer Key<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#answer-key" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="practice-problems-6" class="section level3 unnumbered hasAnchor">
+<h3>Practice Problems<a href="module-1-riemann-sums-the-definite-integral-and-the-ftc.html#practice-problems-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>1.</strong> Compute the <strong>left Riemann sum</strong> for <span class="math inline">\(f(x) = x^2\)</span> on <span class="math inline">\([0, 4]\)</span> with <span class="math inline">\(n = 4\)</span>.</p>
+<details>
+<summary>
+<strong>Solution</strong>
+</summary>
+<span class="math inline">\(\Delta x = 1\)</span>. Left endpoints: 0, 1, 2, 3. Values: 0, 1, 4, 9. Sum: <span class="math inline">\(1(0+1+4+9) = 14\)</span>.
+</details>
+<p><strong>2.</strong> Compute the <strong>right Riemann sum</strong> for the same function and interval with <span class="math inline">\(n = 4\)</span>.</p>
+<details>
+<summary>
+<strong>Solution</strong>
+</summary>
+Right endpoints: 1, 2, 3, 4. Values: 1, 4, 9, 16. Sum: <span class="math inline">\(1(1+4+9+16) = 30\)</span>.
+</details>
+<p><strong>3.</strong> Compute the <strong>midpoint Riemann sum</strong> for the same function and interval with <span class="math inline">\(n = 4\)</span>.</p>
+<details>
+<summary>
+<strong>Solution</strong>
+</summary>
+Midpoints: 0.5, 1.5, 2.5, 3.5. Values: 0.25, 2.25, 6.25, 12.25. Sum: <span class="math inline">\(1(0.25 + 2.25 + 6.25 + 12.25) = 21\)</span>.
+</details>
+<p><strong>4.</strong> A stream gauge logs the flow rate <span class="math inline">\(Q(t)\)</span> in m³/s every hour for 4 hours:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\(t\)</span> (h)</th>
+<th align="center">0</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(Q\)</span> (m³/s)</td>
+<td align="center">5</td>
+<td align="center">8</td>
+<td align="center">12</td>
+<td align="center">9</td>
+<td align="center">6</td>
+</tr>
+</tbody>
+</table>
+<p>Estimate the total volume of water that passed the gauge over the 4-hour window using a <strong>left Riemann sum</strong>. (Watch units: m³/s × hours needs conversion.)</p>
+<details>
+<summary>
+<strong>Solution</strong>
+</summary>
+<span class="math inline">\(\Delta t = 1\)</span> hour = 3600 s. Left rectangles use <span class="math inline">\(Q\)</span> at <span class="math inline">\(t = 0, 1, 2, 3\)</span>: 5, 8, 12, 9. Left sum: <span class="math inline">\(1 \text{ h} \times (5+8+12+9) \text{ m}^3/\text{s} = 34\)</span> m³/s · h. Converting: <span class="math inline">\(34 \times 3600 = 122{,}400\)</span> m³.
+</details>
+<p><strong>5.</strong> Without computing, predict whether a left Riemann sum will over- or underestimate <span class="math inline">\(\int_0^2 e^x\,dx\)</span>. Explain.</p>
+<details>
+<summary>
+<strong>Solution</strong>
+</summary>
+<span class="math inline">\(e^x\)</span> is increasing on <span class="math inline">\([0, 2]\)</span>, so left endpoints give the smallest values on each subinterval — the left sum underestimates.
+</details>
 <hr />
 </div>
-<div id="practice-set-a-linearity-and-constants-1" class="section level2 hasAnchor" number="12.22">
-<h2><span class="header-section-number">12.22</span> Practice Set A: Linearity and Constants<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#practice-set-a-linearity-and-constants-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="a1.-using-linearity-1" class="section level3 hasAnchor" number="12.22.1">
-<h3><span class="header-section-number">12.22.1</span> A1. Using Linearity<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#a1.-using-linearity-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Let <span class="math inline">\(f(t)=5t^2-4t+6\)</span>.</p>
-<ol style="list-style-type: decimal">
-<li><p><strong>Rewrite using linearity</strong>
-<span class="math display">\[
-\int_0^2 (5t^2-4t+6)\,dt
-=
-5\int_0^2 t^2\,dt
--4\int_0^2 t\,dt
-+6\int_0^2 1\,dt.
-\]</span>
-<strong>Guidance:</strong> Split into simpler integrals and pull constants out.</p></li>
-<li><p><strong>Largest contributor</strong>
-The term <span class="math inline">\(5t^2\)</span>.<br />
-<strong>Guidance:</strong> On <span class="math inline">\([0,2]\)</span>, <span class="math inline">\(t^2\)</span> grows faster than <span class="math inline">\(t\)</span> or a constant, so it tends to dominate.</p></li>
-<li><p><strong>Evaluate</strong>
-<span class="math display">\[
-\int_0^2 (5t^2-4t+6)\,dt
-=
-\left[\frac{5}{3}t^3-2t^2+6t\right]_0^2
-=
-\frac{40}{3}.
-\]</span>
-<strong>Guidance:</strong> Use an antiderivative and evaluate at the bounds (FTC Part II).</p></li>
-</ol>
+</div>
+<div id="the-trapezoidal-rule-1" class="section level2 unnumbered hasAnchor">
+<h2>The Trapezoidal Rule<a href="module-1-riemann-sums-the-definite-integral-and-the-ftc.html#the-trapezoidal-rule-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Formula:</strong> <span class="math inline">\(\displaystyle T_n = \frac{\Delta x}{2}\bigl[f(x_0) + 2 f(x_1) + 2 f(x_2) + \cdots + 2 f(x_{n-1}) + f(x_n)\bigr]\)</span></p>
+<p>Equivalently: <span class="math inline">\(T_n = \dfrac{L_n + R_n}{2}\)</span> — the average of the left and right Riemann sums.</p>
+<p>For a smooth function, the trapezoidal rule is usually more accurate than basic Riemann sums with the same <span class="math inline">\(n\)</span>.</p>
+<div id="concept-check-in-1" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check In<a href="module-1-riemann-sums-the-definite-integral-and-the-ftc.html#concept-check-in-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>1.</strong> What does each “trapezoid” geometrically replace in this approximation?</p>
+<details>
+<summary>
+<strong>Answer</strong>
+</summary>
+A rectangle. Instead of a flat top equal to the function’s value at one endpoint, the trapezoid has a sloped top that connects the function’s values at both endpoints.
+</details>
+<p><strong>2.</strong> Why is <span class="math inline">\(T_n = (L_n + R_n)/2\)</span> always true?</p>
+<details>
+<summary>
+<strong>Answer</strong>
+</summary>
+Each trapezoid’s area equals the average of the corresponding left-rectangle and right-rectangle areas. Summing those averages gives the average of the two Riemann sums.
+</details>
+</div>
+<div id="practice-problems-7" class="section level3 unnumbered hasAnchor">
+<h3>Practice Problems<a href="module-1-riemann-sums-the-definite-integral-and-the-ftc.html#practice-problems-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>1.</strong> Compute the trapezoidal estimate of <span class="math inline">\(\int_0^4 x^2\,dx\)</span> with <span class="math inline">\(n = 4\)</span>.</p>
+<details>
+<summary>
+<strong>Solution</strong>
+</summary>
+<span class="math inline">\(\Delta x = 1\)</span>. Values at <span class="math inline">\(x = 0, 1, 2, 3, 4\)</span>: 0, 1, 4, 9, 16. <span class="math inline">\(T_4 = \tfrac{1}{2}[0 + 2(1+4+9) + 16] = \tfrac{1}{2}[0 + 28 + 16] = 22\)</span>.
+</details>
+<p><strong>2.</strong> For the stream-gauge table from the Riemann section (problem 4 above), compute the trapezoidal estimate of total volume.</p>
+<details>
+<summary>
+<strong>Solution</strong>
+</summary>
+<span class="math inline">\(T_4 = \tfrac{1}{2}[5 + 2(8 + 12 + 9) + 6] = \tfrac{1}{2}[5 + 58 + 6] = 34.5\)</span> m³/s · h. In m³: <span class="math inline">\(34.5 \times 3600 = 124{,}200\)</span> m³. (Compare to the left sum’s 122,400 — trapezoidal is slightly higher and likely closer to the true value.)
+</details>
+<p><strong>3.</strong> Without computing, will the trapezoidal estimate of <span class="math inline">\(\int_0^1 \sqrt{x}\,dx\)</span> over- or underestimate? Explain.</p>
+<details>
+<summary>
+<strong>Solution</strong>
+</summary>
+<span class="math inline">\(\sqrt{x}\)</span> is increasing and <strong>concave down</strong> on <span class="math inline">\([0, 1]\)</span>. For concave-down functions, the chord connecting two points lies <em>below</em> the curve, so each trapezoid’s top lies below the curve — trapezoidal underestimates.
+</details>
+<p><strong>4.</strong> A photosynthesis monitor records the CO₂ uptake rate (μmol/m²/s) every 30 minutes from 6:00 AM to 8:00 AM:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Time</th>
+<th align="center">6:00</th>
+<th align="center">6:30</th>
+<th align="center">7:00</th>
+<th align="center">7:30</th>
+<th align="center">8:00</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Rate</td>
+<td align="center">0</td>
+<td align="center">2</td>
+<td align="center">5</td>
+<td align="center">9</td>
+<td align="center">14</td>
+</tr>
+</tbody>
+</table>
+<p>Estimate the total CO₂ taken up (μmol/m²) using the trapezoidal rule. (Convert: 30 min = 1800 s.)</p>
+<details>
+<summary>
+<strong>Solution</strong>
+</summary>
+<span class="math inline">\(\Delta t = 1800\)</span> s. <span class="math inline">\(T_4 = \tfrac{1800}{2}[0 + 2(2 + 5 + 9) + 14] = 900[0 + 32 + 14] = 900 \times 46 = 41{,}400\)</span> μmol/m².
+</details>
 <hr />
 </div>
-<div id="a2.-constant-multiple-rule-1" class="section level3 hasAnchor" number="12.22.2">
-<h3><span class="header-section-number">12.22.2</span> A2. Constant Multiple Rule<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#a2.-constant-multiple-rule-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><span class="math inline">\(N(t)=12(0.5t^2+1)\)</span> (mg/day)</p>
-<ol style="list-style-type: decimal">
-<li><p><strong>Factor out the constant</strong>
-<span class="math display">\[
-\int_0^3 N(t)\,dt
-=
-12\int_0^3 (0.5t^2+1)\,dt.
-\]</span>
-<strong>Guidance:</strong> A constant multiplier can be pulled outside the integral.</p></li>
-<li><p><strong>Evaluate</strong>
-[
-12_0^3 (0.5t^2+1),dt
-=
-12_0^3
-=
-12(+3)
-=
-12(7.5)
-=</p></li>
-<li><p>]
-So,
-<span class="math display">\[
-\int_0^3 N(t)\,dt = 90\ \text{mg}.
-\]</span>
-<strong>Guidance:</strong> Integrate the simpler expression first, then multiply by 12.</p></li>
-<li><p><strong>Interpretation (with units)</strong>
-Total nutrient uptake over 3 days is <strong>90 mg</strong>.<br />
-<strong>Guidance:</strong> Integrating mg/day over days gives mg (a total amount).</p></li>
-</ol>
+</div>
+<div id="properties-of-the-definite-integral" class="section level2 unnumbered hasAnchor">
+<h2>Properties of the Definite Integral<a href="module-1-riemann-sums-the-definite-integral-and-the-ftc.html#properties-of-the-definite-integral" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<table>
+<colgroup>
+<col width="52%" />
+<col width="47%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Property</th>
+<th align="left">Formula</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Linearity (sum)</td>
+<td align="left"><span class="math inline">\(\int_a^b [f + g]\,dx = \int_a^b f\,dx + \int_a^b g\,dx\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Linearity (constant)</td>
+<td align="left"><span class="math inline">\(\int_a^b c\,f\,dx = c \int_a^b f\,dx\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Additivity</td>
+<td align="left"><span class="math inline">\(\int_a^b f\,dx = \int_a^c f\,dx + \int_c^b f\,dx\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Limit reversal</td>
+<td align="left"><span class="math inline">\(\int_b^a f\,dx = -\int_a^b f\,dx\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Single point</td>
+<td align="left"><span class="math inline">\(\int_a^a f\,dx = 0\)</span></td>
+</tr>
+</tbody>
+</table>
+<div id="concept-check-in-2" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check In<a href="module-1-riemann-sums-the-definite-integral-and-the-ftc.html#concept-check-in-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>1.</strong> Why does <span class="math inline">\(\int_a^b c\,dx = c(b-a)\)</span>? (No calculation — just reasoning.)</p>
+<details>
+<summary>
+<strong>Answer</strong>
+</summary>
+The rate is constant <span class="math inline">\(c\)</span>, so accumulation over <span class="math inline">\([a, b]\)</span> is just (rate)(duration) — a rectangle of width <span class="math inline">\(b-a\)</span> and height <span class="math inline">\(c\)</span>.
+</details>
+<p><strong>2.</strong> If <span class="math inline">\(\int_0^5 f(x)\,dx = 12\)</span> and <span class="math inline">\(\int_5^9 f(x)\,dx = 7\)</span>, what is <span class="math inline">\(\int_0^9 f(x)\,dx\)</span>?</p>
+<details>
+<summary>
+<strong>Answer</strong>
+</summary>
+By additivity, <span class="math inline">\(\int_0^9 f\,dx = 12 + 7 = 19\)</span>.
+</details>
+<p><strong>3.</strong> Why does reversing limits flip the sign?</p>
+<details>
+<summary>
+<strong>Answer</strong>
+</summary>
+Going from <span class="math inline">\(b\)</span> to <span class="math inline">\(a\)</span> means accumulating “in reverse” — every small slice contributes <span class="math inline">\(-f(x)\,dx\)</span> instead of <span class="math inline">\(+f(x)\,dx\)</span>. The total accumulates with the opposite sign.
+</details>
+</div>
+<div id="practice-problems-8" class="section level3 unnumbered hasAnchor">
+<h3>Practice Problems<a href="module-1-riemann-sums-the-definite-integral-and-the-ftc.html#practice-problems-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>1.</strong> Given <span class="math inline">\(\int_0^4 f\,dx = 10\)</span> and <span class="math inline">\(\int_0^4 g\,dx = -3\)</span>, compute <span class="math inline">\(\int_0^4 [2f - 5g]\,dx\)</span>.</p>
+<details>
+<summary>
+<strong>Solution</strong>
+</summary>
+<span class="math inline">\(2(10) - 5(-3) = 20 + 15 = 35\)</span>.
+</details>
+<p><strong>2.</strong> If <span class="math inline">\(\int_1^4 f\,dx = 8\)</span>, what is <span class="math inline">\(\int_4^1 f\,dx\)</span>?</p>
+<details>
+<summary>
+<strong>Solution</strong>
+</summary>
+By limit reversal: <span class="math inline">\(-8\)</span>.
+</details>
+<p><strong>3.</strong> If <span class="math inline">\(\int_0^2 f\,dx = 3\)</span> and <span class="math inline">\(\int_0^7 f\,dx = 11\)</span>, what is <span class="math inline">\(\int_2^7 f\,dx\)</span>?</p>
+<details>
+<summary>
+<strong>Solution</strong>
+</summary>
+By additivity: <span class="math inline">\(\int_0^7 = \int_0^2 + \int_2^7\)</span>, so <span class="math inline">\(\int_2^7 f\,dx = 11 - 3 = 8\)</span>.
+</details>
+<p><strong>4.</strong> Evaluate <span class="math inline">\(\int_3^3 e^{x^2}\,dx\)</span>. (Hint: trap.)</p>
+<details>
+<summary>
+<strong>Solution</strong>
+</summary>
+Zero — the bounds are equal, so the integral is zero regardless of the integrand. (You do <em>not</em> need to find an antiderivative for <span class="math inline">\(e^{x^2}\)</span> — which is good, because none exists in closed form.)
+</details>
 <hr />
 </div>
-<div id="a3.-accumulation-with-an-exponential-rate-1" class="section level3 hasAnchor" number="12.22.3">
-<h3><span class="header-section-number">12.22.3</span> A3. Accumulation with an Exponential Rate<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#a3.-accumulation-with-an-exponential-rate-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><span class="math inline">\(C(t)=4e^t+2\)</span> (kg/day)</p>
-<ol style="list-style-type: decimal">
-<li><strong>Rewrite as a sum</strong></li>
-</ol>
-<p><span class="math display">\[
-\int_0^2 (4e^t+2)\,dt
-=
-4\int_0^2 e^t\,dt
-+
-2\int_0^2 1\,dt.
+</div>
+<div id="antiderivatives-and-indefinite-integrals" class="section level2 unnumbered hasAnchor">
+<h2>Antiderivatives and Indefinite Integrals<a href="module-1-riemann-sums-the-definite-integral-and-the-ftc.html#antiderivatives-and-indefinite-integrals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Function</th>
+<th align="left">Antiderivative</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(x^n\)</span> (<span class="math inline">\(n \neq -1\)</span>)</td>
+<td align="left"><span class="math inline">\(\dfrac{x^{n+1}}{n+1} + C\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(1/x\)</span></td>
+<td align="left"><span class="math inline">\(\ln|x| + C\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(e^{kx}\)</span></td>
+<td align="left"><span class="math inline">\(\dfrac{1}{k} e^{kx} + C\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\sin(kx)\)</span></td>
+<td align="left"><span class="math inline">\(-\dfrac{1}{k}\cos(kx) + C\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\cos(kx)\)</span></td>
+<td align="left"><span class="math inline">\(\dfrac{1}{k}\sin(kx) + C\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Indefinite integrals always include <span class="math inline">\(+C\)</span>.</p>
+<div id="concept-check-in-3" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check In<a href="module-1-riemann-sums-the-definite-integral-and-the-ftc.html#concept-check-in-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>1.</strong> Why do antiderivatives always come with a “+ C”?</p>
+<details>
+<summary>
+<strong>Answer</strong>
+</summary>
+Any constant has derivative zero, so adding a constant to any antiderivative still gives a valid antiderivative. The <span class="math inline">\(+C\)</span> captures the <em>family</em> of all antiderivatives.
+</details>
+<p><strong>2.</strong> What’s the difference between an indefinite integral and a definite integral?</p>
+<details>
+<summary>
+<strong>Answer</strong>
+</summary>
+An indefinite integral <span class="math inline">\(\int f\,dx\)</span> gives a <em>family of functions</em> (with <span class="math inline">\(+C\)</span>). A definite integral <span class="math inline">\(\int_a^b f\,dx\)</span> gives a single <em>number</em> — the net accumulation between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.
+</details>
+<p><strong>3.</strong> Why doesn’t <span class="math inline">\(+C\)</span> appear in a definite integral’s answer?</p>
+<details>
+<summary>
+<strong>Answer</strong>
+</summary>
+Because the same constant cancels when you compute <span class="math inline">\(F(b) - F(a)\)</span>: <span class="math inline">\((F(b) + C) - (F(a) + C) = F(b) - F(a)\)</span>.
+</details>
+</div>
+<div id="practice-problems-9" class="section level3 unnumbered hasAnchor">
+<h3>Practice Problems<a href="module-1-riemann-sums-the-definite-integral-and-the-ftc.html#practice-problems-9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>1.</strong> <span class="math inline">\(\int (5 x^3 - 4 x + 1)\,dx\)</span></p>
+<details>
+<summary>
+<strong>Solution</strong>
+</summary>
+<span class="math inline">\(\dfrac{5}{4} x^4 - 2 x^2 + x + C\)</span>.
+</details>
+<p><strong>2.</strong> <span class="math inline">\(\int 7 e^{3 x}\,dx\)</span></p>
+<details>
+<summary>
+<strong>Solution</strong>
+</summary>
+<span class="math inline">\(\dfrac{7}{3} e^{3 x} + C\)</span>.
+</details>
+<p><strong>3.</strong> <span class="math inline">\(\int \cos(2 x)\,dx\)</span></p>
+<details>
+<summary>
+<strong>Solution</strong>
+</summary>
+<span class="math inline">\(\dfrac{1}{2}\sin(2 x) + C\)</span>.
+</details>
+<p><strong>4.</strong> <span class="math inline">\(\int \dfrac{1}{x}\,dx\)</span></p>
+<details>
+<summary>
+<strong>Solution</strong>
+</summary>
+<span class="math inline">\(\ln|x| + C\)</span>.
+</details>
+<p><strong>5.</strong> <span class="math inline">\(\int \left(\dfrac{2}{x^3} + 5\sin x\right)\,dx\)</span></p>
+<details>
+<summary>
+<strong>Solution</strong>
+</summary>
+Rewrite: <span class="math inline">\(2 x^{-3} + 5\sin x\)</span>. Antiderivative: <span class="math inline">\(-x^{-2} - 5\cos x + C = -\dfrac{1}{x^2} - 5\cos x + C\)</span>.
+</details>
+<p><strong>6.</strong> Find an antiderivative of <span class="math inline">\(f(x) = 6 x^2 - 4\)</span> that passes through the point <span class="math inline">\((1, 5)\)</span>.</p>
+<details>
+<summary>
+<strong>Solution</strong>
+</summary>
+General antiderivative: <span class="math inline">\(F(x) = 2 x^3 - 4 x + C\)</span>. Plug in <span class="math inline">\((1, 5)\)</span>: <span class="math inline">\(5 = 2 - 4 + C \Rightarrow C = 7\)</span>. So <span class="math inline">\(F(x) = 2 x^3 - 4 x + 7\)</span>.
+</details>
+<hr />
+</div>
+</div>
+<div id="the-fundamental-theorem-of-calculus" class="section level2 unnumbered hasAnchor">
+<h2>The Fundamental Theorem of Calculus<a href="module-1-riemann-sums-the-definite-integral-and-the-ftc.html#the-fundamental-theorem-of-calculus" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Statement:</strong> If <span class="math inline">\(F\)</span> is any antiderivative of <span class="math inline">\(f\)</span> on <span class="math inline">\([a, b]\)</span>, then
+<span class="math display">\[
+\int_a^b f(x)\,dx = F(b) - F(a).
 \]</span></p>
-<p><strong>Guidance:</strong> Use linearity to split the exponential part from the constant part.</p>
-<ol start="2" style="list-style-type: decimal">
-<li><strong>Evaluate and total</strong></li>
-</ol>
-<p><span class="math display">\[
-4\int_0^2 e^t\,dt
-=
-4\left[e^t\right]_0^2
-=
-4(e^2-1),
-\qquad
-2\int_0^2 1\,dt
-=
-2[t]_0^2
-=
-4.
-\]</span>
-Total:
-<span class="math display">\[
-\int_0^2 (4e^t+2)\,dt
-=
-4(e^2-1)+4
-=
-4e^2.
-\]</span></p>
-<p><strong>Guidance:</strong> <span class="math inline">\(\int e^t dt=e^t\)</span> and <span class="math inline">\(\int 1 dt=t\)</span>.</p>
-<ol start="3" style="list-style-type: decimal">
-<li><strong>Interpretation (with units)</strong>
-Total carbon uptake over <span class="math inline">\([0,2]\)</span> is <strong><span class="math inline">\(4e^2\)</span> kg</strong> (approximately <span class="math inline">\(29.6\)</span> kg).<br />
-<strong>Guidance:</strong> A rate in kg/day integrated over days gives total kg.</li>
-</ol>
-<hr />
+<p>The FTC converts the limit-of-Riemann-sums definition into a clean algebraic procedure: find an antiderivative, then subtract.</p>
+<div id="concept-check-in-4" class="section level3 unnumbered hasAnchor">
+<h3>Concept Check In<a href="module-1-riemann-sums-the-definite-integral-and-the-ftc.html#concept-check-in-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>1.</strong> Why doesn’t it matter <em>which</em> antiderivative you choose when applying the FTC?</p>
+<details>
+<summary>
+<strong>Answer</strong>
+</summary>
+All antiderivatives differ by a constant <span class="math inline">\(C\)</span>, which cancels in <span class="math inline">\(F(b) - F(a)\)</span>. The result is the same.
+</details>
+<p><strong>2.</strong> What does <span class="math inline">\(F(b) - F(a)\)</span> represent physically when <span class="math inline">\(f\)</span> is a rate?</p>
+<details>
+<summary>
+<strong>Answer</strong>
+</summary>
+The net accumulated change of the quantity over <span class="math inline">\([a, b]\)</span> — exactly the total that the integral measures.
+</details>
+<p><strong>3.</strong> When can you <em>not</em> apply the FTC?</p>
+<details>
+<summary>
+<strong>Answer</strong>
+</summary>
+When the integrand has no elementary antiderivative (like <span class="math inline">\(e^{-x^2}\)</span>), or when <span class="math inline">\(f\)</span> is discontinuous on the interval. Then you fall back to numerical methods.
+</details>
 </div>
-<div id="a4.-comparing-exponential-and-linear-growth-1" class="section level3 hasAnchor" number="12.22.4">
-<h3><span class="header-section-number">12.22.4</span> A4. Comparing Exponential and Linear Growth<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#a4.-comparing-exponential-and-linear-growth-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><span class="math inline">\(f(t)=4t+2\)</span>, <span class="math inline">\(g(t)=4e^t+2\)</span> on <span class="math inline">\([0,2]\)</span></p>
-<ol style="list-style-type: decimal">
-<li><strong>Compute both totals</strong></li>
-</ol>
-<p><span class="math display">\[
-\int_0^2 f(t)\,dt
-=
-\int_0^2 (4t+2)\,dt
-=
-\left[2t^2+2t\right]_0^2
-=
-8+4
-=
-12.
-\]</span></p>
-<p><span class="math display">\[
-\int_0^2 g(t)\,dt
-=
-\int_0^2 (4e^t+2)\,dt
-=
-4e^2
-\approx 29.6.
-\]</span></p>
-<p><strong>Guidance:</strong> Use FTC Part II to evaluate each definite integral.</p>
-<ol start="2" style="list-style-type: decimal">
-<li><p><strong>Which is greater?</strong>
-The exponential process <span class="math inline">\(g(t)\)</span> produces greater accumulation.<br />
-<strong>Guidance:</strong> Exponential growth accelerates, so the area under the curve increases quickly.</p></li>
-<li><p><strong>Why exponential can be much larger</strong>
-Because <span class="math inline">\(e^t\)</span> increases at an increasing rate (its slope increases as <span class="math inline">\(t\)</span> increases), the accumulated area grows faster than for a linear rate.<br />
-<strong>Guidance:</strong> A “steepening” rate creates disproportionately more area toward the right end of the interval.</p></li>
-</ol>
-<hr />
-</div>
-<div id="concept-check-exponential-rates-no-computation" class="section level3 hasAnchor" number="12.22.5">
-<h3><span class="header-section-number">12.22.5</span> Concept Check (Exponential Rates) — No Computation<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#concept-check-exponential-rates-no-computation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><strong>Shape effect:</strong> Since <span class="math inline">\(e^t\)</span> curves upward (increasing slope), the accumulation grows faster than a linear rate that increases at a constant slope.<br />
-</li>
-<li><strong>Slightly longer interval:</strong> A small increase in interval length adds a disproportionately large amount of accumulation because the rate is much larger near the right endpoint.</li>
-</ul>
+<div id="practice-problems-10" class="section level3 unnumbered hasAnchor">
+<h3>Practice Problems<a href="module-1-riemann-sums-the-definite-integral-and-the-ftc.html#practice-problems-10" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>1.</strong> Compute <span class="math inline">\(\int_1^3 (4 x^2 - 6 x + 2)\,dx\)</span>.</p>
+<details>
+<summary>
+<strong>Solution</strong>
+</summary>
+Antiderivative: <span class="math inline">\(F(x) = \tfrac{4}{3} x^3 - 3 x^2 + 2 x\)</span>. <span class="math inline">\(F(3) = 36 - 27 + 6 = 15\)</span>. <span class="math inline">\(F(1) = \tfrac{4}{3} - 3 + 2 = \tfrac{1}{3}\)</span>. Difference: <span class="math inline">\(15 - \tfrac{1}{3} = \tfrac{44}{3}\)</span>.
+</details>
+<p><strong>2.</strong> Compute <span class="math inline">\(\int_0^2 e^{3 x}\,dx\)</span>.</p>
+<details>
+<summary>
+<strong>Solution</strong>
+</summary>
+<span class="math inline">\(F(x) = \tfrac{1}{3} e^{3 x}\)</span>. <span class="math inline">\(F(2) - F(0) = \tfrac{1}{3}(e^6 - 1) \approx 134.14\)</span>.
+</details>
+<p><strong>3.</strong> Compute <span class="math inline">\(\int_1^e \dfrac{1}{x}\,dx\)</span>.</p>
+<details>
+<summary>
+<strong>Solution</strong>
+</summary>
+<span class="math inline">\(F(x) = \ln|x|\)</span>. <span class="math inline">\(F(e) - F(1) = 1 - 0 = 1\)</span>.
+</details>
+<p><strong>4.</strong> Compute <span class="math inline">\(\int_0^{\pi} \sin x\,dx\)</span>.</p>
+<details>
+<summary>
+<strong>Solution</strong>
+</summary>
+<span class="math inline">\(F(x) = -\cos x\)</span>. <span class="math inline">\(F(\pi) - F(0) = -(-1) - (-1) = 2\)</span>.
+</details>
+<p><strong>5.</strong> A stream’s flow rate is modeled as <span class="math inline">\(Q(t) = 4 t + 2\)</span> m³/s for <span class="math inline">\(t \in [0, 10]\)</span> seconds. Find the total volume of water that passed the gauge.</p>
+<details>
+<summary>
+<strong>Solution</strong>
+</summary>
+Total volume <span class="math inline">\(= \int_0^{10} (4t + 2)\,dt = [2 t^2 + 2 t]_0^{10} = 200 + 20 = 220\)</span> m³.
+</details>
+<p><strong>6.</strong> A pollutant decays at rate <span class="math inline">\(R(t) = -3 e^{-0.5 t}\)</span> mg/L per day. Find the net change in concentration over the first 4 days.</p>
+<details>
+<summary>
+<strong>Solution</strong>
+</summary>
+<span class="math inline">\(\int_0^4 -3 e^{-0.5 t}\,dt = -3 \cdot \tfrac{1}{-0.5}\bigl[e^{-0.5 t}\bigr]_0^4 = 6(e^{-2} - 1) \approx 6(0.135 - 1) \approx -5.19\)</span> mg/L. The pollutant decreased by about 5.19 mg/L.
+</details>
 <hr />
 </div>
 </div>
-<div id="practice-set-b-signed-accumulation-and-additivity-1" class="section level2 hasAnchor" number="12.23">
-<h2><span class="header-section-number">12.23</span> Practice Set B: Signed Accumulation and Additivity<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#practice-set-b-signed-accumulation-and-additivity-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="b1.-positive-vs.-negative-contributions-1" class="section level3 hasAnchor" number="12.23.1">
-<h3><span class="header-section-number">12.23.1</span> B1. Positive vs. Negative Contributions<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#b1.-positive-vs.-negative-contributions-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><span class="math inline">\(R(t)=6-2t\)</span> (kg/day)</p>
-<ol style="list-style-type: decimal">
-<li><p><strong>When positive/negative</strong>
-<span class="math display">\[
-6-2t&gt;0 \Rightarrow t&lt;3,
-\quad
-6-2t&lt;0 \Rightarrow t&gt;3,
-\quad
-R(3)=0.
-\]</span>
-<strong>Guidance:</strong> Solve <span class="math inline">\(R(t)=0\)</span> to find the sign-change time.</p></li>
-<li><p><strong>Sketch (description)</strong>
-A straight line with intercept <span class="math inline">\(R(0)=6\)</span>, slope <span class="math inline">\(-2\)</span>, crossing the <span class="math inline">\(t\)</span>-axis at <span class="math inline">\(t=3\)</span>.<br />
-<strong>Guidance:</strong> Linear rate decreases steadily and crosses zero once.</p></li>
-<li><p><strong>Split the integral</strong></p></li>
-</ol>
-<p><span class="math display">\[
-\int_0^5 R(t)\,dt
-=
-\int_0^3 (6-2t)\,dt
-+
-\int_3^5 (6-2t)\,dt.
-\]</span></p>
-<p><strong>Guidance:</strong> Split where the rate changes sign to separate input vs removal.</p>
-<ol start="4" style="list-style-type: decimal">
-<li><strong>Compute input, removal, net</strong>
-Total input (where <span class="math inline">\(R&gt;0\)</span>):
-<span class="math display">\[
-\int_0^3 (6-2t)\,dt
-=
-\left[6t-t^2\right]_0^3
-=
-18-9
-=
-9\ \text{kg}.
-\]</span></li>
-</ol>
-<p>Net change on <span class="math inline">\([0,5]\)</span>:
-<span class="math display">\[
-\int_0^5 (6-2t)\,dt
-=
-\left[6t-t^2\right]_0^5
-=
-30-25
-=
-5\ \text{kg}.
-\]</span></p>
-<p>Total removal (magnitude of negative part):
-<span class="math display">\[
-\text{removal} = 9-5 = 4\ \text{kg}.
-\]</span>
-(Equivalently, <span class="math inline">\(\int_3^5 (6-2t)\,dt=-4\)</span> kg, so removal is <span class="math inline">\(4\)</span> kg.)<br />
-<strong>Guidance:</strong> Net = input − removal, and the negative integral gives the signed removal.</p>
-<hr />
-</div>
-<div id="b2.-same-net-change-different-behavior-1" class="section level3 hasAnchor" number="12.23.2">
-<h3><span class="header-section-number">12.23.2</span> B2. Same Net Change, Different Behavior<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#b2.-same-net-change-different-behavior-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>System A: <span class="math inline">\(f(t)=2-t\)</span><br />
-System B: <span class="math inline">\(g(t)=\sin\left(\frac{\pi t}{2}\right)\)</span> on <span class="math inline">\([0,4]\)</span></p>
-<ol style="list-style-type: decimal">
-<li><strong>Net change</strong></li>
-</ol>
-<p>System A:</p>
-<p><span class="math display">\[
-\int_0^4 (2-t)\,dt
-=
-\left[2t-\frac{t^2}{2}\right]_0^4
-=
-8-8
-=
-0.
-\]</span></p>
-<p>System B:
-Let <span class="math inline">\(u=\frac{\pi t}{2}\)</span>, so <span class="math inline">\(dt=\frac{2}{\pi}du\)</span>, and <span class="math inline">\(t:0\to 4\)</span> maps to <span class="math inline">\(u:0\to 2\pi\)</span>:
-<span class="math display">\[
-\int_0^4 \sin\left(\frac{\pi t}{2}\right)\,dt
-=
-\frac{2}{\pi}\int_0^{2\pi}\sin(u)\,du
-=
-\frac{2}{\pi}\left[-\cos(u)\right]_0^{2\pi}
-=
-0.
-\]</span>
-<strong>Guidance:</strong> Net change is the signed area; both cancel to zero.</p>
-<ol start="2" style="list-style-type: decimal">
-<li><strong>Total amount exchanged</strong>
-System A:
-Positive on <span class="math inline">\([0,2]\)</span>, negative on <span class="math inline">\([2,4]\)</span>.
-<span class="math display">\[
-\text{Total exchange}=\int_0^2 (2-t)\,dt + \int_2^4 (t-2)\,dt = 2+2=4.
-\]</span></li>
-</ol>
-<p>System B:
-Over one full period, positive on <span class="math inline">\([0,2]\)</span>, negative on <span class="math inline">\([2,4]\)</span>, and symmetric:
-<span class="math display">\[
-\text{Total exchange}=\int_0^4 \left|\sin\left(\frac{\pi t}{2}\right)\right|dt
-=
-2\int_0^2 \sin\left(\frac{\pi t}{2}\right)dt
-=
-2\cdot \frac{2}{\pi}\int_0^\pi \sin(u)\,du
-=
-2\cdot \frac{2}{\pi}\cdot 2
-=
-\frac{8}{\pi}.
-\]</span>
-So System A has total exchange <span class="math inline">\(4\)</span>, System B has total exchange <span class="math inline">\(\frac{8}{\pi}\approx 2.55\)</span>.<br />
-<strong>Guidance:</strong> “Total exchanged” means integrate the absolute value (or add magnitudes of positive/negative parts).</p>
-<ol start="3" style="list-style-type: decimal">
-<li><strong>Explanation</strong>
-They can have the same net change because gains and losses cancel, even if the timing and magnitude of exchanges differ.<br />
-<strong>Guidance:</strong> Net change compresses all behavior into one signed number, hiding internal variability.</li>
-</ol>
-<hr />
-</div>
-</div>
-<div id="practice-set-c-accumulation-functions-ftc-part-i-1" class="section level2 hasAnchor" number="12.24">
-<h2><span class="header-section-number">12.24</span> Practice Set C: Accumulation Functions (FTC Part I)<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#practice-set-c-accumulation-functions-ftc-part-i-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="c1.-building-an-accumulation-function-1" class="section level3 hasAnchor" number="12.24.1">
-<h3><span class="header-section-number">12.24.1</span> C1. Building an Accumulation Function<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#c1.-building-an-accumulation-function-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><span class="math inline">\(r(t)=3t+2\)</span> (kg/hr), <span class="math inline">\(A(x)=\int_1^x r(t)\,dt\)</span></p>
-<ol style="list-style-type: decimal">
-<li><p><strong>Explicit formula</strong>
-<span class="math display">\[
-A(x)=\int_1^x (3t+2)\,dt
-=
-\left[\frac{3}{2}t^2+2t\right]_1^x
-=
-\left(\frac{3}{2}x^2+2x\right)-\left(\frac{3}{2}+2\right)
-=
-\frac{3}{2}x^2+2x-\frac{7}{2}.
-\]</span>
-<strong>Guidance:</strong> Build <span class="math inline">\(A(x)\)</span> by integrating and subtracting the value at the lower limit.</p></li>
-<li><p><strong>Compute <span class="math inline">\(A(4)\)</span></strong>
-<span class="math display">\[
-A(4)=\frac{3}{2}(16)+8-\frac{7}{2}=24+8-3.5=28.5=\frac{57}{2}.
-\]</span>
-<strong>Guidance:</strong> Plug <span class="math inline">\(x=4\)</span> into your explicit accumulation function.</p></li>
-<li><p><strong>Meaning of <span class="math inline">\(A&#39;(x)\)</span></strong>
-<span class="math display">\[
-A&#39;(x)=r(x)=3x+2.
-\]</span>
-<strong>Guidance:</strong> FTC Part I says the derivative of the accumulation is the original rate.</p></li>
-<li><p><strong>Units of <span class="math inline">\(A(x)\)</span></strong>
-Kilograms (kg).<br />
-<strong>Guidance:</strong> Integrating kg/hr over hours gives kg.</p></li>
-</ol>
-<hr />
-</div>
-<div id="c2.-interpreting-accumulation-without-computing-1" class="section level3 hasAnchor" number="12.24.2">
-<h3><span class="header-section-number">12.24.2</span> C2. Interpreting Accumulation Without Computing<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#c2.-interpreting-accumulation-without-computing-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><strong>Increase most rapidly:</strong> Where the rate is largest (largest <span class="math inline">\(r(t)\)</span>).<br />
-</li>
-<li><strong>Concave up:</strong> Where the rate is increasing (where <span class="math inline">\(r&#39;(t)&gt;0\)</span>).<br />
-</li>
-<li><strong>Flat section:</strong> Where the rate is zero (no accumulation).<br />
-<strong>Guidance:</strong> Slope of accumulation is the rate; concavity depends on whether the rate is increasing/decreasing.</li>
-</ul>
-<hr />
-</div>
-</div>
-<div id="practice-set-d-evaluating-definite-integrals-using-ftc-part-ii-1" class="section level2 hasAnchor" number="12.25">
-<h2><span class="header-section-number">12.25</span> Practice Set D: Evaluating Definite Integrals Using FTC Part II<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#practice-set-d-evaluating-definite-integrals-using-ftc-part-ii-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="d1.-two-approaches-to-net-change-1" class="section level3 hasAnchor" number="12.25.1">
-<h3><span class="header-section-number">12.25.1</span> D1. Two Approaches to Net Change<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#d1.-two-approaches-to-net-change-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><span class="math inline">\(f(t)=t^2-4t\)</span></p>
-<ol style="list-style-type: decimal">
-<li><p><strong>Where positive/negative</strong>
-<span class="math display">\[
-t^2-4t=t(t-4).
-\]</span>
-So <span class="math inline">\(f(t)&lt;0\)</span> on <span class="math inline">\((0,4)\)</span>, <span class="math inline">\(f(t)&gt;0\)</span> on <span class="math inline">\((4,\infty)\)</span> (and <span class="math inline">\(f=0\)</span> at <span class="math inline">\(t=0,4\)</span>).<br />
-<strong>Guidance:</strong> Factor to find zeros and test intervals.</p></li>
-<li><p><strong>Net change on <span class="math inline">\([0,5]\)</span></strong></p></li>
-</ol>
-<p><strong>Split at sign change <span class="math inline">\(t=4\)</span>:</strong>
-<span class="math display">\[
-\int_0^5 (t^2-4t)\,dt
-=
-\int_0^4 (t^2-4t)\,dt+\int_4^5 (t^2-4t)\,dt.
-\]</span>
-(First part negative, second part positive.)</p>
-<p><strong>FTC Part II (direct):</strong>
-<span class="math display">\[
-\int_0^5 (t^2-4t)\,dt
-=
-\left[\frac{t^3}{3}-2t^2\right]_0^5
-=
-\frac{125}{3}-50
-=
--\frac{25}{3}.
-\]</span>
-<strong>Guidance:</strong> Both methods compute the same signed area; splitting just reveals the negative vs positive contributions.</p>
-<ol start="3" style="list-style-type: decimal">
-<li><strong>Why both match</strong>
-Splitting the interval doesn’t change the total signed area; it only separates it into pieces that add back to the same value.<br />
-<strong>Guidance:</strong> Additivity guarantees the split-integral sum equals the original integral.</li>
-</ol>
-<hr />
-</div>
-</div>
-<div id="conceptual-reflection-sample-strong-answers" class="section level2 hasAnchor" number="12.26">
-<h2><span class="header-section-number">12.26</span> Conceptual Reflection (Sample Strong Answers)<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#conceptual-reflection-sample-strong-answers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ol style="list-style-type: decimal">
-<li><p><strong>Riemann sums as a process</strong>
-Because you refine the partition (increase <span class="math inline">\(n\)</span>) to make the approximation converge to the exact integral.</p></li>
-<li><p><strong>When to split an integral</strong>
-When the function changes sign, changes behavior, or the interval is naturally broken into segments with known information.</p></li>
-<li><p><strong>Large exchange but small net change</strong>
-Yes—large positive and negative contributions can nearly cancel, producing a small net change.</p></li>
-<li><p><strong>What a definite integral does not provide</strong>
-It does not show <em>when</em> changes happen within the interval, only the total signed accumulation.</p></li>
-</ol>
-<hr />
-</div>
-<div id="practice-set-e-1" class="section level2 hasAnchor" number="12.27">
-<h2><span class="header-section-number">12.27</span> Practice Set E<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#practice-set-e-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="e1.-linearity-sum-and-difference-1" class="section level3 hasAnchor" number="12.27.1">
-<h3><span class="header-section-number">12.27.1</span> E1. Linearity (Sum and Difference)<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#e1.-linearity-sum-and-difference-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ol style="list-style-type: decimal">
-<li><p><span class="math display">\[
-\int_{2}^{6}[f(x)+g(x)]dx
-=
-\int_{2}^{6}f(x)dx+\int_{2}^{6}g(x)dx
-=
-5+(-3)=2.
-\]</span>
-<strong>Guidance:</strong> Add the given integral values using linearity.</p></li>
-<li><p><span class="math display">\[
-\int_{-1}^{3}[h(x)-4]dx
-=
-\int_{-1}^{3}h(x)dx-\int_{-1}^{3}4\,dx
-=
-7-4(3-(-1))=7-16=-9.
-\]</span>
-<strong>Guidance:</strong> Treat the constant as <span class="math inline">\(4\cdot 1\)</span> and use <span class="math inline">\(\int_a^b 1\,dx=b-a\)</span>.</p></li>
-<li><p><span class="math display">\[
-\int_{0}^{4}[3p(x)-2q(x)]dx
-=
-3\int_{0}^{4}p(x)dx-2\int_{0}^{4}q(x)dx
-=
-3(6)-2(10)=18-20=-2.
-\]</span>
-<strong>Guidance:</strong> Pull out constants, then combine.</p></li>
-</ol>
-<hr />
-</div>
-<div id="e2.-constant-multiple-rule-1" class="section level3 hasAnchor" number="12.27.2">
-<h3><span class="header-section-number">12.27.2</span> E2. Constant Multiple Rule<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#e2.-constant-multiple-rule-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ol start="4" style="list-style-type: decimal">
-<li><p><span class="math display">\[
-\int_{1}^{5}6r(x)\,dx=6\int_{1}^{5}r(x)\,dx=6(-2)=-12.
-\]</span>
-<strong>Guidance:</strong> Constants factor out of integrals.</p></li>
-<li><p><span class="math display">\[
-\int_{-2}^{2}\frac{1}{3}f(x)\,dx
-=
-\frac{1}{3}\int_{-2}^{2}f(x)\,dx
-=
-\frac{1}{3}\cdot 9=3.
-\]</span>
-<strong>Guidance:</strong> Multiply the known integral by <span class="math inline">\(\frac{1}{3}\)</span>.</p></li>
-</ol>
-<hr />
-</div>
-<div id="e3.-additivity-over-intervals-1" class="section level3 hasAnchor" number="12.27.3">
-<h3><span class="header-section-number">12.27.3</span> E3. Additivity Over Intervals<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#e3.-additivity-over-intervals-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ol start="6" style="list-style-type: decimal">
-<li><p><span class="math display">\[
-\int_{0}^{7}f(x)\,dx
-=
-\int_{0}^{3}f(x)\,dx+\int_{3}^{7}f(x)\,dx
-=
-4+(-1)=3.
-\]</span>
-<strong>Guidance:</strong> Add the pieces over adjacent intervals.</p></li>
-<li><p><span class="math display">\[
-\int_{2}^{4}g(x)\,dx
-=
-\int_{1}^{4}g(x)\,dx-\int_{1}^{2}g(x)\,dx
-=
-6-2=4.
-\]</span>
-<strong>Guidance:</strong> Use additivity by subtraction to isolate the missing interval.</p></li>
-</ol>
-<hr />
-</div>
-<div id="e4.-combining-multiple-properties-1" class="section level3 hasAnchor" number="12.27.4">
-<h3><span class="header-section-number">12.27.4</span> E4. Combining Multiple Properties<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#e4.-combining-multiple-properties-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ol start="8" style="list-style-type: decimal">
-<li>First compute
-<span class="math display">\[
-\int_{0}^{5} f(x)\,dx
-=
-\int_{0}^{2}f(x)\,dx+\int_{2}^{5}f(x)\,dx
-=
-3+(-1)=2.
-\]</span></li>
-</ol>
-<p>Then</p>
-<p><span class="math display">\[
-\int_{0}^{5}[2f(x)+1]dx
-=
-2\int_{0}^{5}f(x)\,dx+\int_{0}^{5}1\,dx
-=
-2(2)+(5-0)
-=
-9.
-\]</span></p>
-<p><strong>Guidance:</strong> Use additivity to get <span class="math inline">\(\int f\)</span>, then linearity for <span class="math inline">\(2f+1\)</span>.</p>
-<ol start="9" style="list-style-type: decimal">
-<li>First
-<span class="math display">\[
-\int_{-4}^{4}h(x)\,dx=\int_{-4}^{0}h(x)\,dx+\int_{0}^{4}h(x)\,dx=-5+7=2.
-\]</span>
-So
-<span class="math display">\[
-\int_{-4}^{4}[-h(x)]dx=-\int_{-4}^{4}h(x)\,dx=-2.
-\]</span>
-<strong>Guidance:</strong> Add the two halves, then apply the negative sign via the constant multiple rule.</li>
-</ol>
-<hr />
-</div>
-<div id="e5.-conceptual-no-computation-required-1" class="section level3 hasAnchor" number="12.27.5">
-<h3><span class="header-section-number">12.27.5</span> E5. Conceptual (No Computation Required)<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#e5.-conceptual-no-computation-required-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ol start="10" style="list-style-type: decimal">
-<li><span class="math display">\[
-\int_a^b [f(x)+c]\,dx=\int_a^b f(x)\,dx+\int_a^b c\,dx
-\]</span>
-where the first term is the accumulation from the varying part and the second term is the constant background contribution <span class="math inline">\(c(b-a)\)</span>.<br />
-<strong>Guidance:</strong> Linearity lets you separate “variable accumulation” from “constant accumulation.”</li>
-</ol>
-</div>
-</div>
-<div id="practice-set-f-indefinite-integrals-1" class="section level2 hasAnchor" number="12.28">
-<h2><span class="header-section-number">12.28</span> Practice Set F: Indefinite Integrals<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#practice-set-f-indefinite-integrals-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="f1.-polynomial-function-1" class="section level3 hasAnchor" number="12.28.1">
-<h3><span class="header-section-number">12.28.1</span> F1. Polynomial Function<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#f1.-polynomial-function-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><span class="math display">\[
-\int (4x^3 - 6x + 5)\,dx
-=
-x^4 - 3x^2 + 5x + C.
-\]</span></p>
-<p><strong>Guidance:</strong> Apply the power rule term-by-term and add the constant of integration.</p>
-<hr />
-</div>
-<div id="f2.-constant-multiple-and-power-rule-1" class="section level3 hasAnchor" number="12.28.2">
-<h3><span class="header-section-number">12.28.2</span> F2. Constant Multiple and Power Rule<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#f2.-constant-multiple-and-power-rule-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><span class="math display">\[
-\int 7x^{1/2}\,dx
-=
-\frac{14}{3}x^{3/2} + C.
-\]</span></p>
-<p><strong>Guidance:</strong> Pull out the constant and increase the exponent by one.</p>
-<hr />
-</div>
-<div id="f3.-exponential-function-1" class="section level3 hasAnchor" number="12.28.3">
-<h3><span class="header-section-number">12.28.3</span> F3. Exponential Function<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#f3.-exponential-function-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><span class="math display">\[
-\int 3e^{x}\,dx
-=
-3e^{x} + C.
-\]</span></p>
-<p><strong>Guidance:</strong> The exponential function <span class="math inline">\(e^x\)</span> is its own derivative.</p>
-<hr />
-</div>
-<div id="f4.-trigonometric-function-sine-1" class="section level3 hasAnchor" number="12.28.4">
-<h3><span class="header-section-number">12.28.4</span> F4. Trigonometric Function (Sine)<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#f4.-trigonometric-function-sine-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><span class="math display">\[
-\int \sin x\,dx
-=
--\cos x + C.
-\]</span></p>
-<p><strong>Guidance:</strong> The derivative of <span class="math inline">\(-\cos x\)</span> is <span class="math inline">\(\sin x\)</span>.</p>
-<hr />
-</div>
-<div id="f5.-trigonometric-function-cosine-1" class="section level3 hasAnchor" number="12.28.5">
-<h3><span class="header-section-number">12.28.5</span> F5. Trigonometric Function (Cosine)<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#f5.-trigonometric-function-cosine-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><span class="math display">\[
-\int 5\cos x\,dx
-=
-5\sin x + C.
-\]</span></p>
-<p><strong>Guidance:</strong> The antiderivative of <span class="math inline">\(\cos x\)</span> is <span class="math inline">\(\sin x\)</span>, scaled by the constant.</p>
-<hr />
-</div>
-<div id="key-reminder" class="section level3 hasAnchor" number="12.28.6">
-<h3><span class="header-section-number">12.28.6</span> Key Reminder<a href="week-2-in-class-riemann-sums-derivatives-antiderivatives.html#key-reminder" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Always include the constant of integration <span class="math inline">\(C\)</span>, since indefinite integrals represent a family of functions.</p>
-</div>
-</div>
-</div>
-<form onsubmit="unlock_set1(); return false;" id="gate_set1" style="margin-top:0.75rem;">
-<input type="password" id="pwd_set1" placeholder="Enter password" aria-label="Answer key password">
-<button type="submit">Unlock</button>
-<span id="msg_set1" style="margin-left:0.5rem;" aria-live="polite"></span>
-</form>
-<script>
-function unlock_set1() {
-  var input = document.getElementById('pwd_set1');
-  var msg   = document.getElementById('msg_set1');
-  var sol   = document.getElementById('sol_set1');
-  var gate  = document.getElementById('gate_set1');
-  var pw    = (input.value || '').trim();
-  var det   = gate.closest('details'); if (det) det.open = true;
-
-  if (pw === 'redback') {
-    sol.hidden = false;
-    gate.hidden = true;
-    input.value = '';
-    msg.textContent = '';
-  } else {
-    msg.textContent = 'Stop guessing :) Ask a TA';
-    input.value = '';
-    input.focus();
-  }
-}
-</script>
-
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="week-1-in-class-riemann-sums-derivatives-antiderivatives.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="week-45-in-class-integration-techniques.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="study-guides.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="module-2-techniques-of-integration.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
