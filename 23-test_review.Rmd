@@ -18,11 +18,11 @@ You should be able to do the following for this test
 - Evaluate double integrals
 - Evaluate triple integrals
 - Be able to explain what the applications above are doing and interpret them
-  - Short answer / Multiple Test
+  - Short answer / Multiple choice
   - Interpret / Sketch 
 
 
-## Part A — Short Answer (Concepts) {-}
+## Part A: Short Answer (Concepts) {-}
 
 There will not be a short answer section - but there might be short answer interpretations at the end of calculations. 
 
@@ -33,7 +33,7 @@ There will not be a short answer section - but there might be short answer inter
 <details>
 <summary><em>Hint</em></summary>
 
-Think about accumulation. What are we adding up? What does the sign of the function matter?
+Think about accumulation. What are we adding up? Why does the sign of the function matter?
 
 </details>
 
@@ -335,7 +335,7 @@ It represents slicing the same region in a different direction; the total accumu
 </details>
 
 
-## Part B — Signed Integrals {-}
+## Part B: Signed Integrals {-}
 
 ### 1. Compute  {-}
 \[
@@ -466,7 +466,7 @@ Integrate \(e^x\) and constants separately.
 
 ---
 
-## Part C — Average Value {-}
+## Part C: Average Value {-}
 
 ### 5. Find the average value of  {-}
 \[
@@ -539,7 +539,7 @@ f_{\text{avg}}=\int_0^1 e^{2x}\,dx
 
 ---
 
-## Part D — Area Between Curves {-}
+## Part D: Area Between Curves {-}
 
 ### 7. Find the area between  {-}
 \[
@@ -663,7 +663,7 @@ They meet at \(x=0\). For \(x>0\), \(e^x > x+1\).
 
 ---
 
-## Part E — Double Integrals {-}
+## Part E: Double Integrals {-}
 
 ### 10. Evaluate  {-}
 \[
@@ -776,7 +776,7 @@ Outer:
 
 ---
 
-## Part F — Triple Integrals {-}
+## Part F: Triple Integrals {-}
 
 ### 13. Evaluate  {-}
 \[
@@ -893,7 +893,7 @@ Outer:
 
 ---
 
-### What Is a Definite Integral — and Why Do We Care? {-}
+### What Is a Definite Integral, and Why Do We Care? {-}
 
 A **definite integral**
 
@@ -981,9 +981,9 @@ F(b) - F(a)
 \boxed{0}
 \]
 
-✔ Net accumulation: **0**
+Net accumulation: **0**
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.alt="The line f(x) = x - 2 on [0, 4]. The triangle below the axis from 0 to 2 and the triangle above the axis from 2 to 4 are the same size, so they cancel."}
 f1 <- function(x) x - 2
 a <- 0
 b <- 4
@@ -1055,9 +1055,9 @@ abline(v = b, lty = 3)
 \boxed{\frac{26}{3}}
 \]
 
-✔ Net accumulation (and total area): \(\displaystyle \frac{26}{3}\)
+Net accumulation (and total area): \(\displaystyle \frac{26}{3}\)
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.alt="The parabola f(x) = x squared on [1, 3], entirely above the x-axis, with the area under it shaded."}
 f2 <- function(x) x^2
 a <- 1
 b <- 3
@@ -1083,7 +1083,7 @@ abline(v = b, lty = 3)
 
 #### Worked Example 3 (Rate Interpretation) {-}
 
-Suppose \(R(t)=5-t\) is a rate. Find total change from \(t=0\) to \(t=6\):
+Suppose \(R(t)=5-t\) is a rate. Find the net change from \(t=0\) to \(t=6\):
 
 \[
 \int_0^6 (5-t)\,dt
@@ -1123,9 +1123,9 @@ Suppose \(R(t)=5-t\) is a rate. Find total change from \(t=0\) to \(t=6\):
 \boxed{12}
 \]
 
-✔ Total change: **12**
+Net change: **12** (the rate goes negative after \(t=5\), so this is net, not total)
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.alt="The rate R(t) = 5 - t on [0, 6]. It is positive from 0 to 5, shaded above the axis, and negative from 5 to 6, shaded below the axis."}
 R <- function(t) 5 - t
 a <- 0
 b <- 6
@@ -1160,7 +1160,7 @@ abline(v = 5, lty = 2)  # where the rate crosses 0
 
 ### Practice Problems {-}
 
-#### Part A — Compute the Net Accumulation {-}
+#### Part A: Compute the Net Accumulation {-}
 
 1. \[
 \int_0^5 (x - 3)\,dx
@@ -1180,7 +1180,7 @@ abline(v = 5, lty = 2)  # where the rate crosses 0
 
 ---
 
-#### Part B — Think Carefully {-}
+#### Part B: Think Carefully {-}
 
 5. If a function is below the x-axis on an interval, is the definite integral positive or negative? Why?
 
@@ -1221,9 +1221,9 @@ abline(v = 5, lty = 2)  # where the rate crosses 0
 
 ---
 
-### What Does “Area Between Curves” Mean — and Why Do We Care? {-}
+### What Does “Area Between Curves” Mean, and Why Do We Care? {-}
 
-When we compute **area between curves**, we are finding **geometric area** — the size of a region in the plane.
+When we compute **area between curves**, we are finding **geometric area**: the size of a region in the plane.
 
 Geometric area is always **positive**.
 
@@ -1231,7 +1231,7 @@ That means:
 
 > We do **not** allow parts of the region to cancel out.
 
-Unlike signed integrals, it does **not** matter whether the curves are above or below the x-axis. The axis is irrelevant. What matters is how the two functions relate to each other — specifically, the **vertical distance between them**. We are measuring the thickness of the region from the top curve down to the bottom curve, wherever that region sits.
+Unlike signed integrals, it does **not** matter whether the curves are above or below the x-axis. The axis is irrelevant. What matters is how the two functions relate to each other: specifically, the **vertical distance between them**. We are measuring the thickness of the region from the top curve down to the bottom curve, wherever that region sits.
 
 This comes up constantly in applications:
 
@@ -1382,7 +1382,7 @@ Subtract:
 \boxed{\frac{10}{3}}
 \]
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.alt="The line f(x) = 2x + 1 and the parabola g(x) = x squared on [0, 2], with the line on top the whole way and the region between them shaded."}
 f <- function(x) 2*x + 1
 g <- function(x) x^2
 a <- 0
@@ -1528,7 +1528,7 @@ On \([0,1]\), \(x-x^3\ge0\), so:
 
 This produces the exact same two integrals as Method A.
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.alt="The curves f(x) = x and g(x) = x cubed on [-1, 1], crossing at 0. The region between them is shaded on both sides: g on top from -1 to 0 and f on top from 0 to 1."}
 f <- function(x) x
 g <- function(x) x^3
 a <- -1
@@ -1608,7 +1608,7 @@ f(x)=x^3,\quad g(x)=x
 
 ---
 
-### What Do Double and Triple Integrals Represent — and Why Do We Care? {-}
+### What Do Double and Triple Integrals Represent, and Why Do We Care? {-}
 
 A single integral accumulates along a **line**.
 
@@ -1620,14 +1620,14 @@ The idea is the same as with single integrals:
 
 > We are adding up tiny pieces.
 
-But now the tiny pieces are not just little line segments — they are:
+But now the tiny pieces are not just little line segments. They are:
 
 - Tiny rectangles (area elements)
 - Tiny boxes (volume elements)
 
 ---
 
-### Double Integrals — Big Idea {-}
+### Double Integrals: Big Idea {-}
 
 A double integral
 
@@ -1753,7 +1753,7 @@ Students often forget:
 
 ---
 
-### Triple Integrals — Big Idea {-}
+### Triple Integrals: Big Idea {-}
 
 A triple integral
 

@@ -10,8 +10,8 @@ Below are the general instructions for all tests
 - The equation sheet from the textbook is included as part of the test pack (it doesn't count as note pages)
 
 
-## Practice Test 1 — Accumulation & Integrals  {-}
-*(Practice Only — No Solutions Included - Will Discuss on Wed)*
+## Practice Test 1: Accumulation & Integrals  {-}
+*(Practice only. No solutions included. We'll discuss on Wednesday.)*
 
 ---
 
@@ -170,7 +170,7 @@ equal subintervals.
 
 ---
 
-### (b) Right-Hand Riemann Sum
+### (b) Right-Hand Riemann Sum {-}
 
 Compute the **right-hand Riemann sum** for the same function and interval using  
 \[

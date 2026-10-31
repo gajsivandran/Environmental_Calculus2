@@ -2,7 +2,7 @@
 
 ---
 
-## Activity 1 — What Does “Area Under a Curve” Mean? {-}
+## Activity 1: What Does “Area Under a Curve” Mean? {-}
 
 ### Activity 1A: Area Under a Constant Function {-}
 
@@ -47,7 +47,7 @@ Consider the following piecewise description (a graph should be provided):
 - From \(x = 0\) to \(x = 2\): \(f(x) = 2\)
 - From \(x = 2\) to \(x = 5\): a straight line from \(f(2) = 2\) to \(f(5) = 6\)
 
-```{r piecewise-linear-plot, echo=FALSE, warning=FALSE, message=FALSE}
+```{r piecewise-linear-plot, echo=FALSE, warning=FALSE, message=FALSE, fig.alt="A piecewise linear function: flat at height 2 from x = 0 to 2, then rising in a straight line to height 6 at x = 5."}
 # Segment 1: constant from x = 0 to x = 2
 x1 <- seq(0, 2, length.out = 100)
 y1 <- rep(2, length(x1))
@@ -107,7 +107,7 @@ You are given the following table of values:
 - In this case no function is given to us. Just the data points.
 - Estimate the area from \(x = 0\) to \(x = 4\)?
 
-```{r discrete-data-plot, echo=FALSE, warning=FALSE, message=FALSE}
+```{r discrete-data-plot, echo=FALSE, warning=FALSE, message=FALSE, fig.alt="Five discrete data points at x = 0 to 4 with y values 2, 3, 5, 4 and 6, shown as unconnected points."}
 # Given data
 x <- c(0, 1, 2, 3, 4)
 y <- c(2, 3, 5, 4, 6)
@@ -151,7 +151,7 @@ Consider the function
 f(x) = x^2 \quad \text{on } [0,2].
 \]
 
-```{r quadratic-shaded-area, echo=FALSE, warning=FALSE, message=FALSE}
+```{r quadratic-shaded-area, echo=FALSE, warning=FALSE, message=FALSE, fig.alt="Parabola f(x) = x squared from -3 to 3, with the area under the curve shaded between x = 0 and x = 2."}
 # Function and domain
 f <- function(x) x^2
 x_plot <- seq(-3, 3, length.out = 400)
@@ -204,7 +204,7 @@ abline(v = b, col = "gray50", lty = 3)
 
 ---
 
-## Activity 2 — The Big Picture: Riemann Sums {-}
+## Activity 2: The Big Picture: Riemann Sums {-}
 
 ### Reading the Math {-}
 
@@ -263,13 +263,13 @@ f(x) = x^2 \quad \text{on } [0,2].
 
 ---
 
-## Activity 3 — Choosing a Method: Conservative vs Optimistic Estimates {-}
+## Activity 3: Choosing a Method: Conservative vs Optimistic Estimates {-}
 
 ### Discussion Activity {-}
 
 Assume the function is **increasing** on the interval.
 
-```{r riemann-under-over-triangles2, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4}
+```{r riemann-under-over-triangles2, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4, fig.alt="Two panels for the increasing line f(t) = 0.2t + 1 on [2, 8] with 3 rectangles. Left-hand rectangles sit below the line, leaving small triangles of missed area. Right-hand rectangles stick up above the line by similar triangles."}
 
 library(ggplot2)
 library(patchwork)
@@ -442,7 +442,7 @@ p_left | p_mid | p_right
 <br><br><br><br><br><br><br><br><br><br><br><br>
 
 **Assume the function is decreasing**
-```{r riemann-under-over-triangles-decreasing2, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4}
+```{r riemann-under-over-triangles-decreasing2, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4, fig.alt="Two panels for the decreasing line f(t) = -0.2t + 3 on [2, 8] with 3 rectangles. Left-hand rectangles stick up above the line by small triangles. Right-hand rectangles sit below the line, missing similar triangles."}
 
 library(ggplot2)
 library(patchwork)
@@ -608,12 +608,12 @@ p_left | p_mid | p_right
 
 ---
 
-## Activity 4 — Increasing the Number of Intervals {-}
+## Activity 4: Increasing the Number of Intervals {-}
 
 ### Activity 4A (Discussion): Accuracy vs Cost {-}
 
 **Prompts:**
-- What happens to the the Riemann summ as \(n\) increases?
+- What happens to the Riemann sum as \(n\) increases?
 
 <br><br><br><br><br><br><br><br><br><br><br><br>
 
@@ -629,7 +629,7 @@ p_left | p_mid | p_right
 <br><br><br><br><br><br><br><br><br><br><br><br>
 
 
-```{r refining-approximation-left-sums2, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4}
+```{r refining-approximation-left-sums2, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4, fig.alt="Panels showing left-hand Riemann sums for the increasing line f(x) = 0.5x + 1 on [0, 6] with more and more rectangles. The gap between the rectangles and the line shrinks as the number of rectangles grows."}
 
 library(ggplot2)
 library(patchwork)
@@ -708,7 +708,7 @@ p1 | p2 | p3
 ---
 
 
-## Activity 5 — Signed Area: When the Function Goes Negative {-}
+## Activity 5: Signed Area: When the Function Goes Negative {-}
 
 In this final activity, we use a **realistic environmental signal** to build intuition for signed area. Many environmental fluxes naturally oscillate between positive and negative values over time.
 
@@ -726,9 +726,9 @@ Suppose the net carbon flux (in metric tons of CO\(_2\) per day) is modeled by:
 f(t) = 2\sin\!\left(2\pi t\right)
 \quad \text{on } [0,3],
 \]
-where \(t\) is time in days.
+where \(t\) is time in days, measured from 6 AM. (Starting the clock at 6 AM puts the uptake during daylight hours and the release overnight.)
 
-```{r carbon-sinusoid-1day, echo=FALSE, warning=FALSE, message=FALSE}
+```{r carbon-sinusoid-1day, echo=FALSE, warning=FALSE, message=FALSE, fig.alt="Net carbon exchange f(t) = 2 sin(2 pi t) over 3 days: a wave oscillating between 2 and -2 tonnes of CO2 per day, with one full cycle per day."}
 # One-day period sinusoid: period = 1 day
 f <- function(t) 2 * sin(2 * pi * t)
 t <- seq(0, 3, length.out = 800)
@@ -772,7 +772,7 @@ abline(v = 0:3, col = "gray80", lty = 3)  # day markers at t = 0,1,2,3
 - How would you approximate this with a Riemann Sum?
 <br><br><br><br><br><br><br><br><br><br>
 
-```{r carbon-sinusoid-lh-riemann-colored, echo=FALSE, warning=FALSE, message=FALSE}
+```{r carbon-sinusoid-lh-riemann-colored, echo=FALSE, warning=FALSE, message=FALSE, fig.alt="The same carbon exchange wave with left-hand Riemann rectangles of width 0.1 day, colored to show positive rectangles above the axis and negative rectangles below it."}
 # One-day period sinusoid (period = 1 day)
 f <- function(t) 2 * sin(2 * pi * t)
 
@@ -829,7 +829,7 @@ lines(t, f(t), lwd = 2)
 
 
 - Now with a much smaller delta x
-```{r carbon-sinusoid-lh-riemann-colored2, echo=FALSE, warning=FALSE, message=FALSE}
+```{r carbon-sinusoid-lh-riemann-colored2, echo=FALSE, warning=FALSE, message=FALSE, fig.alt="The same carbon exchange wave with left-hand Riemann rectangles of width 0.01 day. The rectangles are so thin they almost fill the area between the curve and the axis."}
 # One-day period sinusoid (period = 1 day)
 f <- function(t) 2 * sin(2 * pi * t)
 
@@ -894,7 +894,7 @@ Environmental processes often involve **competing fluxes**:
 - Uptake vs release
 - Storage vs loss
 
-A definite integral does not measure “area” alone—it measures **net accumulation**.
+A definite integral does not measure “area” alone. It measures **net accumulation**.
 
 Signed area is the mathematical tool that allows calculus to track *both magnitude and direction* in real environmental systems.
 

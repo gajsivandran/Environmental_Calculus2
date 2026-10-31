@@ -25,7 +25,7 @@
 
 - I have an 11yr old daughter that helps me write exam questions
 - Dogs >Cats, Cricket > Baseball,  AFL > NFL, Vegemite > Peanut butter 
-- I like to run very very long distances, stilling working on why
+- I like to run very very long distances, still working on why
 
 ## Classroom Etiquette
 
@@ -65,7 +65,7 @@ In small groups:
 
 **Objective 2**: Effort
 
-- The best definition of I have come across *the struggle to continue against a mounting desire to stop - Alex Hutchinson, Endure*
+- The best definition I have come across *the struggle to continue against a mounting desire to stop - Alex Hutchinson, Endure*
 
 ## Your Expectations of Me
 
@@ -124,7 +124,7 @@ Why do you think there is so much weight on tests and participation?
 <br><br><br><br>
 :::
 
-### Acedemic Integrity
+### Academic Integrity
 
 This class has been designed to reward you for doing your **own** work
 Tests will be relatively straightforward if you make the effort on the in-class and homework assessments
@@ -133,7 +133,7 @@ Using these resources will only make studying for tests harder. Many of these re
 
 ![](images/milkcrate.png){fig.alt='A picture of a person trying to climb a pyramid made up of milk crates' style="float:right; width:300px; margin:10px;"}
 
-![](images/chegg.png){fig.alt='Pie chart of assessment breakdown - percentages in text' style="width:300px; margin:10px;"}
+![](images/chegg.png){fig.alt='Chegg homework-help website' style="width:300px; margin:10px;"}
 
 
 
@@ -158,7 +158,7 @@ To accommodate for this, 5% of the total preparation and participation assessmen
 
 What do we consider **exceptional circumstances**?
 
-![](images/excuses.png){fig.alt='Decorative cartoon of common excuses' style="left; width:300px; margin:10px;"}
+![](images/excuses.png){fig.alt='Decorative cartoon of common excuses' style="float:left; width:300px; margin:10px;"}
 :::
 
 ### Test Retakes Policy
@@ -174,7 +174,7 @@ Missed a test
 Want to try for a better grade
 Love calc so much you want to do more problems
 
-You can retake upto 2 tests. Your best score counts – so no risk
+You can retake up to 2 tests. Your best score counts – so no risk
 
 ### Class notes
 

@@ -1,29 +1,23 @@
 # Applications of Integration
 
-A hydrologist's hard drive holds four datasets from the same Pacific Northwest watershed: streamflow every fifteen minutes for a year, soil-moisture surveys spread across the watershed each week, a biomass density map for the riparian zone, and a daily log of how much the river ran above the minimum ecological flow. None of these is the answer to anything by itself. Each one is a **rate**, a **density**, or a **difference between two curves** — and to get the actual answers an agency cares about (*total runoff this year*, *total biomass in the riparian zone*, *average flow during the spawning window*, *cumulative water above the ecological-flow line*) someone has to integrate.
-
-The previous chapter focused heavily on the *mechanics* of integration — notation, rules, and techniques. That work matters, but mathematics becomes most useful when we put it to work. This chapter shifts from *how to compute integrals* to *how to use them*. Integrals let us understand how quantities accumulate: how small contributions add up over space or time, how totals emerge from rates or densities, and how gains and losses combine to produce a net change. Rather than treating integration as a collection of formulas, we use it as a tool for interpreting and analyzing real systems.
-
-The goal here is **meaning first**. Each application connects the mathematics back to what an integral represents and why it matters, turning computation into insight.
+Chapter 5 was about mechanics: rules and techniques. This chapter is about using them. Integrals answer a lot of different questions: how much rain fell, how much carbon a forest gained, the average flow during a spawning window, how much water ran above a minimum flow, the total biomass in a riparian strip. The math is the same each time. What changes is what you're adding up, and what the answer means.
 
 ## From Rates and Densities to Totals
 
-Many quantities we measure in environmental and natural systems are **not totals**. Instead, they describe how something varies *per unit* of space or time.
+Most things you measure in the field aren't totals. They're amounts **per unit** of time or space:
 
-Examples include:
+- rainfall rate (mm per hour)
+- population density (individuals per km²)
+- carbon flux (kg of carbon per m² per year)
+- streamflow (m³ per second)
+- plankton concentration (cells per m³)
+- leaf-area density in a canopy (m² of leaf per m³ of air)
 
-- rainfall rate (mm per hour),
-- population density (individuals per square kilometer),
-- carbon flux (kg of carbon per square meter per year),
-- streamflow rate (cubic meters per second),
-- plankton concentration in seawater (cells per cubic meter),
-- leaf-area density in a forest canopy (square meters of leaf area per cubic meter of air).
-
-Each of these tells us *how much is happening locally*—at a moment in time or at a specific location—but not the total amount by itself.
+Each tells you what's happening *at one place or moment*, not the total.
 
 ### Small Pieces Add Up
 
-To move from a rate or density to a total, we imagine breaking the system into many small pieces.
+To get from a rate or density to a total, break the system into small pieces:
 
 - Over a short time interval \( \Delta t \), a rain rate \( r(t) \) produces approximately  
   \[
@@ -36,34 +30,26 @@ To move from a rate or density to a total, we imagine breaking the system into m
   \]
   units of mass or population.
 
-Each piece contributes a little. The total comes from **adding all of those small contributions together**.
-
-This idea that the *total = sum of many small pieces* is the core intuition behind integration.
+Each piece contributes a little, and the total is the sum of all of them. That's the whole idea behind integration.
 
 ### From Sums to Integrals
 
-If we divide an interval into many small pieces and add the contributions,
+Divide the interval into pieces and add up the contributions:
 \[
 \text{total} \approx \sum (\text{rate or density}) \times (\text{size of piece}),
 \]
-we get an approximation. As those pieces become smaller and more numerous, the approximation improves.
-
-This representation links back to the goal of a Riemann sum, to represent the area under the curve with simple geometric shapes so that we can sum them up to get a total.
-
-An **integral** represents the limit of this process:
+That's an approximation, the same idea as a Riemann sum. As the pieces get smaller, it gets better, and the limit is the integral:
 \[
 \text{total} = \int (\text{rate or density}) \, (\text{unit of accumulation}).
 \]
 
-- Integrating a **rate over time** gives a total amount.
-- Integrating a **density over space** gives a total mass or population.
-- Integrating a **flux over area and time** gives total transfer.
-
-The integral formalizes what we already expect: adding up infinitely many infinitesimal contributions.
+- Integrate a **rate over time** and you get a total amount.
+- Integrate a **density over space** and you get a total mass or count.
+- Integrate a **flux over area and time** and you get a total transfer.
 
 ### Units Tell the Story
 
-One of the most powerful ways to interpret an integral is through units.
+Units are one of the best ways to read an integral.
 
 - Rainfall rate: mm/hour  
   Multiply by time (hours) → mm of rainfall
@@ -76,28 +62,21 @@ One of the most powerful ways to interpret an integral is through units.
 - Leaf-area density: m² of leaf area/m³  
   Multiply by volume (m³) → total leaf area
 
-The integral works because the units of the integrand and the differential combine to produce a meaningful total. When the units make sense, the model usually does too.
+The units of the integrand times the units of the differential give the units of the total. If those units make sense, the setup usually does too.
 
 ### Accumulation, Not Just Area
 
-Although integrals are often introduced geometrically as “area under a curve,” the more important idea is **accumulation**.
-
-An integral answers questions like:
-- How much has accumulated over this time period?
-- What is the total amount contained in this region?
-- How do gains and losses combine to produce net change?
-
-In the sections that follow, we will apply this same accumulation idea to many different contexts. The mathematics will look familiar, but the meaning will always come first.
+Integrals get introduced as "area under a curve," but what matters is **accumulation**: how much built up over a period, how much is in a region, and how gains and losses combine. The rest of this chapter applies that one idea in different settings.
 
 
 ### Concept Check: Rates and Densities vs Totals {-}
 
-What's the difference between a *rate*, a *density*, and a *total* — and why can't most environmental questions be answered by one alone?
+What's the difference between a *rate*, a *density*, and a *total*? And why can't most environmental questions be answered by one alone?
 
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-A **rate** tells you how fast something is changing per unit of time (rain falling at 5 mm/hr). A **density** tells you how much of something is packed per unit of space (300 trees per hectare). A **total** tells you how much accumulated overall (47 mm of rain this storm, 12,000 trees in the watershed). Most environmental questions are about totals, but most sensors and surveys measure rates or densities. The integral is the bridge.
+A **rate** is how fast something changes per unit time (rain falling at 5 mm/hr). A **density** is how much of something is packed into a unit of space (300 trees per hectare). A **total** is how much there is overall (47 mm of rain this storm, 12,000 trees in the watershed). Most environmental questions are about totals, but what you can measure is usually a rate or a density. The integral gets you from one to the other.
 
 </details>
 
@@ -109,7 +88,7 @@ If a rainfall sensor reports 5 mm/hr, why can't you just multiply by the duratio
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-Because real rates **don't stay constant**. The 5 mm/hr reading is a *snapshot* at one moment — the storm intensity will be different ten minutes later. Multiplying a single rate by the whole duration pretends the rate held flat the entire time, which is almost never true. Integration is the formal way to *add up many small contributions* when the rate changes.
+Because real rates **don't stay constant**. The 5 mm/hr reading is a *snapshot*. Ten minutes later the storm will be heavier or lighter. Multiplying one reading by the whole duration pretends the rate never changed. Integration adds up many short pieces, each with the rate that applied during it.
 
 </details>
 
@@ -118,37 +97,26 @@ Because real rates **don't stay constant**. The 5 mm/hr reading is a *snapshot* 
 
 ## Accumulation When Totals Are Always Positive
 
-In many real-world situations, accumulation only moves in one direction. Each small contribution adds to the total, and nothing is ever taken away. In these cases, the accumulated quantity is **always nonnegative**, and the interpretation of an integral is especially direct.
-
-These are often the first—and most intuitive—contexts in which integrals arise.
+Sometimes accumulation only goes one way. Every contribution adds to the total and nothing is taken away, so the total is **never negative**. These are the easiest integrals to interpret.
 
 ### Examples of Always-Positive Accumulation
 
 - **Total rainfall over time**  
-  Rainfall rate may vary, but rain only adds water. Integrating a rain rate over time gives total precipitation, which cannot decrease.
+  The rain rate varies, but rain only adds water. Integrate the rate over time and you get total precipitation.
 
-- **Total distance traveled**  
-  When speed is nonnegative, integrating speed over time gives total distance traveled. Even if speed changes, the total distance only increases.
+- **Total distance traveled**
+  If speed is never negative, integrating speed over time gives distance, which only goes up.
 
-- **Total water volume collected**  
-  Integrating an inflow rate into a reservoir gives total volume added, assuming no outflow is included in the model.
+- **Total water collected**
+  Integrate an inflow rate into a reservoir and you get the volume added (as long as the model ignores outflow).
 
-- **Total biomass produced**  
-  Integrating a production rate (such as plant growth or primary productivity) gives cumulative biomass generated over a season.
+- **Total biomass produced**
+  Integrate a production rate (plant growth, primary productivity) and you get the biomass produced over a season.
 
-- **Total plankton abundance in a water column**  
-  Integrating plankton concentration over depth gives total abundance per unit area. Concentration varies with depth, but the total count is always positive.
+- **Plankton in a water column**
+  Integrate plankton concentration over depth and you get the total count per unit of surface area.
 
-In each case, the integral represents **how much has accumulated**, not a balance between competing processes.
-
-### Why These Examples Matter
-
-These examples highlight two important ideas:
-
-1. The quantity being integrated represents **something that cannot be negative** in context.
-2. The integral answers a question about **total amount**, not change relative to a baseline.
-
-Because all contributions are positive, the integral behaves like an ever-increasing sum. This makes these situations ideal for building intuition about how integrals work before introducing more complex cases.
+In each case, the integrand can't be negative, and the integral tells you **how much**, not a balance between competing processes. That makes these good examples to build intuition on before signed cases.
 
 ### Concept Check: What Makes an Accumulation "Always Positive" {-}
 
@@ -157,7 +125,7 @@ Why is total rainfall over a storm an "always-positive" accumulation, but net ca
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-Rainfall *can only increase* over time — drops can't un-fall. So the rate (rainfall intensity) is always nonnegative, and its integral is always nonnegative. Net carbon exchange, by contrast, has a signed rate: photosynthesis pulls carbon *in* (positive), respiration releases carbon *out* (negative), and the two run simultaneously. The integrand changes sign, so the integral can be positive, negative, or zero.
+Rainfall *only adds*: drops can't un-fall. So the rate is never negative, and neither is its integral. Net carbon exchange has a signed rate. Photosynthesis pulls carbon *in* (positive) and respiration releases it (negative), and both are happening at once. Depending on the time of day and season, either can win, so the integral can come out positive, negative or zero.
 
 </details>
 
@@ -169,7 +137,7 @@ A leaf-level photosynthesis rate is reported as **μmol CO₂ / m² / s**. You i
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-Multiplying by seconds cancels the "/s", leaving μmol CO₂/m². Multiplying by m² then cancels the "/m²", leaving **μmol CO₂**. Tracking units this way is one of the fastest ways to catch a setup error — if the final units don't match the physical quantity you're claiming to compute, the integral is wrong.
+Multiplying by seconds cancels the "/s", leaving μmol CO₂/m². Multiplying by m² cancels the "/m²", leaving **μmol CO₂**. Tracking units like this is one of the fastest ways to catch a setup error. If the final units don't match the quantity you're after, the integral is wrong.
 
 </details>
 
@@ -178,16 +146,11 @@ Multiplying by seconds cancels the "/s", leaving μmol CO₂/m². Multiplying by
 
 ## Net Accumulation: When Gains and Losses Compete
 
-In many environmental and natural systems, accumulation does **not** move in just one direction. Instead, quantities are constantly being added *and* removed. Growth competes with decay, inflow with outflow, uptake with release. In these situations, an integral represents **net accumulation**.
-
-The mathematics looks the same—but the interpretation deepens.
+Most environmental systems gain and lose at the same time: growth and decay, inflow and outflow, uptake and release. Here the integral gives the **net accumulation**. The math is the same. The interpretation changes.
 
 ### Signed Contributions Matter
 
-When a rate can be positive or negative, each small contribution carries a **sign**:
-
-- Positive values add to the total.
-- Negative values subtract from the total.
+When a rate can be positive or negative, each small piece has a **sign**. Positive pieces add to the total and negative pieces subtract.
 
 Over a short interval \( \Delta t \), a rate \( r(t) \) contributes approximately  
 \[
@@ -195,65 +158,50 @@ r(t)\,\Delta t,
 \]
 which may increase or decrease the accumulated amount depending on the sign of \( r(t) \).
 
-The integral adds *all* of these signed contributions:
+The integral adds them all, signs included:
 \[
 \text{net change} = \int r(t)\,dt.
 \]
 
-Rather than answering “How much was added?”, the integral now answers  
-**“What was the overall balance after gains and losses were combined?”**
+So instead of "how much was added?", the question is now **"what's the balance once gains and losses are combined?\"**
 
 ### Common Examples of Net Accumulation
 
-- **Streamflow with inflow and outflow**  
-  A river reach may receive water from upstream and lose water to evaporation or groundwater. Integrating the *net flow rate* gives the change in stored water.
+- **A river reach**
+  Water comes in from upstream and is lost to evaporation and groundwater. Integrate the *net* flow and you get the change in stored water.
 
-- **Carbon balance in an ecosystem**  
-  Photosynthesis adds carbon; respiration releases it. Integrating net carbon flux over time gives the net carbon gain or loss.
+- **An ecosystem's carbon balance**
+  Photosynthesis adds carbon and respiration releases it. Integrate net carbon flux and you get the net gain or loss.
 
-- **Drug concentration in the bloodstream**  
-  Absorption adds drug; metabolism and excretion remove it. The integral tracks net drug accumulation over time.
+- **A contaminant in a lake**
+  Inflow brings it in. Outflow and breakdown remove it. Integrate the net rate and you get the change in the lake's contaminant load.
 
-- **Population change**  
-  Births increase population; deaths decrease it. Integrating the difference between birth and death rates gives net population change.
+- **A population**
+  Births add individuals and deaths remove them. Integrate births minus deaths and you get the net change.
 
-- **Heat transfer**  
-  Heat may enter and leave a system simultaneously. The integral captures the net energy transferred.
+- **Heat**
+  Heat can enter and leave a system at the same time. The integral gives the net energy gained.
 
-In each case, the total is not guaranteed to increase—it depends on which processes dominate.
+The total isn't guaranteed to go up. It depends on which process wins.
 
-### Geometry Still Helps—But Carefully
+### Signed Area
 
-Geometrically, net accumulation corresponds to **signed area**:
+Geometrically, net accumulation is **signed area**: area above the axis counts as positive, area below as negative. Two regions of the same size and opposite sign cancel. A net of zero doesn't mean nothing happened. It means gains and losses balanced.
 
-- Area above the axis contributes positively.
-- Area below the axis contributes negatively.
+This is how integrals handle **balance laws**, the bookkeeping at the heart of most environmental models: what comes in, what goes out, and what's left. Keep the two kinds apart:
 
-Two regions of equal size but opposite sign can cancel, producing a net change of zero—even though substantial activity occurred. This reinforces an important idea:
-
-> A net integral of zero does **not** mean “nothing happened.”  
-> It means gains and losses balanced perfectly.
-
-### Why Net Accumulation Is Powerful
-
-Net accumulation allows integrals to model **balance laws**—the fundamental bookkeeping equations of science. These models track what comes in, what goes out, and what remains.
-
-As you move forward, keep this distinction in mind:
-
-- **Always-positive accumulation** measures *how much*.
-- **Net accumulation** measures *what remains after everything is accounted for*.
-
-Both rely on the same mathematical machinery. What changes is the story the integral is telling—and learning to read that story is the real goal of this chapter.
+- **Always-positive accumulation** tells you *how much*.
+- **Net accumulation** tells you *what's left after everything is accounted for*.
 
 
 ### Concept Check: When Net Differs from Total {-}
 
-Suppose a stream gains 800 m³ of water during a storm and loses 800 m³ in the days following through evaporation and seepage. The **net accumulation** over the period is zero. What is the **total accumulation** — and which one would you report if asked "how much water moved through this system?"
+Suppose a stream gains 800 m³ of water during a storm and loses 800 m³ in the days following through evaporation and seepage. The **net accumulation** over the period is zero. What is the **total accumulation**? And which one would you report if asked "how much water moved through this system?"
 
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-**Net** accumulation is zero because the gains and losses canceled in the signed integral. **Total** accumulation (integrating |rate|, not rate) is 1,600 m³ — the actual volume of water that moved. Which one is the "right" answer depends on the question. "Did the system gain or lose water?" → net. "How much water moved?" → total. The same dataset answers both, but only if you ask the right integral.
+**Net** accumulation is zero, because the gains and losses cancel in the signed integral. **Total** accumulation (integrating |rate| instead of the rate) is 1,600 m³, the volume of water that actually moved. Which to report depends on the question. "Did the system gain or lose water?" is net. "How much water moved through it?" is total.
 
 </details>
 
@@ -265,7 +213,7 @@ If the rate of net population change for a fish stock is *negative* for several 
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-It contributes a **negative number** — a population loss. In a signed integral, a region where the integrand is below the horizontal axis contributes negative "area" to the total. That's why net accumulation can land on zero or even go negative: positive-rate periods and negative-rate periods compete in the same sum.
+A **negative number**: a population loss. Where the integrand is below the axis, it contributes negative "area." That's why the year's net change can be zero or even negative: the good months and the bad months compete in the same sum.
 
 </details>
 
@@ -274,21 +222,16 @@ It contributes a **negative number** — a population loss. In a signed integral
 
 ## Using Integrals to Compute the Average Value of a Function
 
-In everyday life, an *average* represents a typical or representative value. We average temperatures over a day, rainfall over a season, or pollution levels over a region. When a quantity varies continuously, integrals provide a natural and precise way to compute that average.
+An average is a typical value: the average temperature over a day, rainfall over a season, pollution over a region. When the quantity changes continuously, the integral gives you a precise way to compute it.
 
-### The Idea: Average as “Total Divided by Size”
+### Average as "Total Divided by Size"
 
-For a list of discrete values,
+For a list of values,
 \[
 \text{average} = \frac{\text{sum of values}}{\text{number of values}}.
 \]
 
-The same idea carries over to continuous functions:
-
-- The **integral** gives the *total accumulated amount*.
-- Dividing by the **length of the interval** spreads that total evenly.
-
-This leads directly to the definition of the average value of a function.
+For a function, the integral gives the total, and you divide by the length of the interval to spread it out evenly.
 
 ### Definition: Average Value of a Function
 
@@ -297,20 +240,16 @@ If \( f(x) \) is continuous on the interval \([a,b]\), its **average value** on 
 f_{\text{avg}} = \frac{1}{b-a}\int_a^b f(x)\,dx.
 \]
 
-Conceptually:
-- \( \int_a^b f(x)\,dx \) computes the total accumulation.
-- Dividing by \( b-a \) converts that total into an average per unit of \(x\).
+The integral is the total. Dividing by \( b-a \) turns it into an average per unit of \(x\).
 
-### A Physical Interpretation
+### Picturing It
 
-Imagine replacing the variable function \( f(x) \) with a constant height \( f_{\text{avg}} \) over the interval \([a,b]\).
-
-The rectangle with height \( f_{\text{avg}} \) and width \( b-a \) has the **same area** as the area under the curve:
+Replace the curve with a flat line at height \( f_{\text{avg}} \). The rectangle of height \( f_{\text{avg}} \) and width \( b-a \) has the **same area** as the region under the curve:
 \[
 (b-a)\,f_{\text{avg}} = \int_a^b f(x)\,dx.
 \]
 
-So the average value is the height of a rectangle that represents the same total accumulation as the original function.
+So the average value is the height of the rectangle with the same total.
 
 ::: promptbox
 **Example: Average Value of \( x^2 \) on \([2,4]\)**
@@ -322,7 +261,7 @@ f(x) = x^2.
 
 We want to find the **average value** of \( f(x) \) on the interval \([2,4]\).
 
-```{r, echo=FALSE, message=FALSE, error=FALSE}
+```{r avg-value-x2, echo=FALSE, message=FALSE, error=FALSE, fig.alt="The curve y equals x squared from 2 to 4 with the area under it shaded, and a dashed horizontal line at the average value 28 over 3. The rectangle under that line has the same area as the region under the curve."}
 # Example: Average value of f(x) = x^2 on [2, 4]
 
 # Define the function
@@ -435,45 +374,20 @@ The average value of \( x^2 \) on the interval \([2,4]\) is
 
 **Interpretation**
 
-This means that the constant function
-\[
-y = \frac{28}{3}
-\]
-has the same total area over \([2,4]\) as the curve \( y = x^2 \). In other words, a rectangle of height \( \tfrac{28}{3} \) and width 2 represents the same total accumulation as the original function over this interval.
+A flat line at \( y = \tfrac{28}{3} \) has the same total area over \([2,4]\) as \( y = x^2 \). A rectangle of height \( \tfrac{28}{3} \) and width 2 holds the same total as the curve.
 
 :::
 
 ### Environmental Examples
 
-- **Average temperature over a day**  
-  Integrate temperature over time and divide by the length of the day.
-
-- **Average rainfall rate during a storm**  
-  Total rainfall divided by storm duration.
-
-- **Average plankton concentration with depth**  
-  Integrate concentration over depth and divide by total depth.
-
-- **Average pollutant concentration along a river reach**  
-  Integrate concentration over distance and divide by the length of the reach.
-
-In each case, the integral finds the total, and the division converts it into a meaningful average.
+- **Average temperature over a day**: integrate temperature over time and divide by 24 hours.
+- **Average rainfall rate during a storm**: total rainfall divided by the storm's duration.
+- **Average plankton concentration with depth**: integrate over depth and divide by the total depth.
+- **Average pollutant concentration along a reach**: integrate over distance and divide by the reach length.
 
 ### Signed Functions and Averages
 
-If \( f(x) \) takes both positive and negative values, the average value reflects **net behavior**.
-
-- Positive regions increase the average.
-- Negative regions decrease it.
-- Large positive and negative regions can cancel.
-
-As with net accumulation, an average of zero does not necessarily mean “nothing happened”—it means gains and losses balanced.
-
-### Why This Matters
-
-The average value formula shows that integrals do more than measure totals. They allow us to define representative values for quantities that vary continuously in space or time.
-
-This idea appears repeatedly in science and engineering, from climate averages to mean concentrations and long-term rates. Once again, the mathematics is simple—but the interpretation is powerful.
+If \( f(x) \) is positive in some places and negative in others, the average reflects the **net**. Positive regions pull it up, negative regions pull it down, and big regions of each can cancel. An average of zero doesn't mean nothing happened.
 
 
 ### Concept Check: Why Average = (1/(b-a)) ∫ f dx Makes Sense {-}
@@ -483,7 +397,7 @@ The average value of \(f\) on \([a, b]\) is \(\frac{1}{b-a}\int_a^b f(x)\,dx\). 
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-Think of the integral as the *total accumulation* of \(f\) over the interval. Dividing by the width \(b - a\) gives you the **constant value that would produce the same total** over the same interval — i.e., the "flat-line height" with the same area. That's exactly what an average is: the steady value that's equivalent to the varying one, on net.
+The integral is the *total* of \(f\) over the interval. Dividing by the width \(b - a\) gives the **constant value that would produce the same total** over the same interval: the height of a flat line with the same area. That's what an average is: the steady value that adds up to the same thing as the real, varying one.
 
 </details>
 
@@ -495,7 +409,7 @@ A daily streamflow record for a river over a year gives a function \(Q(t)\). Wha
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-It's the **average daily discharge over the year** — the constant flow rate that, if it had run steady for 365 days, would have moved the same total volume of water as the real (variable) flow did. It's more useful than any single day's reading because it smooths over storms, droughts, and daily variation to give a single defensible number you can compare across years, between rivers, or against regulatory thresholds.
+It's the **average discharge over the year**: the steady flow that, running for 365 days, would move the same total volume of water as the real flow did. It's more useful than any one day's reading because it smooths over storms, droughts and day-to-day noise and gives you one number to compare across years or rivers.
 
 </details>
 
@@ -504,9 +418,7 @@ It's the **average daily discharge over the year** — the constant flow rate th
 
 ## Area Between Two Curves
 
-Sometimes we are interested not in accumulation relative to an axis, but in the **space between two functions**. This arises naturally when comparing two quantities that vary over the same interval—such as upper and lower bounds, competing models, or maximum and minimum possible values.
-
-In these situations, integration allows us to compute the **area between curves**.
+Sometimes what you want isn't accumulation relative to the axis, but the **gap between two functions** over the same interval: an observed curve and a target, upper and lower bounds, two competing models. Integration gives you that **area between curves**.
 
 ### The Core Idea
 
@@ -534,32 +446,25 @@ Adding up all of these strips leads to the integral:
 
 ### Why This Always Produces a Positive Area
 
-Area is a **geometric quantity**, not a signed one. By subtracting the lower curve from the upper curve, we ensure that the integrand represents a nonnegative height at every point.
-
-This is different from net accumulation:
-- Net accumulation can cancel positive and negative contributions.
-- Area between curves measures *separation*, not balance.
+Area is **geometric**, not signed. Subtracting the lower curve from the upper one makes the height of every strip positive. That's different from net accumulation, where positive and negative contributions cancel. Area between curves measures *separation*, not balance.
 
 ### Environmental and Scientific Examples
 
-- **Temperature envelopes**  
-  The area between daily maximum and minimum temperature curves represents total thermal variability over time.
+- **Temperature range**
+  The area between daily maximum and minimum temperature curves adds up the day-to-day temperature range over a season.
 
-- **Uncertainty bands in models**  
-  The area between upper and lower prediction curves measures total uncertainty across a domain.
+- **Uncertainty bands**
+  The area between the upper and lower prediction curves measures total uncertainty across the range of a model.
 
-- **Water table and bedrock profiles**  
-  The area between elevation curves can represent stored groundwater volume per unit width.
-
-- **Canopy structure**  
-  The area between top-of-canopy and ground-height curves reflects available vertical space for biomass or light penetration.
+- **Water table and bedrock**
+  Along a transect, the area between the water table and the bedrock surface is the saturated cross-section of the aquifer, per meter of width. Multiply by porosity to get the water stored.
   
   
 ::: promptbox
 
 **Example: Extra Water Stored Above a “Minimum Flow” Target**
 
-Suppose a river manager wants to maintain a **minimum ecological flow** of 30 m³/s to support fish habitat. During spring snowmelt, the actual streamflow exceeds that target. The *extra* water above the target represents potential storage, recharge, or managed releases.
+A river manager wants to keep a **minimum ecological flow** of 30 m³/s for fish habitat. During spring snowmelt the river runs above that target. The *extra* water above the target is what could be stored, released later or left to recharge the floodplain.
 
 Let \(t\) be time in **days** over a 10-day period, and let streamflow be measured in **m³/s**.
 
@@ -576,7 +481,7 @@ Define:
   \quad \text{m}^3/\text{s}
   \]
 
-```{r, echo=FALSE, message=FALSE, error=FALSE}
+```{r extra-flow-above-minimum, echo=FALSE, message=FALSE, error=FALSE, fig.alt="Streamflow over 10 days. A sine-shaped pulse rises from 30 to 40 cubic meters per second and back, above a flat minimum-flow line at 30. The area between them, the extra water, is shaded."}
 # Area Between Curves Example:
 # Extra water above a minimum ecological flow
 
@@ -701,7 +606,7 @@ V_{\text{extra}} = 86400\cdot \frac{200}{\pi}
 \boxed{V_{\text{extra}} \approx 5.50\times 10^6\ \text{m}^3}
 \]
 
-That’s the **extra water volume** delivered above the ecological minimum over the 10-day snowmelt pulse.
+That's the **extra volume of water** delivered above the ecological minimum over the 10-day pulse.
 
 :::
 
@@ -710,9 +615,7 @@ That’s the **extra water volume** delivered above the ecological minimum over 
 
 **Example: Population Change from Birth and Death Rates**
 
-Many populations change because individuals are **born** and **die** continuously over time. Rather than counting individuals one by one, we often model these processes using **rates**.
-
-In this example, we use integration to measure the **area between two rate curves**—birth rate and death rate—and interpret that area as net population change.
+Populations change because individuals are **born** and **die** all the time. Instead of counting individuals, we model the two processes as **rates** and integrate the difference to get the net change in population.
 
 ---
 
@@ -732,28 +635,21 @@ Define:
   \quad \text{individuals/year}
   \]
 
-These functions capture a simple idea:
-- Births fluctuate more strongly (e.g., seasonal reproduction).
-- Deaths fluctuate less and around a lower baseline.
+Births swing more (seasonal reproduction). Deaths swing less, around a lower baseline.
 
 ---
 
-**What does the area between the curves represent?**
+**What the gap between the curves means**
 
-At any time \(t\), the vertical difference
+At any time \(t\), the difference
 \[
 B(t) - D(t)
 \]
-represents the **net rate of population change** (individuals per year).
-
-- If \(B(t) > D(t)\), the population is increasing.
-- If \(B(t) < D(t)\), the population is decreasing.
-
-The **area between the curves** over a time interval is
+is the **net rate of population change** (individuals per year). Where \(B(t) > D(t)\) the population is growing, and where \(B(t) < D(t)\) it's shrinking. The integral
 \[
-\int_0^{10} \big[B(t) - D(t)\big]\,dt,
+\int_0^{10} \big[B(t) - D(t)\big]\,dt
 \]
-which gives the **net change in population size** over 10 years.
+is the **signed** area between the curves: the net change in population over 10 years. (The curves cross briefly, so this is a net, not a geometric area.)
 
 ---
 
@@ -791,7 +687,7 @@ So the oscillating terms cancel over the full interval, leaving:
 
 ---
 
-```{r, echo=FALSE, message=FALSE, error=FALSE}
+```{r birth-death-rates, echo=FALSE, message=FALSE, error=FALSE, fig.alt="Birth and death rates over 10 years. Births oscillate around 120 per year and deaths around 100 per year, with the gap between the two curves shaded."}
 
 # Area Between Curves Example:
 # Birth rate vs death rate over time
@@ -862,49 +758,33 @@ net_change <- integrate(
 \boxed{\text{Net population change over 10 years} = 200\ \text{individuals}}
 \]
 
-- The population gains 200 individuals overall.
-- Even though births and deaths fluctuate, the **area between the curves** captures the long-term balance.
-- Large seasonal swings can occur, but what matters for long-term size is the total area between the rates.
-
----
+The population gains 200 individuals overall. Births and deaths both swing around a lot, but over the full 10 years the swings cancel, and what's left is the difference between the baselines: 20 per year for 10 years.
 
 **Big picture**
 
-This example mirrors many real systems:
-
-- Carbon uptake vs. release
-- Inflow vs. outflow
-- Growth vs. decay
-
-The integral does not track individuals—it tracks **imbalance**. The area between curves turns competing processes into a single, interpretable number.
+Carbon uptake against release, inflow against outflow, growth against decay: the same setup works for all of them. The integral of the difference turns two competing processes into one number you can interpret.
 
 :::
 
-### When Curves Cross -and the crossing
+### When the Curves Cross
 
-If the curves cross within the interval, the “upper” and “lower” roles may switch. In practice, this means:
+If the curves cross, "upper" and "lower" swap. To get the geometric area:
 
-1. Find the intersection points.
-2. Break the interval into subintervals where one function stays above the other.
-3. Compute the area on each subinterval and add the results.
+1. Find where they intersect.
+2. Split the interval so one function stays on top in each piece.
+3. Compute top minus bottom on each piece and add them up.
 
-This step reinforces an important habit: **sketching the curves first** is often essential for setting up the correct integral.
-
-### Big Picture
-
-Area between curves extends the idea of integration beyond accumulation relative to an axis. It allows us to quantify differences, gaps, and separations—turning visual comparisons into precise numerical measures.
-
-Once again, the formula is simple. The insight comes from understanding *what is being measured* and *why that measurement matters*.
+Sketch the curves first. It's the easiest way to get the setup right.
 
 
 ### Concept Check: Top Minus Bottom {-}
 
-For \(\int_a^b [f(x) - g(x)]\,dx\) to represent a positive area between two curves, what has to be true about \(f\) and \(g\) on \([a, b]\) — and what happens if the curves cross within the interval?
+For \(\int_a^b [f(x) - g(x)]\,dx\) to represent a positive area between two curves, what has to be true about \(f\) and \(g\) on \([a, b]\)? And what happens if the curves cross within the interval?
 
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-You need \(f(x) \geq g(x)\) throughout \([a, b]\) — \(f\) is the *top* curve, \(g\) is the *bottom*. If the curves cross within the interval, the labels "top" and "bottom" switch at the crossing, and the integrand changes sign. To compute the *geometric* area you split the interval at each crossing and integrate \(|f - g|\) piecewise — otherwise the signed integral will partially cancel.
+You need \(f(x) \geq g(x)\) across all of \([a, b]\): \(f\) is the *top* curve and \(g\) the *bottom*. If the curves cross, the labels swap at the crossing and the integrand changes sign. To get the *geometric* area, split at every crossing and integrate \(|f - g|\) piece by piece. Otherwise the regions where \(g\) is on top cancel some of the area where \(f\) is on top.
 
 </details>
 
@@ -916,7 +796,7 @@ If \(Q_{\text{actual}}(t)\) is the actual streamflow on day \(t\) and \(Q_{\text
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-The **total volume of "extra" water** — water that flowed above the ecological-flow threshold across the year. Each day's contribution is the *excess* flow rate times the day, and the integral sums those daily excesses. If the actual flow ever dropped below the minimum, those days would contribute *negatively* to this integral, signaling an ecological-flow shortfall.
+The **total volume of "extra" water**: water that flowed above the ecological threshold over the year. Each day contributes the *excess* flow times one day, and the integral adds them up. If the flow ever dropped below the minimum, those days would count *negatively*. To get only the surplus, you'd integrate just over the periods when the flow was above the minimum.
 
 </details>
 
@@ -925,21 +805,13 @@ The **total volume of "extra" water** — water that flowed above the ecological
 
 ## Double Integrals: Accumulation Over Two Dimensions
 
-So far, we’ve used integrals to accumulate quantities over **one variable**—time, distance, or depth. Many environmental quantities, however, vary over **two spatial dimensions** at once. In those cases, we need a way to accumulate contributions across an entire region, not just along a line.
-
-That is the role of **double integrals**.
+So far we've accumulated over **one variable**: time, distance or depth. A lot of environmental quantities vary over **two spatial dimensions** at once, like biomass across a riparian zone or rainfall across a watershed. To add up over a whole region, you need a **double integral**.
 
 ### From Length to Area
 
-Recall the basic idea of integration:
+The idea hasn't changed. A function value is an "amount per unit," a small piece times that value is a contribution, and the total is all the contributions added up. The only difference is the shape of the piece.
 
-- A function value gives “amount per unit.”
-- Multiplying by a small piece gives a contribution.
-- Adding up all contributions gives a total.
-
-With double integrals, the only change is the shape of the small piece.
-
-Instead of thin intervals of width \(dx\), we break a region into many small **area elements** of size
+Instead of thin intervals of width \(dx\), break the region into small **patches of area**
 \[
 \Delta A \approx \Delta x\,\Delta y.
 \]
@@ -958,15 +830,11 @@ If \(f(x,y)\) represents a density, rate, or intensity over a region \(R\), then
 \iint_R f(x,y)\,dA.
 \]
 
-Conceptually:
-
-- \(f(x,y)\) tells us how much exists *per unit area* at location \((x,y)\),
-- \(dA\) represents a tiny patch of area,
-- the double integral adds contributions from **everywhere in the region**.
+\(f(x,y)\) is the amount *per unit area* at \((x,y)\), \(dA\) is a tiny patch of area, and the double integral adds up contributions from **everywhere in the region**.
 
 ### Units Still Tell the Story
 
-Units are especially helpful with double integrals.
+Units help even more here.
 
 Examples:
 
@@ -979,7 +847,7 @@ Examples:
 - Heat flux per unit area (W/m²)  
   \(\times\) area → total heat transfer rate
 
-If the units multiply cleanly into a meaningful total, the integral is doing the right job.
+If the units multiply out to a sensible total, the integral is set up right.
 
 ### Rectangular Regions and Iterated Integrals
 
@@ -996,41 +864,18 @@ the double integral can be computed as an **iterated integral**:
 \int_c^d \int_a^b f(x,y)\,dx\,dy.
 \]
 
-This means:
-
-- Integrate with respect to one variable first,
-- Treat the other variable as a constant,
-- Then integrate the result again.
-
-Both orders give the same total (as long as \(f\) behaves nicely).
+Integrate in one variable while treating the other as a constant, then integrate the result in the other variable. For a well-behaved \(f\), either order gives the same total.
 
 ### Interpretation: Stacking Integrals
 
-One useful way to think about a double integral is as a “stack” of single integrals.
+Think of it as a stack of single integrals. Fix \(x\) and integrate \(f(x,y)\) over \(y\): that's the total along one strip. Then integrate the strip totals over \(x\) to add up all the strips. It's a Riemann sum in two directions instead of one.
 
-For example:
-
-- Fix \(x\), integrate \(f(x,y)\) over \(y\): this gives the total contribution along a vertical slice.
-- Then integrate those slice totals over \(x\): this adds up all slices across the region.
-
-Geometrically, this mirrors how we built Riemann sums—just in two directions instead of one.
-
-### Why Double Integrals Matter
-
-Double integrals allow us to:
-
-- Compute totals over landscapes, surfaces, and regions,
-- Move from local measurements to regional summaries,
-- Model spatially distributed systems in a mathematically precise way.
-
-The mathematics extends ideas you already know. The key shift is conceptual: we are no longer accumulating along a line, but across an area.
-
-In the sections that follow, we’ll use double integrals to compute masses, totals, and averages over regions—and to see how spatial variation shapes environmental outcomes.
+Double integrals take you from measurements at points to totals over landscapes and regions. The math extends what you already know. The shift is that you're adding up across an area instead of along a line.
 
 ::: promptbox
 **Example: Evaluating a Double Integral Over a Rectangle**
 
-We will compute a double integral step by step, focusing only on the mechanics.
+Just the mechanics, step by step.
 
 Let
 \[
@@ -1109,16 +954,15 @@ Evaluate:
 
 ---
 
-**Key Takeaways**
+**Notice**
 
-- Symmetric bounds can cause terms to cancel automatically.
-- Odd functions in a symmetric interval integrate to zero.
-- The mechanics of double integration follow the same rules as single-variable integration—applied one variable at a time.
+- With symmetric bounds, odd terms cancel on their own: \(xy\) and \(-y\) are odd in \(y\), so they integrate to zero over \([-2, 2]\).
+- Each step is ordinary single-variable integration, one variable at a time.
 
 
 **Graphically**
 
-```{r, echo=FALSE, message=FALSE, error=FALSE}
+```{r double-integral-contour, echo=FALSE, message=FALSE, error=FALSE, fig.alt="Filled contour map of f of x, y equals x squared plus x y minus y over the rectangle x from minus 5 to 5 and y from minus 2 to 2. Values are highest at the left and right edges."}
 # Double integral example visualization
 # f(x, y) = x^2 + x*y - y
 # Plot over a larger window, with dashed bounds for the integration region
@@ -1183,7 +1027,7 @@ approx_integral
 **Example: Integrating \(f(x,y)=x^2+xy-y\) Without Bounds**
 
 **What happens if we don’t apply bounds?**  
-Without bounds, you are not computing a total over a region. Instead, you are finding an **antiderivative**. In multivariable settings, the “constant of integration” becomes an **arbitrary function of the other variable**, because that other variable is treated as a constant during the integration.
+Without bounds you're not computing a total over a region. You're finding an **antiderivative**. In more than one variable, the "constant of integration" becomes an **arbitrary function of the other variable**, because that variable was being treated as a constant.
 
 Let
 \[
@@ -1246,17 +1090,12 @@ Here \(K(y)\) is an arbitrary function of \(y\), because differentiating with re
 
 ---
 
-**Takeaway**
+**So**
 
-Integrating without bounds produces an antiderivative, not a number:
-
-- \(\int f(x,y)\,dy\) gives a family of functions \(F(x,y)+C(x)\).
-- \(\int f(x,y)\,dx\) gives a family of functions \(G(x,y)+K(y)\).
-
-To get a single numerical value, you must specify bounds (a region) and compute a definite integral.
+Without bounds you get a family of functions, not a number: \(\int f(x,y)\,dy\) gives \(F(x,y)+C(x)\), and \(\int f(x,y)\,dx\) gives \(G(x,y)+K(y)\). To get a number, you need bounds: a region.
 
 
-```{r, echo=FALSE, message=FALSE, error=FALSE}
+```{r antiderivative-contour, echo=FALSE, message=FALSE, error=FALSE, fig.alt="Filled contour map of an antiderivative of x squared plus x y minus y, showing how it varies across the x y plane."}
 # Visualization of the antiderivative (no bounds, C = 0)
 # Starting from f(x, y) = x^2 + x*y - y
 # Integrated with respect to y:
@@ -1313,19 +1152,19 @@ Suppose \(\rho(x, y)\) gives the **biomass density** (kg per m²) at position \(
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-It computes the **total biomass** in the riparian zone. The integrand has units of kg/m²; the differential \(dA\) has units of m². Multiplying and integrating: kg/m² × m² = **kg**. Conceptually, you're slicing the region \(R\) into tiny patches of area \(dA\), multiplying each patch's density by its area to get a tiny mass, then summing all those tiny masses over the region.
+The **total biomass** in the riparian zone. The integrand is in kg/m² and \(dA\) is in m², so the result is in **kg**. You're cutting the zone into tiny patches, multiplying each patch's area by the biomass density there, and adding them all up.
 
 </details>
 
 
 ### Concept Check: Why Iterated Integrals Work {-}
 
-Why can a double integral over a rectangular region be computed as two single integrals — one inside the other — rather than requiring some new "2D" integration technique?
+Why can a double integral over a rectangular region be computed as two single integrals, one inside the other, rather than requiring some new "2D" integration technique?
 
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-Because the region can be **sliced into thin strips**, integrated along the strip first (a 1D integral in one variable), and then the strip totals are themselves added up along the other axis (another 1D integral). Each iterated step is just a regular definite integral. Fubini's theorem guarantees that, for continuous integrands on a nice region, the iterated integrals give the same result regardless of which variable you integrate first.
+Because you can **slice the region into thin strips**. Integrate along each strip first (an ordinary integral in one variable), then add up the strip totals along the other direction (another ordinary integral). Each step is a regular definite integral. Fubini's theorem is the formal result that says this works, and that the order doesn't matter for well-behaved functions on a rectangle.
 
 </details>
 
@@ -1334,9 +1173,7 @@ Because the region can be **sliced into thin strips**, integrated along the stri
 
 ## Triple Integrals: Accumulation Over Volume
 
-Double integrals extend accumulation from a line to an area. **Triple integrals** take the next step: they accumulate quantities throughout a **three-dimensional region**.
-
-If a quantity varies in three spatial directions—such as with depth, height, and horizontal position—we model it with a function
+Double integrals go from a line to an area. **Triple integrals** go one step further, to a **volume**. If a quantity varies in all three directions (across, along and with depth), model it as
 \[
 f(x,y,z),
 \]
@@ -1347,10 +1184,7 @@ The total amount is written as
 \iiint_V f(x,y,z)\,dV.
 \]
 
-Here:
-- \(f(x,y,z)\) represents an amount *per unit volume*,
-- \(dV\) represents a tiny volume element,
-- the triple integral adds contributions from every small volume inside \(V\).
+\(f(x,y,z)\) is an amount *per unit volume*, \(dV\) is a tiny volume element, and the triple integral adds up every small volume inside \(V\).
 
 ### Iterated Form
 
@@ -1371,12 +1205,12 @@ As before, you integrate one variable at a time, treating the others as constant
 
 ### Concept Check: When You'd Need a Triple Integral in Environmental Science {-}
 
-Give an example of a quantity that would naturally be computed with a triple integral over a volume — and explain why three dimensions are needed.
+Give an example of a quantity that would naturally be computed with a triple integral over a volume, and explain why three dimensions are needed.
 
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-**Total dissolved oxygen in a lake**. The dissolved oxygen concentration \(c(x, y, z)\) typically varies with horizontal position (water temperature, sunlight, wind mixing) *and* with depth (stratification, photosynthesis layers, sediment oxygen demand). Integrating \(c\) over the full 3D lake volume \(\iiint c\,dV\) gives total dissolved oxygen mass. You can't reduce this to a 2D problem because depth matters.
+**Total dissolved oxygen in a lake.** Oxygen concentration \(c(x, y, z)\) varies across the lake (temperature, sunlight, wind mixing) *and* with depth (stratification, where the algae are, oxygen demand from the sediments). Integrating \(c\) over the lake's volume gives total dissolved oxygen. A double integral over the surface would miss the depth structure, and in a stratified lake that's most of the story.
 
 </details>
 
@@ -1397,7 +1231,7 @@ The volume element \(dV\) has units of m³, which cancels the "per m³" in the d
 
 ## Quadruple Integrals: When Time Enters the Picture
 
-A **quadruple integral** arises when a quantity varies over **three dimensions of space and time**.
+A **quadruple integral** comes up when a quantity varies in **three dimensions of space and in time**.
 
 For example, suppose
 \[
@@ -1408,9 +1242,7 @@ represents a density or rate that varies in space *and* time. To compute the tot
 \iiiint f(x,y,z,t)\,dV\,dt.
 \]
 
-Conceptually:
-- The triple integral over \(x,y,z\) gives a total at a fixed time,
-- The outer integral over \(t\) accumulates that total over time.
+The triple integral over \(x,y,z\) gives a total at one moment. The outer integral over \(t\) adds those up over time.
 
 ### Iterated Form
 
@@ -1434,21 +1266,21 @@ If you already know how to compute the total pollutant mass in a lake at one mom
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-Because the **distribution itself changes over time**. A triple integral at a single moment gives the snapshot mass *then*. But if you want a quantity like *total pollutant-exposure dose* (mass-hours) over a week, you need to track how the spatial distribution evolves and accumulate over time as well. Each tiny chunk of volume contributes \(\rho(x,y,z,t)\,dV\,dt\) to the total — four dimensions of integration.
+Because the **distribution changes over time**. A triple integral at one moment gives you the mass *then*. If you want something like the *total exposure* (mass × hours) over a week, you have to follow how the distribution changes and add it up over time as well. That's the fourth integral.
 
 </details>
 
 
 ### Concept Check: When You'd Actually Use a Quadruple Integral {-}
 
-Give a concrete environmental setting where a quadruple integral (over space + time) is the right tool — and one where it's overkill.
+Give a concrete environmental setting where a quadruple integral (over space + time) is the right tool, and one where it's overkill.
 
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-**Right tool:** Computing the total UV-radiation exposure delivered to the surface waters of a lake over a summer season — radiation intensity varies in (x, y, z, t) and the cumulative dose matters biologically.
+**Right tool:** the total UV dose delivered to a lake's surface waters over a summer. Intensity varies with position, depth and time, and what matters biologically is the cumulative dose.
 
-**Overkill:** Computing the total volume of a lake. The lake's geometry doesn't depend on time (over short windows), so a triple spatial integral suffices — adding a time dimension would just multiply the answer by the time length and tell you something less useful.
+**Overkill:** the volume of a lake. Its shape doesn't change over a short window, so a triple integral over space is enough. Adding time would just multiply the answer by the length of the window.
 
 </details>
 
@@ -1457,70 +1289,34 @@ Give a concrete environmental setting where a quadruple integral (over space + t
 
 ## Big Picture
 
-Each increase in dimension follows the same logic:
+Each step up in dimension follows the same logic:
 
-- **Single integral** → accumulation along a line  
-- **Double integral** → accumulation over an area  
-- **Triple integral** → accumulation over a volume  
-- **Quadruple integral** → accumulation over volume *and* time  
+- **Single integral**: along a line
+- **Double integral**: over an area
+- **Triple integral**: through a volume
+- **Quadruple integral**: through a volume *and* over time
 
-The mechanics never fundamentally change. What grows is the scope of what you’re adding up—and the kinds of systems you can describe with precision.
+The mechanics stay the same. What grows is the size of the thing you're adding up over.
 
 
 ## Numerical Integration: When No Nice Formula Exists
 
-Much of the integration you’ve seen so far assumes that we have a **clean mathematical function** to work with. In practice, that’s often not how data arrive.
+So far we've assumed you have a **formula** to integrate. Real data don't arrive that way. You get **measurements**: readings at set times, samples at set places, sometimes at uneven intervals.
 
-Typically, we collect **measurements**:
-- observations at discrete times,
-- samples at specific locations,
-- values recorded at irregular intervals.
-
-A common first step is to **fit a curve** to those data. If the fitted curve is reasonably smooth and well behaved, we can then integrate that function analytically and interpret the result exactly.
-
-But this approach has limits.
-
-### When Analytic Integration Breaks Down
-
-Sometimes:
-- the data are noisy,
-- the underlying process is complex,
-- no simple function fits well,
-- or the fitted function is too complicated to integrate by hand.
-
-In these cases, forcing a “nice” curve can introduce more error than it removes.
-
-When there is no reliable analytic function to integrate, **numerical integration** provides a direct alternative.
+One option is to **fit a curve** to the data and integrate the curve. If the fit is smooth and sensible, that works well. But sometimes the data are noisy, the process is messy, nothing simple fits, or the fitted function is too complicated to integrate by hand. Forcing a "nice" curve then adds more error than it removes. That's when you use **numerical integration**.
 
 ### The Core Idea
 
-Numerical integration returns to the original intuition behind integrals:
-> *Add up many small contributions.*
-
-Instead of integrating a formula, we:
-1. Break the interval into small pieces,
-2. Approximate the function on each piece,
-3. Add the contributions together.
-
-This is exactly the logic of Riemann sums—implemented using actual data values.
+Numerical integration goes back to the original idea: add up many small contributions. Break the interval into pieces, approximate the function on each piece using your data, and add the pieces. It's a Riemann sum built from real measurements.
 
 ### Common Numerical Methods
 
-Several standard numerical methods are built around this idea:
+- **Left and right Riemann sums**: use the value at one end of each subinterval.
+- **Midpoint rule**: uses the value at the center, which is usually more accurate.
+- **Trapezoidal rule**: uses trapezoids instead of rectangles.
+- **Simpson's rule**: fits parabolas across pairs of subintervals, for even more accuracy on smooth data.
 
-- **Left and right Riemann sums**  
-  Use function values at the ends of each subinterval.
-
-- **Midpoint rule**  
-  Uses the value at the center of each subinterval for better accuracy.
-
-- **Trapezoidal rule**  
-  Approximates the region under the curve with trapezoids instead of rectangles.
-
-- **Simpson’s rule**  
-  Uses parabolic fits over pairs of intervals for even higher accuracy.
-
-Each method balances simplicity and accuracy differently, but all share the same goal: approximate an integral using finite data.
+Each trades simplicity against accuracy differently. All of them estimate an integral from a finite set of values.
 
 
 
@@ -1531,9 +1327,9 @@ Give two situations in environmental science where you'd reach for numerical int
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-1. **The rate is only known as data, not as a formula.** A flux tower spits out half-hourly carbon-exchange readings — there is no symbolic integrand to antidifferentiate. You numerically integrate the data directly.
+1. **You only have data, not a formula.** A flux tower gives you half-hourly carbon-exchange readings. There's no formula to antidifferentiate, so you integrate the data directly.
 
-2. **The integrand has no elementary antiderivative.** Functions like \(e^{-x^2}\) (Gaussian, common in dispersion modeling) and \(\sin(x)/x\) appear naturally in environmental work but have no closed-form antiderivative. Numerical methods (trapezoidal, Simpson's, Gaussian quadrature) get you a defensible answer anyway.
+2. **The integrand has no elementary antiderivative.** Functions like \(e^{-x^2}\) (the Gaussian, common in dispersion models) and \(\sin(x)/x\) show up in environmental work but have no antiderivative you can write down. Numerical methods give you the definite integral anyway.
 
 </details>
 
@@ -1545,13 +1341,13 @@ What's the trade-off between using a left-endpoint Riemann sum, the trapezoidal 
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-**Left-endpoint Riemann sum**: simple, fast, but systematically over- or underestimates whenever the rate is monotonic, and error decreases only linearly as you halve the step size.
+**Left-endpoint Riemann sum:** simple and fast, but it's always too high or too low when the rate only rises or only falls. Halving the step size only halves the error.
 
-**Trapezoidal rule**: fits a straight line across each step; error decreases quadratically with step size; usually a big improvement for smooth rates.
+**Trapezoidal rule:** a straight line across each step. Halving the step size cuts the error by about four. Usually a big improvement for smooth rates.
 
-**Simpson's rule**: fits a parabola across each pair of steps; error decreases like \(O(h^4)\); often the best choice when the underlying rate is smooth and you have evenly spaced data.
+**Simpson's rule:** a parabola across each pair of steps. Halving the step size cuts the error by about sixteen. Often the best choice for smooth rates with evenly spaced data.
 
-The trade-off: more sophisticated methods give more accuracy per data point but assume more about the function's smoothness.
+The trade-off: the fancier methods get more accuracy out of each data point, but they assume the function is smoother.
 
 </details>
 
@@ -1560,15 +1356,13 @@ The trade-off: more sophisticated methods give more accuracy per data point but 
 
 ## Comparing Analytic and Numerical Integration from Data
 
-In this example below, we computed the total accumulated streamflow over a year using **two different approaches**:
+In the example below, the total streamflow over a year is computed two ways:
 
-1. **Integrating a fitted function**  
-   We first fit a smooth, sinusoidal model to the daily streamflow data and then integrated that function over time.
+1. **Integrate a fitted function.** Fit a smooth sinusoidal model to the daily data, then integrate the model.
 
-2. **Numerical integration of the data directly**  
-   We treated each daily measurement as the height of a rectangle one day wide and summed the areas of those rectangles.
+2. **Integrate the data directly.** Treat each daily measurement as a rectangle one day wide and add up the rectangles.
    
-```{r, echo=FALSE, message=FALSE, error=FALSE}
+```{r streamflow-fit, echo=FALSE, message=FALSE, error=FALSE, fig.alt="A year of daily streamflow measurements scattered around a smooth sinusoidal fit, with the area under the fitted curve shaded. Flow peaks partway through the year."}
 # Fit a sinusoidal function of the form:
 # Q(day) = 40 + 20 * sin(2*pi*day/365)
 # Plot data + fitted curve on the same axes, and shade area under the fitted curve.
@@ -1641,7 +1435,7 @@ mtext(
 
 ```
 
-```{r, echo=FALSE, message=FALSE, error=FALSE}
+```{r streamflow-fit-vs-rectangles, echo=FALSE, message=FALSE, error=FALSE, fig.alt="Two panels. The top shows daily streamflow data with the sinusoidal fit and the area under it shaded. The bottom shows the same year as 365 one-day rectangles, with the fitted curve drawn over them."}
 # Numerical integration visualization:
 # Rectangular (Riemann sum) approximation using daily streamflow data
 
@@ -1730,50 +1524,23 @@ par(mfrow = c(1, 1))
 
 ```
 
-The results were:
+The results (flow in m³/s times seconds, so the totals are in m³):
 
-- Total from fitted curve integration: **1,252,203,685**
-- Total from rectangular (Riemann sum) integration: **1,255,666,364**
-- Difference between the two methods: **3,462,679**
+- Total from integrating the fitted curve: **1,252,203,685 m³**
+- Total from adding up daily rectangles: **1,255,666,364 m³**
+- Difference: **3,462,679 m³**
 
 ### What These Numbers Mean
 
-Both methods produce totals of the same order of magnitude and are **very close relative to the size of the total**. The difference arises from several sources:
+The two totals agree to within about 0.3%. The difference comes from a few places:
 
-- The fitted curve smooths over short-term variability in the data.
-- The rectangular method uses discrete daily values and approximates the curve with flat steps.
-- Random noise in the data affects the rectangle method more directly than the fitted model.
+- The fitted curve smooths over day-to-day variation.
+- The rectangles use each day's value as a flat step.
+- Random noise in the data affects the rectangles directly, but mostly averages out in the fit.
 
-Importantly, the discrepancy is not an error—it reflects **modeling choices**.
+The difference isn't a mistake. It comes from the **modeling choice**. If you can justify a smooth model, integrating it gives a clean answer. If you can't, numerical integration gives you a total **straight from the observations**. Doing both and comparing them tells you how sensitive your answer is to that choice.
 
-### Why This Matters
-
-This comparison highlights a key idea in applied integration:
-
-- If you can justify a smooth functional model, integrating that model provides a clean, interpretable result.
-- If no trustworthy model exists, numerical integration allows you to compute totals **directly from observations**.
-
-In practice, both approaches are valuable. Comparing them helps assess sensitivity to assumptions and builds confidence in the resulting totals.
-
-At its core, numerical integration keeps the original meaning of an integral intact:  
-**adding up many small contributions to understand accumulation**, even when exact formulas are out of reach.
-
-
-### Why Numerical Integration Matters
-
-Numerical integration is essential when:
-
-- data are discrete rather than continuous,
-- models are too complex to integrate symbolically,
-- results must be computed directly from observations.
-
-In applied work, it is often the **default**, not the exception.
-
-The key idea is this:
-
-> Even when we cannot write down a function we can integrate, we can still compute meaningful totals.
-
-Numerical integration bridges the gap between real-world data and the mathematical concept of accumulation—allowing integrals to remain useful even when exact formulas are out of reach.
+In applied work, numerical integration is often the default, not the exception. Even when there's no formula, you can still get a meaningful total.
 
 ---
 
@@ -1784,7 +1551,7 @@ If you fit a smooth model to streamflow data and integrate the model, you get on
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-Neither one is automatically "right." The fitted-model integral is smoother and reflects your *assumed* shape (e.g., a sinusoid) — it can extrapolate cleanly but may miss real spikes. The direct numerical integration of data faithfully captures whatever the sensor measured — including any noise or anomalies — but it inherits any gaps or errors in the data. In practice, the discrepancy itself is informative: large disagreement usually means the model is mis-specified or the data have features the model isn't capturing.
+Neither is automatically right. The fitted-model integral reflects the shape you *assumed* (a sinusoid, say). It's smooth and easy to report, but it can miss real spikes. Integrating the data directly captures whatever the sensor recorded, noise included. If the two differ by more than your measurement uncertainty, your model is missing something real. Ask which features of the data the model is smoothing away.
 
 </details>
 
@@ -1796,11 +1563,11 @@ What's the practical guideline for choosing analytic vs numerical integration fo
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-**Use analytic integration** when (a) you have a defensible *functional model* for the rate (calibrated to data, mechanistic, or theoretically grounded), and (b) the function has a tractable antiderivative. The result is exact and reproducible.
+**Integrate a formula** when you have a model for the rate you can defend (fitted to data, based on the physics, or both) and the function has an antiderivative you can find. The answer is exact and reproducible.
 
-**Use numerical integration** when (a) you only have data, no model, or (b) the model fits but has no analytic antiderivative. Numerical results depend on the method and step size and should be reported with both.
+**Integrate numerically** when you only have data, or when the model has no antiderivative you can write down. Report the method and step size along with the answer, because the result depends on both.
 
-Reporting *both* answers (analytic from a model + numerical from raw data) and explaining any difference is often the strongest scientific practice.
+Often the strongest approach is to report both, and explain any difference.
 
 </details>
 
@@ -1810,7 +1577,7 @@ Reporting *both* answers (analytic from a model + numerical from raw data) and e
 
 ## Practice Problems
 
-The problems below pull from every major application type in the chapter: total accumulation from rates and densities, net accumulation, average value, area between curves, double integrals, and numerical methods. Some specify the technique; others ask you to identify which integral applies before computing.
+These cover every application in the chapter: totals from rates and densities, net accumulation, average value, area between curves, double integrals and numerical methods. Some tell you which technique to use. Others ask you to decide.
 
 ---
 
@@ -1844,27 +1611,27 @@ This is an always-positive accumulation (\(r(t) \geq 0\) on \([0, 4]\)).
 
 A flux tower in a young forest stand records net carbon flux as
 \[
-F(t) = 4\sin\!\left(\frac{\pi t}{12}\right) - 1 \quad \text{(mg C / m}^2\text{/hr)},
+F(t) = 0.4\sin\!\left(\frac{\pi (t - 6)}{12}\right) - 0.1 \quad \text{(g C / m}^2\text{/hr)},
 \]
-where \(t\) is hours after midnight. Find the **net carbon exchange** over a full 24-hour day, and interpret the sign.
+where \(t\) is hours after midnight. Uptake peaks at noon. Find the **net carbon exchange** over a full 24-hour day, and interpret the sign.
 
 <details>
 <summary><strong>Click to reveal solution</strong></summary>
 
 \[
-\int_0^{24} \left[4\sin\!\left(\tfrac{\pi t}{12}\right) - 1\right] dt
-= \left[-\tfrac{48}{\pi}\cos\!\left(\tfrac{\pi t}{12}\right) - t\right]_0^{24}.
+\int_0^{24} \left[0.4\sin\!\left(\tfrac{\pi (t-6)}{12}\right) - 0.1\right] dt
+= \left[-\tfrac{4.8}{\pi}\cos\!\left(\tfrac{\pi (t-6)}{12}\right) - 0.1\,t\right]_0^{24}.
 \]
 
-At \(t = 24\): \(-\tfrac{48}{\pi}\cos(2\pi) - 24 = -\tfrac{48}{\pi} - 24\).
-At \(t = 0\): \(-\tfrac{48}{\pi}\cos(0) - 0 = -\tfrac{48}{\pi}\).
+At \(t = 24\): \(-\tfrac{4.8}{\pi}\cos\!\left(\tfrac{3\pi}{2}\right) - 2.4 = 0 - 2.4 = -2.4\).
+At \(t = 0\): \(-\tfrac{4.8}{\pi}\cos\!\left(-\tfrac{\pi}{2}\right) - 0 = 0\).
 
 Difference:
 \[
-\left(-\tfrac{48}{\pi} - 24\right) - \left(-\tfrac{48}{\pi}\right) = -24 \text{ mg C / m}^2.
+-2.4 - 0 = -2.4 \text{ g C / m}^2.
 \]
 
-**Net flux = −24 mg C/m²** over 24 hours. The stand is a **net carbon source** for the day: the constant background respiration loss of 1 mg/m²/hr outweighed the periodic photosynthesis gains in net terms.
+**Net flux = −2.4 g C/m²** over the day. The stand is a **net carbon source** that day. The sine part averages to zero over 24 hours, so what's left is the constant 0.1 g/m²/hr of extra respiration, times 24 hours.
 
 </details>
 
@@ -1907,12 +1674,12 @@ A river has a regulatory minimum ecological flow of \(Q_{\text{min}} = 30\) m³/
 \[
 Q(t) = 30 + 12 t - t^2 \quad \text{(m}^3\text{/s)},
 \]
-where \(t\) is days. Compute the **total volume of water that flowed above the minimum** during the window. (Note: be careful with units — m³/s × days.)
+where \(t\) is days. Compute the **total volume of water that flowed above the minimum** during the window. (Careful with units: m³/s × days.)
 
 <details>
 <summary><strong>Click to reveal solution</strong></summary>
 
-The excess flow is \(Q(t) - Q_{\text{min}} = 12t - t^2\). Check that this is positive on \([0, 10]\): \(12t - t^2 = t(12 - t) \geq 0\) for \(0 \leq t \leq 12\). ✓
+The excess flow is \(Q(t) - Q_{\text{min}} = 12t - t^2\). Check that this is positive on \([0, 10]\): \(12t - t^2 = t(12 - t) \geq 0\) for \(0 \leq t \leq 12\).
 
 \[
 \int_0^{10} (12 t - t^2)\, dt
@@ -1934,7 +1701,7 @@ Convert to m³: 1 day = 86,400 s, so
 
 ### Problem 5: Net Population Change (Births vs Deaths) {-}
 
-For a juvenile salmon cohort over a 6-month survey, birth rate (recruitment from upstream) is modeled as \(B(t) = 200 - 10t\) (fish/month) and death rate as \(D(t) = 50 + 5t\) (fish/month), where \(t\) is months from the start. Find the **net population change** over the 6 months.
+In a 6-month survey of juvenile salmon in a stream reach, fish arrive from upstream at a rate \(B(t) = 200 - 10t\) (fish/month) and die at a rate \(D(t) = 50 + 5t\) (fish/month), where \(t\) is months from the start. Find the **net change in the number of fish** over the 6 months.
 
 <details>
 <summary><strong>Click to reveal solution</strong></summary>
@@ -1949,7 +1716,7 @@ Net rate of change is \(B(t) - D(t) = 150 - 15 t\).
 = 630 \text{ fish}.
 \]
 
-**Net population gain = 630 fish** over the six-month window. (Note: \(B = D\) at \(t = 10\) months — within this window, recruitment outpaced mortality, but the gap was narrowing.)
+**Net gain = 630 fish** over the six months. Arrivals beat deaths the whole time, but the gap was closing: the two rates would be equal at \(t = 10\) months.
 
 </details>
 
@@ -2071,26 +1838,26 @@ where \(z\) is depth in meters from the surface. Find the **average concentratio
 \approx 7.33 \text{ mg/L}.
 \]
 
-**Average concentration ≈ 7.33 mg/L.** (The bottom waters are richer — \(c(10) = 14\) mg/L — but the lighter top half pulls the average down.)
+**Average concentration ≈ 7.33 mg/L.** The bottom water is much higher (\(c(10) = 14\) mg/L), but the cleaner upper water pulls the average down.
 
 </details>
 
 ---
 
-### Problem 10: Choose and Apply — Carbon Uptake Over a Growing Season {-}
+### Problem 10: Choose and Apply, Carbon Uptake Over a Growing Season {-}
 
-A young Douglas-fir stand has a daily net carbon uptake rate of
+A young Douglas-fir stand's daily carbon uptake (photosynthesis) is modeled as
 \[
 U(t) = 12 \sin\!\left(\frac{\pi (t - 30)}{150}\right) \quad \text{(g C / m}^2\text{/day)},
 \]
-where \(t\) is days from January 1 and the rate is meaningful (non-negative) only between \(t = 30\) and \(t = 180\) (roughly Feb 1 through end of June). Find the **total carbon uptake per square meter** over the active growing season.
+where \(t\) is days from January 1. The model only applies between \(t = 30\) and \(t = 180\), roughly February through June, where \(U(t) \geq 0\). (That's a simplification: Pacific Northwest conifers can fix some carbon for much of the year.) Find the **total carbon uptake per square meter** over that window.
 
-**Before computing**, decide whether this is an always-positive accumulation, a signed/net accumulation, or an average-value problem. Justify your choice.
+**Before computing**, decide whether this is an always-positive accumulation, a net accumulation or an average-value problem. Say why.
 
 <details>
 <summary><strong>Click to reveal solution</strong></summary>
 
-**Classification:** *Always-positive accumulation* — the problem restricts to the window where \(U(t) \geq 0\), and we want the total carbon fixed (not the average rate, and not a signed net).
+**Classification:** *always-positive accumulation*. The window is restricted to where \(U(t) \geq 0\), and you want the total carbon fixed, not an average rate or a net.
 
 Compute the integral:
 \[

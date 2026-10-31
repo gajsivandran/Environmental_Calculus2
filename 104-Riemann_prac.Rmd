@@ -13,7 +13,7 @@ The emphasis is on **reasoning, interpretation, and sketches**, not speed.
 
 ### Environmental Context: Streamflow After a Storm {-}
 
-After a heavy rain event, the **streamflow** in a small watershed changes over the course of the day. Hydrologists model the streamflow rate \( q(t) \) (in cubic meters per hour) as a **piecewise linear function** of time \( t \) (in hours since the storm began).
+After a heavy rain event, the **streamflow** in a small watershed changes over the course of the day. Hydrologists model the streamflow rate \( q(t) \) (in cubic meters per hour) as a**piecewise linear function** of time \( t \) (in hours since the storm began).
 
 The streamflow is given by:
 
@@ -27,7 +27,7 @@ q(t) =
 \]
 
 
-```{r echo=FALSE, warning=FALSE, message=FALSE}
+```{r streamflow-piecewise, echo=FALSE, warning=FALSE, message=FALSE, fig.alt="Piecewise linear streamflow over 8 hours. Flow rises from 20 to 40 cubic meters per hour over the first 2 hours, jumps to 60 at hour 2, falls slowly to 40 by hour 6, then falls faster to 20 by hour 8."}
 # Create a fine time grid
 t <- seq(0, 8, by = 0.01)
 
@@ -72,7 +72,7 @@ grid()
 
 #### B. Calculating Accumulated Water Volume {-}
 
-The **total volume of water** that flows past a point in the stream is given by the **area under the streamflow curve**.
+The **total volume of water** that flows past a point in the stream is given by the**area under the streamflow curve**.
 
 1. Explain why the area under \(q(t)\) represents total water volume. Use the units of the problem to back up your argument
 
@@ -90,7 +90,7 @@ The **total volume of water** that flows past a point in the stream is given by 
 
 1. What does your final numerical value represent physically?
 2. During which 1 hour interval did the stream contribute the **largest amount of water**? Why?
-3. If you were estimating this area using rectangles instead of exact geometry, where would your approximation likely **overestimate** or **underestimate** the true value?
+3. If you were estimating this area using rectangles instead of exact geometry, where would your approximation likely **overestimate** or**underestimate** the true value?
     - Assume you are using 8 sub-intervals (n=8)
     - State how you are deciding on the 'height' of the rectangles
     - No calculations - just make a graphical reasoning
@@ -117,7 +117,7 @@ C(z) =
 \]
 
 
-```{r echo=FALSE, warning=FALSE, message=FALSE}
+```{r salt-profile, echo=FALSE, warning=FALSE, message=FALSE, fig.alt="Salt concentration plotted against depth, with depth increasing downward on the vertical axis from 0 to 300 m. Concentration rises from about 32.6 kg per cubic meter at the surface to about 35 at 300 m, most steeply between 30 and 150 m."}
 # Create a fine depth grid (meters, positive downward)
 z <- seq(0, 300, by = 0.5)
 
@@ -166,7 +166,7 @@ Carefully think about how this impacts the 'area' your are calculating.
 
 #### B. Calculating Accumulated Salt Content Over Depth {-}
 
-The **total salt content per unit horizontal area** in the water column can be represented by the **area under the concentration curve**.
+The **total salt content per unit horizontal area** in the water column can be represented by the**area under the concentration curve**.
 
 1. Explain why the area under \(C(z)\) represents total salt content per unit area.  
    Use the units of the problem to support your explanation.
@@ -185,23 +185,23 @@ The **total salt content per unit horizontal area** in the water column can be r
 
 ### Environmental Context: Algal Biomass Growth Over Time {-}
 
-After a nutrient pulse, **algal biomass** in a lake or coastal system can increase rapidly. Ecologists often measure biomass at discrete time points and use these data to estimate the **total biomass accumulated** over a given time period.
+After a nutrient pulse, **algal biomass** in a lake or coastal system can increase rapidly. Ecologists often measure the growth rate at discrete time points and use these data to estimate**how much biomass was added** over a given time period.
 
-Let \(B(t)\) represent **algal biomass density** (in g/m\(^2\)) measured at time \(t\) (in days) after the nutrient input.
+Let \(G(t)\) be the **algal growth rate** (in g/m\(^2\)/day): how fast biomass is being added at time \(t\) (in days) after the nutrient input.
 
 
 ### Observed Data {-}
 
 | Time \(t\) (days) | 0 | 1 | 2 | 3 | 4 | 5 | 6 |
 |:-----------------:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| \(B(t)\) (g/m\(^2\)) | 5 | 9 | 16 | 28 | 45 | 60 | 70 |
+| \(G(t)\) (g/m\(^2\)/day) | 5 | 9 | 16 | 28 | 45 | 60 | 70 |
 
 
 #### A. Plotting the Data {-}
 
-1. Sketch a plot of algal biomass versus time.
+1. Sketch a plot of the growth rate versus time.
 
-2. Describe how the biomass changes over time.
+2. Describe how the growth rate changes over time.
 
 ---
 
@@ -237,7 +237,7 @@ Note:
 - a is the left edge of the interval we are interested in 
 - b is the right edge of the interval
 
-Use the data to approximate the **total accumulated biomass** from \(t = 0\) to \(t = 6\) using 
+Use the data to approximate the **total biomass added** from \(t = 0\) to \(t = 6\) using 
 \(n = 3\)
 
 1. Identify the subinterval width \(\Delta t\).
@@ -262,7 +262,7 @@ Repeat the approximation using **right endpoints**.
 
 #### D. Midpoint Riemann Sum {-}
 
-Now approximate the accumulated biomass using the **midpoint rule**.
+Now approximate the biomass added using the **midpoint rule**.
 
 1. Identify the midpoint of each time interval
 2. Using **mid-point** expression above, create a table of \( x_i \) and\(f(x_i) \). 
@@ -274,7 +274,7 @@ Now approximate the accumulated biomass using the **midpoint rule**.
 #### E. Effect of Changing the Number of Intervals {-}
 Now re-calculate the Left Hand Riemann Sum with **more sub-intervals** \(n = 6\).
 
-1. Calculate an approximate total biomass using \(n = 6\)
+1. Calculate an approximate total biomass added using \(n = 6\)
 2. Comment on which you think is a better estimate?
 3. Do you think  going to \(n = 12\) for **this** dataset would give you better results? [trick question]
 
@@ -288,7 +288,7 @@ Now re-calculate the Left Hand Riemann Sum with **more sub-intervals** \(n = 6\)
 
 ### Environmental Context: Net Toxin Uptake vs. Elimination {-}
 
-A fish living in a contaminated lake sometimes **absorbs** toxin (through feeding/exposure) and sometimes **eliminates** toxin (through metabolism and excretion). Let \(r(t)\) represent the **net rate of toxin accumulation** in the fish (in mg/day), where:
+A fish living in a contaminated lake sometimes **absorbs** toxin (through feeding/exposure) and sometimes**eliminates** toxin (through metabolism and excretion). Let \(r(t)\) represent the**net rate of toxin accumulation** in the fish (in mg/day), where:
 
 - \(r(t) > 0\): net uptake (toxin is increasing in the fish)
 - \(r(t) < 0\): net elimination (toxin is decreasing in the fish)
@@ -301,7 +301,7 @@ r(t) = (t-2)(6-t)(t-4)
 \]
 
 
-```{r echo=FALSE, warning=FALSE, message=FALSE}
+```{r toxin-rate, echo=FALSE, warning=FALSE, message=FALSE, fig.alt="Net toxin uptake rate r(t) over 6 days. It starts at 48 mg per day, falls to zero at day 2, dips slightly negative between days 2 and 4, rises slightly positive between days 4 and 6, and returns to zero at day 6."}
 # Create a time grid (days)
 t <- seq(0, 6, by = 0.01)
 
@@ -331,7 +331,7 @@ grid()
 
 #### A. Left-Hand Riemann Sum (6 intervals) {-}
 
-Use a **left-hand Riemann sum** with **6 equal subintervals** on \([0,6]\) to approximate the accumulation.
+Use a **left-hand Riemann sum** with**6 equal subintervals** on \([0,6]\) to approximate the accumulation.
 
 1. Compute \(\Delta t\).
 
@@ -341,12 +341,12 @@ Use a **left-hand Riemann sum** with **6 equal subintervals** on \([0,6]\) to ap
 
 #### B. NET Accumulation (Signed Accumulation) {-}
 
-The **net change in toxin burden** over the 6-day period is approximated by the **signed area** under \(r(t)\). Signed means we **include** the signs.
+The **net change in toxin burden** over the 6-day period is approximated by the**signed area** under \(r(t)\). Signed means we**include** the signs.
 
 1. Using your left-hand Riemann sum from Part A, estimate the **NET accumulation** of toxin in the fish over \(0 \le t \le 6\).
 
 2. Interpret your answer:
-   - Is the fish ending the period with **more toxin** or **less toxin** than it started with?
+   - Is the fish ending the period with **more toxin** or**less toxin** than it started with?
    - Include units.
 
 ---
@@ -355,7 +355,7 @@ The **net change in toxin burden** over the 6-day period is approximated by the 
 
 The **total exchange** counts *both* uptake and elimination as positive contributions. This corresponds to the area under \(|r(t)|\). The absolute function here **ignores** the signs.
 
-1. Using the **same 6-subinterval partition** and **left endpoints**, compute the left-hand Riemann sum approximation for:
+1. Using the **same 6-subinterval partition** and**left endpoints**, compute the left-hand Riemann sum approximation for:
 
 \[
 \int_{0}^{6} |r(t)|\,dt
@@ -375,7 +375,7 @@ That is, compute:
 
 #### D. Compare NET vs TOTAL {-}
 
-1. Explain why the **total exchange** is always greater than or equal to the magnitude of the **net accumulation**:
+1. Explain why the **total exchange** is always greater than or equal to the magnitude of the**net accumulation**:
 
 \[
 \int_0^6 |r(t)|\,dt \ge \left|\int_0^6 r(t)\,dt\right|
@@ -389,7 +389,7 @@ That is, compute:
 ## Practice: Differentiation Rules
 
 For each function, compute the derivative. Clearly indicate which rule(s) you are using.
-You can find the rules on in the equation sheet tab of the textbook.
+You can find the rules in the equation sheet tab of the textbook.
 
 ---
 
@@ -493,12 +493,12 @@ Check your answers by taking the derivative of them (extra derivative practice)
 ## SOLUTIONS {-}
 
 
-<details open>
+<details>
 <summary><strong>Click to Unlock Solutions</strong></summary>
 
-**✅ Solution Key — Area Under the Curve (Streamflow After a Storm){-}
+**Solution Key: Area Under the Curve (Streamflow After a Storm)**
 
-> **Note:** The function has a jump at \(t=2\). A single-point jump does **not** affect area, so the accumulated volume is still well-defined.
+> **Note:** The function has a jump at \(t=2\). A single-point jump does**not** affect area, so the accumulated volume is still well-defined.
 
 ---
 
@@ -546,9 +546,9 @@ So the area under \(q(t)\) over a time interval gives total water volume (m\(^3\
 
 ---
 
-**B2. Volume on each interval (rectangles + triangles) **
+**B2. Volume on each interval (rectangles + triangles)**
 
-Because the streamflow is **linear on each interval**, the area under \(q(t)\) can be computed by decomposing each region into **rectangles and triangles**.
+Because the streamflow is **linear on each interval**, the area under \(q(t)\) can be computed by decomposing each region into**rectangles and triangles**.
 
 ---
 
@@ -634,7 +634,7 @@ Largest interval is:
 
 ---
 
-**C3. Overestimate vs underestimate using rectangles (graphical reasoning only) **
+**C3. Overestimate vs underestimate using rectangles (graphical reasoning only)**
 
 We partition \([0,8]\) into \(n=8\) equal subintervals, so each rectangle has width
 \[
@@ -660,7 +660,7 @@ Now use only the **shape of the graph**:
 - **Left-hand sum:** underestimate on \([0,2)\), overestimate on \([2,8]\).
 - **Right-hand sum:** overestimate on \([0,2)\), underestimate on \([2,8]\).
 
-Because the graph is decreasing for *most* of the interval (from \(t=2\) to \(t=8\)), you should expect the **left-hand method to have a stronger tendency to overestimate overall**, while the **right-hand method tends to underestimate overall**.
+Because the graph is decreasing for *most* of the interval (from \(t=2\) to \(t=8\)), you should expect the **left-hand method to have a stronger tendency to overestimate overall**, while the**right-hand method tends to underestimate overall**.
 
 *(If you want to visualize this: draw the rectangles on the graph and notice whether the tops of the rectangles mostly sit above or below the curve on each region.)*
 
@@ -668,19 +668,19 @@ Because the graph is decreasing for *most* of the interval (from \(t=2\) to \(t=
 
 
 
-**✅ Solution Key — Ocean Salt Concentration with Depth**
+**Solution Key: Ocean Salt Concentration with Depth**
 
 > **Important note about the rotated plot:**  
 > Even though the plot puts depth \(z\) on the **vertical axis**, the accumulated quantity we want is still the same mathematical idea:
 > \[
 > \text{Total salt content per unit area} \;=\; \int_0^{300} C(z)\,dz.
 > \]
-> The “area under the curve” refers to multiplying **concentration** by **thickness**.  
-> Graph orientation does not change the calculation—just be careful about what the axes represent.
+> The “area under the curve” refers to multiplying **concentration** by**thickness**.  
+> Graph orientation does not change the calculation. Just be careful about what the axes represent.
 
 ---
 
-**A. Understanding the Model **
+**A. Understanding the Model**
 
 \[
 C(z) =
@@ -700,13 +700,13 @@ C(z) =
    This is a typical **halocline** region where stratification is stronger.
 
 3. **\(150 \le z \le 300\)**  
-   Salt concentration still **increases**, but only **very slowly** (nearly uniform deeper water).
+   Salt concentration still **increases**, but only**very slowly** (nearly uniform deeper water).
 
 ---
 
-**B. Calculating Accumulated Salt Content Over Depth **
+**B. Calculating Accumulated Salt Content Over Depth**
 
-**B1. Why area under \(C(z)\) is “salt content per unit area” (units) **
+**B1. Why area under \(C(z)\) is “salt content per unit area” (units)**
 
 - \(C(z)\) has units: \(\text{kg}/\text{m}^3\)
 - A thin layer of water with thickness \(dz\) has units: \(\text{m}\)
@@ -728,7 +728,7 @@ has units \(\text{kg}/\text{m}^2\), meaning:
 
 **B2. Accumulated salt content on each interval (rectangles + triangles)**
 
-Because \(C(z)\) is **linear on each interval**, we compute area using **rectangles + triangles**.
+Because \(C(z)\) is **linear on each interval**, we compute area using**rectangles + triangles**.
 
 ---
 
@@ -840,24 +840,24 @@ A_{\text{total}} = A_1 + A_2 + A_3
 
 ---
 
-**✅ Solution Key — Algal Biomass Growth Over Time**
+**Solution Key: Algal Biomass Growth Over Time**
 
 **Observed Data**
 
 | Time \(t\) (days) | 0 | 1 | 2 | 3 | 4 | 5 | 6 |
 |:-----------------:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| \(B(t)\) (g/m\(^2\)) | 5 | 9 | 16 | 28 | 45 | 60 | 70 |
+| \(G(t)\) (g/m\(^2\)/day) | 5 | 9 | 16 | 28 | 45 | 60 | 70 |
 
 ---
 
-**A. Plotting the Data **
+**A. Plotting the Data**
 
-1. **Sketch:** Plot the points \((t,B(t))\) and connect them with line segments.  
-   The curve rises throughout the interval and becomes steeper over time.
+1. **Sketch:** Plot the points \((t,G(t))\) and connect them with line segments.  
+   The curve rises throughout the interval and gets steeper over the middle days.
 
-2. **Description:** Biomass increases over time and the rate of increase appears to **accelerate** (the jumps from day to day get larger, especially from \(t=3\) onward).
+2. **Description:** The growth rate increases over time, and it climbs fastest in the middle (the jumps from day to day are largest from \(t=2\) to \(t=5\)).
 
-```{r echo=FALSE, warning=FALSE, message=FALSE}
+```{r algae-rate-key, echo=FALSE, warning=FALSE, message=FALSE, fig.alt="Algal growth rate at days 0 to 6 plotted as connected points, rising from 5 to 70 grams per square meter per day."}
 # Observed algal biomass data
 t <- c(0, 1, 2, 3, 4, 5, 6)
 B <- c(5, 9, 16, 28, 45, 60, 70)
@@ -870,8 +870,8 @@ plot(
   lwd = 2,
   col = "darkgreen",
   xlab = "Time since nutrient pulse (days)",
-  ylab = "Algal biomass B(t) (g/m^2)",
-  main = "Algal Biomass Growth Over Time"
+  ylab = "Algal growth rate G(t) (g/m^2/day)",
+  main = "Algal Growth Rate Over Time"
 )
 
 # Add reference grid
@@ -880,9 +880,9 @@ grid()
 
 ---
 
-**B. Left-Hand Riemann Sum (n = 3) **
+**B. Left-Hand Riemann Sum (n = 3)**
 
-We approximate the total accumulated biomass from \(t=0\) to \(t=6\) with \(n=3\).
+We approximate the total biomass added from \(t=0\) to \(t=6\) with \(n=3\).
 
 1. **Width**
 \[
@@ -897,7 +897,7 @@ t_0=0,\quad t_1=2,\quad t_2=4
 
 Table:
 
-| Interval | Left endpoint \(t\) | \(B(t)\) (g/m\(^2\)) |
+| Interval | Left endpoint \(t\) | \(G(t)\) (g/m\(^2\)/day) |
 |:--:|:--:|:--:|
 | \([0,2]\) | 0 | 5 |
 | \([2,4]\) | 2 | 16 |
@@ -905,26 +905,26 @@ Table:
 
 3. **Compute the sum**
 \[
-L_3 = \Delta t\,[B(0)+B(2)+B(4)]
+L_3 = \Delta t\,[G(0)+G(2)+G(4)]
      = 2\,(5+16+45)
      = 2\cdot 66
      = 132
 \]
 
 4. **Units + meaning**  
-- \(B(t)\) is in g/m\(^2\) and \(\Delta t\) is in days, so the sum has units:
+- \(G(t)\) is in g/m\(^2\)/day and \(\Delta t\) is in days, so the sum has units:
   \[
-  (\text{g/m}^2)\cdot(\text{day}) = \text{g}\cdot\text{day}/\text{m}^2
+  (\text{g/m}^2/\text{day})\cdot(\text{day}) = \text{g/m}^2
   \]
-- This represents **biomass-density accumulated over time** (area under the \(B(t)\) curve), sometimes described as “biomass-days per square meter.”
+- This is the **biomass added per square meter** over the 6 days (the area under the \(G(t)\) curve).
 
 \[
-\boxed{L_3 = 132\ \text{g}\cdot\text{day}/\text{m}^2}
+\boxed{L_3 = 132\ \text{g/m}^2}
 \]
 
 ---
 
-**C. Right-Hand Riemann Sum (n = 3) **
+**C. Right-Hand Riemann Sum (n = 3)**
 
 1. **Right endpoints**  
 Using \(x_i^* = a + i\Delta x\) with \(a=0\), \(\Delta t = 2\):
@@ -934,7 +934,7 @@ t_1=2,\quad t_2=4,\quad t_3=6
 
 Table:
 
-| Interval | Right endpoint \(t\) | \(B(t)\) (g/m\(^2\)) |
+| Interval | Right endpoint \(t\) | \(G(t)\) (g/m\(^2\)/day) |
 |:--:|:--:|:--:|
 | \([0,2]\) | 2 | 16 |
 | \([2,4]\) | 4 | 45 |
@@ -942,23 +942,23 @@ Table:
 
 2–3. **Compute the sum**
 \[
-R_3 = \Delta t\,[B(2)+B(4)+B(6)]
+R_3 = \Delta t\,[G(2)+G(4)+G(6)]
      = 2\,(16+45+70)
      = 2\cdot 131
      = 262
 \]
 
 \[
-\boxed{R_3 = 262\ \text{g}\cdot\text{day}/\text{m}^2}
+\boxed{R_3 = 262\ \text{g/m}^2}
 \]
 
 4. **Compare to left-hand**
 - \(R_3\) is larger than \(L_3\).
-- This makes sense because \(B(t)\) is **increasing**: right-endpoint rectangles tend to sit **above** the curve more than left-endpoint rectangles.
+- This makes sense because \(G(t)\) is **increasing**: right-endpoint rectangles tend to sit**above** the curve more than left-endpoint rectangles.
 
 ---
 
-**D. Midpoint Riemann Sum (n = 3) **
+**D. Midpoint Riemann Sum (n = 3)**
 
 1. **Midpoints of each interval**  
 Intervals are \([0,2]\), \([2,4]\), \([4,6]\). Midpoints:
@@ -968,12 +968,12 @@ t=\;1,\;3,\;5
 
 2. **Midpoint values from data**
 \[
-B(1)=9,\quad B(3)=28,\quad B(5)=60
+G(1)=9,\quad G(3)=28,\quad G(5)=60
 \]
 
 Table:
 
-| Interval | Midpoint \(t\) | \(B(t)\) (g/m\(^2\)) |
+| Interval | Midpoint \(t\) | \(G(t)\) (g/m\(^2\)/day) |
 |:--:|:--:|:--:|
 | \([0,2]\) | 1 | 9 |
 | \([2,4]\) | 3 | 28 |
@@ -981,14 +981,14 @@ Table:
 
 3. **Compute the sum**
 \[
-M_3 = \Delta t\,[B(1)+B(3)+B(5)]
+M_3 = \Delta t\,[G(1)+G(3)+G(5)]
      = 2\,(9+28+60)
      = 2\cdot 97
      = 194
 \]
 
 \[
-\boxed{M_3 = 194\ \text{g}\cdot\text{day}/\text{m}^2}
+\boxed{M_3 = 194\ \text{g/m}^2}
 \]
 
 4. **Compare**
@@ -999,7 +999,7 @@ The midpoint estimate lands between left and right, which is typical for increas
 
 ---
 
-**E. Effect of Changing the Number of Intervals **
+**E. Effect of Changing the Number of Intervals**
 
 Now compute the **left-hand** sum with \(n=6\).
 
@@ -1015,28 +1015,28 @@ t = 0,1,2,3,4,5
 
 So
 \[
-L_6 = 1\,[B(0)+B(1)+B(2)+B(3)+B(4)+B(5)]
+L_6 = 1\,[G(0)+G(1)+G(2)+G(3)+G(4)+G(5)]
 \]
 \[
 L_6 = 5+9+16+28+45+60 = 163
 \]
 
 \[
-\boxed{L_6 = 163\ \text{g}\cdot\text{day}/\text{m}^2}
+\boxed{L_6 = 163\ \text{g/m}^2}
 \]
 
 2. **Which is better, \(L_3\) or \(L_6\)?**  
-\(L_6\) is generally the better estimate because it uses **more rectangles** (smaller \(\Delta t\)), which better captures the change in \(B(t)\) over time.
+\(L_6\) is generally the better estimate because it uses **more rectangles** (smaller \(\Delta t\)), which better captures the change in \(G(t)\) over time.
 
 3. **Would \(n=12\) give better results for this dataset? (trick question)**  
-Not with the information given. We only have biomass values at integer days \(t=0,1,2,3,4,5,6\).  
-To use \(n=12\) (which would require \(\Delta t = 0.5\) days), we would need biomass values at half-days (e.g., \(t=0.5,1.5,2.5,\dots\)) or a model for estimating them.
+Not with the information given. We only have growth-rate values at integer days \(t=0,1,2,3,4,5,6\).  
+To use \(n=12\) (which would require \(\Delta t = 0.5\) days), we would need growth-rate values at half-days (e.g., \(t=0.5,1.5,2.5,\dots\)) or a model for estimating them.
 
 So: **you can’t legitimately do \(n=12\) from this dataset alone** without making additional assumptions or interpolations.
 
 ---
 
-**F. Reflection **
+**F. Reflection**
 
 1. **Which method do you trust most? Why?**  
 Typically the **midpoint rule** is most trusted because it samples the function in the *middle* of each interval, which often balances over/underestimation when the data trend is smooth.  
@@ -1045,7 +1045,7 @@ However, in a data-only setting, your confidence also depends on whether midpoin
 
 ---
 
-**✅ Solution Key — Net Toxin Uptake vs. Elimination**
+**Solution Key: Net Toxin Uptake vs. Elimination**
 
 We are given the net toxin accumulation rate (mg/day):
 \[
@@ -1058,7 +1058,7 @@ The sign of \(r(t)\) tells the direction of change in toxin burden:
 
 ---
 
-**A. Left-Hand Riemann Sum (6 intervals) **
+**A. Left-Hand Riemann Sum (6 intervals)**
 
 We split \([0,6]\) into \(n=6\) equal subintervals.
 
@@ -1099,7 +1099,7 @@ Rectangle areas \(r(t_i)\Delta t\) (mg) are:
 
 ---
 
-**B. NET Accumulation (Signed Accumulation) **
+**B. NET Accumulation (Signed Accumulation)**
 
 The net accumulation is the **signed** sum of rectangle areas:
 
@@ -1118,12 +1118,12 @@ Using the areas from Part A:
 
 **Interpretation**
 
-- Because the net value is **positive**, the fish ends the 6-day period with **more toxin** than it started with.
+- Because the net value is **positive**, the fish ends the 6-day period with**more toxin** than it started with.
 - The negative rectangle (at \(t=3\)) represents a period of **net elimination**, which subtracts from the total.
 
 ---
 
-**C. Total Exchange (Total Toxin Processed) **
+**C. Total Exchange (Total Toxin Processed)**
 
 Total exchange counts uptake and elimination as **positive contributions**, so we sum \(|r(t_i)|\Delta t\):
 
@@ -1151,11 +1151,11 @@ Using the same rectangle list:
 
 ---
 
-**D. Compare NET vs TOTAL **
+**D. Compare NET vs TOTAL**
 
 1. Why is total exchange always at least as large as the magnitude of net accumulation?
 
-- The **net** accumulation adds positive and negative contributions together, so elimination can **cancel** uptake.
+- The **net** accumulation adds positive and negative contributions together, so elimination can**cancel** uptake.
 - The **total exchange** turns every contribution positive, so nothing cancels.
 
 That is why:
@@ -1168,7 +1168,7 @@ In plain language:
 
 ---
 
-**✅ Solution Key — Differentiation Rules**
+**Solution Key: Differentiation Rules**
 
 ---
 
@@ -1181,20 +1181,20 @@ f(t) = (2t^2 + 1)(5t - 3)
 
 **Rule used:** Product Rule  
 \[
-(fg)' = f'g + fg'
+(uv)' = u'v + uv'
 \]
 
 Let:
 \[
-f(t) = 2t^2 + 1 \quad \Rightarrow \quad f'(t) = 4t
+u(t) = 2t^2 + 1 \quad \Rightarrow \quad u'(t) = 4t
 \]
 \[
-g(t) = 5t - 3 \quad \Rightarrow \quad g'(t) = 5
+v(t) = 5t - 3 \quad \Rightarrow \quad v'(t) = 5
 \]
 
 Apply the product rule:
 \[
-f'(t) = f'(t)g(t) + f(t)g'(t)
+f'(t) = u'(t)v(t) + u(t)v'(t)
 = (4t)(5t - 3) + (2t^2 + 1)(5)
 \]
 
@@ -1289,7 +1289,7 @@ p'(t) = f'(t)g(t) + f(t)g'(t)
 
 ---
 
-**✅ Solution Key — Very Simple Antiderivatives**
+**Solution Key: Very Simple Antiderivatives**
 
 For each function, find **one** antiderivative.
 

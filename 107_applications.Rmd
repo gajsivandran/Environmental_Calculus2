@@ -1,4 +1,4 @@
-# Student Discussion + Activity Template: Applications of Integration
+# Applications of Integration: Discussion and Activities
 
 **Goal for this section**  
 Build the habit of asking: *What is accumulating? Over what variable? What do the units imply?*  
@@ -117,7 +117,7 @@ f(x)=x,\qquad g(x)=x^3
 \]
 on \([-1,1]\).
 
-```{r, echo=FALSE, message=FALSE, error=FALSE}
+```{r area-x-x3, echo=FALSE, message=FALSE, error=FALSE, fig.alt="Curves y = x and y = x cubed on [-1, 1], crossing at -1, 0 and 1. The region between them is shaded on both sides of zero: x cubed is on top from -1 to 0 and x is on top from 0 to 1."}
 # Plot the geometric area between f(x) = x and g(x) = x^3 on [-1, 1]
 
 # Define the functions
@@ -209,12 +209,12 @@ legend(
 **Task**  
 You measured daily streamflow \(Q_i\) (m\(^3\)/s) for 7 days. Estimate the total volume of water that passed the gauge in that week.
 
-**Give students a small dataset**
+**Data**
 
 Day: 1  2  3  4  5  6  7  
 \(Q\): 42  55  61  58  49  45  40  (m\(^3\)/s)
 
-```{r, echo=FALSE, message=FALSE, error=FALSE}
+```{r weekly-streamflow, echo=FALSE, message=FALSE, error=FALSE, fig.alt="Daily streamflow for days 1 to 7, plotted as points: 42, 55, 61, 58, 49, 45 and 40 cubic meters per second, peaking on day 3."}
 # Small dataset: Daily streamflow over one week
 # Points only, days labeled 1 through 7, x-axis starting at 0
 
@@ -268,6 +268,8 @@ V \approx 86400\sum_{i=1}^{7} Q_i
 V \approx \frac{86400}{2}\left(Q_1+2Q_2+\cdots+2Q_6+Q_7\right)
 \]
 
+Careful: the 7 rectangles cover 7 days, but the trapezoids only connect the 7 points, which spans 6 days (day 1 to day 7). Before you compare the two totals, decide what time span you're actually estimating.
+
 **Reflection prompt**
 
 - Which method (rectangles or trapezoids) seems more defensible here, and why?
@@ -290,7 +292,7 @@ Come up with a method for working out how many trees there are on this campus?
 
 How would I work out how many Kangaroos there are in Australia?
 
-![](images/KangarooDistrib.jpg){fig.cap="" fig.alt="" style="float=center; width:450px; margin:10px;"}
+![](images/KangarooDistrib.jpg){fig.cap="" fig.alt="Map of Australia showing where kangaroos are found." style="display:block; width:450px; margin:10px auto;"}
 
 <br><br><br><br><br><br><br><br><br><br>
 
@@ -410,7 +412,7 @@ R = \{(x,y)\mid 0 \le x \le 4,\; 0 \le y \le 3\}.
 \int_0^4 \int_0^3 (x+y)\,dy\,dx
 \]
 
-*(Do not compute yet — focus on interpretation.)*
+*(Do not compute yet: focus on interpretation.)*
 
 ---
 
@@ -427,7 +429,7 @@ Given:
 2. What does the outer integral add up?
 3. How is this like “stacking” single integrals?
 
-```{r, echo=FALSE, message=FALSE, error=FALSE}
+```{r contour-x-plus-y, echo=FALSE, message=FALSE, error=FALSE, fig.alt="Filled contour plot of f(x, y) = x + y over the rectangle 0 to 4 in x and 0 to 3 in y. Values increase toward the upper right corner, with diagonal contour bands."}
 # Plot for the iterated integral
 # ∫_0^4 [ ∫_0^3 (x + y) dy ] dx
 # Visualizing f(x, y) = x + y over the rectangular region
@@ -486,7 +488,7 @@ over the symmetric region
 R = \{(x,y)\mid -2 \le x \le 2,\; -3 \le y \le 3\}.
 \]
 
-```{r, echo=FALSE, message=FALSE, error=FALSE}
+```{r contour-y-symmetric, echo=FALSE, message=FALSE, error=FALSE, fig.alt="Filled contour plot of f(x, y) = y over the rectangle -2 to 2 in x and -3 to 3 in y. Values are negative in the lower half and positive in the upper half, with horizontal contour bands symmetric about y = 0."}
 # Plot for f(x, y) = y over the symmetric region
 # R = { (x, y) | -2 <= x <= 2, -3 <= y <= 3 }
 
@@ -572,7 +574,7 @@ f_{\text{avg}} = \frac{1}{\text{Area}(R)} \iint_R f(x,y)\,dA
 
 \newpage
 
-## Area Between Two Curves — Conceptual and Computational Practice
+## Area Between Two Curves: Conceptual and Computational Practice
 
 These problems are designed to help you practice:
 
@@ -584,7 +586,7 @@ These problems are designed to help you practice:
 
 ---
 
-### Problem 1 — Basic Geometric Area (No Crossing) {-}
+### Problem 1: Basic Geometric Area (No Crossing) {-}
 
 Consider  
 \[
@@ -593,7 +595,7 @@ f(x) = 6 - x^2
 \[
 g(x) = 2
 \]
-```{r, echo=FALSE, message=FALSE, error=FALSE}
+```{r area-parabola-line, echo=FALSE, message=FALSE, error=FALSE, fig.alt="Parabola f(x) = 6 - x squared and the horizontal line g(x) = 2, intersecting at x = -2 and x = 2. The region between them, with the parabola on top, is shaded."}
 # Define functions
 f <- function(x) 6 - x^2
 g <- function(x) rep(2, length(x))
@@ -649,7 +651,7 @@ legend("topright",
 
 ---
 
-### Problem 2 — When Curves Cross {-}
+### Problem 2: When Curves Cross {-}
 
 Consider  
 \[
@@ -661,7 +663,7 @@ g(x) = x^3
 
 on the interval \([-1,1]\).
 
-```{r, echo=FALSE, message=FALSE, error=FALSE}
+```{r area-crossing-p2, echo=FALSE, message=FALSE, error=FALSE, fig.alt="Curves f(x) = x and g(x) = x cubed, crossing at -1, 0 and 1. The region between them is shaded in two parts: g on top from -1 to 0 and f on top from 0 to 1."}
 # Define functions
 f <- function(x) x
 g <- function(x) x^3
@@ -715,7 +717,7 @@ legend("topleft",
 ```
 
 ::: promptbox
-**Part A — Intersection Points**
+**Part A: Intersection Points**
 
 1. Find all values of \(x\) where the functions are equal.
 2. Determine which function is on top on each part of the interval.
@@ -723,7 +725,7 @@ legend("topleft",
 :::
 
 ::: promptbox
-**Part B — Do NOT Split the Integral**
+**Part B: Do NOT Split the Integral**
 
 Without breaking the interval apart, compute:
 
@@ -738,7 +740,7 @@ Without breaking the interval apart, compute:
 :::
 
 ::: promptbox
-**Part C — Now Compute the Geometric Area**
+**Part C: Now Compute the Geometric Area**
 
 1. Identify where the functions switch which one is on top.
 2. Split the integral at the intersection point(s).
@@ -749,7 +751,7 @@ Without breaking the interval apart, compute:
 
 ::: promptbox
 
-**Part D — Reflection**
+**Part D: Reflection**
 
 1. Compare the answers from Parts B and C.
 2. Why are they different?
@@ -760,7 +762,7 @@ Without breaking the interval apart, compute:
 
 ---
 
-### Problem 3 — Net Change Between Two Rates {-}
+### Problem 3: Net Change Between Two Rates {-}
 
 A lake has:
 
@@ -777,7 +779,7 @@ O(t) = 3 + t
 where \(t\) is in days and rates are in millions of gallons per day.
 
 
-```{r, echo=FALSE, message=FALSE, error=FALSE}
+```{r inflow-outflow, echo=FALSE, message=FALSE, error=FALSE, fig.alt="Inflow I(t) = 5 + 2t and outflow O(t) = 3 + t over 4 days. Inflow stays above outflow and the gap widens over time, with the net rate shown as a dashed line."}
 # Rates
 I <- function(t) 5 + 2*t
 O <- function(t) 3 + t
@@ -836,7 +838,7 @@ legend("topleft",
 
 ---
 
-### Problem 4 — Crossing Rates (Net vs Geometric Difference)  {-}
+### Problem 4: Crossing Rates (Net vs Geometric Difference)  {-}
 Before working this problem, it is important to clarify what we mean by **advantage**.
 
 At any single moment in time, each species has a *growth rate*. A growth rate tells us how fast the population is increasing at that instant. If one species has a larger growth rate than the other at time \(t\), then it is growing faster at that moment.
@@ -865,7 +867,7 @@ To answer that, we integrate.
 This integral represents the **net advantage** over the interval \([a,b]\).  
 Geometrically, it is the signed area between the two rate curves.
 
-If positive and negative regions cancel, the net advantage may be zero — even though one species led for part of the time. If we instead integrate the absolute value,
+If positive and negative regions cancel, the net advantage may be zero, even though one species led for part of the time. If we instead integrate the absolute value,
 
 \[
 \int_a^b \left|R_1(t) - R_2(t)\right| dt,
@@ -887,7 +889,7 @@ R_2(t) = t
 
 for \(0 \le t \le 8\).
 
-```{r, echo=FALSE, message=FALSE, error=FALSE}
+```{r crossing-growth-rates, echo=FALSE, message=FALSE, error=FALSE, fig.alt="Growth rates R1(t) = 8 - t, falling, and R2(t) = t, rising, over 8 days. They cross at t = 4. The region where R1 is larger is shaded from 0 to 4, and the region where R2 is larger is shaded from 4 to 8."}
 # Growth rates
 R1 <- function(t) 8 - t
 R2 <- function(t) t
@@ -951,7 +953,7 @@ legend("topright",
 
 ---
 
-### Problem 5 — Both Functions Negative {-}
+### Problem 5: Both Functions Negative {-}
 
 Consider  
 \[
@@ -961,7 +963,7 @@ f(x) = -x^2 - 1
 g(x) = -3
 \]
 
-```{r, echo=FALSE, message=FALSE, error=FALSE}
+```{r area-both-negative, echo=FALSE, message=FALSE, error=FALSE, fig.alt="Parabola f(x) = -x squared - 1 and the horizontal line g(x) = -3, both below the x-axis, intersecting at x = minus and plus the square root of 2. The region between them, with the parabola on top, is shaded."}
 # Define functions
 f <- function(x) -x^2 - 1
 g <- function(x) rep(-3, length(x))
@@ -1030,7 +1032,7 @@ legend("topright",
 - When curves cross, you must consider **where the sign changes**.
 - A single integral measures **net accumulation**, not always geometric area.
 - Cancellation reflects signed area.
-- Negative functions do not break the method — subtraction handles the sign.
+- Negative functions do not break the method: subtraction handles the sign.
 
 <details open>
 <summary><strong>Click to Unlock Solutions</strong></summary>
@@ -1039,7 +1041,7 @@ legend("topright",
 
 
 
-**Answer Key — Area Between Two Curves (Detailed)**
+**Answer Key: Area Between Two Curves (Detailed)**
 
 This key emphasizes two core ideas:
 
@@ -1048,7 +1050,7 @@ This key emphasizes two core ideas:
 
 ---
 
-**Problem 1 — Basic Geometric Area (No Crossing)**
+**Problem 1: Basic Geometric Area (No Crossing)**
 
 Given
 \[
@@ -1095,14 +1097,14 @@ A=\left[4x-\frac{x^3}{3}\right]_{-2}^{2}
 
 ---
 
-**Problem 2 — When Curves Cross**
+**Problem 2: When Curves Cross**
 
 Given
 \[
 f(x)=x,\qquad g(x)=x^3,\qquad x\in[-1,1].
 \]
 
-**Part A — Intersection points and who’s on top**
+**Part A: Intersection points and who’s on top**
 
 Solve \(x=x^3\):
 \[
@@ -1121,7 +1123,7 @@ So:
 
 ---
 
-**Part B — Do NOT Split the Integral (net/signed area)**
+**Part B: Do NOT Split the Integral (net/signed area)**
 
 \[
 \int_{-1}^{1}(f-g)\,dx=\int_{-1}^{1}(x-x^3)\,dx.
@@ -1143,7 +1145,7 @@ This represents the **net (signed) area**. Cancellation occurs because positive 
 
 ---
 
-**Part C — Geometric area (split so integrand is nonnegative)**
+**Part C: Geometric area (split so integrand is nonnegative)**
 
 \[
 A=\int_{-1}^{0}(x^3-x)\,dx+\int_{0}^{1}(x-x^3)\,dx.
@@ -1174,7 +1176,7 @@ Net area \(=0\), geometric area \(=\frac12\).
 
 ---
 
-**Problem 3 — Net Change Between Two Rates**
+**Problem 3: Net Change Between Two Rates**
 
 \[
 I(t)=5+2t,\qquad O(t)=3+t,\qquad 0\le t\le 4.
@@ -1208,7 +1210,7 @@ This is structurally identical to area between curves: inflow minus outflow.
 
 ---
 
-**Problem 4 — Crossing Rates (Net vs Geometric Difference)**
+**Problem 4: Crossing Rates (Net vs Geometric Difference)**
 
 \[
 R_1(t)=8-t,\qquad R_2(t)=t,\qquad 0\le t\le 8.
@@ -1255,7 +1257,7 @@ Net \(=0\), geometric difference \(=32\).
 
 ---
 
-**Problem 5 — Both Functions Negative**
+**Problem 5: Both Functions Negative**
 
 \[
 f(x)=-x^2-1,\qquad g(x)=-3.
@@ -1342,7 +1344,7 @@ function unlock_set2() {
 
 
 \newpage
-## Double and Triple Integrals — Conceptual and Computational Practice
+## Double and Triple Integrals: Conceptual and Computational Practice
 
 These problems are designed to help you practice:
 
@@ -1354,7 +1356,7 @@ These problems are designed to help you practice:
 
 ---
 
-### Problem 1 — Volume Under a Surface (Basic Double Integral) {-}
+### Problem 1: Volume Under a Surface (Basic Double Integral) {-}
 
 Let
 \[
@@ -1366,7 +1368,7 @@ over the rectangular region
 R = \{(x,y) \mid 0 \le x \le 2,\; 0 \le y \le 1\}.
 \]
 
-```{r, echo=FALSE, message=FALSE, error=FALSE}
+```{r surface-4-x-y, echo=FALSE, message=FALSE, error=FALSE, fig.alt="Heat map of f(x, y) = 4 - x - y over 0 to 2 in x and 0 to 1 in y. Values are highest, about 4, at the origin and lowest, about 1, at the corner (2, 1)."}
 library(ggplot2)
 
 # Surface function
@@ -1407,19 +1409,21 @@ ggplot(grid, aes(x = x, y = y, fill = value)) +
 
 ---
 
-### Problem 2 — Net Accumulation Over a Region (Sign Matters) {-}
+### Problem 2: Net Accumulation Over a Region (Sign Matters) {-}
 
-Suppose a pollutant concentration over a square lake is modeled by
+Suppose the pollutant concentration over a square lake, measured as a deviation from the lake's background level, is modeled by
 \[
 C(x,y) = x - y
 \]
+
+(So \(C > 0\) means above background and \(C < 0\) means below.)
 
 over the square
 \[
 0 \le x \le 2,\quad 0 \le y \le 2.
 \]
 
-```{r, echo=FALSE, message=FALSE, error=FALSE}
+```{r concentration-x-minus-y, echo=FALSE, message=FALSE, error=FALSE, fig.alt="Heat map of C(x, y) = x - y over the square 0 to 2 in both x and y. Values are positive below the diagonal y = x, zero on it and negative above it."}
 library(ggplot2)
 
 # Concentration function
@@ -1451,7 +1455,7 @@ ggplot(grid, aes(x = x, y = y, fill = value)) +
 
 ```
 ::: promptbox
-1. Set up the double integral representing the total (net) pollutant mass.  
+1. Set up the double integral representing the net pollutant mass above or below background.  
 2. Evaluate the integral without splitting the region.  
 3. Why does cancellation occur?  
 4. Does this mean there is no pollutant present? Explain.  
@@ -1459,7 +1463,7 @@ ggplot(grid, aes(x = x, y = y, fill = value)) +
 
 ---
 
-### Problem 3 — Curved Boundary and Sign Change {-}
+### Problem 3: Curved Boundary. Does the Sign Change? {-}
 
 Let
 \[
@@ -1473,7 +1477,7 @@ y = 0, \quad y = x^2, \quad 0 \le x \le 2.
 
 Hint: set up your integral with dy being the interior integral
 
-```{r, echo=FALSE, message=FALSE, error=FALSE}
+```{r curved-region, echo=FALSE, message=FALSE, error=FALSE, fig.alt="Heat map of f(x, y) = x squared - y over the region under the curve y = x squared for x from 0 to 2, with the boundary curve drawn. The function is zero on the curve and largest along the x-axis."}
 library(ggplot2)
 
 # Function
@@ -1530,7 +1534,7 @@ ggplot(grid, aes(x = x, y = y, fill = value)) +
 
 ---
 
-### Problem 4 — Triple Integral with Nonlinear Density {-}
+### Problem 4: Triple Integral with Nonlinear Density {-}
 
 A solid occupies the region
 \[
@@ -1551,7 +1555,7 @@ Density varies according to
 
 ---
 
-### Problem 5 — Atmospheric Mixing in a Valley (Environmental Triple Integral) {-}
+### Problem 5: Atmospheric Mixing in a Valley (Environmental Triple Integral) {-}
 
 A valley is approximated by a rectangular box (units in km):
 \[
@@ -1562,9 +1566,6 @@ A pollutant’s concentration (mass per km\(^3\)) varies with position as
 \[
 C(x,y,z) = e^{-z}\,(2 + x)\,|y|.
 \]
-
-```{r, echo=FALSE, message=FALSE, error=FALSE}
-```
 
 ::: promptbox
 1. Write a triple integral that represents the **total pollutant mass** in the valley.  
@@ -1593,7 +1594,7 @@ C(x,y,z) = e^{-z}\,(2 + x)\,|y|.
 
 
 
-**Solution Key — Double and Triple Integrals (Detailed)**
+**Solution Key: Double and Triple Integrals (Detailed)**
 
 This key emphasizes two recurring ideas:
 
@@ -1602,7 +1603,7 @@ This key emphasizes two recurring ideas:
 
 ---
 
-**Problem 1 — Volume Under a Surface (Basic Double Integral)**
+**Problem 1: Volume Under a Surface (Basic Double Integral)**
 
 Given
 \[
@@ -1638,7 +1639,7 @@ Each small rectangle \(dA\) in the \(xy\)-plane contributes a “column” of vo
 
 ---
 
-**Problem 2 — Net Accumulation Over a Region (Sign Matters)**
+**Problem 2: Net Accumulation Over a Region (Sign Matters)**
 
 Given
 \[
@@ -1676,7 +1677,7 @@ No. It means the *model* \(C(x,y)=x-y\) represents positive and negative deviati
 
 ---
 
-**Problem 3 — Curved Boundary and Sign Change**
+**Problem 3: Curved Boundary. Does the Sign Change?**
 
 Given
 \[
@@ -1732,7 +1733,7 @@ There is no sign change, so there is no cancellation. Net accumulation equals to
 
 ---
 
-**Problem 4 — Triple Integral with Nonlinear Density**
+**Problem 4: Triple Integral with Nonlinear Density**
 
 Region:
 \[
@@ -1786,7 +1787,7 @@ Integrating with respect to \(z\) first is simplest because the integrand is pol
 
 ---
 
-**Problem 5 — Atmospheric Mixing in a Valley (Environmental Triple Integral)**
+**Problem 5: Atmospheric Mixing in a Valley (Environmental Triple Integral)**
 
 Valley box (km):
 \[

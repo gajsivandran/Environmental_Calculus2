@@ -1,41 +1,20 @@
-# Chapter: Differential Equations — Modeling Change Over Time
+# Differential Equations: Modeling Change Over Time
 
-Throughout QSci 291 and 292, calculus has told a single story about change.
+Across QSci 291 and 292, calculus has really been about one thing: change.
 
-First, we studied **derivatives**. A derivative measures a *rate* — how fast something is changing at a particular moment.
+**Derivatives** measure a *rate*: how fast something is changing right now. How fast is a population growing? How quickly is the water warming? How fast is a forest taking up carbon?
 
-- How fast is a population growing?
-- How quickly is temperature rising?
-- How rapidly is carbon being absorbed by a forest?
+**Integrals** add up small changes over time or space. How much water went down the river this week? How much carbon did a wetland store over a decade?
 
-> A derivative answers: *What is happening right now?*    
-
-Then we studied **integrals**. An integral accumulates small changes over time or space.
-
-- How much total water flowed through a river this week?
-- How much carbon was stored in a wetland over a decade?
-- How much heat energy entered the ocean during a season?
-
-> An integral answers: *What happened overall?*
-
-Now we take the next logical step.
-
-A **differential equation** connects these two ideas.  
-Instead of being given a function and asked to differentiate or integrate it, we are given information about how a quantity changes — and asked to determine the function itself.
-
-In other words:
-
-- A derivative tells us the rate.
-- An integral accumulates the rate.
-- A differential equation describes how the rate depends on the system itself.
+A **differential equation** puts the two together. Instead of being handed a function to differentiate or integrate, you're told *how a quantity changes*, and your job is to work out the function itself. A derivative tells you the rate. An integral adds up the rate. A differential equation says how the rate depends on the state of the system.
 
 ---
 
 ## An Environmental Example: Lake Pollution
 
-Imagine a lake with pollutant concentration \( P(t) \) measured in kilograms.
+A lake contains a pollutant. Let \( P(t) \) be the mass of pollutant in the lake, in kilograms.
 
-Suppose field data suggests:
+Suppose field data suggest that:
 
 - The pollutant breaks down naturally.
 - The rate of breakdown is proportional to how much pollutant is present.
@@ -46,22 +25,12 @@ That statement translates mathematically into:
 \frac{dP}{dt} = -kP
 \]
 
-This is not just a derivative. It is a **relationship between the rate of change and the quantity itself**. We are not given \( P(t) \). Instead, we are told how it changes.
+This is a **relationship between the rate of change and the quantity itself**. You aren't given \( P(t) \). You're told how it changes. To find out what happens to the lake in the long run (does the pollution disappear, level off or build up?), you have to solve that relationship. That relationship is a **differential equation**.
 
-To understand the long-term behavior of the lake, whether pollution disappears, stabilizes, or grows; we must solve this relationship. That relationship is a **differential equation**.
-
-This is the final conceptual step in calculus:
-
-- We measure change.
-- We accumulate change.
-- We model how change unfolds.
-
-Differential equations allow us to describe entire systems — ecosystems, climate processes, chemical reactions, population dynamics — using the language of calculus.
-
-> Instead of analyzing change, we now **build models of change**.
+Differential equations are how ecosystems, climate processes, chemical reactions and populations get modeled. Instead of analyzing change that already happened, you **build a model of how change works**.
 
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r pollutant-decay-ics, echo=FALSE, warning=FALSE, message=FALSE, fig.alt="Four decay curves for dP/dt = -0.3P starting at 10, 25, 50 and 100 kg. All fall toward zero over 15 days."}
 library(tidyverse)
 
 # Decay constant
@@ -93,9 +62,7 @@ ggplot(df, aes(x = t, y = P, color = factor(P0))) +
 
 ## What Is a Differential Equation?
 
-A **differential equation** is an equation that involves an unknown function and one or more of its derivatives. Unlike the equations you have solved earlier in mathematics, the goal is not to find a number. 
-
->The goal is to find a **function**.
+A **differential equation** is an equation that involves an unknown function and one or more of its derivatives. Unlike the equations you've solved before, the goal isn't a number. **The goal is a function.**
 
 ---
 
@@ -112,13 +79,13 @@ For example:
 \frac{dP}{dt} = -kP
 \]
 
-This equation describes how a quantity \( P(t) \) changes over time.  The derivative appears directly in the equation — that is what makes it differential.
+This describes how \( P(t) \) changes over time. The derivative sits right in the equation. That's what makes it a differential equation.
 
 ---
 
 ### Important Terminology 
 
-Once derivatives appear inside an equation, we classify the equation using several key terms.
+A few terms you'll need.
 
 #### Ordinary Differential Equation (ODE) {-}
 
@@ -178,15 +145,13 @@ Example (nonlinear):
 \frac{dP}{dt} = rP\left(1 - \frac{P}{K}\right)
 \]
 
-The logistic equation is nonlinear because it contains the term \(P^2\). Nonlinear equations often produce richer and more realistic behavior in environmental systems.
+The logistic equation is nonlinear because, multiplied out, it contains a \(P^2\) term. Nonlinear equations can do more interesting things, which is often what you need for real environmental systems.
 
 ---
 
 #### Solution of a Differential Equation {-}
 
-Unlike algebraic equations, which typically produce numbers, **solutions to differential equations are functions.** We are not solving for a value of \(P\). We are solving for the entire function \(P(t)\).
-
-That shift — from finding numbers to finding functions — is one of the central conceptual changes in this chapter.
+Algebraic equations give you numbers. **Solutions to differential equations are functions.** You're not solving for one value of \(P\). You're solving for the whole function \(P(t)\). That shift is the biggest new idea in this chapter.
 
 
 
@@ -197,7 +162,7 @@ That shift — from finding numbers to finding functions — is one of the centr
 
 ### How Is This Different from Other Equations?
 
-It helps to compare three types of equations.
+Compare three kinds of equation.
 
 #### Algebraic Equation {-}
 
@@ -215,7 +180,7 @@ We solve for a number. The answer is a specific value of \( x \).
 \frac{d}{dx}(x^2) = 2x
 \]
 
-Here we are given a function and asked to compute its derivative. The function is known. The derivative is the result.
+You're given the function and asked for its derivative. The function is known.
 
 ---
 
@@ -225,7 +190,7 @@ Here we are given a function and asked to compute its derivative. The function i
 \frac{dy}{dt} = 2t
 \]
 
-Now the derivative is given. The original function is unknown. We must determine the function whose derivative matches the relationship described. This is fundamentally different. We are reconstructing a function from information about its rate of change.
+Now the derivative is given and the function is unknown. You have to work out which function has this derivative. You're rebuilding a function from information about how it changes.
 
 ---
 
@@ -243,13 +208,7 @@ A solution to this equation is:
 P(t) = P_0 e^{-kt}
 \]
 
-Notice:
-
-- The solution is a **function of time**
-- It depends on a constant \( P_0 \)
-- There are infinitely many solutions — one for each initial condition
-
-Differential equations typically produce *families* of solutions.
+The solution is a **function of time**, and it depends on a constant \( P_0 \). There are infinitely many solutions, one for each starting value. Differential equations usually give you a *family* of solutions.
 
 ---
 
@@ -275,7 +234,7 @@ Compute the derivative:
 \frac{dP}{dt} = -kP_0 e^{-kt}
 \]
 
-Now we need to recognize that the derivative we just calculated has P(t) in the solution
+Now notice that the derivative contains \(P(t)\) itself:
 
 \[
 \frac{dP}{dt} = -k (P_0 e^{-kt})
@@ -289,7 +248,7 @@ Now we need to recognize that the derivative we just calculated has P(t) in the 
 \frac{dP}{dt} = -kP
 \]
 
-The right-hand side matches the original equation. Therefore, the function is a solution.
+That matches the original equation, so the function is a solution.
 
 ---
 
@@ -307,9 +266,9 @@ is a solution to
 \frac{dP}{dt} = -kP.
 \]
 
-But how would we *discover* that function in the first place?
+But how would you *find* that function in the first place?
 
-This equation is an example of a **separable differential equation**. That means we can rearrange it so that all the \(P\)-terms are on one side and all the \(t\)-terms are on the other.
+This is a **separable** differential equation: you can rearrange it so all the \(P\) terms are on one side and all the \(t\) terms are on the other.
 
 ---
 
@@ -380,25 +339,13 @@ where \(P_0\) represents the initial amount of pollutant.
 
 #### Why This Works  {-}
 
-The key idea is:
-
-- We rearranged the equation so that each variable appeared on its own side.
-- We used integration to reverse the derivative.
-- The constant of integration became the initial condition.
-
-This method — **separating variables and integrating both sides** — is one of the most powerful tools in introductory differential equations.
-
-It connects directly back to what we already know:
-
-- Derivatives describe rates.
-- Integrals reverse derivatives.
-- Differential equations combine both ideas.
+You rearranged the equation so each variable had its own side, integrated to undo the derivative, and the constant of integration turned into the starting amount. **Separating the variables and integrating both sides** is the most useful technique in this chapter. It's the same two ideas as the rest of the course: derivatives describe rates, and integrals undo them.
 
 
 
-### The Big Idea
+### Separating the Variables
 
-A differential equation does not give us a function. It gives us a *rule about how the function changes*. Our task is to determine the function whose behavior satisfies that rule. This shifts calculus from computing change to **modeling change**.
+A differential equation doesn't hand you a function. It gives you a *rule for how the function changes*, and your job is to find the function that follows the rule.
 
 
 
@@ -409,11 +356,11 @@ What distinguishes a *differential equation* from an algebraic equation or a der
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-A **differential equation** is an equation involving an unknown function *and one or more of its derivatives*. 
+A **differential equation** involves an unknown function *and its derivatives*.
 
-- An **algebraic equation** (e.g., \(3x + 2 = 11\)) involves an unknown *number*, and you solve for that number. 
-- A **derivative formula** (e.g., \(\frac{d}{dt}(7e^{-0.3 t}) = -2.1 e^{-0.3 t}\)) tells you *what* the derivative of a known function is. 
-- A **differential equation** (e.g., \(\frac{dP}{dt} = -0.3 P\)) tells you a *rule that the derivative must obey* — and the unknown is the entire function \(P(t)\) that satisfies that rule.
+- An **algebraic equation** (e.g., \(3x + 2 = 11\)) has an unknown *number*, and you solve for it.
+- A **derivative formula** (e.g., \(\frac{d}{dt}(7e^{-0.3 t}) = -2.1 e^{-0.3 t}\)) tells you the derivative of a function you already know.
+- A **differential equation** (e.g., \(\frac{dP}{dt} = -0.3 P\)) gives a *rule the derivative has to follow*, and the unknown is the whole function \(P(t)\).
 
 </details>
 
@@ -425,9 +372,9 @@ When you solve a differential equation, why is the answer a function rather than
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-Because a differential equation describes **how an unknown quantity changes**, not a single condition the quantity must satisfy at one point. The "answer" has to be the *entire function* that obeys the rule at every value of the independent variable. 
+Because a differential equation describes **how a quantity changes**, not a condition at one point. The answer has to be the *whole function* that follows the rule at every time.
 
-That's also why an additional **initial condition** (like "\(P(0) = 80\)") is needed to pin down a single specific solution — the differential equation by itself usually has a *family* of solutions, one for each starting value.
+That's also why you need an **initial condition** (like "\(P(0) = 80\)") to pin down one solution. On its own, the equation usually has a *family* of solutions, one for each starting value.
 
 </details>
 
@@ -436,33 +383,31 @@ That's also why an additional **initial condition** (like "\(P(0) = 80\)") is ne
 
 ## From Real-World Context to Differential Equation
 
-Differential equations rarely appear first as symbols. They begin as **statements about how something changes**. Our job is to translate those statements into mathematics.
+Differential equations usually start as **sentences about how something changes**. Your job is to translate them into math.
 
 ---
 
 ### Translating Verbal Descriptions into Equations
 
-Most environmental models begin with sentences like:
+Most environmental models start with a sentence like:
 
-- “The population grows faster when it is larger.”
-- “Pollution breaks down naturally over time.”
-- “Carbon uptake increases as vegetation becomes established.”
-- “The rate of warming depends on how far temperature is from equilibrium.”
+- "The population grows faster when it's larger."
+- "The pollutant breaks down naturally over time."
+- "Carbon uptake increases as the vegetation gets established."
+- "The rate of warming depends on how far the temperature is from equilibrium."
 
-Each sentence describes a **relationship between a rate of change and something else**.
+Each one describes a **rate of change and what it depends on**. To translate:
 
-The translation process follows a pattern:
-
-1. Identify the changing quantity.
-2. Express its rate of change using a derivative.
-3. Express how that rate depends on other variables.
-4. Combine into a differential equation.
+1. Name the quantity that's changing.
+2. Write its rate of change as a derivative.
+3. Write down what that rate depends on.
+4. Put them together.
 
 ---
 
 ### How Can a Rate Depend on Something?
 
-A rate can depend on different types of quantities.
+A rate can depend on different things.
 
 #### The Quantity Itself Example: Population growth {-}
 
@@ -474,11 +419,7 @@ If the rate of growth is proportional to the population size:
 
 Interpretation:
 
-- Larger populations grow faster.
-- Units check:  
-  - \(P\) is individuals  
-  - \(r\) must have units of 1/time  
-  - So \(rP\) has units individuals/time, matching \(dP/dt\)
+Bigger populations grow faster. Check the units: \(P\) is in individuals, so \(r\) must be in 1/time, which makes \(rP\) individuals/time, matching \(dP/dt\).
 
 ---
 
@@ -492,8 +433,7 @@ If uptake varies with time due to seasonality:
 
 Interpretation:
 
-- Uptake changes even if the system state doesn’t.
-- Time itself drives the variation.
+Here the uptake rate changes even if the system doesn't. Time itself (the season) drives the variation.
 
 ---
 
@@ -505,15 +445,13 @@ Interpretation:
 
 Interpretation:
 
-- The rate depends on the difference between current temperature and environmental temperature.
-- When \(T = T_{\text{env}}\), the rate is zero.
-- This naturally produces equilibrium behavior.
+The rate depends on the gap between the current temperature and the surroundings. When \(T = T_{\text{env}}\), the rate is zero, which is where equilibrium comes from.
 
 ---
 
 ### Units Analysis in Differential Equations
 
-Units are powerful error-checking tools.
+Units are one of your best error checks.
 
 Suppose:
 
@@ -541,29 +479,21 @@ then:
 
 #### What Does “per Day” Actually Mean? {-}
 
-A unit like \(1/\text{day}\) (or “per day”) describes a **rate constant**. It tells us the *fraction of the quantity that changes each day*.
+A unit like \(1/\text{day}\) ("per day") marks a **rate constant**: the *fraction of the current amount* that changes per day.
 
-For example, if:
-
+So if
 \[
 k = 0.25 \ \text{day}^{-1},
 \]
+that does **not** mean 0.25 kilograms per day. It means the pollutant is being lost at a rate of 25% of whatever is there right now, per day. (Because the amount shrinks as the day goes on, the actual loss over one full day is a bit less: about 22%, since \(e^{-0.25} \approx 0.78\).)
 
-this does **not** mean “0.25 kilograms per day.”  
-
-It means:
-
-> About 25% of the current amount changes each day.
-
-The unit \( \text{day}^{-1} \) tells us the rate scales with the size of the quantity.
-
-If the amount doubles, the daily change doubles. If the amount is small, the daily change is small. This is what makes exponential models *proportional*.
+The rate scales with the amount. Double the amount and the daily loss doubles. That's what makes exponential models *proportional*.
 
 ---
 
 ### Environmental and Biological Rate Models
 
-Here are several common modeling patterns.
+Some common patterns.
 
 ---
 
@@ -595,7 +525,7 @@ Here are several common modeling patterns.
 \frac{dC}{dt} = rC\left(1 - \frac{C}{K}\right)
 \]
 
-This introduces limits to growth.
+This puts a limit on growth.
 
 ---
 
@@ -609,9 +539,9 @@ This introduces limits to growth.
 
 ---
 
-### The Big Modeling Insight
+### Every Term Is an Assumption
 
-A differential equation is not just algebra. It is a **mathematical expression of an assumption** about how a system behaves. Every term has meaning. Every parameter has interpretation. When we write a differential equation, we are making a claim about how the world works. The power of calculus is that we can then analyze the consequences of that claim.
+Writing a differential equation is making a claim about how a system works. Every term means something, and every parameter has an interpretation. If you can't say what a term represents physically, it probably shouldn't be there.
 
 
 ### Concept Check: Translating 'Rate Is Proportional To' into a DE {-}
@@ -625,9 +555,9 @@ If \(P(t)\) is the population size, the statement translates directly to
 \[
 \frac{dP}{dt} = k P,
 \]
-where \(k\) is the **per-capita growth rate** — the rate at which each individual contributes to growth, in units of "per time." If \(k > 0\), the population grows exponentially; if \(k < 0\) (decay), it shrinks. 
+where \(k\) is the **per-capita growth rate**: how much each individual contributes to growth, in units of "per time." If \(k > 0\), the population grows exponentially. If \(k < 0\), it shrinks.
 
-The phrase *"proportional to X"* in a verbal model translates to *"= k × X"* in the DE — that's the recipe.
+"Proportional to X" in words becomes "= k × X" in the equation.
 
 </details>
 
@@ -639,9 +569,9 @@ Why is it important that every term in a differential equation have consistent u
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-Every term in a differential equation has to have units of *rate of change of the quantity* (e.g., "individuals per day" or "mg per second"). If you write \(\frac{dP}{dt} = k P - 2\) for a population in individuals, then \(kP\) needs to be "individuals per day" — so \(k\) must be "per day" — and the constant "\(-2\)" needs to also be "individuals per day" (interpreted as a removal rate). 
+Every term has to have units of *rate of change of the quantity* (individuals per day, mg per second). If you write \(\frac{dP}{dt} = k P - 2\) for a population in individuals, then \(kP\) has to be individuals per day (so \(k\) is 1/day) *and* the 2 has to be individuals per day too. Each term has to be the same kind of thing.
 
-If the units don't line up across terms, **the model is wrong** — either the constants are missing scale factors or you're mixing rates and stocks. Units analysis is one of the fastest catches for modeling mistakes.
+If the units don't match across terms, **the model is wrong**: a constant is missing a scale factor, or you've mixed up a rate and an amount. It's one of the fastest ways to catch a modeling mistake.
 
 </details>
 
@@ -650,9 +580,7 @@ If the units don't line up across terms, **the model is wrong** — either the c
 
 ## Slope Fields (Direction Fields)
 
-Up to this point, we have solved differential equations algebraically. But what if we cannot solve them easily? Or what if we want to understand behavior *before* solving?
-
-A **slope field** (or direction field) allows us to visualize a differential equation directly from its rate rule — without first finding an explicit formula.
+So far you've solved differential equations with algebra. What if you can't, or you want to see what solutions do *before* solving? A **slope field** (or direction field) lets you see the behavior straight from the rate rule, with no formula.
 
 ---
 
@@ -664,102 +592,55 @@ Example:
 \frac{dP}{dt} = -kP
 \]
 
-Notice:
+The slope depends only on \(P\), not on \(t\). (\(k\) is just a constant.) So on a graph with \(P\) up the side and \(t\) along the bottom:
 
-- The slope depends only on \(P\)
-- It does not depend on \(t\)
-- \(k\) is just a constant and does not vary with time
-
-This means if we were to sketch the relationship of \(P\) (y-axis) and \(t\) (x-axis):
-
-- Along any horizontal line (constant \(P\)), the slope is the same
-- \(P\) above zero, slopes are negative
-- \(P\) below zero, slopes are positive
-- At \(P = 0\), the slope is zero
+- along any horizontal line (constant \(P\)), the slope is the same
+- above zero, the slopes are negative
+- below zero, the slopes are positive
+- at \(P = 0\), the slope is zero
 
 To build the slope field:
 
-1. Choose grid points in the \((t, P)\) plane.
-2. Compute the slope at each point.
-3. Draw a small line segment with that slope.
+1. Pick grid points in the \((t, P)\) plane.
+2. Work out the slope at each point.
+3. Draw a short line segment with that slope.
 
-We never solved the equation — yet we can already see how solutions behave.
+You haven't solved anything, and you can already see how the solutions behave.
 
 ---
 
 ### Interpreting Behavior from a Slope Field
 
-Once the slope field is drawn, we can:
-
-- See whether solutions increase or decrease
-- Identify where slopes are zero
-- Detect equilibrium values
-- Predict long-term behavior
-
-For example, in
-
+From the slope field you can see whether solutions rise or fall, where the slopes are zero, where the equilibria are, and what happens in the long run. For
 \[
 \frac{dP}{dt} = -kP
 \]
-
-the slope field shows:
-
-- All solutions move toward \(P = 0\)
-- The system stabilizes over time
-- The equilibrium \(P = 0\) is stable
-
-We can determine all of this *without solving* the equation.
+every solution heads toward \(P = 0\), so \(P = 0\) is a stable equilibrium. All without solving.
 
 ---
 
 ### Sketching Solution Curves
 
-A solution curve is a function whose tangent at every point matches the slope field.
-
-To sketch one:
-
-1. Choose an initial condition.
-2. Follow the direction of the small line segments.
-3. Draw a smooth curve that stays tangent to the field.
-
-Each initial condition produces a different solution curve.
-
-The slope field reveals an entire **family of solutions** at once.
+A solution curve is one whose tangent matches the slope field everywhere. Pick a starting point, follow the little line segments, and draw a smooth curve that stays tangent to them. Each starting point gives a different curve, so the slope field shows you the whole **family of solutions** at once.
 
 ---
 
 ### Stability and Long-Term Behavior
 
-Slope fields make stability visible. If nearby solutions move toward an equilibrium value, that equilibrium is **stable**. If nearby solutions move away, it is **unstable**. If solutions move toward it from one side but away from the other, it is **semi-stable**.
-
-This gives us a powerful idea:
-
-> We can analyze the structure of a system — not just compute formulas.
-
----
+Slope fields make stability visible. If nearby solutions move toward an equilibrium, it's **stable**. If they move away, it's **unstable**. If they move toward it from one side and away on the other, it's **semi-stable**.
 
 ### Why This Matters
 
-Many environmental systems cannot be solved exactly, are nonlinear in structure, may contain multiple equilibria, and can exhibit tipping points where small changes produce dramatic consequences. In these settings, our goal is often not to compute an explicit formula, but to understand how the system behaves. Slope fields provide a powerful way to do this. They allow us to see whether a system settles toward an equilibrium, diverges away from it, or amplifies small differences over time. Rather than focusing solely on solving equations, slope fields shift our perspective toward interpreting long-term system behavior — which is often what matters most in environmental science.
+A lot of environmental models can't be solved exactly. They're nonlinear, they can have several equilibria, and they can have tipping points where a small change has big consequences. Often the goal isn't a formula. It's understanding where the system ends up and how it responds to a push, and slope fields show you that.
 
 
 ### Visualizing Differential Equations Without Solving Them
 
-A differential equation tells us:
-
+A differential equation of the form
 \[
 \frac{dP}{dt} = f(t, P)
 \]
-
-This equation does not directly give the function \( P(t) \). Instead, it tells us the **slope** of the function at every point \((t, P)\).
-
-At each point in the plane:
-
-- Plug the coordinates into \( f(t, P) \).
-- Compute the slope.
-- Draw a tiny line segment with that slope.
-
-The result is a field of small line segments that show how solutions must move.
+doesn't give you \( P(t) \). It gives you the **slope** of \( P(t) \) at every point \((t, P)\). At each point, plug in the coordinates, work out the slope and draw a short segment. The result is a field of segments that shows how solutions have to move.
 
 ---
 
@@ -771,12 +652,7 @@ Consider the differential equation
 \frac{dP}{dt} = -kP + 2.
 \]
 
-This equation tells us:
-
-- The slope depends only on \(P\).
-- It does not depend directly on \(t\).
-
-For clarity, let’s choose:
+The slope depends only on \(P\), not directly on \(t\). Take
 
 \[
 k = 0.5.
@@ -798,7 +674,7 @@ f(t, P) = \frac{dP}{dt} = -0.5P + 2.
 
 #### Step 1: Compute Slopes at Specific Points {-}
 
-Let’s calculate slopes at a few sample points.
+Work out the slope at a few points.
 
 At \((0, 0)\):
 
@@ -831,7 +707,7 @@ f(4, 6) = \frac{dP}{dt} = -0.5(6) + 2 = -1.
 \]
 
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r slope-field-sample-points, echo=FALSE, warning=FALSE, message=FALSE, fig.alt="A few labeled grid points with short line segments showing the slope of dP/dt = -0.5P + 2 at each point."}
 library(tidyverse)
 
 # Differential equation: dP/dt = -kP + 2
@@ -884,13 +760,11 @@ ggplot() +
 ```
 
 
-We can fill the whole domain with these slope field indicators. These will become guidelines for possible solution functions. A solution plotted on in this field will be a solution to the original differential equation - it will be one of the family of solutions. 
+Fill the whole plane with these segments and you have guides for every possible solution. Any curve that follows them is one member of the family of solutions. There are infinitely many because integration produces a constant. Knowing the starting value picks out one.
 
-What drives the array of possible solutions is the fact that indefinite integration generates a constant. Therefore there are an infinite number of potential solutions. If we know the initial condition we can create a unique solution.
+You don't need to compute every point here. There's no \(t\) in the equation, so the slope is the same all the way along any horizontal line.
 
-In this example, filling out the entire slope field does not require plugging every point into the differential equation. But rather recognizing that the differential equation does not have a \(t\) in it. So we know the slope will be constant in the horizontal. 
-
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r slope-field-grid, echo=FALSE, warning=FALSE, message=FALSE, fig.alt="Slope field for dP/dt = -0.5P + 2 at integer grid points. Segments tilt up below P = 4, are flat at P = 4 and tilt down above it."}
 library(tidyverse)
 library(tidyverse)
 
@@ -940,17 +814,9 @@ Since:
 
 the line \(P = 4\) is an **equilibrium solution**.
 
-If a solution starts:
+A solution that starts below 4 rises toward 4. One that starts above 4 falls toward 4. One that starts at exactly 4 stays there. Solutions move toward \(P = 4\) from both sides, so it's **stable**. You can see it in the slope field: segments tilt up below 4 and down above it.
 
-- Below 4 → it increases toward 4.
-- Above 4 → it decreases toward 4.
-- Exactly at 4 → it stays constant.
-
-This equilibrium is **stable**: solutions move toward it from both sides.
-
-The slope field makes this visually clear — arrows point upward below 4 and downward above 4, guiding trajectories toward the equilibrium line.
-
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r slope-field-solutions, echo=FALSE, warning=FALSE, message=FALSE, fig.alt="Slope field for dP/dt = -0.5P + 2 with solution curves starting at 1, 2.5, 4, 5 and 6. Every curve approaches the dashed line P = 4."}
 library(tidyverse)
 
 # Differential equation: dP/dt = -kP + 2
@@ -1016,18 +882,9 @@ ggplot() +
   theme_minimal(base_size = 14)
 ```
 
-When we select an initial condition (which can be any point in this field), we then let the slope field guide our trajectory. Think of the slope field as the currents on a large lake. Now imagine sitting on a paddleboard anywhere in that lake. The slope field (currents) with dictate where you go. 
+Pick a starting point anywhere in the field and let the segments guide you. Think of the slope field as the currents on a big lake, and you're on a paddleboard. Wherever you start, the current carries you along a path. Start somewhere else and you get a different path.
 
-#### The Big Idea
-
-A slope field lets us:
-
-- See equilibrium behavior.
-- Predict growth or decay.
-- Understand stability.
-- Visualize families of solutions.
-
-All without first finding a formula. It turns a differential equation into a **geometric object**.
+So a slope field shows you equilibria, growth and decay, stability and the whole family of solutions, without a formula.
 
 ---
 
@@ -1038,14 +895,14 @@ What does a slope field reveal about a differential equation that you might not 
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-A slope field gives you the **qualitative shape** of solutions across the whole \((t, P)\) plane without solving the DE at all:
+It shows you the **shape** of the solutions across the whole \((t, P)\) plane, without solving anything:
 
-- Where solutions tend to flatten out (equilibria),
-- Whether different initial conditions converge or diverge,
-- Long-term behavior (does \(P \to \infty\)? \(P \to K\)? oscillate?),
-- Regions of fast vs slow change.
+- where solutions flatten out (equilibria)
+- whether different starting points come together or spread apart
+- the long-run behavior (does \(P \to \infty\)? level off at \(K\)? oscillate?)
+- where change is fast and where it's slow
 
-For DEs that *can't* be solved in closed form, slope fields are often the only practical way to understand what the solutions look like.
+For equations you *can't* solve exactly, a slope field is often the only practical way to see what the solutions look like.
 
 </details>
 
@@ -1057,14 +914,14 @@ If you're given a slope field and a starting point \((t_0, P_0)\), how do you sk
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-Place your pen at \((t_0, P_0)\) and **follow the local slope arrows**, like sledding down a hill that's mapped out for you:
+Put your pen at \((t_0, P_0)\) and **follow the segments**:
 
-1. At your current point, the slope-field arrow tells you the direction the solution heads next.
-2. Move a small step in that direction.
-3. At the new point, look at the local arrow and adjust direction.
+1. At your current point, the segment shows which way the solution heads.
+2. Move a small step that way.
+3. At the new point, check the segment again and adjust.
 4. Repeat.
 
-The curve you trace out is the unique solution passing through \((t_0, P_0)\). This is exactly what Euler's method does numerically — slope fields are the visual version.
+The curve you trace is the solution through \((t_0, P_0)\). (Euler's method does the same thing numerically.)
 
 </details>
 
@@ -1073,19 +930,13 @@ The curve you trace out is the unique solution passing through \((t_0, P_0)\). T
 
 ## Equilibrium Solutions and Stability
 
-Differential equations do more than describe change. They allow us to predict **long-term behavior**. One of the most powerful tools for understanding long-term behavior is the study of **equilibrium solutions** and their **stability**.
-
-Rather than solving the equation completely, we ask:
-
-> Where does the system settle?  
-> What values remain constant?  
-> What happens if the system is slightly disturbed?
+Differential equations also let you predict **long-term behavior**, often without solving them. The key ideas are **equilibrium** and **stability**: where does the system settle, what stays constant, and what happens if you give it a nudge?
 
 ---
 
 ### Constant (Steady-State) Solutions
 
-An **equilibrium solution** (or steady-state solution) is a value of the dependent variable that does not change over time.
+An **equilibrium solution** (or steady state) is a value that doesn't change over time.
 
 Mathematically, an equilibrium occurs when:
 
@@ -1133,16 +984,11 @@ They describe steady states of the system.
 
 ### Stable vs Unstable Equilibria
 
-Not all equilibria behave the same way.
+Not all equilibria behave the same. To tell them apart, nudge the system a little up or down and see whether it comes back:
 
-To determine stability, we examine what happens when the system is slightly perturbed.
-
-Suppose we slightly increase or decrease \(P\).  
-Does the system return to equilibrium or move away?
-
-- If nearby solutions move **toward** the equilibrium → it is **stable**.
-- If nearby solutions move **away from** the equilibrium → it is **unstable**.
-- If behavior differs on each side → it is **semi-stable**.
+- Nearby solutions move **toward** it: **stable**.
+- Nearby solutions move **away**: **unstable**.
+- Toward it on one side, away on the other: **semi-stable**.
 
 For the logistic equation:
 
@@ -1154,38 +1000,31 @@ So:
 - \(P = 0\) is **unstable** (small populations grow away from zero).
 - \(P = K\) is **stable** (populations move toward carrying capacity).
 
-This tells us the long-term outcome without solving explicitly.
+That gives you the long-term outcome without solving.
 
 ---
 
 #### The Ball-and-Cup Analogy {-}
 
-A helpful way to visualize stability is the classic **ball and landscape** picture.
+Picture a ball on a curved landscape.
 
-Imagine placing a ball on different parts of a curved surface.
-
-- If the ball sits at the **bottom of a bowl**, and you nudge it slightly, it rolls back to the bottom.  
-  This is a **stable equilibrium**.
-
-- If the ball sits at the **top of a hill**, and you nudge it slightly, it rolls away.  This is an **unstable equilibrium**.
-
-- If the ball sits on a **flat plateau** or ridge, it may stay put in one direction but roll away in another.  This is a **semi-stable equilibrium**.
+- A ball at the **bottom of a bowl**, nudged, rolls back. That's a **stable** equilibrium.
+- A ball on **top of a hill**, nudged, rolls away. That's **unstable**.
+- A ball on a **ledge**, with a drop on one side and a slope back up on the other, comes back if you push it one way and rolls off if you push it the other. That's **semi-stable**.
   
 
 
-![](images/stability.png){fig.cap="" fig.alt="" style="float=center; width:650px; margin:10px;"}
+![](images/stability.png){fig.cap="" fig.alt="A ball sitting at the bottom of a bowl, labeled stable, a ball balanced on top of a hill, labeled unstable, and a ball on a ledge, labeled semi-stable." style="display:block; width:650px; margin:10px auto;"}
 
 In the logistic model:
 
-- \(P = K\) behaves like the bottom of a bowl — nearby populations move toward it.
-- \(P = 0\) behaves like the top of a hill — any small population grows away from extinction.
+- \(P = K\) is the bottom of the bowl: nearby populations move toward it.
+- \(P = 0\) is the top of the hill: any small population grows away from extinction.
 
-This analogy emphasizes an important idea: Stability is about **response to disturbance**. In environmental systems, disturbances are inevitable — storms, droughts, harvesting, climate variation. Whether a system returns to its prior state or shifts dramatically depends on the stability of its equilibria.
-
-Understanding stability helps us predict resilience, collapse, and tipping behavior.
+Stability is about **how a system responds to disturbance**. In environmental systems, disturbances happen: storms, droughts, harvesting, climate swings. Whether the system recovers or shifts to a new state depends on the stability of its equilibria. That's what resilience, collapse and tipping points are about.
 
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r logistic-slope-field, echo=FALSE, warning=FALSE, message=FALSE, fig.alt="Slope field for logistic growth with r = 0.6 and K = 1000. Curves starting below 1000 rise in an S shape toward K, curves starting above 1000 fall toward K, and dashed lines mark the equilibria at 0 and 1000."}
 library(tidyverse)
 
 # Parameters
@@ -1284,20 +1123,13 @@ For exponential decay:
 
 The system approaches extinction or disappearance.
 
-These predictions do not require solving in detail — they come directly from analyzing the structure of the differential equation.
+You don't need to solve anything in detail for these. They come straight from the structure of the equation.
 
 ---
 
 ### Why This Matters
 
-In environmental science, we often care less about exact formulas and more about:
-
-- Will the system stabilize?
-- Will it collapse?
-- Is there a tipping point?
-- What are the long-term consequences?
-
-Equilibrium and stability analysis provide answers to those questions. They shift calculus from computation to interpretation. We are no longer just solving equations —  we are understanding the fate of dynamic systems.
+In environmental work you often care less about exact formulas than about questions like: will the system stabilize? Will it collapse? Is there a tipping point? Equilibrium and stability analysis answer those. They turn calculus from computing into interpreting: understanding where a system is headed.
 
 ---
 
@@ -1308,11 +1140,11 @@ What's an equilibrium solution to a differential equation, and how do you find o
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-An **equilibrium solution** is a constant value \(P^*\) that the system stays at if it ever reaches it — the population, concentration, or whatever quantity doesn't change. Mathematically: it's a value where \(\frac{dP}{dt} = 0\).
+An **equilibrium** is a constant value \(P^*\) where the system stays once it gets there. Mathematically, it's a value where \(\frac{dP}{dt} = 0\).
 
-For an autonomous DE \(\frac{dP}{dt} = f(P)\), you find equilibria by **setting the right-hand side to zero and solving for \(P\)**: \(f(P^*) = 0\). 
+For an equation \(\frac{dP}{dt} = f(P)\), **set the right-hand side to zero and solve for \(P\)**.
 
-For example, the logistic equation \(\frac{dP}{dt} = rP(1 - P/K)\) has \(rP(1 - P/K) = 0\) when \(P = 0\) or \(P = K\) — those are the two equilibria.
+For example, the logistic equation \(\frac{dP}{dt} = rP(1 - P/K)\) is zero when \(P = 0\) or \(P = K\). Those are its two equilibria.
 
 </details>
 
@@ -1324,17 +1156,17 @@ What's the difference between a *stable* and an *unstable* equilibrium, and how 
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-**Stable** equilibrium: small disturbances from the equilibrium *decay back* — the system returns to equilibrium. Like a ball resting at the bottom of a cup.
+**Stable:** small disturbances *die away* and the system comes back. Like a ball at the bottom of a cup.
 
-**Unstable** equilibrium: small disturbances *grow* — the system runs away from the equilibrium. Like a ball balanced on top of a hill.
+**Unstable:** small disturbances *grow* and the system runs away. Like a ball on top of a hill.
 
-**How to tell:** look at the sign of \(\frac{dP}{dt}\) just below and just above the equilibrium value:
+**How to tell:** look at the sign of \(\frac{dP}{dt}\) just below and just above the equilibrium.
 
-- If both arrows *point toward* the equilibrium → stable.
-- If both arrows *point away* → unstable.
-- If one points toward and one points away → semi-stable (rare).
+- Both point *toward* it: stable.
+- Both point *away*: unstable.
+- One toward, one away: semi-stable.
 
-For logistic growth, \(P = K\) is stable (population returns to carrying capacity after disturbance) and \(P = 0\) is unstable (any small population grows away from zero).
+For logistic growth, \(P = K\) is stable (the population returns to carrying capacity after a disturbance) and \(P = 0\) is unstable (any small population grows away from zero).
 
 </details>
 
@@ -1343,12 +1175,7 @@ For logistic growth, \(P = K\) is stable (population returns to carrying capacit
 
 ## Separable Differential Equations
 
-We just went through how we can graphically solve differential equations, now lets formalize how we can do it algebraically. A **separable differential equation** is one where we can rearrange the equation so that:
-
-- All terms involving the dependent variable are on one side.
-- All terms involving the independent variable are on the other.
-
-This structure allows us to use integration to reconstruct the unknown function.
+You've seen how to read solutions from a slope field. Now let's solve them algebraically. A **separable** differential equation is one you can rearrange so that everything involving the dependent variable is on one side and everything involving the independent variable is on the other. Then you can integrate both sides.
 
 ---
 
@@ -1360,12 +1187,7 @@ A first-order differential equation is separable if it can be written in the for
 \frac{dy}{dt} = g(t)\,h(y)
 \]
 
-The right-hand side is a product of:
-
-- A function of time only
-- A function of the dependent variable only
-
-If we can factor the equation into this structure, we can separate the variables.
+The right-hand side is a function of time only times a function of the dependent variable only. If you can factor it like that, you can separate it.
 
 ---
 
@@ -1383,12 +1205,7 @@ Rewrite it by dividing by \(h(y)\) and multiplying by \(dt\):
 \frac{1}{h(y)}\,dy = g(t)\,dt
 \]
 
-Now:
-
-- The left side contains only \(y\).
-- The right side contains only \(t\).
-
-The variables are separated.
+Now the left side has only \(y\) and the right side has only \(t\).
 
 ---
 
@@ -1400,25 +1217,19 @@ Once separated, integrate:
 \int \frac{1}{h(y)}\,dy = \int g(t)\,dt
 \]
 
-Each side becomes an antiderivative. This step directly connects to the integration techniques you already know.
+Each side is an antiderivative, so all the techniques from Chapter 5 apply.
 
 ---
 
 ### Solving for an Explicit Solution
 
-After integration, we typically:
-
-1. Add a constant of integration.
-2. Rearrange algebraically.
-3. Solve for the dependent variable if possible.
-
-Sometimes we obtain an explicit solution \(y(t)\). Sometimes we leave the solution in implicit form. Either way, we have reconstructed the function from its rate rule.
+Then add a constant of integration, rearrange, and solve for the dependent variable if you can. Sometimes you get an explicit \(y(t)\). Sometimes you leave it in implicit form. Either way, you've rebuilt the function from its rate rule.
 
 ---
 
 ### Initial Value Problems (IVPs)
 
-A differential equation alone usually produces a **family of solutions**. To select a single solution, we need an **initial condition**:
+On its own, a differential equation gives a **family of solutions**. To pick out one, you need an **initial condition**:
 
 \[
 y(t_0) = y_0
@@ -1450,7 +1261,7 @@ So the specific solution becomes:
 P(t) = P_0 e^{-kt}
 \]
 
-The initial condition determines the trajectory.
+The starting value picks the curve.
 
 ---
 
@@ -1474,13 +1285,13 @@ Assume the pond initially contains:
 P(0) = 80 \text{ kg}.
 \]
 
-We will solve for \(P(t)\) step-by-step.
+Solve for \(P(t)\) step by step.
 
 ---
 
 #### Recognizing Separable Structure {-}
 
-A first-order differential equation is separable if it can be written as:
+It's separable if it can be written as
 
 \[
 \frac{dP}{dt} = g(t)\,h(P).
@@ -1494,10 +1305,7 @@ Here:
 
 can be written as:
 
-- \(g(t) = -0.3\) (a function of time only — here it is constant)
-- \(h(P) = P\) (a function of the dependent variable only)
-
-So the equation is separable.
+with \(g(t) = -0.3\) (a function of time only, here a constant) and \(h(P) = P\). So it's separable.
 
 ---
 
@@ -1515,10 +1323,7 @@ Divide both sides by \(P\) (assuming \(P \neq 0\)) and multiply by \(dt\):
 \frac{1}{P}\,dP = -0.3\,dt
 \]
 
-Now the variables are separated:
-
-- Left side: only \(P\)
-- Right side: only \(t\)
+Now the variables are separated.
 
 ---
 
@@ -1552,7 +1357,7 @@ Rewrite:
 |P| = e^C e^{-0.3t}
 \]
 
-Let \(A = e^C\) (still just a constant), and since \(P(t)\) represents a mass (nonnegative), we write:
+Let \(A = e^C\), which is still just a constant. Since \(P(t)\) is a mass, it can't be negative, so
 
 \[
 P(t) = A e^{-0.3t}
@@ -1583,13 +1388,13 @@ P(t) = 80e^{-0.3t}
   P(5) = 80e^{-1.5} \approx 80(0.223) \approx 17.9 \text{ kg}
   \]
 
-This matches the expected behavior: fast decay early, then slowing as \(P\) approaches zero.
+That's the expected shape: fast decay early, slowing as \(P\) gets close to zero.
 
 ---
 
 ### Applications of Separable Equations
 
-Separable equations appear constantly in environmental and biological modeling.
+Separable equations show up all over environmental and biological modeling.
 
 ---
 
@@ -1619,12 +1424,7 @@ Solution:
 P(t) = P_0 e^{-kt}
 \]
 
-This describes:
-
-- Population growth
-- Contaminant decay
-- Carbon loss
-- Interest growth
+That covers population growth, contaminant decay and carbon loss (and compound interest).
 
 ---
 
@@ -1642,11 +1442,7 @@ Solution:
 N(t) = N_0 e^{-\lambda t}
 \]
 
-From this model we can derive:
-
-- Half-life
-- Long-term decay behavior
-- Time required to reach safe levels
+From this you get the half-life, the long-term decay, and how long it takes to reach a safe level.
 
 ---
 
@@ -1664,11 +1460,7 @@ where:
 - \(r\) = intrinsic growth rate  
 - \(K\) = carrying capacity  
 
-This model introduces:
-
-- Carrying capacity \(K\)  
-- Density dependence  
-- Saturation effects  
+This adds a carrying capacity \(K\): growth depends on how crowded the population is, and it levels off.
 
 ---
 
@@ -1837,40 +1629,25 @@ P(t)
 
 #### What This Model Captures  {-}
 
-The logistic solution shows:
+The logistic solution shows that:
 
-- Early growth is approximately exponential.
-- Growth slows as \(P\) approaches \(K\).
-- \(P = K\) is a **stable equilibrium**.
-- The curve is S-shaped (sigmoidal).
-- Maximum growth rate occurs at \(P = \frac{K}{2}\).
+- early growth is close to exponential
+- growth slows as \(P\) gets close to \(K\)
+- \(P = K\) is a **stable equilibrium**
+- the curve is S-shaped
+- the growth rate is fastest at \(P = \frac{K}{2}\)
 
-The logistic model captures:
-
-- Resource limits  
-- Competition  
-- Self-regulation in ecosystems  
-- Realistic population dynamics  
-
-Unlike exponential growth, logistic growth reflects environmental constraints.
+Unlike exponential growth, it builds in limits: resources, competition, self-regulation.
 
 
-### The Big Structural Insight
+### Why Separable Equations Work
 
-Separable equations work because we can:
-
-- Rearrange the rate relationship.
-- Use integration to reverse the derivative.
-- Apply initial conditions to select a unique solution.
-
-This is the first major class of differential equations that we can solve systematically.
-
-It forms the foundation for many environmental and biological models.
+You rearrange the rate rule, integrate to undo the derivative, and use the starting value to pick one solution. It's the first kind of differential equation you can solve systematically, and a lot of environmental models are this kind.
 
 
 ### Concept Check: Recognizing a Separable Differential Equation {-}
 
-How do you recognize whether a differential equation is *separable* — and why does separability matter?
+How do you recognize whether a differential equation is *separable*, and why does separability matter?
 
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
@@ -1885,7 +1662,7 @@ i.e., the right-hand side **factors** into a function of \(x\) times a function 
 \]
 and integrate both sides directly. 
 
-Most of the canonical biological/environmental models — exponential growth, exponential decay, Newton's cooling, logistic growth — are all separable. Separability matters because it gives you an *explicit* solution rather than just a numerical or qualitative one.
+Most of the standard environmental models (exponential growth and decay, Newton's cooling, logistic growth) are separable. That matters because you get an *explicit* solution instead of only a numerical approximation, so you can see how each parameter shapes the answer.
 
 </details>
 
@@ -1897,11 +1674,11 @@ When you solve a separable differential equation, you get a family of solutions 
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-The general solution of a first-order DE contains an arbitrary constant \(C\) — every value of \(C\) gives a valid solution, so there's an infinite *family* of solutions, each starting at a different value.
+The general solution has an arbitrary constant \(C\). Every value of \(C\) gives a valid solution, so there's an infinite *family*, each starting somewhere different.
 
-An **initial condition** like \(P(0) = P_0\) picks out the *one* solution that passes through that starting point. You plug \(t = 0\) and \(P = P_0\) into the general solution and solve for \(C\). The resulting **initial value problem (IVP)** has a unique solution — assuming the right-hand side is well-behaved (the Existence/Uniqueness Theorem makes this precise). 
+An **initial condition** like \(P(0) = P_0\) picks the *one* solution through that starting point. Plug in \(t = 0\) and \(P = P_0\) and solve for \(C\). The result, an **initial value problem (IVP)**, has exactly one solution.
 
-Physically, this matches reality: a lake with 80 mg/L of pollutant at noon will trace out a *specific* concentration curve over the next week, not a family of possible curves.
+That matches reality: a lake with 80 mg/L of pollutant at noon follows *one* concentration curve over the next week, not a family of them.
 
 </details>
 
@@ -1910,7 +1687,7 @@ Physically, this matches reality: a lake with 80 mg/L of pollutant at noon will 
 
 ## Exponential Growth and Decay
 
-Exponential models arise when the **rate of change is proportional to the current amount**.
+Exponential models come from a **rate of change proportional to the current amount**.
 
 \[
 \frac{dP}{dt} = rP
@@ -1930,32 +1707,21 @@ P(t) = P_0 e^{rt}
 P(t) = P_0 e^{-kt}.
 \]
 
-The defining feature is simple but powerful:
-
-> The larger the quantity, the faster it changes.
+The defining feature: the bigger the quantity, the faster it changes.
 
 ---
 
 ### Why Exponential Behavior Matters in the Environment
 
-Exponential change appears frequently in environmental systems, especially when feedback processes are present.
+Exponential change shows up wherever there's feedback:
 
-Examples include:
+- early growth of an invasive species
+- the early spread of an infectious disease
+- algal blooms in nutrient-rich water
+- radioactive decay
+- the breakdown of contaminants
 
-- Early-stage population growth of invasive species  
-- Spread of infectious disease  
-- Accumulation of atmospheric CO₂ under sustained emissions growth  
-- Rapid expansion of algal blooms in nutrient-rich waters  
-- Radioactive decay  
-- Breakdown of contaminants  
-
-In these settings:
-
-- Growth accelerates because each new unit contributes to further growth.
-- Small proportional rates can lead to dramatic long-term effects.
-- Doubling time or half-life provides intuitive measures of system speed.
-
-Exponential models often describe the **early behavior** of a system before limits or constraints begin to matter.
+Growth speeds up because each new unit adds to further growth, so small proportional rates add up to big long-term changes. Doubling time and half-life give you an intuitive sense of how fast. Exponential models usually describe the **early** behavior of a system, before limits kick in.
 
 ---
 
@@ -1991,7 +1757,7 @@ P(6) = 200e^{2.4} \approx 200(11.02) \approx 2204
 \]
 
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r exp-growth-points, echo=FALSE, warning=FALSE, message=FALSE, fig.alt="Exponential growth curve P = 200e^{0.4t}, with points marked at t = 0, 3 and 6 years showing the population rising faster and faster."}
 library(tidyverse)
 
 # Parameters
@@ -2041,11 +1807,7 @@ ggplot(df, aes(x = t, y = P)) +
 
 #### Interpretation {-}
 
-- Growth accelerates over time.
-- The population increases slowly at first, then rapidly.
-- There are no limits built into this model — growth continues indefinitely.
-
-This is realistic only during early invasion stages.
+The population grows slowly at first, then faster and faster. Nothing in the model stops it, so it's only realistic early in an invasion.
 
 ---
 
@@ -2081,7 +1843,7 @@ For \(r = 0.4\):
 t = \frac{0.693}{0.4} \approx 1.73 \text{ years}
 \]
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r doubling-time, echo=FALSE, warning=FALSE, message=FALSE, fig.alt="Exponential growth from 200, with dashed lines marking the doubling time where the curve reaches 400."}
 library(tidyverse)
 
 # Parameters
@@ -2176,7 +1938,7 @@ After 8 years:
 P(8) = 50e^{-2} \approx 50(0.135) \approx 6.75
 \]
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r exp-decay-points, echo=FALSE, warning=FALSE, message=FALSE, fig.alt="Exponential decay of a pollutant from 50 kg with k = 0.25 per year, with points marked at 0, 4 and 8 years."}
 library(tidyverse)
 
 # Parameters
@@ -2273,7 +2035,7 @@ For \(k = 0.25\):
 t = \frac{0.693}{0.25} \approx 2.77 \text{ years}
 \]
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r half-life, echo=FALSE, warning=FALSE, message=FALSE, fig.alt="Exponential decay from 50 kg with dashed lines marking the half-life, where the curve reaches 25 kg at about 2.8 years."}
 library(tidyverse)
 
 # Parameters
@@ -2345,32 +2107,32 @@ The pollutant decreases by half every 2.77 years, regardless of how much is pres
 
 ### Continuous Growth in CO₂ Concentration
 
-Suppose atmospheric CO₂ increases at 1.5% per year:
+Atmospheric CO₂ has recently been rising by roughly 2.5 ppm a year, about 0.6% of its current level. Model that as proportional growth:
 
 \[
-\frac{dC}{dt} = 0.015C
+\frac{dC}{dt} = 0.006C
 \]
 
-If current concentration is \(420\) ppm:
+If the current concentration is \(420\) ppm:
 
 \[
-C(t) = 420e^{0.015t}
+C(t) = 420e^{0.006t}
 \]
 
 After 20 years:
 
 \[
-C(20) = 420e^{0.3} \approx 420(1.35) \approx 567 \text{ ppm}
+C(20) = 420e^{0.12} \approx 420(1.127) \approx 474 \text{ ppm}
 \]
 
-Even a small proportional growth rate compounds dramatically over time.
+A small proportional rate still adds up: about 54 ppm in 20 years, if the rate holds.
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r co2-growth, echo=FALSE, warning=FALSE, message=FALSE, fig.alt="CO2 concentration rising from 420 ppm under 0.6% per year growth, with dashed lines marking about 474 ppm at year 20."}
 library(tidyverse)
 
 # Parameters
 C0 <- 420        # current ppm
-r  <- 0.015      # 1.5% per year
+r  <- 0.006      # 0.6% per year
 
 # Time sequence
 t <- seq(0, 40, length.out = 600)
@@ -2413,8 +2175,8 @@ ggplot(df, aes(x = t, y = C)) +
   labs(
     x = "Time (years)",
     y = "CO\u2082 Concentration (ppm)",
-    title = expression(dC/dt == 0.015*C),
-    subtitle = expression(C(t) == 420*e^{0.015*t})
+    title = expression(dC/dt == 0.006*C),
+    subtitle = expression(C(t) == 420*e^{0.006*t})
   ) +
   theme_minimal(base_size = 14) +
   coord_cartesian(xlim = c(0, 40), ylim = c(400, 700))
@@ -2425,22 +2187,7 @@ ggplot(df, aes(x = t, y = C)) +
 
 ### What Exponential Models Capture
 
-Exponential models describe systems where:
-
-- Change feeds on itself.
-- Growth or decay happens at a constant proportional rate.
-- There are no limiting factors.
-
-They are powerful tools for:
-
-- Early-stage population growth  
-- Carbon accumulation  
-- Contaminant decay  
-- Radioactive processes  
-
-However, exponential growth cannot continue indefinitely in real ecosystems.
-
-Understanding exponential behavior prepares us to see when limits — and more realistic models like logistic growth — become necessary.
+Exponential models fit systems where change feeds on itself at a constant proportional rate, with nothing limiting it: early population growth, contaminant decay, radioactive processes. Real ecosystems can't grow exponentially forever, though, and that's what logistic growth fixes.
 
 
 
@@ -2451,20 +2198,20 @@ Under what conditions is an exponential growth or decay model \(\frac{dP}{dt} = 
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-When the **per-capita rate** (the rate per individual, per unit mass, etc.) is approximately **constant** over the time range of interest. This is reasonable when:
+When the **per-capita rate** (per individual, per unit of mass) stays roughly **constant** over the time you care about. That's reasonable when:
 
-- **Resources are abundant** (so individuals don't slow each other down) — early-stage population growth, freshly inoculated bacterial cultures.
-- **First-order chemical kinetics** apply — radioactive decay, simple pollutant breakdown, drug elimination from a body.
-- **The driving force is proportional to the current state** — Newton's cooling (after subtracting the equilibrium temperature), early disease spread before depletion of susceptibles.
+- **resources are plentiful**, so individuals don't slow each other down (early population growth, a freshly started bacterial culture)
+- **first-order kinetics** apply (radioactive decay, simple pollutant breakdown, a drug clearing from the body)
+- **the driving force is proportional to the current state** (Newton's cooling, once you subtract the surrounding temperature)
 
-Exponential models *break down* when feedback enters: limited resources, depleted reactants, saturation effects, environmental constraints. That's where logistic and other modified models take over.
+They *break down* once feedback kicks in: limited resources, used-up reactants, saturation. That's where logistic and other modified models come in.
 
 </details>
 
 
 ### Concept Check: Doubling Time and the Rate Constant {-}
 
-For an exponential growth process with rate constant \(k\), why does the doubling time depend only on \(k\) — not on the initial population?
+For an exponential growth process with rate constant \(k\), why does the doubling time depend only on \(k\) and not on the initial population?
 
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
@@ -2474,9 +2221,9 @@ If \(P(t) = P_0 e^{kt}\), then setting \(P(t_d) = 2 P_0\) gives
 2 P_0 = P_0 e^{k t_d} \implies e^{k t_d} = 2 \implies t_d = \frac{\ln 2}{k}.
 \]
 
-Notice that \(P_0\) **cancels** — the initial population disappears from the equation. The doubling time depends only on the rate constant \(k\). 
+\(P_0\) **cancels**, so the doubling time depends only on \(k\).
 
-This is a defining feature of exponential growth: *any quantity that doubles in time \(t_d\) will double again in another \(t_d\), regardless of how big it has become*. The same logic gives half-life for exponential decay: \(t_{1/2} = \ln 2 / |k|\).
+That's what makes exponential growth exponential: *whatever doubles in time \(t_d\) doubles again in the next \(t_d\), however big it's got*. The same logic gives the half-life for decay: \(t_{1/2} = \ln 2 / |k|\).
 
 </details>
 
@@ -2485,11 +2232,7 @@ This is a defining feature of exponential growth: *any quantity that doubles in 
 
 ## Logistic Growth and Carrying Capacity
 
-Exponential growth assumes no limits. But real environmental systems always have constraints. Populations do not grow forever. As numbers increase, individuals compete for shared resources. Food becomes scarce. Habitat becomes crowded. Nutrients are depleted. Predators respond. Disease spreads more easily in dense populations.
-
-These limiting pressures slow growth.
-
-The **logistic model** captures this reality mathematically by modifying exponential growth with a density-dependent factor:
+Exponential growth assumes no limits. Real systems have them. As a population grows, individuals compete for food, space and nutrients, and growth slows. The **logistic model** builds that in by multiplying exponential growth by a crowding factor:
 
 \[
 \frac{dP}{dt} = rP\left(1 - \frac{P}{K}\right)
@@ -2501,13 +2244,13 @@ where:
 - \(r\) = intrinsic growth rate  
 - \(K\) = carrying capacity  
 
-The new term \( \left(1 - \frac{P}{K} \right) \) reduces growth as the population approaches environmental limits.
+The factor \( \left(1 - \frac{P}{K} \right) \) slows growth as the population approaches its limit.
 
 ---
 
 #### Limits to Growth {-}
 
-The defining feature of the logistic equation is the built-in slowdown as population increases.
+The logistic equation slows itself down as the population grows.
 
 The term
 
@@ -2535,38 +2278,17 @@ acts as a limiting factor.
   \]
   and the population stabilizes.
 
-This single modification transforms unlimited growth into self-regulated growth. The population itself contains the mechanism that slows its own expansion.
+One extra factor turns unlimited growth into self-limiting growth.
 
 ---
 
 #### Modeling Resource Constraints {-}
 
-The logistic equation reflects a simple ecological assumption:
-
-- Growth is proportional to population size.
-- Growth is reduced in proportion to crowding.
-
-The fraction
-
+The assumption is simple: growth is proportional to population size, and reduced in proportion to crowding. The fraction
 \[
 \frac{P}{K}
 \]
-
-represents the proportion of environmental capacity currently being used.
-
-When \(P/K\) is small, there is plenty of unused capacity.  
-When \(P/K\) is large, the system is crowded.
-
-As this fraction increases, growth is suppressed.
-
-This models:
-
-- Competition for food  
-- Habitat saturation  
-- Social density effects  
-- Nutrient limitation  
-
-In ecological terms, the system becomes self-regulating.
+is how much of the environment's capacity is in use. When it's small, there's room to spare. When it's close to 1, the system is crowded and growth stalls. That's how the model represents competition for food, habitat filling up and nutrient limits.
 
 ---
 
@@ -2597,18 +2319,13 @@ So there are two equilibrium solutions:
 - \(P = 0\)
 - \(P = K\)
 
-These represent two long-term outcomes:
-
-- Extinction  
-- Stable population at environmental capacity  
+These are the two possible long-term outcomes: extinction, or a population holding steady at capacity.
 
 ---
 
 #### Stability of Equilibrium Solutions {-}
 
-Not all equilibria behave the same way.
-
-To determine stability, we examine what happens near each equilibrium.
+Check what happens near each one.
 
 - If \(0 < P < K\), then \( \frac{dP}{dt} > 0 \).  
 - If \(P > K\), then \( \frac{dP}{dt} < 0 \).
@@ -2623,19 +2340,17 @@ This means:
 
 So \(P = K\) is **stable**.
 
-The system naturally moves toward carrying capacity.
+Populations move toward carrying capacity.
 
 ---
 
 #### Inflection Point and Maximum Growth Rate {-}
 
-The logistic curve is S-shaped (sigmoidal).
+The logistic curve is S-shaped, with three phases:
 
-Growth occurs in three distinct phases:
-
-1. **Early phase** — nearly exponential growth  
-2. **Middle phase** — rapid acceleration  
-3. **Late phase** — slowing as the system approaches equilibrium  
+1. **Early:** close to exponential.
+2. **Middle:** growing fastest.
+3. **Late:** slowing as it approaches \(K\).
 
 The population grows fastest when:
 
@@ -2643,19 +2358,13 @@ The population grows fastest when:
 P = \frac{K}{2}.
 \]
 
-At this point:
-
-- The curve changes concavity.
-- The slope is largest.
-- Resource use is most intense.
-
-This is the **inflection point** — the tipping point between acceleration and deceleration.
+At that point the curve changes from concave up to concave down, and the slope is at its largest. This is the **inflection point**, where growth switches from speeding up to slowing down.
 
 ---
 
 #### Applications {-}
 
-The logistic model appears throughout environmental science because it captures both growth and limits.
+The logistic model shows up all over environmental science, because it has both growth and limits in it.
 
 #### Fisheries {-}
 
@@ -2679,7 +2388,7 @@ Now suppose fishing removes a constant \(H\) fish per year. A simple harvest mod
 
 ---
 
-### Example: Moderate Harvest (Sustainable)
+### Example: Moderate Harvest (Sustainable, Above a Threshold)
 
 Let \(H = 1{,}000\) fish/year and suppose the population starts at:
 
@@ -2704,7 +2413,7 @@ Net change:
 \frac{dP}{dt} \approx 960 - 1000 = -40 \ \text{fish/year}.
 \]
 
-Interpretation: at this population size, harvesting slightly exceeds growth, so the population will decline a bit.
+At this population size, harvesting removes more than the population replaces, so the population shrinks. And as it shrinks, natural growth drops further below 1,000, so the decline doesn't stop.
 
 Now check growth at \(P = 4{,}000\):
 
@@ -2719,13 +2428,15 @@ Net change:
 \frac{dP}{dt} \approx 1440 - 1000 = +440.
 \]
 
-Interpretation: at \(P=4{,}000\), growth exceeds harvest, so the population increases.
+At \(P=4{,}000\), growth beats harvest, so the population increases.
 
-This suggests the population will move toward a stable level where growth balances harvest.
+So the starting point matters. Setting growth equal to harvest,
+\[
+0.6P\left(1 - \frac{P}{10000}\right) = 1000,
+\]
+gives two equilibria: \(P \approx 2{,}113\) and \(P \approx 7{,}887\). The slope field below shows a **stable** equilibrium near 7,900 and an **unstable** threshold near 2,100. Start above the threshold and the population settles near 7,900. Start below it, as at 2,000, and the population collapses even though the harvest is "moderate.\"
 
-If we generate a slope field diagram and plot various initial conditions we can see that we have a stable equilibrium at approximately 8000, and an unstable equilibrium near 2500.
-
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r harvest-moderate, echo=FALSE, warning=FALSE, message=FALSE, fig.alt="Slope field for logistic growth with K = 10,000 and a harvest of 1,000 fish per year. Curves starting above about 2,100 settle near 7,900, and curves starting below it fall to zero."}
 library(tidyverse)
 
 # Parameters
@@ -2835,19 +2546,19 @@ ggplot() +
 
 ### Maximum Sustainable Harvest
 
-The idea of maximum sustainable harvest attempts to match the harvesting rate with the maximum \(\frac{dP}{dt} \). 
+Maximum sustainable harvest matches the harvest to the population's *largest possible* growth rate, \(\frac{dP}{dt}\).
 
-This is a counter intuitive idea, it puts all the emphasis on the rate of change of the population and not the population itself. By harvesting at the maximum rate of change population, we ensure that the population we remove is returned at the fastest rate.
+That's counterintuitive. It focuses on how fast the population replaces itself, not how big it is. Harvest at the peak growth rate and every fish you take is replaced as fast as it can be.
 
-We might naturally think maintaining a high population would be the best for ensuring high harvesting rates. But because of the shape of the logistic growth model, at these higher populations growth is hindered by the limitation of other resources.
+You might expect a big population to support the biggest harvest. But in the logistic model, a big population is crowded and grows slowly. Growth is fastest in the middle.
 
-The logistic growth maximum growth is largest at:
+Logistic growth is fastest at:
 
 \[
 P = \frac{K}{2} = 5000.
 \]
 
-This is where \(\frac{dP}{dt} \) is changing the fastest or its point of inflection. We could calculate this by taking the derivative of \(\frac{dP}{dt} \) with respect to \(t\) and find the maximum.
+At that population, \(\frac{dP}{dt}\) is at its maximum. (It's also the inflection point of \(P(t)\).) You can find it by maximizing the growth term \(rP(1 - P/K)\) as a function of \(P\): it's a downward parabola with its vertex at \(K/2\).
 
 Maximum natural growth:
 
@@ -2869,7 +2580,7 @@ So the maximum sustainable harvest in this model is about:
 H_{\max} \approx 1500 \ \text{fish/year}.
 \]
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r harvest-msy, echo=FALSE, warning=FALSE, message=FALSE, fig.alt="Slope field for logistic growth with a harvest of 1,500 per year. Curves above 5,000 drift down to 5,000, and curves below 5,000 collapse to zero."}
 library(tidyverse)
 
 # Parameters
@@ -2966,9 +2677,7 @@ ggplot() +
   theme_minimal(base_size = 14)
 ```
 
-We now create a semi-stable equilibrium. If The population is above 5000 it tends towards 5000. But, if the population drops below 5000, it will go to extinction.
-
-So even though this is considered the maximum sustainable yield, it has implications.
+Now there's a single **semi-stable** equilibrium. Above 5,000, the population drifts down to 5,000. Below 5,000, it heads to extinction. So the "maximum sustainable yield" leaves no margin at all: one bad year below 5,000 and the population doesn't come back.
 ---
 
 ### Example: Overharvesting (Unsustainable)
@@ -2987,13 +2696,9 @@ So:
 \frac{dP}{dt} < 0 \quad \text{for all population sizes}.
 \]
 
-Interpretation: the population will decline no matter how large it starts.
+The population declines no matter how big it starts. If the harvest is more than the population can ever replace, collapse is guaranteed.
 
-This is a simple mathematical way to express an important fisheries idea:
-
-> If harvest exceeds maximum reproductive capacity, collapse becomes inevitable.
-
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r harvest-over, echo=FALSE, warning=FALSE, message=FALSE, fig.alt="Slope field for logistic growth with a harvest of 1,800 per year. Every curve falls to zero, whatever its starting value."}
 library(tidyverse)
 
 # Parameters
@@ -3083,10 +2788,11 @@ ggplot() +
 
 ### What This Example Shows
 
-- Fish populations can grow rapidly when small, but growth slows near carrying capacity.
+- Fish populations grow fast when small, but slow down near carrying capacity.
 - Harvesting subtracts directly from natural growth.
-- There is a maximum sustainable harvest level.
-- Overharvesting can push the system past a threshold where recovery is no longer possible.
+- Even a moderate harvest has a threshold: below it, the population collapses.
+- There's a maximum sustainable harvest, and it leaves no margin for error.
+- Overharvesting pushes the population past the point where it can recover.
 
 ### Concept Check: Why the Logistic Inflection Point Is at K/2 {-}
 
@@ -3095,14 +2801,14 @@ In the logistic model \(\frac{dP}{dt} = rP\left(1 - P/K\right)\), the population
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-Logistic growth is a balance between two competing effects:
+Two effects compete:
 
-- **Reproductive potential**: more individuals means more total offspring → growth rate ∝ \(P\).
-- **Resource limitation**: as the population approaches \(K\), the per-capita rate \(r(1 - P/K)\) shrinks toward zero.
+- **More individuals, more offspring:** growth goes up with \(P\).
+- **Crowding:** as \(P\) approaches \(K\), the per-capita rate \(r(1 - P/K)\) drops toward zero.
 
-The rate \(\frac{dP}{dt}\) is the *product* of these — population × per-capita rate. When \(P\) is small, there's lots of room (the second factor is near \(r\)) but few individuals reproducing. When \(P\) is near \(K\), there are lots of individuals but per-capita rate is near zero. The product is maximized at the **midpoint**, \(P = K/2\), where you have both substantial population *and* substantial per-capita rate.
+\(\frac{dP}{dt}\) is the *product* of the two. When \(P\) is small there's lots of room, but few individuals reproducing. When \(P\) is near \(K\) there are lots of individuals, but each barely reproduces. The product is biggest halfway, at \(P = K/2\).
 
-This is why fisheries use **Maximum Sustainable Yield** harvest models that target \(P = K/2\) — that's where the population produces the most surplus.
+That's why **maximum sustainable yield** targets \(P = K/2\): it's where the population produces the most surplus.
 
 </details>
 
@@ -3120,7 +2826,7 @@ Look at the sign of \(\frac{dP}{dt} = rP(1 - P/K)\):
 - For \(0 < P < K\): \(\frac{dP}{dt} > 0\) (population grows toward \(K\)).
 - For \(P > K\): \(\frac{dP}{dt} < 0\) (population shrinks back toward \(K\)) → **\(P = K\) is stable**.
 
-**Biologically:** *Extinction is fragile.* A tiny population in a hospitable environment doesn't stay near zero — it grows. But the **carrying capacity \(K\)** is the attractor: an over-populated state collapses back to \(K\), and an under-populated state climbs to \(K\). \(K\) is the long-run equilibrium the system *wants* to be at.
+**Biologically:** a tiny population in a good environment doesn't stay near zero. It grows. Carrying capacity \(K\) is where things settle: an overcrowded population falls back to \(K\), and a small one grows up to it.
 
 </details>
 
@@ -3128,18 +2834,11 @@ Look at the sign of \(\frac{dP}{dt} = rP(1 - P/K)\):
 ---
 
 ## Additional Logistic Model Applications
-In this section we are going to conceptualize how we could use the logistic model on other systems.
+Here's how the logistic model gets adapted for other systems.
 
 ### Wildlife Populations
 
-In wildlife systems, logistic growth emerges when reproduction is limited by environmental capacity.
-
-For species such as deer, wolves, or elk:
-
-- Food availability limits survival and reproduction.
-- Space and territory create crowding effects.
-- Predators regulate prey populations.
-- Disease spreads more easily at high density.
+For deer, wolves or elk, logistic growth comes from limits on reproduction and survival: food, territory, predators, and disease spreading faster when animals are crowded.
 
 In the simplest case, population dynamics follow:
 
@@ -3149,10 +2848,7 @@ In the simplest case, population dynamics follow:
 
 Here:
 
-- \(r\) reflects birth–death balance in ideal conditions.
-- \(K\) represents habitat capacity.
-
-However, real wildlife systems often require modifications.
+Here \(r\) is births minus deaths under ideal conditions, and \(K\) is what the habitat can support. Real wildlife models usually add more.
 
 **Predation pressure**
 
@@ -3180,13 +2876,13 @@ If humans harvest animals:
 \frac{dP}{dt} = rP\left(1 - \frac{P}{K}\right) - H.
 \]
 
-Wildlife systems often move between logistic growth, threshold behavior, and collapse depending on how these pressures change.
+Depending on how these pressures change, a wildlife population can grow logistically, sit near a threshold or collapse.
 
 ---
 
 ### Disease Spread
 
-In early stages of an outbreak, infection spreads proportionally to the number infected:
+Early in an outbreak, infections grow in proportion to the number of people already infected:
 
 \[
 \frac{dI}{dt} \approx rI.
@@ -3194,7 +2890,7 @@ In early stages of an outbreak, infection spreads proportionally to the number i
 
 This is exponential growth.
 
-But infections cannot grow indefinitely because the pool of susceptible individuals is finite.
+That can't continue forever, because there are only so many people left to infect.
 
 A simple logistic-style approximation is:
 
@@ -3207,21 +2903,13 @@ where:
 - \(I(t)\) = number infected,
 - \(K\) = maximum possible infected population (limited by total susceptibles).
 
-Here, \(K\) is not a resource constraint but a **population constraint**.
-
-More realistic disease models modify the equation further:
-
-- Susceptible–Infected–Recovered (SIR) models replace \(K\) with dynamic compartments.
-- Vaccination reduces effective \(K\).
-- Behavioral changes alter \(r\).
-
-Logistic behavior captures saturation — when most susceptible individuals are infected, spread slows.
+Here \(K\) is a limit on *people*, not resources. More realistic disease models go further: SIR (susceptible–infected–recovered) models replace \(K\) with groups whose sizes change, vaccination lowers the effective \(K\), and changes in behavior change \(r\). The logistic version captures the basic saturation: once most people who can be infected have been, spread slows.
 
 ---
 
 ### Resource-Limited Ecosystems
 
-Many ecological processes follow logistic-type patterns because resources are finite.
+Finite resources produce logistic-type patterns in a lot of ecosystems.
 
 **Algal blooms**
 
@@ -3255,35 +2943,20 @@ After disturbance:
 - Growth slows as canopy closes.
 - Biomass stabilizes.
 
-However, environmental systems often modify the logistic form:
-
-- Carrying capacity \(K\) may change with climate.
-- Disturbances may reset population size.
-- Nutrient inputs may increase \(K\).
-- Tipping points may shift the system into a different regime.
+In real systems, \(K\) itself can change with climate or nutrient inputs, disturbances can reset the population, and tipping points can push the system into a different state.
 
 ---
 
 ### What Changes in the Logistic Equation?
 
-Across these examples, different ecological mechanisms alter different parameters:
+Across these examples, different mechanisms change different parts of the equation:
 
 - \(r\) changes when birth or transmission rates change.
-- \(K\) changes when environmental capacity shifts.
-- Additional terms represent harvesting, predation, or disease recovery.
-- Time-dependent parameters reflect seasonality or climate variation.
+- \(K\) changes when the environment's capacity changes.
+- Extra terms add harvesting, predation or recovery.
+- Parameters that depend on time add seasons or climate.
 
-The logistic equation is not the final model — it is a foundational template.
-
-It captures:
-
-- Self-limitation  
-- Density dependence  
-- Saturation  
-
-From there, more realistic ecological dynamics emerge by modifying parameters or adding interacting processes.
-
-This flexibility is why logistic growth is central in environmental modeling.
+The logistic equation is a starting template, not the final model. It captures self-limitation and saturation, and you build from there.
 
 
 ### Concept Check: How the Logistic Equation Adapts to Harvest {-}
@@ -3298,13 +2971,13 @@ Constant-rate harvesting subtracts a flat removal term:
 \frac{dP}{dt} = rP\left(1 - \frac{P}{K}\right) - H.
 \]
 
-The **equilibria** are the roots of \(rP(1 - P/K) - H = 0\), which is a quadratic in \(P\). Depending on \(H\):
+The **equilibria** are the roots of \(rP(1 - P/K) - H = 0\), a quadratic in \(P\). Depending on \(H\):
 
-- Small \(H\) → **two real equilibria** (one stable, one unstable threshold below it). Sustainable harvest.
-- \(H = H_{\text{MSY}} = rK/4\) → **one repeated equilibrium** at \(K/2\). Maximum Sustainable Yield, but it's a *semi-stable* knife-edge.
-- \(H > H_{\text{MSY}}\) → **no real equilibria**, \(\frac{dP}{dt} < 0\) everywhere. Population collapses regardless of starting point.
+- **Small \(H\):** two equilibria, a stable one and an unstable threshold below it. Sustainable, as long as the population stays above the threshold.
+- **\(H = H_{\text{MSY}} = rK/4\):** one repeated equilibrium at \(K/2\). Maximum sustainable yield, but *semi-stable*: no margin for error.
+- **\(H > H_{\text{MSY}}\):** no equilibria, and \(\frac{dP}{dt} < 0\) everywhere. The population collapses wherever it starts.
 
-The shape of the right-hand side shifts from a parabola tangent to the \(P\)-axis at two points (logistic alone) to a parabola pulled down by \(H\) — and once it gets pulled below zero everywhere, there's no stable population state left.
+Graphically, the logistic growth curve (a downward parabola crossing zero at \(P = 0\) and \(P = K\)) gets pulled down by \(H\). Once it's pulled entirely below zero, there's no stable population left.
 
 </details>
 
@@ -3316,26 +2989,25 @@ In a logistic-with-harvest model, increasing the harvest rate \(H\) slowly can p
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-At low \(H\), the model has a stable equilibrium \(P^*\) (somewhat below \(K\)) and an unstable threshold \(P_T\) (somewhat above 0). As long as the population stays above \(P_T\), it's drawn toward \(P^*\).
+At low \(H\), there's a stable equilibrium \(P^*\) (below \(K\)) and an unstable threshold \(P_T\) (above 0). As long as the population stays above \(P_T\), it's pulled toward \(P^*\).
 
 As you slowly raise \(H\):
-- \(P^*\) gradually decreases and \(P_T\) gradually increases — they move toward each other.
-- At \(H = H_{\text{MSY}} = rK/4\), they **collide at \(K/2\)**, leaving just one semi-stable equilibrium.
-- Beyond \(H_{\text{MSY}}\), **both equilibria vanish entirely** — the right-hand side is negative for all \(P\), and the population crashes to zero.
 
-The crucial point is that this transition is a **saddle-node bifurcation**: the qualitative behavior changes abruptly at \(H_{\text{MSY}}\), not gradually. A small additional increase in harvest above the critical level converts a sustainable system into a collapsing one — and recovery requires reducing \(H\) well below the original sustainable level and waiting for the population to climb back. 
+- \(P^*\) drops and \(P_T\) rises. They move toward each other.
+- At \(H = H_{\text{MSY}} = rK/4\), they **meet at \(K/2\)**, leaving one semi-stable equilibrium.
+- Past \(H_{\text{MSY}}\), **both disappear**. The growth rate is negative for every \(P\), and the population crashes.
 
-This is the mathematical fingerprint of why some real fisheries (Atlantic cod, anchovy) have collapsed: not a gentle slope, but a cliff.
+The key point is that the change is **abrupt**, not gradual. (Mathematicians call it a saddle-node bifurcation.) A small increase in harvest past the critical level turns a sustainable fishery into a collapsing one. That's one reason some real fisheries, like northern cod off Newfoundland, collapsed suddenly rather than declining gently.
 
 </details>
 
 
 ---
 
-## End-of-Chapter Practice: Differential Equations — Modeling Change Over Time
+## End-of-Chapter Practice
 
 ### Instructions
-Show your work and write answers clearly. Unless otherwise stated, include units and a short interpretation sentence for modeling questions.
+Show your work. For modeling questions, include units and a one-sentence interpretation.
 
 ---
 
@@ -3738,12 +3410,12 @@ P(6)=200e^{2.4}\approx 2205.
     For exponential decay \(\dfrac{dP}{dt}=-kP\) with \(k=0.25\ \text{yr}^{-1}\), compute the half-life.  
     Then explain what “half-life is constant” means.
 
-20. **CO\(_2\) compounding.**  
+20. **CO\(_2\) compounding.**
     Atmospheric CO\(_2\) concentration is modeled by:
     \[
-    \frac{dC}{dt}=0.015C,\qquad C(0)=420.
+    \frac{dC}{dt}=0.006C,\qquad C(0)=420.
     \]
-    Compute \(C(20)\). Then write 1–2 sentences interpreting why a small annual percent growth can matter.
+    Compute \(C(20)\). Then write 1–2 sentences on why a small annual percentage growth can matter.
 
 <details>
 <summary><strong>Click to reveal solutions</strong></summary>
@@ -3764,12 +3436,12 @@ t_{1/2}=\frac{\ln 2}{k}=\frac{0.693}{0.25}\approx 2.77\ \text{years}.
 
 ---
 
-20. **CO\(_2\) model \(dC/dt=0.015C,\;C(0)=420\).**  
+20. **CO\(_2\) model \(dC/dt=0.006C,\;C(0)=420\).**
 \[
-C(t)=420e^{0.015t}.
+C(t)=420e^{0.006t}.
 \]
 \[
-C(20)=420e^{0.3}\approx 420(1.350)=567\ \text{ppm (approx)}.
+C(20)=420e^{0.12}\approx 420(1.127)\approx 474\ \text{ppm (approx)}.
 \]
 A small percent growth compounds because each year’s increase builds on a larger base, so long-term change can become large even when the annual rate looks modest.
 

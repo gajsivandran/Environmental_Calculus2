@@ -1,93 +1,18 @@
 # Week 4/5 In-Class: Integration Techniques
 
-## Purpose of This Workbook
+This workbook is where integration techniques turn into skills. The chapter explains why each method works. Here you practice picking the right one.
 
-This workbook is designed to help you **learn integration by doing**.
+Each section has the same shape:
 
-In lecture and the textbook, you are introduced to integration techniques as ideas:  
-how they work, why they exist, and how they connect back to derivatives.  
-This workbook is where those ideas become **skills**.
+1. **What to Notice:** the patterns that tell you which method to try.
+2. **Worked Example:** one we'll do together in class.
+3. **Guided Practice:** a problem or two with prompts.
+4. **Independent Practice:** some of these look like one method and need another.
+5. **Strategy Check:** a few questions about how you chose.
 
-Rather than presenting long solution sets to copy, each section of this workbook is structured to support **active problem solving**:
+Before you compute anything, ask yourself: *what structure do I see, and what method does it suggest?* That habit matters more than speed.
 
-- short notes that highlight what to *notice*,
-- guided examples worked through together in class,
-- scaffolded practice that helps you choose a method deliberately,
-- independent problems that build confidence and fluency.
-
-The emphasis throughout is not on memorizing formulas, but on **recognizing structure** and making informed strategic choices.
-
----
-
-## How to Use This Workbook
-
-Each section follows the same rhythm:
-
-1. **What to Notice**  
-   Brief notes that highlight key patterns, warning signs, and strategy cues.
-
-2. **Worked Example (Instructor-Led)**  
-   A carefully chosen example you will work through together in class.  
-   These examples emphasize *why* a method works, not just how to execute it.
-
-3. **Guided Practice**  
-   One or two problems with prompts to help you identify structure before computing.
-
-4. **Independent Practice**  
-   A small set of problems to reinforce the technique and test your understanding.  
-   Some problems are designed to look tempting but require a different method.
-
-5. **Strategy Check**  
-   Short reflection questions that help you articulate *how* you chose a method.
-
-You are encouraged to **pause before computing** and ask:
-> *What structure do I see, and what method does it suggest?*
-
-That habit is more important than speed.
-
----
-
-## Learning Outcomes
-
-By actively engaging with this workbook, you should be able to:
-
-- identify when an integral can be evaluated using **basic antiderivative rules**,
-- recognize **nested structures** and apply substitution appropriately,
-- identify **product structures** and use integration by parts strategically,
-- decompose rational functions using **partial fractions** and integrate term by term,
-- explain *why* a particular integration method is appropriate in a given situation,
-- distinguish between integrals that have elementary antiderivatives and those that do not,
-- check your results by differentiation and by interpreting **units and sign**,
-- develop confidence in rejecting inappropriate methods and course-correcting.
-
----
-
-## A Note on Productive Struggle
-
-Some problems in this workbook are intentionally designed to **fail** if the wrong method is chosen.
-
-This is not a trick.
-
-Being able to recognize *why* a method does not apply—and to adjust your strategy—is a core calculus skill.  
-Mistakes, false starts, and revisions are part of learning to think mathematically.
-
-If a problem feels uncomfortable at first, that is often a sign you are learning the right thing.
-
----
-
-## Expectations
-
-To get the most out of this workbook:
-
-- write down your reasoning, not just final answers,
-- clearly indicate your choice of method before computing,
-- use differentiation to check your work whenever possible,
-- reflect briefly on strategy, even when the computation was straightforward.
-
-Integration is not about finding the “right formula.”  
-It is about understanding structure, making good decisions, and refining your approach with practice.
-
-This workbook is designed to help you build that skill set.
+Some problems are meant to fail if you pick the wrong method. Spotting *why* a method doesn't work, and switching, is part of the skill. Write down your reasoning and your choice of method, not just the answer, and check your results by differentiating.
 
 ## Section 1: Reverse Differentiation (Basic Antiderivative Rules)
 
@@ -183,7 +108,7 @@ Nothing was nested.
 Nothing was multiplied in a way that required restructuring.  
 This integral matched a known derivative exactly.
 
-This is the *ideal* situation—always check for it first.
+This is the *ideal* situation. Always check for it first.
 
 ---
 
@@ -260,9 +185,9 @@ Conceptually, substitution is nothing more than the **chain rule in reverse**.
   f(g(x)) \cdot g'(x)
   \]
 - The derivative of the inner function must be:
-  - present exactly ✔️  
-  - present up to a constant ✔️  
-  - missing ✖️
+  - present exactly (substitution works)  
+  - present up to a constant (substitution works)  
+  - missing (substitution won't work on its own)
 - Substitution changes **both** the expression *and* the differential
 - If substitution does not simplify the integral, it is not the right tool
 
@@ -357,7 +282,7 @@ Substitute back:
 
 **Why This Worked**
 
-The integrand already *was* a derivative — it was just written in a nested form.
+The integrand already *was* a derivative. It was just written in a nested form.
 Substitution removed the nesting so the basic power rule could be applied.
 
 ---
@@ -423,7 +348,7 @@ Answer briefly:
 
 Being able to confidently reject substitution is just as important as using it correctly.
 
-## Section 4: Integration by Parts (The Product Rule in Reverse)
+## Section 3: Integration by Parts (The Product Rule in Reverse)
 
 Substitution helps when a function is **nested** inside another function.  
 Integration by parts is used when an integrand is a **product** of two functions.
@@ -480,7 +405,7 @@ Integration by parts **moves complexity**:
 - the other is integrated (often staying manageable),
 - the remaining integral is simpler than the original.
 
-If the remaining integral is not simpler, the method has failed—and that is useful information.
+If the remaining integral is not simpler, the method has failed, and that's useful information.
 
 ---
 
@@ -653,12 +578,12 @@ Answer briefly:
 Integration by parts is powerful when used deliberately.  
 When used mechanically, it often makes problems worse.
 
-Learning to recognize when—and why—it works is the real goal.
+Learning to recognize when, and why, it works is the real goal.
 
 
 \newpage
 
-## Section 5: Partial Fractions (Breaking Rational Functions Apart)
+## Section 4: Partial Fractions (Breaking Rational Functions Apart)
 
 Substitution and integration by parts focus on **structure** (nesting or products).  
 Partial fractions is different: it applies to **rational functions**.
@@ -692,42 +617,6 @@ Instead, you:
 
 Nothing new happens at the integration step.  
 All the work is in the algebra.
-
----
-
-### Types of Denominator Factors (In This Course)
-
-In this course, we focus on **linear factors only**.
-
-#### 1. Distinct Linear Factors
-
-Example:
-\[
-\frac{1}{(x-1)(x+2)}
-\]
-
-Decomposes as:
-\[
-\frac{A}{x-1} + \frac{B}{x+2}
-\]
-
-Each linear factor gets **one term**.
-
----
-
-#### 2. Repeated Linear Factors
-
-Example:
-\[
-\frac{1}{(x-1)^2}
-\]
-
-Decomposes as:
-\[
-\frac{A}{x-1} + \frac{B}{(x-1)^2}
-\]
-
-Each **power** of a repeated factor gets its own term.
 
 ---
 
@@ -879,7 +768,7 @@ Solve for \(A\) and \(B\), then integrate each term using basic rules.
 
 Evaluate:
 \[
-\int \frac{5x+3}{(x^2-1}\,dx
+\int \frac{5x+3}{x^2-2x+1}\,dx
 \]
 
 ---
@@ -896,7 +785,7 @@ Before computing:
 
 **Factor the denominator**
 \[
-x^2-1 = (x-1)^2
+x^2-2x+1 = (x-1)^2
 \]
 
 

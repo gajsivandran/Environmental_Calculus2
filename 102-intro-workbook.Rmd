@@ -1,4 +1,4 @@
-# Workbook — Introduction to Calculus II: Accumulation and Change
+# Workbook: Introduction to Calculus II: Accumulation and Change
 
 > **Goal of this workbook:**  
 > To help you build intuition for accumulation, connect rates to totals, and begin thinking like a modeler of natural systems.
@@ -7,7 +7,7 @@ You are not expected to compute integrals yet. Instead, you will **reason**, **s
 
 ---
 
-## Part 1 — From Instantaneous Change to Accumulated Change
+## Part 1: From Instantaneous Change to Accumulated Change
 
 ### Warm-Up: Thinking Back to Calculus I
 
@@ -40,11 +40,11 @@ Be ready to share one example with the class.
 
 :::
 
-![](images/Accumulation.png){fig.cap="" fig.alt="" style="float=center; width:450px; margin:10px;"}
+![](images/Accumulation.png){fig.cap="" fig.alt="" style="display:block; width:450px; margin:10px auto;"}
 
 ---
 
-## Part 2 — Accumulation as “Adding Small Pieces”
+## Part 2: Accumulation as “Adding Small Pieces”
 
 ### Concept Check: Discrete Accumulation
 
@@ -80,7 +80,7 @@ Without calculating anything:
 - Label the height and width of each rectangle.
 - Explain (in words) how the **area** of each rectangle relates to rainfall.
 
-🧠 *Key idea to articulate:*  
+*Key idea to articulate:*  
 Why does “rate × time” produce a total?
 
 <br><br><br><br><br>
@@ -90,14 +90,14 @@ Why does “rate × time” produce a total?
 ---
 
 
-## Part 3 — When Rates Vary Continuously
+## Part 3: When Rates Vary Continuously
 
 ::: promptbox
 
 **Individual Prompt: Reading a Graph**
 
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r hourly-rainfall, echo=FALSE, warning=FALSE, message=FALSE, fig.alt="Hourly rainfall time series with zero-rainfall hours included, showing short bursts of rain separated by dry periods."}
 library(tidyverse)
 library(lubridate)
 
@@ -244,7 +244,7 @@ Discuss with a partner:
 
 ---
 
-## Part 4 — Riemann Sums as an Idea (Not a Formula)
+## Part 4: Riemann Sums as an Idea (Not a Formula)
 
 ::: promptbox
 
@@ -266,13 +266,13 @@ For each case:
 
 ---
 
-## Part 5 — Reversing Derivatives
+## Part 5: Reversing Derivatives
 
 ### Conceptual Prompt
 
 ::: promptbox
 
-![](images/int_conceptual.png){fig.cap="" fig.alt="A simple conceptual diagram showing the relationship between differentiation and integration. On the left is a function f(x) a differentiation arrow points to f'(x). Another arrow goes from right to left, from f'(x) to f(x) with the word integration" style="float=center; width:450px; margin:10px;"}
+![](images/int_conceptual.png){fig.cap="" fig.alt="A simple conceptual diagram showing the relationship between differentiation and integration. On the left is a function f(x) a differentiation arrow points to f'(x). Another arrow goes from right to left, from f'(x) to f(x) with the word integration" style="display:block; width:450px; margin:10px auto;"}
 
 A derivative answers:  
 > *“How fast is this changing right now?”*

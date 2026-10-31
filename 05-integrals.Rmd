@@ -1,74 +1,41 @@
 # Techniques of Integration (Indefinite Integrals)
 
-A regulatory scientist is staring at three rate equations on her screen — first-order pollutant decay with a constant source term, photosynthesis rate as a function of light that's itself a function of time, and a logistic-style population dynamic that just got fitted to a salmon counter dataset. Each one needs to be integrated to answer the actual question her agency cares about: *how much, in total, between these two dates?* The Fundamental Theorem of Calculus tells her there's an antiderivative out there for each rate. The hard part is *finding* it.
-
-This chapter is about the toolkit for that hard part. The Fundamental Theorem reduces a definite integral to evaluating an antiderivative — but only if you can produce one. That isn't always obvious, because integration doesn't have a clean step-by-step algorithm the way differentiation does. What you build instead is a set of **pattern-recognition skills**: spotting when an integrand wants substitution, when it wants integration by parts, when it wants partial fractions, and when it really just wants to be rewritten before you do anything fancy at all.
+The Fundamental Theorem turns any definite integral into "find an antiderivative, evaluate, subtract." That only helps if you can *find* the antiderivative, and that's where integration gets harder than differentiation. Differentiation has a recipe you can grind through. Integration doesn't. What you build instead is pattern recognition: spotting when an integrand is a chain rule in disguise, a product, or a fraction that can be split apart.
 
 ## Purpose of the Chapter
 
-In the previous chapter, you learned what a definite integral *means* (accumulation) and why it can be computed using antiderivatives (the Fundamental Theorem of Calculus).  
-
-This chapter answers the next practical question:
-
-> **How do we actually find antiderivatives when the integrand is not “obvious”?**
-
-Rather than treating integration as a list of formulas, this chapter emphasizes **pattern recognition + strategy**: identify the structure of a function, choose an appropriate method, and interpret the result in context.
+Chapter 4 showed what a definite integral *means* and why antiderivatives compute it. This chapter is about how to *find* antiderivatives when they aren't obvious.
 
 By the end of this chapter, you should be able to:
 
-- compute **indefinite integrals** using core rules and techniques,
-- recognize when to use **substitution**, **integration by parts**, **partial fractions**, or **numerical methods**,
-- connect each technique back to derivative rules (chain rule, product rule),
-- interpret results using **units, sign, and context**, not just algebra.
+- compute **indefinite integrals** with the basic rules
+- recognize when to use **substitution**, **integration by parts** or **partial fractions**
+- connect each technique back to a derivative rule (chain rule, product rule)
+- check your answer by differentiating it
 
 ---
 
 ## Indefinite Integrals and the Constant of Integration
 
-In the previous chapter, you learned how a **definite integral** measures *net accumulated change over a specific interval*. The bounds told you exactly where accumulation started and stopped, and the result was a **single number** with a clear physical meaning.
-
-In this section, we remove those bounds and ask a different—but closely related—question:
-
-> **What functions have a given rate of change?**
-
-The answer leads us to **indefinite integrals**, antiderivatives, and the essential role of the constant of integration.
-
----
-
-### From Definite to Indefinite Integrals
+A definite integral has bounds, and its answer is a number: the net change between \(a\) and \(b\). Take the bounds away and you're asking a different question: *which functions have this rate of change?*
 
 A **definite integral**
 \[
 \int_a^b f(x)\,dx
 \]
-asks:
-
-> *How much total change occurred between \(x=a\) and \(x=b\)?*
+asks: *how much changed between \(x=a\) and \(x=b\)?*
 
 An **indefinite integral**
 \[
 \int f(x)\,dx
 \]
-asks something more open-ended:
+asks: *which functions have derivative \(f(x)\)?*
 
-> *What function (or functions) have derivative equal to \(f(x)\)?*
-
-When the bounds disappear, two important things change:
-
-1. **The result is no longer a number.**  
-   An indefinite integral produces a *function*.
-
-2. **The accumulation is no longer anchored.**  
-   Without a starting point, we cannot say how much has accumulated—only *how accumulation grows*.
-
-This is why we write:
+Without bounds, the answer isn't a number any more. It's a function, and because there's no starting point, it's really a whole family of functions:
 \[
 \int f(x)\,dx = F(x) + C,
 \]
 where \(F'(x) = f(x)\).
-
-The indefinite integral does not describe a single accumulated quantity.  
-It describes an entire **family of possible accumulation functions**.
 
 ---
 
@@ -84,7 +51,7 @@ Any of the following functions has derivative \(2x\):
 x^2,\quad x^2 + 3,\quad x^2 - 10,\quad x^2 + C.
 \]
 
-```{r antiderivative-family-example, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4}
+```{r antiderivative-family-example, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4, fig.alt="Two panels. The left shows the straight line f of x equals 2x. The right shows three parabolas, x squared, x squared plus 3 and x squared minus 10, with the same shape at different heights."}
 
 library(ggplot2)
 library(patchwork)
@@ -147,95 +114,42 @@ p_rate | p_anti
 
 ```
 
-> Remember from Calc I that a derivative function f(x) describes the slopes of a function. The slopes of the functions on the right are all the same for the same x value. So a constant doesn't impact slope. 
-
-All of these functions increase at the same rate for the same values of \(x\).  
-The only difference is **where they start**.
-
-This is the key conceptual shift:
-
-> **An indefinite integral describes how accumulation changes, not how much has accumulated so far.**
-
-The missing information is the starting value—and that missing information is encoded in the constant \(C\).
+A derivative only describes slopes. All the curves on the right have the same slope at the same \(x\). They just start at different heights, and adding a constant doesn't change a slope. That missing starting value is the constant \(C\).
 
 ---
 
 ### Antiderivatives and the “+ C”
 
-An **antiderivative** of \(f(x)\) is any function whose derivative is \(f(x)\).
-
-Because derivatives eliminate constants:
-
-Differentiate term by term:
+An **antiderivative** of \(f(x)\) is any function whose derivative is \(f(x)\). Since the derivative of a constant is zero,
 \[
-\frac{d}{dx}\big(F(x) + C\big)
-= \frac{d}{dx}F(x) + \frac{d}{dx}C.
+\frac{d}{dx}\big(F(x) + C\big) = F'(x) + 0 = F'(x).
 \]
+So every antiderivative comes with a "+ C".
 
-Since a constant does not change with \(x\),
-\[
-\frac{d}{dx}C = 0.
-\]
-
-Therefore,
-\[
-\frac{d}{dx}\big(F(x) + C\big)
-= F'(x) + 0
-= F'(x).
-\]
-
-Every antiderivative comes with an unavoidable ambiguity.
-
-That ambiguity is not a flaw—it reflects reality.
-
----
-
-#### Why Antiderivatives Are Not Unique
-
-If \(f(x)\) represents a **rate** (such as carbon flux, water inflow, or population growth), then the *accumulated amount* depends on **initial conditions**:
-
-- How much carbon was already present?
-- How much water was in the reservoir at the start?
-- What was the initial population size?
-
-Different starting values produce different accumulation curves—but all follow the **same rate of change**.
-
-Mathematically, this is why we must include the constant of integration, \(+C\).
+That isn't a flaw. If \(f\) is a rate (carbon flux, inflow to a reservoir, population growth), the amount at any time depends on where you started: how much carbon was already there, how full the reservoir was, how big the population was. Different starting points give different curves with the same rate. The \(+C\) is how the math keeps track of that.
 
 ---
 
 ::: promptbox
 
-**Environmental Example: Two Lakes with the Same Inflow Rate**
+**Example: Two Lakes with the Same Inflow**
 
-Suppose two lakes experience the **same inflow rate** of water, modeled by
+Two lakes get water at the same rate:
 \[
 f(t) = 2t \quad \text{(m³/day)},
 \]
-where \(t\) is time in days.
-
-This rate describes how quickly water is entering each lake at any moment.
-
-Integrating the rate gives an accumulation function:
+where \(t\) is time in days. Integrating gives
 \[
 V(t) = t^2 + C,
 \]
-where \(V(t)\) is the volume of water in the lake and \(C\) represents the **initial volume**.
+where \(V(t)\) is the volume in the lake and \(C\) is the volume at \(t = 0\).
 
-Now suppose:
+- **Lake A** starts with 100 m³: \(V_A(t) = t^2 + 100\)
+- **Lake B** starts with 250 m³: \(V_B(t) = t^2 + 250\)
 
-- **Lake A** starts with 100 m³ of water  
-- **Lake B** starts with 250 m³ of water  
+Same rate, so same shape. Different starting volumes, so one curve sits 150 m³ above the other.
 
-Both lakes gain water according to the *same rate*, so their accumulation functions have the same shape.  
-The only difference is their starting point.
-
-- Lake A: \(V_A(t) = t^2 + 100\)
-- Lake B: \(V_B(t) = t^2 + 250\)
-
-Graphically, these curves are **vertical shifts** of one another.
-
-```{r two-lakes-same-rate-different-start, echo=FALSE, message=FALSE, warning=FALSE, fig.width=7, fig.height=4}
+```{r two-lakes-same-rate-different-start, echo=FALSE, message=FALSE, warning=FALSE, fig.width=7, fig.height=4, fig.alt="Lake volume over 10 days for two lakes. Both curves rise as t squared, but Lake B starts at 250 cubic meters and stays 150 cubic meters above Lake A, which starts at 100."}
 
 library(ggplot2)
 
@@ -272,139 +186,49 @@ ggplot(df, aes(x = t)) +
   )
 
 ```
-**Key Insight**
-
-> The rate of change determines the *shape* of accumulation.  
-> Initial conditions determine the *vertical position*.
-
-This is why antiderivatives are not unique:  
-the mathematics reflects the physical reality that systems can evolve at the same rate while starting from different states.
+The rate sets the *shape* of the curve. The starting condition sets its *height*.
 
 :::
 
 
-#### Vertical Shifts and Initial Conditions
+#### Leaving Out \(C\)
 
-The constant \(C\) represents a **vertical shift** of the accumulation function.
+Dropping the \(+C\) is the same as assuming the system started at zero. That's rarely true unless the problem says so.
 
-Conceptually:
+#### Why \(C\) Cancels in Definite Integrals
 
-- The *shape* of the curve is determined by the rate \(f(x)\).
-- The *vertical position* is determined by initial conditions.
-
-This mirrors environmental modeling:
-
-- Same rainfall rate → same growth pattern of water volume  
-- Different initial storage → different total volume at all times
-
-Ignoring \(C\) is equivalent to assuming the system always starts at zero—which is rarely justified unless explicitly stated.
-
----
-
-#### Why Constants Cancel in Definite Integrals
-
-When computing a definite integral using an antiderivative:
-\[
-\int_a^b f(x)\,dx = [F(x) + C]_a^b,
-\]
-the constant cancels:
+In a definite integral the constant shows up twice and cancels:
 \[
 (F(b) + C) - (F(a) + C) = F(b) - F(a).
 \]
+A definite integral measures *change between two points*, so the starting level doesn't matter. An indefinite integral describes the amount itself, so it does.
 
+#### Units
 
-This is why definite integrals do **not** require a constant of integration.
+Units still apply without bounds. If \(f(x)\) is in kg/day and \(x\) is in days, then \(\int f(x)\,dx\) is in kg. But without a starting value, you don't know *how many* kg. You only know how the amount changes with \(x\).
 
-A definite integral measures **change between two points**, not absolute level.  
-Only differences matter.
+#### Finding \(C\) from a Starting Value
 
-Indefinite integrals, by contrast, describe **absolute accumulation**, so the constant matters.
-
-
-
----
-
-### Quick Interpretation Habit
-
-To use indefinite integrals correctly—especially in applied contexts—it helps to adopt two quick interpretation checks.
-
----
-
-#### Units in Indefinite Integrals
-
-Even without bounds, units still carry meaning.
-
-If:
-
-- \(f(x)\) has units of *rate* (e.g., kg/day),
-- and \(x\) has units of *time* (days),
-
-then:
-\[
-\int f(x)\,dx
-\]
-has units of **accumulated quantity** (kg).
-
-However, without bounds:
-
-- you do **not** yet know *how much* has accumulated,
-- only how accumulation depends on \(x\).
-
-This distinction prevents a common mistake: treating an indefinite integral as a physical total without specifying a reference point.
-
----
-
-#### Determining \(C\) from a Known Starting Value
-
-In real problems, the constant \(C\) is determined using **initial conditions**.
-
-Example:
-- Suppose \(f(t)\) is a rate of change.
-- You find an antiderivative \(F(t) + C\).
-- You are told that the accumulated quantity equals \(A_0\) at time \(t=t_0\).
-
-Then you solve:
+In real problems you find \(C\) from a known value. If the antiderivative is \(F(t) + C\) and the amount is \(A_0\) at time \(t_0\), solve
 \[
 F(t_0) + C = A_0
 \]
-to determine \(C\).
-
-This step turns a *family* of solutions into a **specific model**.
-
----
-
-### Key Takeaway
-
-> **Indefinite integrals describe how accumulation grows; the constant of integration encodes where accumulation starts.**
-
-Definite integrals eliminate this ambiguity by focusing on change between two points.  
-Indefinite integrals retain it—because real systems depend on initial conditions.
-
-Understanding this distinction is essential before learning any integration technique, because every technique ultimately produces an antiderivative—and every antiderivative represents a family of possible accumulated states.
+for \(C\). That turns the family of curves into one specific model.
 
 
 ---
 
 ## Reverse Differentiation as a Skill
 
-In environmental science you usually know a *rate* — how fast a contaminant is decaying, how fast a forest stand is fixing carbon, how fast a population is changing — and you need to recover the *quantity* that produced that rate. That recovery is exactly antidifferentiation. The good news is that most of the rates you'll meet in introductory environmental modeling fall into a short list of recognizable shapes: power-law growth or decay, exponential approach to equilibrium, logarithmic accumulation, and the occasional periodic signal. Building fluency with a small **antiderivative dictionary** covers most of what you'll see.
+Most of the time in environmental work you know a *rate* (how fast a contaminant is decaying, how fast a stand is fixing carbon) and you want the *amount*. Getting from one to the other is antidifferentiation, and most of the rates you'll meet come from a short list of functions.
 
-
-At this stage, integration should not feel like a new topic—it should feel like **recognition**.
-
-Every integration rule you learn already exists somewhere in your derivative toolkit. The challenge is not memorizing formulas, but training yourself to *see* an integrand as the derivative of something familiar.
-
-Think of this section as building an **antiderivative dictionary** and learning how to look up entries quickly.
+Every rule in this section is a derivative rule you already know, run backwards. The skill isn't memorizing formulas. It's looking at an integrand and recognizing it as the derivative of something familiar.
 
 ---
 
 ### The “Antiderivative Dictionary”
 
-An antiderivative dictionary is a mental catalog that pairs common derivatives with their original functions. When you integrate, you are asking:
-
-> *Have I seen this derivative before?*
-
-Below are the core entries you should know cold.
+Think of it as a dictionary. When you integrate, you're asking: *have I seen this as a derivative before?* These are the entries to know cold.
 
 ---
 
@@ -440,7 +264,7 @@ Instead:
 \int \frac{1}{x}\,dx = \ln|x| + C
 \]
 
-This is not arbitrary—it comes directly from:
+It comes straight from:
 \[
 \frac{d}{dx}(\ln|x|) = \frac{1}{x}
 \]
@@ -468,15 +292,7 @@ Similarly:
 \int a^x dx = \frac{a^x}{\ln a} + C \quad (a > 0, a \neq 1)
 \]
 
-**Logarithms**
-\[
-\frac{d}{dx}(\ln|x|) = \frac{1}{x}
-\]
 
-So:
-\[
-\int \frac{1}{x} dx = \ln|x| + C
-\]
 
 ---
 
@@ -500,78 +316,45 @@ For sine and cosine in particular, the negative sign is part of the recognition.
 
 ### Pattern Recognition Over Memorization
 
-A common misconception is that integration is about remembering formulas.
+Integration is less about remembering formulas than about recognizing them:
 
-In reality, successful integration looks like this:
-
-1. **Scan the integrand**
-2. **Ask:** “What derivative does this resemble?”
-3. **Match structure**, not symbols
-4. **Apply the corresponding reverse rule**
-
----
+1. Look at the integrand.
+2. Ask what derivative it looks like.
+3. Match the structure, not the symbols.
+4. Apply the matching reverse rule.
 
 #### Reading an Integrand as a Derivative
 
-Consider:
+Take
 \[
-\int 6x^5 dx
+\int 6x^5 dx.
 \]
-
-Instead of thinking “apply the power rule,” think:
-
-> *What function has derivative \(6x^5\)?*
-
-You know:
+Instead of "apply the power rule," ask: *what has derivative \(6x^5\)?* You know \(\frac{d}{dx}(x^6) = 6x^5\), so
 \[
-\frac{d}{dx}(x^6) = 6x^5
+\int 6x^5 dx = x^6 + C.
 \]
+That habit matters more as the functions get more complicated.
 
-So immediately:
-\[
-\int 6x^5 dx = x^6 + C
-\]
+#### Quick Recognition Cues
 
-This mindset becomes essential later when functions are more complicated.
+- **Powers of \(x\)** → power rule
+- **\(1/x\)** → logarithm
+- **\(e^x\)** → exponential
+- **A trig function on its own** → basic trig antiderivative
+- **A constant in front** → pull it out
 
----
-
-#### Common Structures That Should Trigger a Rule
-
-Here are some quick recognition cues:
-
-- **Powers of \(x\)** → power rule  
-- **\(1/x\)** → logarithm  
-- **\(e^x\)** → exponential  
-- **Trig functions alone** → basic trig antiderivatives  
-- **Constant multiples** → pull out the constant  
-
-If nothing jumps out immediately, that’s a signal—not a failure. It often means a **strategy** (like substitution) is coming later.
-
----
-
-
-
-### Key Takeaway
-
-> **Integration is reverse differentiation plus pattern recognition.**
-
-Build a small, reliable antiderivative dictionary.  
-Practice recognizing structures before computing.  
-Speed comes from understanding, not memorization.
-
-Once this skill is in place, integration techniques become tools—not obstacles.
+If nothing jumps out, that's not a failure. It usually means you need one of the techniques coming up next.
 
 ---
 
 ### Concept Check: Why Integration Is Harder Than Differentiation {-}
 
-Differentiation has a step-by-step algorithm — power rule, chain rule, product rule, and you can grind through anything. Integration doesn't work that way. Why?
+Differentiation has a step-by-step recipe: power rule, chain rule, product rule, and you can grind through anything. Integration doesn't work that way. Why?
 
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-Differentiation is a **constructive** process: every elementary function has a derivative that can be built mechanically from a small set of rules. Integration is the *inverse* — you're trying to find a function whose derivative is given — and there's no general recipe that always works. Many elementary-looking integrands (like \(e^{-x^2}\) or \(\sin(x)/x\)) don't even have elementary antiderivatives at all. So instead of an algorithm, you learn to **recognize patterns** and pick a technique that matches.
+Differentiation is **mechanical**: every elementary function has a derivative you can build from a few rules. Integration runs the other way. You're looking for a function with a given derivative, and there's no recipe that always works. Some innocent-looking integrands, like \(e^{-x^2}\) or \(\sin(x)/x\), don't have an antiderivative you can write with elementary functions at all. So integration is a set of techniques you try, check and sometimes abandon.
 
 </details>
 
@@ -583,7 +366,7 @@ When you spot \(\int 2x\cos(x^2)\,dx\) and immediately think "that's a chain-rul
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-You're noticing that one factor (\(2x\)) is **exactly the derivative** of the inner part of the other factor (the \(x^2\) inside the cosine). Differentiating \(\sin(x^2)\) by the chain rule would give \(\cos(x^2)\cdot 2x\) — exactly your integrand. So an antiderivative is \(\sin(x^2) + C\). The pattern that *triggers* this recognition is "inner function and its derivative are both present".
+One factor, \(2x\), is **exactly the derivative** of the inside of the other factor, the \(x^2\) inside the cosine. Differentiating \(\sin(x^2)\) with the chain rule gives \(\cos(x^2)\cdot 2x\), which is your integrand. So an antiderivative is \(\sin(x^2) + C\). The thing to look for: an inner function *and* its derivative, both present.
 
 </details>
 
@@ -592,41 +375,26 @@ You're noticing that one factor (\(2x\)) is **exactly the derivative** of the in
 
 ## Substitution: When a Function Is Hiding Inside Another
 
-Substitution is the technique that handles **composite rates** — rates that depend on a quantity that is itself changing. This comes up constantly in environmental work: a chemical reaction rate that depends on concentration which depends on time, an oxygen-uptake rate that depends on temperature which depends on depth, a discharge rate written in one variable that needs to be re-expressed in another. Whenever an integrand contains a function tucked inside another function — and the derivative of that inner function happens to be sitting right there — substitution is your first move.
+Substitution handles **composite rates**: a rate that depends on something that's itself changing. A reaction rate that depends on concentration, which depends on time. An oxygen-uptake rate that depends on temperature, which depends on depth.
 
-
-Many integrals fail not because the function is complicated, but because it is **nested**.
-
-Substitution is the technique that lets us *temporarily ignore the outer complexity* by focusing on the inner structure. Conceptually, it is nothing more than the **chain rule in reverse**.
-
----
+Integrals like these are hard because they're **nested**, not because they're complicated. Substitution lets you deal with the inside first. It's the **chain rule in reverse**.
 
 ### The Big Idea: The Chain Rule in Reverse
 
-Recall the chain rule from differentiation:
+The chain rule says
 \[
 \frac{d}{dx}\big(F(g(x))\big) = F'(g(x))\,g'(x).
 \]
 
-Substitution works when an integrand matches this derivative structure:
-\[
-F'(g(x))\,g'(x).
-\]
-
-For notational simplicity, we often write this pattern as
+So substitution works when the integrand looks like
 \[
 f(g(x))\,g'(x),
 \]
-where \(f\) represents the derivative of some outer function \(F\).
+where \(f\) is the derivative of some outer function \(F\). The question to ask:
 
-The key recognition step is:
+**Do I see a function inside another function, along with (almost) its derivative?**
 
-> **Do I see a function inside another function, along with (almost) its derivative?**
-
-At first, this pattern can be difficult to spot. That is normal.  
-Recognition improves with repetition, not memorization.
-
-Equally important, we will practice **course correction**: learning how to recognize when substitution is *not* working and what that tells you about which strategy to try next.
+That's hard to spot at first. It gets easier with practice. Just as important is recognizing when substitution *isn't* working, and what that tells you to try instead.
 
 ---
 
@@ -645,26 +413,11 @@ Read it structurally:
 
 This matches the chain rule pattern exactly.
 
-Instead of expanding powers or managing products, we *rename the inner function* and simplify the structure.
+Instead of expanding the fifth power, rename the inner function and the integral gets simple.
 
----
+#### Why It's a Change of Variable, Not a Trick
 
-#### Why Substitution Is a Change of Variable (Not a Trick)
-
-Substitution is often taught procedurally, which makes it feel like a trick.
-
-Conceptually, it is much simpler:
-
-> **We change variables so that the integral matches something we already know how to do.**
-
-We are not changing the mathematics—only the *perspective*.
-
-This mirrors modeling practice:
-
-- If a process depends on temperature, we might re-express time-dependent data in terms of temperature.
-- If a rate depends on concentration, we may analyze accumulation with concentration as the variable.
-
-Substitution is exactly this idea, applied mathematically.
+Substitution can feel like a trick when it's taught as a procedure. It isn't. You change variables so the integral matches something you already know how to do. The math is the same. Only the variable you're measuring in changes, the same way you might re-express time-series data in terms of temperature if temperature is what drives the process.
 
 ---
 
@@ -699,80 +452,19 @@ Differentiate \(u\):
 du = 6x\,dx.
 \]
 
-This step is not symbolic bookkeeping—it is where the **meaning of the integral is preserved**.
+This step matters more than it looks.
 
----
+##### What \(dx\) Means
 
-##### What \(dx\) Actually Means
-
-Recall where integrals come from.
-
-A definite integral begins as a Riemann sum:
+An integral starts as a Riemann sum,
 \[
-\sum f(x_i)\,\Delta x.
+\sum f(x_i)\,\Delta x,
 \]
+where \(f(x_i)\) is the height of each rectangle and \(\Delta x\) is its **width**. As the widths shrink, the sum becomes \(\int f(x)\,dx\). So \(dx\) is a very thin width **measured in \(x\)**.
 
-Here:
-- \(f(x_i)\) is the height of each rectangle,
-- \(\Delta x\) is the **width** of each rectangle.
+When you switch to \(u\), you're measuring in \(u\) instead. The heights get rewritten in terms of \(u\), and **so do the widths**. Leave \(dx\) behind and you're mixing two different rulers.
 
-When we take the limit as the widths shrink,
-\[
-\Delta x \to 0,
-\]
-the sum becomes an integral:
-\[
-\int f(x)\,dx.
-\]
-
-The symbol \(dx\) represents an **infinitesimally small width measured in the \(x\)-direction**.
-
----
-
-##### Why \(dx\) Must Change When the Variable Changes
-
-When we use substitution, we are no longer measuring accumulation in terms of \(x\).  
-We are changing variables and measuring accumulation in terms of a new quantity \(u\).
-
-That means:
-- the “height” of each rectangle is rewritten in terms of \(u\),
-- **the width must also be rewritten**.
-
-Leaving \(dx\) behind would mix measurements from two different coordinate systems.
-
----
-
-##### What \(du = 6x\,dx\) Is Really Saying
-
-When we compute:
-\[
-du = 6x\,dx,
-\]
-we are expressing how an **infinitesimal change in \(x\)** corresponds to an **infinitesimal change in \(u\)**.
-
-- \(dx\) measures tiny steps in \(x\),
-- \(du\) measures the corresponding tiny steps in \(u\),
-- the factor \(6x\) tells us how those widths scale.
-
-The product \(6x\,dx\) is the **new width** after changing variables.
-
----
-
-##### The Key Idea
-
-> Substitution changes both the function *and* the width over which accumulation happens.
-
-Failing to convert the differential breaks the meaning of the integral.
-
----
-
-##### A Useful Mental Model
-
-Think of substitution as re-measuring the same total accumulation using a **different ruler**.
-
-- \(dx\) measures length in \(x\)-units,
-- \(du\) measures length in \(u\)-units,
-- \(\frac{du}{dx}\) tells you how to convert between them.
+\(du = 6x\,dx\) tells you how a small step in \(x\) translates into a small step in \(u\). The factor \(6x\) is the conversion between the two rulers. Forget to convert the differential and the integral no longer means what it did.
 
 ---
 
@@ -808,20 +500,13 @@ Substitute back:
 
 ### Why Substitution Works
 
-Substitution temporarily turns a **composite rate** into a **simple rate**.
-
-You are effectively saying:
-
-> *Let me measure accumulation with respect to the inner process first.*
-
-Once that accumulation is understood, you translate it back to the original variable.
+You've turned a composite rate into a simple one by measuring it in terms of the inner quantity first, then translating back to the original variable.
 
 ---
 
 ### Substitution in Definite Integrals
 
-Substitution works the same way for definite integrals, with one improvement:  
-you can **change the bounds instead of substituting back**.
+Substitution works the same way in definite integrals, with one shortcut: you can **change the bounds** instead of substituting back.
 
 ---
 
@@ -849,19 +534,13 @@ Now the integral becomes:
 
 ---
 
-#### Why This Reduces Errors
-
-- No need to rewrite \(x\) in terms of \(u\)
-- Cleaner algebra
-- Fewer opportunities to lose constants or signs
+Changing the bounds means you never have to switch back to \(x\), so there's less algebra and fewer chances to drop a constant or a sign.
 
 ---
 
 ::: promptbox
 
-**Worked Example: Why the Differential Must Change**
-
-Let’s look at a substitution example where the role of \(dx\) and \(du\) is especially clear.
+**Worked Example: Converting the Differential**
 
 ---
 
@@ -894,7 +573,7 @@ Then:
 du = 2x\,dx.
 \]
 
-👉 **The entire factor \(2x\,dx\) is exactly \(du\).**
+The whole factor \(2x\,dx\) is exactly \(du\).
 
 ---
 
@@ -914,11 +593,7 @@ e^{x^2} + C.
 
 ---
 
-**Key Insight from This Example**
-
-> The differential tells you **what variable the accumulation is happening in**.
-
-Both the function and the width must be expressed in the same variable.
+The function and the width both have to be written in the same variable.
 
 :::
 
@@ -926,9 +601,7 @@ Both the function and the width must be expressed in the same variable.
 
 ### Common Pitfalls
 
-Substitution errors almost always fall into one of the following categories.
-
----
+Most substitution mistakes are one of these.
 
 #### Missing the Derivative Factor
 
@@ -936,60 +609,33 @@ Substitution errors almost always fall into one of the following categories.
 \int (x^2 + 1)^4 dx
 \]
 
-There is no \(2x\) present.
+There's no \(2x\) here, so substitution won't simplify it. (Expanding the power and using the power rule will.)
 
-This means substitution will not simplify the integral without additional manipulation.
-
----
-
-#### Incorrect \(du\)
+#### Writing \(du\) Without the \(dx\)
 
 \[
 u = x^2 + 1 \quad \Rightarrow \quad du = 2x
 \]
 
-This is incomplete.
+is incomplete. It should be \(du = 2x\,dx\).
 
-Correct:
-\[
-du = 2x\,dx.
-\]
+#### Switching Back Too Early
 
----
+Once the integral is in terms of \(u\), **stay in \(u\)** until you've integrated.
 
-#### Substituting Back Too Early
+### Before You Substitute
 
-Once the integral is rewritten in terms of \(u\), **stay in \(u\)** until after integration.
+- Is there a function inside another function?
+- Is the derivative of the inside present, up to a constant?
+- Will the substitution make the integral simpler?
 
----
-
-### Strategy Check
-
-Before using substitution, ask:
-
-- Do I see a nested structure?
-- Is the derivative of the inner function present (up to a constant)?
-- Will this rewrite the integral into something simpler?
-
-If the answer is no, that is information—not failure.
-
----
-
-### Key Takeaway
-
-> **Substitution is the chain rule in reverse, framed as a change of variable.**
-
-It simplifies nested structure by re-measuring accumulation in the variable that controls change.
-
-If substitution fails, it usually fails clearly—telling you it is time for a different strategy.
+If the answer is no, that's useful. It tells you to try something else.
 
 ---
 
 ### When the Derivative Is *Almost* There – *Close Enough Can Be Enough*
 
-Very often, the derivative of the inner function is present **up to a constant factor**.
-
-This is not a problem—it is a feature.
+Often the derivative of the inner function is there **up to a constant**. That's fine.
 
 ---
 
@@ -1029,11 +675,9 @@ The integrand contains \(x\), not \(6x\).
 
 ---
 
-### Strategy Rule: *Course Correct*
+### Course Correct
 
-> **Substitution tolerates constant mismatches—but not structural ones.**
-
-If the mismatch depends on \(x\), substitution is no longer the right tool.
+A **constant** mismatch is fine. A mismatch that depends on \(x\) means substitution is the wrong tool.
 
 ---
 
@@ -1044,22 +688,22 @@ What two features must an integrand have for substitution to work cleanly?
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-1. **An inner function** — some quantity \(g(x)\) that's wrapped inside another function (like the \(x^2\) inside \(\cos(x^2)\), or the \(3x^2 + 1\) inside \((\,\cdot\,)^5\)).
-2. **Its derivative is also present in the integrand** — \(g'(x)\) is sitting there as a factor, possibly up to a constant.
+1. **An inner function**: some \(g(x)\) wrapped inside another function, like the \(x^2\) inside \(\cos(x^2)\) or the \(3x^2 + 1\) inside \((\,\cdot\,)^5\).
+2. **Its derivative**: \(g'(x)\) is in the integrand as a factor, possibly times a constant.
 
-If both features are present, picking \(u = g(x)\) and converting \(dx\) to \(du\) collapses the composite structure into a simple integral. If the derivative is *missing entirely* (not just off by a constant), substitution won't help and you need a different technique.
+With both, \(u = g(x)\) collapses the integral into something simple. If the derivative is missing altogether, not just off by a constant, substitution won't help.
 
 </details>
 
 
 ### Concept Check: Why dx Must Become du, Not Just Disappear {-}
 
-When you do a substitution, why isn't it enough to just rename \(x\) to \(u\) inside the function — why does \(dx\) also have to be converted to \(du\)?
+When you do a substitution, why isn't it enough to just rename \(x\) to \(u\) inside the function? Why does \(dx\) also have to be converted to \(du\)?
 
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-Because \(dx\) and \(du\) measure widths in *different units*. The original integral \(\int f(x)\,dx\) is a limit of Riemann sums \(\sum f(x_i)\,\Delta x\) where \(\Delta x\) is the width of each slice **measured in \(x\)**. When you switch to \(u\), the slice widths are now **measured in \(u\)** — and \(\Delta u \neq \Delta x\) unless you account for the stretching factor \(du/dx = g'(x)\). The conversion \(du = g'(x)\,dx\) is the bookkeeping that keeps the accumulation honest.
+Because \(dx\) and \(du\) measure widths in *different units*. \(\int f(x)\,dx\) is a limit of Riemann sums \(\sum f(x_i)\,\Delta x\), where each width is **measured in \(x\)**. Switch to \(u\) and the widths are **measured in \(u\)**, and in general \(\Delta u \neq \Delta x\). The relationship \(du = g'(x)\,dx\) is the conversion. Skip it and you're adding heights in one unit times widths in another, which gives the wrong total.
 
 </details>
 
@@ -1068,174 +712,62 @@ Because \(dx\) and \(du\) measure widths in *different units*. The original inte
 
 ## Integration by Parts: When Accumulation Involves a Product
 
-Integration by Parts is the right tool when accumulation involves a **product of two functions**, and at least one of them gets simpler when you differentiate it. In environmental modeling this shows up whenever you're accumulating a quantity that is itself the product of two changing factors — total pollutant load (concentration × flow rate), total respiratory cost (per-capita rate × population size), heat lost over time (temperature difference × cooling rate). Each of these is naturally an integral of the form \(\int u\,dv\).
+Integration by parts is for **products** of two functions where one of them gets simpler when you differentiate it. In environmental work that comes up when the rate is itself a product of two changing factors, like a respiration rate that rises with time but decays as the substrate runs out.
 
-
-Substitution helps when a function is **nested**.  
-Integration by parts is the complementary idea: it helps when a function is a **product**.
-
-This technique is not new mathematics. It is simply the **product rule, rearranged** to solve a different question.
-
----
+Substitution handles nesting. Integration by parts handles products. It's the **product rule, rearranged**.
 
 ### The Big Idea: The Product Rule in Reverse
 
-Recall the product rule from differentiation:
+The product rule says
 \[
 \frac{d}{dx}\big(u(x)v(x)\big)
 =
 u'(x)v(x) + u(x)v'(x).
 \]
 
-This rule tells us how the rate of change of a **product** is built from two interacting pieces:  
-one changing while the other is held fixed, and vice versa.
-
-Integration by parts asks the inverse question:
-
-> *If a rate involves a product, can we undo it?*
-
----
-
-To do this, we rearrange the product rule to isolate one of the product terms:
+Rearrange to isolate one of the terms:
 \[
 u(x)v'(x)
 =
 \frac{d}{dx}\big(u(x)v(x)\big) - u'(x)v(x).
 \]
 
-This step is purely algebraic—but conceptually important.  
-It expresses a **product-type rate** as the difference between:
-
-- the derivative of the full product, and
-- a new product that may be simpler.
-
----
-
-Now integrate both sides:
+Integrate both sides:
 \[
 \int u(x)v'(x)\,dx
 =
 u(x)v(x) - \int u'(x)v(x)\,dx.
 \]
 
-This is **integration by parts**.
-
----
-
-### What This Formula Is Really Doing
-
-Integration by parts does not magically evaluate an integral.  
-It **rearranges where the difficulty lives**.
-
-- One factor is differentiated (often simplifying it),
-- the other is integrated (often staying manageable),
-- the remaining integral is easier than the original.
-
-In other words:
-
-> **We trade one product for another, hoping the trade is in our favor.**
-
-If the new integral is simpler, the method succeeds.  
-If it is not, that is useful information—it means a different strategy is needed.
-
----
-
-### Why This Mirrors the Product Rule
-
-Just as substitution reverses the chain rule,  
-integration by parts reverses the product rule.
-
-- Substitution handles *nesting*.
-- Integration by parts handles *interaction*.
-
-Recognizing which structure you are facing is the key skill—not memorizing formulas.
-
-
-### The Formula (and What It Means)
-
-We usually write the result as:
+That's **integration by parts**, usually written
 \[
 \int u\,dv = uv - \int v\,du.
 \]
 
-This is not something to memorize blindly.  
-It is a bookkeeping statement that encodes the product rule.
+### What the Formula Does
 
-Conceptually:
-
-> **We trade one product for another that is easier to integrate.**
+It doesn't evaluate the integral for you. It **moves the difficulty**. You differentiate one factor (which, if you chose well, simplifies it) and integrate the other. If the integral that's left is easier than the one you started with, it worked. If not, try a different choice or a different method.
 
 ---
 
 ### When Integration by Parts Is the Right Tool
 
-Integration by parts is useful when:
+Use it when the integrand is a **product**, and differentiating one factor makes it simpler. Common cases:
 
-- the integrand is a **product** of two functions, and
-- differentiating one factor simplifies it.
+- a polynomial times an exponential or a trig function
+- a logarithm times anything
+- an inverse trig function times a power of \(x\)
 
-Classic triggers include:
-
-- polynomials multiplied by exponentials or trig functions,
-- logarithms multiplied by anything,
-- inverse trig functions multiplied by powers of \(x\).
-
-A useful diagnostic question is:
-
-> **If I differentiate one factor, does it become simpler?**
-
-If yes, integration by parts is a good candidate.
+The question to ask: **if I differentiate one factor, does it get simpler?**
 
 ::: promptbox
 
-**Quick Diagnostic Example**
+**Quick Check: \(\int x \sin x \, dx\)**
 
-Consider the integral:
-\[
-\int x \sin x \, dx.
-\]
+- Differentiate \(x\) and you get \(1\). Simpler.
+- Differentiate \(\sin x\) and you get \(\cos x\). No simpler.
 
-Before doing any computation, ask:
-
-> *If I differentiate one factor, does it become simpler?*
-
-- Differentiating \(x\) gives \(1\), which is simpler.
-- Differentiating \(\sin x\) gives \(\cos x\), which is not simpler in any meaningful way.
-
-This suggests choosing \(u = x\) is a good strategic move.
-
----
-
-**What a “Good” Choice Looks Like**
-
-- Start with: \(x \sin x\)
-- Differentiate \(x \rightarrow 1\)
-
-The product has lost structure.  
-That is what “easier” means here.
-
----
-
-**What a “Bad” Choice Looks Like**
-
-If instead you differentiate the other factor:
-
-- Start with: \(x \sin x\)
-- Differentiate \(\sin x \rightarrow \cos x\)
-
-The product is still a product of two nontrivial functions.  
-Nothing has simplified.
-
-This is a warning sign.
-
----
-
-**The Takeaway**
-
-“Easier” does not mean *finished*.  
-It means **less structure than before**.
-
-If differentiating a factor removes complexity, integration by parts is likely to help.
+So choose \(u = x\). Choose the other way round and you're still left with a product of two non-trivial functions. That's your warning sign. "Simpler" doesn't mean finished. It means less structure than before.
 
 :::
 
@@ -1253,7 +785,7 @@ There is no single correct rule, but a common guideline is:
 
 > Choose \(u\) to be the factor that becomes simpler when differentiated.
 
-This often—but not always—means:
+Often, but not always, that means:
 
 - logarithms,
 - inverse trig functions,
@@ -1287,37 +819,17 @@ Multiply both sides by \(dx\):
 du = dx.
 \]
 
-This tells us that an infinitesimal change in \(u\) is the same as an infinitesimal change in \(x\).
-
----
-
-Now choose the remaining part of the integrand to be \(dv\):
-
-Let:
+Now let the rest of the integrand be \(dv\):
 \[
 dv = e^x\,dx.
 \]
 
-To find \(v\), integrate both sides:
+Integrate to find \(v\):
 \[
-\int dv = \int e^x\,dx.
+v = \int e^x\,dx = e^x.
 \]
 
-This gives:
-\[
-v = e^x.
-\]
-
-Here, we are identifying which part of the product will be **accumulated** (integrated) when we reverse the product rule.
-
----
-
-Together, these steps do the following:
-
-- \(u\) is the factor we plan to **differentiate**, producing \(du\),
-- \(dv\) is the factor we plan to **integrate**, producing \(v\).
-
-This choice determines how the product rule is unwound in the next step.
+So \(u\) is the factor you **differentiate** (giving \(du\)) and \(dv\) is the factor you **integrate** (giving \(v\)).
 
 
 ---
@@ -1349,14 +861,7 @@ e^x(x - 1) + C.
 
 ### Why This Worked
 
-Originally, the integral involved a product that could not be simplified directly.
-
-By differentiating \(x\), we turned it into a constant.  
-By integrating \(e^x\), we left it unchanged.
-
-The result was an integral that was **simpler than the original**.
-
-That is the goal of integration by parts.
+Differentiating \(x\) turned it into a constant. Integrating \(e^x\) left it unchanged. The integral that was left, \(\int e^x\,dx\), was easier than the one you started with. That's the whole goal.
 
 ---
 
@@ -1367,9 +872,7 @@ Evaluate:
 \int \ln x \, dx.
 \]
 
-At first glance, this looks like it should require substitution—but there is no obvious inner function.
-
-Instead, think of it as a product:
+There's no obvious product here, and no inner function either. The trick is to see it as a product with 1:
 \[
 \ln x = (\ln x)\cdot 1.
 \]
@@ -1412,84 +915,37 @@ x\ln x - \int 1\,dx
 
 ---
 
-### A Useful Interpretation
 
-Integration by parts redistributes *where the complexity lives*.
-
-- One factor is differentiated (losing complexity),
-- the other is integrated (often staying similar).
-
-If the trade makes the remaining integral simpler, the method succeeds.  
-If it does not, that is a signal to try a different strategy.
 
 ---
 
 ### Common Pitfalls
 
----
+#### Choosing a \(u\) That Doesn't Simplify
 
-#### Choosing \(u\) That Gets More Complicated
+For \(\int x e^x dx\), choosing \(u = e^x\) gets you nowhere: its derivative is still \(e^x\). Pick the factor that simplifies.
 
-Example:
-\[
-\int x e^x dx
-\]
+#### Losing the Minus Sign
 
-Choosing:
-\[
-u = e^x
-\]
-does not help—its derivative is still \(e^x\).
-
-Good choices simplify when differentiated.
-
----
-
-#### Forgetting the Minus Sign
-
-The formula is:
 \[
 \int u\,dv = uv - \int v\,du.
 \]
 
-The minus sign matters and is a common source of errors.
-
----
+The minus sign is the most common source of errors.
 
 #### Stopping Too Soon
 
-Sometimes, integration by parts must be applied **more than once**.
-
-Example:
+Sometimes you have to apply it **more than once**. For
 \[
-\int x^2 e^x dx
+\int x^2 e^x dx,
 \]
+each round knocks the power of \(x\) down by one until the integral is easy.
 
-Each application reduces the power of \(x\) until the integral becomes straightforward.
-
----
-
-### Strategy Check
-
-Before using integration by parts, ask:
+### Before You Use Integration by Parts
 
 - Is the integrand a product?
-- Will differentiating one factor simplify it?
-- Does substitution clearly *not* apply?
-
-If yes, integration by parts is likely the right tool.
-
----
-
-### Key Takeaway
-
-> **Integration by parts is the product rule in reverse.**
-
-It works by trading one product for another that is easier to integrate.
-
-Mastery comes not from memorizing the formula, but from recognizing when a product structure can be simplified through differentiation.
-
-Once this technique is comfortable, you are ready to handle integrals involving products, logarithms, and repeated structure—especially those that arise naturally in modeling and applications.
+- Does differentiating one factor make it simpler?
+- Have you ruled out substitution?
 
 ---
 
@@ -1500,11 +956,11 @@ When you apply integration by parts to \(\int u\,dv = uv - \int v\,du\), how sho
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-Pick \(u\) to be the factor that **gets simpler when you differentiate it**. Polynomials shrink (\(x^2 \to 2x \to 2 \to 0\)). Logarithms turn into algebraic fractions (\(\ln x \to 1/x\)). Inverse-trig functions turn into algebraic fractions too. These are good \(u\) candidates.
+Pick \(u\) to be the factor that **gets simpler when you differentiate it**. Polynomials shrink (\(x^2 \to 2x \to 2 \to 0\)). Logarithms and inverse trig functions turn into algebraic fractions (\(\ln x \to 1/x\)). Those make good \(u\)'s.
 
-The remaining factor becomes \(dv\), and you need to be able to integrate it cleanly to find \(v\). Exponentials and basic trig functions are good \(dv\) candidates because integrating them doesn't make them worse.
+The other factor is \(dv\), and you need to be able to integrate it. Exponentials and basic trig functions are good \(dv\)'s because integrating them doesn't make them worse.
 
-A common mnemonic: **LIATE** (Logarithmic, Inverse trig, Algebraic, Trig, Exponential) — earlier-letter functions are usually your \(u\).
+If you like mnemonics: **LIATE** (Logarithmic, Inverse trig, Algebraic, Trig, Exponential). Earlier in the list usually means \(u\).
 
 </details>
 
@@ -1516,7 +972,7 @@ What's the connection between integration by parts and the product rule for deri
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-Integration by parts **is the product rule, integrated**. Start with \(\frac{d}{dx}(uv) = u'v + uv'\). Integrate both sides:
+It **is** the product rule, integrated. Start with \(\frac{d}{dx}(uv) = u'v + uv'\) and integrate both sides:
 \[
 uv = \int u'v\,dx + \int uv'\,dx.
 \]
@@ -1524,7 +980,7 @@ Rearrange:
 \[
 \int uv'\,dx = uv - \int u'v\,dx,
 \]
-which is exactly \(\int u\,dv = uv - \int v\,du\) in differential notation. It's not a separate technique — it's the product rule running backwards, the same way substitution is the chain rule running backwards.
+which is \(\int u\,dv = uv - \int v\,du\). Substitution is the chain rule run backwards. Integration by parts is the product rule run backwards.
 
 </details>
 
@@ -1533,159 +989,61 @@ which is exactly \(\int u\,dv = uv - \int v\,du\) in differential notation. It's
 
 ## Partial Fractions: When a Rational Function Can Be Taken Apart
 
-Some of the most important environmental rate equations — **logistic growth**, **Michaelis–Menten enzyme kinetics**, and various **two-compartment mixing models** — produce rational functions (polynomial over polynomial) once you separate variables and try to integrate. Partial fractions is the technique that splits those rational functions into pieces simple enough to integrate using the dictionary entries you already have. It is the workhorse behind a lot of mathematical ecology.
+Some important environmental rate equations, like **logistic growth** and **Michaelis–Menten kinetics**, turn into rational functions (a polynomial over a polynomial) when you try to integrate them. Partial fractions splits a rational function into simple pieces you already know how to integrate.
 
-
-Substitution helps when a function is **nested**.  
-Integration by parts helps when a function is a **product**.  
-
-Partial fractions address a different structure altogether:  
-**ratios of polynomials**.
-
-When an integrand is a rational function,
+Substitution is for nesting, and integration by parts is for products. Partial fractions is for **ratios of polynomials**:
 \[
-\frac{P(x)}{Q(x)},
+\frac{P(x)}{Q(x)}.
 \]
-partial fractions allows us to rewrite that ratio as a **sum of simpler pieces** whose antiderivatives we already know.
 
----
+### Split It, Then Integrate
 
-### The Big Idea: Decomposing a Ratio into Simpler Parts
-
-The core idea behind partial fractions is not calculus—it is algebra.
-
-Instead of integrating a complicated fraction directly, we ask:
-
-> *Can this rational function be written as a sum of simpler rational functions?*
-
-If the answer is yes, then integration becomes straightforward, because integration is linear:
+The hard part here is algebra, not calculus. Instead of integrating a complicated fraction, ask: *can I rewrite it as a sum of simple fractions?* If so, integrate each one, because integration is linear:
 \[
 \int (f(x) + g(x))\,dx = \int f(x)\,dx + \int g(x)\,dx.
 \]
 
----
-
-### When Partial Fractions Is the Right Tool
-
-Partial fractions is appropriate when:
-
-- the integrand is a **rational function** (a polynomial divided by a polynomial),
-- the degree of the numerator is **less than** the degree of the denominator (or can be made so),
-- the denominator can be **factored** into simpler pieces.
-
-If these conditions are met, partial fractions is often the most direct strategy.
-
----
-
-### Step 0: Make the Rational Function Proper
-
-Before decomposing, always check degrees.
-
-If:
+The pieces you're aiming for look like
 \[
-\deg(P) \ge \deg(Q),
+\frac{A}{x - a},
 \]
-perform **polynomial division** first.
-
-Example:
-\[
-\frac{x^2 + 1}{x - 1}
-= x + 1 + \frac{2}{x - 1}.
-\]
-
-Only the proper fraction needs partial fractions.
-
----
-
-### The Big Structural Insight
-
-The denominator controls the form of the decomposition.
-
-Each factor in the denominator corresponds to a term in the decomposition.
-
-We match structure first—just as with substitution and integration by parts.
-
----
-
-#### Why We Break the Fraction Apart
-
-At first glance, partial fractions can feel like we are making the problem *more* complicated by introducing multiple terms.
-
-In reality, we are doing the opposite.
-
-A rational function such as
-\[
-\frac{P(x)}{Q(x)}
-\]
-is often difficult to integrate directly because it does **not** match any antiderivative rule we know.
-
-But integration is linear:
-\[
-\int (f(x) + g(x))\,dx = \int f(x)\,dx + \int g(x)\,dx.
-\]
-
-So our goal is to rewrite a single complicated ratio as a **sum of simple ratios**, each of which matches a familiar antiderivative.
-
----
-
-#### What We Are Trying to Create
-
-When the denominator factors into linear terms, we aim to produce fractions of the form:
-\[
-\frac{1}{x - a}.
-\]
-
-This is not arbitrary.
-
-We do this because we already know the antiderivative:
+because you already know
 \[
 \int \frac{1}{x - a}\,dx = \ln|x - a| + C.
 \]
 
-Once the integrand is written in this form, the calculus is finished.
+It can feel like you're making the problem *bigger* by splitting one fraction into several. You're not. You're turning one fraction you can't integrate into several you can.
 
----
+### When to Use It
 
-#### How the Denominator Dictates the Form
+- the integrand is a **rational function**
+- the numerator's degree is **less than** the denominator's (or you can make it so)
+- the denominator **factors**
 
-Each factor in the denominator represents a potential *rate behavior* that contributes to the overall expression.
+### Step 0: Make the Fraction Proper
 
-For example:
+Check the degrees first. If
+\[
+\deg(P) \ge \deg(Q),
+\]
+do **polynomial division** first. For example,
+\[
+\frac{x^2 + 1}{x - 1}
+= x + 1 + \frac{2}{x - 1}.
+\]
+Only the leftover fraction needs partial fractions.
+
+### The Denominator Sets the Form
+
+Each factor in the denominator gets its own term. For example,
 \[
 (x - 1)(x + 2)
 \]
-leads to terms of the form:
+gives
 \[
 \frac{A}{x - 1} + \frac{B}{x + 2}.
 \]
-
-Each term isolates the influence of one factor in the denominator and turns it into a rate with a known accumulation rule.
-
----
-
-#### The Unifying Idea
-
-Partial fractions is not about solving for constants.
-
-It is about **engineering the integrand** so that every piece matches a known antiderivative identity.
-
-The constants \(A\) and \(B\) are simply whatever values make the algebra work.
-
----
-
-#### Structural Parallel
-
-This mirrors earlier techniques:
-
-- Substitution rewrites a complicated expression so it matches the chain rule in reverse.
-- Integration by parts rewrites a product so it matches the product rule in reverse.
-- Partial fractions rewrites a ratio so it matches **logarithmic and power-rule antiderivatives**.
-
-In every case, the strategy is the same:
-
-> **Change the form, not the meaning, until the structure becomes familiar.**
-
-That is the real power of partial fractions.
+\(A\) and \(B\) are whatever constants make the algebra work.
 
 ---
 
@@ -1956,87 +1314,30 @@ Combine the results:
 
 ---
 
-### Key Insight
+### Repeated Factors
 
-For repeated linear factors:
+- **Every power** of a repeated factor needs its own term. Without them, the algebra can't reproduce the numerator.
+- Repeated factors give **both a logarithm and a power-rule term**.
+- Plugging in the \(x\) that zeroes a factor is the fastest way to find a coefficient.
 
-- **each power of the factor must appear in the decomposition**,  
-- repeated factors produce **both logarithmic and power-rule terms**,  
-- choosing values that zero out factors simplifies coefficient solving,  
-- once decomposed, integration uses familiar rules only.
-
-This case shows *why* repeated factors require extra terms:  
-without them, the algebra cannot reproduce the original numerator.
-
-As always, the strategy is:
-
-> **Rewrite first. Integrate second.**
-
-
----
-
-### Why Partial Fractions Works
-
-Partial fractions succeeds because it converts a **single complicated rate** into a **sum of simple rates**.
-
-Each piece corresponds to a familiar antiderivative:
-- logarithms,
-- power rules,
-- inverse trigonometric functions.
-
-Rather than inventing a new technique, partial fractions allows us to reuse old ones.
+Rewrite first. Integrate second.
 
 ---
 
 ### Common Pitfalls
 
----
-
-#### Skipping Polynomial Division
-
-If the fraction is not proper, decomposition will fail or become messy.
-
-Always divide first.
-
----
-
-#### Missing Terms in the Decomposition
-
-Each factor and each power must appear.
-
-For example:
+- **Skipping polynomial division.** If the fraction isn't proper, the decomposition fails or gets messy. Divide first.
+- **Missing terms.** Every factor and every power needs a term. For example,
 \[
 (x - 1)^3 \Rightarrow \frac{A}{x - 1} + \frac{B}{(x - 1)^2} + \frac{C}{(x - 1)^3}.
 \]
+- **Losing sight of the goal.** Finding \(A\) and \(B\) isn't the point. The point is pieces you can integrate.
 
----
+### Before You Use Partial Fractions
 
-#### Forgetting the Goal
-
-Partial fractions is not about finding \(A\), \(B\), and \(C\).  
-It is about rewriting the integrand into **integrable pieces**.
-
----
-
-### Strategy Check
-
-Before using partial fractions, ask:
-
-- Is this a rational function?
-- Is the fraction proper (or can it be made proper)?
-- Can the denominator be factored?
-
-If yes, partial fractions is likely the right tool.
-
----
-
-### Key Takeaway
-
-> **Partial fractions replaces a difficult rational expression with a sum of simple ones.**
-
-It works because integration is linear and familiar antiderivatives are reusable.
-
-Once mastered, partial fractions becomes a powerful algebraic tool for turning complex ratios into manageable integrals—especially in applied models involving rational rates.
+- Is it a rational function?
+- Is the fraction proper, or can you make it proper?
+- Does the denominator factor?
 
 
 ### Concept Check: Recognizing When Partial Fractions Is the Right Tool {-}
@@ -2046,13 +1347,13 @@ You see an integral \(\int \frac{P(x)}{Q(x)}\,dx\) where both \(P\) and \(Q\) ar
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-Partial fractions is the right move when **all three** of the following are true:
+When **all three** are true:
 
 1. The integrand is a *ratio* of polynomials.
-2. The degree of the numerator is *less than* the degree of the denominator (if not, do polynomial long division first).
-3. There is **no obvious substitution** — i.e., the derivative of the denominator isn't sitting in the numerator (because if it were, you'd use substitution instead, since \(\int Q'(x)/Q(x)\,dx = \ln|Q(x)| + C\)).
+2. The numerator's degree is *less than* the denominator's (if not, divide first).
+3. There's **no obvious substitution**. If the derivative of the denominator is sitting in the numerator, use substitution instead, since \(\int Q'(x)/Q(x)\,dx = \ln|Q(x)| + C\).
 
-When those line up, factor the denominator, decompose into pieces, and integrate each piece.
+Then factor the denominator, decompose, and integrate each piece.
 
 </details>
 
@@ -2064,13 +1365,13 @@ When you decompose a rational function into partial fractions, why does the form
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-Because each type of factor needs a different *kind* of antiderivative-friendly piece to be the inverse of differentiating it.
+Because each kind of factor needs a different kind of piece to integrate:
 
-- A **distinct linear factor** \((x - a)\) corresponds to a piece \(\frac{A}{x-a}\), which integrates to a logarithm.
-- A **repeated linear factor** \((x - a)^2\) needs *both* \(\frac{A}{x-a}\) **and** \(\frac{B}{(x-a)^2}\), because the second piece integrates to \(-1/(x-a)\) — a different shape — and you need both shapes available.
-- An **irreducible quadratic factor** \((x^2 + bx + c)\) needs a numerator of the form \(Ax + B\), because that's what integrates cleanly into a mix of \(\ln\) and \(\arctan\) pieces.
+- A **distinct linear factor** \((x - a)\) gets \(\frac{A}{x-a}\), which integrates to a logarithm.
+- A **repeated linear factor** \((x - a)^2\) needs *both* \(\frac{A}{x-a}\) **and** \(\frac{B}{(x-a)^2}\). The second integrates to \(-1/(x-a)\), a different shape, and you need both shapes to rebuild the numerator.
+- An **irreducible quadratic** \((x^2 + bx + c)\) needs a numerator \(Ax + B\), which integrates to a mix of \(\ln\) and \(\arctan\). (That case is beyond what we'll test in this course.)
 
-The form of each piece is *engineered* to land on something you can integrate from the dictionary.
+Each piece is chosen so that it lands on something in the dictionary.
 
 </details>
 
@@ -2079,196 +1380,23 @@ The form of each piece is *engineered* to land on something you can integrate fr
 
 ## Strategy: How to Choose a Method
 
-By this point, you have seen several integration techniques.  
-The challenge now is no longer *how* to execute a method, but **which method to try**—and in what order.
+You now have several techniques. The hard part is no longer *how* to do each one, but **which one to try first**. Pause before you compute.
 
-This section focuses on strategy: recognizing structure, choosing wisely, and avoiding common traps that come from committing too early.
+### What to Try, in Order
 
----
+1. **Simplify.** Expand, cancel, split sums, pull out constants. A lot of "hard" integrals turn easy after a tidy-up.
+2. **Basic rules.** Power rule, exponentials, logarithms, basic trig, linearity. If the integrand is already a sum of familiar pieces, you're done.
+3. **Substitution.** Is there a function inside another function, with (almost) its derivative? Look for powers of expressions like \((3x^2+1)^5\), exponentials like \(e^{x^2}\), and fractions where the numerator looks like the derivative of the denominator.
+4. **Integration by parts.** Is it a product where one factor gets simpler when differentiated? Think \(x e^x\), \(x \sin x\), \(\ln x\).
+5. **Partial fractions.** Is it a ratio of polynomials with a denominator that factors (after division, if needed)?
+6. **None of the above.** Some integrals have no antiderivative you can write down. Then you approximate numerically (Chapter 6). Recognizing that is a skill too.
 
-### The Decision Tree
+Trying a method and backing out isn't failure. If substitution makes the integral messier, or parts makes it more complicated, that tells you something about the structure.
 
-Every integration problem begins the same way:
+### Habits That Catch Mistakes
 
-> **Pause before computing.**
-
-Ask what kind of object you are looking at.
-
----
-
-#### Step 1: Look for the Simplest Case First
-
-Always start by asking:
-
-> *Can this be integrated directly using basic rules?*
-
-Try this **before** anything else.
-
-Basic rules include:
-
-- Power rule
-- Exponentials
-- Logarithms
-- Basic trigonometric antiderivatives
-- Linearity (splitting sums, pulling out constants)
-
-If the integrand is already a sum of familiar forms, you are done.
-
----
-
-#### Step 2: Check for a Nested Structure → Substitution
-
-If basic rules do not apply, ask:
-
-> *Do I see a function inside another function, along with (almost) its derivative?*
-
-Indicators for substitution:
-
-- Powers of expressions like \((3x^2+1)^5\)
-- Exponentials like \(e^{x^2}\)
-- Rational expressions where the numerator resembles the derivative of the denominator
-
-If the answer is yes, try substitution next.
-
----
-
-#### Step 3: Check for a Product → Integration by Parts
-
-If substitution does not simplify the integrand, ask:
-
-> *Is the integrand a product of two functions?*
-
-Then ask the diagnostic question:
-
-> *If I differentiate one factor, does it become simpler?*
-
-Common triggers:
-
-- \(x e^x\)
-- \(x \sin x\)
-- \(\ln x\)
-- inverse trig functions times algebraic factors
-
-If differentiating one part reduces complexity, integration by parts is a good candidate.
-
----
-
-#### Step 4: Check for a Rational Function → Partial Fractions
-
-If the integrand is a ratio of polynomials:
-\[
-\frac{P(x)}{Q(x)},
-\]
-ask:
-
-- Is the degree of the numerator less than the degree of the denominator?
-- Can the denominator be factored?
-
-If yes, partial fractions is often the right tool.
-
----
-
-#### Step 5: When None of These Apply
-
-If:
-
-- the function does not simplify,
-- no structure matches known rules,
-- or the antiderivative cannot be written in elementary functions,
-
-then **numerical methods** or approximation may be appropriate.
-
-Not every integral has a closed-form solution—and recognizing that is part of mathematical maturity.
-
----
-
-#### A Compact “What Do I Try First?” Checklist
-
-1. Simplify algebraically (expand, cancel, split)
-2. Apply basic rules if possible
-3. Look for substitution
-4. Look for integration by parts
-5. Look for partial fractions
-6. Consider numerical or approximate methods
-
-Order matters. Skipping early steps creates unnecessary difficulty.
-
----
-
-#### Strategy Is Reversible
-
-Trying a method and backing out is not failure.
-
-It is feedback.
-
-If:
-
-- substitution makes the expression worse,
-- integration by parts increases complexity,
-- partial fractions cannot be set up cleanly,
-
-that information tells you something important about the structure of the problem.
-
----
-
-### Workflow Habits That Prevent Mistakes
-
-Good integration is not just about technique—it is about habits.
-
----
-
-#### Rewrite and Simplify First
-
-Before choosing a method:
-
-- expand products if helpful,
-- cancel factors,
-- rewrite powers and fractions,
-- split sums.
-
-Many “hard” integrals become easy after algebraic cleanup.
-
----
-
-#### Check by Differentiating
-
-Whenever possible, differentiate your result.
-
-Ask:
-
-- *Do I recover the original integrand?*
-- *Does the structure match?*
-
-This is the fastest way to catch sign errors, missing constants, or incorrect substitutions.
-
----
-
-#### Units and Sign Checks (Especially in Applications)
-
-In applied contexts:
-
-- Check that the units of the result make sense
-- Check whether the sign matches the physical interpretation
-  - accumulation should increase when rates are positive,
-  - decreases should be reflected by negative values.
-
-A mathematically correct answer that violates units or interpretation is still wrong.
-
----
-
-### Final Strategy Takeaway
-
-> **Integration is not about choosing the “right formula.”  
-> It is about recognizing structure and making the problem simpler, step by step.**
-
-When in doubt:
-
-- simplify,
-- match structure,
-- choose the method that reduces complexity,
-- and let failed attempts guide your next move.
-
-That is how experts integrate—and how you will too.
+- **Check by differentiating.** Differentiate your answer. If you don't get the integrand back, something's wrong. It's the fastest way to catch sign errors and dropped constants.
+- **Check units and sign in applied problems.** Positive rates should make the total go up. Negative rates should bring it down. A correct-looking answer with the wrong units or sign is still wrong.
 
 ---
 
@@ -2279,19 +1407,19 @@ Before reaching for substitution, IBP, or partial fractions, what should always 
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-**Rewrite and simplify.** Distribute products, split fractions, separate sums, cancel common factors, use trig identities, pull constants out front. A surprising number of "hard" integrals collapse into trivial dictionary applications once you stop and tidy up the integrand. Reaching for a heavy technique on a not-yet-simplified integrand is one of the most common ways to make a problem worse.
+**Rewrite and simplify.** Distribute products, split fractions, separate sums, cancel common factors, pull constants out front. A lot of "hard" integrals turn into basic rules once you tidy up the integrand. Reaching for a heavy technique on an integrand you haven't simplified usually makes things worse.
 
 </details>
 
 
 ### Concept Check: Why Differentiation Is the Strongest Check {-}
 
-After computing an indefinite integral, why is *differentiating your answer* the strongest way to check it — stronger than re-doing the integration?
+After computing an indefinite integral, why is *differentiating your answer* the strongest way to check it, stronger than redoing the integration?
 
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-Because differentiation has a **deterministic algorithm**. If you differentiate your proposed antiderivative \(F(x)\) and don't get back exactly the integrand \(f(x)\), you know with certainty that something is wrong. Re-doing the integration can repeat the same mistake; differentiating the answer is an *independent* test that uses different machinery. A correct antiderivative differentiates back to the integrand every time, and the check takes about 30 seconds.
+Because differentiation is **mechanical**. If you differentiate your answer \(F(x)\) and don't get back exactly \(f(x)\), something is definitely wrong. Redoing the integration can repeat the same mistake. Differentiating the result checks it independently, using different steps.
 
 </details>
 
@@ -2302,9 +1430,7 @@ Because differentiation has a **deterministic algorithm**. If you differentiate 
 
 ### Practice: Fast Recognition Drills
 
-These exercises are not about careful algebra. They are about **speed and confidence**.
-
-The goal is to train your brain to identify patterns *before* computing.
+These are about **speed**. Practice spotting the pattern before you compute.
 
 ---
 
@@ -2385,18 +1511,13 @@ Then compute.
 
 #### Why These Drills Matter {-}
 
-Later integration techniques—substitution, integration by parts, partial fractions—**all depend on recognition**.
-
-If you cannot instantly recognize basic antiderivatives, advanced techniques will feel overwhelming.
-
-Think of this section as learning vocabulary before writing sentences.
+Substitution, integration by parts and partial fractions all depend on recognizing basic antiderivatives fast. If those aren't automatic, the techniques will feel overwhelming. Learn the vocabulary before writing sentences.
 
 ---
 
 ### Practice: Substitution (u-Sub) Pattern Recognition and Application
 
-This practice section is designed to slow things down **before** computation.  
-Your goal is to *see the structure* first, then execute the mechanics.
+Slow down here. *See the structure* first, then do the mechanics.
 
 ---
 
@@ -2415,28 +1536,15 @@ Do **not** compute the integral yet.
 
 #### A Helpful Instruction: “Off by a Constant” Is Still OK {-}
 
-When checking for substitution, the derivative of the inner function does **not** need to appear perfectly.
-
-If the integrand contains
+The derivative of the inner function doesn't have to appear exactly. If the integrand has
 \[
 g'(x)\quad \text{or} \quad c\,g'(x),
 \]
-where \(c\) is a constant, substitution still works.
+where \(c\) is a constant, substitution still works: factor out the constant and carry on. What *doesn't* work is a mismatch that depends on \(x\).
 
-In that case:
-- factor out the constant,
-- proceed with substitution,
-- and account for the constant in front of the integral.
+#### Warning: Some of These Aren't Substitution Problems {-}
 
-What *does not* work is when the mismatch depends on \(x\).
-
----
-
-#### Warning: Some Problems Are Designed *Not* to Use Substitution {-}
-
-The list below intentionally mixes problems where substitution **does** work with problems where it **does not**.
-
-Your job is to tell the difference *before* computing.
+The list mixes problems where substitution works with problems where it doesn't. Tell them apart *before* you compute.
 
 ---
 
@@ -2491,43 +1599,43 @@ Your job is to tell the difference *before* computing.
   - Inner function: \(3x^2 + 1\)  
   - Derivative: \(6x\)  
   - Match: exact  
-  - Substitution: ✔️
+  - Substitution: yes
 
 - **A2**
   - Inner function: \(x^2 + 1\)  
   - Derivative: \(2x\)  
   - Match: missing  
-  - Substitution: ✖️  
+  - Substitution: no  
   - Reason: no factor of \(x\) to supply \(du\)
 
 - **A3**
   - Inner function: \(x^2\)  
   - Derivative: \(2x\)  
   - Match: exact  
-  - Substitution: ✔️
+  - Substitution: yes
 
 - **A4**
   - Structure: product, not nesting  
-  - Substitution: ✖️  
+  - Substitution: no  
   - Reason: derivative mismatch depends on \(x\); integration by parts is appropriate
 
 - **A5**
   - Inner function: \(x^2 + 7\)  
   - Derivative: \(2x\)  
   - Match: off by a constant  
-  - Substitution: ✔️
+  - Substitution: yes
 
 - **A6**
   - Inner function: \(5x\)  
   - Derivative: \(5\)  
   - Match: off by a constant  
-  - Substitution: ✔️
+  - Substitution: yes
 
 - **A7**
   - Inner function: \(x + 1\)  
   - Derivative: \(1\)  
   - Match: exact  
-  - Substitution: ✔️ (though basic power rule also works)
+  - Substitution: yes (the basic power rule also works)
 
 </details>
 
@@ -2611,56 +1719,35 @@ If substitution is *not* appropriate, do not force it.
 
 #### Reflection Prompt {-}
 
-After completing this section, ask yourself:
+- Did you find the inner function *before* choosing \(u\)?
+- Did you check whether the derivative was exact, off by a constant, or missing?
+- Did you reject substitution when it didn't fit?
 
-- Did I identify the inner function *before* choosing \(u\)?
-- Did I check whether the derivative was exact, off by a constant, or missing?
-- Did I consciously reject substitution when the structure did not fit?
-
-Being able to say *“this is not a substitution problem”* is a core integration skill.
+Being able to say *"this isn't a substitution problem"* is as important as doing substitution.
 
 
 ### Practice: Integration by Parts (Pattern Recognition and Application)
 
-This practice section focuses on **deciding when integration by parts is appropriate** and executing it deliberately.
+This set is about **deciding when** integration by parts fits, then doing it carefully.
 
-Remember: integration by parts is not about memorizing a formula—it is about **strategically simplifying a product**.
-
----
-
-#### Part A: Identifying the Structure (Pattern Recognition) {-}
+#### Part A: Identifying the Structure {-}
 
 For each integrand below:
 
-1. Decide whether the integrand is a **product**.
-2. Ask the diagnostic question:  
-   > *If I differentiate one factor, does it become simpler?*
-3. Decide whether integration by parts is appropriate.
-4. If yes, identify a **good choice** for \(u\) and \(dv\).
+1. Is it a **product**?
+2. If you differentiate one factor, does it get simpler?
+3. Is integration by parts the right tool?
+4. If so, choose \(u\) and \(dv\).
 
-Do **not** compute the integral yet.
+Don't compute yet.
 
----
+#### What "Simpler" Means {-}
 
-#### A Helpful Instruction: What “Simpler” Means {-}
+A factor gets simpler if differentiating it lowers its degree, removes structure (a polynomial becoming a constant), or turns something complicated into something basic. If differentiating keeps it just as complex, or makes it worse, that's a bad sign.
 
-A factor becomes *simpler* if differentiation:
-- reduces its degree,
-- removes structure (e.g., polynomial → constant),
-- turns a complicated function into a basic one.
+#### Warning: Not Every Product Needs Integration by Parts {-}
 
-Differentiation that preserves or increases complexity is usually a bad sign.
-
----
-
-#### Warning: Not Every Product Uses Integration by Parts {-}
-
-Some products are better handled by:
-- substitution,
-- basic rules,
-- or algebraic simplification.
-
-These problems intentionally mix cases where integration by parts **does** and **does not** work.
+Some products are easier with substitution, the basic rules or a bit of algebra. This list mixes both kinds.
 
 ---
 
@@ -2811,17 +1898,13 @@ Write your choices of \(u\) and \(dv\) clearly before applying the formula.
 
 #### Reflection Prompt {-}
 
-After completing this section, ask yourself:
-
-- Did I confirm the integrand was a product *before* choosing integration by parts?
-- Did differentiating \(u\) actually simplify the expression?
-- If integration by parts failed, did that point me toward a better strategy?
-
-Being able to reject integration by parts confidently is just as important as using it correctly.
+- Did you check it was a product *before* choosing integration by parts?
+- Did differentiating \(u\) actually simplify things?
+- If it didn't work, did that point you to a better method?
 
 ### Practice: Partial Fractions (Structured Practice)
 
-This set gives you **two problems of each major type**, with solutions that show the **key algebraic steps**, not just the final answer.
+Two problems of each type, with the key algebra steps shown.
 
 For each problem:
 1. Set up the decomposition.
@@ -3024,7 +2107,9 @@ Integrate:
 
 ---
 
-#### Type III: Irreducible Quadratic Factors {-}
+#### Type III: Quadratic Denominators That Don't Factor {-}
+
+These look like partial fractions problems, but the denominator doesn't factor, so there's nothing to decompose. Split the numerator or use substitution instead.
 
 ---
 
@@ -3098,16 +2183,13 @@ Integrate:
 #### Strategy Reminder {-}
 
 - **Linear factors → logarithms**
-- **Repeated factors → powers + logarithms**
-- **Quadratics → substitution and arctangent**
-
-Partial fractions is successful when the algebra is used to *manufacture familiar antiderivatives*.
+- **Repeated factors → powers and logarithms**
+- **Quadratics that don't factor → substitution, and sometimes arctangent**
 
 
 ### Mixed Practice: Choosing and Executing the Right Method
 
-Real integration problems rarely announce which technique they need.  
-This mixed practice set is designed to help you **pause, diagnose, and choose deliberately** before computing.
+Real problems don't tell you which technique they need. Diagnose first, then choose.
 
 ---
 
@@ -3280,7 +2362,7 @@ Decompose:
 \frac{5}{3(x - 1)} + \frac{4}{3(x + 2)}
 \]
 \[
-\frac {5}{3\ln|x - 1|} + \frac{4}{3\ln|x + 2|} + C
+\frac{5}{3}\ln|x - 1| + \frac{4}{3}\ln|x + 2| + C
 \]
 
 - **M5**
@@ -3321,26 +2403,22 @@ x^2 e^x - 2x e^x + 2e^x + C
 
 #### Final Reflection  {-}
 
-After finishing, ask yourself:
-
-- Did I pause to identify structure before computing?
-- Did my chosen method *simplify* the problem?
-- Could I explain my choice in one clear sentence?
-
-Being able to **choose well** is the difference between memorizing techniques and actually doing calculus.
+- Did you identify the structure before computing?
+- Did your method actually simplify the problem?
+- Could you explain your choice in one sentence?
 
 
 ---
 
 ### Applications: Choosing and Applying a Technique in an Environmental Context {-}
 
-The problems below come from environmental modeling contexts. For each one, **identify which integration technique applies**, then carry it out. The point isn't just to compute — it's to practice the *recognition step* that decides everything else.
+For each problem, **say which technique applies**, then carry it out. The recognition step is the point.
 
 ---
 
 #### Applied 1: Soil Moisture Loss After Irrigation {-}
 
-A field plot has just been irrigated. The instantaneous rate at which water is leaving the topsoil (through a combination of evaporation and drainage) is modeled as
+A 1 m² test plot has just been irrigated. The rate at which water leaves the topsoil (evaporation plus drainage) is modeled as
 \[
 \frac{dm}{dt} = -100\,e^{-0.05 t} \quad \text{(g/hr)},
 \]
@@ -3362,7 +2440,7 @@ Numerically, \(e^{-1.2} \approx 0.3012\), so
 \Delta m \approx 2000(0.3012 - 1) \approx -1398 \text{ g}.
 \]
 
-The negative sign means water *left* the plot. About **1.4 kg of water per unit area** was lost over the first 24 hours.
+The negative sign means water *left* the plot. About **1.4 kg of water** (about 1.4 L, or 1.4 mm of depth over the plot) was lost in the first 24 hours.
 
 </details>
 
@@ -3407,7 +2485,7 @@ where \(t\) is hours since the pulse. Find the **total carbon respired** between
 <details>
 <summary><strong>Click to reveal solution</strong></summary>
 
-**Technique:** Integration by parts — the integrand is a product where one factor (\(t\)) simplifies under differentiation and the other (\(e^{-t/2}\)) is easy to integrate.
+**Technique:** Integration by parts. The integrand is a product where one factor (\(t\)) simplifies under differentiation and the other (\(e^{-t/2}\)) is easy to integrate.
 
 Let \(u = t\), \(dv = e^{-t/2}\,dt\). Then \(du = dt\), \(v = -2 e^{-t/2}\).
 
@@ -3437,11 +2515,11 @@ About **3.2 μg of carbon** was respired by the community during the six-hour wi
 
 #### Applied 4: Heat Lost from a Cooling Storage Tank {-}
 
-A water storage tank cools after being filled with warm water. The instantaneous rate at which heat is lost to the surroundings is
+A large insulated storage tank cools after being filled with warm water. The rate at which heat is lost to the surroundings is modeled as
 \[
-H(t) = (10 - t)\,e^{-t/2} \quad \text{(J/s)},
+H(t) = (10 - t)\,e^{-t/2} \quad \text{(MJ/hr)},
 \]
-where \(t\) is seconds since filling. Find the **total heat lost** between \(t = 0\) and \(t = 10\) seconds.
+where \(t\) is hours since filling. Find the **total heat lost** between \(t = 0\) and \(t = 10\) hours.
 
 <details>
 <summary><strong>Click to reveal solution</strong></summary>
@@ -3469,10 +2547,10 @@ Evaluate on \([0, 10]\):
 
 Numerically, \(e^{-5} \approx 0.00674\), so
 \[
-\text{Total } \approx -0.013 + 22 \approx 21.99 \text{ J}.
+\text{Total } \approx -0.013 + 22 \approx 21.99 \text{ MJ}.
 \]
 
-About **22 J** of heat is lost during the first ten seconds.
+About **22 MJ** of heat is lost over the first ten hours.
 
 </details>
 
@@ -3480,7 +2558,11 @@ About **22 J** of heat is lost during the first ten seconds.
 
 #### Applied 5: Two-Compartment Nutrient Transfer {-}
 
-After separating variables in a simple two-compartment nutrient-transfer model (soil ↔ root), the cumulative transfer over an interval is given by
+Nitrogen moves from soil into roots at a rate that falls off as the soil pool is drawn down:
+\[
+r(t) = \frac{1}{(t+1)(t+3)} \quad \text{(g N/day)},
+\]
+where \(t\) is days. Find the total transfer
 \[
 T = \int_0^3 \frac{1}{(t+1)(t+3)}\,dt.
 \]
@@ -3489,7 +2571,7 @@ Evaluate \(T\) using partial fractions.
 <details>
 <summary><strong>Click to reveal solution</strong></summary>
 
-**Technique:** Partial fractions — the denominator has two distinct linear factors and the derivative of the denominator isn't sitting in the numerator.
+**Technique:** Partial fractions. The denominator has two distinct linear factors and the derivative of the denominator isn't sitting in the numerator.
 
 Decompose:
 \[
@@ -3512,28 +2594,28 @@ T = \tfrac{1}{2}\left[\ln\left|\tfrac{4}{6}\right| - \ln\left|\tfrac{1}{3}\right
 \approx 0.347.
 \]
 
-Cumulative nutrient transfer over the three-time-unit window is **\(\tfrac{1}{2}\ln 2 \approx 0.347\)** (in whatever units the rate had).
+About **0.35 g of nitrogen** moved into the roots over the three days.
 
 </details>
 
 ---
 
-#### Applied 6: Choose and Apply — Leaf Photosynthesis Pulse {-}
+#### Applied 6: Choose and Apply, Leaf Photosynthesis {-}
 
-The instantaneous photosynthesis rate of a single leaf during a brief light pulse is modeled as
+During a brief flash of light, a leaf's photosynthesis rate per unit area is modeled as
 \[
-P(t) = \frac{6 t}{t^2 + 1} \quad \text{(μmol CO}_2\text{/s)},
+P(t) = \frac{6 t}{t^2 + 1} \quad \text{(μmol CO}_2\text{/m}^2\text{/s)},
 \]
-where \(t\) is seconds since the pulse began. Find the **total CO₂ taken up** between \(t = 0\) and \(t = 4\) seconds.
+where \(t\) is seconds since the flash began. Find the **total CO₂ taken up** per square meter of leaf between \(t = 0\) and \(t = 4\) seconds.
 
-**Before computing**, identify which technique applies — and why the other techniques are not the right move here.
+**Before computing**, say which technique applies, and why the others don't.
 
 <details>
 <summary><strong>Click to reveal solution</strong></summary>
 
 **Technique selection:**
 
-- *Partial fractions?* The integrand is a rational function with denominator \(t^2 + 1\), but the numerator is \(6t\), and the derivative of the denominator is \(2t\) — sitting right there (up to a constant factor of 3). That's a substitution signal, not a partial-fractions signal.
+- *Partial fractions?* The integrand is a rational function with denominator \(t^2 + 1\), but the numerator is \(6t\), and the derivative of the denominator is \(2t\), which is sitting right there up to a factor of 3. That's a substitution signal, not a partial-fractions signal.
 - *Integration by parts?* No clean product where one factor simplifies on differentiation.
 - *Substitution* with \(u = t^2 + 1\), \(du = 2t\,dt\), so \(6t\,dt = 3\,du\):
 
@@ -3543,10 +2625,10 @@ where \(t\) is seconds since the pulse began. Find the **total CO₂ taken up** 
 
 Numerically, \(\ln 17 \approx 2.833\), so
 \[
-\text{Total uptake } \approx 3(2.833) \approx 8.50 \text{ μmol CO}_2.
+\text{Total uptake } \approx 3(2.833) \approx 8.50 \text{ μmol CO}_2\text{/m}^2.
 \]
 
-About **8.5 μmol of CO₂** was taken up during the four-second pulse.
+About **8.5 μmol of CO₂ per square meter of leaf** was taken up during the four-second flash.
 
 The recognition lesson: a rational integrand where \(Q'(x)\) appears (up to a constant) in the numerator is a **substitution** problem, not a partial-fractions problem.
 

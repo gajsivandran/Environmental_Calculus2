@@ -98,7 +98,7 @@ You do **not** need to evaluate the integral.
 \]
 
 17. \[
-\int \frac{6x+3}{x^2+3x+7}\,dx
+\int \frac{6x+9}{x^2+3x+7}\,dx
 \]
 
 18. \[
@@ -118,7 +118,7 @@ You do **not** need to evaluate the integral.
 <details>
 <summary><strong>Click to reveal answer key</strong></summary>
 
-**Answer Key — Technique Only**
+**Answer Key: Technique Only**
 
 1. **B** (substitution)  
 2. **C** (integration by parts)  
@@ -126,7 +126,7 @@ You do **not** need to evaluate the integral.
 4. **C** (integration by parts)  
 5. **B** (substitution)  
 6. **A** (basic rules only)  
-7. **B** (substitution — numerator is derivative of denominator)  
+7. **B** (substitution: numerator is derivative of denominator)  
 8. **C** (integration by parts)  
 9. **D** (partial fractions)  
 10. **A** (basic rules only)  
@@ -136,7 +136,7 @@ You do **not** need to evaluate the integral.
 14. **B** (substitution)  
 15. **A** (basic rules only)  
 16. **C** (integration by parts)  
-17. **B** (substitution)  
+17. **B** (substitution: \(6x+9 = 3(2x+3)\), and \(2x+3\) is the derivative of the denominator)  
 18. **C** (integration by parts)  
 19. **D** (partial fractions)  
 20. **C** (integration by parts)
@@ -148,7 +148,7 @@ You do **not** need to evaluate the integral.
 ### Practice: Substitution (u-sub) {-}
 
 Evaluate each integral using **substitution**.  
-For each problem, a **hint** is provided — try first, then click to reveal if needed.
+For each problem, a **hint** is provided: try first, then click to reveal if needed.
 
 ---
 
@@ -275,7 +275,7 @@ Let \(u=5x+1\). Then rewrite the root as a power of \(u\).
 <details>
 <summary><strong>Click to reveal answer key</strong></summary>
 
-**Answer Key — Substitution**
+**Answer Key: Substitution**
 
 **1.**
 Let \(u=2x^2+1\), \(du=4x\,dx\), so \(x\,dx=\frac14 du\).
@@ -398,7 +398,7 @@ Let \(u=5x+1\), \(du=5\,dx\), so \(dx=\frac15 du\).
 ### Practice: Integration by Parts {-}
 
 Evaluate each integral using **integration by parts**.  
-For each problem, a **hint** is provided — try first, then click to reveal if needed.
+For each problem, a **hint** is provided: try first, then click to reveal if needed.
 
 ---
 
@@ -525,7 +525,7 @@ Let \(u=x^2\). This problem requires **two rounds** of integration by parts.
 <details>
 <summary><strong>Click to reveal answer key</strong></summary>
 
-**Answer Key — Integration by Parts**
+**Answer Key: Integration by Parts**
 
 ---
 
@@ -604,7 +604,7 @@ Let \(u=x^2\). This problem requires **two rounds** of integration by parts.
 
 Evaluate each integral using **partial fractions**.  
 All denominators are **quadratic and factorable** (repeated factors may appear).  
-For each problem, a **hint** is provided — try first, then click to reveal if needed.
+For each problem, a **hint** is provided: try first, then click to reveal if needed.
 
 ---
 
@@ -732,7 +732,7 @@ Factor \(x^2-x=x(x-1)\), then decompose.
 <details>
 <summary><strong>Click to reveal answer key</strong></summary>
 
-**Answer Key — Partial Fractions (with brief notes)**
+**Answer Key: Partial Fractions (with brief notes)**
 
 ---
 

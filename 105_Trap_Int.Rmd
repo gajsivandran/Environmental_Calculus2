@@ -1,11 +1,11 @@
-# Week 2 In-Class: Riemann Sums → Derivatives → Antiderivatives
+# Week 2 In-Class: Trapezoid Rule, Definite Integrals and the FTC
 
 ## Trapezoidal Rule
 
-The idea here is approximate the area under the curve using the area of a trapezoid.
+The idea here is to approximate the area under the curve using trapezoids instead of rectangles.
 
 
-```{r trapezoid-vs-left-riemann2, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4}
+```{r trapezoid-vs-left-riemann2, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4, fig.alt="Two panels comparing approximations of the area under f(x) = x squared on [1, 7] with 3 subintervals. Left: left Riemann rectangles, which fall below the rising curve. Right: trapezoids, whose slanted tops follow the curve more closely, with one trapezoid highlighted."}
 
 library(ggplot2)
 library(patchwork)
@@ -102,12 +102,12 @@ p_left | p_trap
 
 ```
 
-::: promptox
+::: promptbox
 **Key Idea**
 
-We are following the same procedure as we did for Riemann Sums. The key differences
+We are following the same procedure as we did for Riemann Sums. The key difference:
 
-- Need a new expression for the area 
+- We need a new expression for the area 
 
 
 The area \(A\) of a trapezoid is given by
@@ -121,7 +121,7 @@ where:
 - \(b_1\) and \(b_2\) are the lengths of the two **parallel sides** (the bases),
 - \(h\) is the **height**, the perpendicular distance between the bases.
 
-What could be replace \(b_1\) and \(b_2\) with?
+What could we replace \(b_1\) and \(b_2\) with?
 
 <br><br><br>
 
@@ -137,7 +137,7 @@ f(x) = x^2
 \]
 on the interval \([1,7]\).
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4}
+```{r trap-problem-curve, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4, fig.alt="Graph of f(x) = x squared from 0 to 8, a parabola rising from the origin."}
 
 # Define the function
 f <- function(x) x^2
@@ -249,7 +249,7 @@ which simplifies to the trapezoid rule formula above.
 
 ---
 
-### Key Takeaway
+### Summary
 
 The trapezoid rule is still a **Riemann sum**, but it improves accuracy by:
 
@@ -262,26 +262,13 @@ The trapezoid rule is still a **Riemann sum**, but it improves accuracy by:
 
 ## Definite Integrals and the Fundamental Theorem of Calculus
 
-In the previous chapter, you developed an intuition for **accumulation** by approximating totals from rates using rectangles, tables, and graphs. You saw how adding up many small contributions can represent meaningful environmental quantities such as total rainfall, streamflow, carbon exchange, or pollutant transport. You also encountered the idea of **signed accumulation**, where gains and losses can offset each other over time.
-
-This chapter formalizes those ideas.
-
-Here, we move from *“adding rectangles makes sense”* to *“integrals are well-defined mathematical objects with powerful and reliable properties.”* You will learn how mathematicians define accumulation precisely, why different approximation methods converge to the same value, and how integrals connect directly back to derivatives through one of the most important results in calculus.
-
-Rather than treating integrals as a new collection of formulas, this chapter emphasizes **meaning first**. Computation matters, but it is grounded in interpretation: what a definite integral represents, how it behaves, and why it works.
-
-By the end of this chapter, you should clearly understand:
-
-- what a definite integral is and how it arises from limits of Riemann sums  
-- why a definite integral represents accumulation, not just area  
-- how integration and differentiation are connected  
-- how to compute definite integrals efficiently *without losing meaning*
+So far you've been approximating totals from rates with rectangles and trapezoids. This part of the workbook goes with Chapter 4: what happens when you take that approximation to its limit, and how antiderivatives let you compute the result exactly.
 
 ---
 
 ## From Riemann Sums to Definite Integrals
 
-In the previous chapter, you learned how to approximate accumulation by **adding up rectangles** under a rate curve. These approximations—left, right, midpoint, and trapezoidal—allowed you to estimate totals from discrete measurements and to reason carefully about overestimates, underestimates, and conservativeness.
+Left, right, midpoint and trapezoid sums all estimate a total from a rate. They also let you reason about whether your estimate is too high or too low.
 
 In this section, we take the next conceptual step:
 
@@ -615,10 +602,10 @@ Evaluate:
 
 ---
 
-### Key Takeaway
+### Summary
 
 Definite integrals describe **accumulated change**.  
-Antiderivatives provide an efficient way to compute that change — but meaning always comes first.
+Antiderivatives are a fast way to compute that change, but you still need to know what the number means.
 
 
 
@@ -1058,7 +1045,9 @@ The term \(5t^2\).
 =
 \left[\frac{5}{3}t^3-2t^2+6t\right]_0^2
 =
-\frac{40}{3}.
+\frac{40}{3}-8+12
+=
+\frac{52}{3}.
 \]
 **Guidance:** Use an antiderivative and evaluate at the bounds (FTC Part II).
 
@@ -1187,7 +1176,7 @@ Because \(e^t\) increases at an increasing rate (its slope increases as \(t\) in
 
 ---
 
-### Concept Check (Exponential Rates) — No Computation
+### Concept Check (Exponential Rates): No Computation
 
 - **Shape effect:** Since \(e^t\) curves upward (increasing slope), the accumulation grows faster than a linear rate that increases at a constant slope.  
 - **Slightly longer interval:** A small increase in interval length adds a disproportionately large amount of accumulation because the rate is much larger near the right endpoint.
@@ -1414,7 +1403,7 @@ Because you refine the partition (increase \(n\)) to make the approximation conv
 When the function changes sign, changes behavior, or the interval is naturally broken into segments with known information.  
 
 3. **Large exchange but small net change**
-Yes—large positive and negative contributions can nearly cancel, producing a small net change.  
+Yes. Large positive and negative contributions can nearly cancel, producing a small net change.  
 
 4. **What a definite integral does not provide**
 It does not show *when* changes happen within the interval, only the total signed accumulation.  

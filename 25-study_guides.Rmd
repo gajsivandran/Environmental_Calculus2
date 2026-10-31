@@ -4,11 +4,11 @@
 
 These study guides are designed to help you prepare for each test. Each guide follows the same structure:
 
-1. **Skills Checklist** — A table of what you need to be able to do on this test
-2. **Prep Worksheet** — Build your own one-page reference sheet before you practice
-3. **Concept Check In** — Quick questions to test readiness before each section
-4. **Practice Problems** — Organized by topic with full solutions
-5. **Answer Key** — Worked solutions, hidden behind reveals so you can check yourself
+1. **Skills Checklist**: A table of what you need to be able to do on this test
+2. **Prep Worksheet**: Build your own one-page reference sheet before you practice
+3. **Concept Check In**: Quick questions to test readiness before each section
+4. **Practice Problems**: Organized by topic with full solutions
+5. **Answer Key**: Worked solutions, hidden behind reveals so you can check yourself
 
 **Suggested workflow:** Complete the prep worksheet first, then work through each section's Concept Check In → Practice Problems. Use the solution reveals only after attempting the problems yourself.
 
@@ -16,7 +16,7 @@ These study guides are designed to help you prepare for each test. Each guide fo
 
 # Module 1: Riemann Sums, the Definite Integral, and the FTC {-}
 
-*Building the integral piece by piece — Riemann sums, the definite integral, its properties, antiderivatives, and the Fundamental Theorem of Calculus.*
+*Building the integral piece by piece: Riemann sums, the definite integral, its properties, antiderivatives, and the Fundamental Theorem of Calculus.*
 
 ## Skills Checklist {-}
 
@@ -113,7 +113,7 @@ Equivalent form (the average of left and right sums):
 2. Mixing up left/right endpoint sums when the function is decreasing.
 3. Forgetting that a definite integral can be **negative** when the function dips below the axis.
 4. Forgetting to multiply by \(\Delta x\) at the end of a Riemann sum.
-5. Ignoring units — the answer should have a physical meaning.
+5. Ignoring units: the answer should have a physical meaning.
 
 One mistake I personally want to avoid:
 <div class="writein"></div>
@@ -188,7 +188,7 @@ Estimate the total volume of water that passed the gauge over the 4-hour window 
 **5.** Without computing, predict whether a left Riemann sum will over- or underestimate \(\int_0^2 e^x\,dx\). Explain.
 
 <details><summary><strong>Solution</strong></summary>
-\(e^x\) is increasing on \([0, 2]\), so left endpoints give the smallest values on each subinterval — the left sum underestimates.
+\(e^x\) is increasing on \([0, 2]\), so left endpoints give the smallest values on each subinterval: the left sum underestimates.
 </details>
 
 ---
@@ -197,7 +197,7 @@ Estimate the total volume of water that passed the gauge over the 4-hour window 
 
 **Formula:** \(\displaystyle T_n = \frac{\Delta x}{2}\bigl[f(x_0) + 2 f(x_1) + 2 f(x_2) + \cdots + 2 f(x_{n-1}) + f(x_n)\bigr]\)
 
-Equivalently: \(T_n = \dfrac{L_n + R_n}{2}\) — the average of the left and right Riemann sums.
+Equivalently: \(T_n = \dfrac{L_n + R_n}{2}\): the average of the left and right Riemann sums.
 
 For a smooth function, the trapezoidal rule is usually more accurate than basic Riemann sums with the same \(n\).
 
@@ -226,13 +226,13 @@ Each trapezoid's area equals the average of the corresponding left-rectangle and
 **2.** For the stream-gauge table from the Riemann section (problem 4 above), compute the trapezoidal estimate of total volume.
 
 <details><summary><strong>Solution</strong></summary>
-\(T_4 = \tfrac{1}{2}[5 + 2(8 + 12 + 9) + 6] = \tfrac{1}{2}[5 + 58 + 6] = 34.5\) m³/s · h. In m³: \(34.5 \times 3600 = 124{,}200\) m³. (Compare to the left sum's 122,400 — trapezoidal is slightly higher and likely closer to the true value.)
+\(T_4 = \tfrac{1}{2}[5 + 2(8 + 12 + 9) + 6] = \tfrac{1}{2}[5 + 58 + 6] = 34.5\) m³/s · h. In m³: \(34.5 \times 3600 = 124{,}200\) m³. (Compare to the left sum's 122,400: trapezoidal is slightly higher and likely closer to the true value.)
 </details>
 
 **3.** Without computing, will the trapezoidal estimate of \(\int_0^1 \sqrt{x}\,dx\) over- or underestimate? Explain.
 
 <details><summary><strong>Solution</strong></summary>
-\(\sqrt{x}\) is increasing and **concave down** on \([0, 1]\). For concave-down functions, the chord connecting two points lies *below* the curve, so each trapezoid's top lies below the curve — trapezoidal underestimates.
+\(\sqrt{x}\) is increasing and **concave down** on \([0, 1]\). For concave-down functions, the chord connecting two points lies *below* the curve, so each trapezoid's top lies below the curve: trapezoidal underestimates.
 </details>
 
 **4.** A photosynthesis monitor records the CO₂ uptake rate (μmol/m²/s) every 30 minutes from 6:00 AM to 8:00 AM:
@@ -261,10 +261,10 @@ Estimate the total CO₂ taken up (μmol/m²) using the trapezoidal rule. (Conve
 
 ### Concept Check In {-}
 
-**1.** Why does \(\int_a^b c\,dx = c(b-a)\)? (No calculation — just reasoning.)
+**1.** Why does \(\int_a^b c\,dx = c(b-a)\)? (No calculation: just reasoning.)
 
 <details><summary><strong>Answer</strong></summary>
-The rate is constant \(c\), so accumulation over \([a, b]\) is just (rate)(duration) — a rectangle of width \(b-a\) and height \(c\).
+The rate is constant \(c\), so accumulation over \([a, b]\) is just (rate)(duration): a rectangle of width \(b-a\) and height \(c\).
 </details>
 
 **2.** If \(\int_0^5 f(x)\,dx = 12\) and \(\int_5^9 f(x)\,dx = 7\), what is \(\int_0^9 f(x)\,dx\)?
@@ -276,7 +276,7 @@ By additivity, \(\int_0^9 f\,dx = 12 + 7 = 19\).
 **3.** Why does reversing limits flip the sign?
 
 <details><summary><strong>Answer</strong></summary>
-Going from \(b\) to \(a\) means accumulating "in reverse" — every small slice contributes \(-f(x)\,dx\) instead of \(+f(x)\,dx\). The total accumulates with the opposite sign.
+Going from \(b\) to \(a\) means accumulating "in reverse": every small slice contributes \(-f(x)\,dx\) instead of \(+f(x)\,dx\). The total accumulates with the opposite sign.
 </details>
 
 ### Practice Problems {-}
@@ -299,10 +299,10 @@ By limit reversal: \(-8\).
 By additivity: \(\int_0^7 = \int_0^2 + \int_2^7\), so \(\int_2^7 f\,dx = 11 - 3 = 8\).
 </details>
 
-**4.** Evaluate \(\int_3^3 e^{x^2}\,dx\). (Hint: trap.)
+**4.** Evaluate \(\int_3^3 e^{x^2}\,dx\). (Hint: look at the bounds before you do anything.)
 
 <details><summary><strong>Solution</strong></summary>
-Zero — the bounds are equal, so the integral is zero regardless of the integrand. (You do *not* need to find an antiderivative for \(e^{x^2}\) — which is good, because none exists in closed form.)
+Zero: the bounds are equal, so the integral is zero regardless of the integrand. (You do *not* need to find an antiderivative for \(e^{x^2}\), which is good, because none exists in closed form.)
 </details>
 
 ---
@@ -330,7 +330,7 @@ Any constant has derivative zero, so adding a constant to any antiderivative sti
 **2.** What's the difference between an indefinite integral and a definite integral?
 
 <details><summary><strong>Answer</strong></summary>
-An indefinite integral \(\int f\,dx\) gives a *family of functions* (with \(+C\)). A definite integral \(\int_a^b f\,dx\) gives a single *number* — the net accumulation between \(a\) and \(b\).
+An indefinite integral \(\int f\,dx\) gives a *family of functions* (with \(+C\)). A definite integral \(\int_a^b f\,dx\) gives a single *number*: the net accumulation between \(a\) and \(b\).
 </details>
 
 **3.** Why doesn't \(+C\) appear in a definite integral's answer?
@@ -399,7 +399,7 @@ All antiderivatives differ by a constant \(C\), which cancels in \(F(b) - F(a)\)
 **2.** What does \(F(b) - F(a)\) represent physically when \(f\) is a rate?
 
 <details><summary><strong>Answer</strong></summary>
-The net accumulated change of the quantity over \([a, b]\) — exactly the total that the integral measures.
+The net accumulated change of the quantity over \([a, b]\): exactly the total that the integral measures.
 </details>
 
 **3.** When can you *not* apply the FTC?
@@ -450,7 +450,7 @@ Total volume \(= \int_0^{10} (4t + 2)\,dt = [2 t^2 + 2 t]_0^{10} = 200 + 20 = 22
 
 # Module 2: Techniques of Integration {-}
 
-*The toolkit for finding antiderivatives — substitution, integration by parts, partial fractions, and strategy.*
+*The toolkit for finding antiderivatives: substitution, integration by parts, partial fractions, and strategy.*
 
 ## Skills Checklist {-}
 
@@ -468,7 +468,7 @@ Total volume \(= \int_0^{10} (4t + 2)\,dt = [2 t^2 + 2 t]_0^{10} = 200 + 20 = 22
 ## Prep Worksheet: Build Your Reference Sheet {-}
 
 ::: promptbox
-**1. The Four Categories — How to Tell Them Apart**
+**1. The Four Categories: How to Tell Them Apart**
 
 | What I see in the integrand | Which technique it usually needs |
 |:----------------------------|:---------------------------------|
@@ -494,11 +494,11 @@ For definite integrals, optionally **change the limits** (\(u(a)\) and \(u(b)\))
 :::
 
 ::: promptbox
-**3. Integration by Parts Recipe — LIATE**
+**3. Integration by Parts Recipe: LIATE**
 
 The formula: \(\int u\,dv = uv - \int v\,du\).
 
-Choose \(u\) by **LIATE** — pick whichever appears earliest:
+Choose \(u\) by **LIATE**: pick whichever appears earliest:
 
 - **L**ogarithmic (\(\ln x\), \(\log x\))
 - **I**nverse trig (\(\arctan x\), \(\arcsin x\))
@@ -603,13 +603,13 @@ For each, identify the appropriate technique. Don't evaluate.
 **4.** \(\int \dfrac{2 x}{x^2 + 5}\,dx\)
 
 <details><summary><strong>Solution</strong></summary>
-**Substitution** (not partial fractions): \(u = x^2 + 5\), \(du = 2 x\,dx\) — derivative of denominator is sitting in the numerator.
+**Substitution** (not partial fractions): \(u = x^2 + 5\), \(du = 2 x\,dx\): derivative of denominator is sitting in the numerator.
 </details>
 
 **5.** \(\int (5 x^2 - 3 x + 1)\,dx\)
 
 <details><summary><strong>Solution</strong></summary>
-**Basic rules only** — just polynomial term by term.
+**Basic rules only**: just polynomial term by term.
 </details>
 
 **6.** \(\int x^2 e^{x}\,dx\)
@@ -695,7 +695,7 @@ For an indefinite integral, substitute back to \(x\) at the end and add \(+C\). 
 **2.** What does LIATE stand for, and how is it used?
 
 <details><summary><strong>Answer</strong></summary>
-**L**ogarithmic, **I**nverse trig, **A**lgebraic, **T**rigonometric, **E**xponential. Pick \(u\) to be whichever class appears *earliest* in the list — that's typically the factor that simplifies on differentiation.
+**L**ogarithmic, **I**nverse trig, **A**lgebraic, **T**rigonometric, **E**xponential. Pick \(u\) to be whichever class appears *earliest* in the list: that's typically the factor that simplifies on differentiation.
 </details>
 
 **3.** When do you need to apply IBP more than once?
@@ -761,7 +761,7 @@ Distinct linear \((x-a)\) → one term \(A/(x-a)\). Repeated linear \((x-a)^k\) 
 **3.** When is partial fractions the wrong tool for an integral that *looks* rational?
 
 <details><summary><strong>Answer</strong></summary>
-When the derivative of the denominator is already in the numerator (use substitution instead), or when the denominator is irreducible without partial fractions because it's already in simplest form for an arctan-type integral.
+When the derivative of the denominator is already in the numerator (use substitution instead), or when the denominator is an irreducible quadratic with a constant numerator, like \(\int \frac{1}{x^2+4}\,dx\). There's nothing to split, and it's an arctan integral.
 </details>
 
 ### Practice Problems {-}
@@ -800,7 +800,7 @@ Decompose: \(\dfrac{1}{x(x+1)} = \dfrac{1}{x} - \dfrac{1}{x+1}\). Integrate: \(\
 
 # Module 3: Applications of Integration {-}
 
-*Putting integrals to work — signed accumulation, average values, area between curves, and integrating over 2D and 3D regions.*
+*Putting integrals to work: signed accumulation, average values, area between curves, and integrating over 2D and 3D regions.*
 
 ## Skills Checklist {-}
 
@@ -907,7 +907,7 @@ A definite integral \(\int_a^b f(x)\,dx\) is a *signed* quantity: regions where 
 
 ### Concept Check In {-}
 
-**1.** If \(f(x) < 0\) on \([a, b]\), what does \(\int_a^b f\,dx\) equal — geometrically?
+**1.** If \(f(x) < 0\) on \([a, b]\), what does \(\int_a^b f\,dx\) equal, geometrically?
 
 <details><summary><strong>Answer</strong></summary>
 It equals the **negative** of the geometric area between the curve and the \(x\)-axis. \(\int f\,dx\) is signed, so contributions from below the axis subtract.
@@ -916,7 +916,7 @@ It equals the **negative** of the geometric area between the curve and the \(x\)
 **2.** What's the difference between net accumulation and total accumulation?
 
 <details><summary><strong>Answer</strong></summary>
-Net: gains and losses combine, signs can cancel — \(\int f\,dx\). Total: every contribution counts in magnitude — \(\int |f|\,dx\). A river that gains 10 m³ then loses 10 m³ has zero net but 20 m³ total throughput.
+Net: gains and losses combine, signs can cancel: \(\int f\,dx\). Total: every contribution counts in magnitude: \(\int |f|\,dx\). A river that gains 10 m³ then loses 10 m³ has zero net but 20 m³ total throughput.
 </details>
 
 ### Practice Problems {-}
@@ -942,7 +942,7 @@ Split at \(x = 2\) where \(f = 0\). On \([0, 2]\): \(\int_0^2 (x-2)\,dx = (2 - 4
 **4.** A river's net flow rate (signed: positive = downstream, negative = backwater) over 8 hours is modeled as \(Q(t) = 4 t - t^2\) m³/s. Find the **net** volume that flowed downstream over the 8-hour window.
 
 <details><summary><strong>Solution</strong></summary>
-\(\int_0^8 (4 t - t^2)\,dt = [2 t^2 - \tfrac{t^3}{3}]_0^8 = 128 - \tfrac{512}{3} = \tfrac{384 - 512}{3} = -\tfrac{128}{3}\) m³/s · h. The net flow was negative — there was more upstream backwater than downstream flow (in this idealized model). Convert: \(\approx -42.67 \times 3600 \approx -153{,}600\) m³.
+\(\int_0^8 (4 t - t^2)\,dt = [2 t^2 - \tfrac{t^3}{3}]_0^8 = 128 - \tfrac{512}{3} = \tfrac{384 - 512}{3} = -\tfrac{128}{3}\) m³/s · h. The net flow was negative: there was more upstream backwater than downstream flow (in this idealized model). Convert: \(\approx -42.67 \times 3600 \approx -153{,}600\) m³.
 </details>
 
 ---
@@ -1021,7 +1021,7 @@ Because each thin vertical strip has area = (top \(y\)) × (\(dx\)) − (bottom 
 If \(f - g\) changes sign in \([a, b]\), the signed integral cancels positive and negative regions instead of summing them in magnitude. You'll get the *net* (signed) area, not the *geometric* (total) area.
 </details>
 
-**3.** Quick check: which is on top of \(g(x) = x\) on \([0, 1]\) — \(f(x) = x^2\) or \(g(x) = x\)?
+**3.** Quick check: on \([0, 1]\), which is on top, \(f(x) = x^2\) or \(g(x) = x\)?
 
 <details><summary><strong>Answer</strong></summary>
 On \([0, 1]\), \(x \geq x^2\) (since \(x^2 \leq x\) when \(0 \leq x \leq 1\)), so \(g(x) = x\) is on top.
@@ -1081,7 +1081,7 @@ A tiny piece of area in the \(xy\)-plane, often visualized as a small rectangle 
 **2.** If \(\rho(x, y)\) is biomass density (kg/m²) over a region, what does \(\iint \rho\,dA\) compute?
 
 <details><summary><strong>Answer</strong></summary>
-Total biomass (in kg) — density × area, summed over the region.
+Total biomass (in kg): density × area, summed over the region.
 </details>
 
 ### Practice Problems {-}
@@ -1159,7 +1159,7 @@ Concentration averaged in \(x\): \(\bar{c} = \tfrac{1}{100}\int_0^{100}(8 - 0.02
 
 # Module 4: Differential Equations {-}
 
-*Modeling how systems change — separable equations, initial value problems, slope fields, equilibria, and stability.*
+*Modeling how systems change: separable equations, initial value problems, slope fields, equilibria, and stability.*
 
 ## Skills Checklist {-}
 
@@ -1255,7 +1255,7 @@ A quick algebraic check: \(y^*\) stable if \(f'(y^*) < 0\); unstable if \(f'(y^*
 2. Dividing by a quantity that could be zero (be careful with equilibria!).
 3. Forgetting absolute values when integrating \(1/y\).
 4. Confusing the sign of \(k\) in growth vs decay.
-5. Misreading a slope field — arrows show *slope direction*, not the value of \(y\).
+5. Misreading a slope field: the segments show *slope*, not the value of \(y\).
 
 One pitfall I want to avoid:
 <div class="writein"></div>
@@ -1270,7 +1270,7 @@ One pitfall I want to avoid:
 **1.** What does a differential equation describe that an ordinary equation doesn't?
 
 <details><summary><strong>Answer</strong></summary>
-A *rule for how a quantity changes* — relating an unknown function to its own derivative — rather than a single fixed numerical relationship.
+A *rule for how a quantity changes*, relating an unknown function to its own derivative, rather than a single fixed numerical relationship.
 </details>
 
 **2.** What does \(\dfrac{dP}{dt} = -kP\) describe physically when \(k > 0\)?
@@ -1282,12 +1282,12 @@ Exponential **decay**: the rate of change of \(P\) is negative and proportional 
 **3.** Why are units important when building a DE?
 
 <details><summary><strong>Answer</strong></summary>
-Every term must have units of "(quantity) per (independent variable)" — e.g., individuals per day, mg per second. If units of two terms in the same equation don't match, the model is wrong.
+Every term must have units of "(quantity) per (independent variable)", e.g., individuals per day, mg per second. If units of two terms in the same equation don't match, the model is wrong.
 </details>
 
 ### Practice Problems {-}
 
-**1.** Translate: "A population grows at a per-capita rate of 0.04 per year, minus a constant immigration loss of 100 individuals per year." Write the DE for \(P(t)\).
+**1.** Translate: "A population grows at a per-capita rate of 0.04 per year, minus a constant emigration loss of 100 individuals per year." Write the DE for \(P(t)\).
 
 <details><summary><strong>Solution</strong></summary>
 \(\dfrac{dP}{dt} = 0.04 P - 100\). The "per-capita rate of 0.04" means the growth term is proportional to \(P\) with constant 0.04; the constant loss is just \(-100\).
@@ -1302,13 +1302,13 @@ Every term must have units of "(quantity) per (independent variable)" — e.g., 
 **3.** Is "\(P(3) = 100\)" a differential equation? Why or why not?
 
 <details><summary><strong>Solution</strong></summary>
-No — it's an *initial condition* (a single piece of information about \(P\) at one specific time). A DE involves the *rate* of change of \(P\), like \(\dfrac{dP}{dt}\).
+No. It's an *initial condition* (a single piece of information about \(P\) at one specific time). A DE involves the *rate* of change of \(P\), like \(\dfrac{dP}{dt}\).
 </details>
 
 **4.** For a logistic-with-harvest model \(\dfrac{dP}{dt} = 0.4 P(1 - P/100) - H\), what are the units of \(H\) if \(P\) is in individuals and \(t\) is in years?
 
 <details><summary><strong>Solution</strong></summary>
-\(H\) must have units of "individuals per year" — same as \(\dfrac{dP}{dt}\) — for the equation to balance.
+\(H\) must have units of "individuals per year", the same as \(\dfrac{dP}{dt}\), for the equation to balance.
 </details>
 
 ---
@@ -1317,10 +1317,10 @@ No — it's an *initial condition* (a single piece of information about \(P\) at
 
 ### Concept Check In {-}
 
-**1.** What does a slope field's arrow at \((t, y)\) represent?
+**1.** What does a slope field's segment at \((t, y)\) represent?
 
 <details><summary><strong>Answer</strong></summary>
-The slope \(\dfrac{dy}{dt} = f(t, y)\) of the solution curve passing through that point — i.e., the direction the solution is heading at that instant.
+The slope \(\dfrac{dy}{dt} = f(t, y)\) of the solution curve passing through that point, i.e., the direction the solution is heading at that instant.
 </details>
 
 **2.** How do you find equilibria of an autonomous DE \(\dfrac{dy}{dt} = f(y)\)?
@@ -1333,7 +1333,7 @@ Set \(f(y) = 0\) and solve for \(y\). The roots are the equilibrium values \(y^*
 
 <details><summary><strong>Answer</strong></summary>
 **Stable:** small perturbations decay; the system returns to the equilibrium (e.g., logistic population at carrying capacity \(K\)).  
-**Unstable:** small perturbations grow; the system runs away from equilibrium (e.g., logistic at \(P = 0\) — any small population grows away from extinction).
+**Unstable:** small perturbations grow; the system runs away from equilibrium (e.g., logistic at \(P = 0\): any small population grows away from extinction).
 </details>
 
 ### Practice Problems {-}
@@ -1359,7 +1359,7 @@ Set \(P(6 - P) = 0\). Roots: \(P = 0\) and \(P = 6\).
 **4.** Find the equilibria of the logistic-with-harvest \(\dfrac{dP}{dt} = P(3 - P) - 2\).
 
 <details><summary><strong>Solution</strong></summary>
-\(P(3 - P) - 2 = 0 \Rightarrow -P^2 + 3 P - 2 = 0 \Rightarrow P^2 - 3 P + 2 = 0 \Rightarrow (P - 1)(P - 2) = 0\). Equilibria: \(P = 1\) and \(P = 2\). (Quick check on classification: at \(P = 1.5\), \(\dfrac{dP}{dt} = 1.5(1.5) - 2 = 0.25 > 0\) — population grows from 1 toward 2. So \(P = 1\) is *unstable*, \(P = 2\) is *stable*.)
+\(P(3 - P) - 2 = 0 \Rightarrow -P^2 + 3 P - 2 = 0 \Rightarrow P^2 - 3 P + 2 = 0 \Rightarrow (P - 1)(P - 2) = 0\). Equilibria: \(P = 1\) and \(P = 2\). (Quick check on classification: at \(P = 1.5\), \(\dfrac{dP}{dt} = 1.5(1.5) - 2 = 0.25 > 0\): population grows from 1 toward 2. So \(P = 1\) is *unstable*, \(P = 2\) is *stable*.)
 </details>
 
 ---
@@ -1371,7 +1371,7 @@ Set \(P(6 - P) = 0\). Roots: \(P = 0\) and \(P = 6\).
 **1.** What structural feature makes a DE *separable*?
 
 <details><summary><strong>Answer</strong></summary>
-You can write the equation in the form \(g(y)\,dy = f(t)\,dt\) — that is, the right-hand side factors as a function of \(t\) times a function of \(y\).
+You can write the equation in the form \(g(y)\,dy = f(t)\,dt\): that is, the right-hand side factors as a function of \(t\) times a function of \(y\).
 </details>
 
 **2.** Why must you add \(+C\) **before** applying the initial condition?
@@ -1415,13 +1415,13 @@ Let \(u = y - 5\), so \(du/dt = dy/dt = -k u\). Solve: \(u = A e^{-k t}\). There
 **1.** What does an IVP have that a generic DE doesn't?
 
 <details><summary><strong>Answer</strong></summary>
-An **initial condition** — a specified value of the unknown function at one point (often \(y(0) = y_0\)) — which pins down the constant of integration and gives a *unique* solution.
+An **initial condition**: the value of the unknown function at one point (often \(y(0) = y_0\)). It pins down the constant of integration and gives a *unique* solution.
 </details>
 
-**2.** If you're told \(P(0) = 3\) and \(P(3) = 16\) for a model \(P(t) = 2 e^{k t}\), what do you do?
+**2.** You're told \(P(0) = 3\) and \(P(3) = 16\), and someone hands you the model \(P(t) = 2 e^{k t}\). What's wrong, and how do you fix it?
 
 <details><summary><strong>Answer</strong></summary>
-Wait — \(P(0) = 2 e^0 = 2 \neq 3\). The model already has \(P_0 = 2\) built in. If only \(P(3) = 16\) is given, use it to solve for \(k\): \(16 = 2 e^{3 k} \Rightarrow e^{3 k} = 8 \Rightarrow k = \tfrac{\ln 8}{3}\).
+The model says \(P(0) = 2 e^0 = 2\), but the data say 3, so the initial condition wasn't used. Use it: \(P(t) = 3 e^{k t}\). Then the second point gives \(k\): \(16 = 3 e^{3 k} \Rightarrow k = \tfrac{1}{3}\ln\tfrac{16}{3} \approx 0.558\).
 </details>
 
 ### Practice Problems {-}
@@ -1471,7 +1471,7 @@ Because \(e^{kt}\) is the unique function whose derivative is \(k\) times itself
 **2.** In the logistic model \(\dfrac{dP}{dt} = r P(1 - P/K)\), what does \(K\) represent biologically?
 
 <details><summary><strong>Answer</strong></summary>
-The **carrying capacity** — the population size the environment can sustain. When \(P = K\), the per-capita rate of growth is zero, and the population stays at \(K\).
+The **carrying capacity**: the population size the environment can sustain. When \(P = K\), the per-capita rate of growth is zero, and the population stays at \(K\).
 </details>
 
 **3.** Where does logistic growth grow fastest, and why?
@@ -1509,5 +1509,5 @@ Fastest growth occurs at \(P = K/2 = 500\). At that point, \(\dfrac{dP}{dt} = 0.
 **5.** A pollutant in a stream has a constant input rate of 5 mg/min and decays at rate 0.1 per minute. Set up the DE for the pollutant mass \(M(t)\), find the equilibrium, and classify it.
 
 <details><summary><strong>Solution</strong></summary>
-\(\dfrac{dM}{dt} = 5 - 0.1 M\). Equilibrium: \(M^* = 50\) mg. Stability: \(f'(M) = -0.1 < 0\) at \(M^* = 50\), so it's **stable** — the system approaches 50 mg in the long run.
+\(\dfrac{dM}{dt} = 5 - 0.1 M\). Equilibrium: \(M^* = 50\) mg. Stability: \(f'(M) = -0.1 < 0\) at \(M^* = 50\), so it's **stable**: the system approaches 50 mg in the long run.
 </details>

@@ -62,7 +62,7 @@ The **total carbon stored** over a period of time is found by integrating this d
 A positive value indicates net sequestration, while a negative value indicates the wetland is acting as a carbon source.
 
 
-```{r, warning=FALSE,echo=FALSE, message=FALSE}
+```{r wetland-uptake-loss, warning=FALSE,echo=FALSE, message=FALSE, fig.alt="Carbon uptake rising from 0 toward 5 kg C per year and carbon loss falling from 3 toward 1 kg C per year over 20 years. The curves cross at about 1.7 years, after which uptake is larger."}
 # ---------------------------------------------
 # Carbon Uptake and Loss Models (Annual scale)
 # ---------------------------------------------
@@ -172,7 +172,7 @@ S(t) = e^{-kt}
 \]
 where:
 
-- \(k = 0.5\)
+- \(k = 0.5\ \text{week}^{-1}\)
 
 
 
@@ -221,7 +221,7 @@ where:
 - \(C_0 = 20\) (initial concentration, mg/L),
 - \(k = 0.8\ \text{hr}^{-1}\) (metabolic removal rate).
 
-```{r, warning=FALSE,echo=FALSE, message=FALSE}
+```{r drug-model-1, warning=FALSE,echo=FALSE, message=FALSE, fig.alt="Concentration starting at 20 mg/L and decaying exponentially to near zero within about 6 hours."}
 # ---------------------------------------------
 # Plot C1(t) = C0 * exp(-k t)
 # ---------------------------------------------
@@ -257,9 +257,10 @@ C_2(t) = t e^{-kt}
 \]
 where:
 
-- \(k = 0.2\ \text{hr}^{-1}\).
+- \(k = 0.2\ \text{hr}^{-1}\),
+- the \(t\) out front carries units of mg/L per hour, so \(C_2\) is in mg/L.
 
-```{r, warning=FALSE,echo=FALSE, message=FALSE}
+```{r drug-model-2, warning=FALSE,echo=FALSE, message=FALSE, fig.alt="Concentration starting at zero, rising to a peak of about 1.8 mg/L at 5 hours, then slowly declining over 24 hours."}
 
 # ---------------------------------------------
 # Plot C2(t) = t * exp(-k t)
@@ -324,14 +325,14 @@ A common measure of “how much drug the body experiences” is the **area under
 
 ## Application 4: Understanding Energy Demand in a Warming Pacific Northwest
 
-Understanding changes in energy use—and anticipating future energy demand—is a growing concern in the Pacific Northwest. Energy systems in this region have historically been designed around relatively mild summers and cool, wet winters. As temperatures shift, both **heating** and **cooling** needs are changing in ways that matter for infrastructure planning, energy equity, and climate resilience.
+Understanding changes in energy use, and anticipating future energy demand, is a growing concern in the Pacific Northwest. Energy systems in this region have historically been designed around relatively mild summers and cool, wet winters. As temperatures shift, both **heating** and **cooling** needs are changing in ways that matter for infrastructure planning, energy equity, and climate resilience.
 
-To explore this, we will compare temperature patterns from **1950**, one of the earliest years with extensive temperature records, to **2021**, one of the hottest years on record. This comparison allows us to see not just *that* temperatures have changed, but *how* those changes translate into energy demand.
+To explore this, we will compare temperature patterns from **1950**, one of the earliest years with extensive temperature records, to **2021**, one of the hottest years on record. The question isn't only whether temperatures changed. It's how that change shows up in energy demand.
 
-The figure below is the mean daily temperate for Seattle calculated as the average of the max and min daily temperature.
+The figure below is the mean daily temperature for Seattle calculated as the average of the max and min daily temperature.
 
-![](images/sea_tac_hdd_cdd.png){fig.cap="" fig.alt="Temperature profile" style="float=center; width:650px; margin:10px;"}
-Fitting a sinusoid to the daily data yields the following equaitons:
+![](images/sea_tac_hdd_cdd.png){fig.cap="" fig.alt="Daily mean temperature at SeaTac for 1950 and 2021, plotted by day of year. Both years peak in late July, and 2021 runs about 4.5 degrees F warmer than 1950 for most of the year." style="display:block; width:650px; margin:10px auto;"}
+Fitting a sinusoid to the daily data gives these equations:
 
 \[
 T_{1950}(d) = 14.43\,\sin\!\left(\frac{2\pi d}{365} - 1.99\right) + 49.02
@@ -349,7 +350,7 @@ T_{2021}(d) = 14.20\,\sin\!\left(\frac{2\pi d}{365} - 1.89\right) + 53.55
 - How would you characterize the difference between the daily data points in these two years?
 - Do you think the sinusoids capture the trend of the data?
 - Calculate the area between these two curves
-- The units of the area you calculate will be degree days - try to interpret that.
+- The units of the area you calculate will be degree days. Try to interpret that.
 
 
 :::
@@ -389,7 +390,7 @@ Mathematically, this is an example of **integrating under a curve**, where we me
 **Prompt 2: CDD**
 
 - For 1950 what do you observe as the cooling degree days
-- For 2021 set up the integral the calculates the area between the temperature curve and the baseline
+- For 2021 set up the integral that calculates the area between the temperature curve and the baseline
   - You will need to work out the bounds of integration [Hint: Find the days where the 2021 Temperature function =65]
   - Calculate the CDD for 2021
 
@@ -409,7 +410,7 @@ Here, we measure the area between the baseline and the temperature curve when th
 ::: promptbox
 **Prompt 3: HDD**
 
-- For 1950 and 2021 set up the integral the calculates the area between the temperature curve and the baseline
+- For 1950 and 2021 set up the integral that calculates the area between the temperature curve and the baseline
 - Compare the HDD from both years and make a brief comment
 
 :::
@@ -421,10 +422,10 @@ Here, we measure the area between the baseline and the temperature curve when th
   - Which year required more energy?
   - Comment
   
-- Rather than fitting a function and integrating - what other integration technique could we use?
+- Rather than fitting a function and integrating, what other integration technique could we use?
   - Briefly describe how you would use this technique.
   
-- Dig deeper - This metric was developed around the 1950s (before we had air conditioning and smart thermostats)
+- Dig deeper: this metric was developed around the 1950s (before we had air conditioning and smart thermostats)
   - Do you agree with this metric?
   - How could you tweak this analysis to get a better picture of present day energy usage?
 
@@ -665,7 +666,7 @@ where:
 - \((1+0.01y)\) models a gradual along-coast gradient,
 - \(e^{-30(z-0.1)^2}\) concentrates fish near 100 m depth.
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r fish-density-1d, echo=FALSE, warning=FALSE, message=FALSE, fig.alt="Three panels of fish density. Density falls steadily with offshore distance, rises slowly along the coast, and peaks at 0.1 km (100 m) depth."}
 
 # ============================================================
 # Fish density model and three-panel visualization
@@ -747,18 +748,18 @@ par(mfrow = c(1, 1))
 
 ::: promptbox
 
-**Prompt 1
+**Prompt 1: Reading the Density Model**
 
-The three panels above describe how the density of fish vary in the x,y and z. 
+The three panels above show how fish density varies in x, y and z. 
 
 - In simple terms explain the trends you are seeing.
-- Iterpret these graphs to estimate roughly where the highest density would be (give  a rough x,y,z location)
+- Use these graphs to estimate roughly where the highest density would be (give a rough x, y, z location).
 
 :::
 
-To help you visulize this density expression, these are 4 slices of density at 4 different depths.
+To help you visualize this density, here are 4 slices of density at 4 different depths.
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r fish-density-depths, echo=FALSE, warning=FALSE, message=FALSE, fig.alt="Four heat maps of fish density in the survey box at 0, 100, 200 and 300 m depth. In every panel density is highest near shore and at the far along-coast edge. The 100 m panel is brightest and the 300 m panel is darkest."}
 # ============================================================
 # Four-panel visualization of fish density at fixed depths
 # ============================================================
@@ -860,9 +861,9 @@ N=\int_{0}^{20}\int_{0}^{50}\int_{0}^{0.3}
 :::
 
 ::: promptbox
-**Prompt 2: Set Up the Triple Integral**
+**Prompt 2: Evaluate the Triple Integral**
 
-Evaluate the integral below to calculate the total number of fish in this domain,
+Evaluate the integral below to find the total number of fish in this domain:
 
 \[
 N=\int_{0}^{20}\int_{0}^{50}\int_{0}^{0.3}
@@ -874,7 +875,7 @@ N=\int_{0}^{20}\int_{0}^{50}\int_{0}^{0.3}
 ::: promptbox
 **Prompt 3: Layers**
 
-1. Write the integral and evaluate it to find the total number of fish in the top 100m of the water collumn.
+1. Write the integral and evaluate it to find the total number of fish in the top 100 m of the water column.
 
 2. Write the integral and evaluate it to find the total number of fish in the region between the shore and 1km out.
 
