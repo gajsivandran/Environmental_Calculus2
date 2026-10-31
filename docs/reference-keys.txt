@@ -1,10 +1,10 @@
 why-calculus
 why-this-book
-what-is-calculus
 how-this-book-works
 success-in-this-class
 looking-ahead
 a-big-disclaimer
+ai-transparency
 introduction-to-calculus-ii
 what-calculus-ii-is-really-about
 what-you-bring-from-calculus-i

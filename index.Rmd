@@ -12,54 +12,30 @@ link-citations: yes
 github-repo: gajsivandran/Environmental_Calculus2
 description: "A textbook companion to the University of Washington QSci 292 class"
 ---
-
 # Why Calculus?
-Welcome to *Calculus for Environmental Science*. 🌱  
 
-This book is your companion for exploring the natural world through the lens of calculus—especially the powerful ideas of **change** and **accumulation**. You’ll find that calculus is not just about symbols on a page—it’s about asking meaningful questions, interpreting patterns, and making sense of complex environmental systems. And along the way, you’ll see that you are absolutely capable of mastering these ideas.  
+In QSCI 291 you kept asking one question: how fast is this changing? This book asks the reverse. If you know the rate, can you work out the total?
+
+A stream gauge records discharge every 15 minutes during a storm. That's a rate, in cubic meters per second. A flood manager wants a volume: how much water went past the gauge? A flux tower measures carbon exchange over a forest every half hour. Someone has to work out how much carbon that forest stored over the year. Going from a rate to a total is integration, and it's most of this course.
+
+The last chapter turns the problem around again. Sometimes all you have is a rule for how something changes, like a pollutant that breaks down in proportion to how much is left. Differential equations let you work out where the system is headed from that rule alone.
+
+Welcome to *Environmental Calculus 2*.
 
 ---
 
 ## Why This Book?
 
-Most calculus textbooks lean heavily on physics examples—motion, velocity, and acceleration—because calculus was originally developed to solve physics problems. Those examples are powerful, and we’ll use them from time to time because they give us an intuitive “feel” for how change works.  
-
-But today, calculus is a tool used across many disciplines: biology, ecology, environmental science, economics, engineering, and beyond. In this book, we’ll focus on examples that resonate with your studies and your interests as an environmental scientist.  
-
-Environmental scientists face some of the most urgent and complex challenges of our time—climate change, biodiversity loss, resource management, and pollution. Calculus gives us tools to:
-
-- Predict how systems evolve over time  
-- Estimate impacts and risks  
-- Model natural and human systems with differential equations  
-- Analyze rates of change and long-term accumulation  
-
-Throughout this book, you’ll work with **real environmental data**, use **visual and conceptual approaches**, and practice skills that matter for sustainability. Our goal is not just to “get through calculus,” but to see how these mathematical ideas open doors for discovery and problem-solving in the real world.  
+Like the 291 book, this one puts environmental examples first. Physics shows up only when it makes an idea easier to feel. The problems come from things you could actually measure: streamflow, pollutant loads, carbon exchange, population change.
 
 ---
-
-## What Is Calculus?
-
-At its heart, calculus is the mathematics of **change** and **accumulation**. These two ideas are everywhere in science:  
-
-- The **rate of CO₂ increase** in the atmosphere is a derivative.  
-- The **total added CO₂** over a year is an integral.  
-
-Traditionally, calculus is first introduced through physics examples like velocity (rate of change of position) and acceleration (rate of change of velocity). These are helpful because most of us can *feel* what it means to move faster or slower. We’ll use those examples when they make ideas clearer.  
-
-But throughout this book, our main goal is to connect calculus directly to the environment you are studying. You’ll see derivatives and integrals applied to population growth, forest carbon storage, water flow in rivers, and other natural systems.  
-
-We’ll build your understanding of these concepts step by step, supported by graphs, data, and hands-on examples. And if it’s been a while since your last math class, that’s completely okay—you’ll find plenty of support here. We’ll meet you where you are and grow your skills together.  
-
 ---
 
 ## How This Book Works
 
-Each chapter is designed to support you as a learner. You’ll find:
+Each chapter mixes explanation, worked examples, concept checks and practice problems. Answers sit behind click-to-reveal blocks. Try the problem before you open them. That's where the learning happens.
 
-- Clear explanations of key concepts  
-- Environmental examples to connect math with meaning  
-- Practice problems to strengthen your skills  
-- Reflection prompts to help you think about what you’re learning  
+The workbook chapters at the back give you more practice for each chapter, with answer keys. The equation sheet and test review material are there too.
 
 ---
 
@@ -105,6 +81,20 @@ If you come across an error—big or small—please let me know so I can fix it 
 Thanks for your patience, your sharp eyes, and your willingness to learn from (and with) an evolving text. Together, we’ll keep improving it.  
   
 
+## AI Transparency
+
+I developed this book for students in my quantitative science courses at UW. I ask those students to be open about how they use AI, so the same standard applies to me.
+
+The course design is mine: what we cover, in what order, the environmental case studies, and how each idea is explained. 
+
+I used generative AI tools to:
+
+- edit for grammar and consistency. 
+- draft practice problems, concept checks and their worked solutions
+- format and convert material, including the reveal-answer blocks and the study guides
+- meet digital accessibility requirements (WCAG 2.1 AA): drafting alt text for figures, checking heading structure, color contrast and table markup, and producing accessible Word versions of course documents
+
+I reviewed and edited all AI-generated material before publishing.
 
 
 
