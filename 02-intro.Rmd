@@ -1,63 +1,54 @@
 # Introduction to Calculus II
 
-A storm parks over a Pacific Northwest watershed. Rain falls — sometimes a drizzle, sometimes a downpour — and at the bottom of the basin, a stream gauge ticks upward. *How much* water passed the gauge over the storm? Out in the forest, a stand of Douglas-fir is pulling carbon out of the air. The rate of uptake shifts with the sun, the temperature, the time of day. *How much* carbon did the forest take up this summer?
+Snow on the Cascades melts a few millimeters a day in April and a lot faster in June. The melt rate matters, but it isn't what water managers plan around. They plan around the total: how much water will come off the mountains this year, and when.
 
-These are questions about *totals*, and in environmental science, totals matter. Calculus I gave you tools to describe how systems change moment by moment. Calculus II gives you tools to add those moments up.
+That's the shift in this course. In Calculus I you asked how fast something is changing. In Calculus II you ask how much has built up.
 
-Welcome to Calculus II — the mathematics of *accumulation*.
+Welcome to Calculus II.
 
-In Calculus I, you learned to describe how natural systems behave at a given moment: how fast a population is growing, how quickly temperature is changing, or how sharply a pollutant concentration shifts at a point in space. In this course, we shift the question:
-
-- How much water flowed down a stream over the day?  
-- How much carbon did a forest take up this summer?  
-- How much nitrogen was exported from a watershed during a storm?  
-- How much biomass accumulated in a recovering ecosystem?  
-
-These are questions about **totals**. Being able to quantify accumulation helps us understand environmental systems that are dynamic, interconnected, and continuously changing.
-
-This course is the second half of the **Q SCI 291–292 sequence**, which builds the mathematical foundation used across biology, ecology, conservation, marine science, and environmental science. Alongside the core mathematical ideas, the course emphasizes learning how to think quantitatively about real systems and developing the reasoning skills needed to communicate scientific results clearly.
+This course is the second half of the **QSci 291–292 sequence**. The math is the same math used across biology, ecology, conservation, marine science and environmental science. We'll spend as much time on what a result means as on how to get it, because a number you can't explain isn't worth much.
 
 By the end of this course, you will be able to:
 
-- **Explain and interpret** definite integrals using Riemann sums, limits, and graphical representations.  
-- **Compute and apply integrals** using substitution, integration by parts, and numerical methods to solve environmental and biological problems.  
-- **Analyze and model** natural systems using basic differential equations, including separable and first-order linear forms.  
-- **Construct and justify clear mathematical reasoning** — written, numerical, and graphical — so you can communicate solutions effectively and assess their validity.
+- **Explain and interpret** definite integrals using Riemann sums, limits and graphs
+- **Compute and apply** integrals using substitution, integration by parts, partial fractions and numerical methods
+- **Model** natural systems with simple differential equations, including exponential and logistic growth
+- **Show your reasoning** in words, numbers and graphs, so someone else can follow it and check it
 
 ---
 
-## What Calculus II Is Really About
+## What Calculus II Is About
 
-At its core, Calculus II is the study of **accumulation**. Many quantities in the natural world — heat, nutrients, biomass, pollutants, water, individuals — change continuously rather than in neat steps. When a quantity's rate changes from moment to moment, how do we figure out the total amount gained or lost? Integrals give us the language and tools to answer that question.
+Calculus II is about **accumulation**. Water, heat, nutrients, biomass, pollutants: most of what you measure in the environment changes continuously. If you know the rate, how do you get the total gained or lost?
 
-Calculus I asked: *how fast is something changing?* Calculus II asks: *how much has accumulated?* These two questions are inseparable — they are linked by one of the most beautiful results in mathematics, the Fundamental Theorem of Calculus. We'll get there.
+Calculus I asked: *how fast is something changing?* Calculus II asks: *how much has accumulated?* The two questions are linked by the Fundamental Theorem of Calculus. We'll get there in Chapter 4.
 
 | System | Calc I Question (rate) | Calc II Question (total) |
 |--------|------------------------|--------------------------|
 | **Hydrology** | How fast is streamflow rising during a storm? | How much water flowed past the gauge? |
 | **Forests** | How fast is the canopy taking up CO₂ right now? | How much carbon did the stand take up this summer? |
-| **Populations** | What is the salmon population's growth rate this week? | How many fish passed the weir over the whole run? |
+| **Fisheries** | How many salmon per day are passing the weir this week? | How many fish passed the weir over the whole run? |
 | **Toxicology** | How quickly is a contaminant entering a lake? | How much contaminant has accumulated by year-end? |
 
 ::: promptbox
 
 ### Example: Accumulating Rainfall in a Simple Storm {-}
 
-To anchor the idea of accumulation, imagine a 3-hour storm where the rainfall intensity stays constant within each hour. Suppose the observed intensities are:
+Start simple. A 3-hour storm, with rainfall intensity constant within each hour:
 
-- Hour 1: 4 mm/hour  
-- Hour 2: 7 mm/hour  
-- Hour 3: 5 mm/hour  
+- Hour 1: 4 mm/hour
+- Hour 2: 7 mm/hour
+- Hour 3: 5 mm/hour
 
-If the rainfall rate is constant within each hour, the total rainfall is simply:
+Each hour contributes rate × time:
 
 \[
-\text{Total rainfall} = 4 + 7 + 5 = 16 \text{ mm}.
+\text{Total rainfall} = (4)(1) + (7)(1) + (5)(1) = 16 \text{ mm}.
 \]
 
-Each bar represents the amount of rain added during one hour. The total rainfall is the sum of these three rectangular blocks.
+Each bar below is the rain added in one hour. The total is the sum of the three blocks.
 
-```{r echo=FALSE, warning=FALSE, message=FALSE}
+```{r simple-storm, echo=FALSE, warning=FALSE, message=FALSE, fig.alt="Bar chart of a 3-hour storm. Rainfall rate is 4 mm per hour in hour 1, 7 in hour 2 and 5 in hour 3."}
 # Hourly rainfall rates (mm/hour)
 rates <- c(4, 7, 5)
 
@@ -70,15 +61,15 @@ barplot(
 )
 ```
 
-This situation is straightforward because each hour contributes a clean, fixed amount of rainfall.
+Easy, because each hour adds a fixed amount.
 
 ---
 
 ### When Rainfall Intensity Is Not Constant {-}
 
-Real storms rarely behave this neatly. Rainfall intensity rises, falls, and fluctuates as storm cells pass overhead. Instead of three flat bars, the intensity becomes a wiggly, continuously changing curve.
+Real storms don't work like that. Intensity rises and falls as storm cells pass over. Instead of three flat bars, you get a curve.
 
-```{r echo=FALSE, warning=FALSE, message=FALSE}
+```{r varying-storm, echo=FALSE, warning=FALSE, message=FALSE, fig.alt="Line graph of rainfall rate over 3 hours. The rate rises and falls repeatedly between about 1 and 7 mm per hour."}
 # Time sequence from 0 to 3 hours
 t <- seq(0, 3, length.out = 500)
 
@@ -96,30 +87,26 @@ plot(
 )
 ```
 
-This leads us to the central question of the course:
+Which leads to the central question of the course:
 
 **How much total rain falls during a storm like this?**
 
-There are no neat hourly blocks anymore. The rainfall rate rises, dips, oscillates, and never sits still long enough for a simple calculation. To find the total, we need a method that can add up *many small and continuously changing contributions*.
+There are no hourly blocks to add up anymore. The rate never sits still. To get the total, we need a way to add up a lot of small, changing contributions.
 
 :::
 
-A key insight is that large totals often come from accumulating many **small pieces**. This is intuitive when you think about rainfall or streamflow, and it's the conceptual foundation of Riemann sums and definite integrals. We won't dive into the technical details yet, but this perspective will guide us throughout the course — it's the bridge that connects data, graphs, equations, and models.
-
-Another major theme is **reversing derivatives**. If a derivative tells us how a quantity is changing, an antiderivative recovers the original quantity. The Fundamental Theorem of Calculus ties these ideas together and is the foundation of the integration techniques you'll learn.
-
-Finally, many environmental and biological systems follow *rules of change*. Populations grow or decline, chemicals decay, temperatures level out, and nutrients move through ecosystems. These processes can be described using **differential equations** — mathematical stories of how systems evolve. In this course we'll work with simple and powerful forms (especially separable and first-order linear equations) that let us model natural processes clearly and effectively.
+That idea, big totals built from small pieces, is the starting point for Riemann sums and definite integrals. It comes up in every chapter.
 
 ### Concept Check: Rate vs. Total {-}
 
-For each question below, decide whether the quantity being asked about is a **rate of change** (derivative-flavored) or an **accumulation** (integral-flavored).
+For each question below, decide whether the quantity is a **rate of change** (derivative-flavored) or an **accumulation** (integral-flavored).
 
 **1. A weather station reports that rain is currently falling at 8 mm/hour. Is this a rate or an accumulation?**
 
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-This is a **rate** — it tells you how fast water is arriving *right now*, in mm per hour. A derivative-flavored quantity.
+A **rate**. It tells you how fast water is arriving *right now*, in mm per hour.
 
 </details>
 
@@ -128,7 +115,7 @@ This is a **rate** — it tells you how fast water is arriving *right now*, in m
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-This is an **accumulation** — it tells you the *total* rain that has piled up over a period of time. An integral-flavored quantity.
+An **accumulation**. It's the *total* rain that has piled up over a period of time.
 
 </details>
 
@@ -137,7 +124,7 @@ This is an **accumulation** — it tells you the *total* rain that has piled up 
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-This is a **rate** — fish per day is a rate, no matter how many days the run lasts.
+A **rate**. Fish per day is a rate, no matter how many days the run lasts.
 
 </details>
 
@@ -146,7 +133,7 @@ This is a **rate** — fish per day is a rate, no matter how many days the run l
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-This is an **accumulation** — the seasonal total is what you get by adding up the daily counts (an integral of the rate over the season).
+An **accumulation**. The seasonal total is what you get by adding up the daily counts: an integral of the rate over the season.
 
 </details>
 
@@ -154,34 +141,32 @@ This is an **accumulation** — the seasonal total is what you get by adding up 
 
 ## What You Bring From Calculus I
 
-You already have most of the ingredients you need. Calculus I gave you:
+You already have most of what you need. From Calculus I you have:
 
-- A feel for how to read and interpret graphs  
-- A working understanding of derivatives as rates of change  
-- The ability to recognize when a quantity is increasing, decreasing, leveling off, or turning around  
-- Practice working with functions and equations flexibly  
+- reading and interpreting graphs
+- derivatives as rates of change
+- spotting when a quantity is increasing, decreasing, leveling off or turning around
+- working with functions and equations
 
-You'll also find that clean algebra makes a big difference. Rearranging equations, factoring, simplifying expressions, and solving for unknowns are routine steps in almost every meaningful Calc 2 calculation. Strengthening these skills now will make the deeper ideas of this course much more accessible.
+The thing that trips people up in 292 usually isn't the calculus. It's the algebra. Rearranging, factoring, simplifying and solving for unknowns show up in almost every problem. If those feel shaky, fix them now, and keep track of units as you go.
 
 ![](images/Accumulation.png){fig.cap="" fig.alt="A conceptual illustration of accumulation: small contributions adding up to a total." style="float:center; width:450px; margin:10px;"}
 
 ---
 
-## Big Themes of the Course
+## Three Big Ideas
 
 ### Accumulation
 
-Many environmental processes unfold gradually, not in discrete chunks. Rainfall builds up drop by drop. A stream transports nutrients continuously. Forests take up carbon throughout the day as light changes. In all of these situations, the total amount that accumulates is the result of many small contributions happening moment by moment.
+Most environmental processes happen gradually. Rain builds up drop by drop. A stream carries nutrients continuously. A forest takes up carbon all day as the light changes. The total is the sum of a huge number of small contributions.
 
-Integrals give us a framework for quantifying these cumulative effects. When a rate varies across time, space, or depth, an integral lets us add up tiny pieces into a meaningful whole. This perspective is essential in environmental science, where totals often tell us more about system behavior than any single measurement.
+Integrals are how you add those up when the rate changes over time, space or depth. In environmental science the total is often the number that matters most. A single reading tells you about one moment.
 
-A few examples to keep in mind as you read the rest of the course:
+Three examples to keep in mind:
 
-- **Total nitrogen export from a watershed.** Streamflow and nutrient concentration both change during storms. The total mass exported is *not* the peak concentration times the storm duration — it's the accumulation of many changing contributions as water moves through the system.  
-- **Total phytoplankton production over a day.** Photosynthesis depends on light, which changes continuously with cloud cover and solar angle. The daily production is the sum of many small increments of carbon fixed throughout the day.  
-- **Energy exchanged in an ocean mixed layer.** Heat flux varies with wind, sunlight, and water temperature. Understanding how much energy enters or leaves the ocean requires accumulating many small changes over time.  
-
-Accumulation is one of the central ideas of this course. Integrals appear throughout Calc 2 not just as procedures to learn, but as conceptual tools for interpreting how environmental systems grow, shrink, cycle, and respond to change.
+- **Nitrogen export from a watershed.** Streamflow and nutrient concentration both change during a storm. The total mass exported is *not* peak concentration times storm length. You have to add up the changing contributions as the water moves through.
+- **Phytoplankton production over a day.** Photosynthesis follows light, and light changes with cloud cover and sun angle. Daily production is the sum of all the small amounts of carbon fixed through the day.
+- **Heat exchange in the ocean mixed layer.** Heat flux changes with wind, sunlight and water temperature. To know how much energy went in or out, you add up the small changes over time.
 
 ### Concept Check: Recognizing Accumulation {-}
 
@@ -192,7 +177,7 @@ For each of the following, ask yourself: *am I being told a rate, or a total?*
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-You need to **accumulate (integrate)** the heat flux over the 24-hour period. The flux is a rate (W/m² = J/s/m²), and totaling it over time gives you the total energy delivered (J/m²). You couldn't just multiply 180 × 24 × 3600 unless the flux were constant — which it isn't, because sunlight varies through the day.
+You need to **accumulate (integrate)** the heat flux over the 24 hours. The flux is a rate (W/m² = J/s/m²), and adding it up over time gives total energy (J/m²). You could only multiply 180 × 24 × 3600 if the flux were constant, and it isn't: sunlight changes through the day.
 
 </details>
 
@@ -201,37 +186,33 @@ You need to **accumulate (integrate)** the heat flux over the 24-hour period. Th
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-You're **accumulating many small contributions**. At each minute, the rate of mass entering is roughly (concentration) × (flow rate). Multiplying that by the small time interval gives a small mass increment, and summing all of those increments over the week gives the total mass — exactly the structure of an integral.
+You're **adding up a lot of small contributions**. Each minute, the rate that mass enters is roughly (concentration) × (flow rate). Multiply that by the length of the interval to get a small mass, then add up all the small masses over the week. That's the structure of an integral.
 
 </details>
 
 ---
 
-### Reversing Derivatives: Antiderivatives and the Fundamental Idea
+### Reversing Derivatives
 
-A derivative describes how something changes at each moment. An integral describes how much has changed in total. These two ideas are connected through **antiderivatives**, which let us reverse the process of differentiation. This relationship is one of the central insights of Calculus II and the foundation of the Fundamental Theorem of Calculus.
+A derivative tells you how something changes at each moment. An integral tells you how much it changed in total. **Antiderivatives** connect the two by running differentiation backwards. That connection is the Fundamental Theorem of Calculus.
 
 ![](images/int_conceptual.png){fig.cap="" fig.alt="A simple conceptual diagram showing the relationship between differentiation and integration. On the left is a function f(x); a differentiation arrow points to f'(x). Another arrow goes from right to left, from f'(x) to f(x), labeled integration." style="float:center; width:450px; margin:10px;"}
 
-In environmental terms: a rate of change is often easier to *measure* or *model* than the total amount. Antiderivatives give us a way to move from the rate back to the accumulated quantity.
+This matters because in environmental science the rate is usually what you can measure or model:
 
-#### Why This Connection Matters
+- how fast a pollutant decays
+- how fast heat moves into a lake
+- how fast a population grows
+- how fast soil uses oxygen
 
-In environmental science, we often measure or model **rates**:
+And the total is usually what you actually want:
 
-- the rate at which pollutants decay  
-- the rate of heat transfer into a lake  
-- the rate at which a population grows  
-- the rate of oxygen consumption in soil  
+- how much pollutant is left
+- how much heat the lake gained
+- how much the population changed
+- how much oxygen was used
 
-But what we usually care about are the **totals**:
-
-- total pollutant remaining  
-- total heat gained  
-- total change in population  
-- total oxygen used  
-
-Antiderivatives are the bridge between *how something changes* and *how much it has changed overall*. This connection is the conceptual heart of the Fundamental Theorem of Calculus, and it's why derivatives and integrals — though they look different — are deeply linked.
+Antiderivatives get you from the first list to the second.
 
 ### Concept Check: From Rate to Total {-}
 
@@ -242,7 +223,7 @@ A field crew measures soil respiration (the rate at which microbes release CO₂
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-They **integrate** \(R(t)\) over the 24-hour interval. Each small time slice \(\Delta t\) contributes roughly \(R(t)\,\Delta t\) grams of carbon per square meter, and summing all those contributions (in the limit as the slices get small) gives the total accumulated release.
+They **integrate** \(R(t)\) over the 24 hours. Each small time slice \(\Delta t\) contributes roughly \(R(t)\,\Delta t\) grams of carbon per square meter. Adding up all those slices, in the limit as they get very small, gives the total release.
 
 </details>
 
@@ -251,44 +232,34 @@ They **integrate** \(R(t)\) over the 24-hour interval. Each small time slice \(\
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-\(C'(t)\) is the **instantaneous rate of carbon release at time \(t\)** — which is exactly \(R(t)\). This is the Fundamental Theorem of Calculus in action: differentiating the accumulation gives back the rate.
+\(C'(t)\) is the **rate of carbon release at time \(t\)**, which is exactly \(R(t)\). That's the Fundamental Theorem of Calculus: differentiate the accumulation and you get the rate back.
 
 </details>
 
 ---
 
-### Change Over Time: A First Look at Differential Equations
+### Differential Equations
 
-Many natural systems evolve according to rules that describe **how** things change rather than simply giving their values at any moment. A population grows because new individuals are added. A pollutant decays because chemical reactions reduce its concentration. A lake warms or cools because heat is exchanged with the environment. In each case, the *rate* at which a quantity changes is often easier to understand, measure, or model than the total amount itself.
+Sometimes you don't have a formula for a quantity at all. You have a rule for how it changes:
 
-**Differential equations** provide a mathematical framework for capturing these rules of change. Instead of expressing a relationship between quantities alone, a differential equation expresses a relationship between a quantity and its rate of change. This lets us describe dynamic systems that respond to their own current state:
+- a pollutant breaks down at a rate that depends on how much is left
+- a population grows fast when it's small and slows as resources run out
+- a pond warms quickly when it's much colder than the air, and slowly as the gap closes
 
-- Population growth may speed up when populations are small, slow down when resources become limited, or collapse under stress.  
-- Chemical concentrations may decline at a rate that depends on how much of the substance is present.  
-- Heat transfer may proceed quickly when temperature differences are large, and more slowly as equilibrium is approached.  
-- Nutrients may cycle through ecosystems at rates that depend on biological activity, temperature, or moisture.  
+What these have in common: *the current state of the system sets how it changes next*. A **differential equation** writes that rule down as math. It's a relationship between a quantity and its own rate of change.
 
-These processes share a common feature: *the present state of the system determines how it will change next*. Differential equations make that dependency explicit.
-
-At this stage, the goal isn't to solve differential equations — it's to recognize what they represent. A differential equation is essentially a rulebook for how a system responds over time. It tells us:
-
-- whether the system is increasing or decreasing,  
-- whether the change is fast or slow,  
-- how the rate of change varies with context,  
-- and what long-term behaviors might emerge.  
-
-Later in the course you'll learn techniques for solving differential equations and writing their solutions in closed form. For now, it's enough to recognize that they're a way of translating scientific understanding into mathematical language — moving from descriptions like "the population grows faster when resources are abundant" to precise statements that can be analyzed, simulated, and interpreted.
+For now you only need to recognize one. In Chapter 7 you'll solve them, and use them to work out where a system is headed: whether it grows, decays, or settles at an equilibrium.
 
 ### Concept Check: Recognizing a Differential Equation {-}
 
-Which of the following statements describe a *differential equation* — meaning they express a rate of change in terms of the quantity itself (or some other rate)?
+Which of these statements describe a *differential equation*, meaning they express a rate of change in terms of the quantity itself?
 
 **1. "The size of a fish population at year 10 is 4,200 individuals."**
 
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-**Not a differential equation** — this is just a snapshot of the population at a single point in time. There's no rate of change in the statement.
+**Not a differential equation.** It's a snapshot of the population at one point in time. There's no rate of change in it.
 
 </details>
 
@@ -297,7 +268,7 @@ Which of the following statements describe a *differential equation* — meaning
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-**Yes — this is a differential equation in words.** Mathematically: \(\dfrac{dC}{dt} = -kC\), where \(C\) is the concentration. The rate \(\dfrac{dC}{dt}\) depends on the current amount \(C\).
+**Yes. This is a differential equation in words.** Mathematically: \(\dfrac{dC}{dt} = -kC\), where \(C\) is the concentration. The rate \(\dfrac{dC}{dt}\) depends on the current amount \(C\).
 
 </details>
 
@@ -306,30 +277,20 @@ Which of the following statements describe a *differential equation* — meaning
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-**Yes — also a differential equation.** This is Newton's Law of Cooling: \(\dfrac{dT}{dt} = -k(T - T_{\text{air}})\). The rate of change depends on the current state.
+**Yes.** This is Newton's Law of Cooling: \(\dfrac{dT}{dt} = -k(T - T_{\text{air}})\). The rate of change depends on the current temperature.
 
 </details>
 
 ---
 
-### Skills That Make Calculus II Easier
-
-- Solving equations and rearranging expressions  
-- Sketching functions and recognizing trends  
-- Keeping track of context — what's changing, and what the units represent  
-
-Strengthening these skills frees up your attention for the new ideas in this course.
-
----
-
 ## Building an Intuition for Accumulation
 
-Before we compute any integrals, it helps to develop a clear intuition for how totals arise from variable rates. Many environmental quantities don't behave uniformly. Streamflow responds to storms. Photosynthesis rises and falls with sunlight. Pollutant concentration shifts with depth and time. Populations grow quickly under some conditions and slowly under others.
+Before computing any integrals, get a feel for how totals come out of changing rates. Streamflow responds to storms. Photosynthesis follows the sun. Populations grow fast in some conditions and slowly in others.
 
-A useful way to think about accumulation is to imagine that **each small moment in time** — or **each small slice of space** — contributes a tiny amount to the total. When we add all those contributions together, we get a meaningful quantity: total rainfall, total biomass added, total pollutant exported. This perspective is why the integral has the structure it does, and why graphical reasoning plays such an important role in this course.
+The picture to keep in your head: **each small slice of time**, or of space, adds a small amount to the total. Add all the slices and you get the total rainfall, the total biomass, the total pollutant exported. That's why the integral looks the way it does.
 
 ::: promptbox
-```{r echo=FALSE, warning=FALSE, message=FALSE}
+```{r rainbow-slices, echo=FALSE, warning=FALSE, message=FALSE, fig.alt="Graph of the curve y equals e to the x from 0 to 2. Six thin colored slices fill the area under the curve between x equals 1 and x equals 1.6."}
 
 # Define the function
 f <- function(x) exp(x)
@@ -356,7 +317,7 @@ curve(
 for (i in 1:6) {
   x_left  <- edges[i]
   x_right <- edges[i+1]
-  
+
   polygon(
     c(x_left, x_right, x_right, x_left),
     c(0, 0, f(x_right), f(x_left)),
@@ -370,10 +331,10 @@ curve(f(x), from = 0, to = 2, add = TRUE, lwd = 3, col = "black")
 
 ```
 
-Each colored slice has a tiny width and a height equal to the rate at that location. Multiplying width by height gives the small contribution from that slice. Adding up all the slices — and, eventually, taking the limit as the slices become very thin — is how we'll build up the idea of an integral.
+Each slice is thin, and its height is the rate at that point. Width times height gives that slice's small contribution. Add up all the slices, then let them get thinner and thinner, and you have an integral.
 :::
 
-Graphical reasoning is especially powerful here. Without doing any calculations, a graph can show whether a system is gaining or losing, whether accumulation is happening quickly or slowly, and whether changes are steady or fluctuating. Throughout the course, we'll use graphs not only to visualize functions but to interpret integrals, predict behavior, and communicate reasoning.
+Graphs do a lot of work in this course. Before any calculation, a graph shows you whether a system is gaining or losing, how fast, and whether the change is steady or jumping around. Get in the habit of sketching first.
 
 ### Concept Check: Slicing Up an Accumulation {-}
 
@@ -384,7 +345,7 @@ Suppose you're trying to estimate the total volume of water that flowed past a s
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-For each 15-minute interval, multiply the flow rate (m³/s) by the length of the interval (15 minutes = 900 seconds). That gives an approximate volume in m³ for that interval. Then sum all the small volumes across the 6-hour storm. This is the *Riemann sum* idea: each slice contributes width × height, and summing gives an estimate of the total.
+For each 15-minute interval, multiply the flow rate (m³/s) by the length of the interval (15 minutes = 900 seconds). That gives an approximate volume in m³ for that interval. Then add up the volumes across the whole storm. That's a *Riemann sum*: each slice is width × height, and the sum estimates the total.
 
 </details>
 
@@ -393,7 +354,7 @@ For each 15-minute interval, multiply the flow rate (m³/s) by the length of the
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-**More accurate.** Smaller time slices capture the variation in flow rate more faithfully — there's less chance of missing a rapid surge or assuming the rate stayed constant when it didn't. The limit of this process, as the slice width shrinks toward zero, is the definite integral.
+**More accurate.** Smaller slices follow the changes in flow more closely, so you're less likely to miss a sudden surge or assume the rate held steady when it didn't. Shrink the slices toward zero and you get the definite integral.
 
 </details>
 
@@ -401,13 +362,13 @@ For each 15-minute interval, multiply the flow rate (m³/s) by the length of the
 
 ## Units and Interpretation
 
-Units play a quietly important role in this course. Because integrals correspond to real physical quantities, understanding them means paying careful attention to what's being measured and how the units combine. A few patterns worth recognizing now:
+Integrals give you real physical quantities, so the units have to work. Three patterns to recognize now:
 
-- Integrating a rate measured in "individuals per year" over time gives "individuals."  
-- Integrating "mg/L × m³/s" gives a pollutant load measured in "mg/s," and integrating *that* over a time interval gives total mass in milligrams.  
-- Integrating "W/m²" over time yields energy density in joules per square meter.  
+- Integrating "individuals per year" over time gives "individuals."
+- Multiplying concentration (mg/L) by flow (m³/s) gives a load *rate*. Since 1 m³ = 1000 L, mg/L × m³/s = g/s. Integrating that rate over time gives total mass in grams.
+- Integrating "W/m²" over time gives energy per area, in joules per square meter.
 
-Recognizing this structure is what makes results meaningful and consistent with the scientific context. Thinking in small pieces, drawing graphs, and tracking units are the three habits that make the formal definition of the integral feel natural once we introduce it.
+If your units don't come out as the quantity you were after, something went wrong. Check them every time.
 
 ### Concept Check: Tracking Units of an Accumulation {-}
 
@@ -416,7 +377,7 @@ Recognizing this structure is what makes results meaningful and consistent with 
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-You get **energy**. If you integrate kW over hours, the natural unit is **kilowatt-hours (kWh)**. If you integrate kW (= kJ/s) over seconds, the result is **kilojoules (kJ)**. Either way, the "per time" in the rate cancels with the time you integrate over, leaving you with a total energy.
+You get **energy**. Integrate kW over hours and the natural unit is **kilowatt-hours (kWh)**. Integrate kW (= kJ/s) over seconds and you get **kilojoules (kJ)**. Either way, the "per time" in the rate cancels with the time you integrate over.
 
 </details>
 
@@ -425,7 +386,7 @@ You get **energy**. If you integrate kW over hours, the natural unit is **kilowa
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-**Kilograms of carbon (kg C).** Integrating over hectares cancels the "per hectare" and leaves kg/year. Integrating *that* over years cancels the "per year" and leaves just kg.
+**Kilograms of carbon (kg C).** Integrating over hectares cancels the "per hectare" and leaves kg/year. Integrating *that* over years cancels the "per year" and leaves kg.
 
 </details>
 
@@ -433,8 +394,4 @@ You get **energy**. If you integrate kW over hours, the natural unit is **kilowa
 
 ## Looking Ahead
 
-As the course unfolds, you'll learn how to compute integrals efficiently, how to solve differential equations that describe natural systems, and how to analyze environmental processes using a combination of mathematics, graphs, and scientific reasoning. More importantly, you'll develop the ability to connect mathematical results back to the real-world systems they describe — a skill that's essential in every corner of environmental science.
-
-Calculus II isn't just about mastering techniques. It's about learning to see the world through a quantitative lens: to understand how change accumulates, how systems evolve, and how mathematics can illuminate the patterns and processes that shape the natural environment.
-
-Welcome to the journey.
+Next up: Riemann sums, then definite integrals and the Fundamental Theorem, then the techniques for finding antiderivatives, then applications, and finally differential equations. All the way through, the question is the same: you know how fast something is changing, so how much has it changed?

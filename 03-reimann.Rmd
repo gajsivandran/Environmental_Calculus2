@@ -1,26 +1,26 @@
 # What Is an Integral?
 
-A storm has been hammering the foothills for six hours, and a stream gauge at the bottom of the watershed has been logging flow rates the whole time. Each reading tells you *how fast* water is moving past — but the question your downstream community actually cares about is *how much* water has gone by. To answer that, you need to take all those changing flow rates and add them up across the storm. That is an integral.
+A stream gauge logs flow every 15 minutes during a storm. Each reading tells you how fast water is moving past, in cubic meters per second. The people downstream don't care much about any single reading. They want to know how much water went by. To get that, you add up all the changing flow rates across the storm. That's an integral.
 
-In Calculus I you learned to ask *how fast is something changing right now?* In Calculus II we shift the question to *how much has accumulated?* These two questions are inseparable — they are linked by one of the most beautiful results in mathematics, the Fundamental Theorem of Calculus. We'll get there. For now, the goal of this chapter is to build up the integral one small piece at a time, starting from concrete environmental scenarios and ending with the formal Riemann-sum machinery.
+This chapter builds the integral one piece at a time. We start with rates you can picture, turn them into areas under a curve, then write the whole process as a Riemann sum.
 
 ## Chapter Objectives
 
 By the end of this chapter, you will be able to:
 
-- **Explain** how integrals model total accumulation in environmental systems and describe real-world examples such as streamflow, photosynthesis, and pollutant load.  
-- **Interpret** the area under a rate curve as a measure of total change, including situations with gains, losses, and mixed-sign behavior.  
-- **Construct and evaluate** Riemann sums (left, right, and midpoint) to approximate accumulation from graphical or numerical data.  
-- **Use** antiderivatives and the Fundamental Theorem of Calculus (informal version) to compute definite integrals representing environmental totals.  
-- **Analyze and interpret** accumulation functions to understand how totals build up over time in ecological and physical processes.  
+- **Explain** how an integral turns a rate into a total, using examples like streamflow, photosynthesis and pollutant load
+- **Interpret** the area under a rate curve as total change, including gains, losses and net change
+- **Construct and evaluate** left, right and midpoint Riemann sums from a graph, a formula or a table of data
+- **Apply** the trapezoidal rule, and explain why it often beats rectangles
+- **Choose** an approximation method, and say whether it will overestimate or underestimate
 
 ---
 
 ## Accumulation in Environmental Systems
 
-Many natural processes are described not by totals but by *rates* — how fast something is happening. Integrals allow us to turn a rate into a total amount.
+Most of what you measure in the field is a rate: how fast something is happening. An integral turns a rate into a total.
 
-Common environmental examples include:
+Some examples:
 
 - **Streamflow → total river discharge** over a day  
 - **Photosynthesis rate → total daily carbon uptake**  
@@ -28,28 +28,22 @@ Common environmental examples include:
 - **Evapotranspiration → total water loss** during a heatwave  
 - **Recruitment rate → total new individuals added to a population**
 
-> **Key idea:** If you know the rate at which something changes, the integral gives you the *total change* over a chosen interval.
+If you know the rate something changes, the integral gives you the *total change* over an interval.
 
 ::: promptbox
 ### Walking on a Treadmill {-}
 
-Imagine you're walking on a treadmill at a steady speed of **5 miles per hour**. This speed is a **rate** — it tells you how fast distance is being added as you move.
+Start with something you can feel. You're on a treadmill at a steady **5 miles per hour**. That speed is a **rate**: it tells you how fast distance is being added.
 
-If you walk at 5 mph for **1 hour**, your total distance is:
+Walk at 5 mph for **1 hour** and your total distance is:
 
 \[
 \text{distance} = \text{rate} \times \text{time} = 5 \times 1 = 5 \text{ miles}.
 \]
 
-But even if the speed changes during the workout — maybe 4 mph during the warm-up, 5 mph in the middle, and 6 mph at the end — you can still find the **total distance** by adding up all the little pieces:
+Now say the speed changes: 4 mph for the warm-up, 5 mph in the middle, 6 mph at the end. You can still get the **total distance**. Each minute at 4 mph adds a bit of distance, each minute at 5 mph adds a bit more, and each minute at 6 mph adds more again. Add up all the minutes and you have the total distance walked.
 
-- each minute at 4 mph contributes a small amount of distance,  
-- each minute at 5 mph contributes a bit more,  
-- each minute at 6 mph contributes even more.
-
-When we add all these tiny contributions together, we get the **total distance walked**.  
-
-This is exactly what an integral does: it adds up the accumulation of a changing rate over time.
+That's what an integral does. It adds up a changing rate over time.
 
 :::
 
@@ -62,7 +56,7 @@ In your own words, what does an integral represent in environmental science?
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-An integral represents the **total accumulation** of a quantity over time or space when the **rate of change** is known. It adds up many small contributions to determine a total amount — total volume of water, total carbon fixed, total mass exported, and so on.
+An integral gives the **total accumulation** of a quantity over time or space when you know its **rate of change**. It adds up many small contributions to get a total: total volume of water, total carbon fixed, total mass exported.
 
 </details>
 
@@ -74,7 +68,7 @@ Why are rates often easier to measure directly than total accumulated quantities
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-Rates can be measured instantaneously or over short intervals — a stream gauge logs discharge every few minutes, a flux tower logs CO₂ uptake at high frequency. Totals require *tracking accumulation* continuously over time or space, which is exactly what an integral does for us mathematically.
+A rate can be measured in a moment or over a short interval. A stream gauge logs discharge every few minutes, and a flux tower logs CO₂ uptake many times a second. A total means *tracking accumulation* over the whole period, and that's the job the integral does for you.
 
 </details>
 
@@ -83,7 +77,7 @@ Rates can be measured instantaneously or over short intervals — a stream gauge
 
 ## From Rate Curves to Areas Under Curves
 
-When we graph a rate \( f(t) \), the **height of the curve** represents how fast the system is changing at each moment.
+When you graph a rate \( f(t) \), the **height of the curve** is how fast the system is changing at each moment.
 
 The **total accumulation** from time \( a \) to \( b \) is the **area under the rate curve**:
 
@@ -92,7 +86,7 @@ The **total accumulation** from time \( a \) to \( b \) is the **area under the 
   - \( \text{m}^3/\text{s} \times \text{s} = \text{m}^3 \)  
   - \( \mu\text{mol}/(\text{m}^2\cdot\text{s}) \times \text{s} = \mu\text{mol}/\text{m}^2 \)
 
-```{r rate-curve-accumulation-illustration, echo=FALSE, message=FALSE, warning=FALSE, fig.width=7, fig.height=4}
+```{r rate-curve-accumulation-illustration, echo=FALSE, message=FALSE, warning=FALSE, fig.width=7, fig.height=4, fig.alt="An increasing rate curve f(t) with the area under it shaded between two dashed lines at t equals a and t equals b, labeled as accumulation."}
 
 library(ggplot2)
 
@@ -157,28 +151,17 @@ Environmental examples:
 ::: promptbox
 ### Filling a Water Bottle {-}
 
-Suppose you are filling a water bottle from a faucet, and the **flow rate** changes over time.
+You're filling a water bottle from a tap, and the **flow rate** changes:
 
-- At first, you turn the faucet on gently, and water flows at **50 mL/s**.  
-- A few seconds later, you open it more, and the flow increases to **90 mL/s**.  
-- Near the end, you partially close it, slowing the flow to **30 mL/s**.
+- You start gently: **50 mL/s** for 10 seconds.
+- You open the tap further: **90 mL/s** for 15 seconds.
+- You ease it back near the top: **30 mL/s** for 10 seconds.
 
-If you graph this changing flow rate over time, the **height of the curve** at any moment shows how quickly water is entering the bottle.
+To find **how much water** ends up in the bottle, you can't multiply one rate by one time. You add up each stretch: rate × time for the slow start, the fast middle and the slow finish. On the graph, each stretch is a **rectangle under the rate curve**. Add the rectangles and you have the **total volume** in the bottle.
 
-To find out **how much water** ends up in the bottle, you do **not** multiply a single rate by a single time. Instead, you add up:
+That's what an integral measures: the total you get by adding up small contributions from a changing rate.
 
-- a small amount of water from the low initial rate,  
-- a larger amount from the high middle rate,  
-- a small amount again when the flow slows down.
-
-On the graph, these “small amounts” correspond to **thin rectangles under the curve**.  
-Adding them all together gives the **area under the rate curve**, which equals the **total volume of water** in the bottle.
-
-This is exactly what an integral measures:  
-
-> the total accumulation obtained by adding up tiny contributions from a changing rate.
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=7, fig.height=4}
+```{r water-bottle, echo=FALSE, message=FALSE, warning=FALSE, fig.width=7, fig.height=4, fig.alt="Step graph of tap flow rate over 35 seconds: 50 mL per second for 10 seconds, 90 for 15 seconds, then 30 for 10 seconds. Each rectangle is labeled with its area, and the total is 2150 mL."}
 
 library(ggplot2)
 
@@ -288,7 +271,7 @@ What does the area under a rate curve represent?
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-The area under a rate curve represents the **total accumulated change** of the quantity over the interval shown. If the rate is m³/s and the horizontal axis is seconds, the area has units of m³ — a volume.
+The area under a rate curve represents the **total accumulated change** of the quantity over the interval shown. If the rate is in m³/s and the horizontal axis is in seconds, the area is in m³: a volume.
 
 </details>
 
@@ -300,7 +283,7 @@ Why do the units of an integral make sense physically?
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-Because the integral multiplies a rate by a width (time or distance), the units simplify to a total quantity. For example, m³/hr × hr = m³, mg C/m²/day × day = mg C/m², and so on. The "per time" or "per distance" in the rate cancels with the variable you're integrating over.
+The integral multiplies a rate by a width (time or distance), so the units simplify to a total. For example, m³/hr × hr = m³, and mg C/m²/day × day = mg C/m². The "per time" or "per distance" in the rate cancels with the variable you're integrating over.
 
 </details>
 
@@ -312,7 +295,7 @@ Why is multiplying a single rate by total time often a poor approximation in env
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-Because rates in environmental systems usually **change over time** — streamflow rises and falls during a storm, photosynthesis depends on light, soil respiration depends on temperature. A single rate snapshot does not accurately represent the entire interval, so multiplying it by the full duration ignores all of that variation.
+Because environmental rates usually **change over time**. Streamflow rises and falls during a storm, photosynthesis follows the light, and soil respiration follows temperature. One reading doesn't represent the whole interval, so multiplying it by the full duration throws away all that variation.
 
 </details>
 
@@ -321,11 +304,7 @@ Because rates in environmental systems usually **change over time** — streamfl
 
 ## Riemann Sums: Adding Up Small Pieces
 
-In most real situations, rates are **not constant**. Streamflow rises and falls during a storm, photosynthesis changes throughout the day, and pollutant inputs vary with human activity. Because of this, we cannot usually find total accumulation by multiplying a single rate by a single time.
-
-Instead, we approximate accumulation by **breaking the interval into many small pieces** and adding up their individual contributions.
-
-The basic idea works as follows:
+Real rates are **not constant**, so one rate times one time won't do. Instead, **break the interval into small pieces** and add up what each piece contributes:
 
 1. **Divide the interval** into smaller subintervals of equal width.  
 2. **Approximate the rate** as constant over each subinterval.  
@@ -335,10 +314,10 @@ The basic idea works as follows:
    \]
 4. **Add all slices together** to estimate the total accumulation.
 
-Each slice represents a small amount of accumulated quantity over a short period of time. When we add them all together, we get an approximation of the total.
+Each slice is the amount accumulated over a short stretch of time. Add them all and you have an estimate of the total.
 
 
-```{r riemann-conceptual-many-slices, echo=FALSE, message=FALSE, warning=FALSE, fig.width=7, fig.height=4}
+```{r riemann-conceptual-many-slices, echo=FALSE, message=FALSE, warning=FALSE, fig.width=7, fig.height=4, fig.alt="A U-shaped rate curve with 12 narrow rectangles underneath it between t equals a and t equals b, labeled many small rectangles approximately equal total accumulation."}
 
 library(ggplot2)
 
@@ -406,10 +385,10 @@ ggplot(df, aes(x = t, y = f)) +
 
 ### Choosing a Riemann Sum Method
 
-The difference between left, right, and midpoint Riemann sums is not just mathematical—it reflects **assumptions about how a system behaves within each subinterval**. Choosing a method means deciding *when* you think the rate best represents the entire slice.
+Left, right and midpoint sums differ in one thing: where in each slice you read the rate. That choice is an **assumption about how the system behaves inside each slice**.
 
 
-```{r riemann-left-right-midpoint-colored-titles, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4}
+```{r riemann-left-right-midpoint-colored-titles, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4, fig.alt="Three panels of the same U-shaped rate curve with four rectangles each. Rectangle heights are set at the left endpoint, the midpoint and the right endpoint of each subinterval."}
 
 library(ggplot2)
 library(patchwork)
@@ -492,69 +471,17 @@ p_left | p_mid | p_right
 
 ---
 
-- **Left Riemann sum:**  
-  Uses the rate at the **left endpoint** of each subinterval.
+- **Left Riemann sum.** Uses the rate at the **left endpoint** of each slice. It assumes the rate holds at its starting value for the whole slice. It's the natural choice when your logger records at the *start* of each interval.
+  - Rate increasing: **underestimates**.
+  - Rate decreasing: **overestimates**.
 
-  This method assumes the rate remains approximately constant at its **initial value** over the slice. It is most appropriate when:
-  - the rate is **slowly changing**, or  
-  - you want a **conservative or early estimate**, or  
-  - measurements are taken at the *start* of each interval.
+- **Right Riemann sum.** Uses the rate at the **right endpoint**. It assumes the rate has already reached its end value across the whole slice. It's the natural choice when data are recorded at the *end* of each interval.
+  - Rate increasing: **overestimates**.
+  - Rate decreasing: **underestimates**.
 
-  **Common outcomes:**
-  - Tends to **underestimate** accumulation when the rate is increasing.  
-  - Tends to **overestimate** accumulation when the rate is decreasing.
+- **Midpoint Riemann sum.** Uses the rate at the **middle** of each slice. For a smooth rate, the middle value is usually close to the slice's average, so the errors on either side of it partly cancel. With the same number of slices, it's usually much closer than left or right.
 
-  **Environmental examples:**
-  - Estimating pollutant inflow immediately after a spill  
-  - Using early-morning evapotranspiration rates to estimate daily loss
-
----
-
-- **Right Riemann sum:**  
-  Uses the rate at the **right endpoint** of each subinterval.
-
-  This method assumes the rate has already changed to its **later value** by the start of the slice. It is most appropriate when:
-  - the process intensifies over time, or  
-  - data are collected at the *end* of each interval, or  
-  - you want a **precautionary upper estimate**.
-
-  **Common outcomes:**
-  - Tends to **overestimate** accumulation when the rate is increasing.  
-  - Tends to **underestimate** accumulation when the rate is decreasing.
-
-  **Environmental examples:**
-  - Estimating peak streamflow during the rising limb of a storm  
-  - Modeling afternoon photosynthesis after sunlight has increased
-
----
-
-- **Midpoint Riemann sum:**  
-  Uses the rate at the **midpoint** of each subinterval.
-
-  This method assumes the midpoint rate best represents the **average behavior** of the system over the slice. It is often preferred when:
-  - the rate changes smoothly, and  
-  - no strong justification exists for early or late sampling, or  
-  - higher accuracy is desired without increasing the number of slices.
-
-  **Common outcomes:**
-  - Usually provides a **better balance** between over- and underestimation.  
-  - Often converges to the true value **faster** than left or right sums.
-
-  **Environmental examples:**
-  - Estimating daily carbon uptake from smoothly varying light levels  
-  - Approximating total nitrogen mineralization over a growing season
-
----
-
-### A Practical Guideline
-
-When in doubt:
-
-- Use **left or right sums** to reflect *specific assumptions* about timing or uncertainty.
-- Use the **midpoint sum** as a reliable default for smooth, continuous processes.
-- Increase the **number of subintervals** when accuracy matters more than simplicity.
-
-These choices highlight that Riemann sums are not just numerical tools—they are **models of how we believe the system behaves** between measurements.
+**Rule of thumb:** use the midpoint for smooth processes when you can. Use left or right when that's how your data were recorded, or when you want an estimate you know is high or low. If accuracy matters, use more slices.
 
 
 ---
@@ -567,7 +494,7 @@ What does each rectangle in a Riemann sum represent?
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-Each rectangle represents a **small contribution** to the total accumulation over a short subinterval. Its width is a small slice of time (or distance), and its height is the rate during that slice — multiplied together, they approximate the amount accumulated during that little window.
+Each rectangle is a **small contribution** to the total. Its width is a short slice of time (or distance), and its height is the rate during that slice. Multiply them and you get roughly how much accumulated in that slice.
 
 </details>
 
@@ -579,7 +506,7 @@ Why do Riemann sums become more accurate as the number of rectangles increases?
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-Because smaller subintervals reduce how much the rate can change *within* each rectangle. The constant-rate assumption inside each subinterval becomes more reasonable when the subintervals are short, so the approximation closes in on the true accumulation.
+Narrower slices leave less room for the rate to change *inside* each rectangle. Assuming the rate is constant is more reasonable over a short slice, so the estimate closes in on the true total.
 
 </details>
 
@@ -591,7 +518,7 @@ What assumption is made when using rectangular approximations?
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-That the rate remains approximately **constant** within each subinterval. Whether you sample at the left endpoint, right endpoint, or midpoint, you're using that single value as a stand-in for the rate across the whole slice.
+That the rate stays roughly **constant** within each subinterval. Left endpoint, right endpoint or midpoint, you're using one value to stand in for the rate across the whole slice.
 
 </details>
 
@@ -600,50 +527,27 @@ That the rate remains approximately **constant** within each subinterval. Whethe
 
 ## Approximation and Error in Riemann Sums
 
-It is important to be clear about what Riemann sums are — and what they are not.
-
-A Riemann sum is an **approximation**, not an exact calculation. By replacing a continuously changing rate with a set of constant rectangles, we introduce **error**. Each rectangle is only an estimate of what the curve is doing over that interval.
-
-The error comes from a simple source:
-
-> **The rectangles do not perfectly match the shape of the curve.**
-
-Some rectangles extend above the curve, while others fall below it. The difference between the total area of the rectangles and the true area under the curve is called the **approximation error**.
-
----
+A Riemann sum is an **approximation**. Swapping a changing rate for flat rectangles introduces **error**, because the rectangles don't match the shape of the curve. Some stick up above it, others fall short. The gap between the rectangles' total area and the true area under the curve is the **approximation error**.
 
 ### Why Error Occurs
 
-Error arises because we make two simplifying assumptions:
-
-1. The rate is treated as **constant** within each subinterval.  
-2. The true rate may be **increasing, decreasing, or curved** within that interval.
-
-If the curve bends significantly, wide rectangles can miss important changes. This is why Riemann sums improve when:
-
-- subintervals are **narrower**, and  
-- more rectangles are used.
-
-In the limit, as the width of each subinterval approaches zero, the Riemann sum approaches the **definite integral**, which represents the exact accumulation.
+Inside each slice, we treat the rate as constant, but the real rate is rising, falling or curving. The more it changes within a slice, the bigger the error. That's why narrower slices, and more of them, give a better estimate. Shrink the slice width toward zero and the Riemann sum approaches the **definite integral**: the exact total.
 
 ---
 
 ### Overestimates and Underestimates
 
-Whether a Riemann sum **overestimates** or **underestimates** the true accumulation depends on both:
-
-- the **shape of the rate curve**, and  
-- the **method used** to choose rectangle heights.
+Whether a Riemann sum **overestimates** or **underestimates** depends on two things: the shape of the rate curve, and where you read the rate in each slice.
 
 #### Increasing Rate Functions
 
-When the rate is increasing over an interval:
+When the rate is increasing:
 
-- **Left Riemann sums** tend to **underestimate** the total accumulation, because each rectangle uses a rate that is smaller than most of the values in the interval.
-- **Right Riemann sums** tend to **overestimate** the total accumulation, because they use a larger rate that occurs later in the interval.
-- **Midpoint Riemann sums** usually balance these effects and provide a closer estimate.
+- **Left sums underestimate.** Each rectangle uses the smallest rate in its slice.
+- **Right sums overestimate.** Each rectangle uses the largest rate in its slice.
+- **Midpoint sums** land in between, usually close to the true value.
 
-```{r riemann-under-over-triangles, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4}
+```{r riemann-under-over-triangles, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4, fig.alt="Three panels of an increasing straight-line rate with three rectangles each. The left-sum panel shades the gaps above the rectangles as underestimation. The right-sum panel shades the parts of the rectangles above the line as overestimation. The midpoint panel has no shading."}
 
 library(ggplot2)
 library(patchwork)
@@ -807,14 +711,14 @@ p_left | p_mid | p_right
 
 #### Decreasing Rate Functions
 
-When the rate is decreasing over an interval:
+When the rate is decreasing, everything flips:
 
-- **Left Riemann sums** tend to **overestimate** the total accumulation.
-- **Right Riemann sums** tend to **underestimate** the total accumulation.
-- **Midpoint Riemann sums** again often provide a more accurate estimate.
+- **Left sums overestimate.**
+- **Right sums underestimate.**
+- **Midpoint sums** again usually land closest.
 
 
-```{r riemann-under-over-triangles-decreasing, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4}
+```{r riemann-under-over-triangles-decreasing, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4, fig.alt="Three panels of a decreasing straight-line rate with three rectangles each. The left-sum panel shades rectangle area above the line as overestimation. The right-sum panel shades the gaps above the rectangles as underestimation. The midpoint panel has no shading."}
 
 library(ggplot2)
 library(patchwork)
@@ -981,7 +885,7 @@ Why does a left Riemann sum tend to underestimate accumulation for an increasing
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-Because it uses the rate at the *beginning* of each interval, which is smaller than most values of the rate over that interval. Each rectangle's height is set too low, and the cumulative underestimate adds up across all subintervals.
+It uses the rate at the *start* of each interval, which is lower than the rate everywhere else in that interval. Every rectangle is too short, and the shortfalls add up across all the subintervals.
 
 </details>
 
@@ -993,7 +897,7 @@ Why does a right Riemann sum tend to overestimate accumulation for an increasing
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-Because it uses the rate at the *end* of each interval, which is larger than most values of the rate over that interval. Each rectangle's height is set too high, and the cumulative overestimate adds up across all subintervals.
+It uses the rate at the *end* of each interval, which is higher than the rate everywhere else in that interval. Every rectangle is too tall, and the excess adds up across all the subintervals.
 
 </details>
 
@@ -1005,7 +909,7 @@ Why is the midpoint Riemann sum often more accurate than left or right sums?
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-Because the midpoint value often better represents the **average behavior** of the rate over the subinterval. For a smooth function, the portion of the rectangle that overshoots the curve on one side tends to cancel out the portion that undershoots on the other.
+The midpoint value is usually close to the **average rate** over the subinterval. For a smooth function, the part of the rectangle that overshoots the curve on one side mostly cancels the part that falls short on the other.
 
 </details>
 
@@ -1014,81 +918,18 @@ Because the midpoint value often better represents the **average behavior** of t
 
 ### Interpreting Error in Environmental Contexts
 
-In environmental science, these distinctions are not just mathematical—they have real consequences.  
+In practice, the error has consequences. Underestimate a pollutant load and cleanup gets delayed. Overestimate the water available and you end up with a management plan that can't be met.
 
-An **underestimate** of pollutant load may delay mitigation or regulatory action, while an **overestimate** of available water can lead to management plans that are unsustainable in practice. Each choice reflects assumptions about **timing, uncertainty, and acceptable risk**.
+Often the goal isn't the exact number. It's a number you can defend. So the question to ask is:
 
-For this reason, understanding *how* and *why* Riemann sums approximate accumulation is just as important as knowing how to compute them.
+> *Which is worse here: guessing too high, or too low?*
 
-In many real-world settings, the objective is not to find a perfectly exact value, but to make a **safe, informed, and defensible decision**. Under these conditions, deliberately choosing an overestimate or an underestimate is not an error—it is a purposeful modeling choice.
+A **conservative estimate** errs on the safe side. Which side is safe depends on the problem:
 
-Riemann sums make this choice explicit by allowing us to decide **how the rate is sampled within each interval**, and therefore how conservative our estimate will be.
+- **Too low is safer** for water supply (don't promise water you can't deliver), carbon offsets (don't overstate the benefit) and population recovery (don't declare success early).
+- **Too high is safer** for pollutant loads (size the treatment big enough), flood volumes (design the culvert for more) and demand forecasts (don't run short).
 
-
----
-
-#### Conservativeness and Decision-Making
-
-A **conservative estimate** is one that reduces risk by erring on the side of caution. Whether this means overestimating or underestimating depends entirely on the context and the consequences of being wrong.
-
-The key question is:
-
-> *What is worse: overestimating or underestimating the true accumulation?*
-
----
-
-#### When an Underestimate Is Conservative
-
-An **underestimate** is conservative when overstating the quantity could lead to harm, wasted resources, or unrealistic expectations.
-
-Examples include:
-
-- **Water supply planning:**  
-  Underestimating total available water avoids promising more water than can reliably be delivered.
-- **Carbon sequestration estimates:**  
-  Underestimating carbon uptake prevents overstating climate mitigation benefits.
-- **Wildlife population growth:**  
-  Underestimating recruitment avoids overconfidence in population recovery.
-
-In these cases, a left or right Riemann sum may be chosen specifically because it produces a **lower bound** on the true value.
-
----
-
-#### When an Overestimate Is Conservative
-
-An **overestimate** is conservative when underestimating the quantity could lead to insufficient protection or preparedness.
-
-Examples include:
-
-- **Pollutant load calculations:**  
-  Overestimating pollutant input ensures regulations are strict enough to protect ecosystems.
-- **Flood risk assessment:**  
-  Overestimating peak discharge supports safer infrastructure design.
-- **Resource demand forecasting:**  
-  Overestimating energy or water demand helps prevent shortages.
-
-Here, an overestimate functions as a **precautionary upper bound**, prioritizing safety over efficiency.
-
----
-
-#### Choosing a Method Intentionally
-
-Riemann sums make the assumptions behind these choices transparent:
-
-- **Left Riemann sums** may provide conservative lower or upper bounds depending on whether the rate is increasing or decreasing.
-- **Right Riemann sums** provide the opposite bound.
-- **Midpoint Riemann sums** aim for accuracy rather than conservativeness.
-
-Choosing a method is therefore not just a mathematical step — it is a **modeling decision** that reflects values, priorities, and acceptable risk.
-
----
-
-#### Key Takeaway
-
-Overestimates and underestimates are not mistakes.  
-They are **tools**.
-
-By understanding how and why approximation error occurs, we can choose methods that align with the **ethical, environmental, and practical consequences** of our decisions.
+If the rate is only rising or only falling over the interval, left and right sums give you a guaranteed low estimate and a guaranteed high one. You can pick the one that's safe on purpose. The midpoint aims for accuracy instead. Either way, picking a method is a modeling decision.
 
 ---
 
@@ -1099,7 +940,7 @@ What makes an estimate "conservative" in environmental modeling?
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-A conservative estimate **errs on the side that avoids harmful consequences** if the estimate turns out to be wrong. For pollutant load estimates, this might mean intentionally over-estimating so that mitigation efforts are sized big enough. For sustainable harvest, it might mean under-estimating so that you don't take more than the system can support. "Conservative" depends on which way being wrong would hurt.
+A conservative estimate **errs on the side that does less harm** if it turns out to be wrong. For a pollutant load, that might mean deliberately overestimating so treatment is big enough. For a sustainable harvest, it might mean underestimating so you don't take more than the system can support. Which way is "conservative" depends on which mistake would hurt more.
 
 </details>
 
@@ -1111,7 +952,7 @@ Why is choosing a Riemann sum method considered a modeling decision rather than 
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-Because the choice reflects assumptions about timing, uncertainty, and acceptable risk — all of which depend on real-world consequences. A scientist computing pollution load for a permit application may deliberately pick the method that over-estimates; a fisheries manager estimating sustainable take may deliberately pick the method that under-estimates. The math is the same; the scientific judgment differs.
+Because the choice rests on assumptions about timing, uncertainty and acceptable risk, and those depend on what happens if you're wrong. Someone calculating a pollutant load for a permit may deliberately pick the method that overestimates. A fisheries manager setting a catch limit may deliberately pick the one that underestimates. Same math, different judgment.
 
 </details>
 
@@ -1120,21 +961,15 @@ Because the choice reflects assumptions about timing, uncertainty, and acceptabl
 
 ## Riemann Sums as a Calculus Expression
 
-Up to this point, we have described Riemann sums using words, pictures, and rectangles. These visual and intuitive ideas help us understand *what* is being added and *why* accumulation works the way it does. However, intuition alone is not enough when we want to reason precisely, generalize to any function, or prepare for formal definitions.
+So far we've described Riemann sums with words, pictures and rectangles. That's enough to see what's going on. To work with any function on any interval, we need a compact way to write "add up many small pieces."
 
-Calculus provides a **compact and precise mathematical language** for expressing the idea of “add up many small pieces.” This language allows us to describe accumulation without relying on a specific picture or numerical example, and it works for any rate function and any interval.
-
-That language is called **summation notation**.
+That's **summation notation**.
 
 \[
 \sum_{i=1}^{n}
 \]
 
-Summation notation gives us a way to write, in a single expression, the process of:
-
-- breaking an interval into many small pieces,
-- approximating the contribution from each piece, and
-- adding all of those contributions together.
+It lets you write the whole process in one expression: break the interval into pieces, estimate each piece's contribution, and add them up.
 
 
 ---
@@ -1157,7 +992,7 @@ to the total accumulation.
 
 #### Width of the Rectangle
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=7, fig.height=3}
+```{r interval-subdivision, echo=FALSE, message=FALSE, warning=FALSE, fig.width=7, fig.height=3, fig.alt="A number line from a to b divided into 5 equal subintervals. One subinterval is marked with its width, delta x equals b minus a over n."}
 
 library(ggplot2)
 
@@ -1233,41 +1068,26 @@ ggplot() +
 
 ```
 
-Because the interval from \(a\) to \(b\) has been divided into \(n\) equal subintervals, each slice has the same width.
-
-The total length of the interval is:
-\[
-b - a.
-\]
-
-As illustrated above, dividing the interval into \(n\) equal parts gives a common width: 
+The interval from \(a\) to \(b\) has length \(b - a\). Split it into \(n\) equal pieces and each piece has width
 \[
 \Delta x = \frac{b - a}{n}.
 \]
 
-This value, \(\Delta x\), represents the **width of each rectangle** in a Riemann sum. As \(n\) increases, \(\Delta x\) becomes smaller, and the rectangles provide a more accurate approximation of the accumulation.
+\(\Delta x\) is the **width of each rectangle**. As \(n\) goes up, \(\Delta x\) gets smaller and the estimate gets better.
 
 
 ---
 
 #### Determining the Height of Each Rectangle
 
-The height of each rectangle in a Riemann sum is determined by evaluating the rate function at a chosen **sample point** within each subinterval.
-
-For the \(i\)-th subinterval, we select a point \(x_i^*\). The height of the corresponding rectangle is then
+The height of each rectangle is the rate at a chosen **sample point** in its subinterval. For the \(i\)-th subinterval, pick a point \(x_i^*\). The rectangle's height is
 \[
 f(x_i^*).
 \]
 
-Different choices of the sample point lead to different Riemann sum methods:
+Where you put \(x_i^*\) is what makes it a left, right or midpoint sum: at the left end, the right end or the center of the subinterval.
 
-- **Left endpoint:** \(x_i^*\) is chosen at the left end of the subinterval.  
-- **Right endpoint:** \(x_i^*\) is chosen at the right end of the subinterval.  
-- **Midpoint:** \(x_i^*\) is chosen at the center of the subinterval.
-
-Each choice reflects an assumption about how the rate behaves within the subinterval and results in a different approximation of the total accumulation.
-
-```{r riemann-sum-notation-visual, echo=FALSE, message=FALSE, warning=FALSE, fig.width=7, fig.height=4}
+```{r riemann-sum-notation-visual, echo=FALSE, message=FALSE, warning=FALSE, fig.width=7, fig.height=4, fig.alt="An increasing straight-line rate f(x) with five left-endpoint rectangles. One rectangle is labeled with width delta x and height f of x i star, and the sum of f of x i star times delta x is written above."}
 
 library(ggplot2)
 
@@ -1363,45 +1183,33 @@ ggplot(curve_df, aes(x = x, y = y)) +
 
 #### Combining Width and Height
 
-Once the width and height of each rectangle have been determined, we combine them to approximate how much accumulation occurs over that subinterval.
-
-- The **height** of the rectangle, \(f(x_i^*)\), represents the value of the rate.  
-- The **width**, \(\Delta x\), represents the length of the subinterval.
-
-Multiplying these together gives the area of a single rectangle:
+Height \(f(x_i^*)\) is the rate. Width \(\Delta x\) is the length of the slice. Multiply them:
 \[
 \text{area of one rectangle} \;\approx\; f(x_i^*)\,\Delta x.
 \]
 
-This area represents a **small contribution** to the total accumulation over the interval. By computing this product for each subinterval and then adding all of the results together, we build an approximation of the total accumulation.
-
-This step—multiplying rate by width—is the core idea behind Riemann sums and mirrors the familiar calculation  
+That's just
 \[
-\text{amount} = \text{rate} \times \text{time}.
+\text{amount} = \text{rate} \times \text{time},
 \]
-
-The only difference is that, instead of using one rate over the entire interval, we use many small rates over many small widths and add their contributions together.
+done once per slice instead of once for the whole interval. Do it for every slice, add them up, and you have your estimate.
 
 ---
 
 ### The Riemann Sum - Adding the Rectangles
 
-After dividing the interval into subintervals, choosing sample points, and combining the width and height of each rectangle, we can describe the entire approximation in a single mathematical expression.
-
-A **Riemann sum** is written as
+Put the pieces together and a **Riemann sum** is written as
 \[
 \sum_{i=1}^{n} f(x_i^*)\,\Delta x.
 \]
 
-This notation compactly represents the process of adding up the areas of all \(n\) rectangles:
+Reading it piece by piece:
 
-- \(i = 1\) to \(n\) indicates that we are summing over all subintervals,  
-- \(f(x_i^*)\) gives the height of the rectangle in the \(i\)-th subinterval,  
-- \(\Delta x\) gives the common width of each rectangle.
+- \(i = 1\) to \(n\): add over all the subintervals
+- \(f(x_i^*)\): the height of the \(i\)-th rectangle
+- \(\Delta x\): the width, the same for every rectangle
 
-Each term \(f(x_i^*)\,\Delta x\) approximates the accumulation over a single subinterval. The entire sum approximates the total accumulation of the rate \(f(x)\) over the interval \([a,b]\).
-
-Although the Riemann sum depends on the choice of sample points and the number of subintervals, it provides a systematic way to approximate accumulation. As the number of subintervals increases and \(\Delta x\) becomes smaller, the Riemann sum becomes a better approximation of the true total accumulation.
+Each term is the accumulation over one slice. The whole sum estimates the total accumulation of \(f(x)\) over \([a,b]\). The more slices you use, the better the estimate.
 
 ---
 
@@ -1424,29 +1232,29 @@ The choice of sample point \( x_i^* \) determines the type of Riemann sum:
   x_i^* = a + \left(i - \tfrac{1}{2}\right)\Delta x
   \]
 
-Each choice corresponds exactly to the graphical constructions explored earlier — the notation simply makes the process compact and precise.
+These are the same left, right and midpoint rectangles from the pictures earlier, just written down.
 
 ---
 
 ### Example 1: Approximating Accumulation with a Left Riemann Sum
 
-The next several examples follow a single scenario so you can compare methods side-by-side.
+The next few examples all use the same scenario, so you can compare methods side by side.
 
 ::: promptbox
 
-**Scenario: Stream flow through a small culvert during a storm**
+**Scenario: A downspout filling a rain barrel as a storm builds**
 
-Suppose a flow sensor logs the rate \(Q(t)\) at which water is moving through a small drainage culvert into a wetland, where
+A flow sensor on a roof downspout logs the rate \(Q(t)\) at which water runs into a rain barrel:
 \[
 Q(t) = t^2 \quad \text{liters per minute},
 \]
-and \(t\) is measured in minutes since flow began to be recorded. We want to estimate the **total volume of water** that passed through the culvert between \(t = 1\) minute and \(t = 7\) minutes — a 6-minute window during the rising limb of the storm.
+where \(t\) is minutes since the sensor started recording. The rain is getting heavier, so the flow keeps rising. How much water went into the barrel between \(t = 1\) and \(t = 7\) minutes?
 
-The total volume is the area under the \(Q(t)\) curve on \([1, 7]\). We'll approximate it using a **left-hand Riemann sum** with \(n = 3\) subintervals.
+The total volume is the area under the \(Q(t)\) curve on \([1, 7]\). We'll estimate it with a **left-hand Riemann sum** using \(n = 3\) subintervals.
 
 :::
 
-```{r left-riemann-flow-n3, echo=FALSE, message=FALSE, warning=FALSE, fig.width=7, fig.height=4}
+```{r left-riemann-flow-n3, echo=FALSE, message=FALSE, warning=FALSE, fig.width=7, fig.height=4, fig.alt="The curve Q of t equals t squared from t equals 1 to 7 minutes, with three left-endpoint rectangles of width 2 sitting below the curve. The estimate is 70 liters."}
 
 library(ggplot2)
 
@@ -1545,7 +1353,7 @@ Q(5) = 5^2 = 25 \quad (\text{all in L/min}).
 
 #### Step 4: Factoring Out \(\Delta t\)
 
-Notice that each term in the Riemann sum includes the same factor \(\Delta t\). Because this width is **constant** for every rectangle, we can factor it out of the sum.
+Every term in the sum has the same \(\Delta t\), so you can factor it out.
 
 Starting from
 \[
@@ -1561,12 +1369,7 @@ With \(\Delta t = 2\), this becomes
 2 \sum_{i=1}^{3} Q(t_i^*) = 2(1 + 9 + 25).
 \]
 
-Factoring out \(\Delta t\) highlights the structure of a Riemann sum:
-
-- the **sum** \(\sum Q(t_i^*)\) adds up the rectangle heights (flow rates), and  
-- the factor \(\Delta t\) scales that total by the common width of each rectangle (minutes).
-
-We first combine the heights, then multiply by the width to convert those rates into volumes.
+Add up the heights (flow rates in L/min), then multiply by the width (minutes) to turn them into a volume (liters):
 
 \[
 2 \times 35 = 70 \text{ liters}.
@@ -1574,9 +1377,9 @@ We first combine the heights, then multiply by the width to convert those rates 
 
 #### Interpretation
 
-The left-hand Riemann sum estimates that **70 liters of water** passed through the culvert between minute 1 and minute 7.
+The left-hand sum estimates that **70 liters** went into the barrel between minute 1 and minute 7.
 
-Because \(Q(t)\) is *increasing* on this interval (the storm is intensifying), the left-endpoint heights are smaller than the actual flow rate over most of each subinterval. This left-hand estimate therefore **underestimates** the true volume.
+Because \(Q(t)\) is *increasing* on this interval (the rain is getting heavier), each left-endpoint height is the lowest flow in its slice. So this estimate **underestimates** the true volume.
 
 
 ### Example 2: Right-Hand Riemann Sum
@@ -1632,9 +1435,9 @@ Q(3)=9,\quad Q(5)=25,\quad Q(7)=49 \quad (\text{L/min}).
 
 #### Interpretation
 
-The right-hand Riemann sum estimates the volume as **166 liters**.
+The right-hand sum estimates **166 liters**.
 
-Because \(Q(t)\) is increasing on this interval, the right-endpoint heights are larger than most of the rate over each subinterval. This right-hand estimate **overestimates** the true volume.
+\(Q(t)\) is increasing, so each right-endpoint height is the highest flow in its slice. This estimate **overestimates** the true volume.
 
 ### Example 3: Midpoint Riemann Sum
 
@@ -1689,11 +1492,11 @@ Q(2)=4,\quad Q(4)=16,\quad Q(6)=36 \quad (\text{L/min}).
 
 #### Interpretation
 
-The midpoint Riemann sum estimates the volume as **112 liters**. For a smooth, monotonic curve like our \(Q(t)\), the midpoint typically gives a better balance between over- and underestimation than either the left or right method.
+The midpoint sum estimates **112 liters**. It lands between the left and right sums, and much closer to the truth than either.
 
 ### Comparison 
 
-```{r riemann-three-methods-flow, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4}
+```{r riemann-three-methods-flow, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4, fig.alt="Three panels of Q of t equals t squared on 1 to 7 minutes with three rectangles each. Left-endpoint rectangles sit mostly below the curve, midpoint rectangles sit close to it, and right-endpoint rectangles stick up above it."}
 
 library(ggplot2)
 
@@ -1775,24 +1578,20 @@ ggplot(curve_df, aes(x = t, y = y)) +
 
 ```
 
-The figure above compares left, midpoint, and right Riemann sums for the same flow scenario, using the same partition with \(n=3\) subintervals. Each panel shows the *same flow curve* and *same interval* — the only difference is how the height of each rectangle is chosen.
+Same curve, same interval, same \(n = 3\). The only difference between the panels is where each rectangle's height is read.
 
-Because \(Q(t)=t^2\) is **increasing** on \([1,7]\) (the storm is intensifying), the choice of sample point has a predictable effect on the estimate:
+Because \(Q(t)=t^2\) is **increasing** on \([1,7]\) (the rain is getting heavier), you can predict which way each method will miss:
 
 - **Left Riemann sum (left panel):**  
-  Each rectangle uses the flow rate at the left endpoint of its subinterval. Because flow is rising, these heights are smaller than most of the values in each slice. The rectangles lie mostly *below* the curve, producing an **underestimate** of the true volume.
+  Heights come from the left endpoint. Flow is rising, so the rectangles sit *below* the curve: an **underestimate**.
 
 - **Right Riemann sum (right panel):**  
-  Each rectangle uses the flow rate at the right endpoint. These heights are larger than most of the values in each subinterval, so the rectangles extend *above* the curve, producing an **overestimate** of the true volume.
+  Heights come from the right endpoint, so the rectangles stick up *above* the curve: an **overestimate**.
 
 - **Midpoint Riemann sum (middle panel):**  
-  Each rectangle uses the flow rate at the midpoint. For a smooth, steadily increasing function like \(t^2\), this choice tends to balance the regions where rectangles fall above and below the curve. The result is typically a **closer approximation** to the true volume.
+  Heights come from the middle of each slice. Each rectangle is a little high on one side and a little low on the other, and the two mostly cancel: a much **closer estimate**.
 
-This comparison highlights an important idea:
-
-> **Riemann sums are not just numerical tools — they encode assumptions about how a quantity behaves within each subinterval.**
-
-Understanding how these assumptions affect overestimation and underestimation prepares us to think more carefully about approximation error, and motivates the transition to the definite integral, which captures the *exact* accumulated volume as the number of subintervals becomes arbitrarily large.
+Each method builds in an assumption about what the flow does inside a slice, and that assumption decides which way the estimate misses.
 
 ### Concept Check: Where Riemann-Sum Error Really Comes From {-}
 
@@ -1801,7 +1600,7 @@ What is the main source of error in a Riemann sum approximation?
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-The rectangles do not perfectly match the shape of the curve. Whenever the rate changes within a subinterval, a flat rectangle is bound to over- or undershoot, and that mismatch is exactly the error.
+The rectangles don't match the shape of the curve. Whenever the rate changes within a subinterval, a flat rectangle has to overshoot or fall short, and that mismatch is the error.
 
 </details>
 
@@ -1810,23 +1609,12 @@ The rectangles do not perfectly match the shape of the curve. Whenever the rate 
 
 ## Refining the Approximation
 
-Riemann sums provide a structured way to estimate accumulation, but their accuracy depends on how finely we divide the interval. Because each rectangle assumes the rate is constant over its width, any variation in the rate within a slice contributes to approximation error.
+How good a Riemann sum is depends on how finely you slice. Wide slices miss changes in the rate. Narrow slices follow the curve more closely, so the gaps between the rectangle tops and the curve shrink, and so does the error.
 
-Riemann sums become more accurate as:
-
-- the **number of subintervals increases**, and  
-- the **width of each slice decreases**.
-
-When slices are wide, rectangles may either miss important changes in the rate or exaggerate them, leading to noticeable overestimates or underestimates. As the slices become narrower, each rectangle captures a smaller portion of the curve, and the assumption of a nearly constant rate within each slice becomes more reasonable.
-
-Graphically, thinner rectangles conform more closely to the shape of the rate curve. The gaps between the curve and the tops of the rectangles—whether above or below—shrink, and the total approximation error decreases.
-
-In the **limit**, as the width of each subinterval approaches zero and the number of slices grows without bound, the Riemann sum converges to a single, well-defined value. This limiting value is the **definite integral**, which represents the exact total accumulation of the quantity over the interval.
-
-This process formalizes the intuitive idea of “adding up many tiny contributions” and provides the conceptual bridge between graphical accumulation and the precise mathematical definition of the integral introduced in the next section.
+Keep going. As the slice width goes to zero and the number of slices grows without limit, the Riemann sum settles on a single value. That value is the **definite integral**: the exact total. You'll work with it properly in Chapter 4.
 
 
-```{r refining-approximation-left-sums, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4}
+```{r refining-approximation-left-sums, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4, fig.alt="Three panels of an increasing straight line from x equals 0 to 6, with 3, 8 and 20 left-endpoint rectangles. Each panel's subtitle compares the rectangle area to the true area, and the gap shrinks as the rectangles get narrower."}
 
 library(ggplot2)
 library(patchwork)
@@ -1897,22 +1685,20 @@ p1 | p2 | p3
 
 ### Increasing \(n\)
 
-So far, we have compared different Riemann sum *methods* while holding the number of rectangles fixed. We now explore a different question:
+So far we've changed the *method* and kept \(n\) fixed. Now flip it: keep the method, and increase the number of rectangles.
 
-> **What happens if we keep the method the same, but increase the number of rectangles?**
-
-Returning to the storm-culvert scenario from Examples 1–3, we have
+Back to the rain barrel from Examples 1 to 3:
 \[
 Q(t) = t^2 \quad \text{liters per minute},
 \]
-on the interval \([1, 7]\) minutes. We'll construct **left-hand Riemann sums** with increasing numbers of subintervals:
+on \([1, 7]\) minutes. Here are **left-hand Riemann sums** with more and more subintervals:
 \[
 n = 3,\quad n = 8,\quad n = 20.
 \]
 
-In all three cases the rectangles use **left endpoints**, so any changes in the estimate are due entirely to changing the width \(\Delta t\), not the sampling method.
+All three use **left endpoints**, so any change in the estimate comes from the width \(\Delta t\) alone.
 
-```{r left-riemann-increasing-n, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4}
+```{r left-riemann-increasing-n, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4, fig.alt="Three panels of Q of t equals t squared on 1 to 7 minutes with 3, 8 and 20 left-endpoint rectangles. The rectangles fill more of the area under the curve as n increases. The true volume is 114 liters."}
 
 library(ggplot2)
 
@@ -1976,9 +1762,9 @@ ggplot(curve_df, aes(x = t, y = y)) +
 
 ```
 
-All three panels show **left-hand Riemann sums** for the same flow function on the same interval. The only difference between the panels is the number of subintervals used.
+Same function, same interval, same method. Only the number of subintervals changes.
 
-Because \(Q(t) = t^2\) is **increasing** on \([1,7]\), every left-hand Riemann sum produces an **underestimate** of the true volume. However, the *size* of that underestimate depends strongly on the number of rectangles.
+\(Q(t) = t^2\) is **increasing**, so every one of these left sums is an **underestimate**. What changes is how big the miss is.
 
 ---
 
@@ -2002,7 +1788,7 @@ The left-hand Riemann sum is
 = 70 \text{ L}.
 \]
 
-This estimate is low because the rectangles are wide and the flow rate climbs rapidly over each subinterval.
+Low, because the rectangles are wide and the flow climbs fast across each one.
 
 ---
 
@@ -2024,7 +1810,7 @@ The left-hand Riemann sum is
 = 0.75 \sum_{i=1}^{8} \bigl(1 + (i-1)(0.75)\bigr)^2 \approx 96.56 \text{ L}.
 \]
 
-This estimate is still an underestimate, but the rectangles are narrower and track the rising flow more closely, significantly reducing the error.
+Still low, but the narrower rectangles track the rising flow better and the error shrinks a lot.
 
 ---
 
@@ -2046,13 +1832,13 @@ The left-hand Riemann sum is
 = 0.3 \sum_{i=1}^{20} \bigl(1 + (i-1)(0.3)\bigr)^2 \approx 106.89 \text{ L}.
 \]
 
-With many narrow rectangles, the assumption that the flow rate is nearly constant over each subinterval becomes much more reasonable, and the approximation is now quite close to the true volume.
+With 20 narrow rectangles, treating the flow as constant in each slice is a reasonable assumption, and the estimate is close to the true volume.
 
 ---
 
 #### Comparison with the True Volume
 
-The exact volume is given by the definite integral:
+The exact volume is the definite integral. You'll learn how to get this number in Chapter 4. For now, take it as given:
 \[
 \int_1^7 t^2\,dt
 = \left[\frac{t^3}{3}\right]_1^7
@@ -2067,13 +1853,7 @@ Comparing all four values:
 - Left Riemann sum with \(n=20\):  \(\approx 106.89 \text{ L}\)  
 - Exact volume:                    \(114 \text{ L}\)
 
-Each left-hand Riemann sum approaches the true value **from below** as \(n\) increases.
-
-This illustrates a central idea of calculus:
-
-> **Riemann sums become more accurate as the number of subintervals increases and the width \(\Delta t\) decreases.**
-
-In the limit, as \(n \to \infty\) and \(\Delta t \to 0\), the Riemann sum converges to the definite integral, which represents the exact accumulated volume.
+The left sums climb toward the true value **from below** as \(n\) increases. Take \(n \to \infty\), so \(\Delta t \to 0\), and the Riemann sum becomes the definite integral: the exact volume.
 
 ### Concept Check: The Cost of Finer Partitions {-}
 
@@ -2082,7 +1862,7 @@ What tradeoff is involved in increasing the number of rectangles \(n\)?
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-Increasing \(n\) increases accuracy — but at the cost of **more computation, more data, or more measurement effort**. In a classroom setting that's free; in real environmental monitoring it costs sensors, batteries, technician time, and storage.
+More rectangles means more accuracy, but also **more computation, more data, or more measurement effort**. In class that's free. In real monitoring it costs sensors, batteries, technician time and storage.
 
 </details>
 
@@ -2091,32 +1871,23 @@ Increasing \(n\) increases accuracy — but at the cost of **more computation, m
 
 ## Beyond Rectangles: More Accurate Approximation Methods
 
-Riemann sums approximate accumulation using **rectangles**, which assume the rate is constant over each subinterval. As we have seen, this assumption becomes more reasonable as the rectangles get narrower. However, when the rate changes smoothly, we can often do better without dramatically increasing the number of subintervals.
-
-Two widely used methods—the **Trapezoidal Rule** and **Simpson’s Rule**—improve accuracy by using better geometric approximations of the curve within each subinterval.
-
-Rather than replacing the curve with flat tops, these methods account for how the function changes *within* each slice.
+Rectangles assume the rate is flat across each slice. When the rate changes smoothly, you can often do better without adding more slices: use a shape that follows the curve. This section covers the **trapezoidal rule**. You'll meet **Simpson's rule**, which fits curves instead of straight lines, in Chapter 6.
 
 ---
 
 ## The Trapezoidal Rule
 
-The **Trapezoidal Rule** improves on left and right Riemann sums by approximating the region under the curve with **trapezoids** instead of rectangles.
-
-Rather than assuming the function is constant over each subinterval, this method assumes the function changes **linearly** between consecutive points.
+The **trapezoidal rule** swaps rectangles for **trapezoids**. Instead of assuming the rate is constant across each slice, it assumes the rate changes in a **straight line** from one end of the slice to the other.
 
 ---
 
 ### Idea
 
-Over each subinterval \([x_{i-1}, x_i]\), we approximate the curve by a **straight line** connecting the points  
-\((x_{i-1}, f(x_{i-1}))\) and \((x_i, f(x_i))\).
+On each subinterval \([x_{i-1}, x_i]\), draw a **straight line** from \((x_{i-1}, f(x_{i-1}))\) to \((x_i, f(x_i))\). The area under that line is a **trapezoid**.
 
-The area under this line segment is then approximated by the area of a **trapezoid**.
+In effect, it averages the left and right values, which cancels out much of the built-in bias of left and right sums.
 
-This approach effectively averages the left- and right-endpoint values, reducing the systematic overestimation or underestimation seen with basic Riemann sums.
-
-```{r trapezoid-vs-left-riemann, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4}
+```{r trapezoid-vs-left-riemann, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4, fig.alt="Two panels of f of x equals x squared on 1 to 7. The left panel has three left-endpoint rectangles well below the curve. The right panel has three trapezoids whose slanted tops follow the curve closely, with the middle trapezoid highlighted."}
 
 library(ggplot2)
 library(patchwork)
@@ -2213,17 +1984,9 @@ p_left | p_trap
 
 ```
   
-Both panels use the same function, the same interval, and the same partition. The only difference is how the function is approximated *within* each subinterval.
+Same function, interval and partition in both panels. The left-sum rectangles sit flat at the left endpoint, so on a rising curve they come up short on every slice. The trapezoids join both endpoints with a straight line, so they follow the rise within each slice and land much closer.
 
-In the left-hand Riemann sum (left panel), each rectangle assumes the function remains constant at its left endpoint. Because \(f(x)=x^2\) is increasing on \([1,7]\), this systematically underestimates the area on every subinterval.
-
-In contrast, the trapezoidal rule (right panel) connects the endpoint values with a straight line and uses the resulting trapezoid to approximate the area. This effectively averages the left- and right-endpoint values on each subinterval, capturing the upward trend of the function within the slice. As a result, the trapezoidal rule reduces the bias seen in the rectangular approximation and produces a visibly closer estimate to the true area.
-
-This comparison highlights a key idea: 
-
-> **Improving an approximation is not only about using more subintervals, but also about using a better model of how the function behaves between points.**
-
-The trapezoidal rule represents a natural step beyond rectangles by incorporating information from *both* ends of each subinterval, while still remaining simple and computationally efficient.
+So there are two ways to improve an estimate: use more slices, or use a better shape for each slice.
 
 
 
@@ -2245,14 +2008,13 @@ is given by
 \bigl[f(x_{i-1}) + f(x_i)\bigr]\Delta x.
 \]
 
-This formula reflects a simple geometric idea:
-> the area equals the **average of the two heights** times the width.
+In words: the **average of the two heights**, times the width.
 
 ---
 
 ### Adding the Trapezoids Together
 
-To approximate the total accumulation over the interval \([a,b]\), we divide it into \(n\) equal subintervals of width
+To cover \([a,b]\), divide it into \(n\) equal subintervals of width
 \[
 \Delta x = \frac{b-a}{n}.
 \]
@@ -2271,7 +2033,7 @@ Factoring out the common constants,
 \bigl[f(x_{i-1}) + f(x_i)\bigr].
 \]
 
-Rewriting this sum reveals the familiar trapezoidal pattern:
+Write out the terms and you get the trapezoidal pattern:
 \[
 \frac{\Delta x}{2}
 \left[
@@ -2288,17 +2050,15 @@ f(x_0)
 
 ### Interpretation
 
-- The first and last function values appear **once**, because they belong to only one trapezoid.  
-- Every interior function value appears **twice**, because it serves as the right endpoint of one trapezoid and the left endpoint of the next.  
-- By averaging endpoint values, the trapezoidal rule often provides a **more accurate approximation** than left- or right-hand Riemann sums, especially for smooth functions.
-
-The trapezoidal rule can be viewed as a natural bridge between rectangle-based approximations and more advanced methods that model curvature directly.
+- The first and last values appear **once**, because each belongs to only one trapezoid.
+- Every value in between appears **twice**: it's the right side of one trapezoid and the left side of the next.
+- For smooth functions, this is usually **much more accurate** than a left or right sum.
 
 ---
 
 ### Example: Trapezoidal Rule
 
-Same scenario: \(Q(t) = t^2\) liters per minute on \([1, 7]\) minutes, with \(n = 3\). Now we use **trapezoids** instead of rectangles.
+Same rain barrel: \(Q(t) = t^2\) L/min on \([1, 7]\) minutes, \(n = 3\). This time with **trapezoids**.
 
 ---
 
@@ -2312,9 +2072,7 @@ Same scenario: \(Q(t) = t^2\) liters per minute on \([1, 7]\) minutes, with \(n 
 
 #### Step 2: Identify the Partition Points
 
-For the trapezoidal rule, we use **both endpoints** of each subinterval.
-
-The partition points are:
+The trapezoidal rule uses **both endpoints** of each subinterval, so you need all the partition points:
 \[
 \begin{aligned}
 t_0 &= 1,\\
@@ -2341,7 +2099,7 @@ Q(7) &= 49 \quad (\text{L/min}).
 
 #### Step 4: Apply the Trapezoidal Rule Formula
 
-The trapezoidal rule combines adjacent endpoint values using:
+The formula is:
 \[
 \text{Volume} \approx \frac{\Delta t}{2}
 \left[
@@ -2376,11 +2134,9 @@ The trapezoidal rule estimates the volume as
 
 #### Interpretation
 
-The trapezoidal rule improves on basic Riemann sums by accounting for how the flow rate changes **between** subinterval endpoints. Because it averages left- and right-endpoint values, it reduces systematic over- or underestimation.
+Because the trapezoids follow the rise in flow **within** each slice, this estimate is much closer than the left or right sum.
 
-We can now summarize all the numerical approximations we've made for the volume of water that passed through the culvert between \(t = 1\) and \(t = 7\) minutes.
-
-The **true volume** is given by the exact value:
+Here are all the estimates for the volume that went into the barrel between \(t = 1\) and \(t = 7\) minutes. The **true volume** is:
 \[
 \int_1^7 t^2\,dt = \frac{1}{3}\left(7^3 - 1^3\right) = \frac{342}{3} = 114 \text{ liters}.
 \]
@@ -2395,15 +2151,11 @@ The **true volume** is given by the exact value:
 
 ---
 
-### Key Takeaways
+### What the Table Shows
 
-- The **left-hand sum** severely underestimates because \(Q(t)=t^2\) is increasing.
-- The **right-hand sum** severely overestimates for the same reason.
-- The **midpoint rule** performs exceptionally well, even with a small number of rectangles.
-- The **trapezoidal rule** balances left- and right-endpoint information and improves accuracy compared to basic Riemann sums.
-- Increasing \(n\) reduces the error for *all* methods, but midpoint and trapezoidal rules converge faster.
-
-This comparison highlights why more sophisticated methods are often preferred when accuracy matters.
+- **Left and right sums** miss badly, low and high, because \(Q(t)=t^2\) is increasing.
+- **Midpoint and trapezoid** are both close with only three slices. Midpoint comes in a little low, trapezoid a little high.
+- More slices shrink the error for *every* method, but midpoint and trapezoid get there much faster.
 
 ---
 
@@ -2414,7 +2166,7 @@ How does the trapezoidal rule improve upon rectangular methods?
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-It accounts for *changes in the rate within each subinterval* by approximating the curve with straight line segments rather than flat rectangles. Each trapezoid is a much better fit to a varying rate than any single rectangle could be.
+It allows for the rate *changing within each subinterval*, using a sloped straight line instead of a flat top. For a rate that's rising or falling, a sloped top fits much better than a flat one.
 
 </details>
 
@@ -2423,47 +2175,28 @@ It accounts for *changes in the rate within each subinterval* by approximating t
 
 ## Accuracy Trade-Offs: Shape vs. Number of Subintervals
 
-When approximating accumulation, there are two fundamentally different ways to improve accuracy:
+There are two ways to make an estimate more accurate:
 
-1. **Use a better-shaped approximation over each subinterval**, or  
-2. **Use more subintervals**, making each piece smaller.
+1. **Use a better shape** for each subinterval
+2. **Use more subintervals**
 
-Both strategies reduce error, but they do so in different ways and come with different trade-offs.
+Both work. They cost different things.
 
 ---
 
 ### Improving Accuracy by Changing the Shape
 
-Methods like the **trapezoidal rule** and **midpoint rule** improve accuracy by better matching the *shape* of the function over each subinterval.
+Left and right sums treat the rate as **constant** in each slice. The trapezoidal rule lets it change in a **straight line**. The midpoint rule reads the rate where it's usually closest to the slice's average.
 
-- Rectangular methods (left and right sums) assume the rate is **constant** over each slice.
-- The trapezoidal rule assumes the rate changes **linearly** between endpoints.
-- The midpoint rule samples where the function is often most representative of the average value.
-
-Because these methods capture more of the function’s behavior within each subinterval, they often produce **much better results with the same \(n\)**.
-
-In our example with \(n = 3\):
-
-- The left and right Riemann sums produced large errors.
-- The midpoint and trapezoidal rules were already quite close to the true value.
-
-This shows that **choosing a better approximation shape can dramatically improve accuracy without increasing computational effort**.
+With \(n = 3\) in our example, left and right were off by 44 and 52 liters. Midpoint and trapezoid were off by 2 and 4. Same number of slices, same amount of data, much better answer.
 
 ---
 
 ### Improving Accuracy by Increasing \(n\)
 
-An alternative strategy is to keep the approximation method fixed and instead increase the number of subintervals.
+The other option is to keep the method and add slices. Over a short enough slice, even a rectangle does fine, and as \(n \to \infty\) every method lands on the true value.
 
-- As \(n\) increases, each subinterval becomes narrower.
-- Over smaller intervals, even a crude approximation (like a rectangle) becomes more accurate.
-- In the limit as \(n \to \infty\), all reasonable methods converge to the true value.
-
-This approach is conceptually simple and works for any method, but it comes at a cost:
-
-- More subintervals mean **more calculations**.
-- For hand computations, large \(n\) quickly becomes impractical.
-- For real data, increasing \(n\) may require finer measurements or higher sampling rates.
+The catch is cost. More slices means more arithmetic, which gets old fast by hand. With real data, it means measuring more often, and that isn't always possible.
 
 ---
 
@@ -2474,23 +2207,13 @@ This approach is conceptually simple and works for any method, but it comes at a
 | Better shape (midpoint, trapezoid) | High accuracy with small \(n\) | More complex formulas |
 | Larger \(n\) | Conceptually simple, universally applicable | More computation and data |
 
-In practice, these strategies are often combined: a **moderate \(n\)** paired with a **more accurate method** yields reliable results with reasonable effort.
+In practice you usually do both: a **moderate \(n\)** with a **better method**.
 
 ---
 
 ### A Modeling Perspective
 
-From a modeling standpoint, this trade-off reflects an important question:
-
-> *Do we trust a simple model applied many times, or a more realistic model applied fewer times?*
-
-The answer depends on context:
-
-- When data are sparse, better-shaped approximations are often preferable.
-- When data are abundant or computation is automated, increasing \(n\) may be easier.
-- When risk matters, conservative methods may still be chosen deliberately.
-
-Understanding this trade-off prepares us for the next step in calculus, where the **definite integral** emerges as the ideal limit—combining infinitely thin subintervals with perfect accuracy.
+Which to lean on depends on your data. If measurements are sparse, a better shape gets more out of what you have. If you have lots of data, or a computer is doing the arithmetic, more slices is easy. And if the risk of being wrong matters more than accuracy, you may still pick a left or right sum on purpose.
 
 ---
 
@@ -2501,7 +2224,7 @@ Why can changing the *shape* of the approximation be more effective than just in
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-Because better-shaped approximations capture more of the function's behavior *per subinterval*. A trapezoid or higher-order method can match a smooth curve with far fewer pieces than rectangles can — you get the same accuracy with less computation.
+A better shape captures more of what the function does *in each subinterval*. A trapezoid can match a smooth curve with far fewer pieces than rectangles, so you get the same accuracy with less work and less data.
 
 </details>
 
@@ -2510,34 +2233,23 @@ Because better-shaped approximations capture more of the function's behavior *pe
 
 ## Negative Area and Signed Accumulation
 
-So far, we have focused on situations where the rate function is **positive**, meaning the accumulated quantity increases over time or space. However, many real systems involve **losses**, **outflows**, or **decreases**. Calculus handles these naturally through the idea of **signed area**.
+So far every rate has been **positive**: the quantity only goes up. Real systems also lose things: outflow, evaporation, decay, death. Calculus handles losses with **signed area**.
 
 ---
 
 ### What Is a Negative Area?
 
-When a function lies **below the horizontal axis**, its values are negative. In this case:
+When a rate curve drops **below the horizontal axis**, the rate is negative. The area between the curve and the axis then counts as **negative**. It isn't a negative area in the geometric sense. It's a **loss**.
 
-- The area between the curve and the axis is counted as **negative**.
-- This does *not* represent a physical area in the usual geometric sense.
-- Instead, it represents a **decrease** or **loss** in the accumulated quantity.
-
-In calculus, accumulation is **signed**:
-- Area **above** the axis contributes positively.
-- Area **below** the axis contributes negatively.
+So accumulation is **signed**: area above the axis adds to the total, and area below the axis subtracts from it.
 
 ---
 
 ### Why This Makes Sense Conceptually
 
-Think of a rate as describing **change**:
+A positive rate means the quantity is going up. A negative rate means it's going down. The integral, or a Riemann sum, adds up *all* the changes, losses included. The result is the **net change**.
 
-- Positive rate → quantity increases  
-- Negative rate → quantity decreases  
-
-The integral (or Riemann sum) adds up *all* changes, including losses. The result represents the **net change** over the interval.
-
-Environmental examples include:
+Some examples:
 
 - **Evaporation exceeding precipitation** (net water loss)
 - **Respiration exceeding photosynthesis** (net carbon loss)
@@ -2548,23 +2260,23 @@ Environmental examples include:
 
 ### A Simple Example
 
-Consider a simplified daily model of a forest's **net carbon flux**, in which we track how fast carbon is moving in or out of the ecosystem as hours pass after dawn. Let
+Here's a simplified model of a forest's **net carbon flux** in the hours after dawn, with positive meaning carbon going into the forest. Let
 \[
-F(t) = t - 2 \quad \text{mg C / m}^2\text{/ hr},
+F(t) = t - 2 \quad \text{g C / m}^2\text{/ hr},
 \]
 on the interval \(t \in [0, 4]\) hours after dawn.
 
-- For \(t < 2\) (early morning), \(F(t)\) is **negative**: respiration outpaces photosynthesis, so the ecosystem is a *carbon source*.  
-- At \(t = 2\), the two processes balance.  
-- For \(t > 2\) (mid-morning onward), \(F(t)\) is **positive**: photosynthesis outpaces respiration, so the ecosystem is a *carbon sink*.
+- For \(t < 2\) (early morning), \(F(t)\) is **negative**. Respiration beats photosynthesis, so the forest is a *carbon source*.
+- At \(t = 2\), the two balance.
+- For \(t > 2\), \(F(t)\) is **positive**. Photosynthesis wins, so the forest is a *carbon sink*.
 
-The total accumulation depends on *both* regions.
+The net total depends on *both* regions.
 
-```{r negative-area-example, echo=FALSE, message=FALSE, warning=FALSE, fig.width=7, fig.height=4}
+```{r negative-area-example, echo=FALSE, message=FALSE, warning=FALSE, fig.width=7, fig.height=4, fig.alt="The line F of t equals t minus 2 from 0 to 4 hours after dawn. The triangle below the axis from 0 to 2 is shaded and labeled carbon source. The equal triangle above the axis from 2 to 4 is shaded and labeled carbon sink."}
 
 library(ggplot2)
 
-# Net carbon flux function (mg C/m^2/hr)
+# Net carbon flux function (g C/m^2/hr)
 F_fun <- function(t) t - 2
 
 # Interval (hours after dawn)
@@ -2599,7 +2311,7 @@ ggplot(df, aes(x = t, y = y)) +
   labs(
     title = "Positive and Negative Contributions to a Net Carbon Flux",
     x = "t  (hours after dawn)",
-    y = expression("F(t)  (mg C / m"^2*" / hr)")
+    y = expression("F(t)  (g C / m"^2*" / hr)")
   ) +
   theme_minimal()
 
@@ -2607,33 +2319,17 @@ ggplot(df, aes(x = t, y = y)) +
 
 ### Interpretation of the Result
 
-- From \(x = 0\) to \(x = 2\), the rate \(f(x)\) is **negative**, producing a negative contribution to accumulation.
-- From \(x = 2\) to \(x = 4\), the rate \(f(x)\) is **positive**, producing a positive contribution.
-- These two contributions have equal magnitude but opposite signs, so they **cancel exactly**.
+- From \(t = 0\) to \(t = 2\), \(F(t)\) is **negative**. That triangle has area \(\tfrac{1}{2}(2)(2) = 2\), so the forest lost 2 g C/m².
+- From \(t = 2\) to \(t = 4\), \(F(t)\) is **positive**. Same-sized triangle, so the forest gained 2 g C/m².
+- The two **cancel exactly**: net change is zero.
 
-A net accumulation of zero does **not** mean that nothing happened. Instead, it means that the total gain over part of the interval exactly balanced the total loss over another part.
+Net zero doesn't mean nothing happened. The forest released carbon for two hours and took up the same amount over the next two.
 
 ---
 
 ### Why Signed Accumulation Matters
 
-In real systems, gains and losses often occur simultaneously or sequentially:
-
-- A lake may gain water during storms and lose water through evaporation.
-- An ecosystem may fix carbon during the day and respire carbon at night.
-- A population may grow during favorable seasons and decline during unfavorable ones.
-
-Integrals and Riemann sums account for all of these effects by treating accumulation as **signed** rather than purely positive.
-
----
-
-### Key Takeaway
-
-Area below the axis represents **negative accumulation**, not a mistake or anomaly.
-
-> **Integrals measure net change over an interval, capturing both increases and decreases in a system.**
-
-This idea is essential for interpreting accumulation correctly in environmental, biological, and physical contexts.
+Most real systems gain and lose at the same time, or take turns. A lake gains water in storms and loses it to evaporation. A forest fixes carbon by day and respires it at night. A population grows in good seasons and shrinks in bad ones. Because integrals are signed, they give you the **net change** in all of these.
 
 ---
 
@@ -2644,7 +2340,7 @@ What does it mean for accumulation to be "signed"?
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-It means that **positive rates contribute positively** to the total, while **negative rates contribute negatively** — allowing gains and losses to be combined into a single net accumulation. A lake gaining 30 cm of depth during snowmelt and losing 12 cm of depth during dry weeks has a net signed accumulation of +18 cm.
+**Positive rates add** to the total and **negative rates subtract** from it, so gains and losses combine into one net number. A lake that gains 30 cm of depth during snowmelt and loses 12 cm in the dry weeks has a net signed accumulation of +18 cm.
 
 </details>
 
@@ -2656,7 +2352,7 @@ What does a negative area under a rate curve represent?
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-A **loss or decrease** in the accumulated quantity over that interval. The rate is negative — water is leaving rather than arriving, biomass is being lost, pollutant is decaying — and the contribution to the total is subtracted, not added.
+A **loss** over that interval. The rate is negative: water is leaving, biomass is being lost, a pollutant is breaking down. That contribution gets subtracted from the total.
 
 </details>
 
@@ -2668,7 +2364,7 @@ Why does a net accumulation of zero not mean "nothing happened"?
 <details>
 <summary><strong>Click to reveal answer</strong></summary>
 
-Because gains and losses may have occurred but **canceled each other out** over the interval. A pond that gained 1000 L of inflow and lost 1000 L of evaporation has net change zero — but a lot happened. If you care about total *throughput* rather than *net change*, you need a different quantity (the integral of |rate|, not the integral of rate).
+Gains and losses may have happened and **canceled out**. A pond that gained 1000 L from inflow and lost 1000 L to evaporation has a net change of zero, but a lot of water moved. If you care about total *throughput* rather than *net change*, you need a different quantity: the integral of |rate|, not of the rate.
 
 </details>
 
@@ -2677,7 +2373,7 @@ Because gains and losses may have occurred but **canceled each other out** over 
 
 ## Practice Problems: Accumulation and Approximation
 
-These problems emphasize **calculation first**, followed by **reflection on meaning, assumptions, and environmental context**. After computing each result, reflect on what the number represents physically and what assumptions were required.
+Calculate first, then think about what the number means. Every answer here is a physical quantity. Ask what it represents, and what you had to assume to get it.
 
 ---
 
@@ -2824,7 +2520,7 @@ Using the same pollutant loading data as in Problems 3 and 4:
 | 3         | 14           |
 
 **(a)** Identify the **midpoints** of each time interval from \(t=0\) to \(t=3\).  
-**(b)** Estimate the pollutant loading rate at each midpoint using the table below.  
+**(b)** Estimate the loading rate at each midpoint, assuming the rate changes in a straight line between measurements. Fill in the table below.  
 **(c)** Use a **midpoint Riemann sum** with \(\Delta t = 1\) hr to approximate the total pollutant load.
 
 | Interval | Midpoint (hr) | Estimated rate (kg/hr) |
@@ -2852,7 +2548,7 @@ Each interval has width \(\Delta t = 1\) hr:
 
 **(b) Estimated midpoint rates**
 
-Using the provided data and assuming smooth change between measurements:
+Each midpoint rate is halfway between the two measurements on either side:
 
 - \(f(0.5) \approx 3.5\ \text{kg/hr}\)
 - \(f(1.5) \approx 7\ \text{kg/hr}\)
@@ -2883,22 +2579,25 @@ f(t) = t - 2, \quad 0 \le t \le 4
 
 **Reflection prompts:**
 
+Treat \(f(t)\) as the forest carbon flux from the signed-accumulation example: g C/m²/hr, \(t\) in hours after dawn. Find the net accumulation over \([0, 4]\).
+
 - What does a negative rate mean?
 - Does zero net accumulation mean nothing happened?
-- How does this relate to day–night cycling?
+- Where else do gains and losses cancel over a cycle?
 
 <details>
 <summary><strong>Click to reveal solution</strong></summary>
 
+The graph is two triangles of equal area, one below the axis (\(-2\)) and one above (\(+2\)):
 \[
-\int_0^4 (t - 2)\,dt = 0.
+\int_0^4 (t - 2)\,dt = -2 + 2 = 0.
 \]
 
 **Reflection responses:**
 
-- A negative rate represents net carbon release.
-- Zero net accumulation still allows substantial uptake and release.
-- Daytime photosynthesis and nighttime respiration can cancel over 24 hours.
+- A negative rate means the forest is releasing carbon.
+- No. The forest released 2 g C/m² and then took up 2 g C/m².
+- Over a full day, daytime uptake and nighttime respiration can come close to canceling. Tides and seasonal cycles do the same thing.
 
 </details>
 
@@ -2906,7 +2605,7 @@ f(t) = t - 2, \quad 0 \le t \le 4
 
 ### Problem 7: Trapezoidal Rule {-}
 
-Using the storm-culvert flow rate from the worked examples,
+Using the rain-barrel flow rate from the worked examples,
 \[
 Q(t) = t^2 \quad \text{L/min on } [1,7] \text{ min}, \; n=3,
 \]
@@ -2927,9 +2626,9 @@ apply the **trapezoidal rule** to estimate the total volume.
 
 **Reflection responses:**
 
-- It assumes the rate changes linearly within each interval (so the top of each "slice" is a straight line, forming a trapezoid).
-- Many environmental rate-of-change processes are smooth, so a straight-line fit per slice tracks them better than a flat top.
-- Rapid nonlinear events — flash floods, threshold-driven collapses, pulse releases — violate the linearity assumption and need either finer subintervals or a different shape.
+- It assumes the rate changes in a straight line within each interval, so the top of each slice is a sloped line and the slice is a trapezoid.
+- Many environmental rates change smoothly, so a sloped top follows them better than a flat one.
+- Sudden events like flash floods, threshold collapses or pulse releases break the straight-line assumption. You need narrower slices or a different approach.
 
 </details>
 
@@ -2937,7 +2636,7 @@ apply the **trapezoidal rule** to estimate the total volume.
 
 ### Problem 8: Comparing Methods {-}
 
-For the same storm-culvert flow,
+For the same rain-barrel flow,
 \[
 Q(t) = t^2 \quad \text{L/min on } [1,7] \text{ min}, \; n = 3,
 \]
@@ -2962,8 +2661,8 @@ The **exact volume** is
 <details>
 <summary><strong>Click to reveal solution</strong></summary>
 
-- The midpoint value tends to balance over- and underestimates within each subinterval — the rectangle dips below the curve on one side and rises above it on the other, and the two errors partially cancel.
-- No — accuracy is one criterion among several. Defensibility, conservativeness, robustness to measurement noise, and computational cost all matter.
+- In each subinterval, the midpoint rectangle is a little low on one side and a little high on the other, and the two errors mostly cancel.
+- No. Accuracy is one criterion. Defensibility, conservativeness, how well it copes with noisy data, and cost all matter too.
 - A regulator estimating pollutant load may deliberately use the **over-estimating** method (right Riemann sum, for an increasing rate) to make sure mitigation is sized adequately. A fisheries manager estimating sustainable catch may deliberately use the **under-estimating** method to leave a safety margin for the population.
 
 </details>
@@ -2978,7 +2677,7 @@ f(x) = \frac{1}{x}
 \]
 on the interval \([1,7]\).
 
-```{r left-riemann-1-over-x, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4}
+```{r left-riemann-1-over-x, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4, fig.alt="Three panels of the decreasing curve f of x equals 1 over x on 1 to 7, with 3, 6 and 12 left-endpoint rectangles. The rectangles stick up above the curve, less so as n increases."}
 
 library(ggplot2)
 library(patchwork)
@@ -3153,22 +2852,19 @@ Because \(f(x) = 1/x\) is **decreasing**, the left Riemann sum **overestimates**
 
 ### Problem 10: Signed Accumulation Using Riemann Sums {-}
 
-A simplified model of a **cyclic environmental process** (such as net ecosystem carbon exchange over a day) is given by the rate function
+A simplified model of a **cyclic process** has rate
 
 \[
 f(t) = \sin(t),
 \]
 
-where:
-
-- \(t\) is time (hours), and  
-- \(f(t)\) has units of kg/hr.
+where \(t\) is time in hours and \(f(t)\) is in kg/hr. One full cycle runs from \(t = 0\) to \(t = 2\pi\), about 6.3 hours.
 
 You will approximate accumulation using **midpoint Riemann sums**.
 
 ---
 
-```{r midpoint-riemann-sine, echo=FALSE, message=FALSE, warning=FALSE, fig.width=8, fig.height=4}
+```{r midpoint-riemann-sine, echo=FALSE, message=FALSE, warning=FALSE, fig.width=8, fig.height=4, fig.alt="One full cycle of the sine curve from 0 to 2 pi. Four midpoint rectangles sit above the axis from 0 to pi, labeled Part A, and four sit below the axis from pi to 2 pi, labeled Part B."}
 
 library(ggplot2)
 
@@ -3427,6 +3123,6 @@ Midpoints:
 - Negative accumulation from \(\pi\) to \(2\pi\): net release.  
 - Over a full cycle, gains and losses cancel.
 
-This models diurnal carbon exchange, tides, seasonal growth cycles, and other oscillatory environmental processes. Net accumulation alone hides substantial internal dynamics.
+Daily carbon exchange, tides and seasonal growth all follow this pattern, just on different time scales. The net number on its own hides a lot of what went on.
 
 </details>
