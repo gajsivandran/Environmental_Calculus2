@@ -1,0 +1,2491 @@
+# Definite Integrals and the Fundamental Theorem of Calculus
+
+A flux tower above a Douglas-fir stand logs CO₂ exchange every half hour, day and night. Before dawn the readings are negative: respiration is greater than photosynthesis and the forest is losing carbon. By mid-morning they've flipped, and the canopy is pulling carbon out of the air and sequestering it.
+
+The question someone will eventually ask: *did this forest gain or lose carbon today, and how much?* To answer it, you need to turn a day of rates, some positive and some negative, into one signed total. That total is a **definite integral**. This chapter covers what one is, what it means, and how to compute it.
+
+## Purpose of the Chapter
+
+In Chapter 3 you estimated totals from rates by adding up rectangles, and you saw that gains and losses can cancel. This chapter makes that precise.
+
+By the end of it, you should be able to:
+
+- explain what a **definite integral** is, as the limit of Riemann sums
+- interpret one as **accumulation**, with units and a sign, rather than just an area
+- explain how integration and differentiation undo each other (the **Fundamental Theorem of Calculus**)
+- compute definite integrals with antiderivatives, and say what the answer means
+
+Everything else in this course builds on this chapter. Once the definite integral makes sense, the later chapters are mostly about methods.
+
+## From Riemann Sums to Definite Integrals
+
+Left, right, midpoint and trapezoid all give different estimates. This section shows why, as the slices get thinner, they all head toward the same value, and that value is the **definite integral**.
+
+A Riemann sum is a process. The definite integral is where that process ends up if you could slice infinitely finely.
+
+---
+
+### Riemann Sums as Structured Approximations
+
+A Riemann sum always follows the same steps:
+
+1. Divide an interval \([a,b]\) into subintervals.
+2. Choose a representative rate within each subinterval.
+3. Multiply rate by width to estimate accumulation over that slice.
+4. Add the contributions from all slices.
+
+Every choice along the way (how many slices, how wide, where to read the rate) is an assumption about what the system does *between measurements*. That's also how field data get turned into totals: measure at set times or places, assume something about the gaps, and add it up.
+
+---
+
+### Partitioning an Interval
+
+The first step is to **partition** \([a,b]\) into \(n\) subintervals:
+\[
+a = x_0 < x_1 < x_2 < \cdots < x_n = b.
+\]
+
+If all the subintervals are the same width, each one has width
+\[
+\Delta x = \frac{b - a}{n}.
+\]
+
+### Width \(\Delta x\) and Resolution
+
+Think of \(\Delta x\) as **resolution**. Over time it's the gap between measurements, minutes or hours. Over space it's the distance between sampling sites. In the field, a smaller \(\Delta x\) means a logger that records more often, or more sampling sites.
+
+As \(\Delta x\) shrinks, each rectangle covers less ground, treating the rate as constant across it becomes more reasonable, and the error drops.
+
+---
+
+### Sample Points: Left, Right, and Midpoint
+
+Next, pick **where to read the rate** in each subinterval. For the \(i\)-th subinterval \([x_{i-1}, x_i]\), the sample point is \(x_i^*\). The usual choices:
+
+- **Left endpoint:** \(x_i^* = x_{i-1}\)
+- **Right endpoint:** \(x_i^* = x_i\)
+- **Midpoint:** \(x_i^* = \tfrac{x_{i-1} + x_i}{2}\)
+
+Each one is a different assumption about which moment best represents the slice. But they're all estimates of the **same** total. They don't define different integrals.
+
+---
+
+### From Finite Sums to a Limit
+
+A Riemann sum with \(n\) subintervals has the general form:
+\[
+\sum_{i=1}^{n} f(x_i^*)\,\Delta x.
+\]
+
+That's a finite number of rectangles, added up. Now increase \(n\). The rectangles get thinner, the gap between left, right and midpoint shrinks, and where you read the rate matters less and less.
+
+As \(\Delta x \to 0\), every reasonable Riemann sum heads to the same value.
+
+---
+
+### Why Different Sums Converge to the Same Value
+
+Most environmental rates are smooth: over a short enough interval, they barely change. So in a very thin slice, the left, right and midpoint values are almost the same, and the rectangles hug the curve whichever you pick. Left sums may start low and right sums high, but as the slices narrow they close in on the same total.
+
+That shared limit is the **definite integral**.
+
+---
+
+### Defining the Definite Integral
+
+The **definite integral** of \(f(x)\) from \(a\) to \(b\) is
+\[
+\int_a^b f(x)\,dx
+=
+\lim_{n \to \infty}
+\sum_{i=1}^{n} f(x_i^*)\,\Delta x,
+\]
+provided this limit exists.
+
+```{r increasing-n-to-integral, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4, fig.alt="Three panels of f of x equals x squared between a equals 1 and b equals 4. The first has 4 left-endpoint rectangles, the second has 10, and the third shows the area under the curve shaded smoothly, labeled definite integral as n goes to infinity."}
+
+library(ggplot2)
+library(patchwork)
+
+# Define the function
+f <- function(x) x^2
+
+# Accumulation interval
+a <- 1
+b <- 4
+
+# Full plotting domain
+x_plot <- seq(0, 5, length.out = 500)
+curve_df <- data.frame(x = x_plot, y = f(x_plot))
+
+# Helper function for left Riemann sum plots
+make_left_plot <- function(n, title_text) {
+  
+  dx <- (b - a) / n
+  x_left <- seq(a, b - dx, by = dx)
+  
+  rects <- data.frame(
+    x0 = x_left,
+    x1 = x_left + dx,
+    height = f(x_left)
+  )
+  
+  ggplot(curve_df, aes(x = x, y = y)) +
+    geom_line(linewidth = 1) +
+    geom_rect(
+      data = rects,
+      aes(xmin = x0, xmax = x1, ymin = 0, ymax = height),
+      inherit.aes = FALSE,
+      fill = "#E69F00",
+      alpha = 0.5,
+      color = "black"
+    ) +
+    geom_vline(xintercept = c(a, b), linetype = "dashed") +
+    annotate("text", x = a+0.2, y = 1, label = "a", fontface = "bold") +
+    annotate("text", x = b+0.2, y = 1, label = "b", fontface = "bold") +
+    labs(
+      title = title_text,
+      x = "x",
+      y = "f(x)"
+    ) +
+    coord_cartesian(xlim = c(0, 5),
+                    ylim = c(0, max(curve_df$y) * 1.05)) +
+    theme_minimal() +
+    theme(
+      plot.title = element_text(face = "bold", hjust = 0.5)
+    )
+}
+
+# Panel 1: n = 4
+p1 <- make_left_plot(4, "Left Riemann Sum (n = 4)")
+
+# Panel 2: n = 10
+p2 <- make_left_plot(10, "Left Riemann Sum (n = 10)")
+
+# Panel 3: Definite integral (shade ONLY between a and b)
+p3 <- ggplot(curve_df, aes(x = x, y = y)) +
+  geom_line(linewidth = 1) +
+  geom_area(
+    data = subset(curve_df, x >= a & x <= b),
+    aes(x = x, y = y),
+    fill = "#009E73",
+    alpha = 0.4
+  ) +
+  geom_vline(xintercept = c(a, b), linetype = "dashed") +
+  annotate("text", x = a+.2, y = 1, label = "a", fontface = "bold") +
+  annotate("text", x = b+.2, y = 1, label = "b", fontface = "bold") +
+  labs(
+    title = "Definite Integral (n → ∞)",
+    x = "x",
+    y = "f(x)"
+  ) +
+  coord_cartesian(xlim = c(0, 5),
+                  ylim = c(0, max(curve_df$y) * 1.05)) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5)
+  )
+
+# Combine panels
+p1 | p2 | p3
+
+```
+
+
+
+In words: the integral is what you get by adding up infinitely many infinitely thin slices. It doesn't depend on where you read the rate in each slice. It's the total you'd get with perfect resolution.
+
+---
+
+### Reading the Notation
+
+Don't get hung up on the symbols. The expression
+\[
+\int_a^b f(x)\,dx
+\]
+should be read as:
+
+> “The total accumulated effect of the rate \(f(x)\) as \(x\) runs from \(a\) to \(b\).”
+
+It's a precise way to write the accumulation you've already been estimating with rectangles.
+
+---
+
+### Environmental Framing: Why Resolution Matters
+
+Field data almost always come in **discrete** pieces: streamflow every hour, a water sample every week, a satellite pass every few days. The processes themselves are **continuous**.
+
+A Riemann sum is how you estimate a continuous total from discrete data. The definite integral is what you'd get if you could measure continuously. That's why more frequent measurements give better totals, why coarse sampling can miss a peak, and why the different methods agree more as resolution improves.
+
+
+---
+
+### Concept Check: Riemann Sums as a Process {-}
+
+Why are Riemann sums described as a *process* rather than a final answer?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+A Riemann sum is a **method**: it builds a total from a finite number of rectangles, piece by piece. The definite integral is what that method gives you if you keep slicing finer forever. The sum is the recipe. The integral is the dish.
+
+</details>
+
+
+### Concept Check: What Shrinking Δx Really Means {-}
+
+What does shrinking \(\Delta x\) represent conceptually in an environmental context?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+**Better measurement resolution.** Sampling more often in time (every 5 minutes instead of every hour) or more densely in space (every meter instead of every kilometer). Your discrete data get closer to the continuous process.
+
+</details>
+
+
+### Concept Check: Why L/R/Mid Converge to the Same Value {-}
+
+Why do left, right, and midpoint Riemann sums converge to the same value for smooth functions?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+A smooth rate barely changes over a small enough interval. As \(\Delta x \to 0\), the left, right and midpoint values in each slice become essentially the same number, so all the sums land on the same total.
+
+</details>
+
+
+### Concept Check: The Rectangle Assumption {-}
+
+What assumption about the system is made when using rectangles to approximate accumulation?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+That the rate is roughly **constant** across each subinterval. Narrower rectangles make that more believable, which is why more of them gives a better answer.
+
+</details>
+
+
+### Concept Check: Formalizing the Riemann Sum {-}
+
+How does a definite integral formalize the idea behind Riemann sums?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+It's defined as the **limit of Riemann sums as the slice width goes to zero**. That's the exact total the sums were estimating, and it doesn't depend on how you partitioned or where you sampled.
+
+</details>
+
+
+### Concept Check: Riemann Sums as Environmental Modeling {-}
+
+In what sense is a Riemann sum an environmental modeling tool?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+It's how field data actually get used. Readings at set times (rainfall every 15 minutes, flow every hour) stand in for what happened between them, and you add up the pieces to get a total.
+
+</details>
+
+
+### Concept Check: Why Sampling Choice Doesn't Matter in the Limit {-}
+
+Why does the definite integral not depend on whether you sample with left, right, or midpoint?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+As the slices get thinner, every sample point in a slice is reading almost the *same* rate. Where you sample stops mattering, and all the methods converge.
+
+</details>
+
+
+### Concept Check: The Role of the Limit {-}
+
+What conceptual role does the limit play in connecting Riemann sums to integrals?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+The limit **gets rid of the arbitrary choices**: rectangle width, sample point, how you partitioned. What's left is the one total that every reasonable approximation is closing in on.
+
+</details>
+
+
+---
+
+## Interpreting the Definite Integral
+
+That's what a definite integral *is*. This section is about what it *means*. Every integral you compute says something about a real system: how much it gained or lost, took in or gave out. To read it properly, you need the sign and the units.
+
+---
+
+### Definite Integrals as Net Accumulation
+
+A definite integral measures **net accumulation**. If \(f(t)\) is a rate of change, then
+\[
+\int_a^b f(t)\,dt
+\]
+is the total effect of that rate as time runs from \(a\) to \(b\).
+
+*Net* is the important word. Where \(f(t)\) is positive, the quantity goes up. Where it's negative, the quantity goes down. The integral combines both into one number, which is exactly what you want for systems with competing processes: inflow and outflow, growth and decay, uptake and release.
+
+---
+
+### Signed Area and Physical Meaning
+
+You'll often hear a definite integral called the **area under a curve**. Taken literally, that's misleading.
+
+```{r signed-area, echo=FALSE, message=FALSE, warning=FALSE, fig.width=7, fig.height=4, fig.alt="The line f of x equals x minus 2 from 0 to 4. The triangle below the axis from 0 to 2 is shaded and labeled negative contribution. The equal triangle above the axis from 2 to 4 is shaded and labeled positive contribution."}
+
+library(ggplot2)
+
+# Function
+f_fun <- function(x) x - 2
+
+# Interval
+a <- 0
+b <- 4
+
+# Curve
+x_vals <- seq(a, b, length.out = 400)
+df <- data.frame(x = x_vals, y = f_fun(x_vals))
+
+# Positive and negative regions
+df_pos <- subset(df, y >= 0)
+df_neg <- subset(df, y < 0)
+
+ggplot(df, aes(x = x, y = y)) +
+  geom_hline(yintercept = 0, linewidth = 0.8) +
+  geom_line(linewidth = 1) +
+  geom_area(
+    data = df_pos,
+    aes(x = x, y = y),
+    fill = "#009E73",
+    alpha = 0.5
+  ) +
+  geom_area(
+    data = df_neg,
+    aes(x = x, y = y),
+    fill = "#D55E00",
+    alpha = 0.5
+  ) +
+  annotate("text", x = 0.8, y = -0.5, label = "Negative contribution", size = 4) +
+  annotate("text", x = 3.2, y = 0.5, label = "Positive contribution", size = 4) +
+  labs(
+    title = "Positive and Negative Contributions to Accumulation",
+    x = "x",
+    y = "Rate  f(x)"
+  ) +
+  theme_minimal()
+
+```
+
+More accurately, a definite integral is the **signed area** between the curve and the horizontal axis. Area above the axis counts as positive. Area below counts as negative.
+
+That matches what's physically happening: a positive rate adds to the quantity, and a negative rate takes away. The sign tells you which way things went.
+
+---
+
+### Total Change from a Rate
+
+Carbon flux (kg C/hr), streamflow (m³/s), pollutant loading (kg/day), energy exchange (W/m²), population growth (individuals/year): these are all **rates**. The definite integral turns each one into a **total change** over an interval. Roughly:
+\[
+\text{total change} = \int (\text{rate}) \times (\text{time or space})
+\]
+
+It's the same idea as
+\[
+\text{amount} = \text{rate} \times \text{time},
+\]
+except the rate is allowed to change.
+
+---
+
+### Units Analysis: Why Units Matter
+
+Units are one of the best checks you have. The units of a definite integral are
+\[
+(\text{units of } f) \times (\text{units of the variable})
+\]
+
+For example:
+
+- \( \text{kg/hr} \times \text{hr} = \text{kg} \)
+- \( \text{m}^3/\text{s} \times \text{s} = \text{m}^3 \)
+- \( \mu\text{mol}/(\text{m}^2\cdot\text{s}) \times \text{s} = \mu\text{mol}/\text{m}^2 \)
+
+If the units don't match the quantity you're after, something went wrong in the setup.
+
+---
+
+### Positive and Negative Contributions
+
+Often the rate is positive for part of an interval and negative for the rest: carbon uptake by day and release at night, a lake filling in a wet month and draining in a dry one, a population growing in good seasons and shrinking in bad ones. The definite integral takes care of all of it and reports the **combined effect**.
+
+---
+
+### Net Accumulation vs. Total Accumulation
+
+Keep these two apart:
+
+- **Net accumulation** is the signed result of the integral: the overall change.
+- **Total accumulation** adds up the *size* of every contribution, gains and losses alike. You get it by splitting the interval where the rate changes sign and adding the absolute values, which is the same as integrating \(|f|\).
+
+A net value of zero does **not** mean nothing happened. It means gains and losses balanced.
+
+---
+
+### Common Pitfalls
+
+Three mistakes come up again and again:
+
+- **Reading height as an amount.** \(f(x)\) at a point is a *rate*. It only becomes an amount once you integrate over an interval.
+- **Ignoring the sign.** Counting every area as positive throws away whether the system gained or lost.
+- **Reading zero as "nothing happened."** A net of zero often hides a lot of activity in both directions.
+
+---
+
+### Environmental Framing
+
+Some places you'll see this:
+
+- **Carbon.** Integrate net ecosystem exchange to get a forest's carbon gain or loss over a day, a season or a year.
+- **Pollutant loads.** Integrate concentration × flow to get the total mass carried into or out of a lake.
+- **Energy.** Integrate heat flux to get the energy gained or lost through a surface.
+- **Populations.** Integrate births minus deaths, plus immigration minus emigration, to get the net change in a population.
+
+In each case the integral tells you how much changed, in which direction, over what interval. Getting the number is half the job. Saying what it means is the other half.
+
+---
+
+### Concept Check: Accumulation vs. Area {-}
+
+Why is a definite integral better interpreted as *accumulation* rather than *area*?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+A definite integral is the **total change built up from a rate**, with a sign and units. "Area" is a useful picture, since it's what you see on the graph. "Accumulation" is what it means physically: kilograms of carbon exchanged, liters of water passed, individuals added.
+
+</details>
+
+
+### Concept Check: What the Sign of an Integral Tells You {-}
+
+What does the sign of a definite integral tell you about a system?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+The **direction of the net change**. Positive: the quantity went up overall (water arrived, carbon was fixed). Negative: it went down (water evaporated, carbon was respired). Zero: gains and losses balanced.
+
+</details>
+
+
+### Concept Check: Zero Net Doesn't Mean Nothing Happened {-}
+
+Why does a zero net integral not imply that "nothing happened"?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Zero means the positive and negative contributions canceled. **Big gains and losses can still be hiding in there.** A forest that fixed 80 kg C during the day and respired 80 kg C overnight has a net flux of zero, but a lot happened.
+
+</details>
+
+
+### Concept Check: Units as a Sanity Check {-}
+
+How do units help verify the interpretation of a definite integral?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+The units of an integral are the rate's units times the variable's units. If they **don't match the quantity you think you're computing**, your setup is wrong. "mg C / m² / hr × hr = mg C / m²" makes sense. "mg C / m² × hr" doesn't, and that tells you to go back and check.
+
+</details>
+
+
+### Concept Check: Why 'Area Under the Curve' Falls Short {-}
+
+Why is the phrase "area under the curve" incomplete without the Riemann-sum perspective?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+On its own, "area" sounds **purely geometric**. The Riemann sum shows where the area comes from: adding up **rate × width** pieces. That's why the answer has units and a sign, and why it stands for something real.
+
+</details>
+
+
+---
+
+## How to Evaluate a Definite Integral
+
+A definite integral
+\[
+\int_a^b f(x)\,dx,
+\]
+is the **net accumulation** of \(f(x)\) over \([a,b]\). Evaluating it means computing that number. Computing a limit of Riemann sums every time would be painful. There's a shortcut. Here are the steps, and the Fundamental Theorem of Calculus later in this chapter explains why they work.
+
+---
+
+### Step 1: Find an antiderivative
+
+Find a function \(F(x)\) whose derivative is \(f(x)\):
+\[
+F'(x) = f(x).
+\]
+
+\(F\) is called an **antiderivative** of \(f\).
+
+Examples:
+- If \(f(x) = x^2\), then \(F(x) = \tfrac{x^3}{3}\)
+- If \(f(x) = e^x\), then \(F(x) = e^x\)
+- If \(f(x) = \cos x\), then \(F(x) = \sin x\)
+
+You don't need a "+ C" here. Step 4 explains why.
+
+---
+
+### Step 2: Evaluate the antiderivative at the bounds
+
+Evaluate \(F\) at the upper and lower limits:
+\[
+F(b) \quad \text{and} \quad F(a).
+\]
+
+Think of these as the running total at \(x = b\) and at \(x = a\), measured from the same starting point.
+
+---
+
+### Step 3: Subtract to find the net accumulation
+
+The definite integral is the **difference**:
+\[
+\int_a^b f(x)\,dx = F(b) - F(a).
+\]
+
+You subtract because a definite integral measures **change over an interval**, not an amount at one point.
+
+---
+
+### Step 4: Why there is no constant of integration
+
+If you added a constant \(C\) to \(F\), it would show up in both terms:
+\[
+(F(b) + C) - (F(a) + C) = F(b) - F(a).
+\]
+
+It cancels. That's why **definite integrals don't need a constant of integration**. Indefinite integrals, in Chapter 5, do.
+
+---
+
+### A simple numerical example
+
+Evaluate
+\[
+\int_1^4 x^2\,dx.
+\]
+
+1. Antiderivative:
+   \[
+   F(x) = \tfrac{x^3}{3}
+   \]
+
+2. Evaluate at the bounds:
+   \[
+   F(4) = \tfrac{64}{3}, \qquad F(1) = \tfrac{1}{3}
+   \]
+
+3. Subtract:
+   \[
+   \int_1^4 x^2\,dx
+   =
+   \tfrac{64}{3} - \tfrac{1}{3}
+   =
+   \tfrac{63}{3}
+   =
+   21
+   \]
+
+---
+
+Every definite integral you evaluate follows the same three moves: **find an antiderivative, evaluate at the bounds, subtract.** The properties in the next section make that faster.
+
+
+
+
+
+
+### Concept Check: When Rate × Time Actually Works {-}
+
+Why does integrating a constant rate reduce to "rate × duration"?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+With a constant rate, every slice contributes the same amount. Adding them up is just rate × interval length. There's no variation to keep track of, so the integral collapses to the formula you learned in grade school.
+
+</details>
+
+
+### Concept Check: Why the Constant of Integration Doesn't Matter Here {-}
+
+Why does the constant of integration not affect a definite integral?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+A definite integral measures **change between two points**. In \(F(b) - F(a)\), the same \(C\) appears in both terms and cancels, leaving just the change.
+
+</details>
+
+
+### Concept Check: What F(b) − F(a) Really Means {-}
+
+What does \(F(b) - F(a)\) represent conceptually?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+The **net change between \(a\) and \(b\)**, not the value at either point. \(F(a)\) is the running total at \(a\), \(F(b)\) is the running total at \(b\), and the difference is what accumulated *between* them.
+
+</details>
+
+
+### Concept Check: Why We Trust Integrals When Data Are Discrete {-}
+
+Why can definite integrals be trusted even when real environmental data come in discrete chunks?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Riemann sums show how discrete measurements approximate a continuous total. The definite integral is the **continuous benchmark** they're approaching. So even with data every 15 minutes, you know what you're estimating and how to make the estimate better.
+
+</details>
+
+
+---
+
+## Properties of Definite Integrals
+
+Definite integrals follow a handful of rules. None of them are arbitrary: each one is something you'd expect from adding things up. They let you split problems into pieces, combine information you already have, and sometimes skip the formula altogether.
+
+---
+
+### Linearity of the Integral
+
+**Linearity** means you can integrate a sum one piece at a time, and pull constants outside.
+
+#### Adding Rates
+
+If two rates \(f(x)\) and \(g(x)\) act over the same interval, the total from both is the sum of the totals from each:
+
+\[
+\int_a^b [f(x) + g(x)]\,dx
+=
+\int_a^b f(x)\,dx
++
+\int_a^b g(x)\,dx.
+\]
+
+```{r linearity-three-panels-solid-fixed, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4, fig.alt="Three panels between a equals 1 and b equals 3. The first shades the area under a rising straight-line rate f. The second shades the area under a constant rate g. The third stacks the two areas, g on the bottom and f on top, under the curve f plus g."}
+
+library(ggplot2)
+library(patchwork)
+
+# Define functions
+f <- function(x) 0.8 * x
+g <- function(x) 1.2
+
+# Integration interval
+a <- 1
+b <- 3
+
+# X domain
+x_plot <- seq(0, 4, length.out = 500)
+
+# Data
+df_f <- data.frame(x = x_plot, y = f(x_plot))
+df_g <- data.frame(x = x_plot, y = g(x_plot))
+df_sum <- data.frame(
+  x = x_plot,
+  f = f(x_plot),
+  g = g(x_plot),
+  sum = f(x_plot) + g(x_plot)
+)
+
+# Common y-axis limit
+y_max <- max(df_sum$sum)
+
+# Panel 1: f(x)
+p1 <- ggplot(df_f, aes(x = x, y = y)) +
+  geom_line(linewidth = 1) +
+  geom_area(
+    data = subset(df_f, x >= a & x <= b),
+    fill = "#009E73"
+  ) +
+  geom_vline(xintercept = c(a, b), linetype = "dashed") +
+  scale_x_continuous(limits = c(0, 4)) +
+  scale_y_continuous(limits = c(0, y_max)) +
+  annotate("text", x = a, y = 0.05 * y_max, label = "a", fontface = "bold") +
+  annotate("text", x = b, y = 0.05 * y_max, label = "b", fontface = "bold") +
+  labs(title = "Rate f(x) (linear)", x = "x", y = "Rate") +
+  theme_minimal() +
+  theme(plot.title = element_text(face = "bold", hjust = 0.5))
+
+# Panel 2: g(x)
+p2 <- ggplot(df_g, aes(x = x, y = y)) +
+  geom_line(linewidth = 1) +
+  geom_area(
+    data = subset(df_g, x >= a & x <= b),
+    fill = "#D55E00"
+  ) +
+  geom_vline(xintercept = c(a, b), linetype = "dashed") +
+  scale_x_continuous(limits = c(0, 4)) +
+  scale_y_continuous(limits = c(0, y_max)) +
+  annotate("text", x = a, y = 0.05 * y_max, label = "a", fontface = "bold") +
+  annotate("text", x = b, y = 0.05 * y_max, label = "b", fontface = "bold") +
+  labs(title = "Rate g(x) (constant)", x = "x", y = "Rate") +
+  theme_minimal() +
+  theme(plot.title = element_text(face = "bold", hjust = 0.5))
+
+# Panel 3: f(x) + g(x) with visible stacking
+p3 <- ggplot(df_sum, aes(x = x)) +
+  # g(x): bottom layer
+  geom_area(
+    data = subset(df_sum, x >= a & x <= b),
+    aes(y = g),
+    fill = "#D55E00"
+  ) +
+  # f(x): stacked on top of g(x)
+  geom_ribbon(
+    data = subset(df_sum, x >= a & x <= b),
+    aes(ymin = g, ymax = g + f),
+    fill = "#009E73"
+  ) +
+  geom_line(aes(y = sum), linewidth = 1, color = "black") +
+  geom_vline(xintercept = c(a, b), linetype = "dashed") +
+  scale_x_continuous(limits = c(0, 4)) +
+  scale_y_continuous(limits = c(0, y_max)) +
+  annotate("text", x = a, y = 0.05 * y_max, label = "a", fontface = "bold") +
+  annotate("text", x = b, y = 0.05 * y_max, label = "b", fontface = "bold") +
+  labs(
+    title = "Net rate f(x) + g(x)",
+    subtitle = "Orange area (g) + green area (f)",
+    x = "x",
+    y = "Rate"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5),
+    plot.subtitle = element_text(hjust = 0.5)
+  )
+
+# Combine panels
+p1 | p2 | p3
+
+
+
+```
+
+**Why it works:** adding two rates adds their contributions at every moment. Since an integral is just a big sum of small pieces, it doesn't matter whether you add the rates first and then integrate, or integrate each and then add.
+
+**Example:** a lake fed by a stream, \(f(x)\), and steady groundwater seepage, \(g(x)\). The integral of \(f + g\) is the total water in. You can also integrate each source separately to see how much came from where.
+
+The same rule gives you *net* totals when one rate is negative. Write photosynthesis as a positive rate and respiration as a negative one, and the integral of their sum is net ecosystem exchange.
+
+---
+
+#### Scaling a Rate
+
+Multiply a rate by a constant \(c\) and the total gets multiplied by \(c\):
+
+\[
+\int_a^b c f(x)\,dx
+=
+c \int_a^b f(x)\,dx.
+\]
+
+**Why it works:** if every small piece is scaled by the same factor, so is the total.
+
+**Example:** double the pollutant concentration at every moment and you double the total load. Converting mg to g just rescales the integral by 1/1000.
+
+---
+
+### Additivity Over Intervals
+
+You can **split** an interval. If \(c\) is between \(a\) and \(b\), then
+
+\[
+\int_a^b f(x)\,dx
+=
+\int_a^c f(x)\,dx
++
+\int_c^b f(x)\,dx.
+\]
+
+```{r additivity-over-intervals-opacity, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4, fig.alt="Three panels of an upward-curving rate. The first shades the area from a to c, the second shades the area from c to b, and the third shows both shaded areas together making up the area from a to b."}
+
+library(ggplot2)
+library(patchwork)
+
+# Function
+f <- function(x) 0.8 * x^2
+
+# Interval endpoints
+a <- 1
+c <- 2
+b <- 3
+
+# Plot domain
+x_plot <- seq(0, 4, length.out = 500)
+
+# Data
+df <- data.frame(x = x_plot, y = f(x_plot))
+
+# Common y-axis limit
+y_max <- max(df$y)
+
+# Panel 1: Integral over [a, c]
+p1 <- ggplot(df, aes(x = x, y = y)) +
+  geom_line(linewidth = 1) +
+  geom_area(
+    data = subset(df, x >= a & x <= c),
+    fill = "#D55E00",
+    alpha = 0.5
+  ) +
+  geom_vline(xintercept = c(a, c), linetype = "dashed") +
+  scale_x_continuous(limits = c(0, 4)) +
+  scale_y_continuous(limits = c(0, y_max)) +
+  annotate("text", x = a, y = 0.05 * y_max, label = "a", fontface = "bold") +
+  annotate("text", x = c, y = 0.05 * y_max, label = "c", fontface = "bold") +
+  labs(
+    title = "Accumulation on [a, c]",
+    x = "x",
+    y = "Rate"
+  ) +
+  theme_minimal() +
+  theme(plot.title = element_text(face = "bold", hjust = 0.5))
+
+# Panel 2: Integral over [c, b]
+p2 <- ggplot(df, aes(x = x, y = y)) +
+  geom_line(linewidth = 1) +
+  geom_area(
+    data = subset(df, x >= c & x <= b),
+    fill = "#0072B2",
+    alpha = 0.5
+  ) +
+  geom_vline(xintercept = c(c, b), linetype = "dashed") +
+  scale_x_continuous(limits = c(0, 4)) +
+  scale_y_continuous(limits = c(0, y_max)) +
+  annotate("text", x = c, y = 0.05 * y_max, label = "c", fontface = "bold") +
+  annotate("text", x = b, y = 0.05 * y_max, label = "b", fontface = "bold") +
+  labs(
+    title = "Accumulation on [c, b]",
+    x = "x",
+    y = "Rate"
+  ) +
+  theme_minimal() +
+  theme(plot.title = element_text(face = "bold", hjust = 0.5))
+
+# Panel 3: Integral over [a, b] (combined colors)
+p3 <- ggplot(df, aes(x = x, y = y)) +
+  geom_line(linewidth = 1) +
+  geom_area(
+    data = subset(df, x >= a & x <= c),
+    fill = "#D55E00",
+    alpha = 0.5
+  ) +
+  geom_area(
+    data = subset(df, x >= c & x <= b),
+    fill = "#0072B2",
+    alpha = 0.5
+  ) +
+  geom_vline(xintercept = c(a, c, b), linetype = "dashed") +
+  scale_x_continuous(limits = c(0, 4)) +
+  scale_y_continuous(limits = c(0, y_max)) +
+  annotate("text", x = a, y = 0.05 * y_max, label = "a", fontface = "bold") +
+  annotate("text", x = c, y = 0.05 * y_max, label = "c", fontface = "bold") +
+  annotate("text", x = b, y = 0.05 * y_max, label = "b", fontface = "bold") +
+  labs(
+    title = "Total accumulation on [a, b]",
+    subtitle = "Orange area + blue area",
+    x = "x",
+    y = "Rate"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5),
+    plot.subtitle = element_text(hjust = 0.5)
+  )
+
+# Combine panels
+p1 | p2 | p3
+
+```
+
+**Why it works:** the total over a long interval is the sum of the totals over its pieces. You already do this when you add up hourly flow to get a day's discharge, or storm-by-storm nutrient export to get an annual load.
+
+**Example:** split a year into wet and dry seasons to see how much of the annual total came from each. The total doesn't change.
+
+---
+
+### Reversing the Limits of Integration
+
+Swap the limits and the **sign** flips:
+
+\[
+\int_a^b f(x)\,dx
+=
+- \int_b^a f(x)\,dx.
+\]
+
+**Why it works:** going from \(b\) back to \(a\) runs the accumulation in reverse. Integrate forward in time and you get the net gain or loss. Integrate backward and you get the same size with the opposite sign: the amount that would undo it.
+
+---
+
+### Integrals of Constant Functions
+
+With a constant rate, the integral is the calculation you already know:
+
+\[
+\int_a^b c\,dx = c(b - a).
+\]
+
+That's rate × duration. It's also a good sanity check: if a rate is roughly constant, your integral should come out close to rate × duration.
+
+**Example:** steady baseflow in a stream over a dry week, or a constant heat flux on a still, overcast day.
+
+
+### Concept Check: Why Linearity Matches Physical Intuition {-}
+
+Why is linearity of the integral consistent with physical intuition?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Separate processes add up at every moment. If rain is adding water to a lake at one rate and groundwater at another, the lake gains the *sum*. Add the rates and you add their totals.
+
+</details>
+
+
+### Concept Check: Additivity Over Subintervals {-}
+
+What does the additivity property of integrals say about breaking an interval into pieces?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+The total over a long interval is the **sum of the totals over its pieces**. The volume past a gauge from 9 AM to 5 PM is what passed from 9 to noon plus what passed from noon to 5.
+
+</details>
+
+
+### Concept Check: Why Reversing Limits Flips the Sign {-}
+
+Why does reversing the limits of integration change the sign of the integral?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Swapping the limits **runs the accumulation backward**. Instead of "how much built up going forward?" you're asking "how much would undo that going back?" Same size, opposite sign.
+
+</details>
+
+
+---
+
+## The Fundamental Theorem of Calculus (Part I)
+
+### The Idea
+
+Part I says something you probably already believe: **if you build up a total by adding a rate, then the total changes at that rate.** The derivative of an accumulation is the rate being accumulated. It's the link between the two halves of calculus: rates of change and accumulated change.
+
+---
+
+### Accumulation as a Function
+
+So far an accumulation has been a *number*: total water, total load, total carbon over a fixed interval. Now let the end of the interval move.
+
+Instead of "how much accumulated between \(a\) and \(b\)?", ask "how much has accumulated from \(a\) **up to time \(x\)**?" The answer depends on \(x\), so it's a function: the **accumulation function**. For a rate \(f(t)\):
+\[
+A(x) = \int_a^x f(t)\,dt.
+\]
+
+The start \(a\) is fixed. The end \(x\) moves. \(A(x)\) is the running total at time \(x\).
+
+---
+
+### What the Theorem Says (Conceptually)
+
+Part I says:
+
+ If an accumulation function is defined by
+ \[
+ A(x) = \int_a^x f(t)\,dt,
+ \]
+ then
+ \[
+ A'(x) = f(x).
+ \]
+
+The rate at which the running total changes is the rate you started with. If water is flowing into a tank at 5 m³/hr right now, and nothing is flowing out, the amount in the tank is going up at 5 m³/hr right now.
+
+---
+
+### Why Differentiation and Integration Are Inverses
+
+This is why derivatives and integrals undo each other. Integration takes a rate and gives you a total: *how much has built up?* Differentiation takes a total and gives you a rate: *how fast is it building up right now?*
+
+---
+
+### Visual Intuition
+
+```{r ftc-slices-to-accumulation-step, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4, fig.alt="Two panels. On the left, a rising straight-line rate between a equals 1 and b equals 4 is cut into 10 colored rectangles. On the right, the same colored pieces are stacked one after another as steps, and a line through the top of each step traces a rising accumulation curve."}
+
+library(ggplot2)
+library(patchwork)
+library(scales)
+
+# Define the rate function
+f <- function(x) 0.6 * x + 1
+
+# Interval
+a <- 1
+b <- 4
+n <- 10
+dx <- (b - a) / n
+
+# Partition
+x_left  <- seq(a, b - dx, by = dx)
+x_right <- x_left + dx
+x_mid   <- (x_left + x_right) / 2
+
+# Colors
+slice_cols <- hue_pal()(n)
+
+# ---------------- Panel 1: Rate with colored slices ----------------
+curve_x <- seq(a - 0.5, b + 0.5, length.out = 500)
+curve_df <- data.frame(x = curve_x, y = f(curve_x))
+
+rect_df <- data.frame(
+  x0 = x_left,
+  x1 = x_right,
+  height = f(x_mid),
+  slice = factor(1:n)
+)
+
+p_rate <- ggplot(curve_df, aes(x = x, y = y)) +
+  geom_line(linewidth = 1) +
+  geom_rect(
+    data = rect_df,
+    aes(xmin = x0, xmax = x1, ymin = 0, ymax = height, fill = slice),
+    inherit.aes = FALSE,
+    color = "black",
+    alpha = 0.7
+  ) +
+  geom_vline(xintercept = c(a, b), linetype = "dashed") +
+  scale_fill_manual(values = slice_cols) +
+  scale_x_continuous(limits = c(a - 0.5, b + 0.5)) +
+  labs(
+    title = "Rate Function f(x) Sliced into Δx Pieces",
+    subtitle = "Each colored rectangle is f(xᵢ*)Δx",
+    x = "x",
+    y = "Rate"
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "none",
+    plot.title = element_text(face = "bold", hjust = 0.5),
+    plot.subtitle = element_text(hjust = 0.5)
+  )
+
+# ---------------- Panel 2: Accumulation as step function ----------------
+acc_df <- data.frame(
+  slice = factor(1:n),
+  x_left = x_left,
+  x_right = x_right,
+  x_mid = x_mid,
+  contribution = f(x_mid) * dx,
+  color = slice_cols
+)
+
+acc_df$A_top <- cumsum(acc_df$contribution)
+acc_df$A_bottom <- c(0, head(acc_df$A_top, -1))
+
+# Data for connecting tops
+top_points <- data.frame(
+  x = acc_df$x_right,
+  y = acc_df$A_top
+)
+
+p_acc <- ggplot() +
+  # Step rectangles
+  geom_rect(
+    data = acc_df,
+    aes(
+      xmin = x_left,
+      xmax = x_right,
+      ymin = A_bottom,
+      ymax = A_top,
+      fill = slice
+    ),
+    color = "black",
+    alpha = 0.7
+  ) +
+  # Connect tops with a line
+  geom_line(
+    data = top_points,
+    aes(x = x, y = y),
+    linewidth = 1,
+    color = "grey30"
+  ) +
+  geom_point(
+    data = top_points,
+    aes(x = x, y = y),
+    size = 2.5,
+    color = "grey30"
+  ) +
+  geom_vline(xintercept = c(a, b), linetype = "dashed") +
+  scale_fill_manual(values = slice_cols) +
+  scale_x_continuous(limits = c(a - 0.5, b + 0.5)) +
+  labs(
+    title = "Accumulation Built Slice-by-Slice",
+    subtitle = "Step height = f(xᵢ*)Δx, line shows emerging accumulation curve",
+    x = "x",
+    y = "Accumulated total"
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "none",
+    plot.title = element_text(face = "bold", hjust = 0.5),
+    plot.subtitle = element_text(hjust = 0.5)
+  )
+
+# Combine panels
+p_rate | p_acc
+
+
+
+```
+
+This figure builds an **accumulation function from a rate function**, one piece at a time.
+
+**Left panel: Rate sliced into pieces**
+
+- The curve represents a **rate function** \(f(x)\).
+- The interval from \(a\) to \(b\) has been divided into many small widths \(\Delta x\).
+- Each colored rectangle represents a single contribution:
+  \[
+  \text{(rate at that slice)} \times \Delta x = f(x_i^*)\,\Delta x.
+  \]
+- The rectangles aren't the accumulation yet. They're the **pieces** that get added up.
+
+---
+
+**Right panel: Accumulation built slice-by-slice**
+
+- Here the pieces are **added one after another**. Each step is one rectangle from the left panel, and its height is that rectangle's area. The colors match so you can follow each piece across.
+- The line through the tops of the steps shows what happens as \(\Delta x\) shrinks: the steps smooth out into a curve.
+
+---
+
+**Connecting the two panels**
+
+Define the accumulation function
+\[
+A(x) = \text{area under } f \text{ from } a \text{ to } x.
+\]
+
+- When \(x\) moves slightly to the right by \(\Delta x\), the added accumulation is approximately:
+  \[
+  \Delta A \approx f(x)\,\Delta x.
+  \]
+- Dividing by \(\Delta x\) gives:
+  \[
+  \frac{\Delta A}{\Delta x} \approx f(x).
+  \]
+- As the slices get thinner, the approximation becomes exact.
+
+So **the slope of the accumulation function at \(x\) is the height of the rate function at \(x\).** That's Part I.
+
+In plain language: if you know the rate at every moment, you can build the total. And if you track the total over time, its slope gives you the rate back. Streamflow and accumulated discharge, carbon flux and carbon stored, growth rate and population size: each pair is the same process seen two ways.
+
+---
+
+### Concept Check: The Role of the Accumulation Function A(x) {-}
+
+What conceptual role does the accumulation function \(A(x)\) play?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+It's the **running total from a fixed start up to wherever you stop**. Instead of one number for the whole interval, \(A(x)\) answers "how much had built up by time \(x\)?" for every \(x\).
+
+</details>
+
+
+### Concept Check: Why A'(x) = f(x) Makes Sense {-}
+
+According to the Fundamental Theorem of Calculus (Part I), why is \(A'(x) = f(x)\) reasonable?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Step forward a little, by \(\Delta x\), and the total grows by about \(f(x)\,\Delta x\). Divide by \(\Delta x\): the **rate the total is growing equals the original rate**.
+
+</details>
+
+
+### Concept Check: Differentiation and Integration as Inverses {-}
+
+Why are differentiation and integration considered inverse processes?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Integration **builds a total from a rate**. Differentiation **gets the rate back from the total**. Each undoes the other, like multiplying and dividing by the same number.
+
+</details>
+
+
+### Concept Check: How the FTC Unifies Calculus {-}
+
+How does the Fundamental Theorem of Calculus unify the main ideas of calculus?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+It shows that **rates and accumulation** are two views of the same process. The derivative looks at one instant. The integral adds the instants back up into a total.
+
+</details>
+
+
+### Concept Check: How Riemann Sums Keep the FTC Honest {-}
+
+How does understanding Riemann sums prevent misuse of the Fundamental Theorem of Calculus?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+It keeps you clear that **a definite integral is an amount**, with units and a sign. The FTC is a fast way to compute it, but the thing itself is defined by adding up pieces.
+
+</details>
+
+
+---
+
+## The Fundamental Theorem of Calculus (Part II)
+
+So far we've built the integral from the ground up: small pieces, better and better approximations, a limit. That tells you what an integral *means*. Part II tells you how to *compute* one exactly, without adding up infinitely many rectangles. You use an **antiderivative**:
+
+\[
+\int_a^b f(x)\,dx = F(b) - F(a),
+\]
+
+where \(F'(x) = f(x)\).
+
+You already used this formula earlier in the chapter. Here's why it works.
+
+---
+
+### Step 1: Accumulation Is a Function
+
+Fix a starting point \(a\), and define a function:
+
+\[
+A(x) = \int_a^x f(t)\,dt.
+\]
+
+This is the running total of the rate \(f\) from \(a\) up to \(x\). From Part I:
+
+\[
+A'(x) = f(x).
+\]
+
+So \(A(x)\) is an antiderivative of \(f(x)\).
+
+---
+
+### Step 2: Antiderivatives Are Not Unique
+
+A function has only one derivative. But it has infinitely many antiderivatives. Let's see why, graphically.
+
+In each pair of figures below, the left panel is a rate and the right panel shows several antiderivatives of it. Read them both ways: the curves on the right are antiderivatives of the curve on the left, and the curve on the left is the derivative of every curve on the right.
+
+---
+
+### Example 1: A Steadily Rising Flow, \(f(t) = t\) {-}
+
+You slowly open a tap over a beaker, so the flow rate rises steadily:
+\[
+f(t) = t \quad \text{(mL/s)},
+\]
+with \(t\) in seconds. The **volume in the beaker** at time \(t\) is an antiderivative of this rate:
+\[
+F(t) = \tfrac{1}{2}t^2 + C,
+\]
+where \(C\) is the water already in the beaker when you started timing. Different starting amounts give different values of \(C\), but the *shape* of the curve is the same.
+
+```{r antiderivatives-linear-rate, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4, fig.alt="Two panels. The left shows the flow rate f of t equals t as a straight line from 0 to 4 seconds. The right shows three parabolas, one half t squared plus 0, 4 and 8, with the same shape stacked at different heights."}
+
+library(ggplot2)
+library(patchwork)
+
+# Domain: time in seconds
+t <- seq(0, 4, length.out = 400)
+
+# Rate function: linear flow rate
+f <- t
+
+# Antiderivatives (volume in beaker) with different starting volumes
+F0 <- 0.5 * t^2          # beaker empty at the start
+F1 <- 0.5 * t^2 + 4      # 4 mL already in the beaker
+F2 <- 0.5 * t^2 + 8      # 8 mL already in the beaker
+
+# Data frames
+df_rate <- data.frame(t = t, y = f)
+
+df_anti <- data.frame(
+  t = t,
+  Base = F0,
+  ShiftUp1 = F1,
+  ShiftUp2 = F2
+)
+
+# Left panel: rate
+p_rate <- ggplot(df_rate, aes(x = t, y = y)) +
+  geom_line(linewidth = 1.2) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "gray50") +
+  labs(
+    title = "Flow Rate:  f(t) = t",
+    x = "t  (seconds)",
+    y = "f(t)  (mL/s)"
+  ) +
+  theme_minimal()
+
+# Right panel: antiderivatives (cumulative volume)
+p_anti <- ggplot(df_anti, aes(x = t)) +
+  geom_line(aes(y = Base),     linewidth = 1.2, color = "#0072B2") +
+  geom_line(aes(y = ShiftUp1), linewidth = 1.2, color = "#D55E00") +
+  geom_line(aes(y = ShiftUp2), linewidth = 1.2, color = "#009E73") +
+  labs(
+    title = "Possible Cumulative-Volume Curves  F(t) = ½t² + C",
+    x = "t  (seconds)",
+    y = "F(t)  (mL)"
+  ) +
+  theme_minimal()
+
+# Combine panels
+p_rate | p_anti
+
+```
+
+In this example:
+
+The three volume curves on the right sit at different heights but have the same shape. At any time \(t\), each one has slope \(t\) mL/s, which is the height of the rate curve on the left.
+
+Accumulate the line \(f(t) = t\) and you get a parabola. Differentiate any of the parabolas and you get the line back. The constant \(C\) only changes *where the volume started*, not how fast it's rising.
+
+---
+
+### Example 2: A Carbon Flux That Switches Sign, \(f(t) = t^2 - 2\) {-}
+
+A flux tower over a young forest stand records net carbon exchange in the first few hours after dawn:
+\[
+f(t) = t^2 - 2 \quad \text{(g C / m}^2\text{/hr)},
+\]
+where \(t\) is hours after dawn. (The numbers are rounded for easy arithmetic and run a bit higher than a real forest.) For \(t < \sqrt{2} \approx 1.41\) hours the rate is *negative*: respiration beats photosynthesis and the stand is losing carbon. After that, photosynthesis wins and the stand gains carbon. The **cumulative carbon balance** is an antiderivative:
+\[
+F(t) = \tfrac{1}{3}t^3 - 2t + C,
+\]
+where \(C\) is the cumulative balance at the moment we started recording.
+
+```{r antiderivatives-quadratic-shifted, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4, fig.alt="Two panels. The left shows the flux t squared minus 2 from 0 to 3 hours after dawn, negative until about 1.4 hours and positive after. The right shows three copies of one third t cubed minus 2t at different heights, each dipping to a minimum at about 1.4 hours and then rising."}
+
+library(ggplot2)
+library(patchwork)
+
+# Domain: hours after dawn
+t <- seq(0, 3, length.out = 400)
+
+# Rate function: net carbon flux (g C/m^2/hr)
+f <- t^2 - 2
+
+# Antiderivatives (cumulative carbon balance) with different starting values
+F0 <- (1/3) * t^3 - 2 * t          # started at zero
+F1 <- (1/3) * t^3 - 2 * t + 3      # offset upward
+F2 <- (1/3) * t^3 - 2 * t - 3      # offset downward
+
+# Data frames
+df_rate <- data.frame(t = t, y = f)
+
+df_anti <- data.frame(
+  t = t,
+  Base = F0,
+  ShiftUp = F1,
+  ShiftDown = F2
+)
+
+# Left panel: rate
+p_rate <- ggplot(df_rate, aes(x = t, y = y)) +
+  geom_line(linewidth = 1.2) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "gray50") +
+  labs(
+    title = expression("Net Carbon Flux:  f(t) = t"^2*" - 2"),
+    x = "t  (hours after dawn)",
+    y = expression("f(t)  (g C / m"^2*" / hr)")
+  ) +
+  theme_minimal()
+
+# Right panel: antiderivatives (cumulative carbon balance)
+p_anti <- ggplot(df_anti, aes(x = t)) +
+  geom_line(aes(y = Base),      linewidth = 1.2, color = "#0072B2") +
+  geom_line(aes(y = ShiftUp),   linewidth = 1.2, color = "#D55E00") +
+  geom_line(aes(y = ShiftDown), linewidth = 1.2, color = "#009E73") +
+  labs(
+    title = "Possible Cumulative Carbon Balance Curves  F(t) = ⅓t³ - 2t + C",
+    x = "t  (hours after dawn)",
+    y = expression("F(t)  (g C / m"^2*")")
+  ) +
+  theme_minimal()
+
+# Combine panels
+p_rate | p_anti
+
+```
+
+In this example:
+
+The flux on the left is negative early (the stand is a carbon source) and positive later (a sink). Each balance curve on the right *dips* while carbon is being lost and *recovers* after \(t = \sqrt{2}\). Changing \(C\) shifts the curve up or down, but all three have the same slope at every \(t\), equal to \(f(t)\), and the same minimum at \(t = \sqrt{2}\), where the flux changes sign. The starting balance is the only thing that differs. Everything else comes from the rate.
+
+---
+
+### The Two-Way Relationship {-}
+
+Differentiation goes from accumulation to rate. Integration goes from rate to accumulation. The left panels answer *how fast is it changing right now?* The right panels answer *how much has it changed overall?*
+
+
+---
+
+### Step 3: Why the Constant Does Not Matter for Definite Integrals
+
+The definite integral \(\int_a^b f(x)\,dx\) asks how much accumulated between \(a\) and \(b\). With the accumulation function, that's
+\[
+\int_a^b f(x)\,dx = A(b) - A(a).
+\]
+
+Any other antiderivative is \(F(x) = A(x) + C\), so
+\[
+F(b) - F(a) = [A(b) + C] - [A(a) + C].
+\]
+
+The constant cancels:
+\[
+F(b) - F(a) = A(b) - A(a).
+\]
+
+**Any antiderivative gives the same answer**, however far it's shifted.
+
+---
+
+### Step 4: What the Formula Is Really Saying
+
+Put together: the accumulation function is an antiderivative (Part I), so the change in *any* antiderivative between \(a\) and \(b\) is the accumulation between them. That's why
+\[
+\int_a^b f(x)\,dx = F(b) - F(a)
+\]
+works. It isn't a trick. It follows from integration and differentiation undoing each other.
+
+
+### What the Formula Means
+
+Read \(F(b) - F(a)\) as:
+
+- \(F(a)\): the running total at the start
+- \(F(b)\): the running total at the end
+- the difference: **how much was added (or removed) between \(a\) and \(b\)**
+
+In the figure below, \(f(x) = x\) and \(F(x) = \tfrac{1}{2}x^2\), so \(F\) is the area under \(f\) starting from \(x = 0\).
+
+```{r ftc-part2-three-panel, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4, fig.alt="Three panels of the rate f of x equals x. The first shades the area under it from 0 to a, labeled F of a. The second shades the area from 0 to b, labeled F of b. The third shades only the area from a to b, labeled F of b minus F of a."}
+
+library(ggplot2)
+library(patchwork)
+
+# Define function and antiderivative
+f <- function(x) x
+F <- function(x) 0.5 * x^2
+
+# Interval
+a <- 1
+b <- 3
+
+# Domain
+x <- seq(0, 4, length.out = 400)
+
+df <- data.frame(
+  x = x,
+  rate = f(x),
+  accumulation = F(x)
+)
+
+# Panel 1: Accumulation up to a (area under the rate from 0 to a)
+p1 <- ggplot(df, aes(x = x, y = rate)) +
+  geom_line(linewidth = 1.1) +
+  geom_area(
+    data = subset(df, x <= a),
+    aes(x = x, y = rate),
+    fill = "#56B4E9",
+    alpha = 0.6
+  ) +
+  geom_vline(xintercept = a, linetype = "dashed") +
+  labs(
+    title = expression(F(a)~": accumulation up to a"),
+    x = "x",
+    y = "Rate f(x)"
+  ) +
+  theme_minimal()
+
+# Panel 2: Accumulation up to b (area under the rate from 0 to b)
+p2 <- ggplot(df, aes(x = x, y = rate)) +
+  geom_line(linewidth = 1.1) +
+  geom_area(
+    data = subset(df, x <= b),
+    aes(x = x, y = rate),
+    fill = "#009E73",
+    alpha = 0.6
+  ) +
+  geom_vline(xintercept = b, linetype = "dashed") +
+  labs(
+    title = expression(F(b)~": accumulation up to b"),
+    x = "x",
+    y = "Rate f(x)"
+  ) +
+  theme_minimal()
+
+# Panel 3: Net change from a to b (area under the rate from a to b)
+p3 <- ggplot(df, aes(x = x, y = rate)) +
+  geom_line(linewidth = 1.1) +
+  geom_area(
+    data = subset(df, x >= a & x <= b),
+    aes(x = x, y = rate),
+    fill = "#E69F00",
+    alpha = 0.6
+  ) +
+  geom_vline(xintercept = c(a, b), linetype = "dashed") +
+  labs(
+    title = expression(F(b)-F(a)~": net change from a to b"),
+    x = "x",
+    y = "Rate f(x)"
+  ) +
+  theme_minimal()
+
+# Combine panels
+p1 | p2 | p3
+```
+
+
+---
+
+### Using the Theorem
+
+You already know the steps from earlier in the chapter: find an antiderivative, evaluate at the bounds, subtract. Finding the antiderivative is Calculus I run backwards. For example, \(x^2 \to \tfrac{x^3}{3}\), \(\sin x \to -\cos x\), and \(e^x \to e^x\).
+
+Then read the answer. It's always a **net accumulation**: positive means a net gain, negative a net loss, zero means they balanced. The units are (rate units) × (input units). If \(f(t)\) is a carbon flux in kg/hr, then \(\int_a^b f(t)\,dt\) is the net kilograms of carbon gained or lost between \(a\) and \(b\).
+
+---
+
+::: promptbox
+
+### Worked Example: Applying the Fundamental Theorem of Calculus {-}
+
+Suppose the rate at which an ecosystem **takes up carbon** from the atmosphere is
+\[
+f(t) = 3t^2
+\]
+measured in **kg of carbon per hour**, where \(t\) is time in hours.
+
+Find the **net carbon taken up** between \(t = 1\) and \(t = 4\) hours.
+
+---
+
+#### 1. Identifying Antiderivatives {-}
+
+Find an antiderivative \(F(t)\) with
+\[
+F'(t) = f(t).
+\]
+
+Since:
+\[
+f(t) = 3t^2,
+\]
+an antiderivative is:
+\[
+F(t) = t^3,
+\]
+because:
+\[
+\frac{d}{dt}(t^3) = 3t^2.
+\]
+
+---
+
+#### 2. Evaluating at the Bounds {-}
+
+Evaluate at the bounds.
+
+Upper bound:
+\[
+F(4) = 4^3 = 64
+\]
+
+Lower bound:
+\[
+F(1) = 1^3 = 1
+\]
+
+Subtract:
+\[
+F(4) - F(1) = 64 - 1 = 63
+\]
+
+So,
+\[
+\int_1^4 3t^2\,dt = 63.
+\]
+
+---
+
+```{r rate-and-accumulation-with-horizontal-guides, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=4, fig.alt="Two panels. The left shows the rate 3t squared with the area under it shaded from 1 to 4 hours. The right shows the accumulation curve t cubed with points marked at F of 1 and F of 4 and an arrow showing their difference."}
+
+library(ggplot2)
+library(patchwork)
+
+# Define rate and antiderivative
+f <- function(t) 3 * t^2        # rate (kg/hr)
+F <- function(t) t^3            # accumulation (kg)
+
+# Interval
+a <- 1
+b <- 4
+
+# Domain for plotting
+t <- seq(0, 4.5, length.out = 400)
+
+df <- data.frame(
+  t = t,
+  rate = f(t),
+  accumulation = F(t)
+)
+
+# Panel 1: Rate function with shaded area
+p_rate <- ggplot(df, aes(x = t, y = rate)) +
+  geom_line(linewidth = 1.2) +
+  geom_area(
+    data = subset(df, t >= a & t <= b),
+    aes(x = t, y = rate),
+    fill = "#56B4E9",
+    alpha = 0.5
+  ) +
+  geom_vline(xintercept = c(a, b), linetype = "dashed") +
+  labs(
+    title = "Rate Function  f(t) = 3t²",
+    x = "Time (hours)",
+    y = "Rate (kg/hr)"
+  ) +
+  theme_minimal()
+
+# Panel 2: Accumulation function with annotations and horizontal guides
+p_acc <- ggplot(df, aes(x = t, y = accumulation)) +
+  geom_line(linewidth = 1.2, color = "#009E73") +
+  
+  # Vertical guides
+  geom_vline(xintercept = c(a, b), linetype = "dashed") +
+  
+  # Horizontal guides to y-axis
+  geom_hline(yintercept = F(a), linetype = "dotted", color = "gray40") +
+  geom_hline(yintercept = F(b), linetype = "dotted", color = "gray40") +
+  
+  # Points at a and b
+  geom_point(aes(x = a, y = F(a)), size = 3) +
+  geom_point(aes(x = b, y = F(b)), size = 3) +
+  
+  # Labels
+  annotate(
+    "text",
+    x = 0,
+    y = F(a)+5,
+    label = expression(F(1))
+  ) +
+  annotate(
+    "text",
+    x = 0,
+    y = F(b)+5,
+    label = expression(F(4))
+  ) +
+  
+  # Arrow showing difference
+  annotate(
+    "segment",
+    x = b + 0.1,
+    xend = b + 0.1,
+    y = F(a),
+    yend = F(b),
+    arrow = arrow(length = unit(0.2, "cm"))
+  ) +
+  annotate(
+    "text",
+    x = 3,
+    y = 10,
+    label = expression(F(4) - F(1)),
+    hjust = 0
+  ) +
+  
+  labs(
+    title = "Accumulation Function  F(t) = t³",
+    x = "Time (hours)",
+    y = "Accumulated Carbon (kg)"
+  ) +
+  theme_minimal()
+
+# Combine panels
+p_rate | p_acc
+
+
+```
+
+
+#### 3. Interpreting the Result {-}
+
+63 is the **net carbon taken up** between hour 1 and hour 4. It's positive, so the ecosystem gained carbon. With units:
+\[
+(\text{kg/hr}) \times (\text{hr}) = \text{kg},
+\]
+so the final answer is:
+
+\[
+\boxed{63\ \text{kg of carbon}}
+\]
+
+---
+
+### Interpretation in Context {-}
+
+This doesn't tell you how fast carbon was moving at any one moment. It tells you **how much moved in total**. The rate changed the whole time, and the FTC still gives you the exact total.
+
+
+
+:::
+
+
+### More Than Plug-and-Chug
+
+It's tempting to treat \(F(b) - F(a)\) as a recipe and stop thinking. That's how people lose track of units, misread a negative answer, or forget what was accumulating in the first place. The antiderivative is how you *compute* a definite integral. It isn't what the integral *is*. The integral is still the total of a rate, with units and a sign.
+
+
+
+### Concept Check: Why Antiderivatives Form Families {-}
+
+Why do antiderivatives differ by a constant?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Adding a constant **slides a function up or down without changing its slope**. The derivative only cares about slope, so all the shifted copies have the same derivative, and they're all antiderivatives of the same rate.
+
+</details>
+
+
+### Concept Check: Why 'Plug-and-Chug' Is Dangerous {-}
+
+Why is treating the Fundamental Theorem of Calculus as "plug-and-chug" dangerous?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Without the meaning, it's easy to **misread the sign, the units or what the number is**. A negative integral isn't a mistake. It tells you something. If you can't see what's accumulating, you'll misread the answer.
+
+</details>
+
+
+### Concept Check: Riemann Sums and FTC: Same Idea, Two Stages {-}
+
+Why is it misleading to think of Riemann sums and definite integrals as separate formulas?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+They're the **same idea at different stages**. The Riemann sum shows how the total is built. The definite integral is the limit it builds toward. Treat them as separate and you miss that the FTC is just a fast way to get that limit.
+
+</details>
+
+
+### Concept Check: Perfect Measurement and the Integral {-}
+
+How does refining a Riemann sum connect to the idea of "perfect measurement"?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+Refining the sum is like **measuring more and more often**. The definite integral is the total with nothing missed: what your gauge would report if it sampled continuously.
+
+</details>
+
+
+### Concept Check: Why Teach Riemann Sums First {-}
+
+What is gained conceptually by teaching Riemann sums before antiderivatives?
+
+<details>
+<summary><strong>Click to reveal answer</strong></summary>
+
+You learn *what an integral is* before you learn the shortcut. Antiderivatives then show up as a **way to compute it**, not as what it means. That stops the integral turning into "whatever \(F(b) - F(a)\) spits out."
+
+</details>
+
+
+---
+
+## Practice Problems
+
+These are calculation problems: linearity, additivity and the FTC. Set them up carefully.
+
+### Tips {-}
+
+- **Split sums and pull out constants first.** It makes the antiderivative and the arithmetic easier.
+- **Be careful with the bounds.** Most mistakes happen in \(F(b) - F(a)\), especially with negatives, not in finding \(F\).
+- **If you're given integrals over pieces, add the pieces.** Don't try to invent a function.
+- **For applied problems, check the units and ask if the answer makes sense.**
+
+Simplify before you plug in numbers, and check each answer as you go so a sign error doesn't follow you to the next problem.
+
+
+---
+
+### Problem 1 {-}
+Evaluate the definite integral:
+\[
+\int_0^2 \left(3x^2 + 4x\right)\,dx
+\]
+using linearity.
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Split using linearity:
+\[
+\int_0^2 3x^2\,dx + \int_0^2 4x\,dx.
+\]
+
+Compute:
+\[
+\int_0^2 3x^2\,dx = [x^3]_0^2 = 8,
+\quad
+\int_0^2 4x\,dx = [2x^2]_0^2 = 8.
+\]
+
+Add:
+\[
+8 + 8 = 16.
+\]
+
+\[
+\boxed{16}
+\]
+</details>
+
+---
+
+### Problem 2 {-}
+Evaluate:
+\[
+\int_1^3 5e^x\,dx.
+\]
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Factor out the constant:
+\[
+5\int_1^3 e^x\,dx.
+\]
+
+Antiderivative:
+\[
+\int e^x\,dx = e^x.
+\]
+
+Evaluate:
+\[
+5(e^3 - e).
+\]
+
+\[
+\boxed{5(e^3 - e)}
+\]
+</details>
+
+---
+
+### Problem 3 {-}
+Evaluate:
+\[
+\int_{-1}^1 (2x - 3)\,dx.
+\]
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Antiderivative:
+\[
+x^2 - 3x.
+\]
+
+Evaluate:
+\[
+[x^2 - 3x]_{-1}^1 = (1 - 3) - (1 + 3) = -6.
+\]
+
+\[
+\boxed{-6}
+\]
+</details>
+
+---
+
+### Problem 4 {-}
+Evaluate:
+\[
+\int_0^1 (6x^3 - 4x + 2)\,dx.
+\]
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Apply linearity:
+\[
+\int_0^1 6x^3\,dx - \int_0^1 4x\,dx + \int_0^1 2\,dx.
+\]
+
+Compute:
+\[
+\frac{3}{2} - 2 + 2 = \frac{3}{2}.
+\]
+
+\[
+\boxed{\tfrac{3}{2}}
+\]
+</details>
+
+---
+
+### Problem 5 {-}
+Suppose
+\[
+\int_0^4 f(x)\,dx = 7
+\quad \text{and} \quad
+\int_4^9 f(x)\,dx = -5.
+\]
+
+Find:
+\[
+\int_0^9 f(x)\,dx.
+\]
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+By additivity:
+\[
+7 + (-5) = 2.
+\]
+
+\[
+\boxed{2}
+\]
+</details>
+
+---
+
+### Problem 6 {-}
+Evaluate:
+\[
+\int_{-2}^2 3x^2\,dx.
+\]
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Antiderivative:
+\[
+x^3.
+\]
+
+Evaluate:
+\[
+[x^3]_{-2}^2 = 8 - (-8) = 16.
+\]
+
+\[
+\boxed{16}
+\]
+</details>
+
+---
+
+### Problem 7 {-}
+Evaluate:
+\[
+\int_0^{\pi} (4\sin x + 2)\,dx.
+\]
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Split:
+\[
+4\int_0^{\pi} \sin x\,dx + \int_0^{\pi} 2\,dx.
+\]
+
+Compute:
+\[
+4(2) + 2\pi = 8 + 2\pi.
+\]
+
+\[
+\boxed{8 + 2\pi}
+\]
+</details>
+
+---
+
+### Problem 8 {-}
+Evaluate:
+\[
+\int_1^2 (3x^2 - e^x)\,dx.
+\]
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Antiderivative:
+\[
+x^3 - e^x.
+\]
+
+Evaluate:
+\[
+(8 - e^2) - (1 - e) = 7 + e - e^2.
+\]
+
+\[
+\boxed{7 + e - e^2}
+\]
+</details>
+
+---
+
+### Problem 9 {-}
+Evaluate:
+\[
+\int_{-1}^{3} (2x - 1)\,dx
+\]
+by splitting the interval at \(x = 0\).
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Split:
+\[
+\int_{-1}^{0} (2x - 1)\,dx + \int_0^{3} (2x - 1)\,dx.
+\]
+
+Antiderivative:
+\[
+x^2 - x.
+\]
+
+Compute:
+\[
+(-2) + 6 = 4.
+\]
+
+\[
+\boxed{4}
+\]
+</details>
+
+---
+
+### Problem 10 {-}
+Evaluate:
+\[
+\int_0^2 (5 - 3x)\,dx.
+\]
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Antiderivative:
+\[
+5x - \tfrac{3}{2}x^2.
+\]
+
+Evaluate:
+\[
+(10 - 6) - 0 = 4.
+\]
+
+\[
+\boxed{4}
+\]
+</details>
+
+---
+
+### Problem 11 {-}
+Suppose
+\[
+\int_0^4 f(x)\,dx = 10
+\quad \text{and} \quad
+\int_4^7 f(x)\,dx = -3.
+\]
+
+Find  
+\[
+\int_0^7 f(x)\,dx
+\]
+and interpret the result.
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+By additivity,
+\[
+\int_0^7 f(x)\,dx = 10 + (-3) = 7.
+\]
+There was a net gain of 7 units over the whole interval, even though the quantity was falling for part of it (from 4 to 7).
+</details>
+
+---
+
+
+### Problem 12 {-}
+The rate at which **nutrients enter a wetland** is modeled by
+\[
+f(t) = 4t
+\]
+measured in **kg/day**, where \(t\) is time in days.
+
+Find the **net nutrient input** between \(t = 2\) days and \(t = 5\) days.
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+**Step 1: Identify an antiderivative**
+
+\[
+F(t) = 2t^2
+\]
+
+**Step 2: Evaluate at the bounds**
+
+\[
+F(5) = 2(25) = 50
+\]
+\[
+F(2) = 2(4) = 8
+\]
+
+**Step 3: Subtract**
+
+\[
+F(5) - F(2) = 50 - 8 = 42
+\]
+
+**Interpretation:**  
+The wetland received a **net input of 42 kg of nutrients** over this time interval.
+</details>
+
+---
+
+### Problem 13 {-}
+The rate at which **carbon is released from soil** is given by
+\[
+f(t) = 6e^t
+\]
+measured in **kg/hr**, where \(t\) is time in hours.
+
+Find the **net carbon released** between \(t = 0\) and \(t = 2\).
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+**Step 1: Identify an antiderivative**
+
+\[
+F(t) = 6e^t
+\]
+
+**Step 2: Evaluate at the bounds**
+
+\[
+F(2) = 6e^2
+\]
+\[
+F(0) = 6e^0 = 6
+\]
+
+**Step 3: Subtract**
+
+\[
+6e^2 - 6
+\]
+
+**Interpretation:**  
+This represents the **net carbon released** over the two-hour period, measured in kilograms.
+</details>
+
+---
+
+### Problem 14 {-}
+The rate of change of **water stored in a soil plot** (rain in, minus plant uptake) is modeled by
+\[
+f(t) = t^2 - 4
+\]
+measured in **liters/day**, where \(t\) is time in days.
+
+Find the **net change in stored water** from \(t = 1\) to \(t = 4\).
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+**Step 1: Identify an antiderivative**
+
+\[
+F(t) = \tfrac{1}{3}t^3 - 4t
+\]
+
+**Step 2: Evaluate at the bounds**
+
+\[
+F(4) = \tfrac{64}{3} - 16 = \tfrac{16}{3}
+\]
+\[
+F(1) = \tfrac{1}{3} - 4 = -\tfrac{11}{3}
+\]
+
+**Step 3: Subtract**
+
+\[
+F(4) - F(1) = \tfrac{16}{3} - \left(-\tfrac{11}{3}\right) = 9
+\]
+
+**Interpretation:**  
+The plot **gained 9 liters** on net. It was losing water until day 2 (where \(f(t) < 0\)) and gaining after.
+</details>
+
+---
+
+### Problem 15 {-}
+The rate at which **energy is transferred** across a surface is
+\[
+f(t) = 5\sin t
+\]
+measured in **J/s**, where \(t\) is time in seconds.
+
+Find the **net energy transferred** from \(t = 0\) to \(t = \pi\).
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+**Step 1: Identify an antiderivative**
+
+\[
+F(t) = -5\cos t
+\]
+
+**Step 2: Evaluate at the bounds**
+
+\[
+F(\pi) = -5(-1) = 5
+\]
+\[
+F(0) = -5(1) = -5
+\]
+
+**Step 3: Subtract**
+
+\[
+5 - (-5) = 10
+\]
+
+**Interpretation:**  
+A net **10 joules** were transferred. The rate is never negative on \([0, \pi]\), so the net and total are the same here.
+</details>
+
+---
+
+### Problem 16 {-}
+The rate of **population change** for a species is modeled by
+\[
+f(t) = 12 - 3t
+\]
+measured in **individuals/year**, where \(t\) is time in years.
+
+Find the **net population change** between \(t = 1\) and \(t = 4\).
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+**Step 1: Identify an antiderivative**
+
+\[
+F(t) = 12t - \tfrac{3}{2}t^2
+\]
+
+**Step 2: Evaluate at the bounds**
+
+\[
+F(4) = 48 - 24 = 24
+\]
+\[
+F(1) = 12 - 1.5 = 10.5
+\]
+
+**Step 3: Subtract**
+
+\[
+24 - 10.5 = 13.5
+\]
+
+**Interpretation:**  
+The population increased by **13.5 individuals**. In reality that's 13 or 14 animals. The model is continuous, so the answer doesn't have to be a whole number.
+</details>
+
+
+---
+
+### Problem 17: Total Streamflow Volume {-}
+
+A flow sensor on a roof downspout records
+\[
+Q(t) = 3t^2 \quad \text{(L/min)},
+\]
+where \(t\) is minutes after the sensor started recording. Use the Fundamental Theorem of Calculus to find the **total volume of water** that ran through the downspout between \(t = 1\) and \(t = 4\) minutes.
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+The total volume is
+\[
+\int_1^4 3t^2\,dt.
+\]
+
+An antiderivative of \(3t^2\) is \(t^3\), so
+\[
+\int_1^4 3t^2\,dt = \bigl[t^3\bigr]_1^4 = 64 - 1 = 63 \text{ L}.
+\]
+
+\[
+\boxed{63 \text{ L of water ran through the downspout.}}
+\]
+
+</details>
+
+---
+
+### Problem 18: Net Carbon Exchange Over a Morning {-}
+
+A flux tower over a young Douglas-fir stand records the net carbon exchange rate during the first three hours after dawn as
+\[
+f(t) = t^2 - 1 \quad \text{(g C / m}^2\text{ / hr)},
+\]
+with \(t\) measured in hours after dawn. Compute the **net carbon exchange** between \(t = 0\) and \(t = 3\) hours, and interpret the sign.
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Net carbon exchange:
+\[
+\int_0^3 \bigl(t^2 - 1\bigr)\,dt
+= \left[\tfrac{t^3}{3} - t\right]_0^3
+= \left(9 - 3\right) - 0
+= 6 \text{ g C / m}^2.
+\]
+
+**Interpretation:** The answer is positive, so the stand was a net **carbon sink** over the three hours. The rate was *negative* (a source) for the first hour and *positive* (a sink) after that. The uptake after hour 1 more than made up for the early loss.
+
+\[
+\boxed{+6 \text{ g C / m}^2\text{ (net uptake)}.}
+\]
+
+</details>
+
+---
+
+### Problem 19: Pollutant Mass Loading to a Lake {-}
+
+A regulator monitors the rate at which a contaminant enters a lake from a stormwater outfall in the first minute of a storm:
+\[
+L(t) = 4t \quad \text{(mg / s)},
+\]
+with \(t\) measured in seconds since the start of monitoring. Find the **total mass of contaminant** delivered to the lake between \(t = 0\) and \(t = 60\) seconds.
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Total mass:
+\[
+\int_0^{60} 4t \,dt
+= \bigl[2t^2\bigr]_0^{60}
+= 2(3600) - 0
+= 7200 \text{ mg}
+= 7.2 \text{ g}.
+\]
+
+\[
+\boxed{7.2 \text{ grams of contaminant entered the lake.}}
+\]
+
+This is the kind of calculation a regulator uses to turn a sensor record into one number to compare against a load limit.
+
+</details>
+
+---
+
+### Problem 20: Net Population Change with a Rate That Rises and Falls {-}
+
+A fisheries biologist models the *net* daily change in a juvenile salmon population (immigration minus mortality) over a six-day window as
+\[
+N'(t) = 6t - t^2 \quad \text{(fish/day)},
+\]
+where \(t\) is days from the start of monitoring. Compute the **net change in population** between \(t = 0\) and \(t = 6\) days, and describe what the rate function says happens within that window.
+
+<details>
+<summary><strong>Click to reveal solution</strong></summary>
+
+Net change:
+\[
+\int_0^6 \bigl(6t - t^2\bigr)\,dt
+= \left[3t^2 - \tfrac{t^3}{3}\right]_0^6
+= \left(108 - 72\right) - 0
+= 36 \text{ fish}.
+\]
+
+**What the rate says:** \(N'(t) = 6t - t^2 = t(6 - t)\) is zero at \(t = 0\) and \(t = 6\), and positive in between. So the population grows the whole time, but the *rate* of growth peaks at \(t = 3\) (9 fish/day) and falls back to zero by day 6. The net gain is **36 fish**.
+
+\[
+\boxed{+36 \text{ fish (net gain over the six-day window)}.}
+\]
+
+</details>

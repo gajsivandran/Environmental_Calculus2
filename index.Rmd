@@ -16,7 +16,7 @@ description: "A textbook companion to the University of Washington QSci 292 clas
 
 In QSCI 291 you kept asking one question: how fast is this changing? This book asks the reverse. If you know the rate, can you work out the total?
 
-A stream gauge records discharge every 15 minutes during a storm. That's a rate, in cubic meters per second. A flood manager wants a volume: how much water went past the gauge? A flux tower measures carbon exchange over a forest every half hour. Someone has to work out how much carbon that forest stored over the year. Going from a rate to a total is integration, and it's most of this course.
+A stream gauge records discharge every 15 minutes during a storm. That's a rate, in cubic meters per second. However a water resource manager may want a volume: how much water went past the gauge over a period of time? A eddy flux tower measures carbon exchange over a forest every half hour. You may want to know how much carbon that forest stored over the year. Going from a rate to a total is integration, and it's most of this course.
 
 The last chapter turns the problem around again. Sometimes all you have is a rule for how something changes, like a pollutant that breaks down in proportion to how much is left. Differential equations let you work out where the system is headed from that rule alone.
 
@@ -28,7 +28,6 @@ Welcome to *Environmental Calculus 2*.
 
 Like the 291 book, this one puts environmental examples first. Physics shows up only when it makes an idea easier to feel. The problems come from things you could actually measure: streamflow, pollutant loads, carbon exchange, population change.
 
----
 ---
 
 ## How This Book Works
@@ -42,16 +41,15 @@ The workbook chapters at the back give you more practice for each chapter, with 
 ## Success in This Class
 ![](images/Growth Mindset.png){fig.alt='Image of person thinking, decorative' style="width:250px; margin:10px;"}
 
-First and foremost, know this: **we believe in your ability to learn and grow.** You bring unique strengths and perspectives, and your effort matters here.  
+First and foremost, know this: **we believe in your ability to learn and grow.** You bring unique strengths and perspectives, and your effort matters here.
 
-Mistakes are not a setback—they are the very heart of learning. When you get something wrong, you uncover where your thinking needs refinement, and that creates the space for real growth. Struggle is not a sign you don’t belong; it’s proof that your brain is stretching and building new connections.  
+Mistakes are not a setback—they are the very heart of learning. When you get something wrong, you uncover where your thinking needs refinement, and that creates the space for real growth. Struggle is not a sign you don't belong; it's proof that your brain is building new connections and its when learning begins. Productive struggle is what we aim for, the majority of these questions in this book should be able to be completed in under 10 minutes. If you find yourself stuck after 10 minutes, bring the question to class or an office hours - you've done the productive part of the struggle and we can help you get through the sticking point.
 
-Just like in science, learning calculus is about **iteration**—trying, testing, revising, and improving. That process is what makes your understanding deeper and more durable.  
+Just like in science, learning calculus is about **iteration**—trying, testing, revising, and improving. Sometimes (and more often than you think), restarting a problem on a clean page makes it easier to find an error that combing through your working searching for a flipped sign. Chances are you don't make the same mistake twice. That process is what makes your understanding deeper and more durable.
 
-Assessments in this class are snapshots of your thinking at a particular moment in time. They are not final judgments about your intelligence, your worth, or your potential. You will have chances to revisit concepts, refine your understanding, and demonstrate what you’ve learned. Growth comes from re-engaging with the material, not from perfection on the first try.  
+Assessments in this class are snapshots of your thinking at a particular moment in time. They are not a final judgments about your intelligence, your worth, or your potential. You will have chances to revisit concepts, refine your understanding, and demonstrate what you've learned. Growth comes from re-engaging with the material, not from getting a perfect score on the first try.
 
-So give yourself permission to be imperfect. Keep engaging, reflecting, and asking questions. We’ll be here to support you every step of the way. 
-
+So give yourself permission to be imperfect. Keep engaging, reflecting, and asking questions. We'll be here to support you every step of the way.
 ---
 
 ## Looking Ahead
@@ -64,9 +62,8 @@ By the end of this course, you will be able to:
 
 But even more important than any specific skill, you’ll leave this course with a stronger belief in your ability to *learn mathematics*.  
 
-Calculus is not just a hurdle to clear—it’s a tool that expands how you see and understand the world. Our hope is that by connecting it to the environment you care about, you’ll discover both its usefulness and its beauty.  
+Calculus is not just a hurdle to clear—it’s a tool that expands how you see and understand the natural world. Our hope is that by connecting it to the environment you care about, you’ll discover both its usefulness and its beauty.  
 
-Most importantly, you’ll leave with the confidence to keep growing—using mathematics as a tool to explore, protect, and better understand the natural world around you.  
 
 ---
 
@@ -91,7 +88,8 @@ I used generative AI tools to:
 
 - edit for grammar and consistency. 
 - draft practice problems, concept checks and their worked solutions
-- format and convert material, including the reveal-answer blocks and the study guides
+- write the code blocks needed for graphs and other R generated images
+- format and convert material, including the reveal-answer blocks and the study guides to work within the bookdown framework
 - meet digital accessibility requirements (WCAG 2.1 AA): drafting alt text for figures, checking heading structure, color contrast and table markup, and producing accessible Word versions of course documents
 
 I reviewed and edited all AI-generated material before publishing.

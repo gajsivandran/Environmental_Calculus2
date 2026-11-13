@@ -1,6 +1,6 @@
-# Techniques of Integration (Indefinite Integrals)
+# Techniques of Integration (Indefinite Integrals) 
 
-The Fundamental Theorem turns any definite integral into "find an antiderivative, evaluate, subtract." That only helps if you can *find* the antiderivative, and that's where integration gets harder than differentiation. Differentiation has a recipe you can grind through. Integration doesn't. What you build instead is pattern recognition: spotting when an integrand is a chain rule in disguise, a product, or a fraction that can be split apart.
+The Fundamental Theorem turns a definite integral into three steps: find an antiderivative, evaluate it at the endpoints, subtract. This only helps if you can find the antiderivative, and that’s where integration gets harder than differentiation. Differentiation has a recipe you can grind through. Integration doesn’t. Some ordinary-looking functions, like e^(−x²), have no antiderivative you can write down at all. What you build instead is pattern recognition: spotting a chain rule run backwards, a product rule run backwards, or a fraction that splits into simpler pieces.
 
 ## Purpose of the Chapter
 

@@ -1,10 +1,8 @@
 # Introduction to Calculus II
 
-Snow on the Cascades melts a few millimeters a day in April and a lot faster in June. The melt rate matters, but it isn't what water managers plan around. They plan around the total: how much water will come off the mountains this year, and when.
+Snow on the Cascades melts at a rate of a few millimeters a day in April and a lot faster in June. The melt rate matters, but it isn't what water reource managers plan around. They plan around the total: how much water will come off the mountains this year, and when.
 
 That's the shift in this course. In Calculus I you asked how fast something is changing. In Calculus II you ask how much has built up.
-
-Welcome to Calculus II.
 
 This course is the second half of the **QSci 291–292 sequence**. The math is the same math used across biology, ecology, conservation, marine science and environmental science. We'll spend as much time on what a result means as on how to get it, because a number you can't explain isn't worth much.
 
@@ -21,7 +19,7 @@ By the end of this course, you will be able to:
 
 Calculus II is about **accumulation**. Water, heat, nutrients, biomass, pollutants: most of what you measure in the environment changes continuously. If you know the rate, how do you get the total gained or lost?
 
-Calculus I asked: *how fast is something changing?* Calculus II asks: *how much has accumulated?* The two questions are linked by the Fundamental Theorem of Calculus. We'll get there in Chapter 4.
+Calculus I asked: *how fast is something changing?* Calculus II asks: *how much has accumulated?* The two questions are linked by the Fundamental Theorem of Calculus (Chapter 4).
 
 | System | Calc I Question (rate) | Calc II Question (total) |
 |--------|------------------------|--------------------------|
@@ -158,7 +156,7 @@ The thing that trips people up in 292 usually isn't the calculus. It's the algeb
 
 ### Accumulation
 
-Most environmental processes happen gradually. Rain builds up drop by drop. A stream carries nutrients continuously. A forest takes up carbon all day as the light changes. The total is the sum of a huge number of small contributions.
+Most environmental processes happen gradually. Rain builds up drop by drop. A stream carries nutrients continuously. A forest takes up carbon all day as the light changes. The total is the sum of a many small contributions.
 
 Integrals are how you add those up when the rate changes over time, space or depth. In environmental science the total is often the number that matters most. A single reading tells you about one moment.
 
